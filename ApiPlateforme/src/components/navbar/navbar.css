@@ -1,0 +1,138 @@
+.active{
+   color: #2A337E;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1500px;
+    height: 100px;
+    background-color: #FFFFFF;
+    color: white;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 21px;   
+    margin-top: -100px
+}
+nav .title {
+    font-size: 1.5rem;
+    margin: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+}
+nav ul {
+    display: flex;
+    margin-right: 30px;
+}
+nav ul li {
+   list-style: none; 
+}
+button{
+    color:#2A337E;
+    background-color: transparent;
+    border-color: #2A337E;
+    border-radius: 5px;
+    font-weight:500;
+    font-size: 16.65px;
+    box-shadow: none;
+    border: solid 2px;
+    margin-left: 15px;
+    cursor: pointer; /* Affiche un pointeur interactif */
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+button:hover {
+    background-color: #0E600B;
+    color: #FFFFFF;
+  }
+nav ul li a {
+    display: block;
+    text-decoration: none;
+    color:black;
+    padding: 0.5rem;
+    margin: 0 0.5rem;
+    border-radius: 0.5rem;
+}
+
+nav ul li a:not(.active):hover {
+    background-color:#f2f4f9 ;
+}
+
+nav .menu {
+    display: none;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.5rem;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 2.25rem;
+    height: 2rem;
+}
+
+nav .menu span {
+    height: 0.4rem;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 0.2rem;
+}
+
+img {
+    width: 236px;
+    height: 66px;   
+}
+.image1{
+    width: 220px;
+    height: 200px; 
+    margin: 0px;  
+}
+
+.contenair1{
+margin-top: -60px;    
+background-color: #F5F5F5;
+}
+.contenair2{
+    display: flex;
+    flex-direction: column;
+}
+.nav1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.buton{
+    margin-top: -40px;
+    color: #000000;
+    border: none;
+}
+
+@media (max-width: 480px) {
+    nav .menu {
+        display: flex;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+
+    nav ul.open {
+        display: flex;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        margin: 0.2rem 0.5rem;
+    }
+}
