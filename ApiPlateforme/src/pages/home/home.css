@@ -1,0 +1,46 @@
+.first {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 80vh;
+    background-color: #F5F5F5;
+
+    .first-text {
+        width: 45vw;
+    }
+
+    .first-text h1 {
+        width: 200px;
+        font-weight: bolder;
+        color: #0F0B60
+    }
+
+    .first-img img {
+        width: 45vw;
+        height: 50vh;
+    }
+
+    .invest-btn {
+        color: white;
+        background-color: #0E600B;
+    }
+}
+
+.trans {
+    width: 100vw;
+    height: 20vh;
+    background: linear-gradient(176deg, #F5F5F5 40%, #FFFFFF 41%);
+}
+
+.second {
+    width: 100vw;
+    height: 70vh;
+    text-align: center;
+
+    .cards {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+}
