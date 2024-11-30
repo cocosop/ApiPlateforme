@@ -12,6 +12,7 @@ function App() {
         <Navbar />
         <Content />
         <Footer />
+        
       </BrowserRouter >
     </>
   )
