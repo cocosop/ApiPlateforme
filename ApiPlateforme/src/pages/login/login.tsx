@@ -2,7 +2,7 @@ import React from "react";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google"; // Icône Google
 import AppleIcon from "@mui/icons-material/Apple";  // Icône Apple
-import LOGIN from "../../assets/img/login2.png";
+import ACCOUNT from "../../assets/img/Account.png";
 
 const Login = () => {
   return (
@@ -32,7 +32,7 @@ const Login = () => {
         }}
       >
         <img
-          src={LOGIN}
+          src={ACCOUNT}
           alt="Login Illustration"
           style={{
             height: "100%",
@@ -61,9 +61,8 @@ const Login = () => {
             maxWidth: { xs: 300, sm: 400 },
             textAlign: "center",
             padding: { xs: 2, md: 6 },
-            boxShadow: { xs: "none", md: "0 4px 12px rgba(0, 0, 0, 0.1)" },
-            borderRadius: 2,
-            backgroundColor: { xs: "transparent", md: "white" },
+           
+           
           }}
         >
           <Typography
