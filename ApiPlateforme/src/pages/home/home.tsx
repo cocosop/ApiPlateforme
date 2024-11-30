@@ -1,5 +1,5 @@
 import { Box, Button, CardHeader } from "@mui/material";
-import YAOUNDE from "../../assets/img/yaounde.jpg"
+import YAOUNDE from "../../assets/img/poste_centrale.png";
 import './home.css'
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -80,7 +80,7 @@ const home = () => {
         <div>
             <div className='first'>
                 <div className='first-text'>
-                    <h1>Plateforme numérique de <br /><span style={{ color: '#0E600B' }}>l'investissement </span></h1>
+                    <h1 className="lead-text">Plateforme <br /> numérique de <span style={{ color: '#0E600B' }}>l'investissement </span></h1>
                     <p>
                         Découvrez les opportunités d'investissement au Cameroun grâce à notre portail dédié,
                         source incontournable pour les investisseurs. Accédez à des informations sur les secteurs

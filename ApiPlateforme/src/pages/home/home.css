@@ -5,13 +5,14 @@
     width: 100vw;
     height: 80vh;
     background-color: #F5F5F5;
+    padding: 2rem;
 
     .first-text {
         width: 45vw;
     }
 
     .first-text h1 {
-        width: 200px;
+        width: 82%;
         font-weight: bolder;
         color: #0F0B60
     }
@@ -43,4 +44,10 @@
         justify-content: space-around;
         align-items: center;
     }
+}
+
+.lead-text {
+    font-weight: 700;
+    font-size: 3rem;
+    width: 100%;
 }
