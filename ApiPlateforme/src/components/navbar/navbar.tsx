@@ -20,7 +20,7 @@ const navbar = () => {
     <div className="contenair1">
       <div className="contenair2">
         <div className="nav1">
-          <img className="image1" src={CAMER}/>
+          <img className="image1" src={CAMER} />
           <button className="buton" >
             Francais
           </button>
@@ -29,82 +29,82 @@ const navbar = () => {
         </div>
         <nav>
           <Link to="/" className="title">
-            <img src={LOGO}/>
+            <img src={LOGO} />
           </Link>
           <ul >
             <li>
               <NavLink to="/about">Home</NavLink>
             </li>
             <Box component="ul" sx={{ display: 'flex', listStyle: 'none', margin: 0, padding: 0 }}>
-          <li
-            onClick={handleMenuOpen}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              cursor: 'pointer',
-              backgroundColor:'white',
-              color:'black',
-            }}
-          >
-            Secteurs d'activités
-            <ArrowDropDownIcon />
-          </li>
-        </Box>
+              <li
+                onClick={handleMenuOpen}
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  cursor: 'pointer',
+                  backgroundColor: 'white',
+                  color: 'black',
+                }}
+              >
+                Secteurs d'activités
+                <ArrowDropDownIcon />
+              </li>
+            </Box>
 
-        <Menu
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleMenuClose}
-          anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
-          }}
-          transformOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
-        >
-          <MenuItem 
-            onClick={handleMenuClose} 
-            sx={{ 
-              '&:hover': { 
-                backgroundColor: 'blue', 
-                color: 'white' // Change text color on hover
-              }
-            }}
-          >
-            Option 1
-          </MenuItem>
-          <MenuItem 
-            onClick={handleMenuClose} 
-            sx={{ 
-              '&:hover': { 
-                backgroundColor: 'blue', 
-                color: 'white' 
-              }
-            }}
-          >
-            Option 2
-          </MenuItem>
-          <MenuItem 
-            onClick={handleMenuClose} 
-            sx={{ 
-              '&:hover': { 
-                backgroundColor: 'blue', 
-                color: 'white' 
-              }
-            }}
-          >
-            Option 3
-          </MenuItem>
-        </Menu>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleMenuClose}
+              anchorOrigin={{
+                vertical: 'bottom',
+                horizontal: 'left',
+              }}
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'left',
+              }}
+            >
+              <MenuItem
+                onClick={handleMenuClose}
+                sx={{
+                  '&:hover': {
+                    backgroundColor: 'blue',
+                    color: 'white' // Change text color on hover
+                  }
+                }}
+              >
+                Option 1
+              </MenuItem>
+              <MenuItem
+                onClick={handleMenuClose}
+                sx={{
+                  '&:hover': {
+                    backgroundColor: 'blue',
+                    color: 'white'
+                  }
+                }}
+              >
+                Option 2
+              </MenuItem>
+              <MenuItem
+                onClick={handleMenuClose}
+                sx={{
+                  '&:hover': {
+                    backgroundColor: 'blue',
+                    color: 'white'
+                  }
+                }}
+              >
+                Option 3
+              </MenuItem>
+            </Menu>
             <li>
               <NavLink to="/contact">Legislations</NavLink>
             </li>
             <li>
               <NavLink to="/FAQ">FAQ</NavLink>
             </li>
-            <button >
+            <button onClick={() => { location.href = "/login" }}>
               Espace privé
             </button>
           </ul>
