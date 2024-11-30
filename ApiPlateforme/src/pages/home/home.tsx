@@ -101,18 +101,16 @@ const style = {
 const CustomList: React.FC<CustomListProps> = ({ image, title, description, count }) => (
     <Box sx={style}>
         <React.Fragment>
-            <CardContent>
-                <img style={{ width: '50%', height: '100%' }} src={image} />
-            </CardContent>
+            <img style={{ width: '50%', height: '100%' }} src={image} />
             <CardContent>
                 <Typography variant="h6">
                     {title}
                 </Typography>
-                <Typography variant="body2" sx={{ mt: 1.5 }}>{description}</Typography>
-                <div>{count}</div>
+                <Typography variant="body2" sx={{ mt: 1.5 }}>{description}
+                    <div className="fourth-count">{count}</div>
+                </Typography>
             </CardContent>
         </React.Fragment>
-        {/* <Divider orientation="vertical" variant="middle" flexItem /> */}
     </Box>
 );
 
