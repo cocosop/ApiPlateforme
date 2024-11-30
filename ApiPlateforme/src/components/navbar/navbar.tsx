@@ -1,15 +1,14 @@
-import React, { useState } from "react";
-import GTranslateIcon from '@mui/icons-material/GTranslate';
-
 import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
+import Camer from '../../assets/img/Camer.png'
+import Logo from '../../assets/img/logo.png'
 
 const navbar = () => {
   return (
     <div className="contenair1">
       <div className="contenair2">
         <div className="nav1">
-          <img className="image1" src="../src/assets/Camer.png"></img>
+          <img className="image1" src={Camer} />
           <button className="buton" >
             Francais
           </button>
@@ -18,11 +17,11 @@ const navbar = () => {
         </div>
         <nav>
           <Link to="/" className="title">
-            <img src="../src/assets/logo.png"></img>
+            <img src={Logo} />
           </Link>
           <ul >
             <li>
-              <NavLink to="/about">Home</NavLink>
+              <NavLink to="/home">Home</NavLink>
             </li>
             <li>
               <NavLink to="/about">Secteurs</NavLink>

@@ -1,9 +1,16 @@
-.first {
+#divider {
+    width: 77px;
+    height: 3px;
+    background-color: #0F0B60;
+    margin-bottom: 5%;
+}
+
+.first-content {
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 100vw;
-    height: 80vh;
+    height: 70vh;
     background-color: #F5F5F5;
 
     .first-text {
@@ -11,7 +18,7 @@
     }
 
     .first-text h1 {
-        width: 200px;
+        width: 25vw;
         font-weight: bolder;
         color: #0F0B60
     }
@@ -24,6 +31,8 @@
     .invest-btn {
         color: white;
         background-color: #0E600B;
+        text-transform: none;
+        font-family: "Poppins", sans-serif;
     }
 }
 
@@ -33,14 +42,90 @@
     background: linear-gradient(176deg, #F5F5F5 40%, #FFFFFF 41%);
 }
 
-.second {
+.second-content h2 {
+    color: #0F0B60;
+    font-weight: 600;
+}
+
+.second-content {
     width: 100vw;
-    height: 70vh;
     text-align: center;
+
+    .second-title {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
     .cards {
         display: flex;
         justify-content: space-around;
         align-items: center;
     }
+}
+
+.third-content {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+
+
+    .third {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100vw;
+    }
+
+    .third-text {
+        width: 45vw;
+    }
+
+    .third-img img {
+        width: 45vw;
+        height: 50vh;
+    }
+}
+
+.third-content h2 {
+    width: 100vw;
+    color: #0F0B60;
+    text-align: center;
+}
+
+.fourth-content {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+
+
+
+    .fourth {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100vw;
+    }
+
+    .fourth-text {
+        width: 45vw;
+    }
+
+    .fourth-img img {
+        width: 45vw;
+        height: 50vh;
+    }
+}
+
+.fourth-content h2 {
+    width: 100vw;
+    color: #0F0B60;
+    text-align: center;
 }

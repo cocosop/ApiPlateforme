@@ -1,20 +1,23 @@
-.active{
-   color: #2A337E;
+.active {
+    color: #2A337E;
 }
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1500px;
+    width: 98vw;
+    margin: 1vw;
     height: 100px;
     background-color: #FFFFFF;
     color: white;
     position: sticky;
     top: 0;
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-    border-radius: 21px;   
+    border-radius: 21px;
     margin-top: -100px
 }
+
 nav .title {
     font-size: 1.5rem;
     margin: 1rem;
@@ -22,41 +25,47 @@ nav .title {
     text-decoration: none;
     color: white;
 }
+
 nav ul {
     display: flex;
     margin-right: 30px;
 }
+
 nav ul li {
-   list-style: none; 
+    list-style: none;
 }
-button{
-    color:#2A337E;
+
+button {
+    color: #2A337E;
     background-color: transparent;
     border-color: #2A337E;
     border-radius: 5px;
-    font-weight:500;
+    font-weight: 500;
     font-size: 16.65px;
     box-shadow: none;
     border: solid 2px;
     margin-left: 15px;
-    cursor: pointer; /* Affiche un pointeur interactif */
-    transition: background-color 0.3s ease, color 0.3s ease; 
+    cursor: pointer;
+    /* Affiche un pointeur interactif */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 button:hover {
-    background-color: #0E600B;
+    background-color: #2A337E;
     color: #FFFFFF;
-  }
+}
+
 nav ul li a {
     display: block;
     text-decoration: none;
-    color:black;
+    color: black;
     padding: 0.5rem;
     margin: 0 0.5rem;
     border-radius: 0.5rem;
 }
 
 nav ul li a:not(.active):hover {
-    background-color:#f2f4f9 ;
+    background-color: #f2f4f9;
 }
 
 nav .menu {
@@ -79,31 +88,36 @@ nav .menu span {
 
 img {
     width: 236px;
-    height: 66px;   
-}
-.image1{
-    width: 220px;
-    height: 200px; 
-    margin: 0px;  
+    height: 66px;
 }
 
-.contenair1{
-margin-top: -60px;    
-background-color: #F5F5F5;
+.image1 {
+    width: 220px;
+    height: 200px;
+    margin-left: 40px;
 }
-.contenair2{
+
+.contenair1 {
+    margin-top: -60px;
+    background-color: #F5F5F5;
+}
+
+.contenair2 {
     display: flex;
     flex-direction: column;
 }
-.nav1{
+
+.nav1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.buton{
+
+.buton {
     margin-top: -40px;
     color: #000000;
     border: none;
+    margin-right: 40px;
 }
 
 @media (max-width: 480px) {
