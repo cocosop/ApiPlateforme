@@ -6,7 +6,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1500px;
+    width: 98vw;
+    margin: 1vw;
     height: 100px;
     background-color: #FFFFFF;
     color: white;
@@ -50,7 +51,7 @@ button {
 }
 
 button:hover {
-    background-color: #0E600B;
+    background-color: #2A337E;
     color: #FFFFFF;
 }
 
@@ -93,7 +94,7 @@ img {
 .image1 {
     width: 220px;
     height: 200px;
-    margin: 0px;
+    margin-left: 40px;
 }
 
 .contenair1 {
@@ -103,6 +104,8 @@ img {
     margin-top: -60px;
     background-color: #F5F5F5;
 }
+
+
 
 .contenair2 {
     display: flex;
@@ -120,6 +123,7 @@ img {
     margin-top: -40px;
     color: #000000;
     border: none;
+    margin-right: 40px;
 }
 
 @media (max-width: 480px) {

@@ -5,6 +5,8 @@ import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
 import { Box, Menu, MenuItem } from "@mui/material";
+import Camer from '../../assets/img/Camer.png'
+import Logo from '../../assets/img/logo.png'
 
 const navbar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -20,7 +22,7 @@ const navbar = () => {
     <div className="contenair1">
       <div className="contenair2">
         <div className="nav1">
-          <img className="image1" src={CAMER} />
+          <img className="image1" src={Camer} />
           <button className="buton" >
             Francais
           </button>
@@ -29,11 +31,11 @@ const navbar = () => {
         </div>
         <nav>
           <Link to="/" className="title">
-            <img src={LOGO} />
+            <img src={Logo} />
           </Link>
           <ul >
             <li>
-              <NavLink to="/about">Home</NavLink>
+              <NavLink to="/home">Home</NavLink>
             </li>
             <Box component="ul" sx={{ display: 'flex', listStyle: 'none', margin: 0, padding: 0 }}>
               <li
