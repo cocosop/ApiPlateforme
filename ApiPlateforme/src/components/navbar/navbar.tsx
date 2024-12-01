@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import CAMER from "../../assets/img/Camer.png"
-import LOGO from "../../assets/img/logo.png"
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
 import { Box, Menu, MenuItem } from "@mui/material";
 import Camer from '../../assets/img/Camer.png'
 import Logo from '../../assets/img/logo.png'
+import { KeyboardArrowDown } from "@mui/icons-material";
+import { Grid } from "@mui/system";
 
 const navbar = () => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -19,8 +19,9 @@ const navbar = () => {
     setAnchorEl(null);
   };
   return (
-    <div className="contenair1">
-      <div className="contenair2">
+    <Grid container className="contenair1" spacing={2}>
+
+      <Grid className="contenair2" size={{ md: 12 }}>
         <div className="nav1">
           <img className="image1" src={Camer} />
           <button className="buton" >
@@ -29,17 +30,23 @@ const navbar = () => {
         </div>
         <div>
         </div>
+      </Grid>
+
+      <Grid size={{ md: 12 }}>
         <nav>
           <Link to="/" className="title">
             <img src={Logo} />
           </Link>
           <ul >
-            <li>
-              <NavLink to="/home">Home</NavLink>
-            </li>
+            <Box>
+              <li>
+                <NavLink to="/home">Le Cameroun</NavLink>
+              </li>
+            </Box>
             <Box component="ul" sx={{ display: 'flex', listStyle: 'none', margin: 0, padding: 0 }}>
               <li
                 onClick={handleMenuOpen}
+                onMouseEnter={handleMenuOpen}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -48,11 +55,25 @@ const navbar = () => {
                   color: 'black',
                 }}
               >
-                Secteurs d'activités
-                <ArrowDropDownIcon />
+                Investir
+                <KeyboardArrowDown />
               </li>
             </Box>
-
+            <Box>
+              <li>
+                <NavLink to="/home">Secteurs et opportunités</NavLink>
+              </li>
+            </Box>
+            <Box>
+              <li>
+                <NavLink to="/home">Base de données</NavLink>
+              </li>
+            </Box>
+            <Box>
+              <li>
+                <NavLink to="/home">E-Services</NavLink>
+              </li>
+            </Box>
             <Menu
               anchorEl={anchorEl}
               open={Boolean(anchorEl)}
@@ -111,8 +132,8 @@ const navbar = () => {
             </button>
           </ul>
         </nav>
-      </div>
-    </div>
+      </Grid>
+    </Grid>
   );
 };
 
