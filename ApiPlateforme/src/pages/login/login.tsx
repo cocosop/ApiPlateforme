@@ -1,4 +1,3 @@
-import React from "react";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google"; // Icône Google
 import AppleIcon from "@mui/icons-material/Apple";  // Icône Apple
@@ -10,7 +9,7 @@ const Login = () => {
       sx={{
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
-        marginTop:"-70px",
+        marginTop: "-70px",
         justifyContent: "center",
         height: "100vh",
         backgroundColor: "#F5F5F5",
@@ -136,7 +135,7 @@ const Login = () => {
                   "&:hover": { backgroundColor: "rgba(219, 68, 55, 0.1)" },
                 }}
               >
-               
+
               </Button>
 
               {/* Bouton Apple */}
@@ -152,8 +151,8 @@ const Login = () => {
                   "&:hover": { backgroundColor: "rgba(0, 0, 0, 0.1)" },
                 }}
               />
-                
-              
+
+
             </Box>
           </Box>
 

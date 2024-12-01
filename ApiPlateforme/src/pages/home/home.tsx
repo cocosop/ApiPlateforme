@@ -1,7 +1,5 @@
-import { Box, Button, CardHeader } from "@mui/material";
 import YAOUNDE from "../../assets/img/poste_centrale.png";
-import { Box, Button, Card, CardActions, CardContent, Divider, Typography } from "@mui/material";
-import YAOUNDE from "../../assets/img/yaounde.jpg"
+import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material";
 import COLLABORATION from "../../assets/img/collaboration.png"
 import OPTIMISATION from "../../assets/img/optimisation.png"
 import AMELIORATION from "../../assets/img/amelioration.png"
@@ -35,18 +33,18 @@ interface CustomListProps {
 //Objective cards custom 
 const CustomCard: React.FC<CustomCardProps> = ({ image, title, description, color }) => (
     <Box sx={{ width: 270 }}>
-        <Card elevation={8}>
+        <Card elevation={8} sx={{ height: '100%' }}>
             <React.Fragment>
                 <CardContent>
                     <img style={{ width: '30%', height: '30%' }} src={image} />
                 </CardContent>
                 <CardContent sx={{ padding: '30px', backgroundColor: color, borderRadius: '100% 100% 0px 0px', overflow: 'hidden' }}>
-                    <Typography sx={{ padding: '15px 15px 0px 15px' }} variant="h6" color="white">
+                    <Typography variant="h6" color="white">
                         {title}
                     </Typography>
                     <Typography variant="body2" color="white" sx={{ mt: 1.5 }}>{description}</Typography>
                     <CardActions sx={{ justifyContent: 'center', backgroundColor: color, mb: 1.5 }}>
-                        <NavLink style={{ display: 'flex', color: 'white', textDecoration: 'none', alignItem: 'center' }} >
+                        <NavLink style={{ display: 'flex', color: 'white', textDecoration: 'none', alignItems: 'center' }} to={""} >
                             Plus<ArrowForwardIos />
                         </NavLink>
                     </CardActions>
