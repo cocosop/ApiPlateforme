@@ -42,7 +42,6 @@ button {
     font-size: 16.65px;
     box-shadow: none;
     border: solid 2px;
-    margin-left: 15px;
     cursor: pointer;
     /* Affiche un pointeur interactif */
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -84,14 +83,14 @@ nav .menu span {
     border-radius: 0.2rem;
 }
 
-img {
-    width: 236px;
-    height: 66px;
+.image1 {
+    height: 1.5rem;
+    object-fit: contain;
 }
 
-.image1 {
-    width: 220px;
-    height: 200px;
+.nav-logo {
+    height: 3.7rem;
+    object-fit: contain;
 }
 
 .contenair1 {
@@ -116,10 +115,26 @@ img {
 }
 
 .buton {
-    margin-top: -40px;
     color: #000000;
     border: none;
-    margin-right: 40px;
+}
+
+/* styles.css */
+.navbar {
+    position: relative;
+    top: 0;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    /* Smooth transition */
+    z-index: 1000;
+}
+
+.navbar.fixed {
+    position: fixed;
+    top: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Add shadow when fixed */
+    background-color: #fff;
 }
 
 @media (max-width: 480px) {

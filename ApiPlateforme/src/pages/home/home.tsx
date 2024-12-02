@@ -1,5 +1,6 @@
-import { Box, Button, Card, CardActions, CardContent, Divider, Typography } from "@mui/material";
+import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material";
 import YAOUNDE from "../../assets/img/poste_centrale.png";
+import HOMEVIDEO from "../../assets/videos/home_video.mp4";
 import COLLABORATION from "../../assets/img/collaboration.png"
 import OPTIMISATION from "../../assets/img/optimisation.png"
 import AMELIORATION from "../../assets/img/amelioration.png"
@@ -13,6 +14,7 @@ import './home.css'
 import React from "react";
 import { ArrowForwardIos } from '@mui/icons-material'
 import { NavLink } from "react-router-dom";
+import { Grid } from "@mui/system";
 
 // Interface for objective cards
 interface CustomCardProps {
@@ -32,24 +34,24 @@ interface CustomListProps {
 
 //Objective cards custom 
 const CustomCard: React.FC<CustomCardProps> = ({ image, title, description, color }) => (
-    <Box sx={{ width: 270 }}>
-        <Card elevation={8}>
-            <React.Fragment>
+    <Box sx={{ width: "18rem", height: "27rem" }}>
+        <Card elevation={8} sx={{ height: "100%", displax: "flex", flexDirection: "column" }}>
+            <Box height={"100%"} display={"flex"} flexDirection={"column"} justifyContent={"space-between"}>
                 <CardContent>
-                    <img style={{ width: '30%', height: '30%' }} src={image} />
+                    <img style={{ height: "5rem" }} src={image} />
                 </CardContent>
-                <CardContent sx={{ padding: '30px', backgroundColor: color, borderRadius: '100% 100% 0px 0px', overflow: 'hidden' }}>
+                <CardContent sx={{ padding: '30px', paddingBottom: 0, backgroundColor: color, borderRadius: '100% 100% 0px 0px', overflow: 'hidden' }}>
                     <Typography sx={{ padding: '15px 15px 0px 15px' }} variant="h6" color="white">
                         {title}
                     </Typography>
                     <Typography variant="body2" color="white" sx={{ mt: 1.5 }}>{description}</Typography>
-                    <CardActions sx={{ justifyContent: 'center', backgroundColor: color, mb: 1.5 }}>
-                        <NavLink style={{ display: 'flex', color: 'white', textDecoration: 'none', alignItem: 'center' }} >
+                    <CardActions sx={{ justifyContent: 'center', backgroundColor: color }}>
+                        <NavLink to="/" style={{ display: 'flex', color: 'white', textDecoration: 'none', alignItems: 'center' }} >
                             Plus<ArrowForwardIos />
                         </NavLink>
                     </CardActions>
                 </CardContent>
-            </React.Fragment>
+            </Box>
         </Card>
     </Box>
 );
@@ -156,12 +158,12 @@ const home = () => {
                         réussir sur ce marché dynamique.
                     </p>
 
-                    <div className='first-btn'>
+                    <Grid marginTop={2} container>
                         <Button variant="contained" className="invest-btn">Investir au pays</Button>
-                    </div>
+                    </Grid>
                 </div>
                 <div className='first-img'>
-                    <img src={YAOUNDE} alt="yaounde-img" />
+                    <video loop style={{ height: "24rem" }} autoPlay src={HOMEVIDEO} />
                 </div>
             </div>
             <div className="trans"></div>
@@ -185,10 +187,10 @@ const home = () => {
             <div className='third-content'>
                 <h2>Qui peut utiliser cette plateforme</h2>
                 <span id="divider"></span>
-                <div className="third">
+                <Grid className="third" px={10}>
                     <div className='third-text'>
                         <p>Tout investisseur ou porteur de projet désirant :</p>
-                        <ul>
+                        <ul >
                             <li>Accéder à des informations sur tous les aspects de la mise en place de son projet d’investissement ;</li>
                             <li>Enregistrer officiellement son projet d’investissement ;</li>
                             <li>Profiter des avantages prévus par la réglementation en matière d’encouragement à l’investissement ;</li>
@@ -199,7 +201,7 @@ const home = () => {
                     <div className='third-img'>
                         <img src={UTILISATION} alt="utilisation-img" />
                     </div>
-                </div>
+                </Grid>
             </div>
             <div className="fourth-content">
                 <h2>Avantages</h2>
@@ -216,7 +218,7 @@ const home = () => {
                     ))}
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
