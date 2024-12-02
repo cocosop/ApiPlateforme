@@ -1,10 +1,11 @@
 import { Box, Typography, Link, TextField, Button, Container } from "@mui/material";
 import LOGO3 from "../../assets/img/logo3.png";
+import './footer.css';
 
 const footer = () => {
   return (
     <Box sx={{ backgroundColor: "#2A337B", color: "#fff", py: 4 }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className="footer-container">
         {/* Logo et description */}
         <Box
           sx={{

@@ -1,8 +1,7 @@
-import React from "react";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google"; // Icône Google
 import AppleIcon from "@mui/icons-material/Apple";  // Icône Apple
-import LOGIN from "../../assets/img/login2.png";
+import LOGIN from "../../assets/img/account_illustration.png";
 
 const Login = () => {
   return (
@@ -10,7 +9,6 @@ const Login = () => {
       sx={{
         display: "flex",
         flexDirection: { xs: "column", md: "row" },
-        marginTop:"-70px",
         justifyContent: "center",
         height: "100vh",
         backgroundColor: "#F5F5F5",
@@ -104,8 +102,8 @@ const Login = () => {
           <Button
             fullWidth
             variant="contained"
-            color="primary"
-            sx={{ mt: 2, textTransform: "none", borderRadius: "8px" }}
+
+            sx={{ backgroundColor: "#2A337B", mt: 2, textTransform: "none", borderRadius: "8px" }}
           >
             Se connecter
           </Button>
@@ -136,7 +134,7 @@ const Login = () => {
                   "&:hover": { backgroundColor: "rgba(219, 68, 55, 0.1)" },
                 }}
               >
-               
+
               </Button>
 
               {/* Bouton Apple */}
@@ -152,8 +150,8 @@ const Login = () => {
                   "&:hover": { backgroundColor: "rgba(0, 0, 0, 0.1)" },
                 }}
               />
-                
-              
+
+
             </Box>
           </Box>
 
@@ -162,7 +160,7 @@ const Login = () => {
             variant="body2"
             sx={{ mt: 2, color: "text.secondary", fontSize: "14px" }}
           >
-            Pas encore de compte ? <a href="/register">Inscrivez-vous</a>
+            Pas encore de compte ? <a href="/register" style={{ color: "#2A337B" }}>Inscrivez-vous</a>
           </Typography>
         </Box>
       </Box>
