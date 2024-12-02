@@ -1,0 +1,36 @@
+#divider {
+    width: 77px;
+    height: 3px;
+    background-color: #0F0B60;
+    display: block;
+}
+
+#title {
+    color: #0F0B60;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.faq-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    width: 100vw;
+
+    .faq-image {
+        display: contents;
+
+        img {
+            height: 70%;
+            width: 70%;
+        }
+    }
+
+    .faq-accordion {
+        width: 90vw;
+    }
+}
