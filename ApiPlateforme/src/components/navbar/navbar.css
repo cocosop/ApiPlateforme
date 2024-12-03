@@ -89,7 +89,7 @@ nav .menu span {
 }
 
 .contenair1 {
-=========
+
     margin: 0px;
 }
 
@@ -97,7 +97,6 @@ nav .menu span {
     display: flex;
     justify-content: center;
     /* Centre horizontalement */
->>>>>>>>> Temporary merge branch 2
     margin-top: -60px;
     background-color: #F5F5F5;
 }

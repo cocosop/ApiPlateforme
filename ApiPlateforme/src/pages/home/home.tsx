@@ -46,7 +46,7 @@ const CustomCard: React.FC<CustomCardProps> = ({ image, title, description, colo
                     </Typography>
                     <Typography variant="body2" color="white" sx={{ mt: 1.5 }}>{description}</Typography>
                     <CardActions sx={{ justifyContent: 'center', backgroundColor: color, mb: 1.5 }}>
-                        <NavLink style={{ display: 'flex', color: 'white', textDecoration: 'none', alignItem: 'center' }} >
+                        <NavLink style={{ display: 'flex', color: 'white', textDecoration: 'none', alignItems: 'center' }} to={""} >
                             Plus<ArrowForwardIos />
                         </NavLink>
                     </CardActions>
