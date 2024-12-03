@@ -36,7 +36,7 @@ const Projets = () => {
   const paginatedData = filteredData.slice((page - 1) * itemsPerPage, page * itemsPerPage);
 
   return (
-    <Box component="section" sx={{ p: 2 }}>
+    <Box component="section" sx={{ p: 2, mt: 6 }}>
       <Box
         sx={{
           display: 'flex',
@@ -121,12 +121,12 @@ const Projets = () => {
             boxShadow: 'none',
             backgroundColor: 'transparent'
           }}
-        sx={{ '& .Mui-selected': { backgroundColor: '#0F0B60 !important', color: '#FFFFFF', }, '& .MuiPaginationItem-page': { '&:hover': { backgroundColor: '#0F0B60', color: '#FFFFFF', }, }, }}
+          sx={{ '& .Mui-selected': { backgroundColor: '#0F0B60 !important', color: '#FFFFFF', }, '& .MuiPaginationItem-page': { '&:hover': { backgroundColor: '#0F0B60', color: '#FFFFFF', }, }, }}
           count={Math.ceil(data.length / itemsPerPage)}
           page={page}
           onChange={handlePageChange}
           shape="rounded"
-         
+
         />
       </Box>
     </Box>);

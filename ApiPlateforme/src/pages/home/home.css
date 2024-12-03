@@ -5,6 +5,11 @@
     margin-bottom: 5%;
 }
 
+.site-description {
+    font-size: 0.9rem;
+    line-height: 1.5rem;
+}
+
 .first-content {
     display: flex;
     justify-content: space-around;
@@ -13,20 +18,22 @@
     height: 70vh;
     background-color: #F5F5F5;
     padding: 2rem;
+    align-items: center;
 
     .first-text {
-        width: 45vw;
+        width: 40vw;
     }
 
     .first-text h1 {
-        width: 25vw;
+        width: 100%;
         font-weight: bolder;
         color: #0F0B60
     }
 
-    .first-img img {
-        width: 45vw;
-        height: 50vh;
+    .first-img video {
+        height: 24rem;
+        width: 35rem;
+        object-fit: cover;
     }
 
     .invest-btn {
@@ -139,6 +146,7 @@
     text-align: center;
     opacity: 10%;
 }
+
 .lead-text {
     font-weight: 700;
     font-size: 3rem;
