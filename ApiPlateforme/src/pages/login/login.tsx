@@ -2,7 +2,6 @@ import { Box, TextField, Button, Typography } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google"; // Icône Google
 import AppleIcon from "@mui/icons-material/Apple";  // Icône Apple
 import LOGIN from "../../assets/img/account_illustration.png";
-import ACCOUNT from "../../assets/img/Account.png";
 
 const Login = () => {
   return (
@@ -31,7 +30,7 @@ const Login = () => {
         }}
       >
         <img
-          src={ACCOUNT}
+          src={LOGIN}
           alt="Login Illustration"
           style={{
             height: "100%",

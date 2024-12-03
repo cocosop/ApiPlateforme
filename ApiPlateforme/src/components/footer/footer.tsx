@@ -2,11 +2,12 @@ import { Box, Typography, Link, TextField, Button, Container } from "@mui/materi
 import LOGO3 from "../../assets/img/logo3.png"; // Importation du logo
 import './footer.css';
 
+
 // Composant Footer
 const Footer = () => {
   return (
-    <Box sx={{ backgroundColor: "#2A337B", color: "#fff", py: 4 }}>
-      <Container maxWidth="lg">
+    <Box sx={{ backgroundColor: "#0F0B60", color: "#fff", py: 4 }}>
+      <Container maxWidth="lg" className="footer-container">
         {/* Logo et description */}
         <Box
           sx={{

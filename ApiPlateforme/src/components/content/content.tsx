@@ -9,7 +9,9 @@ const content = () => {
         <div>
             <Routes>
                 <Route path='*' element={<Home />} />
-                <Route path='/login' element={<Login/>} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/faq' element={<Faq />} />
+                <Route path='/projets' element={<Projets />} />
             </Routes>
         </div>
     );
