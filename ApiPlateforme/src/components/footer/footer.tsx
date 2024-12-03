@@ -1,11 +1,12 @@
 import { Box, Typography, Link, TextField, Button, Container } from "@mui/material";
-import LOGO3 from "../../assets/img/logo3.png";
+import LOGO3 from "../../assets/img/logo3.png"; // Importation du logo
 
-const footer = () => {
+// Composant Footer
+const Footer = () => {
   return (
-    <Box sx={{ backgroundColor: "#2A337B", color: "#fff", py: 4 }}>
+    <Box sx={{ backgroundColor: "#0F0B60", color: "#fff", py: 4 }}>
       <Container maxWidth="lg">
-        {/* Logo et description */}
+        {/* Section contenant le logo et une description courte */}
         <Box
           sx={{
             display: "flex",
@@ -16,9 +17,12 @@ const footer = () => {
             textAlign: { xs: "center", sm: "left" },
           }}
         >
+          {/* Logo */}
           <Box>
             <img src={LOGO3} alt="Logo" style={{ width: "150px", marginBottom: "16px" }} />
           </Box>
+
+          {/* Description */}
           <Box>
             <Typography variant="body2" sx={{ color: "#fff" }}>
               Envoi d'emails candidats en un clic, gratuitement.
@@ -26,7 +30,7 @@ const footer = () => {
           </Box>
         </Box>
 
-        {/* Sections du footer */}
+        {/* Section principale du footer */}
         <Box
           sx={{
             display: "flex",
@@ -35,7 +39,7 @@ const footer = () => {
             justifyContent: { xs: "center", md: "space-between" },
           }}
         >
-          {/* Menu de navigation */}
+          {/* Section Menu de navigation */}
           <Box sx={{ flex: "1 1 200px", textAlign: { xs: "center", sm: "left" } }}>
             <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
               Menu de navigation
@@ -56,7 +60,7 @@ const footer = () => {
             </Box>
           </Box>
 
-          {/* Ressources */}
+          {/* Section Ressources */}
           <Box sx={{ flex: "1 1 200px", textAlign: { xs: "center", sm: "left" } }}>
             <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
               Ressources
@@ -77,7 +81,7 @@ const footer = () => {
             </Box>
           </Box>
 
-          {/* À propos */}
+          {/* Section À propos */}
           <Box sx={{ flex: "1 1 200px", textAlign: { xs: "center", sm: "left" } }}>
             <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
               À propos
@@ -95,12 +99,13 @@ const footer = () => {
             </Box>
           </Box>
 
-          {/* S'abonner */}
+          {/* Section S'abonner */}
           <Box sx={{ flex: "1 1 200px", textAlign: { xs: "center", sm: "left" } }}>
             <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
               S'abonner
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              {/* Champ d'email */}
               <TextField
                 variant="outlined"
                 fullWidth
@@ -114,9 +119,11 @@ const footer = () => {
                   },
                 }}
               />
+              {/* Bouton S'abonner */}
               <Button variant="contained" color="primary" fullWidth sx={{ mb: 1 }}>
                 S'abonner
               </Button>
+              {/* Message anti-spam */}
               <Typography variant="body2" sx={{ color: "#ddd", textAlign: "center" }}>
                 PAS DE SPAM ● DÉSABONNEMENT À TOUT MOMENT
               </Typography>
@@ -133,9 +140,11 @@ const footer = () => {
             pt: 2,
           }}
         >
+          {/* Droits réservés */}
           <Typography variant="body2" sx={{ color: "#fff" }}>
             © 2024 API | Tous droits réservés.
           </Typography>
+          {/* Liens légaux */}
           <Box sx={{ mt: 2, display: "flex", justifyContent: "center", gap: 2 }}>
             <Link href="#" color="#fff">
               Politique de confidentialité
@@ -150,4 +159,4 @@ const footer = () => {
   );
 };
 
-export default footer;
+export default Footer;
