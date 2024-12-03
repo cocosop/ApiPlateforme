@@ -1,5 +1,4 @@
 import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material";
-import YAOUNDE from "../../assets/img/poste_centrale.png";
 import HOMEVIDEO from "../../assets/videos/home_video.mp4";
 import COLLABORATION from "../../assets/img/collaboration.png"
 import OPTIMISATION from "../../assets/img/optimisation.png"
