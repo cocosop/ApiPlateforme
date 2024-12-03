@@ -19,7 +19,7 @@ const Projets = () => {
         console.error('Erreur:', error));
   }, []);
 
-  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+  const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -121,12 +121,12 @@ const Projets = () => {
             boxShadow: 'none',
             backgroundColor: 'transparent'
           }}
-        sx={{ '& .Mui-selected': { backgroundColor: '#0F0B60 !important', color: '#FFFFFF', }, '& .MuiPaginationItem-page': { '&:hover': { backgroundColor: '#0F0B60', color: '#FFFFFF', }, }, }}
+          sx={{ '& .Mui-selected': { backgroundColor: '#0F0B60 !important', color: '#FFFFFF', }, '& .MuiPaginationItem-page': { '&:hover': { backgroundColor: '#0F0B60', color: '#FFFFFF', }, }, }}
           count={Math.ceil(data.length / itemsPerPage)}
           page={page}
           onChange={handlePageChange}
           shape="rounded"
-         
+
         />
       </Box>
     </Box>);
