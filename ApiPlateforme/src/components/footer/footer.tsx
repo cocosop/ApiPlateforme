@@ -1,12 +1,13 @@
 import { Box, Typography, Link, TextField, Button, Container } from "@mui/material";
 import LOGO3 from "../../assets/img/logo3.png"; // Importation du logo
+import './footer.css';
 
 // Composant Footer
 const Footer = () => {
   return (
-    <Box sx={{ backgroundColor: "#0F0B60", color: "#fff", py: 4 }}>
+    <Box sx={{ backgroundColor: "#2A337B", color: "#fff", py: 4 }}>
       <Container maxWidth="lg">
-        {/* Section contenant le logo et une description courte */}
+        {/* Logo et description */}
         <Box
           sx={{
             display: "flex",
