@@ -16,7 +16,7 @@ const menuData = [
       { menuname: "Facteurs de production" },
       { menuname: "Fonctier" },
       { menuname: "Fiscalité" },
-      { menuname: "Droit des investisseurs" },
+      { menuname: "Droit des investisseurs" }
     ],
   },
   {
