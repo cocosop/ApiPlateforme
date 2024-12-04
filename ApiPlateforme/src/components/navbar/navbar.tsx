@@ -5,7 +5,9 @@ import { AppBar, Box, Button, Menu, MenuItem, Toolbar, Typography } from "@mui/m
 import Camer from '../../assets/img/Camer.png'
 import Logo from '../../assets/img/logo.png'
 import { KeyboardArrowDown } from "@mui/icons-material";
+import TranslateIcon from '@mui/icons-material/Translate';
 import Grid from "@mui/system/Grid";
+import Language from "@mui/icons-material/Language";
 
 const menuData = [
   {
@@ -82,7 +84,7 @@ const navbar = () => {
             <Grid size={{ md: 11 }} marginLeft={"auto"} marginRight={"auto"}>
               <Box pt={2} sx={{ display: 'flex', justifyContent: "space-between" }}>
                 <img className="image1" src={Camer} />
-                <Button variant="text" color={"inherit"} >
+                <Button variant="text" startIcon={<Language/>}  color={"inherit"} >
                   Francais
                 </Button>
               </Box>
