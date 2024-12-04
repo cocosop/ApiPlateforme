@@ -16,7 +16,7 @@
     align-items: center;
     width: 100vw;
     height: 70vh;
-    background-color: #F5F5F5;
+    background-color: #f1efef;
     padding: 2rem;
     align-items: center;
 
@@ -47,7 +47,7 @@
 .trans {
     width: 100vw;
     height: 20vh;
-    background: linear-gradient(176deg, #F5F5F5 40%, #FFFFFF 41%);
+    background: linear-gradient(176deg, #f1efef 40%, #FFFFFF 41%);
 }
 
 .second-content h2 {
