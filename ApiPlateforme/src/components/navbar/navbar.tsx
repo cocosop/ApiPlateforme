@@ -101,7 +101,6 @@ const navbar = () => {
                         key={menu.menuname}
                         style={{ color: "black", fontWeight: 600, textTransform: "initial" }}
                         onMouseEnter={(event) => handleOpen(event, menu.children, menu.menuname)}
-                        onMouseLeave={handleClose}
                         sx={{
                           color: selectedMenu === menu.menuname ? 'white!important' : 'inherit',
                           backgroundColor: selectedMenu === menu.menuname ? '#0F0B60' : 'transparent',
@@ -153,10 +152,7 @@ const navbar = () => {
                         Espace  privé
                       </Button>
                     </NavLink>
-
-
                   </Toolbar>
-
                 </nav>
               </Box>
             </Grid>
