@@ -112,7 +112,7 @@ const Projets = () => {
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => { setSearchTerm(event.target.value); }; const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => { if (event.key === 'Enter') { event.preventDefault(); } }; const filteredData = data.filter(item => item.titre.toLowerCase().includes(searchTerm.toLowerCase()) || item.description.toLowerCase().includes(searchTerm.toLowerCase()) || item.ville.toLowerCase().includes(searchTerm.toLowerCase()) ); const paginatedData = filteredData.slice((page - 1) * itemsPerPage, page * itemsPerPage);
 
   return (
-    <Box component="section" sx={{ p: 2 }}>
+    <Box component="section" sx={{ p: 2, mt: 6 }}>
       <Box
         sx={{
           display: 'flex',
@@ -177,7 +177,7 @@ const Projets = () => {
             boxShadow: 'none',
             backgroundColor: 'transparent'
           }}
-          sx={{
+            sx={{
             '& .Mui-selected': {
               backgroundColor: '#0F0B60 !important',
               color: '#FFFFFF',
@@ -193,6 +193,7 @@ const Projets = () => {
           page={page}
           onChange={handlePageChange}
           shape="rounded"
+         
         />
       </Box>
     </Box>

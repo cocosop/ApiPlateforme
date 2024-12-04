@@ -1,5 +1,4 @@
 import { Box, Button, Card, CardActions, CardContent, Typography } from "@mui/material";
-import YAOUNDE from "../../assets/img/poste_centrale.png";
 import HOMEVIDEO from "../../assets/videos/home_video.mp4";
 import COLLABORATION from "../../assets/img/collaboration.png"
 import OPTIMISATION from "../../assets/img/optimisation.png"
@@ -150,7 +149,7 @@ const home = () => {
             <div className='first-content'>
                 <div className='first-text'>
                     <h1 className="lead-text">Plateforme <br /> numérique de <span style={{ color: '#0E600B' }}>l'investissement </span></h1>
-                    <p>
+                    <p className="site-description">
                         Découvrez les opportunités d'investissement au Cameroun grâce à notre portail dédié,
                         source incontournable pour les investisseurs. Accédez à des informations sur les secteurs
                         porteurs, la réglementation, des sites d’investissement géolocalisés et connectez-vous aux
