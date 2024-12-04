@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography, Pagination, TextField, InputAdornment } from '@mui/material';
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography, Pagination, TextField, InputAdornment, Link } from '@mui/material';
 import { ProjeTypes } from '../../types'; // Import de l'interface
 import SearchIcon from '@mui/icons-material/Search';
 import CACAO from '../../assets/img/cacao4.png';
@@ -11,6 +11,7 @@ import AUTOROUTE from '../../assets/img/autoroute.jpg';
 import CAFE from '../../assets/img/café.jpg';
 import EOLIEN from '../../assets/img/eolien.jpg';
 import STARTUP from '../../assets/img/startup1.jpg';
+import { NavLink } from 'react-router-dom';
 
 
 // Données statiques avec champs d'image
@@ -155,7 +156,7 @@ const Projets = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" sx={{ color: '#FFFFFF', backgroundColor: '#0E600B', fontSize: '17.71px', width: '125px', height: '45px' }} variant="outlined">
+                  <Button component={NavLink} to={`/projets/${item.id}`} size="small" sx={{ color: '#FFFFFF', backgroundColor: '#0E600B', fontSize: '17.71px', width: '125px', height: '45px' }} variant="outlined">
                     Plus
                   </Button>
                 </CardActions>
