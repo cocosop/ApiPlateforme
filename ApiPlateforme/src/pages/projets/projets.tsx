@@ -36,7 +36,7 @@ const Projets = () => {
   const paginatedData = filteredData.slice((page - 1) * itemsPerPage, page * itemsPerPage);
 
   return (
-    <Box component="section" sx={{ p: 2 }}>
+    <Box component="section" sx={{ p: 2, mt: 6 }}>
       <Box
         sx={{
           display: 'flex',
