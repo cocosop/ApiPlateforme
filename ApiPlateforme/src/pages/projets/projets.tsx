@@ -1,39 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography, Pagination, TextField, InputAdornment } from '@mui/material';
-import CACAO from '../../assets/img/cacao1.png';
+import React, { useState } from 'react';
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography, Pagination, TextField, InputAdornment, Link } from '@mui/material';
 import { ProjeTypes } from '../../types'; // Import de l'interface
+import { staticData } from './../../staticData'; // Make sure the import path is correct
 import SearchIcon from '@mui/icons-material/Search';
+import { NavLink } from 'react-router-dom';
+
+
+// Données statiques avec champs d'image
+
 const Projets = () => {
-  const [data, setData] = useState<ProjeTypes[]>([]);
+  const [data, setData] = useState<ProjeTypes[]>(staticData);
   const [searchTerm, setSearchTerm] = useState('');
   const [page, setPage] = useState(1);
   const itemsPerPage = 5;
 
-  useEffect(() => {
-    fetch('http://localhost:5000/projets')
-      .then(response => response.json())
-      .then((data: ProjeTypes[]) => {
-        console.log("Données brutes récupérées : ", data); // Afficher les données brutes
-        setData(data); // Les données sont directement un tableau de projets
-      }).catch(error =>
-        console.error('Erreur:', error));
-  }, []);
-
-  const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchTerm(event.target.value);
 
-  };
-
-  const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => { if (event.key === 'Enter') { event.preventDefault(); } };
-  const filteredData = data.filter(item =>
-    item.titre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    item.ville.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-  const paginatedData = filteredData.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => { setSearchTerm(event.target.value); }; const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => { if (event.key === 'Enter') { event.preventDefault(); } }; const filteredData = data.filter(item => item.titre.toLowerCase().includes(searchTerm.toLowerCase()) || item.description.toLowerCase().includes(searchTerm.toLowerCase()) || item.ville.toLowerCase().includes(searchTerm.toLowerCase())); const paginatedData = filteredData.slice((page - 1) * itemsPerPage, page * itemsPerPage);
 
   return (
     <Box component="section" sx={{ p: 2, mt: 6 }}>
@@ -45,29 +30,9 @@ const Projets = () => {
           alignItems: 'center',
           width: '100%',
           pr: 15
-        }} >
-        <TextField
-          value={searchTerm}
-          onChange={handleSearchChange}
-          onKeyPress={handleKeyPress}
-          placeholder="Chercher Ici..."
-          sx={{
-            width: 371,
-            height: 47,
-            borderRadius: '30px',
-            '& .MuiOutlinedInput-root': {
-              borderRadius: '30px'
-            },
-            '& .MuiInputBase-root': {
-              paddingRight: '16px'
-            },
-          }} InputProps=
-          {{
-            startAdornment: (
-              <InputAdornment position="start">
-                <SearchIcon />
-              </InputAdornment>),
-          }} variant="outlined" /> </Box>
+        }}>
+        <TextField value={searchTerm} onChange={handleSearchChange} onKeyDown={handleKeyDown} placeholder="Chercher Ici..." sx={{ width: 371, height: 47, borderRadius: '30px', '& .MuiOutlinedInput-root': { borderRadius: '30px' }, '& .MuiInputBase-root': { paddingRight: '16px' }, }} InputProps={{ startAdornment: (<InputAdornment position="start"> <SearchIcon /> </InputAdornment>), }} variant="outlined" />
+      </Box>
       <Box
         sx={{
           display: 'flex',
@@ -82,7 +47,7 @@ const Projets = () => {
                 <CardMedia
                   component="img"
                   sx={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                  image={CACAO}
+                  src={item.image}
                   title={item.titre}
                 />
               </Card>
@@ -99,7 +64,7 @@ const Projets = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <Button size="small" sx={{ color: '#FFFFFF', backgroundColor: '#0E600B', fontSize: '17.71px', width: '125px', height: '45px' }} variant="outlined">
+                  <Button component={NavLink} to={`/projets/detailsProjets/${item.id}`} size="small" sx={{ color: '#FFFFFF', backgroundColor: '#0E600B', fontSize: '17.71px', width: '125px', height: '45px' }} variant="outlined">
                     Plus
                   </Button>
                 </CardActions>
@@ -121,7 +86,18 @@ const Projets = () => {
             boxShadow: 'none',
             backgroundColor: 'transparent'
           }}
-          sx={{ '& .Mui-selected': { backgroundColor: '#0F0B60 !important', color: '#FFFFFF', }, '& .MuiPaginationItem-page': { '&:hover': { backgroundColor: '#0F0B60', color: '#FFFFFF', }, }, }}
+          sx={{
+            '& .Mui-selected': {
+              backgroundColor: '#0F0B60 !important',
+              color: '#FFFFFF',
+            },
+            '& .MuiPaginationItem-page': {
+              '&:hover': {
+                backgroundColor: '#0F0B60',
+                color: '#FFFFFF',
+              },
+            },
+          }}
           count={Math.ceil(data.length / itemsPerPage)}
           page={page}
           onChange={handlePageChange}
@@ -129,7 +105,8 @@ const Projets = () => {
 
         />
       </Box>
-    </Box>);
-}
+    </Box>
+  );
+};
 
 export default Projets;

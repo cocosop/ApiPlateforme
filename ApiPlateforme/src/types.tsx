@@ -1,9 +1,10 @@
 export interface ProjeTypes {
-    id: 1,
+    id: number,
     secteur: string,
     titre: string,
     ville: string,
     quartier: string,
     description: string,
+    image: string;
 }
   

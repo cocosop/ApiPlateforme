@@ -158,7 +158,9 @@ const home = () => {
                     </p>
 
                     <Grid marginTop={2} container>
+                        <NavLink to= "/projets">
                         <Button variant="contained" className="invest-btn">Investir au pays</Button>
+                        </NavLink>
                     </Grid>
                 </div>
                 <div className='first-img'>
