@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography, Pagination, TextField, InputAdornment, Link } from '@mui/material';
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography, Pagination, TextField, InputAdornment } from '@mui/material';
 import { ProjeTypes } from '../../types'; // Import de l'interface
 import { staticData } from './../../staticData'; // Make sure the import path is correct
 import SearchIcon from '@mui/icons-material/Search';
@@ -9,12 +9,12 @@ import { NavLink } from 'react-router-dom';
 // Données statiques avec champs d'image
 
 const Projets = () => {
-  const [data, setData] = useState<ProjeTypes[]>(staticData);
+  const [data] = useState<ProjeTypes[]>(staticData);
   const [searchTerm, setSearchTerm] = useState('');
   const [page, setPage] = useState(1);
   const itemsPerPage = 5;
 
-  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+  const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
 

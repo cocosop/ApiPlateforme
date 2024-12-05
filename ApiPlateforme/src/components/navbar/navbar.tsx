@@ -1,24 +1,27 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
-import { AppBar, Box, Button, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
+import { Box, Button, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
 import Camer from '../../assets/img/Camer.png'
 import Logo from '../../assets/img/logo.png'
 import { KeyboardArrowDown } from "@mui/icons-material";
-import TranslateIcon from '@mui/icons-material/Translate';
 import Grid from "@mui/system/Grid";
 import Language from "@mui/icons-material/Language";
+
+interface NavbartProps {
+  onMenuClick: any | null;
+}
 
 const menuData = [
   {
     menuname: "Investir",
     children: [
-      { menuname: "Créer son entreprise" },
-      { menuname: "Main d'oeuvre" },
-      { menuname: "Facteurs de production" },
-      { menuname: "Fonctier" },
-      { menuname: "Fiscalité" },
-      { menuname: "Droit des investisseurs" }
+      { menuname: "Créer son entreprise", link: "/creer-son-entreprise" },
+      { menuname: "Main d'oeuvre", link: "/main-d-oeuvre" },
+      { menuname: "Facteurs de production", link: "/factures-de-production" },
+      { menuname: "Foncier", link: "/foncier" },
+      { menuname: "Fiscalité", link: "/fiscalite" },
+      { menuname: "Droit des investisseurs", link: "/droit-des-investisseurs" }
     ],
   },
   {
@@ -28,22 +31,22 @@ const menuData = [
       { menuname: "Energie", link: "/projets" },
       { menuname: "TIC", link: "/projets" },
       { menuname: "Tourisme", link: "/projets" },
-      { menuname: "Infrastructures", link: "/projets" },
+      { menuname: "Infrastructure", link: "/projets" },
     ],
   },
   {
     menuname: "e-Services",
     children: [
-      { menuname: "Creation dentreprise" },
-      { menuname: "Octroi d'incitations" },
-      { menuname: "Investor service desk" },
-      { menuname: "Permis zone industrielles" },
-      { menuname: "Permis zones economiques" },
+      { menuname: "Creation d'entreprise", link: "/creation-d-entreprise" },
+      { menuname: "Octroi d'incitation", link: "/octroi-d-incitation" },
+      { menuname: "Investor service desk", link: "/investor-service-desk" },
+      { menuname: "Permis zones industrielles", link: "/permis-zones-industrielles" },
+      { menuname: "Permis zones économiques", link: "/permis-zones-economiques" },
     ],
   },
 ];
 
-const navbar = () => {
+const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
   const [isFixed, setIsFixed] = useState(false);
@@ -84,7 +87,7 @@ const navbar = () => {
             <Grid size={{ md: 11 }} marginLeft={"auto"} marginRight={"auto"}>
               <Box pt={2} sx={{ display: 'flex', justifyContent: "space-between" }}>
                 <img className="image1" src={Camer} />
-                <Button variant="text" startIcon={<Language/>}  color={"inherit"} >
+                <Button variant="text" startIcon={<Language />} color={"inherit"} >
                   Francais
                 </Button>
               </Box>
@@ -129,13 +132,13 @@ const navbar = () => {
                         {activeMenu.length > 0 ? (
                           <Grid container spacing={2}>
                             {activeMenu.map((item: { "menuname": string, link?: string }, index) => (
-                              <Grid container item xs={12} key={index}>
+                              <div key={index}>
                                 <MenuItem onClick={handleClose}>
-                                  <NavLink style={{ textDecoration: "none", color: "#000" }} to={item.link ? item.link : "#"}>
+                                  <NavLink style={{ textDecoration: "none", color: "#000" }} to={item.link ? item.link : "#"} onClick={() => onMenuClick(item)}>
                                     {item.menuname}
                                   </NavLink>
                                 </MenuItem>
-                              </Grid>
+                              </div>
                             ))}
                           </Grid>
                         ) : (

@@ -12,7 +12,7 @@ const DetailProjet: React.FC<DetailProjetProps> = ({ projects }) => {
   const project = projects.find(proj => proj.id === parseInt(id || '', 10));
 
   if (!project) {
-    return <Typography variant="h6">Projet non trouvé</Typography>;
+    return <Typography variant="h6">Projet introuvable</Typography>;
   }
 
   return (
