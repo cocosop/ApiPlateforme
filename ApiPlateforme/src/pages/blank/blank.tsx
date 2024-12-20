@@ -8,7 +8,7 @@ const blank: React.FC<BlankProps> = ({ selectedMenu }) => {
     return (
         <div style={{ width: '100vw', marginTop: '25px' }}>
             <div id="title">
-                <h2>{selectedMenu.menuname}</h2>
+                <h2 className='text-2xl font-semibold mt-4 mb-2'>{selectedMenu.name}</h2>
                 <span id="divider"></span>
                 <div style={{ width: '50vw', height: '40vh' }}>
                     <video

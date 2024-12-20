@@ -206,7 +206,7 @@ const faq = () => {
                 {faqGroups.map(({ title, accordions }, groupIndex) => (
                     <div key={groupIndex} className={`group-${groupIndex + 1}`}>
                         <div id="title">
-                            <h2>{title}</h2>
+                            <h2 className='text-2xl font-semibold mt-4 mb-2'>{title}</h2>
                             <span id="divider"></span>
                         </div>
                         {accordions &&

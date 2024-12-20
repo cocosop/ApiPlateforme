@@ -1,9 +1,24 @@
-import { Box, TextField, Button, Typography } from "@mui/material";
+import { Box, TextField, Button, Typography, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google"; // Icône Google
 import AppleIcon from "@mui/icons-material/Apple";  // Icône Apple
 import LOGIN from "../../assets/img/account_illustration.png";
+import { VisibilityOff, Visibility } from "@mui/icons-material";
+import React from "react";
 
 const Login = () => {
+
+  const [showPassword, setShowPassword] = React.useState(false);
+
+  const handleClickShowPassword = () => setShowPassword((show) => !show);
+
+  const handleMouseDownPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+  };
+
+  const handleMouseUpPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+  };
+
   return (
     <Box
       sx={{
@@ -59,8 +74,8 @@ const Login = () => {
             maxWidth: { xs: 300, sm: 400 },
             textAlign: "center",
             padding: { xs: 2, md: 6 },
-           
-           
+
+
           }}
         >
           <Typography
@@ -91,13 +106,29 @@ const Login = () => {
             label="Adresse e-mail"
             variant="outlined"
           />
-          <TextField
-            fullWidth
-            margin="normal"
-            label="Mot de passe"
-            type="password"
-            variant="outlined"
-          />
+          <FormControl fullWidth margin="normal" variant="outlined">
+            <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+            <OutlinedInput
+              id="outlined-adornment-password"
+              type={showPassword ? 'text' : 'password'}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label={
+                      showPassword ? 'hide the password' : 'display the password'
+                    }
+                    onClick={handleClickShowPassword}
+                    onMouseDown={handleMouseDownPassword}
+                    onMouseUp={handleMouseUpPassword}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                  </IconButton>
+                </InputAdornment>
+              }
+              label="Password"
+            />
+          </FormControl>
           <Button
             fullWidth
             variant="contained"
