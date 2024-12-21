@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography, Pagination, TextField, InputAdornment, Link } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography, Pagination, TextField, InputAdornment } from '@mui/material';
 import { ProjeTypes } from '../../types'; // Import de l'interface
 import { staticData } from './../../staticData'; // Make sure the import path is correct
 import SearchIcon from '@mui/icons-material/Search';
@@ -9,16 +9,21 @@ import { NavLink } from 'react-router-dom';
 // Données statiques avec champs d'image
 
 const Projets = () => {
-  const [data, setData] = useState<ProjeTypes[]>(staticData);
+  const [data, setData] = useState<ProjeTypes[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [page, setPage] = useState(1);
   const itemsPerPage = 5;
 
   const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    console.log(event);
     setPage(value);
   };
 
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => { setSearchTerm(event.target.value); }; const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => { if (event.key === 'Enter') { event.preventDefault(); } }; const filteredData = data.filter(item => item.titre.toLowerCase().includes(searchTerm.toLowerCase()) || item.description.toLowerCase().includes(searchTerm.toLowerCase()) || item.ville.toLowerCase().includes(searchTerm.toLowerCase()) ); const paginatedData = filteredData.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => { setSearchTerm(event.target.value); }; const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => { if (event.key === 'Enter') { event.preventDefault(); } }; const filteredData = data.filter(item => item.titre.toLowerCase().includes(searchTerm.toLowerCase()) || item.description.toLowerCase().includes(searchTerm.toLowerCase()) || item.ville.toLowerCase().includes(searchTerm.toLowerCase())); const paginatedData = filteredData.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+
+  useEffect(() => {
+    setData(staticData)
+  }, []);
 
   return (
     <Box component="section" sx={{ p: 2, mt: 6 }}>
@@ -31,7 +36,7 @@ const Projets = () => {
           width: '100%',
           pr: 15
         }}>
-        <TextField value={searchTerm} onChange={handleSearchChange} onKeyDown={handleKeyDown} placeholder="Chercher Ici..." sx={{ width: 371, height: 47, borderRadius: '30px', '& .MuiOutlinedInput-root': { borderRadius: '30px' }, '& .MuiInputBase-root': { paddingRight: '16px' }, }} InputProps={{ startAdornment: ( <InputAdornment position="start"> <SearchIcon /> </InputAdornment> ), }} variant="outlined" />
+        <TextField value={searchTerm} onChange={handleSearchChange} onKeyDown={handleKeyDown} placeholder="Chercher Ici..." sx={{ width: 371, height: 47, borderRadius: '30px', '& .MuiOutlinedInput-root': { borderRadius: '30px' }, '& .MuiInputBase-root': { paddingRight: '16px' }, }} InputProps={{ startAdornment: (<InputAdornment position="start"> <SearchIcon /> </InputAdornment>), }} variant="outlined" />
       </Box>
       <Box
         sx={{
@@ -86,7 +91,7 @@ const Projets = () => {
             boxShadow: 'none',
             backgroundColor: 'transparent'
           }}
-            sx={{
+          sx={{
             '& .Mui-selected': {
               backgroundColor: '#0F0B60 !important',
               color: '#FFFFFF',
@@ -102,7 +107,7 @@ const Projets = () => {
           page={page}
           onChange={handlePageChange}
           shape="rounded"
-         
+
         />
       </Box>
     </Box>

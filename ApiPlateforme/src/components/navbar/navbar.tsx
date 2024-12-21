@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./Navbar.css";
 import { Link, NavLink } from "react-router-dom";
-import { AppBar, Box, Button, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
+import { Box, Button, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
 import Camer from '../../assets/img/Camer.png'
 import Logo from '../../assets/img/logo.png'
 import { KeyboardArrowDown } from "@mui/icons-material";
-import TranslateIcon from '@mui/icons-material/Translate';
 import Grid from "@mui/system/Grid";
 import Language from "@mui/icons-material/Language";
 
@@ -84,7 +83,7 @@ const navbar = () => {
             <Grid size={{ md: 11 }} marginLeft={"auto"} marginRight={"auto"}>
               <Box pt={2} sx={{ display: 'flex', justifyContent: "space-between" }}>
                 <img className="image1" src={Camer} />
-                <Button variant="text" startIcon={<Language/>}  color={"inherit"} >
+                <Button variant="text" startIcon={<Language />} color={"inherit"} >
                   Francais
                 </Button>
               </Box>
@@ -129,7 +128,7 @@ const navbar = () => {
                         {activeMenu.length > 0 ? (
                           <Grid container spacing={2}>
                             {activeMenu.map((item: { "menuname": string, link?: string }, index) => (
-                              <Grid container item xs={12} key={index}>
+                              <Grid container key={index}>
                                 <MenuItem onClick={handleClose}>
                                   <NavLink style={{ textDecoration: "none", color: "#000" }} to={item.link ? item.link : "#"}>
                                     {item.menuname}
