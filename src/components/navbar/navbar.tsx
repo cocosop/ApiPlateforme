@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./Navbar.css";
+import "./navbar.css";
 import { Link, NavLink } from "react-router-dom";
 import { Box, Button, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
 import Camer from '../../assets/img/Camer.png'
