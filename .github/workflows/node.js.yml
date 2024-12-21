@@ -29,6 +29,7 @@ jobs:
     - run: cd ApiPlateforme
     - run: npm ci
     - run: npm run build --if-present
+    - run: ls
     - name: Upload build artifacts
       uses: actions/upload-artifact@v3
       with:
