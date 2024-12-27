@@ -12,7 +12,7 @@ import ACCES from "../../assets/img/acces.png"
 import './home.css'
 import React from "react";
 import { ArrowForwardIos } from '@mui/icons-material'
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 // Interface for objective cards
 interface CustomCardProps {
@@ -30,7 +30,7 @@ interface CustomListProps {
     count: number;
 }
 
-//Objective cards custom 
+//Objective template
 const CustomCard: React.FC<CustomCardProps> = ({ image, title, description, color }) => (
     <Box sx={{ width: "18rem", height: "27rem" }}>
         <Card elevation={8} sx={{ height: "100%", displax: "flex", flexDirection: "column" }}>
@@ -54,7 +54,7 @@ const CustomCard: React.FC<CustomCardProps> = ({ image, title, description, colo
     </Box>
 );
 
-//Array of data for objective card
+//Data table for the list of objectives
 const cardData = [
     {
         image: SIMPLIFICATION,
@@ -82,7 +82,7 @@ const cardData = [
     },
 ];
 
-//Style for advantage list
+//Style for advantage template
 const style = {
     display: 'flex',
     flexDirection: 'column',
@@ -97,7 +97,7 @@ const style = {
     },
 };
 
-//Advantage List custom 
+//Advantage template
 const CustomList: React.FC<CustomListProps> = ({ image, title, description, count }) => (
     <Box sx={style}>
         <React.Fragment>
@@ -118,7 +118,7 @@ const CustomList: React.FC<CustomListProps> = ({ image, title, description, coun
 
 );
 
-//Array of data for advantage List
+//Data table for the list of advantages
 const ListData = [
     {
         image: ENREGISTREMENT,
@@ -146,6 +146,46 @@ const ListData = [
     },
 ];
 
+//Data table for the list of testimonies
+
+const testimonies = [
+    {
+        id: 1,
+        description:
+            'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+        date: 'Mar 16, 2020',
+        author: {
+            name: 'Michael Foster',
+            imageUrl:
+                'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+    },
+    {
+        id: 2,
+        description:
+            'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+        date: 'Mar 16, 2020',
+        author: {
+            name: 'Michael Foster',
+            imageUrl:
+                'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+    },
+    {
+        id: 3,
+        description:
+            'Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.',
+        date: 'Mar 16, 2020',
+        author: {
+            name: 'Michael Foster',
+            imageUrl:
+                'https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+    },
+    // More posts...
+]
+
+
 const home = () => {
     return (
         <div>
@@ -172,13 +212,13 @@ const home = () => {
                     </div>
                 </div>
                 <div className="group relative">
-                    <video loop style={{ height: "24rem" }} autoPlay src={HOMEVIDEO} />
+                    <video loop style={{ height: "24rem", width: '100%' }} autoPlay src={HOMEVIDEO} />
                 </div>
 
             </div>
             <div className="trans"></div>
 
-            <div className="second-content">
+            <div className="second-content mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="second-title">
                     <h2 className="text-2xl font-semibold mt-4 mb-2">Ses Objectifs</h2>
                     <span id="divider"></span>
@@ -199,8 +239,8 @@ const home = () => {
             <div className='third-content'>
                 <h2 className="text-2xl font-semibold mt-4 mb-2">Qui peut utiliser cette plateforme</h2>
                 <span id="divider"></span>
-                <div className="grid grid-cols-1 gap-x-6 xl:grid-cols-2 lg:grid-cols-2">
-                    <div className='third-text'>
+                <div className="grid grid-cols-1 gap-x-6 xl:grid-cols-2 lg:grid-cols-2 p-8">
+                    <div className='group relative'>
                         <p className="font-semibold">Tout investisseur ou porteur de projet désirant :</p>
                         <ul >
                             <li>Accéder à des informations sur tous les aspects de la mise en place de son projet d’investissement ;</li>
@@ -210,12 +250,12 @@ const home = () => {
                             <li>Utiliser les services offerts par la plateforme.</li>
                         </ul>
                     </div>
-                    <div className='third-img'>
-                        <img src={UTILISATION} alt="utilisation-img" />
+                    <div className='group relative'>
+                        <img src={UTILISATION} alt="utilisation-img" style={{ width: '100%' }} />
                     </div>
                 </div>
             </div>
-            <div className="fourth-content">
+            <div className="fourth-content mx-auto max-w-7xl px-6 lg:px-8">
                 <h2 className="text-2xl font-semibold mt-4 mb-2">Avantages</h2>
                 <span id="divider"></span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 justify-items-center">
@@ -228,6 +268,39 @@ const home = () => {
                             count={data.count}
                         />
                     ))}
+                </div>
+            </div>
+
+            <div className="fifth-content mx-auto max-w-7xl px-6 lg:px-8 py-8">
+                <h2 className="text-2xl font-semibold  text-[#0F0B60] mt-4 mb-2">Nos investisseurs témoignent</h2>
+                <span id="divider"></span>
+                <div className="mx-auto mb-8 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+                    {testimonies.map((testimony) => (
+                        <article key={testimony.id} className="flex max-w-xl flex-col items-start justify-between">
+                            <div className="group relative">
+                                <p className="mt-5 line-clamp-3 text-sm/6">{testimony.description}</p>
+                            </div>
+                            <div className="relative mt-8 flex items-center gap-x-4">
+                                <img alt="" src={testimony.author.imageUrl} className="size-10 rounded-full bg-gray-50" />
+                                <div className="text-sm/6">
+                                    <p className="font-semibold text-[#0F0B60]">
+                                        <span className="absolute inset-0" />
+                                        {testimony.author.name}
+                                    </p>
+                                    <time className="text-gray-500">
+                                        {testimony.date}
+                                    </time>
+                                </div>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+                <div className="mt-2 flex items-center">
+                    <Link to="/#">
+                        <button className="more-btn text-sm/6 font-semibold">
+                            Plus
+                        </button>
+                    </Link>
                 </div>
             </div>
         </div >
