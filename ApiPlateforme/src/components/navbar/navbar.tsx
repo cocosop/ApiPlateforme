@@ -53,9 +53,9 @@ const investir = [
 ]
 
 const secteurs = [
-  { name: "Agriculture", description: "Projets liés à l'agriculture, de la production à la transformation des produits agricoles.", link: "/projets", icon: BeakerIcon },
-  { name: "Energie", description: "Projets liés à la production, la distribution et l'utilisation de l'énergie, y compris les énergies renouvelables.", link: "/projets", icon: LightBulbIcon },
-  { name: "TIC", description: "Projets dans les technologies de l'information et de la communication, favorisant l'innovation et la transformation digitale.", link: "/projets", icon: ComputerDesktopIcon },
+  { name: "Agriculture", description: "Projets liés à l'agriculture, de la production à la transformation des produits agricoles.", link: "/secteur-de-lagriculture", icon: BeakerIcon },
+  { name: "Energie", description: "Projets liés à la production, la distribution et l'utilisation de l'énergie, y compris les énergies renouvelables.", link: "/secteur-de-lenergie", icon: LightBulbIcon },
+  { name: "TIC", description: "Projets dans les technologies de l'information et de la communication, favorisant l'innovation et la transformation digitale.", link: "/secteur-des-tic", icon: ComputerDesktopIcon },
   { name: "Tourisme", description: "Projets visant à développer le secteur touristique, de l'hôtellerie à la gestion des attractions touristiques.", link: "/projets", icon: GlobeAltIcon },
   { name: "Infrastructure", description: "Projets liés à la construction et à la maintenance d'infrastructures publiques et privées, incluant routes et bâtiments.", link: "/projets", icon: BuildingLibraryIcon }
 
@@ -142,7 +142,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
             </button>
 
             {isOpen && (
-              <div className="absolute right-0 z-20 mt-2 bg-white rounded-md shadow-lg w-28">
+              <div className="absolute right-0 z-30 mt-2 bg-white rounded-md shadow-lg w-28">
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
@@ -163,7 +163,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
       <Divider></Divider>
       <div style={{ height: isSticky ? secondNavHeight : 0 }}></div>
       <div
-        className='sticky top-0 z-10 shadow-lg bg-white w-full'
+        className='sticky top-0 z-20 shadow-lg bg-white w-full'
         style={{ position: isSticky ? "fixed" : "relative" }}
         ref={secondNavRef}
       >
@@ -302,7 +302,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
         </nav>
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
           <div className="fixed inset-0 z-10" />
-          <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+          <DialogPanel className="fixed inset-y-0 right-0 z-30 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <a href="#" className="-m-1.5 p-1.5">
                 <img
