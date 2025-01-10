@@ -4,7 +4,9 @@ export default {
     './src/**/*.{html,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: { colors: {
+      'dark-green': '#0E600B',
+    },},
   },
   plugins: [],
 }

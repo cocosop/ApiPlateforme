@@ -4,10 +4,12 @@ import Content from './components/content/content'
 import Navbar from './components/navbar/navbar'
 import Footer from './components/footer/footer'
 import { useState } from 'react'
+import Chatbot from './components/chatbox/chatbox'
 
 function App() {
 
   const [selectedMenu, setSelectedMenu] = useState(null);
+  
 
   const handleMenuClick = (menuName: any) => {
     setSelectedMenu(menuName);
@@ -19,6 +21,7 @@ function App() {
         <Navbar onMenuClick={handleMenuClick} />
         <Content selectedMenu={selectedMenu} />
         <Footer />
+        <Chatbot />
       </BrowserRouter >
     </>
   )

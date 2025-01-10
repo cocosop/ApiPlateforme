@@ -1,11 +1,11 @@
 import { Box, TextField, Button, Typography, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google"; // Icône Google
 import AppleIcon from "@mui/icons-material/Apple";  // Icône Apple
-import LOGIN from "../../assets/img/account_illustration.png";
+import LOGIN from "../../../assets/img/account_illustration.png";
 import { VisibilityOff, Visibility } from "@mui/icons-material";
 import React from "react";
 
-const Login = () => {
+const Logup = () => {
 
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -96,7 +96,7 @@ const Login = () => {
               fontWeight: "semi-bold",
             }}
           >
-            Connectez-Vous
+            Veuillez vous enregistrer
           </Typography>
 
           {/* Champs de connexion */}
@@ -135,13 +135,13 @@ const Login = () => {
 
             sx={{ backgroundColor: "#2A337B", mt: 2, textTransform: "none", borderRadius: "8px" }}
           >
-            Se connecter
+           S'Enregistrer
           </Button>
 
           {/* Connexion Google & Apple */}
           <Box sx={{ mt: 4 }}>
             <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 }}>
-              Ou connectez-vous avec :
+              Ou Créer votre compte avec :
             </Typography>
             <Box
               sx={{
@@ -190,7 +190,7 @@ const Login = () => {
             variant="body2"
             sx={{ mt: 2, color: "text.secondary", fontSize: "14px" }}
           >
-            Pas encore de compte ? <a href="/register" style={{ color: "#2A337B" }}>Inscrivez-vous</a>
+            Avez-vous déjà un compte? Connectez vous ici <a href="/signin" style={{ color: "#2A337B" }}>Connectez-vous</a>
           </Typography>
         </Box>
       </Box>
@@ -198,4 +198,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Logup;

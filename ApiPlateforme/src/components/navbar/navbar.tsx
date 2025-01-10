@@ -45,7 +45,7 @@ interface NavbartProps {
 const investir = [
   { name: "Créer son entreprise", description: "Guides et ressources pour la création et le développement d'une entreprise.", link: "/creer-son-entreprise", icon: BriefcaseIcon },
   { name: "Main d'oeuvre", description: "Informations sur les ressources humaines et la disponibilité de la main-d'œuvre.", link: "/main-d-oeuvre", icon: UserGroupIcon },
-  { name: "Facteurs de production", description: "Ressources clés pour la production, y compris le capital et les infrastructures.", link: "/factures-de-production", icon: CogIcon },
+  { name: "Facteurs de production", description: "Ressources clés pour la production, y compris le capital et les infrastructures.", link: "/facteurs-de-production", icon: CogIcon },
   { name: "Foncier", description: "Accès aux terrains et propriétés pour les projets d'investissement.", link: "/foncier", icon: MapIcon },
   { name: "Fiscalité", description: "Informations sur les taxes, impôts et incitations fiscales pour les investisseurs.", link: "/fiscalite", icon: CurrencyDollarIcon },
   { name: "Droit des investisseurs", description: "Garanties et protections légales offertes aux investisseurs.", link: "/droit-des-investisseurs", icon: ShieldCheckIcon },
@@ -122,7 +122,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
   return (
 
     <header className='bg-white'>
-      <div className='bg-gray-100 flex items-center justify-between p-3' ref={firstNavRef}>
+      <div className='bg-gray-100 flex items-center justify-between p-3 ' ref={firstNavRef}>
         <span>
           <img
             className="h-6 w-auto"
@@ -293,7 +293,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
               FAQ
             </Link>
 
-            <Link to="/login">
+            <Link to="/signin">
               <button className="ps-btn text-sm/6 font-semibold">
                 Espace  Privé
               </button>
