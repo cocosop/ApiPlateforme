@@ -199,10 +199,10 @@ const home = () => {
                 <div className="video-background-overlay"></div>
                 <div className="group relative hero-content">
                     <div className="text-start">
-                        <h1 className="max-w-md	text-balance font-bold tracking-tight text-[#0F0B60] sm:text-5xl antialiased subpixel-antialiased leading-8 p-4 bg-[#ffffffd1]">
+                        <h1 className="max-w-2xl	text-balance font-bold tracking-tight text-[#0F0B60] sm:text-5xl antialiased subpixel-antialiased leading-8 p-4 bg-[#ffffffd1]">
                             Portail d'investissement du <span className="text-[#0E600B]"> Cameroun </span>
                         </h1>
-                        <p className="mt-8 text-black sm:text-md/6 leading-6 max-w-3xl text-justify text-white">
+                        <p className="mt-8 font-light sm:text-md/6 leading-7 max-w-2xl text-justify text-white">
                             Découvrez les opportunités d'investissement au Cameroun grâce à notre portail dédié,
                             source incontournable pour les investisseurs. Accédez à des informations sur les secteurs
                             porteurs, la réglementation, des sites d’investissement géolocalisés et connectez-vous aux
@@ -213,7 +213,7 @@ const home = () => {
                             <NavLink to="/projets"
                                 className="rounded-md bg-[#0E600B] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#248920] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
                             >
-                                Investir au pays
+                                Guide de l'investisseur
                             </NavLink>
                             <CallToActionButton />
                         </div>
