@@ -1,5 +1,6 @@
 import { Box, Card, CardActions, CardContent, Typography } from "@mui/material";
 import HOMEVIDEO from "../../assets/videos/home_video.mp4";
+import HOMEVIDEOUPDATED from '../../assets/videos/home_video_update.mp4';
 import COLLABORATION from "../../assets/img/collaboration.png"
 import OPTIMISATION from "../../assets/img/optimisation.png"
 import AMELIORATION from "../../assets/img/amelioration.png"
@@ -13,6 +14,7 @@ import './home.css'
 import React from "react";
 import { ArrowForwardIos } from '@mui/icons-material'
 import { Link, NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // Interface for objective cards
 interface CustomCardProps {
@@ -189,13 +191,18 @@ const testimonies = [
 const home = () => {
     return (
         <div>
-            <div className="bg-gray-100 grid p-20 grid-cols-1 gap-x-6 xl:grid-cols-2 lg:grid-cols-2">
-                <div className="group relative">
+            <div className="hero-container bg-gray-100 grid p-20 grid-cols-1 gap-x-6 xl:grid-cols-1 lg:grid-cols-1 items-center">
+                <video className="video-background" autoPlay muted loop>
+                    <source src={HOMEVIDEOUPDATED} type="video/mp4" />
+                    Your browser does not support the video tag.
+                </video>
+                <div className="video-background-overlay"></div>
+                <div className="group relative hero-content">
                     <div className="text-start">
-                        <h1 className="text-balance font-semibold tracking-tight text-[#0F0B60] sm:text-5xl">
-                            Plateforme numérique de <span className="text-[#0E600B]">l'investissement </span>
+                        <h1 className="max-w-md	text-balance font-bold tracking-tight text-[#0F0B60] sm:text-5xl antialiased subpixel-antialiased leading-8 p-4 bg-[#ffffffd1]">
+                            Portail d'investissement du <span className="text-[#0E600B]"> Cameroun </span>
                         </h1>
-                        <p className="mt-8 text-black sm:text-md/6">
+                        <p className="mt-8 text-black sm:text-md/6 leading-6 max-w-3xl text-justify text-white">
                             Découvrez les opportunités d'investissement au Cameroun grâce à notre portail dédié,
                             source incontournable pour les investisseurs. Accédez à des informations sur les secteurs
                             porteurs, la réglementation, des sites d’investissement géolocalisés et connectez-vous aux
@@ -208,12 +215,13 @@ const home = () => {
                             >
                                 Investir au pays
                             </NavLink>
+                            <CallToActionButton />
                         </div>
                     </div>
                 </div>
-                <div className="group relative">
+                {/* <div className="group relative">
                     <video loop style={{ height: "24rem", width: '100%' }} autoPlay src={HOMEVIDEO} />
-                </div>
+                </div> */}
 
             </div>
             <div className="trans"></div>
@@ -307,4 +315,33 @@ const home = () => {
     );
 };
 
+const CallToActionButton = () => {
+    return (
+        <motion.button
+            className="px-6 py-2 rounded-md relative radial-gradient"
+            initial={{ "--x": "100%", scale: 1 }}
+            animate={{ "--x": "-100%" }}
+            whileTap={{ scale: 0.97 }}
+            transition={{
+                repeat: Infinity,
+                repeatType: "loop",
+                repeatDelay: 1,
+                type: "spring",
+                stiffness: 20,
+                damping: 15,
+                mass: 2,
+                scale: {
+                    type: "spring",
+                    stiffness: 10,
+                    damping: 5,
+                    mass: 0.1
+                }
+            }}
+        >
+            <span className="text-neutral-100 tracking-wide font-light h-full w-full block relative linear-mask">
+                Investir maintenant
+            </span>
+        </motion.button>
+    )
+}
 export default home;

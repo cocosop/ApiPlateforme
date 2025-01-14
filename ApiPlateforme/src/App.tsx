@@ -1,3 +1,4 @@
+import './index.css'
 import './App.css'
 import { BrowserRouter } from 'react-router-dom'
 import Content from './components/content/content'

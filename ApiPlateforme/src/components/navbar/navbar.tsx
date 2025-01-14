@@ -122,7 +122,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
   return (
 
     <header className='bg-white'>
-      <div className='bg-gray-100 flex items-center justify-between p-3' ref={firstNavRef}>
+      <div className='bg-gray-100 flex items-center justify-between p-3 px-10' ref={firstNavRef}>
         <span>
           <img
             className="h-6 w-auto"
@@ -160,7 +160,6 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
           </div>
         </span>
       </div>
-      <Divider></Divider>
       <div style={{ height: isSticky ? secondNavHeight : 0 }}></div>
       <div
         className='sticky top-0 z-20 shadow-lg bg-white w-full'
@@ -189,7 +188,8 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
           </div>
           <PopoverGroup className="hidden lg:flex lg:gap-x-12 items-center">
 
-            <Link to={"/"} className="text-sm/6 font-semibold text-gray-900">
+            <Link to="/" className="text-sm/6 font-semibold text-gray-900"> Accueil</Link>
+            <Link to={"#"} className="text-sm/6 font-semibold text-gray-900">
               Le Cameroun
             </Link>
 
