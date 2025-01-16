@@ -35,14 +35,14 @@ interface CustomListProps {
 //Objective template
 const CustomCard: React.FC<CustomCardProps> = ({ image, title, description, color }) => (
     <div>
-        <Box sx={{ width: "21rem", height: "27rem" }}>
-            <Card sx={{ height: "100%", displax: "flex", flexDirection: "column" }}>
+        <div style={{ width: "21rem", height: "27rem" }}>
+            <div style={{ height: "100%", display: "flex", flexDirection: "column", backgroundColor: "#0f0b60", borderRadius: "5px" }}>
                 <Box height={"100%"} display={"flex"} flexDirection={"column"} justifyContent={"space-between"}>
                     <CardContent sx={{ display: 'flex', justifyContent: 'center' }}>
-                        <img style={{ height: "5.5rem",marginTop:"1rem" }} src={image} />
+                        <img style={{ height: "5.5rem", marginTop: "1rem" }} src={image} />
                     </CardContent>
-                    <CardContent sx={{ padding: '30px', paddingBottom: 0, backgroundColor: color, borderRadius: '100% 100% 0px 0px', overflow: 'hidden' }}>
-                        <Typography sx={{ padding: '15px 15px 0px 15px' }} variant="h6" color="white">
+                    <CardContent sx={{ padding: '30px', paddingBottom: 0, backgroundColor: color, borderRadius: '100% 100% 5px 5px', overflow: 'hidden' }}>
+                        <Typography sx={{ padding: '15px 15px 0px 15px', fontWeight: "800" }} variant="h6" color="white">
                             {title}
                         </Typography>
                         <Typography variant="body2" color="white" sx={{ mt: 1.5 }}>{description}</Typography>
@@ -53,8 +53,8 @@ const CustomCard: React.FC<CustomCardProps> = ({ image, title, description, colo
                         </CardActions>
                     </CardContent>
                 </Box>
-            </Card>
-        </Box>
+            </div>
+        </div>
     </div>
 );
 
@@ -63,19 +63,19 @@ const cardData = [
     {
         image: SIMPLIFICATION,
         title: "Simplification et facilitation des processus",
-        description: "La plateforme prend en charge et simplifie la création d'entreprises et d'investissements, tout en rendant les procédures plus transparentes.",
+        description: "Nous prenons en charge et simplifions la création d'entreprises et d'investissements, tout en rendant les procédures plus transparentes.",
         color: "#0E600B"
     },
     {
         image: OPTIMISATION,
         title: "Optimisation du service public",
-        description: "La plateforme accélère le traitement des dossiers, améliore le rendement des agents et la qualité des prestations fournies.",
+        description: "Accélérez le traitement des dossiers, améliorez le rendement des agents et la qualité des prestations fournies.",
         color: "#DC2124"
     },
     {
         image: AMELIORATION,
         title: "Amélioration de la communication et du suivi ",
-        description: "Elle favorise l'interaction entre investisseurs et administration, et permet aux investisseurs de suivre l'évolution de leurs dossiers à distance.",
+        description: "Nous favorisons l'interaction entre investisseurs et administration, et permettons aux investisseurs de suivre l'évolution de leurs dossiers à distance.",
         color: "#F5BA3A"
     },
 ];
@@ -224,7 +224,7 @@ const home = () => {
 
             <div className="second-content">
                 <div className="second-title">
-                    <h2 className="text-2xl font-semibold mt-4 mb-2">Ses Objectifs</h2>
+                    <h2 className=" font-black max-w-xl uppercase text-4xl mt-4 mb-2 leading-10 pb-5">Gérez votre investissement de manière efficace et efficiente</h2>
                     <span id="divider"></span>
                 </div>
                 <div className="w-full flex flex-row justify-evenly">
@@ -239,7 +239,6 @@ const home = () => {
                     ))}
                 </div>
             </div>
-
             <div className='third-content'>
                 <h2 className="text-2xl font-semibold mt-4 mb-2">Qui peut utiliser cette plateforme</h2>
                 <span id="divider"></span>

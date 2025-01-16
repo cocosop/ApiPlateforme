@@ -94,7 +94,11 @@
 
 .second-content h2 {
     color: #0F0B60;
-    font-weight: 600;
+}
+
+.grainy-background {
+    background: rgb(15, 11, 96);
+    background: radial-gradient(circle, rgba(15, 11, 96, 1) 0%, rgba(17, 11, 149, 1) 100%);
 }
 
 .second-content {
