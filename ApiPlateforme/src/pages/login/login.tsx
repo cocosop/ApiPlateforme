@@ -4,10 +4,15 @@ import AppleIcon from "@mui/icons-material/Apple";  // Icône Apple
 import LOGIN from "../../assets/img/account_illustration.png";
 import { VisibilityOff, Visibility } from "@mui/icons-material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
   const [showPassword, setShowPassword] = React.useState(false);
+
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const history = useNavigate();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -18,6 +23,15 @@ const Login = () => {
   const handleMouseUpPassword = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
   };
+
+  const handleConnection = () => {
+    if (email === "" || password === "") {
+      alert("Veuillez remplir tous les champs");
+    } else {
+      alert("Connexion réussie");
+      history("/projets");
+    }
+  }
 
   return (
     <Box
@@ -105,12 +119,16 @@ const Login = () => {
             margin="normal"
             label="Adresse e-mail"
             variant="outlined"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <FormControl fullWidth margin="normal" variant="outlined">
             <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
             <OutlinedInput
               id="outlined-adornment-password"
               type={showPassword ? 'text' : 'password'}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
@@ -132,6 +150,7 @@ const Login = () => {
           <Button
             fullWidth
             variant="contained"
+            onClick={() => handleConnection()}
 
             sx={{ backgroundColor: "#2A337B", mt: 2, textTransform: "none", borderRadius: "8px" }}
           >

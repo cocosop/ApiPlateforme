@@ -1,7 +1,7 @@
 import { BuildingOffice2Icon, ChartBarIcon, CogIcon } from '@heroicons/react/20/solid'
+import { useState } from 'react';
 import { NavLink } from "react-router-dom";
 import AccordionsComponent from '../../../components/accordionsComponent/accordionsComponent';
-import { useState } from 'react';
 
 const features = [
     {
@@ -23,10 +23,10 @@ const features = [
 ]
 
 const imagesCards = [
-    { imageSrc: 'https://images.unsplash.com/photo-1521618755572-156ae0cdd74d?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'solaire' },
-    { imageSrc: 'https://images.unsplash.com/photo-1467579424161-6bbc141569d7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'eolienne' },
-    { imageSrc: 'https://plus.unsplash.com/premium_photo-1678167657597-665c6589a3a6?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'hydraulique' },
-    { imageSrc: 'https://images.unsplash.com/photo-1678984239787-96f69f24ac22?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'carburant' },
+    { imageSrc: 'https://img.freepik.com/photos-gratuite/grands-gratte-ciel-marron-palmiers-verts-devant-eux_1304-5311.jpg?t=st=1736268949~exp=1736272549~hmac=360db4019decd451217bdd534a57cf2167967389e28cf02b32c05fb620761b65&w=360', imageAlt: 'immeuble' },
+    { imageSrc: 'https://img.freepik.com/photos-gratuite/carrefour_1063-101.jpg?t=st=1736272775~exp=1736276375~hmac=41e6adaadde36f28696fcb4cd9b070b65b7f2c7c5d34233ef890d459035fec85&w=360', imageAlt: 'echangeur' },
+    { imageSrc: 'https://images.unsplash.com/photo-1682924754699-dcf11b641343?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cm91dGUlMjBjYW1lcm91bnxlbnwwfHwwfHx8Mg%3D%3D', imageAlt: 'route' },
+    { imageSrc: 'https://images.unsplash.com/photo-1561473279-9d1c58970559?q=80&w=1630&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'pont' },
 ];
 
 // Interface montrant la structure des données des accordéons
@@ -156,7 +156,8 @@ const faqGroups: FaqGroup[] = [
     },
 ];
 
-const energie = () => {
+
+const infrastructure = () => {
     const [expanded, setExpanded] = useState<string | false>(false);
 
     const handleChange =
@@ -167,13 +168,13 @@ const energie = () => {
         <div>
             <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
                 <img
-                    src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    className="absolute inset-0 -z-10 size-full object-cover object-right md:object-center"
+                    src="https://img.freepik.com/photos-gratuite/vue-aerienne-drone-du-centre-ville-chisinau-vue-panoramique-plusieurs-routes-batiments_1268-18556.jpg?t=st=1736263381~exp=1736266981~hmac=a4683c8b514ce67fb3cefc8ef21265a7db45bd841b068780a43ccc8c112c3894&w=826"
+                    className="absolute inset-0 -z-10 size-full object-cover md:object-center"
                 />
                 <div className="px-6 lg:px-8">
-                    <h2 className="text-xl/6 font-semibold text-[#F5BA3A]">Secteur de</h2>
-                    <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-                        l'Energie
+                    <h2 className="text-xl/6 font-semibold text-[#DC2123]">Secteur des</h2>
+                    <p className="mt-2 text-pretty text-4xl font-semibold text-white tracking-tight sm:text-5xl">
+                        Infrastructures
                     </p>
                 </div>
             </div>
@@ -182,7 +183,7 @@ const energie = () => {
                 <div aria-hidden="true" className="text-slate-400 select-none">/</div>
                 <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>Sections et Opportunités</NavLink>
                 <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <NavLink className="text-slate-500 hover:text-slate-600" to={'/secteur-de-lagriculture'}>Energie</NavLink>
+                <NavLink className="text-slate-500 hover:text-slate-600" to={'/secteur-du-tourisme'}>Infrastucture</NavLink>
             </div>
             <div className="overflow-hidden bg-white py-20 sm:py-20">
                 <div className="flex flex-col items-center">
@@ -247,4 +248,4 @@ const energie = () => {
     );
 };
 
-export default energie;
+export default infrastructure;
