@@ -1,7 +1,7 @@
 import { BuildingOffice2Icon, ChartBarIcon, CogIcon } from '@heroicons/react/20/solid'
+import { useState } from 'react';
 import { NavLink } from "react-router-dom";
 import AccordionsComponent from '../../../components/accordionsComponent/accordionsComponent';
-import { useState } from 'react';
 
 const features = [
     {
@@ -23,10 +23,10 @@ const features = [
 ]
 
 const imagesCards = [
-    { imageSrc: 'https://images.unsplash.com/photo-1665597681049-39532eed2661?q=80&w=1424&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'Cacao' },
-    { imageSrc: 'https://images.unsplash.com/photo-1617631716600-6a454b430367?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'plantain' },
-    { imageSrc: 'https://images.unsplash.com/photo-1522579479806-486feddb6d25?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'tomate' },
-    { imageSrc: 'https://images.unsplash.com/photo-1599405311017-688984be61cb?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'oignon' },
+    { imageSrc: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'code' },
+    { imageSrc: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=1551&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'data' },
+    { imageSrc: 'https://images.unsplash.com/photo-1667984390538-3dea7a3fe33d?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'cloud' },
+    { imageSrc: 'https://images.unsplash.com/photo-1697577418970-95d99b5a55cf?q=80&w=1392&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'ia' },
 ];
 
 // Interface montrant la structure des données des accordéons
@@ -156,7 +156,8 @@ const faqGroups: FaqGroup[] = [
     },
 ];
 
-const agriculture = () => {
+
+const numerique = () => {
     const [expanded, setExpanded] = useState<string | false>(false);
 
     const handleChange =
@@ -167,13 +168,13 @@ const agriculture = () => {
         <div>
             <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
                 <img
-                    src="https://images.unsplash.com/photo-1560493676-04071c5f467b?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    className="absolute inset-0 -z-10 size-full object-cover object-right md:object-center"
+                    src="https://img.freepik.com/vecteurs-libre/technologie-internet-nuage_53876-94170.jpg?t=st=1736259255~exp=1736262855~hmac=57bd48e8de98642ca8674a4eecff8b05f5675dbbbb8c254a2e65321f00ee27a8&w=740"
+                    className="absolute inset-0 -z-10 size-full object-cover md:object-center"
                 />
                 <div className="px-6 lg:px-8">
-                    <h2 className="text-xl/6 font-semibold text-[#0E600B]">Secteur de</h2>
-                    <p className="mt-2 text-pretty text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-                        l'Agriculture
+                    <h2 className="text-xl/6 font-semibold">Secteur des</h2>
+                    <p className="mt-2 text-pretty text-4xl font-semibold text-white tracking-tight sm:text-5xl">
+                        TIC
                     </p>
                 </div>
             </div>
@@ -182,10 +183,10 @@ const agriculture = () => {
                 <div aria-hidden="true" className="text-slate-400 select-none">/</div>
                 <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>Sections et Opportunités</NavLink>
                 <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <NavLink className="text-slate-500 hover:text-slate-600" to={'/secteur-de-lagriculture'}>Agriculture</NavLink>
+                <NavLink className="text-slate-500 hover:text-slate-600" to={'/secteur-des-tic'}>TIC</NavLink>
             </div>
             <div className="overflow-hidden bg-white py-20 sm:py-20">
-                <div className="flex flex-col align-center">
+                <div className="flex flex-col items-center">
                     <h2 className="text-2xl font-semibold mb-2 text-center text-[#0F0B60]">Présentation du secteur</h2>
                     <span id="divider"></span>
                 </div>
@@ -247,4 +248,4 @@ const agriculture = () => {
     );
 };
 
-export default agriculture;
+export default numerique;
