@@ -187,7 +187,10 @@ const testimonies = [
 const home = () => {
     return (
         <div>
-            <div className="hero-container bg-gray-100 grid p-20 grid-cols-1 gap-x-6 xl:grid-cols-1 lg:grid-cols-1 items-center">
+            <div className="hero-container bg-gray-100 grid p-20 grid-cols-1 gap-x-6 xl:grid-cols-1 lg:grid-cols-1 items-center relative">
+                <div className="absolute bottom-10 right-4z-10 h-24 rounded">
+                    scroll
+                </div>
                 <video className="video-background" autoPlay muted loop>
                     <source src={HOMEVIDEOUPDATED} type="video/mp4" />
                     Your browser does not support the video tag.
