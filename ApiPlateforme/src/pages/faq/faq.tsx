@@ -1,8 +1,7 @@
 import './faq.css'
 import FAQ from '../../assets/img/faq-image.png'
 import React, { useState } from 'react';
-import { Accordion, AccordionDetails, AccordionSummary, Typography } from '@mui/material';
-import { ExpandMore } from '@mui/icons-material'
+import AccordionsComponent from '../../components/accordionsComponent/accordionsComponent';
 
 // Interface montrant la structure des données des accordéons
 interface AccordionData {
@@ -18,7 +17,6 @@ interface FaqGroup {
 }
 
 // Les tableaux contenant les différentes données des accordéons 
-
 const accordionData1: AccordionData[] = [
     {
         id: 'panel1',
@@ -166,7 +164,6 @@ const accordionData5: AccordionData[] = [
 ];
 
 //Le tableau contenant les titres des catégories des accordéons
-
 const faqGroups: FaqGroup[] = [
     {
         title: 'Accès au foncier pour l\'investissement',
@@ -211,29 +208,19 @@ const faq = () => {
                         </div>
                         {accordions &&
                             accordions.map(({ id, summaryTitle, details }) => (
-                                <Accordion
+                                <AccordionsComponent
                                     key={id}
-                                    expanded={expanded === id} onChange={handleChange(id)}
-                                    sx={{ mb: 2 }}
-                                >
-                                    <AccordionSummary
-                                        expandIcon={<ExpandMore sx={{ color: '#2A337B' }} />}
-                                        aria-controls={`${id}bh-content`}
-                                        id={`${id}bh-header`}
-                                    >
-                                        <Typography sx={{ color: '#0F0B60' }}>{summaryTitle}</Typography>
-                                    </AccordionSummary>
-                                    <AccordionDetails sx={{ backgroundColor: '#0F0B60', color: '#FFFFFF' }}>
-                                        <Typography>{details}</Typography>
-                                    </AccordionDetails>
-                                </Accordion>
+                                    id={id}
+                                    summaryTitle={summaryTitle}
+                                    details={details}
+                                    expanded={expanded}
+                                    handleChange={handleChange}
+                                />
                             ))}
-
                     </div>
                 ))}
             </div>
         </div>
-
     );
 };
 

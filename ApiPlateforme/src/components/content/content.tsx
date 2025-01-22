@@ -13,6 +13,9 @@ import FacteursProduction from '../../pages/investir/facteursProduction/facteurs
 import Foncier from '../../pages/investir/foncier/foncier';
 import Fiscalite from '../../pages/investir/fiscalite/fiscalite';
 import DroitInvestisseur from '../../pages/investir/droitInvestisseur/droitInvestisseur';
+import Agriculture from '../../pages/sectors/agriculture/agriculture';
+import Energie from '../../pages/sectors/energie/energie';
+import Tic from '../../pages/sectors/tic/tic';
 
 interface ContentProps {
     selectedMenu: any | null;
@@ -27,6 +30,9 @@ const content: React.FC<ContentProps> = ({ selectedMenu }) => {
                 <Route path='/signup' element={<Logup />} />
                 <Route path='/faq' element={<Faq />} />
                 <Route path='/projets' element={<Projets />} />
+                <Route path='/secteur-de-lagriculture' element={<Agriculture />} />
+                <Route path='/secteur-de-lenergie' element={<Energie />} />
+                <Route path='/secteur-des-tic' element={<Tic />} />
                 <Route path='/creer-son-entreprise' element={<CreerEntreprise/>} />
                 <Route path='/main-d-oeuvre' element={<MainOeuvre/>} />
                 <Route path='/facteurs-de-production' element={<FacteursProduction/>} />
