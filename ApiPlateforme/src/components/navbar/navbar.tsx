@@ -19,7 +19,20 @@ import {
   UserGroupIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
-import { BeakerIcon, ChatBubbleBottomCenterTextIcon, ChevronDownIcon, ComputerDesktopIcon, CubeTransparentIcon, CurrencyDollarIcon, DocumentTextIcon, FireIcon, QuestionMarkCircleIcon, ScaleIcon, ScissorsIcon, SparklesIcon } from '@heroicons/react/20/solid'
+import {
+  BeakerIcon,
+  ChatBubbleBottomCenterTextIcon,
+  ChevronDownIcon,
+  ComputerDesktopIcon,
+  CubeTransparentIcon,
+  CurrencyDollarIcon,
+  DocumentTextIcon,
+  FireIcon,
+  QuestionMarkCircleIcon,
+  ScaleIcon,
+  ScissorsIcon,
+  SparklesIcon
+} from '@heroicons/react/20/solid'
 import Logo from '../../assets/img/logo.png'
 import { Link } from 'react-router-dom'
 import CameroonFlag from '../../assets/img/Camer.png'
@@ -34,7 +47,7 @@ const infos = [
   {
     name: "Présentation du Cameroun",
     description: "Découvrez les opportunités stratégiques, économiques et naturelles du Cameroun qui attirent les investisseurs du monde entier.",
-    link: "/pourquoi-investir-au-cameroun",
+    link: "/presentation-du-cameroun",
     icon: LightBulbIcon
   },
   {
@@ -50,7 +63,6 @@ const infos = [
     icon: DocumentTextIcon
   },
 ];
-
 
 const investir = [
   { name: "Main d'oeuvre", description: "Informations sur les ressources humaines et la disponibilité de la main-d'œuvre.", link: "/main-d-oeuvre", icon: UserGroupIcon },
@@ -88,19 +100,15 @@ const categories = [
   },
 ];
 
-
 const aPropos = [
   { name: "Présentation de l'API", description: "Découvrez le rôle de l’Agence de Promotion des Investissements dans l’accompagnement et la facilitation des projets d’investissement au Cameroun.", link: "/presentation-de-lAPI", icon: BuildingOfficeIcon },
   { name: "FAQ", description: "Trouvez des réponses rapides et claires à vos questions fréquentes concernant l’investissement au Cameroun.", link: "/FAQ", icon: QuestionMarkCircleIcon },
   { name: "Conseil en ligne", description: "Accédez à une assistance personnalisée et obtenez des réponses rapides à toutes vos questions sur les opportunités d'investissement.", link: "/conseil-en-ligne", icon: ChatBubbleBottomCenterTextIcon },
 ]
 
-
 const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 
-
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
   const [isOpen, setIsOpen] = useState(false);
   const [language, setLanguage] = useState('fr')
 

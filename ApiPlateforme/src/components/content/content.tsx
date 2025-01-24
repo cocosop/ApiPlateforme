@@ -10,6 +10,7 @@ import Agriculture from '../../pages/sectors/agroindustrie/agroindustrie';
 import Energie from '../../pages/sectors/energie/energie';
 import Infrastructure from '../../pages/sectors/infrastructure/infrastructure';
 import Numerique from '../../pages/sectors/numerique/numerique';
+import PresentationCameroun from '../../pages/informations-generales/presentation-cameroun/presentation-cameroun';
 
 interface ContentProps {
     selectedMenu: any | null;
@@ -20,6 +21,7 @@ const content: React.FC<ContentProps> = ({ selectedMenu }) => {
         <div>
             <Routes>
                 <Route path='/' element={<Home />} />
+                <Route path='/presentation-du-cameroun' element={<PresentationCameroun />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/faq' element={<Faq />} />
                 <Route path='/projets' element={<Projets />} />
