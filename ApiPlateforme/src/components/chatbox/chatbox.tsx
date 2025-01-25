@@ -74,7 +74,7 @@ const Chatbot = () => {
             </button>
 
             {isOpen && (
-                <div className="flex flex-col h-96 w-80 bg-white border border-gray-300 rounded-lg shadow-lg mt-4">
+                <div className="flex flex-col h-96 w-80 bg-blue border border-gray-300 rounded-lg shadow-lg mt-4">
                     {/* Entête */}
                     <div className="flex items-center justify-between p-4 bg-dark-green text-white rounded-t-lg">
                         <h2 className="text-lg font-semibold">Chatbot</h2>
