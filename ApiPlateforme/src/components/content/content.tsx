@@ -12,6 +12,7 @@ import Infrastructure from '../../pages/sectors/infrastructure/infrastructure';
 import Numerique from '../../pages/sectors/numerique/numerique';
 import PresentationCameroun from '../../pages/informations-generales/presentation-cameroun/presentation-cameroun';
 import Logup from '../../pages/authentification/logup/logup';
+import CadreJuridiqueFiscal from '../../pages/informations-generales/cadre-juridique-fiscal/cadre-juridique-fiscal';
 
 interface ContentProps {
     selectedMenu: any | null;
@@ -25,6 +26,7 @@ const content: React.FC<ContentProps> = ({ selectedMenu }) => {
                 <Route path='/signin' element={<Login />} />
                 <Route path='/signup' element={<Logup />} />
                 <Route path='/presentation-du-cameroun' element={<PresentationCameroun />} />
+                <Route path='/cadre-juridique-et-fiscal' element={<CadreJuridiqueFiscal />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/faq' element={<Faq />} />
                 <Route path='/projets' element={<Projets />} />
