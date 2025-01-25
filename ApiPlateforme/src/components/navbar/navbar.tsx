@@ -19,6 +19,7 @@ import {
   UserGroupIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
+
 import {
   BeakerIcon,
   ChatBubbleBottomCenterTextIcon,
@@ -38,10 +39,13 @@ import { Link } from 'react-router-dom'
 import CameroonFlag from '../../assets/img/Camer.png'
 import { Divider } from '@mui/material'
 import './navbar.css'
+import React from 'react'
+
 
 interface NavbartProps {
   onMenuClick: any | null;
 }
+
 
 const infos = [
   {
@@ -64,10 +68,12 @@ const infos = [
   },
 ];
 
+
 const investir = [
   { name: "Main d'oeuvre", description: "Informations sur les ressources humaines et la disponibilité de la main-d'œuvre.", link: "/main-d-oeuvre", icon: UserGroupIcon },
   { name: "Facteurs de production", description: "Ressources clés pour la production, y compris le capital et les infrastructures.", link: "/factures-de-production", icon: CogIcon },
 ]
+
 
 const categories = [
   {
@@ -100,6 +106,8 @@ const categories = [
   },
 ];
 
+
+
 const aPropos = [
   { name: "Présentation de l'API", description: "Découvrez le rôle de l’Agence de Promotion des Investissements dans l’accompagnement et la facilitation des projets d’investissement au Cameroun.", link: "/presentation-de-lAPI", icon: BuildingOfficeIcon },
   { name: "FAQ", description: "Trouvez des réponses rapides et claires à vos questions fréquentes concernant l’investissement au Cameroun.", link: "/FAQ", icon: QuestionMarkCircleIcon },
@@ -108,7 +116,9 @@ const aPropos = [
 
 const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   const [isOpen, setIsOpen] = useState(false);
   const [language, setLanguage] = useState('fr')
 
