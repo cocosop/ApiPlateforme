@@ -60,6 +60,7 @@ interface NavbartProps {
   onMenuClick: any | null;
 }
 
+
 const infos = [
   {
     name: "Présentation du Cameroun",
@@ -81,6 +82,7 @@ const infos = [
   },
 ];
 >>>>>>> Giovani:ApiPlateforme/src/components/navbar/navbar.tsx
+
 
 const investir = [
   {
@@ -121,6 +123,7 @@ const investir = [
   }
 ];
 
+
 const categories = [
   {
     name: "Sanctuaires",
@@ -151,6 +154,8 @@ const categories = [
     ],
   },
 ];
+
+
 
 const aPropos = [
   { name: "Présentation de l'API", description: "Découvrez le rôle de l’Agence de Promotion des Investissements dans l’accompagnement et la facilitation des projets d’investissement au Cameroun.", link: "/presentation-de-lAPI", icon: BuildingOfficeIcon },

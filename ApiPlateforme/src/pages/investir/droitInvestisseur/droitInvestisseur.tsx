@@ -1,12 +1,13 @@
+import React from 'react'
 import { NavLink } from 'react-router-dom'
-import facteur from "../../../assets/img/production.jpg"
+import droit from "../../../assets/img/foncier.jpg"
 
 
-const FacteursProduction = () => {
+const DroitInvestisseur = () => {
     return (
         <div>
             <div className="relative isolate overflow-hidden bg-green-900 py-24 sm:py-32">
-                <img src={facteur} alt="" className="absolute inset-0 -z-10 size-full object-cover object-right md:object-center opacity-30" />
+                <img src={droit} alt="" className="absolute inset-0 -z-10 size-full object-cover object-right md:object-center opacity-30" />
                 <div className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
                     <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-20" ></div>
                 </div>
@@ -16,25 +17,20 @@ const FacteursProduction = () => {
 
                 <div className="mx-auto max-w-2xl">
                     <h2 className="text-5xl font-semibold tracking-tight text-white text-center">
-                        Facteurs de Production
+                        Droits de l'Investisseur
                     </h2>
                 </div>
             </div>
             <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
                 <NavLink className="text-slate-500 hover:text-slate-600" to={'/'}>Accueil</NavLink>
                 <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-<<<<<<< HEAD
-                <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>Guide de l'investisseur</NavLink>
-                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <NavLink className="text-slate-500 hover:text-slate-600" to={'/facteurs-de-production'}>Facteurs de production</NavLink>
-=======
                 <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>Investir</NavLink>
                 <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <NavLink className="text-slate-500 hover:text-slate-600" to={'/secteur-de-lagriculture'}>Facteurs de production</NavLink>
->>>>>>> 25bdc8aec512523de76b938597bab850b574e63e
+                <NavLink className="text-slate-500 hover:text-slate-600" to={'/secteur-de-lagriculture'}>Droits de l'investisseur</NavLink>
             </div>
+
         </div>
     )
 }
 
-export default FacteursProduction
+export default DroitInvestisseur

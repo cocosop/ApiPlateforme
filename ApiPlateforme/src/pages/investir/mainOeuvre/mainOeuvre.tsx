@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import oeuvre from "../../../assets/img/mainOeuvre.jpg"
@@ -11,6 +12,23 @@ const MainOeuvre = () => {
   //     easing: 'ease-in-out', // Effet de l'animation
   //   });
   // }, []);
+=======
+import React, { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import oeuvre from "../../../assets/img/mainOeuvre.jpg"
+import { AcademicCapIcon, BookOpenIcon, BriefcaseIcon, ChartBarIcon, ClipboardIcon } from '@heroicons/react/16/solid';
+import ModalsMainOeuvre from "../../../components/modalsMainOeuvre/modalsMainOeuvre"
+import AOS from 'aos';
+
+const MainOeuvre = () => {
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Durée de l'animation
+      easing: 'ease-in-out', // Effet de l'animation
+    });
+  }, []);
+>>>>>>> 25bdc8aec512523de76b938597bab850b574e63e
 
   // Définition du type pour les données de population 
   interface PopulationData { year: number; population: string; color: string; }
@@ -43,12 +61,21 @@ const MainOeuvre = () => {
     },
   ]
 
+<<<<<<< HEAD
   // interface Slides {
   //   id: string;
   //   title: string;
   //   content: string;
   //   color: string;
   // }
+=======
+  interface Slides {
+    id: string;
+    title: string;
+    content: string;
+    color: string;
+  }
+>>>>>>> 25bdc8aec512523de76b938597bab850b574e63e
 
 
   const [activeIndex, setActiveIndex] = useState<number>(2);
@@ -327,6 +354,7 @@ const MainOeuvre = () => {
           </p>
         </div>
       </div>
+<<<<<<< HEAD
     </div>
       <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
         <NavLink className="text-slate-500 hover:text-slate-600" to={'/'}>Accueil</NavLink>
@@ -335,6 +363,17 @@ const MainOeuvre = () => {
         <div aria-hidden="true" className="text-slate-400 select-none">/</div>
         <NavLink className="text-slate-500 hover:text-slate-600" to={'/main-doeuvre'}>Main d'œuvre</NavLink>
       </div>
+=======
+      <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-20 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
+        <NavLink className="text-slate-500 hover:text-slate-600" to={'/'}>Accueil</NavLink>
+        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+        <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>Investir</NavLink>
+        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+        <NavLink className="text-slate-500 hover:text-slate-600" to={'/secteur-de-lagriculture'}>main d'oeuvre</NavLink>
+      </div>
+    </div>
+
+>>>>>>> 25bdc8aec512523de76b938597bab850b574e63e
       <div className="bg-gray-100 min-h-screen">
         <main className="container mx-auto p-6 space-y-8">
           {/* Container pour aligner deux divs sur une ligne */}
