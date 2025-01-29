@@ -1,5 +1,6 @@
 import { CheckCircleIcon } from '@heroicons/react/20/solid';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const CadreJuridiqueFiscal: React.FC = () => {
     const infos = [
@@ -178,6 +179,13 @@ const CadreJuridiqueFiscal: React.FC = () => {
                     </p>
                 </div>
             </div>
+            <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
+                <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
+                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+                <p className="text-slate-500">Informations générales</p>
+                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+                <p className="text-slate-500">Cadre juridique et fiscal</p>
+            </div>
             <section className="bg-white py-20 sm:py-20 relative">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="relative mt-8 lg:row-span-2 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500">
@@ -198,8 +206,6 @@ const CadreJuridiqueFiscal: React.FC = () => {
                     </div>
                 </div>
             </section>
-
-
             <section className="mx-auto mb-4 max-w-2xl px-6 lg:max-w-7xl lg:px-8">
                 {infos.map((section, index) => (
                     <section

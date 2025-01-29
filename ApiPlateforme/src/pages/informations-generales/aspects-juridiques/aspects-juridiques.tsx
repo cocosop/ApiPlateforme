@@ -1,5 +1,6 @@
 import { ArrowTopRightOnSquareIcon, BookOpenIcon, GlobeAltIcon, ScaleIcon } from '@heroicons/react/20/solid';
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import 'tailwindcss/tailwind.css';
 
 const AspectsJuridiques: React.FC = () => {
@@ -45,6 +46,14 @@ const AspectsJuridiques: React.FC = () => {
                         Découvrez les spécificités du droit camerounais, mélange unique de traditions juridiques
                     </p>
                 </div>
+            </div>
+
+            <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
+                <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
+                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+                <p className="text-slate-500">Informations générales</p>
+                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+                <p className="text-slate-500">Aspects juridiques</p>
             </div>
             <section className='mx-auto m-4 max-w-2xl px-6 lg:max-w-7xl lg:px-8'>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">

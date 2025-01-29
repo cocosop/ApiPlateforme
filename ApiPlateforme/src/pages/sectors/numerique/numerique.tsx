@@ -179,11 +179,11 @@ const numerique = () => {
                 </div>
             </div>
             <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-                <NavLink className="text-slate-500 hover:text-slate-600" to={'/'}>Accueil</NavLink>
+                <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
                 <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>Sections et Opportunités</NavLink>
+                <p className="text-slate-500" >Sections et Opportunités</p>
                 <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <NavLink className="text-slate-500 hover:text-slate-600" to={'/secteur-des-tic'}>TIC</NavLink>
+                <p className="text-slate-500">Sanctuaire Numérique</p>
             </div>
             <div className="overflow-hidden bg-white py-20 sm:py-20">
                 <div className="flex flex-col items-center">

@@ -92,7 +92,7 @@ const investir = [
   {
     name: "Facteurs de production",
     description: "Informations sur les ressources nécessaires : capital, matières premières, et équipements.",
-    link: "/facteurs-production",
+    link: "/facteurs-de-production",
     icon: CogIcon
   },
   {

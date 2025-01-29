@@ -4,7 +4,7 @@ import Login from '../../pages/login/login';
 import Faq from '../../pages/faq/faq';
 import Projets from '../../pages/projets/projets';
 import DetailProjet from '../../pages/detailProjet/detailProjet';
-import { staticData } from './../../staticData';
+import { staticData } from '../../staticData';
 import Blank from '../../pages/blank/blank';
 import Energie from '../../pages/sectors/energie/energie';
 import Infrastructure from '../../pages/sectors/infrastructure/infrastructure';

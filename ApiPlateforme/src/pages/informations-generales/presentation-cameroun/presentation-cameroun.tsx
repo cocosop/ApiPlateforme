@@ -1,5 +1,6 @@
 import { InformationCircleIcon, StarIcon } from '@heroicons/react/20/solid';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const PresentationCameroun: React.FC = () => {
     const images = [
@@ -73,6 +74,13 @@ const PresentationCameroun: React.FC = () => {
                         Un pays d'opportunités et de diversité
                     </p>
                 </div>
+            </div>
+            <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
+                <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
+                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+                <p className="text-slate-500">Informations générales</p>
+                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+                <p className="text-slate-500">Présentation du Cameroun</p>
             </div>
             <div className="bg-white py-20 sm:py-20 relative">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
