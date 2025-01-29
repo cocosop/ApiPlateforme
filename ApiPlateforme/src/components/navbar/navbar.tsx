@@ -1,14 +1,3 @@
-<<<<<<< HEAD:src/components/navbar/navbar.tsx
-import { useEffect, useState } from "react";
-import "./navbar.css";
-import { Link, NavLink } from "react-router-dom";
-import { Box, Button, Menu, MenuItem, Toolbar, Typography } from "@mui/material";
-import Camer from '../../assets/img/Camer.png'
-import Logo from '../../assets/img/logo.png'
-import { KeyboardArrowDown } from "@mui/icons-material";
-import Grid from "@mui/system/Grid";
-import Language from "@mui/icons-material/Language";
-=======
 import { useEffect, useRef, useState } from 'react'
 import {
   CloseButton,
@@ -60,7 +49,6 @@ interface NavbartProps {
   onMenuClick: any | null;
 }
 
-
 const infos = [
   {
     name: "Présentation du Cameroun",
@@ -81,8 +69,6 @@ const infos = [
     icon: DocumentTextIcon
   },
 ];
->>>>>>> Giovani:ApiPlateforme/src/components/navbar/navbar.tsx
-
 
 const investir = [
   {
@@ -123,7 +109,6 @@ const investir = [
   }
 ];
 
-
 const categories = [
   {
     name: "Sanctuaires",
@@ -154,8 +139,6 @@ const categories = [
     ],
   },
 ];
-
-
 
 const aPropos = [
   { name: "Présentation de l'API", description: "Découvrez le rôle de l’Agence de Promotion des Investissements dans l’accompagnement et la facilitation des projets d’investissement au Cameroun.", link: "/presentation-de-lAPI", icon: BuildingOfficeIcon },
@@ -280,59 +263,9 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
           </div>
           <PopoverGroup className="hidden lg:flex lg:gap-x-12 items-center">
 
-<<<<<<< HEAD:src/components/navbar/navbar.tsx
-  return (
-    <div className="contenair1">
-      <div className="contenair2">
-        <div className="nav1">
-          <Grid container spacing={1} width={"100%"}>
-            <Grid size={{ md: 11 }} marginLeft={"auto"} marginRight={"auto"}>
-              <Box pt={2} sx={{ display: 'flex', justifyContent: "space-between" }}>
-                <img className="image1" src={Camer} />
-                <Button variant="text" startIcon={<Language />} color={"inherit"} >
-                  Francais
-                </Button>
-              </Box>
-            </Grid>
-            <Grid size={{ md: 12 }}>
-              <Box sx={{ display: "flex", justifyContent: "center" }}>
-                <nav className={`navbar ${isFixed ? "fixed" : ""}`}>
-                  <Link to="/" className="title">
-                    <img className="nav-logo" src={Logo} alt="Logo" />
-                  </Link>
-                  <Toolbar>
-                    <NavLink style={{ marginRight: "0.5rem", textDecoration: "none", color: "black", fontWeight: 600, fontSize: "0.9rem" }} to="/">Le Cameroun</NavLink>
-                    {menuData.map((menu) => (
-                      <Button
-                        key={menu.menuname}
-                        style={{ color: "black", fontWeight: 600, textTransform: "initial" }}
-                        onMouseEnter={(event) => handleOpen(event, menu.children, menu.menuname)}
-                        sx={{
-                          color: selectedMenu === menu.menuname ? 'white!important' : 'inherit',
-                          backgroundColor: selectedMenu === menu.menuname ? '#0F0B60' : 'transparent',
-                          '&:hover': {
-                            backgroundColor: 'primary.light',
-                            color: "white!important"
-                          },
-                        }}
-                      >
-                        {menu.menuname}
-                        < KeyboardArrowDown />
-                      </Button>
-                    ))}
-                    <Menu
-                      anchorEl={anchorEl}
-                      open={Boolean(anchorEl)}
-                      onClose={handleClose}
-                      onMouseLeave={handleClose}
-                      PaperProps={{
-                        style: { width: 500 },
-                      }}
-=======
             <Link to={"/"} className="text-sm/6 font-semibold text-gray-900">
               Accueil
             </Link>
->>>>>>> Giovani:ApiPlateforme/src/components/navbar/navbar.tsx
 
             <Popover className="relative">
               <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
@@ -349,19 +282,6 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                       key={item.name}
                       className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
                     >
-<<<<<<< HEAD:src/components/navbar/navbar.tsx
-                      <Box padding={2}>
-                        {activeMenu.length > 0 ? (
-                          <Grid container spacing={2}>
-                            {activeMenu.map((item: { "menuname": string, link?: string }, index) => (
-                              <Grid container key={index}>
-                                <MenuItem onClick={handleClose}>
-                                  <NavLink style={{ textDecoration: "none", color: "#000" }} to={item.link ? item.link : "#"}>
-                                    {item.menuname}
-                                  </NavLink>
-                                </MenuItem>
-                              </Grid>
-=======
                       <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                         <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
                       </div>
@@ -593,7 +513,6 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                                   {item.name}
                                 </div>
                               </CloseButton>
->>>>>>> Giovani:ApiPlateforme/src/components/navbar/navbar.tsx
                             ))}
                           </div>
                         </div>

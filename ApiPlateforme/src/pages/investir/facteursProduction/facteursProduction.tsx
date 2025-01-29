@@ -23,15 +23,9 @@ const FacteursProduction = () => {
             <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
                 <NavLink className="text-slate-500 hover:text-slate-600" to={'/'}>Accueil</NavLink>
                 <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-<<<<<<< HEAD
                 <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>Guide de l'investisseur</NavLink>
                 <div aria-hidden="true" className="text-slate-400 select-none">/</div>
                 <NavLink className="text-slate-500 hover:text-slate-600" to={'/facteurs-de-production'}>Facteurs de production</NavLink>
-=======
-                <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>Investir</NavLink>
-                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <NavLink className="text-slate-500 hover:text-slate-600" to={'/secteur-de-lagriculture'}>Facteurs de production</NavLink>
->>>>>>> 25bdc8aec512523de76b938597bab850b574e63e
             </div>
         </div>
     )

@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-=======
-import React, { ReactNode } from 'react';
->>>>>>> 25bdc8aec512523de76b938597bab850b574e63e
 import ReactDOM from 'react-dom';
 
 interface ModalProps {
