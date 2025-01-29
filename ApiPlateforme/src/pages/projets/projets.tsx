@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography, Pagination, TextField, InputAdornment } from '@mui/material';
 import { ProjeTypes } from '../../types'; // Import de l'interface
 import { staticData } from './../../staticData'; // Make sure the import path is correct
@@ -9,16 +9,21 @@ import { NavLink } from 'react-router-dom';
 // Données statiques avec champs d'image
 
 const Projets = () => {
-  const [data] = useState<ProjeTypes[]>(staticData);
+  const [data, setData] = useState<ProjeTypes[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [page, setPage] = useState(1);
   const itemsPerPage = 5;
 
-  const handlePageChange = (_event: React.ChangeEvent<unknown>, value: number) => {
+  const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    console.log(event);
     setPage(value);
   };
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => { setSearchTerm(event.target.value); }; const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => { if (event.key === 'Enter') { event.preventDefault(); } }; const filteredData = data.filter(item => item.titre.toLowerCase().includes(searchTerm.toLowerCase()) || item.description.toLowerCase().includes(searchTerm.toLowerCase()) || item.ville.toLowerCase().includes(searchTerm.toLowerCase())); const paginatedData = filteredData.slice((page - 1) * itemsPerPage, page * itemsPerPage);
+
+  useEffect(() => {
+    setData(staticData)
+  }, []);
 
   return (
     <Box component="section" sx={{ p: 2, mt: 6 }}>

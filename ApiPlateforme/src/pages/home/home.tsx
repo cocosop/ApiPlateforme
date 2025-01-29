@@ -1,6 +1,5 @@
-import { Box, Card, CardActions, CardContent, Typography } from "@mui/material";
-import HOMEVIDEO from "../../assets/videos/home_video.mp4";
-import COLLABORATION from "../../assets/img/collaboration.png"
+import { Box, CardActions, CardContent, Typography } from "@mui/material";
+import HOMEVIDEOUPDATED from '../../assets/videos/COMPLEXE INDUSTRIALO-PORTUAIRE DE KRIBI (cameroun).mp4'
 import OPTIMISATION from "../../assets/img/optimisation.png"
 import AMELIORATION from "../../assets/img/amelioration.png"
 import SIMPLIFICATION from "../../assets/img/simplification.png"
@@ -13,6 +12,7 @@ import './home.css'
 import React from "react";
 import { ArrowForwardIos } from '@mui/icons-material'
 import { Link, NavLink } from "react-router-dom";
+import ActionButtonComponent from "../../components/actionButtonComponent/actionButtonComponent";
 
 // Interface for objective cards
 interface CustomCardProps {
@@ -32,26 +32,28 @@ interface CustomListProps {
 
 //Objective template
 const CustomCard: React.FC<CustomCardProps> = ({ image, title, description, color }) => (
-    <Box sx={{ width: "18rem", height: "27rem" }}>
-        <Card elevation={8} sx={{ height: "100%", displax: "flex", flexDirection: "column" }}>
-            <Box height={"100%"} display={"flex"} flexDirection={"column"} justifyContent={"space-between"}>
-                <CardContent sx={{ display: 'flex', justifyContent: 'center' }}>
-                    <img style={{ height: "5rem" }} src={image} />
-                </CardContent>
-                <CardContent sx={{ padding: '30px', paddingBottom: 0, backgroundColor: color, borderRadius: '100% 100% 0px 0px', overflow: 'hidden' }}>
-                    <Typography sx={{ padding: '15px 15px 0px 15px' }} variant="h6" color="white">
-                        {title}
-                    </Typography>
-                    <Typography variant="body2" color="white" sx={{ mt: 1.5 }}>{description}</Typography>
-                    <CardActions sx={{ justifyContent: 'center', backgroundColor: color, mb: 1.5 }}>
-                        <NavLink style={{ display: 'flex', color: 'white', textDecoration: 'none', alignItems: 'center' }} to={""} >
-                            Plus<ArrowForwardIos />
-                        </NavLink>
-                    </CardActions>
-                </CardContent>
-            </Box>
-        </Card>
-    </Box>
+    <div>
+        <div style={{ width: "21rem", height: "27rem" }}>
+            <div style={{ height: "100%", display: "flex", flexDirection: "column", backgroundColor: "#0f0b60", borderRadius: "5px" }}>
+                <Box height={"100%"} display={"flex"} flexDirection={"column"} justifyContent={"space-between"}>
+                    <CardContent sx={{ display: 'flex', justifyContent: 'center' }}>
+                        <img style={{ height: "5.5rem", marginTop: "1rem" }} src={image} />
+                    </CardContent>
+                    <CardContent sx={{ padding: '30px', paddingBottom: 0, backgroundColor: color, borderRadius: '100% 100% 5px 5px', overflow: 'hidden' }}>
+                        <Typography sx={{ padding: '15px 15px 0px 15px', fontWeight: "800" }} variant="h6" color="white">
+                            {title}
+                        </Typography>
+                        <Typography variant="body2" color="white" sx={{ mt: 1.5 }}>{description}</Typography>
+                        <CardActions sx={{ justifyContent: 'center', backgroundColor: color, mb: 1.5 }}>
+                            <NavLink style={{ display: 'flex', color: 'white', textDecoration: 'none', alignItems: 'center' }} to={""} >
+                                Plus<ArrowForwardIos />
+                            </NavLink>
+                        </CardActions>
+                    </CardContent>
+                </Box>
+            </div>
+        </div>
+    </div>
 );
 
 //Data table for the list of objectives
@@ -59,26 +61,20 @@ const cardData = [
     {
         image: SIMPLIFICATION,
         title: "Simplification et facilitation des processus",
-        description: "La plateforme prend en charge et simplifie la création d'entreprises et d'investissements, tout en rendant les procédures plus transparentes.",
+        description: "Nous prenons en charge et simplifions la création d'entreprises et d'investissements, tout en rendant les procédures plus transparentes.",
         color: "#0E600B"
     },
     {
         image: OPTIMISATION,
         title: "Optimisation du service public",
-        description: "La plateforme accélère le traitement des dossiers, améliore le rendement des agents et la qualité des prestations fournies.",
+        description: "Accélérez le traitement des dossiers, améliorez le rendement des agents et la qualité des prestations fournies.",
         color: "#DC2124"
     },
     {
         image: AMELIORATION,
         title: "Amélioration de la communication et du suivi ",
-        description: "Elle favorise l'interaction entre investisseurs et administration, et permet aux investisseurs de suivre l'évolution de leurs dossiers à distance.",
+        description: "Nous favorisons l'interaction entre investisseurs et administration, et permettons aux investisseurs de suivre l'évolution de leurs dossiers à distance.",
         color: "#F5BA3A"
-    },
-    {
-        image: COLLABORATION,
-        title: "Collaboration et accessibilité accrues",
-        description: "Elle améliore le fonctionnement des services publics, organise une meilleure collaboration entre eux, et facilite l'accès aux investisseurs, incluant un échange direct entre les agents et organismes concernés.",
-        color: "#0F0B60"
     },
 ];
 
@@ -189,13 +185,24 @@ const testimonies = [
 const home = () => {
     return (
         <div>
-            <div className="bg-gray-100 grid p-20 grid-cols-1 gap-x-6 xl:grid-cols-2 lg:grid-cols-2">
-                <div className="group relative">
+            <div className="hero-container bg-gray-100 grid p-20 grid-cols-1 gap-x-6 xl:grid-cols-1 lg:grid-cols-1 items-center relative">
+                <div className="absolute bottom-10 right-4z-10 h-24 rounded">
+                    scroll
+                </div>
+                <video className="video-background" autoPlay muted loop>
+                    <source
+                        src={HOMEVIDEOUPDATED}
+                        type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                </video>
+                <div className="video-background-overlay"></div>
+                <div className="group relative hero-content">
                     <div className="text-start">
-                        <h1 className="text-balance font-semibold tracking-tight text-[#0F0B60] sm:text-5xl">
-                            Plateforme numérique de <span className="text-[#0E600B]">l'investissement </span>
+                        <h1 className="max-w-2xl	text-balance font-bold tracking-tight text-[#0F0B60] sm:text-5xl subpixel-antialiased leading-8 p-4 bg-[#ffffffd1]">
+                            Portail d'investissement du <span className="text-[#0E600B]"> Cameroun </span>
                         </h1>
-                        <p className="mt-8 text-black sm:text-md/6">
+                        <p className="mt-8 font-light sm:text-md/6 leading-7 max-w-2xl text-justify text-white">
                             Découvrez les opportunités d'investissement au Cameroun grâce à notre portail dédié,
                             source incontournable pour les investisseurs. Accédez à des informations sur les secteurs
                             porteurs, la réglementation, des sites d’investissement géolocalisés et connectez-vous aux
@@ -204,26 +211,27 @@ const home = () => {
                         </p>
                         <div className="mt-10 flex items-center">
                             <NavLink to="/projets"
-                                className="rounded-md bg-[#0E600B] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#248920] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                                className="rounded-md p-3 border border-solid border-white hover:border-[#0E600B] text-sm font-semibold text-white shadow-sm hover:bg-[#0E600B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 mr-5"
                             >
-                                Investir au pays
+                                Guide de l'investisseur
                             </NavLink>
+                            <ActionButtonComponent title="Investissez maintenant" color="#0F0B60" />
                         </div>
                     </div>
                 </div>
-                <div className="group relative">
+                {/* <div className="group relative">
                     <video loop style={{ height: "24rem", width: '100%' }} autoPlay src={HOMEVIDEO} />
-                </div>
+                </div> */}
 
             </div>
             <div className="trans"></div>
 
-            <div className="second-content mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="second-content">
                 <div className="second-title">
-                    <h2 className="text-2xl font-semibold mt-4 mb-2">Ses Objectifs</h2>
+                    <h2 className=" font-black max-w-xl uppercase text-4xl mt-4 mb-2 leading-10 pb-5">Gérez votre investissement de manière efficace et efficiente</h2>
                     <span id="divider"></span>
                 </div>
-                <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 justify-items-center">
+                <div className="w-full flex flex-row justify-evenly">
                     {cardData.map((data, index) => (
                         <CustomCard
                             key={index}
@@ -235,7 +243,6 @@ const home = () => {
                     ))}
                 </div>
             </div>
-
             <div className='third-content'>
                 <h2 className="text-2xl font-semibold mt-4 mb-2">Qui peut utiliser cette plateforme</h2>
                 <span id="divider"></span>

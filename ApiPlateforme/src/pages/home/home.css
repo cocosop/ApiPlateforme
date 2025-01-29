@@ -10,6 +10,48 @@
     line-height: 1.5rem;
 }
 
+.hero-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    object-fit: cover;
+}
+
+.video-background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    /* Adjust the transparency */
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 20px;
+}
+
+
 .first-content {
     display: flex;
     justify-content: space-around;
@@ -52,7 +94,11 @@
 
 .second-content h2 {
     color: #0F0B60;
-    font-weight: 600;
+}
+
+.grainy-background {
+    background: rgb(15, 11, 96);
+    background: radial-gradient(circle, rgba(15, 11, 96, 1) 0%, rgba(17, 11, 149, 1) 100%);
 }
 
 .second-content {
@@ -166,16 +212,16 @@
     justify-content: center;
     text-align: center;
 
-    .more-btn{
+    .more-btn {
         color: #0F0B60;
         border: 1px solid #0F0B60;
-        font-family: 'poppins',sans-serif;
+        font-family: 'poppins', sans-serif;
         padding: 6px;
         border-radius: 7px;
         width: 100px;
     }
-    
-    .more-btn:hover{
+
+    .more-btn:hover {
         color: white;
         background-color: #0F0B60;
         border: 1px solid #0F0B60;
