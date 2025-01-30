@@ -16,6 +16,8 @@ import MainOeuvre from '../../pages/investir/mainOeuvre/mainOeuvre';
 import FacteursProduction from '../../pages/investir/facteursProduction/facteursProduction';
 import AspectsJuridiques from '../../pages/informations-generales/aspects-juridiques/aspects-juridiques';
 import Agroindustrie from '../../pages/sectors/agroindustrie/agroindustrie';
+import Financement from '../../pages/sectors/financement/financement';
+import BoisForet from '../../pages/sectors/bois-foret/bois-forets';
 
 interface ContentProps {
     selectedMenu: any | null;
@@ -40,6 +42,8 @@ const content: React.FC<ContentProps> = ({ selectedMenu }) => {
                 <Route path='/sanctuaire-energie' element={<Energie />} />
                 <Route path='/sanctuaire-numerique' element={<Numerique />} />
                 <Route path='/socle-infrastructure' element={<Infrastructure />} />
+                <Route path='/socle-financement' element={<Financement />} />
+                <Route path='/pilier-bois-forets' element={<BoisForet />} />
                 <Route path="/projets/detailsProjets/:id" element={<DetailProjet projects={staticData} />} />
                 <Route path='/:selectedMenu' element={<Blank selectedMenu={selectedMenu} />} />
             </Routes>

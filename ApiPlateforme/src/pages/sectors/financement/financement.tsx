@@ -1,32 +1,31 @@
-import { AcademicCapIcon, BuildingOfficeIcon } from '@heroicons/react/20/solid'
+import { ChartBarIcon, CurrencyDollarIcon, FingerPrintIcon, ShieldCheckIcon } from '@heroicons/react/20/solid'
 import { NavLink } from "react-router-dom";
 import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
-import { AdjustmentsVerticalIcon, ChartBarSquareIcon } from '@heroicons/react/24/outline';
 
 const statistiques = [
-    { id: 1, name: "Projets Ferroviaires", value: "15+", icon: AdjustmentsVerticalIcon },
-    { id: 2, name: "Ports Modernisés", value: "4", icon: ChartBarSquareIcon },
-    { id: 3, name: "Écoles Professionnelles", value: "730+", icon: AcademicCapIcon },
-    { id: 4, name: "Ministères Restructurés", value: "100%", icon: BuildingOfficeIcon }
+    { id: 1, name: "Fonds Soustraits", value: "5B FCFA", icon: CurrencyDollarIcon },
+    { id: 2, name: "Capital Privé BC-PME", value: "65%", icon: ChartBarIcon },
+    { id: 3, name: "Projets Garantis", value: "300+", icon: ShieldCheckIcon },
+    { id: 4, name: "Entreprises Identifiées", value: "10K", icon: FingerPrintIcon }
 ]
 
-const infrastructure = () => {
+const financement = () => {
     return (
         <div>
             {/* Hero Section */}
             <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
                 <img
-                    src="https://img.freepik.com/photos-gratuite/vue-aerienne-drone-du-centre-ville-chisinau-vue-panoramique-plusieurs-routes-batiments_1268-18556.jpg?t=st=1736263381~exp=1736266981~hmac=a4683c8b514ce67fb3cefc8ef21265a7db45bd841b068780a43ccc8c112c3894&w=826"
+                    src="https://img.freepik.com/photos-gratuite/pieces-monnaie-bouteilles-graphique-trading_1150-17751.jpg?t=st=1738258892~exp=1738262492~hmac=83610bc678f7ec300635ec6ec94feea616a84d3ee5a50cda5168f519d51cac4a&w=740"
                     className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-50"
                     alt="Background"
                 />
                 <div className="relative z-10 text-start text-white px-6 lg:px-24">
-                    <h1 className="text-4xl font-bold">Socle infrastructure</h1>
+                    <h1 className="text-4xl font-bold">Socle financement</h1>
                     <p className="mt-4 text-lg max-w-2xl">
                         Socle infrastructure est un secteur clé pour le développement économique du Cameroun. Il regroupe les infrastructures de base nécessaires au bon fonctionnement de l’économie et à l’amélioration des conditions de vie des populations.
                     </p>
                     <div className="mt-6 py-2">
-                        <ActionButtonComponent title="Explorez les opportunités" color="#DC2123" />
+                        <ActionButtonComponent title="Explorez les opportunités" color="#8FA832" />
                     </div>
                 </div>
             </div>
@@ -43,77 +42,79 @@ const infrastructure = () => {
                 <div aria-hidden="true" className="text-slate-400 select-none">
                     /
                 </div>
-                <p className="text-slate-500">Socle infrastructure</p>
+                <p className="text-slate-500">Socle financement</p>
             </div>
             {/* Objectif Section */}
             <div className="bg-white py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-center mb-8">Objectif Stratégique</h2>
                     <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
-                        Bâtir un socle solide d’infrastructures physiques, cognitives et institutionnelles pour favoriser le désenclavement du territoire et posséder une base de capital humain à même de servir l’industrialisation.                    </p>
+                        Procéder aux réformes indispensables pour transformer le Cameroun en un hub financier de premier rang dans le Golfe de Guinée et soutenir la vision d’industrialisation du pays.
+                    </p>
                 </div>
             </div>
-            {/* Socle Infrastructure */}
+            {/* Socle Financement */}
             <div className="overflow-hidden bg-gray-50 py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Socle Infrastructure</h2>
+                    <h2 className="text-3xl font-bold text-center mb-8">Socle Financement</h2>
                     <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
 
-                        {/* Infrastructure Physique */}
+                        {/* Restructuration Institutionnelle */}
                         <div className="group relative">
-                            <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200 lg:aspect-auto lg:h-80">
+                            <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
                                 <img
-                                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Camrail_train_between_Douala_and_Yaounde%2C_ex-portuguese_DMU_9600.jpg/800px-Camrail_train_between_Douala_and_Yaounde%2C_ex-portuguese_DMU_9600.jpg"
-                                    alt="Infrastructure Physique"
+                                    src="https://images.unsplash.com/photo-1732284081199-a9e40cb8658d?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                    alt="Restructuration Institutionnelle"
                                     className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                                 />
                             </div>
                             <div className="mt-4 text-center">
-                                <h3 className="text-lg font-semibold text-gray-900">Infrastructure Physique</h3>
+                                <h3 className="text-lg font-semibold text-gray-900">Réforme des Institutions</h3>
                                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                                    <li>Construction des grands projets structurants</li>
-                                    <li>Plan ferroviaire national</li>
-                                    <li>Modernisation portuaire</li>
-                                    <li>Compagnies nationales (Ferrys, fret aérien)</li>
+                                    <li>Transformation de la SNI en fonds souverain</li>
+                                    <li>Mutation de la BC-PME en banque d'investissement</li>
+                                    <li>Introduction en bourse de la BC-PME</li>
+                                    <li>Réforme du CARPA en agence PPP</li>
                                 </ul>
                             </div>
                         </div>
 
-                        {/* Infrastructure Cognitive */}
+                        {/* Mécanismes de Soutien */}
                         <div className="group relative">
-                            <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200 lg:aspect-auto lg:h-80">
+                            <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
                                 <img
-                                    src="https://img.freepik.com/photos-gratuite/etudiant-diplome-smiley-coup-moyen_23-2148950576.jpg?t=st=1738261544~exp=1738265144~hmac=14fd8812f8a1b66940128b54d4ca75823d43fd6b5a1c2981e242f681402d5251&w=740"
-                                    alt="Infrastructure Cognitive"
+                                    src="https://img.freepik.com/photos-gratuite/scene-bureau-ordinateur-portable_23-2147626521.jpg?t=st=1738265137~exp=1738268737~hmac=6e6cb2fa75afe3be02a03a062352eaf0fbc4420ef8b5dffa3049d07360b0a243&w=740"
+                                    alt="Mécanismes de Soutien"
                                     className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                                 />
                             </div>
                             <div className="mt-4 text-center">
-                                <h3 className="text-lg font-semibold text-gray-900">Infrastructure Cognitive</h3>
+                                <h3 className="text-lg font-semibold text-gray-900">Instruments Financiers</h3>
                                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                                    <li>Professionnalisation des enseignements</li>
-                                    <li>Réseau d'enseignement professionnel</li>
-                                    <li>Reformation des formateurs</li>
-                                    <li>Modules de veille industrielle</li>
+                                    <li>Fonds de garantie sectoriel (État/APECCAM/ANEMCAM)</li>
+                                    <li>Agence d'assurance crédit-export (État/ASAC)</li>
+                                    <li>Agence camerounaise de notation financière</li>
+                                    <li>Obligations pour fonds propres</li>
                                 </ul>
                             </div>
                         </div>
 
-                        {/* Infrastructure Institutionnelle */}
+                        {/* Cadre Économique */}
                         <div className="group relative">
-                            <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200 lg:aspect-auto lg:h-80">
+                            <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
                                 <img
-                                    src="https://img.freepik.com/photos-gratuite/grands-gratte-ciel-marron-palmiers-verts-devant-eux_1304-5311.jpg?t=st=1736268949~exp=1736272549~hmac=360db4019decd451217bdd534a57cf2167967389e28cf02b32c05fb620761b65&w=360"
-                                    alt="Infrastructure Institutionnelle"
+                                    src="https://img.freepik.com/photos-gratuite/hommes-affaires-africains-se-serrant-main_1303-18516.jpg?t=st=1738265268~exp=1738268868~hmac=5448a9e19bc178eab3409b339a124365e36b1c61274703a446c08dd15474f1bd&w=740"
+                                    alt="Cadre Économique"
                                     className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                                 />
                             </div>
                             <div className="mt-4 text-center">
-                                <h3 className="text-lg font-semibold text-gray-900">Infrastructure Institutionnelle</h3>
+                                <h3 className="text-lg font-semibold text-gray-900">Environnement des Affaires</h3>
                                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                                    <li>Restructuration des organigrammes</li>
-                                    <li>Services de veille industrielle</li>
-                                    <li>Alignement sur l'industrialisation</li>
+                                    <li>Incitations aux entreprises à fort capital</li>
+                                    <li>Réforme fiscale pour fonds propres</li>
+                                    <li>Système d'identification renforcé des entreprises</li>
+                                    <li>Partenariats stratégiques sectoriels</li>
                                 </ul>
                             </div>
                         </div>
@@ -125,12 +126,11 @@ const infrastructure = () => {
             {/* Indicateurs Clés */}
             <div className="bg-white py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Statistiques Clés</h2>
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
                         {statistiques.map((stat) => (
-                            <div key={stat.id} className="bg-white p-6 rounded-xl shadow-lg text-center">
+                            <div key={stat.id} className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
                                 <div className="flex justify-center">
-                                    <stat.icon className="h-12 w-12 text-[#0F0B60]" />
+                                    <stat.icon className="h-12 w-12 text-[#8FA832]" />
                                 </div>
                                 <p className="mt-4 text-3xl font-bold text-gray-900">{stat.value}</p>
                                 <p className="mt-2 text-lg text-gray-600">{stat.name}</p>
@@ -143,4 +143,4 @@ const infrastructure = () => {
     );
 };
 
-export default infrastructure;
+export default financement;
