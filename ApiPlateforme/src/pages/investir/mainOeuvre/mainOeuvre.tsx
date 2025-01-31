@@ -1,12 +1,11 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import oeuvre from "../../../assets/img/mainOeuvre.jpg"
-import { AcademicCapIcon, BookOpenIcon, BriefcaseIcon, ChartBarIcon, ClipboardIcon } from '@heroicons/react/16/solid';
-import ModalsMainOeuvre from "../../../components/modalsMainOeuvre/modalsMainOeuvre"
 import AOS from 'aos';
 import ProjectCard from '../../../components/projetCard/projetCard';
 import CACAO from "../../../assets/img/cacao4.png"
 import ENERGIE from "../../../assets/img/energie.jpg"
+import ModalsMainOeuvre from '../../../components/modalsMainOeuvre/modalsMainOeuvre';
 
 const MainOeuvre = () => {
 

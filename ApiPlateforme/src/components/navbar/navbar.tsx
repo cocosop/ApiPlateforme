@@ -74,13 +74,13 @@ const investir = [
   {
     name: "Création d'entreprise",
     description: "Guide pratique pour établir une entreprise au Cameroun, y compris les démarches administratives.",
-    link: "/creation-entreprise",
+    link: "/creation-dentreprise",
     icon: BriefcaseIcon
   },
   {
     name: "Droit des investisseurs",
     description: "Présentation des protections légales et des droits garantis aux investisseurs étrangers.",
-    link: "/droit-investisseurs",
+    link: "/droit-des-investisseurs",
     icon: ShieldCheckIcon
   },
   {
