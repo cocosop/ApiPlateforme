@@ -18,10 +18,12 @@ function App() {
   return (
     <>
       <BrowserRouter>
+      <Chatbot/>
         <Navbar onMenuClick={handleMenuClick} />
         <Content selectedMenu={selectedMenu} />
         <Chatbot/>
-        <Footer />
+
+        <Footer />        
       </BrowserRouter >
     </>
   )

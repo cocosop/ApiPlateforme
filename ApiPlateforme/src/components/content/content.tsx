@@ -13,6 +13,9 @@ import Numerique from '../../pages/sectors/numerique/numerique';
 import PresentationCameroun from '../../pages/informations-generales/presentation-cameroun/presentation-cameroun';
 import Logup from '../../pages/authentification/logup/logup';
 import CadreJuridiqueFiscal from '../../pages/informations-generales/cadre-juridique-fiscal/cadre-juridique-fiscal';
+import MainOeuvre from '../../pages/investir/mainOeuvre/mainOeuvre';
+import FacteursProduction from '../../pages/investir/facteursProduction/facteursProduction';
+import CreerEntreprise from '../../pages/investir/creerEntreprise/creerEntreprise';
 
 interface ContentProps {
     selectedMenu: any | null;
@@ -34,6 +37,8 @@ const content: React.FC<ContentProps> = ({ selectedMenu }) => {
                 <Route path='/sanctuaire-energie' element={<Energie />} />
                 <Route path='/sanctuaire-numerique' element={<Numerique />} />
                 <Route path='/socle-infrastructure' element={<Infrastructure />} />
+                <Route path='/main-d-oeuvre' element={<MainOeuvre />} />
+                <Route path='/facteurs-de-production' element={<CreerEntreprise />} />
                 <Route path="/projets/detailsProjets/:id" element={<DetailProjet projects={staticData} />} />
                 <Route path='/:selectedMenu' element={<Blank selectedMenu={selectedMenu} />} />
             </Routes>

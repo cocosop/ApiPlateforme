@@ -4,6 +4,9 @@ import oeuvre from "../../../assets/img/mainOeuvre.jpg"
 import { AcademicCapIcon, BookOpenIcon, BriefcaseIcon, ChartBarIcon, ClipboardIcon } from '@heroicons/react/16/solid';
 import ModalsMainOeuvre from "../../../components/modalsMainOeuvre/modalsMainOeuvre"
 import AOS from 'aos';
+import ProjectCard from '../../../components/projetCard/projetCard';
+import CACAO from "../../../assets/img/cacao4.png"
+import ENERGIE from "../../../assets/img/energie.jpg"
 
 const MainOeuvre = () => {
 
@@ -13,7 +16,36 @@ const MainOeuvre = () => {
       easing: 'ease-in-out', // Effet de l'animation
     });
   }, []);
-
+  const [projects, setProjects] = useState([
+    {
+      id: 1,
+      secteur: "Agro-industrie",
+      titre: "Exploitation de plantation de cacao",
+      ville: "Douala",
+      quartier: "Bonaberi",
+      description: "Mise en place d'une plantation moderne de cacao avec une production annuelle de 50 tonnes.",
+      image: CACAO,
+    },
+    {
+      id: 2,
+      secteur: "Énergie",
+      titre: "Parc solaire de 20 MW",
+      ville: "Garoua",
+      quartier: "Ngaoundere route",
+      description: "Construction d'un parc solaire pour fournir de l'énergie propre à la région du Nord.",
+      image: ENERGIE,
+    },
+    {
+      id: 3,
+      secteur: "Numérique",
+      titre: "Plateforme de paiement mobile",
+      ville: "Yaoundé",
+      quartier: "Bastos",
+      description: "Développement d'une application de paiement mobile visant à faciliter les transactions financières locales.",
+      image: "https://img.freepik.com/free-photo/high-angle-friends-reading-menu-restaurant_23-2150384825.jpg?t=st=1738099850~exp=1738103450~hmac=263dee2608a764be0cc905367387bf817f98c3b6a3df41a0103a348fa8777175&w=996",
+    }
+    // Ajoutez plus de projets ici...
+  ]);
   // Définition du type pour les données de population 
   interface PopulationData { year: number; population: string; color: string; }
 
@@ -479,6 +511,37 @@ const MainOeuvre = () => {
 
           </section>
         </main>
+        <div className="container mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
+          {/* Titre avec style attractif */}
+          <h2 className="text-3xl font-bold text-center text-[#0F0B60]">
+            Saisissez des Opportunités Uniques !
+          </h2>
+
+          {/* Barre de séparation */}
+          <div className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></div>
+
+          {/* Message d'encouragement */}
+          <p className="text-center text-gray-700 mb-6">
+            Investissez dès aujourd’hui dans des projets innovants et rentables pour bâtir l’avenir de l’économie camerounaise.
+          </p>
+
+          {/* Liste des projets */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project) => (
+              <ProjectCard key={project.id} {...project} />
+            ))}
+          </div>
+
+          {/* Lien Voir plus */}
+          <div className="flex justify-center mt-8">
+            <a
+              href="/banque-de-projets"
+              className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
+            >
+              Voir plus de projets
+            </a>
+          </div>
+        </div>
       </div>
     </>
 

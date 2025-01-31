@@ -8,3 +8,7 @@ export interface ProjeTypes {
     image: string;
 }
   
+export interface Filters {
+    secteur: string;
+    ville: string;
+  }

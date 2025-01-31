@@ -71,7 +71,7 @@ const infos = [
 
 const investir = [
   { name: "Main d'oeuvre", description: "Informations sur les ressources humaines et la disponibilité de la main-d'œuvre.", link: "/main-d-oeuvre", icon: UserGroupIcon },
-  { name: "Facteurs de production", description: "Ressources clés pour la production, y compris le capital et les infrastructures.", link: "/factures-de-production", icon: CogIcon },
+  { name: "Facteurs de production", description: "Ressources clés pour la production, y compris le capital et les infrastructures.", link: "/facteurs-de-production", icon: CogIcon },
 ]
 
 

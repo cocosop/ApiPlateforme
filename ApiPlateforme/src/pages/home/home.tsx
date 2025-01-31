@@ -1,6 +1,6 @@
 import { Box, Card, CardActions, CardContent, Typography } from "@mui/material";
 import HOMEVIDEO from "../../assets/videos/home_video.mp4";
-import HOMEVIDEOUPDATED from '../../assets/videos/home_video_update.mp4';
+import HOMEVIDEOUPDATED from '../../assets/videos/home.mp4';
 import COLLABORATION from "../../assets/img/collaboration.png"
 import OPTIMISATION from "../../assets/img/optimisation.png"
 import AMELIORATION from "../../assets/img/amelioration.png"
