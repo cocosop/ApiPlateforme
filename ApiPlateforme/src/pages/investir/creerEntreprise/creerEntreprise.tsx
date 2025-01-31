@@ -1,7 +1,6 @@
-import { BuildingOffice2Icon, ChartBarIcon, CogIcon, LightBulbIcon, CheckCircleIcon, FolderIcon, ArrowLeftIcon, ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/16/solid';
-import React, { useEffect, useRef, useState } from 'react';
+import { LightBulbIcon, CheckCircleIcon, FolderIcon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/16/solid';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import AOS from 'aos';
@@ -132,7 +131,7 @@ const legalForms = [
 ];
 
 const CreerEntreprise = () => {
-    const [projects, setProjects] = useState([
+    const [projects] = useState([
         {
             id: 1,
             secteur: "Agro-industrie",
@@ -173,30 +172,30 @@ const CreerEntreprise = () => {
         });
     }, []);
 
-    const sliderRef = useRef<Slider | null>(null); // Type explicite pour sliderRef
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        nextArrow: <div />, // Nous gérons les boutons manuellement
-        prevArrow: <div />,
-    };
+    // const sliderRef = useRef<Slider | null>(null); // Type explicite pour sliderRef
+    // const settings = {
+    //     dots: true,
+    //     infinite: true,
+    //     speed: 500,
+    //     slidesToShow: 4,
+    //     slidesToScroll: 1,
+    //     autoplay: true,
+    //     autoplaySpeed: 3000,
+    //     nextArrow: <div />, // Nous gérons les boutons manuellement
+    //     prevArrow: <div />,
+    // };
 
-    const handlePrevClick = () => {
-        if (sliderRef.current) {
-            sliderRef.current.slickPrev(); // Appelle la fonction slickPrev() de react-slick
-        }
-    };
+    // const handlePrevClick = () => {
+    //     if (sliderRef.current) {
+    //         sliderRef.current.slickPrev(); // Appelle la fonction slickPrev() de react-slick
+    //     }
+    // };
 
-    const handleNextClick = () => {
-        if (sliderRef.current) {
-            sliderRef.current.slickNext(); // Appelle la fonction slickNext() de react-slick
-        }
-    };
+    // const handleNextClick = () => {
+    //     if (sliderRef.current) {
+    //         sliderRef.current.slickNext(); // Appelle la fonction slickNext() de react-slick
+    //     }
+    // };
 
     return (
         <div>

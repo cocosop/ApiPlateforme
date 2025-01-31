@@ -15,7 +15,7 @@ const MainOeuvre = () => {
       easing: 'ease-in-out', // Effet de l'animation
     });
   }, []);
-  const [projects, setProjects] = useState([
+  const [projects] = useState([
     {
       id: 1,
       secteur: "Agro-industrie",

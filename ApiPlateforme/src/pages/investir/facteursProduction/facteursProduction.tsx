@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-import React, { useState } from "react";
+import { useState } from "react";
 import { Droplet, Plane, Truck, Users, X, MessageSquare, Phone, Wifi } from "lucide-react";
 import Courant from './../../../assets/img/energie.jpg'
 import Telecom from './../../../assets/img/telecommunication.jpg'
@@ -24,14 +24,14 @@ interface Factor {
   details?: JSX.Element; // Optional details
 }
 // Définition des types pour les props
-interface ProgressCardProps {
-  title: string;
-  percentage: number;
-  color: string;
-}
+// interface ProgressCardProps {
+//   title: string;
+//   percentage: number;
+//   color: string;
+// }
 
 const FacteursProduction = () => {
-  const [projects, setProjects] = useState([
+  const [projects] = useState([
     {
       id: 1,
       secteur: "Agro-industrie",
@@ -81,110 +81,110 @@ const FacteursProduction = () => {
 
 
   // Définir un type pour les éléments de l'accordéon
-  type AccordionItemType = {
-    title: string;
-    content: string;
-  };
+  // type AccordionItemType = {
+  //   title: string;
+  //   content: string;
+  // };
 
   // Composant Accordéon Item avec typage
-  const AccordionItem: React.FC<{
-    title: string;
-    content: string;
-    isOpen: boolean;
-    onToggle: () => void;
-  }> = ({ title, content, isOpen, onToggle }) => (
-    <div className="border-b">
-      <button
-        onClick={onToggle}
-        className="flex justify-between w-full p-4 text-left bg-gray-200 hover:bg-gray-300 focus:outline-none"
-      >
-        <span className="text-lg font-semibold">{title}</span>
-        <span>{isOpen ? '-' : '+'}</span>
-      </button>
-      {isOpen && (
-        <div className="p-4 bg-gray-50">
-          <p>{content}</p>
-        </div>
-      )}
-    </div>
-  );
+  // const AccordionItem: React.FC<{
+  //   title: string;
+  //   content: string;
+  //   isOpen: boolean;
+  //   onToggle: () => void;
+  // }> = ({ title, content, isOpen, onToggle }) => (
+  //   <div className="border-b">
+  //     <button
+  //       onClick={onToggle}
+  //       className="flex justify-between w-full p-4 text-left bg-gray-200 hover:bg-gray-300 focus:outline-none"
+  //     >
+  //       <span className="text-lg font-semibold">{title}</span>
+  //       <span>{isOpen ? '-' : '+'}</span>
+  //     </button>
+  //     {isOpen && (
+  //       <div className="p-4 bg-gray-50">
+  //         <p>{content}</p>
+  //       </div>
+  //     )}
+  //   </div>
+  // );
 
   // Composant Accordéon avec typage pour 'items'
-  interface AccordionProps {
-    items: AccordionItemType[];
-  }
+  // interface AccordionProps {
+  //   items: AccordionItemType[];
+  // }
 
-  const Accordion: React.FC<AccordionProps> = ({ items }) => {
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
+  // const Accordion: React.FC<AccordionProps> = ({ items }) => {
+  //   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-    const toggleItem = (index: number) => {
-      setOpenIndex(openIndex === index ? null : index);
-    };
+  //   const toggleItem = (index: number) => {
+  //     setOpenIndex(openIndex === index ? null : index);
+  //   };
 
-    return (
-      <div className="max-w-lg mx-auto mt-8">
-        {items.map((item, index) => (
-          <AccordionItem
-            key={index}
-            title={item.title}
-            content={item.content}
-            isOpen={openIndex === index}
-            onToggle={() => toggleItem(index)}
-          />
-        ))}
-      </div>
-    );
-  };
+  //   return (
+  //     <div className="max-w-lg mx-auto mt-8">
+  //       {items.map((item, index) => (
+  //         <AccordionItem
+  //           key={index}
+  //           title={item.title}
+  //           content={item.content}
+  //           isOpen={openIndex === index}
+  //           onToggle={() => toggleItem(index)}
+  //         />
+  //       ))}
+  //     </div>
+  //   );
+  // };
 
-  const salaryData = [
-    { category: "Cadres", min: 267000, max: 457000 },
-    { category: "Employés", min: 129000, max: 325000 },
-    { category: "Ouvriers", min: 40000, max: 134000 },
-  ];
+  // const salaryData = [
+  //   { category: "Cadres", min: 267000, max: 457000 },
+  //   { category: "Employés", min: 129000, max: 325000 },
+  //   { category: "Ouvriers", min: 40000, max: 134000 },
+  // ];
 
-  const cotisationData = {
-    labels: ["Employeur", "Employé"],
-    datasets: [
-      {
-        data: [4.2, 4.2],
-        backgroundColor: ["#F5BA3A", "#0F0B60"],
-      },
-    ],
-  };
+  // const cotisationData = {
+  //   labels: ["Employeur", "Employé"],
+  //   datasets: [
+  //     {
+  //       data: [4.2, 4.2],
+  //       backgroundColor: ["#F5BA3A", "#0F0B60"],
+  //     },
+  //   ],
+  // };
 
 
   //Partie Energie
-  const [amount, setAmount] = useState(0);
+  // const [amount, setAmount] = useState(0);
 
-  // Graphique des tarifs douaniers
-  const douaneData = {
-    labels: ["0-10%", "10-20%", "20-50%", "50-81%"],
-    datasets: [
-      {
-        data: [20, 30, 25, 25],
-        backgroundColor: ["#4CAF50", "#FFC107", "#FF5722", "#F44336"],
-      },
-    ],
-  };
+  // // Graphique des tarifs douaniers
+  // const douaneData = {
+  //   labels: ["0-10%", "10-20%", "20-50%", "50-81%"],
+  //   datasets: [
+  //     {
+  //       data: [20, 30, 25, 25],
+  //       backgroundColor: ["#4CAF50", "#FFC107", "#FF5722", "#F44336"],
+  //     },
+  //   ],
+  // };
 
   // Graphique des frais financiers
-  const fraisFinanciersData = {
-    labels: ["Min", "Max"],
-    datasets: [
-      {
-        data: [29000, 39000],
-        fill: false,
-        borderColor: "#FF9800",
-        tension: 0.1,
-      },
-    ],
-  };
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(Number(e.target.value));
-  };
+  // const fraisFinanciersData = {
+  //   labels: ["Min", "Max"],
+  //   datasets: [
+  //     {
+  //       data: [29000, 39000],
+  //       fill: false,
+  //       borderColor: "#FF9800",
+  //       tension: 0.1,
+  //     },
+  //   ],
+  // };
+  // const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setAmount(Number(e.target.value));
+  // };
 
 
-  const [activeTab, setActiveTab] = useState("securite");
+  // const [activeTab, setActiveTab] = useState("securite");
 
   const [selectedFactor, setSelectedFactor] = useState<Factor | null>(null);
   const closeModal = () => setSelectedFactor(null);
@@ -697,11 +697,11 @@ const FacteursProduction = () => {
         </div>
       </div>
       <div aria-label="Breadcrumbs" className="bg-[#0F0B60] sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-        <NavLink className="text-slate-500 text-white hover:text-slate-600" to={'/'}>Accueil</NavLink>
-        <div aria-hidden="true" className="text-slate-400 text-white select-none">/</div>
-        <NavLink className="text-slate-500 text-white hover:text-slate-600" to={'#'}>Investir</NavLink>
-        <div aria-hidden="true" className="text-slate-400 text-white select-none">/</div>
-        <NavLink className="text-slate-500 text-white hover:text-slate-600" to={'/secteur-de-lagriculture'}>Facteurs de production</NavLink>
+        <NavLink className=" text-white hover:text-slate-600" to={'/'}>Accueil</NavLink>
+        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+        <NavLink className=" text-white hover:text-slate-600" to={'#'}>Investir</NavLink>
+        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+        <NavLink className=" text-white hover:text-slate-600" to={'/secteur-de-lagriculture'}>Facteurs de production</NavLink>
       </div>
 
       <div className="bg-gray-100 min-h-screen p-6">
@@ -731,7 +731,7 @@ const FacteursProduction = () => {
               <div
                 key={index}
                 onClick={() => setSelectedFactor(factor)}
-                className="bg-white shadow-lg rounded-2xl p-6 border-l-8 border-[#F5BA3A] hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center text-center hover:scale-105 transform transition-transform duration-300 cursor-pointer"
+                className="bg-white shadow-lg rounded-2xl p-6 border-l-8 border-[#F5BA3A] hover:shadow-2xl flex flex-col items-center text-center hover:scale-105 transform transition-transform duration-300 cursor-pointer"
               >
                 <img src={factor.image} alt={factor.name} className="w-24 h-24 mb-4 rounded-full object-cover" />
                 <h2 className="text-2xl font-semibold text-[#0F0B60] mb-2">{factor.name}</h2>

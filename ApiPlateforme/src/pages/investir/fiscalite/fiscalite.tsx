@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 import taxe from "../../../assets/img/fiscal.jpg"
 

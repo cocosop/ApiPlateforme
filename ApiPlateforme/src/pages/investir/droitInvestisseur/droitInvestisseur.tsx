@@ -1,4 +1,3 @@
-import React from 'react'
 import { NavLink } from 'react-router-dom'
 import droit from "../../../assets/img/foncier.jpg"
 

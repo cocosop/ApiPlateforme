@@ -1,17 +1,11 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Filters from "./../../components/filtreSecteur/filtreSecteur"; // Importation du composant
 import ProjectCard from "./../../components/projetCard/projetCard"; // Importation du composant ProjectCard
 import { NavLink } from "react-router-dom";
-import Fonciere from "../../assets/img/foncier.jpg"
 import CACAO from "../../assets/img/cacao4.png"
 import ENERGIE from "../../assets/img/solar.jpg"
-import NUMERIQUE from "../../assets/img/foncier.jpg"
-import FORET from "../../assets/img/foncier.jpg"
-import TEXTILE from "../../assets/img/foncier.jpg"
-import HYDROCARBURE from "../../assets/img/foncier.jpg"
 import CHIMIE from "../../assets/img/medoc.jpg"
 import MINE from "../../assets/img/mine.jpg"
-import FINANCEMENT from "../../assets/img/foncier.jpg"
 import INFRASTRUCTURE from "../../assets/img/pont.jpg"
 
 const Projets = () => {
@@ -21,7 +15,7 @@ const Projets = () => {
   });
 
 
-  const [projects, setProjects] = useState([
+  const [projects] = useState([
     {
       id: 1,
       secteur: "Agro-industrie",
