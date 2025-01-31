@@ -1,14 +1,15 @@
 import { BuildingOffice2Icon, ChartBarIcon, CogIcon, LightBulbIcon, CheckCircleIcon, FolderIcon, ArrowLeftIcon, ArrowRightIcon, ChevronLeftIcon, ChevronRightIcon, ChevronUpIcon, ChevronDownIcon } from '@heroicons/react/16/solid';
 import React, { useEffect, useRef, useState } from 'react';
-import AccordionsComponent from '../../../components/accordionsComponent/accordionsComponent';
 import { NavLink } from 'react-router-dom';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { green } from '@mui/material/colors';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; // Importation des styles AOS
 import entreprise from "../../../assets/img/entreprise.jpg"
+import ProjectCard from '../../../components/projetCard/projetCard';
+import CACAO from "../../../assets/img/cacao4.png"
+import ENERGIE from "../../../assets/img/energie.jpg"
 
 
 const features = [
@@ -130,7 +131,37 @@ const legalForms = [
     },
 ];
 
-const creerEntreprise = () => {
+const CreerEntreprise = () => {
+    const [projects, setProjects] = useState([
+        {
+            id: 1,
+            secteur: "Agro-industrie",
+            titre: "Exploitation de plantation de cacao",
+            ville: "Douala",
+            quartier: "Bonaberi",
+            description: "Mise en place d'une plantation moderne de cacao avec une production annuelle de 50 tonnes.",
+            image: CACAO,
+        },
+        {
+            id: 2,
+            secteur: "Énergie",
+            titre: "Parc solaire de 20 MW",
+            ville: "Garoua",
+            quartier: "Ngaoundere route",
+            description: "Construction d'un parc solaire pour fournir de l'énergie propre à la région du Nord.",
+            image: ENERGIE,
+        },
+        {
+            id: 3,
+            secteur: "Numérique",
+            titre: "Plateforme de paiement mobile",
+            ville: "Yaoundé",
+            quartier: "Bastos",
+            description: "Développement d'une application de paiement mobile visant à faciliter les transactions financières locales.",
+            image: "https://img.freepik.com/free-photo/high-angle-friends-reading-menu-restaurant_23-2150384825.jpg?t=st=1738099850~exp=1738103450~hmac=263dee2608a764be0cc905367387bf817f98c3b6a3df41a0103a348fa8777175&w=996",
+        }
+        // Ajoutez plus de projets ici...
+    ]);
     const [expanded, setExpanded] = useState<string | false>(false);
     const handleChange = (panel: string) => (_event: React.SyntheticEvent, isExpanded: boolean) => {
         setExpanded(isExpanded ? panel : false);
@@ -348,9 +379,41 @@ const creerEntreprise = () => {
                     </div>
                 ))}
             </div>
+            <div className="container mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
+                {/* Titre avec style attractif */}
+                <h2 className="text-3xl font-bold text-center text-[#0F0B60]">
+                    Saisissez des Opportunités Uniques !
+                </h2>
+
+                {/* Barre de séparation */}
+                <div className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></div>
+
+
+                {/* Message d'encouragement */}
+                <p className="text-center text-[#0F0B60] mb-6">
+                    Investissez dès aujourd’hui dans des projets innovants et rentables pour bâtir l’avenir de l’économie camerounaise.
+                </p>
+
+                {/* Liste des projets */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {projects.map((project) => (
+                        <ProjectCard key={project.id} {...project} />
+                    ))}
+                </div>
+
+                {/* Lien Voir plus */}
+                <div className="flex justify-center mt-8">
+                    <a
+                        href="/banque-de-projets"
+                        className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
+                    >
+                        Voir plus de projets
+                    </a>
+                </div>
+            </div>
         </div>
 
     );
 };
 
-export default creerEntreprise;
+export default CreerEntreprise;

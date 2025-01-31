@@ -1,7 +1,5 @@
-import { Box, Card, CardActions, CardContent, Typography } from "@mui/material";
-import HOMEVIDEO from "../../assets/videos/home_video.mp4";
-import HOMEVIDEOUPDATED from '../../assets/videos/home_video_update.mp4';
-import COLLABORATION from "../../assets/img/collaboration.png"
+import { Box, CardActions, CardContent, Typography } from "@mui/material";
+import HOMEVIDEOUPDATED from '../../assets/videos/COMPLEXE INDUSTRIALO-PORTUAIRE DE KRIBI (cameroun).mp4'
 import OPTIMISATION from "../../assets/img/optimisation.png"
 import AMELIORATION from "../../assets/img/amelioration.png"
 import SIMPLIFICATION from "../../assets/img/simplification.png"
@@ -14,7 +12,7 @@ import './home.css'
 import React from "react";
 import { ArrowForwardIos } from '@mui/icons-material'
 import { Link, NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
+import ActionButtonComponent from "../../components/actionButtonComponent/actionButtonComponent";
 
 // Interface for objective cards
 interface CustomCardProps {
@@ -192,13 +190,16 @@ const home = () => {
                     scroll
                 </div>
                 <video className="video-background" autoPlay muted loop>
-                    <source src={HOMEVIDEOUPDATED} type="video/mp4" />
+                    <source
+                        src={HOMEVIDEOUPDATED}
+                        type="video/mp4"
+                    />
                     Your browser does not support the video tag.
                 </video>
                 <div className="video-background-overlay"></div>
                 <div className="group relative hero-content">
                     <div className="text-start">
-                        <h1 className="max-w-2xl	text-balance font-bold tracking-tight text-[#0F0B60] sm:text-5xl antialiased subpixel-antialiased leading-8 p-4 bg-[#ffffffd1]">
+                        <h1 className="max-w-2xl	text-balance font-bold tracking-tight text-[#0F0B60] sm:text-5xl subpixel-antialiased leading-8 p-4 bg-[#ffffffd1]">
                             Portail d'investissement du <span className="text-[#0E600B]"> Cameroun </span>
                         </h1>
                         <p className="mt-8 font-light sm:text-md/6 leading-7 max-w-2xl text-justify text-white">
@@ -214,7 +215,7 @@ const home = () => {
                             >
                                 Guide de l'investisseur
                             </NavLink>
-                            <CallToActionButton />
+                            <ActionButtonComponent title="Investissez maintenant" color="#0F0B60" />
                         </div>
                     </div>
                 </div>
@@ -313,34 +314,4 @@ const home = () => {
     );
 };
 
-const CallToActionButton = () => {
-    return (
-        <motion.button
-            initial={{ "--x": "100%", scale: 1 }}
-            animate={{ "--x": "-100%" }}
-            whileTap={{ scale: 0.97 }}
-            transition={{
-                repeat: Infinity,
-                repeatType: "loop",
-                repeatDelay: 1,
-                type: "spring",
-                stiffness: 20,
-                damping: 15,
-                mass: 2,
-                scale: {
-                    type: "spring",
-                    stiffness: 10,
-                    damping: 5,
-                    mass: 0.1,
-                },
-            }}
-            className="p-3 rounded-md relative radial-gradient cta-button"
-        >
-            <span className="text-neutral-100 tracking-wide font-light h-full w-full block relative linear-mask">
-                Investissez maintenant
-            </span>
-            <span className="block absolute inset-0 rounded-md p-px linear-overlay" />
-        </motion.button>
-    );
-};
 export default home;

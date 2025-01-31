@@ -28,6 +28,9 @@ const Foncier = () => {
                 <NavLink className="text-slate-500 hover:text-slate-600" to={'/secteur-de-lagriculture'}>Aspects Fonciers</NavLink>
             </div>
     </div>
+
+
+
   )
 }
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 import { ChatBubbleLeftRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 import Logo from '../../assets/img/dj.png'
@@ -60,11 +60,11 @@ const Chatbot = () => {
     };
 
     return (
-        <div className="fixed bottom-4 right-4">
+        <div className="z-50 fixed bottom-4 right-4">
             {/* Bouton d'ouverture/fermeture du chatbot */}
             <button
                 onClick={toggleChatbot}
-                className="bg-dark-green text-white p-4 rounded-full shadow-lg focus:outline-none flex items-center justify-center"
+                className="bg-gray-900 text-white p-4 rounded-full shadow-lg focus:outline-none flex items-center justify-center"
             >
                 {isOpen ? (
                     <XMarkIcon className="h-6 w-6" />
@@ -74,10 +74,10 @@ const Chatbot = () => {
             </button>
 
             {isOpen && (
-                <div className="flex flex-col h-96 w-80 bg-white border border-gray-300 rounded-lg shadow-lg mt-4">
+                <div className="flex flex-col h-96 w-80 bg-blue border border-gray-300 rounded-lg shadow-lg mt-4">
                     {/* Entête */}
                     <div className="flex items-center justify-between p-4 bg-dark-green text-white rounded-t-lg">
-                        <h2 className="text-lg font-semibold">Chatbot</h2>
+                        <h2 className="text-gray-500 text-lg font-semibold">Chatbot</h2>
                         <button onClick={toggleChatbot} className="focus:outline-none">
                             <XMarkIcon className="h-2 w-2" />
                         </button>
@@ -94,8 +94,8 @@ const Chatbot = () => {
                             <div
                                 key={index}
                                 className={`flex items-start ${message.user === "user"
-                                        ? "justify-end"
-                                        : "justify-start"
+                                    ? "justify-end"
+                                    : "justify-start"
                                     }`}
                             >
                                 {/* Affichage de l'avatar pour le chatbot */}
@@ -112,8 +112,8 @@ const Chatbot = () => {
                                 {/* Bulles de message */}
                                 <div
                                     className={`max-w-xs px-4 py-2 rounded-lg ${message.user === "user"
-                                            ? "bg-dark-green text-white"
-                                            : "bg-gray-300 text-black"
+                                        ? "bg-dark-green text-white"
+                                        : "bg-gray-300 text-black"
                                         }`}
                                 >
                                     {message.text}

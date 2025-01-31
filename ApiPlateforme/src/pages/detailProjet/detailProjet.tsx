@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography, Card, CardContent, CardMedia } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useParams } from 'react-router-dom';
 import { ProjeTypes } from '../../types'; // Mettez à jour le chemin vers votre fichier types
 
