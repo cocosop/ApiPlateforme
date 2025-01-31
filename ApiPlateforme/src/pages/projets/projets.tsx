@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography, Pagination, TextField, InputAdornment } from '@mui/material';
 import { ProjeTypes } from '../../types'; // Import de l'interface
-import { staticData } from './../../staticData'; // Make sure the import path is correct
+import { staticData } from '../../staticData'; // Make sure the import path is correct
 import SearchIcon from '@mui/icons-material/Search';
 import { NavLink } from 'react-router-dom';
 

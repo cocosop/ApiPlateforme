@@ -2,6 +2,7 @@ import { BuildingOffice2Icon, ChartBarIcon, CogIcon } from '@heroicons/react/20/
 import { useState } from 'react';
 import { NavLink } from "react-router-dom";
 import AccordionsComponent from '../../../components/accordionsComponent/accordionsComponent';
+import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
 
 const features = [
     {
@@ -23,10 +24,10 @@ const features = [
 ]
 
 const imagesCards = [
-    { imageSrc: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'code' },
-    { imageSrc: 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?q=80&w=1551&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'data' },
-    { imageSrc: 'https://images.unsplash.com/photo-1667984390538-3dea7a3fe33d?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'cloud' },
-    { imageSrc: 'https://images.unsplash.com/photo-1697577418970-95d99b5a55cf?q=80&w=1392&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'ia' },
+    { imageSrc: 'https://img.freepik.com/photos-gratuite/grands-gratte-ciel-marron-palmiers-verts-devant-eux_1304-5311.jpg?t=st=1736268949~exp=1736272549~hmac=360db4019decd451217bdd534a57cf2167967389e28cf02b32c05fb620761b65&w=360', imageAlt: 'immeuble' },
+    { imageSrc: 'https://img.freepik.com/photos-gratuite/carrefour_1063-101.jpg?t=st=1736272775~exp=1736276375~hmac=41e6adaadde36f28696fcb4cd9b070b65b7f2c7c5d34233ef890d459035fec85&w=360', imageAlt: 'echangeur' },
+    { imageSrc: 'https://images.unsplash.com/photo-1682924754699-dcf11b641343?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cm91dGUlMjBjYW1lcm91bnxlbnwwfHwwfHx8Mg%3D%3D', imageAlt: 'route' },
+    { imageSrc: 'https://images.unsplash.com/photo-1561473279-9d1c58970559?q=80&w=1630&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', imageAlt: 'pont' },
 ];
 
 // Interface montrant la structure des données des accordéons
@@ -157,7 +158,7 @@ const faqGroups: FaqGroup[] = [
 ];
 
 
-const tic = () => {
+const BoisForets = () => {
     const [expanded, setExpanded] = useState<string | false>(false);
 
     const handleChange =
@@ -166,27 +167,49 @@ const tic = () => {
         };
     return (
         <div>
+            {/* Hero Section */}
             <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
                 <img
-                    src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    className="absolute inset-0 -z-10 size-full object-cover md:object-center"
+                    src="https://img.freepik.com/photos-gratuite/clairiere-dans-foret-du-bois-chauffage-plie-pour-chambre-combustion_1153-6948.jpg?t=st=1738259561~exp=1738263161~hmac=cc5adaed90e2a863cd544d7716fe5b6358eb0f11875bf8aadeb9697283f0572e&w=740"
+                    className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-50"
+                    alt="Background"
                 />
-                <div className="px-6 lg:px-8">
-                    <h2 className="text-xl/6 font-semibold text-white">Secteur des</h2>
-                    <p className="mt-2 text-pretty text-4xl font-semibold text-white tracking-tight sm:text-5xl">
-                        TIC
+                <div className="relative z-10 text-start text-white px-6 lg:px-24">
+                    <h1 className="text-4xl font-bold">Pilier bois-forêts</h1>
+                    <p className="mt-4 text-lg max-w-2xl">
+                        La filière bois-forêts est un secteur clé de l’économie camerounaise, offrant de nombreuses opportunités d’investissement et de développement. Découvrez les atouts, les avantages et les opportunités du secteur.
+                    </p>
+                    <div className="mt-6 py-2">
+                        <ActionButtonComponent title="Explorez les opportunités" color="#A86F32" />
+                    </div>
+                </div>
+            </div>
+
+            {/* Breadcrumbs */}
+            <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
+                <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to="/">
+                    Accueil
+                </NavLink>
+                <div aria-hidden="true" className="text-slate-400 select-none">
+                    /
+                </div>
+                <p className="text-slate-500">Sections et Opportunités</p>
+                <div aria-hidden="true" className="text-slate-400 select-none">
+                    /
+                </div>
+                <p className="text-slate-500">Pilier bois-forêts</p>
+            </div>
+            {/* Objectif Section */}
+            <div className="bg-white py-20 sm:py-20">
+                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                    <h2 className="text-3xl font-bold text-center mb-8">Objectif Stratégique</h2>
+                    <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
+                        Faire du massif forestier camerounais le pilier de lancement du plan ferroviaire, de l’exportation de l’énergie et du développement d’une filière hautement intégrée aux autres filières industrielles.
                     </p>
                 </div>
             </div>
-            <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-                <NavLink className="text-slate-500 hover:text-slate-600" to={'/'}>Accueil</NavLink>
-                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>Sections et Opportunités</NavLink>
-                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <NavLink className="text-slate-500 hover:text-slate-600" to={'/secteur-de-lagriculture'}>TIC</NavLink>
-            </div>
             <div className="overflow-hidden bg-white py-20 sm:py-20">
-                <div className="flex flex-col align-center">
+                <div className="flex flex-col items-center">
                     <h2 className="text-2xl font-semibold mb-2 text-center text-[#0F0B60]">Présentation du secteur</h2>
                     <span id="divider"></span>
                 </div>
@@ -248,4 +271,4 @@ const tic = () => {
     );
 };
 
-export default tic;
+export default BoisForets;

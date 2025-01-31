@@ -92,7 +92,7 @@ const investir = [
   {
     name: "Facteurs de production",
     description: "Informations sur les ressources nécessaires : capital, matières premières, et équipements.",
-    link: "/facteurs-production",
+    link: "/facteurs-de-production",
     icon: CogIcon
   },
   {
@@ -123,8 +123,8 @@ const categories = [
     name: "Piliers",
     description: "Les secteurs clés qui soutiennent la croissance économique.",
     secteurs: [
-      { name: "Bois-Forêts", link: "/pilier--bois-forets", icon: SparklesIcon },
-      { name: "Textile/Confection/Cuir", link: "/pilier--textile-confection-cuir", icon: ScissorsIcon },
+      { name: "Bois-Forêts", link: "/pilier-bois-forets", icon: SparklesIcon },
+      { name: "Textile/Confection/Cuir", link: "/pilier-textile-confection-cuir", icon: ScissorsIcon },
       { name: "Hydrocarbures/Raffinage", icon: FireIcon, link: "/pilier-hydrocarbures-raffinage" },
       { name: "Chimie et Pharmacie", icon: BeakerIcon, link: "/pilier-chimie-pharmacie" },
       { name: "Mines/Métallurgie/Sidérurgie", icon: CubeTransparentIcon, link: "/pilier-mines-metallurgie-siderurgie" },
@@ -134,8 +134,8 @@ const categories = [
     name: "Socles",
     description: "Les bases fondamentales pour un développement industriel solide.",
     secteurs: [
-      { name: "Financements", link: "/socle-financement", icon: CurrencyDollarIcon },
-      { name: "Infrastructures", link: "/socle-infrastructure", icon: BuildingOfficeIcon },
+      { name: "Financement", link: "/socle-financement", icon: CurrencyDollarIcon },
+      { name: "Infrastructure", link: "/socle-infrastructure", icon: BuildingOfficeIcon },
     ],
   },
 ];

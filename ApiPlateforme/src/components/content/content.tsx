@@ -4,7 +4,7 @@ import Login from '../../pages/login/login';
 import Faq from '../../pages/faq/faq';
 import Projets from '../../pages/projets/projets';
 import DetailProjet from '../../pages/detailProjet/detailProjet';
-import { staticData } from './../../staticData';
+import { staticData } from '../../staticData';
 import Blank from '../../pages/blank/blank';
 import Energie from '../../pages/sectors/energie/energie';
 import Infrastructure from '../../pages/sectors/infrastructure/infrastructure';
@@ -16,6 +16,8 @@ import MainOeuvre from '../../pages/investir/mainOeuvre/mainOeuvre';
 import FacteursProduction from '../../pages/investir/facteursProduction/facteursProduction';
 import AspectsJuridiques from '../../pages/informations-generales/aspects-juridiques/aspects-juridiques';
 import Agroindustrie from '../../pages/sectors/agroindustrie/agroindustrie';
+import Financement from '../../pages/sectors/financement/financement';
+import BoisForet from '../../pages/sectors/bois-foret/bois-forets';
 
 interface ContentProps {
     selectedMenu: any | null;
@@ -40,6 +42,8 @@ const content: React.FC<ContentProps> = ({ selectedMenu }) => {
                 <Route path='/sanctuaire-energie' element={<Energie />} />
                 <Route path='/sanctuaire-numerique' element={<Numerique />} />
                 <Route path='/socle-infrastructure' element={<Infrastructure />} />
+                <Route path='/socle-financement' element={<Financement />} />
+                <Route path='/pilier-bois-forets' element={<BoisForet />} />
                 <Route path="/projets/detailsProjets/:id" element={<DetailProjet projects={staticData} />} />
                 <Route path='/:selectedMenu' element={<Blank selectedMenu={selectedMenu} />} />
             </Routes>
