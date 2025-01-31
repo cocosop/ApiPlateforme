@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom'
 import Content from './components/content/content'
 import Navbar from './components/navbar/navbar'
 import Footer from './components/footer/footer'
+import Chatbox from './components/chatbox/chatbox'
 import { useState } from 'react'
 import Chatbot from './components/chatbox/chatbox'
 
@@ -18,12 +19,11 @@ function App() {
   return (
     <>
       <BrowserRouter>
-      <Chatbot/>
+        <Chatbot />
         <Navbar onMenuClick={handleMenuClick} />
         <Content selectedMenu={selectedMenu} />
-        <Chatbot/>
-
-        <Footer />        
+        <Chatbox />
+        <Footer />
       </BrowserRouter >
     </>
   )

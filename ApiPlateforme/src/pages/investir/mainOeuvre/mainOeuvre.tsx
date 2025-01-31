@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import oeuvre from "../../../assets/img/mainOeuvre.jpg"
-import { AcademicCapIcon, BookOpenIcon, BriefcaseIcon, ChartBarIcon, ClipboardIcon } from '@heroicons/react/16/solid';
-import ModalsMainOeuvre from "../../../components/modalsMainOeuvre/modalsMainOeuvre"
 import AOS from 'aos';
 import ProjectCard from '../../../components/projetCard/projetCard';
 import CACAO from "../../../assets/img/cacao4.png"
 import ENERGIE from "../../../assets/img/energie.jpg"
+import ModalsMainOeuvre from '../../../components/modalsMainOeuvre/modalsMainOeuvre';
 
 const MainOeuvre = () => {
 
@@ -77,12 +76,12 @@ const MainOeuvre = () => {
     },
   ]
 
-  interface Slides {
-    id: string;
-    title: string;
-    content: string;
-    color: string;
-  }
+  // interface Slides {
+  //   id: string;
+  //   title: string;
+  //   content: string;
+  //   color: string;
+  // }
 
 
   const [activeIndex, setActiveIndex] = useState<number>(2);
@@ -361,15 +360,14 @@ const MainOeuvre = () => {
           </p>
         </div>
       </div>
-      <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-20 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
+    </div>
+      <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
         <NavLink className="text-slate-500 hover:text-slate-600" to={'/'}>Accueil</NavLink>
         <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>Investir</NavLink>
+        <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>Guide de l'investisseur</NavLink>
         <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <NavLink className="text-slate-500 hover:text-slate-600" to={'/secteur-de-lagriculture'}>main d'oeuvre</NavLink>
+        <NavLink className="text-slate-500 hover:text-slate-600" to={'/main-doeuvre'}>Main d'œuvre</NavLink>
       </div>
-    </div>
-
       <div className="bg-gray-100 min-h-screen">
         <main className="container mx-auto p-6 space-y-8">
           {/* Container pour aligner deux divs sur une ligne */}
@@ -548,4 +546,4 @@ const MainOeuvre = () => {
   )
 }
 
-export default MainOeuvre
+export default MainOeuvre;

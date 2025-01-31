@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import {
+  CloseButton,
   Dialog,
   DialogPanel,
   Disclosure,
@@ -22,6 +23,7 @@ import {
 
 import {
   BeakerIcon,
+  BriefcaseIcon,
   ChatBubbleBottomCenterTextIcon,
   ChevronDownIcon,
   ComputerDesktopIcon,
@@ -29,15 +31,16 @@ import {
   CurrencyDollarIcon,
   DocumentTextIcon,
   FireIcon,
+  MapIcon,
   QuestionMarkCircleIcon,
   ScaleIcon,
   ScissorsIcon,
+  ShieldCheckIcon,
   SparklesIcon
 } from '@heroicons/react/20/solid'
 import Logo from '../../assets/img/logo.png'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import CameroonFlag from '../../assets/img/Camer.png'
-import { Divider } from '@mui/material'
 import './navbar.css'
 import React from 'react'
 
@@ -45,7 +48,6 @@ import React from 'react'
 interface NavbartProps {
   onMenuClick: any | null;
 }
-
 
 const infos = [
   {
@@ -68,12 +70,44 @@ const infos = [
   },
 ];
 
-
 const investir = [
-  { name: "Main d'oeuvre", description: "Informations sur les ressources humaines et la disponibilité de la main-d'œuvre.", link: "/main-d-oeuvre", icon: UserGroupIcon },
-  { name: "Facteurs de production", description: "Ressources clés pour la production, y compris le capital et les infrastructures.", link: "/facteurs-de-production", icon: CogIcon },
-]
-
+  {
+    name: "Création d'entreprise",
+    description: "Guide pratique pour établir une entreprise au Cameroun, y compris les démarches administratives.",
+    link: "/creation-dentreprise",
+    icon: BriefcaseIcon
+  },
+  {
+    name: "Droit des investisseurs",
+    description: "Présentation des protections légales et des droits garantis aux investisseurs étrangers.",
+    link: "/droit-des-investisseurs",
+    icon: ShieldCheckIcon
+  },
+  {
+    name: "Main d'œuvre",
+    description: "Données sur la disponibilité, les compétences et le coût de la main-d'œuvre locale.",
+    link: "/main-doeuvre",
+    icon: UserGroupIcon
+  },
+  {
+    name: "Facteurs de production",
+    description: "Informations sur les ressources nécessaires : capital, matières premières, et équipements.",
+    link: "/facteurs-de-production",
+    icon: CogIcon
+  },
+  {
+    name: "Foncier",
+    description: "Règles d'accès aux terres pour les investisseurs et opportunités dans l'immobilier.",
+    link: "/foncier",
+    icon: MapIcon
+  },
+  {
+    name: "Fiscalité",
+    description: "Régimes fiscaux avantageux et incitations offertes aux investisseurs.",
+    link: "/fiscalite",
+    icon: CurrencyDollarIcon
+  }
+];
 
 const categories = [
   {
@@ -89,8 +123,8 @@ const categories = [
     name: "Piliers",
     description: "Les secteurs clés qui soutiennent la croissance économique.",
     secteurs: [
-      { name: "Bois-Forêts", link: "/pilier--bois-forets", icon: SparklesIcon },
-      { name: "Textile/Confection/Cuir", link: "/pilier--textile-confection-cuir", icon: ScissorsIcon },
+      { name: "Bois-Forêts", link: "/pilier-bois-forets", icon: SparklesIcon },
+      { name: "Textile/Confection/Cuir", link: "/pilier-textile-confection-cuir", icon: ScissorsIcon },
       { name: "Hydrocarbures/Raffinage", icon: FireIcon, link: "/pilier-hydrocarbures-raffinage" },
       { name: "Chimie et Pharmacie", icon: BeakerIcon, link: "/pilier-chimie-pharmacie" },
       { name: "Mines/Métallurgie/Sidérurgie", icon: CubeTransparentIcon, link: "/pilier-mines-metallurgie-siderurgie" },
@@ -100,13 +134,11 @@ const categories = [
     name: "Socles",
     description: "Les bases fondamentales pour un développement industriel solide.",
     secteurs: [
-      { name: "Financements", link: "/socle-financement", icon: CurrencyDollarIcon },
-      { name: "Infrastructures", link: "/socle-infrastructure", icon: BuildingOfficeIcon },
+      { name: "Financement", link: "/socle-financement", icon: CurrencyDollarIcon },
+      { name: "Infrastructure", link: "/socle-infrastructure", icon: BuildingOfficeIcon },
     ],
   },
 ];
-
-
 
 const aPropos = [
   { name: "Présentation de l'API", description: "Découvrez le rôle de l’Agence de Promotion des Investissements dans l’accompagnement et la facilitation des projets d’investissement au Cameroun.", link: "/presentation-de-lAPI", icon: BuildingOfficeIcon },
@@ -240,7 +272,6 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                 Informations générales
                 <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
               </PopoverButton>
-
               <PopoverPanel
                 transition
                 className="absolute -left-1/2 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
@@ -255,10 +286,10 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                         <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
                       </div>
                       <div className="flex-auto">
-                        <Link to={item.link ? item.link : "#"} onClick={() => onMenuClick(item)} className="block font-semibold text-gray-900">
+                        <CloseButton as={NavLink} to={item.link ? item.link : "#"} onClick={() => onMenuClick(item)} className="block font-semibold text-gray-900">
                           {item.name}
                           <span className="absolute inset-0" />
-                        </Link>
+                        </CloseButton>
                         <small className="mt-1 text-gray-600">{item.description}</small>
                       </div>
                     </div>
@@ -275,9 +306,9 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 
               <PopoverPanel
                 transition
-                className="absolute -left-24 top-full z-10 mt-3 w-screen max-w-md overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+                className="absolute -left-24 top-full z-10 mt-3 w-screen max-w-3xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
               >
-                <div className="w-screen max-w-md p-4 flex-auto overflow-hidden rounded-3xl text-sm/6 shadow-lg ring-1 ring-gray-900/5">
+                <div className="grid grid-cols-2 gap-4 p-4 text-sm/6 bg-white rounded-3xl shadow-lg ring-1 ring-gray-900/5">
                   {investir.map((item) => (
                     <div
                       key={item.name}
@@ -287,10 +318,10 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                         <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
                       </div>
                       <div className="flex-auto">
-                        <Link to={item.link ? item.link : "#"} onClick={() => onMenuClick(item)} className="block font-semibold text-gray-900">
+                        <CloseButton as={NavLink} to={item.link ? item.link : "#"} onClick={() => onMenuClick(item)} className="block font-semibold text-gray-900">
                           {item.name}
                           <span className="absolute inset-0" />
-                        </Link>
+                        </CloseButton>
                         <small className="mt-1 text-gray-600">{item.description}</small>
                       </div>
                     </div>
@@ -326,14 +357,10 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                             <secteur.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
                           </div>
                           <div className="flex-auto">
-                            <Link
-                              to={secteur.link ? secteur.link : "#"}
-                              onClick={() => onMenuClick(secteur)}
-                              className="block font-semibold text-gray-900"
-                            >
+                            <CloseButton as={NavLink} to={secteur.link ? secteur.link : "#"} onClick={() => onMenuClick(secteur)}>
                               {secteur.name}
                               <span className="absolute inset-0" />
-                            </Link>
+                            </CloseButton>
                           </div>
                         </div>
                       ))}
@@ -363,10 +390,10 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                         <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
                       </div>
                       <div className="flex-auto">
-                        <Link to={item.link ? item.link : "#"} onClick={() => onMenuClick(item)} className="block font-semibold text-gray-900">
+                        <CloseButton as={NavLink} to={item.link ? item.link : "#"} onClick={() => onMenuClick(item)} className="block font-semibold text-gray-900">
                           {item.name}
                           <span className="absolute inset-0" />
-                        </Link>
+                        </CloseButton>
                         <small className="mt-1 text-gray-600">{item.description}</small>
                       </div>
                     </div>
@@ -405,12 +432,13 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
             <div className="mt-6 flow-root">
               <div className="-my-6 divide-y divide-gray-500/10">
                 <div className="space-y-2 py-6">
-                  <Link
+                  <CloseButton
+                    as={NavLink}
                     to={'/'}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
                     Accueil
-                  </Link>
+                  </CloseButton>
                   <Disclosure as="div" className="-mx-3">
                     <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
                       Informations générales
@@ -418,10 +446,11 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 ">
                       {[...infos].map((item) => (
-                        <DisclosureButton
+                        <CloseButton
+                          as={NavLink}
                           key={item.name}
-                          as="a"
-                          href={item.link}
+                          to={item.link}
+                          onClick={() => setMobileMenuOpen(false)}
                           className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
                         >
 
@@ -429,7 +458,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                             <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
                             {item.name}
                           </div>
-                        </DisclosureButton>
+                        </CloseButton>
                       ))}
                     </DisclosurePanel>
                   </Disclosure>
@@ -440,10 +469,11 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 ">
                       {[...investir].map((item) => (
-                        <DisclosureButton
+                        <CloseButton
+                          as={NavLink}
                           key={item.name}
-                          as="a"
-                          href={item.link}
+                          to={item.link}
+                          onClick={() => setMobileMenuOpen(false)}
                           className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
                         >
 
@@ -451,7 +481,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                             <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
                             {item.name}
                           </div>
-                        </DisclosureButton>
+                        </CloseButton>
                       ))}
                     </DisclosurePanel>
                   </Disclosure>
@@ -467,10 +497,11 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                           <small className="text-xs text-gray-600">{group.description}</small>
                           <div className="mt-2 space-y-1">
                             {group.secteurs.map((item) => (
-                              <DisclosureButton
+                              <CloseButton
+                                as={NavLink}
                                 key={item.name}
-                                as="a"
-                                href={item.link}
+                                to={item.link}
+                                onClick={() => setMobileMenuOpen(false)}
                                 className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
                               >
                                 <div className="flex items-center gap-5">
@@ -481,7 +512,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                                   )}
                                   {item.name}
                                 </div>
-                              </DisclosureButton>
+                              </CloseButton>
                             ))}
                           </div>
                         </div>
@@ -495,29 +526,31 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 ">
                       {[...aPropos].map((item) => (
-                        <DisclosureButton
+                        <CloseButton
+                          as={NavLink}
                           key={item.name}
-                          as="a"
-                          href={item.link}
+                          to={item.link}
+                          onClick={() => setMobileMenuOpen(false)}
                           className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
                         >
                           <div className='flex items-center gap-5'>
                             <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
                             {item.name}
                           </div>
-                        </DisclosureButton>
+                        </CloseButton>
                       ))}
                     </DisclosurePanel>
 
                   </Disclosure>
                 </div>
                 <div className="py-6">
-                  <Link
+                  <CloseButton
+                    as={NavLink}
                     to={'/login'}
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
                     Espace Privé
-                  </Link>
+                  </CloseButton>
                 </div>
               </div>
             </div>
@@ -529,4 +562,3 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 }
 
 export default navbar;
-
