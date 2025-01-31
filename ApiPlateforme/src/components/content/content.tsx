@@ -38,7 +38,7 @@ const content: React.FC<ContentProps> = ({ selectedMenu }) => {
                 <Route path='/sanctuaire-numerique' element={<Numerique />} />
                 <Route path='/socle-infrastructure' element={<Infrastructure />} />
                 <Route path='/main-d-oeuvre' element={<MainOeuvre />} />
-                <Route path='/facteurs-de-production' element={<CreerEntreprise />} />
+                <Route path='/facteurs-de-production' element={<FacteursProduction/>} />
                 <Route path="/projets/detailsProjets/:id" element={<DetailProjet projects={staticData} />} />
                 <Route path='/:selectedMenu' element={<Blank selectedMenu={selectedMenu} />} />
             </Routes>
