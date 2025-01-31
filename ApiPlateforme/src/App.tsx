@@ -6,6 +6,7 @@ import Navbar from './components/navbar/navbar'
 import Footer from './components/footer/footer'
 import Chatbox from './components/chatbox/chatbox'
 import { useState } from 'react'
+import Chatbot from './components/chatbox/chatbox'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <Chatbot />
         <Navbar onMenuClick={handleMenuClick} />
         <Content selectedMenu={selectedMenu} />
         <Chatbox />
