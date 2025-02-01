@@ -81,7 +81,11 @@ const Energie = () => {
                         Le Cameroun, riche en ressources énergétiques, offre des opportunités uniques pour les investisseurs dans les secteurs des énergies renouvelables, des infrastructures et de l’innovation technologique.
                     </p>
                     <div className="mt-6 py-2">
-                        <ActionButtonComponent title="Explorez les opportunités" color="#F5BA3A" />
+                        <ActionButtonComponent
+                            title="Explorez les opportunités"
+                            color="#F5BA3A"
+                            filterSecteur="Énergie"
+                        />
                     </div>
                 </div>
             </div>
@@ -184,6 +188,7 @@ const Energie = () => {
             {/* Stats Section */}
             <div className="bg-white py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                    <h2 className="text-3xl font-bold text-center mb-8">Chiffres Clés</h2>
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                         {stats.map((stat) => (
                             <div key={stat.id} className="bg-white p-6 rounded-xl shadow-lg text-center">

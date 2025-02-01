@@ -1,6 +1,7 @@
-import { ArrowTrendingUpIcon, BuildingOffice2Icon, BuildingOfficeIcon, GlobeAltIcon, LightBulbIcon } from '@heroicons/react/20/solid';
+import { ArrowTrendingUpIcon, BuildingOffice2Icon, GlobeAltIcon, LightBulbIcon } from '@heroicons/react/20/solid';
 import { NavLink, useNavigate } from 'react-router-dom';
 import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
+import { Apple, Beef, Carrot, Coffee, Cookie, FactoryIcon, Fish, Leaf, Wheat } from 'lucide-react';
 
 const features = [
     {
@@ -16,19 +17,19 @@ const features = [
 ];
 
 const speculations = [
-    { title: 'Céréales', items: ['Riz', 'Maïs', 'Sorgho'], background: 'https://images.pexels.com/photos/265242/pexels-photo-265242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
-    { title: 'Oléagineux', items: ['Coton', 'Noix de palme', 'Soja'], background: 'https://images.pexels.com/photos/30374853/pexels-photo-30374853/free-photo-of-champ-de-tournesols-vibrant-a-l-heure-doree.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
-    { title: 'Fruits et Légumes', items: ['Ananas', 'Banane', 'Plantain'], background: 'https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&w=600' },
-    { title: 'Racines et Tubercules', items: ['Manioc', 'Pommes de terre'], background: 'https://images.pexels.com/photos/2797395/pexels-photo-2797395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
-    { title: 'Plantes Stimulantes', items: ['Cacao', 'Café'], background: 'https://images.pexels.com/photos/30420479/pexels-photo-30420479/free-photo-of-gros-plan-d-une-cabosse-de-cacao-sur-une-branche-d-arbre-a-l-exterieur.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
-    { title: 'Autres Cultures', items: ['Canne à sucre'], background: 'https://images.pexels.com/photos/7457175/pexels-photo-7457175.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
-    { title: 'Élevage', items: ['Bœuf', 'Porc', 'Volaille'], background: 'https://images.pexels.com/photos/30405322/pexels-photo-30405322/free-photo-of-vaches-broutant-au-coucher-du-soleil-dans-un-paturage-tranquille.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
-    { title: 'Pêche', items: ['Aquaculture', 'Pêche industrielle'], background: 'https://images.pexels.com/photos/8824638/pexels-photo-8824638.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+    { title: 'Céréales', icon: Wheat, items: ['Riz', 'Maïs', 'Sorgho'], background: 'https://images.pexels.com/photos/265242/pexels-photo-265242.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+    { title: 'Oléagineux', icon: Leaf, items: ['Coton', 'Noix de palme', 'Soja'], background: 'https://images.pexels.com/photos/30374853/pexels-photo-30374853/free-photo-of-champ-de-tournesols-vibrant-a-l-heure-doree.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+    { title: 'Fruits et Légumes', icon: Apple, items: ['Ananas', 'Banane', 'Plantain'], background: 'https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&w=600' },
+    { title: 'Racines et Tubercules', icon: Carrot, items: ['Manioc', 'Pommes de terre'], background: 'https://images.pexels.com/photos/2797395/pexels-photo-2797395.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+    { title: 'Plantes Stimulantes', icon: Coffee, items: ['Cacao', 'Café'], background: 'https://images.pexels.com/photos/30420479/pexels-photo-30420479/free-photo-of-gros-plan-d-une-cabosse-de-cacao-sur-une-branche-d-arbre-a-l-exterieur.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+    { title: 'Autres Cultures', icon: Cookie, items: ['Canne à sucre'], background: 'https://images.pexels.com/photos/7457175/pexels-photo-7457175.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+    { title: 'Élevage', icon: Beef, items: ['Bœuf', 'Porc', 'Volaille'], background: 'https://images.pexels.com/photos/30405322/pexels-photo-30405322/free-photo-of-vaches-broutant-au-coucher-du-soleil-dans-un-paturage-tranquille.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
+    { title: 'Pêche', icon: Fish, items: ['Aquaculture', 'Pêche industrielle'], background: 'https://images.pexels.com/photos/8824638/pexels-photo-8824638.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1' },
 ];
 
 const infos = [
     { title: 'CEEAC', description: 'Marché Régional', text: 'Intégration régionale et accès aux marchés', icon: GlobeAltIcon },
-    { title: 'Innovation', description: 'Technopoles', text: 'Développement agro-industriel structurant', icon: BuildingOfficeIcon },
+    { title: 'Innovation', description: 'Technopoles', text: 'Développement agro-industriel structurant', icon: FactoryIcon },
     { title: 'Croissance', description: 'Compétitivité', text: 'Programmes de mise à niveau', icon: ArrowTrendingUpIcon },
 ];
 
@@ -49,7 +50,11 @@ const Agriculture = () => {
                         Rejoignez-nous pour révolutionner le sanctuaire de l'agro-industrie avec des technologies durables et des solutions agricoles innovantes.
                     </p>
                     <div className="mt-6 py-2">
-                        <ActionButtonComponent title="Explorez les opportunités" color="#0E600B" />
+                        <ActionButtonComponent
+                            title="Explorez les opportunités"
+                            color="#0E600B"
+                            filterSecteur="Agro-industrie"
+                        />
                     </div>
                 </div>
             </div>
@@ -89,7 +94,7 @@ const Agriculture = () => {
                                 {features.map((feature) => (
                                     <div key={feature.name} className="relative pl-9">
                                         <div className="flex items-center gap-4">
-                                            <div className="flex items-center justify-center w-12 h-12 p-4 bg-green-200 rounded-full">
+                                            <div className="flex items-center justify-center w-12 h-12 p-4 bg-green-100 rounded-full">
                                                 <feature.icon aria-hidden="true" className="size-6 text-[#0E600B]" />
                                             </div>
                                             <div>
@@ -134,40 +139,42 @@ const Agriculture = () => {
                     {speculations.map((spec, index) => (
                         <div
                             key={index}
-                            className="relative shadow rounded-lg p-6 bg-cover bg-center text-white transform transition duration-500 hover:scale-105 overflow-hidden group"
+                            className="relative shadow rounded-lg p-6 bg-cover bg-center text-white transform transition duration-500 hover:scale-105 overflow-hidden group flex flex-col justify-between"
                             style={{ backgroundImage: `url(${spec.background})` }}
                         >
                             {/* Overlay sombre pour améliorer la lisibilité */}
                             <div className="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
-                            <div className="relative z-10">
+                            <div className="relative z-10 flex flex-col h-full">
                                 {/* Icône représentative */}
                                 <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-full mb-4">
-                                    <img
-                                        src={`/icons/${spec.title.toLowerCase()}.svg`} // Remplacez par le chemin de vos icônes
-                                        alt={spec.title}
-                                        className="w-6 h-6"
-                                    />
+                                    <spec.icon aria-hidden="true" className="size-6 text-[#0E600B]" />
                                 </div>
+
                                 {/* Titre */}
                                 <h3 className="font-bold text-xl mb-4">{spec.title}</h3>
+
                                 {/* Liste des éléments */}
-                                <ul className="list-disc list-inside space-y-2 mb-4">
+                                <ul className="list-disc list-inside space-y-2 mb-4 flex-grow">
                                     {spec.items.map((item, idx) => (
                                         <li key={idx}>{item}</li>
                                     ))}
                                 </ul>
+
                                 {/* Statistiques ou indicateurs */}
                                 <div className="mt-4">
                                     <p className="text-sm text-gray-200">Production annuelle : <span className="font-bold">500 000 tonnes</span></p>
                                     <p className="text-sm text-gray-200">Emplois générés : <span className="font-bold">10 000+</span></p>
                                 </div>
+
                                 {/* Bouton "En savoir plus" */}
-                                <button
-                                    className="mt-4 px-4 py-2 bg-green-600 text-white rounded-lg text-sm hover:bg-green-700 transition-colors"
-                                    onClick={() => history('/projets')}
-                                >
-                                    En savoir plus
-                                </button>
+                                <div className="mt-4">
+                                    <button
+                                        className="w-full px-4 py-2 bg-green-600 text-white rounded-lg text-sm hover:bg-green-700 transition-colors"
+                                        onClick={() => history('/projets')}
+                                    >
+                                        En savoir plus
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     ))}

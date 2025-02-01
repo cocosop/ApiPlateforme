@@ -95,7 +95,11 @@ const numerique = () => {
                         Transformer le Cameroun en un hub numérique régional grâce à des infrastructures modernes, une gouvernance renforcée et des investissements stratégiques.
                     </p>
                     <div className="mt-6 py-2">
-                        <ActionButtonComponent title="Explorez les opportunités" color="#0F0B60" />
+                        <ActionButtonComponent
+                            title="Explorez les opportunités"
+                            color="#0F0B60"
+                            filterSecteur="Numérique"
+                        />
                     </div>
                 </div>
             </div>
@@ -170,7 +174,7 @@ const numerique = () => {
                                         className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                                     />
                                     {/* Overlay sombre pour améliorer la lisibilité */}
-                                    <div className="absolute inset-0 bg-black bg-opacity-30 group-hover:bg-opacity-10 transition-all duration-200"></div>
+                                    <div className="absolute inset-0 bg-black group-hover:bg-opacity-10 transition-all duration-200"></div>
                                     <div className="absolute inset-0 flex items-start p-6">
                                         <h3 className="text-xl font-semibold text-white">{domaine.name}</h3>
                                     </div>
@@ -186,7 +190,7 @@ const numerique = () => {
             {/* Statistiques Clés */}
             <div className="bg-white py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Statistiques Clés</h2>
+                    <h2 className="text-3xl font-bold text-center mb-8">Chiffres Clés</h2>
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                         {statsNumeriques.map((stat) => (
                             <div key={stat.id} className="bg-white p-6 rounded-xl shadow-lg text-center">

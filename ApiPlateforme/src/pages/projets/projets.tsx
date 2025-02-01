@@ -10,7 +10,7 @@ import INFRASTRUCTURE from "../../assets/img/pont.jpg"
 
 const Projets = () => {
   const [filters, setFilters] = useState({
-    secteur: "",
+    secteur: sessionStorage.getItem("secteur") || "",
     ville: "",
   });
 

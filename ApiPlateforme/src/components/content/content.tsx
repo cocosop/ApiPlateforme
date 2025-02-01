@@ -22,6 +22,10 @@ import CreerEntreprise from '../../pages/investir/creerEntreprise/creerEntrepris
 import DroitInvestisseur from '../../pages/investir/droitInvestisseur/droitInvestisseur';
 import Fiscalite from '../../pages/investir/fiscalite/fiscalite';
 import Foncier from '../../pages/investir/foncier/foncier';
+import TextileConfectionCuir from '../../pages/sectors/textile-confection-cuir/textile-confection-cuir';
+import HydrocarburesRaffinage from '../../pages/sectors/hydrocarbures-raffinage/hydrocarbures-raffinage';
+import ChimiePharmacie from '../../pages/sectors/chimie-pharmacie/chimie-pharmacie';
+import MinesMetallurgieSiderurgie from '../../pages/sectors/mines-metallurgie-siderurgie/mines-metallurgie-siderurgie';
 
 interface ContentProps {
     selectedMenu: any | null;
@@ -53,6 +57,10 @@ const content: React.FC<ContentProps> = ({ selectedMenu }) => {
                 <Route path='/socle-infrastructure' element={<Infrastructure />} />
                 <Route path='/socle-financement' element={<Financement />} />
                 <Route path='/pilier-bois-forets' element={<BoisForet />} />
+                <Route path='/pilier-textile-confection-cuir' element={<TextileConfectionCuir />} />
+                <Route path='/pilier-hydrocarbures-raffinage' element={<HydrocarburesRaffinage />} />
+                <Route path='/pilier-chimie-pharmacie' element={<ChimiePharmacie />} />
+                <Route path='/pilier-mines-metallurgie-siderurgie' element={<MinesMetallurgieSiderurgie />} />
 
                 {/* Routes banque de projet */}
                 <Route path='/projets' element={<Projets />} />

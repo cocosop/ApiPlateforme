@@ -22,10 +22,14 @@ const financement = () => {
                 <div className="relative z-10 text-start text-white px-6 lg:px-24">
                     <h1 className="text-4xl font-bold">Socle financement</h1>
                     <p className="mt-4 text-lg max-w-2xl">
-                        Socle infrastructure est un secteur clé pour le développement économique du Cameroun. Il regroupe les infrastructures de base nécessaires au bon fonctionnement de l’économie et à l’amélioration des conditions de vie des populations.
+                        Le socle financement est un ensemble de réformes visant à renforcer le système financier camerounais pour soutenir l'industrialisation du pays.
                     </p>
                     <div className="mt-6 py-2">
-                        <ActionButtonComponent title="Explorez les opportunités" color="#8FA832" />
+                        <ActionButtonComponent
+                            title="Explorez les opportunités"
+                            color="#8FA832"
+                            filterSecteur="Financement"
+                        />
                     </div>
                 </div>
             </div>
@@ -56,7 +60,7 @@ const financement = () => {
             {/* Socle Financement */}
             <div className="overflow-hidden bg-gray-50 py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Socle Financement</h2>
+                    <h2 className="text-3xl font-bold text-center mb-8">Nos Actions</h2>
                     <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
 
                         {/* Restructuration Institutionnelle */}
@@ -126,6 +130,7 @@ const financement = () => {
             {/* Indicateurs Clés */}
             <div className="bg-white py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                    <h2 className="text-3xl font-bold text-center mb-8">Chiffres Clés</h2>
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
                         {statistiques.map((stat) => (
                             <div key={stat.id} className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">

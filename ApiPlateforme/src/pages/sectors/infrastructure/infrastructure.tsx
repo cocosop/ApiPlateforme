@@ -1,11 +1,11 @@
 import { AcademicCapIcon, BuildingOfficeIcon } from '@heroicons/react/20/solid'
 import { NavLink } from "react-router-dom";
 import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
-import { AdjustmentsVerticalIcon, ChartBarSquareIcon } from '@heroicons/react/24/outline';
+import { Anchor, TrainTrack } from 'lucide-react';
 
 const statistiques = [
-    { id: 1, name: "Projets Ferroviaires", value: "15+", icon: AdjustmentsVerticalIcon },
-    { id: 2, name: "Ports Modernisés", value: "4", icon: ChartBarSquareIcon },
+    { id: 1, name: "Projets Ferroviaires", value: "15+", icon: TrainTrack },
+    { id: 2, name: "Ports Modernisés", value: "4", icon: Anchor },
     { id: 3, name: "Écoles Professionnelles", value: "730+", icon: AcademicCapIcon },
     { id: 4, name: "Ministères Restructurés", value: "100%", icon: BuildingOfficeIcon }
 ]
@@ -26,7 +26,11 @@ const infrastructure = () => {
                         Socle infrastructure est un secteur clé pour le développement économique du Cameroun. Il regroupe les infrastructures de base nécessaires au bon fonctionnement de l’économie et à l’amélioration des conditions de vie des populations.
                     </p>
                     <div className="mt-6 py-2">
-                        <ActionButtonComponent title="Explorez les opportunités" color="#DC2123" />
+                        <ActionButtonComponent
+                            title="Explorez les opportunités"
+                            color="#DC2123"
+                            filterSecteur="Infrastructures"
+                        />
                     </div>
                 </div>
             </div>
@@ -56,7 +60,7 @@ const infrastructure = () => {
             {/* Socle Infrastructure */}
             <div className="overflow-hidden bg-gray-50 py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Socle Infrastructure</h2>
+                    <h2 className="text-3xl font-bold text-center mb-8">Nos Actions</h2>
                     <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
 
                         {/* Infrastructure Physique */}

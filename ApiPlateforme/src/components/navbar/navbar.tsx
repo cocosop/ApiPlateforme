@@ -27,7 +27,6 @@ import {
   ChatBubbleBottomCenterTextIcon,
   ChevronDownIcon,
   ComputerDesktopIcon,
-  CubeTransparentIcon,
   CurrencyDollarIcon,
   DocumentTextIcon,
   FireIcon,
@@ -43,6 +42,7 @@ import { Link, NavLink } from 'react-router-dom'
 import CameroonFlag from '../../assets/img/Camer.png'
 import './navbar.css'
 import React from 'react'
+import { LeafyGreenIcon, PickaxeIcon, TreesIcon } from 'lucide-react'
 
 
 interface NavbartProps {
@@ -114,7 +114,7 @@ const categories = [
     name: "Sanctuaires",
     description: "Les infrastructures et pôles stratégiques du développement industriel.",
     secteurs: [
-      { name: "Agro-industrie", link: "/sanctuaire-agro-industrie", icon: BeakerIcon },
+      { name: "Agro-industrie", link: "/sanctuaire-agro-industrie", icon: LeafyGreenIcon },
       { name: "Énergie", link: "/sanctuaire-energie", icon: LightBulbIcon },
       { name: "Numérique", link: "/sanctuaire-numerique", icon: ComputerDesktopIcon },
     ],
@@ -123,11 +123,11 @@ const categories = [
     name: "Piliers",
     description: "Les secteurs clés qui soutiennent la croissance économique.",
     secteurs: [
-      { name: "Bois-Forêts", link: "/pilier-bois-forets", icon: SparklesIcon },
+      { name: "Bois-Forêts", link: "/pilier-bois-forets", icon: TreesIcon },
       { name: "Textile/Confection/Cuir", link: "/pilier-textile-confection-cuir", icon: ScissorsIcon },
       { name: "Hydrocarbures/Raffinage", icon: FireIcon, link: "/pilier-hydrocarbures-raffinage" },
-      { name: "Chimie et Pharmacie", icon: BeakerIcon, link: "/pilier-chimie-pharmacie" },
-      { name: "Mines/Métallurgie/Sidérurgie", icon: CubeTransparentIcon, link: "/pilier-mines-metallurgie-siderurgie" },
+      { name: "Chimie/Pharmacie", icon: BeakerIcon, link: "/pilier-chimie-pharmacie" },
+      { name: "Mines/Métallurgie/Sidérurgie", icon: PickaxeIcon, link: "/pilier-mines-metallurgie-siderurgie" },
     ],
   },
   {
