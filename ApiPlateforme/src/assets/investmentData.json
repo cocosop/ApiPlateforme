@@ -1,0 +1,40 @@
+{
+    "preloadedQuestions": [
+      "Quels sont les secteurs porteurs au Cameroun ?",
+      "Comment obtenir un titre foncier ?",
+      "Quels sont les avantages fiscaux pour les investisseurs ?",
+      "Quels sont les types de financement disponibles ?",
+      "Quelles sont les principales infrastructures disponibles ?"
+    ],
+    "messages": [
+      {
+        "question": "Quels sont les secteurs porteurs au Cameroun ?",
+        "sender": "bot",
+        "text": "Les secteurs porteurs au Cameroun incluent l'agriculture, les mines, les énergies renouvelables, et les technologies de l'information."
+      },
+      {
+        "question": "Comment obtenir un titre foncier ?",
+        "sender": "bot",
+        "text": "Pour obtenir un titre foncier, vous devez déposer une demande auprès du Ministère des Domaines et des Affaires Foncières, accompagnée des documents requis tels qu'un plan de situation et un certificat de propriété."
+      },
+      {
+        "question": "Quels sont les avantages fiscaux pour les investisseurs ?",
+        "sender": "bot",
+        "text": "Les avantages fiscaux pour les investisseurs incluent des exonérations d'impôts sur les sociétés pendant les premières années d'activité, ainsi que des réductions de droits de douane sur les équipements importés."
+      },
+      {
+        "question": "Quels sont les types de financement disponibles ?",
+        "sender": "bot",
+        "text": "Les types de financement disponibles incluent les prêts bancaires, les fonds d'investissement, les subventions gouvernementales, et le financement participatif."
+      },
+      {
+        "question": "Quelles sont les principales infrastructures disponibles ?",
+        "sender": "bot",
+        "text": "Les principales infrastructures disponibles au Cameroun incluent les ports de Douala et Kribi, les aéroports internationaux, les réseaux routiers et ferroviaires, ainsi que les zones industrielles."
+      },
+      {
+        "sender": "bot",
+        "text": "Désolé, je n'ai pas compris votre question. Pouvez-vous reformuler ?"
+      }
+    ]
+  }

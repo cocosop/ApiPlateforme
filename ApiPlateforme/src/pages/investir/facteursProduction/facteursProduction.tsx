@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import React, { useState } from "react";
-import { Droplet, Plane, Truck, Users, X, MessageSquare, Phone, Wifi } from "lucide-react";
+import { Droplet, Plane, Truck, Users, X, MessageSquare, Phone, Wifi, Lightbulb, Factory, Leaf, Building2, Server, Globe, Hammer, Cog, } from "lucide-react";
 import Courant from './../../../assets/img/energie.jpg'
 import Telecom from './../../../assets/img/telecommunication.jpg'
 import Assurance from './../../../assets/img/assurance.jpg'
@@ -14,6 +14,18 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recha
 import ProjectCard from '../../../components/projetCard/projetCard';
 import CACAO from "../../../assets/img/cacao4.png"
 import ENERGIE from "../../../assets/img/energie.jpg"
+import {  } from "lucide-react";
+
+const factorIcons: { [key: string]: JSX.Element } = {
+  "Agriculture": <Leaf size={96} className="text-green-600" />,
+  "Industrie": <Factory size={96} className="text-gray-700" />,
+  "Infrastructure": <Building2 size={96} className="text-blue-600" />,
+  "Énergie": <Lightbulb size={96} className="text-yellow-500" />,
+  "Technologie": <Server size={96} className="text-purple-600" />,
+  "Tourisme": <Globe size={96} className="text-orange-500" />,
+  "Construction": <Hammer size={96} className="text-red-500" />,
+  "Transport": <Plane size={96} className="text-indigo-600" />,
+};
 
 
 
@@ -40,6 +52,8 @@ const FacteursProduction = () => {
       quartier: "Bonaberi",
       description: "Mise en place d'une plantation moderne de cacao avec une production annuelle de 50 tonnes.",
       image: CACAO,
+      latitude: 4.0511, // Ajoutez cette propriété
+      longitude: 9.7679, // Ajoutez cette propriété
     },
     {
       id: 2,
@@ -49,6 +63,8 @@ const FacteursProduction = () => {
       quartier: "Ngaoundere route",
       description: "Construction d'un parc solaire pour fournir de l'énergie propre à la région du Nord.",
       image: ENERGIE,
+      latitude: 4.0511, // Ajoutez cette propriété
+      longitude: 9.7679, // Ajoutez cette propriété
     },
     {
       id: 3,
@@ -58,6 +74,8 @@ const FacteursProduction = () => {
       quartier: "Bastos",
       description: "Développement d'une application de paiement mobile visant à faciliter les transactions financières locales.",
       image: "https://img.freepik.com/free-photo/high-angle-friends-reading-menu-restaurant_23-2150384825.jpg?t=st=1738099850~exp=1738103450~hmac=263dee2608a764be0cc905367387bf817f98c3b6a3df41a0103a348fa8777175&w=996",
+      latitude: 4.0511, // Ajoutez cette propriété
+      longitude: 9.7679, // Ajoutez cette propriété
     }
     // Ajoutez plus de projets ici...
   ]);
@@ -696,12 +714,12 @@ const FacteursProduction = () => {
 
         </div>
       </div>
-      <div aria-label="Breadcrumbs" className="bg-[#0F0B60] sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-        <NavLink className="text-slate-500 text-white hover:text-slate-600" to={'/'}>Accueil</NavLink>
-        <div aria-hidden="true" className="text-slate-400 text-white select-none">/</div>
-        <NavLink className="text-slate-500 text-white hover:text-slate-600" to={'#'}>Investir</NavLink>
-        <div aria-hidden="true" className="text-slate-400 text-white select-none">/</div>
-        <NavLink className="text-slate-500 text-white hover:text-slate-600" to={'/secteur-de-lagriculture'}>Facteurs de production</NavLink>
+      <div aria-label="Breadcrumbs" className="bg-gray-200 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
+        <NavLink className="text-slate-500 text-gray-800 hover:text-slate-600" to={'/'}>Accueil</NavLink>
+        <div aria-hidden="true" className="text-slate-400 text-gray-800  select-none">/</div>
+        <NavLink className="text-slate-500 text-gray-800  hover:text-slate-600" to={'#'}>Investir</NavLink>
+        <div aria-hidden="true" className="text-slate-400 text-gray-800  select-none">/</div>
+        <NavLink className="text-slate-500 text-gray-800  hover:text-slate-600" to={'/secteur-de-lagriculture'}>Facteurs de production</NavLink>
       </div>
 
       <div className="bg-gray-100 min-h-screen p-6">
@@ -726,22 +744,26 @@ const FacteursProduction = () => {
           <p className="text-center text-gray-700 mb-6">
             "Découvrez les principaux postes de dépenses à prévoir pour assurer la rentabilité et la pérennité de votre investissement."      </p>
           <hr className="my-6 border-t-2 border-gray-300" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {factors.map((factor, index) => (
-              <div
-                key={index}
-                onClick={() => setSelectedFactor(factor)}
-                className="bg-white shadow-lg rounded-2xl p-6 border-l-8 border-[#F5BA3A] hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center text-center hover:scale-105 transform transition-transform duration-300 cursor-pointer"
-              >
-                <img src={factor.image} alt={factor.name} className="w-24 h-24 mb-4 rounded-full object-cover" />
-                <h2 className="text-2xl font-semibold text-[#0F0B60] mb-2">{factor.name}</h2>
-                <p className="text-gray-700 mb-4">{factor.description}</p>
-                <button className="mt-auto bg-[#0E600B] text-white px-4 py-2 rounded-full hover:bg-[#0C550A] transition-colors duration-300">
-                  En savoir plus
-                </button>
-              </div>
-            ))}
-          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+  {factors.map((factor, index) => (
+    <div
+      key={index}
+      onClick={() => setSelectedFactor(factor)}
+      className="bg-white shadow-lg rounded-2xl p-6 border-l-8 border-[#F5BA3A] hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center text-center hover:scale-105 transform transition-transform duration-300 cursor-pointer"
+    >
+      {/* Icône commune pour tous les facteurs */}
+      <div className="w-24 h-24 flex items-center justify-center mb-4">
+        <Cog size={96} className="text-[#0F0B60]" />
+      </div>
+
+      <h2 className="text-2xl font-semibold text-[#0F0B60] mb-2">{factor.name}</h2>
+      <p className="text-gray-700 mb-4">{factor.description}</p>
+      <button className="mt-auto bg-[#0E600B] text-white px-4 py-2 rounded-full hover:bg-[#0C550A] transition-colors duration-300">
+        En savoir plus
+      </button>
+    </div>
+  ))}
+</div>;
 
           {selectedFactor && (
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">

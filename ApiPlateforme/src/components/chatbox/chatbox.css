@@ -11,6 +11,16 @@
     flex-direction: column;
     background-color: white;
   }
+  .chat-button {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0;
+  }
+  
+  .chat-button img {
+    background-color: transparent !important;
+  }
   
   .chatbot-header {
     display: flex;

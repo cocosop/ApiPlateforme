@@ -20,8 +20,9 @@ import Financement from '../../pages/sectors/financement/financement';
 import BoisForet from '../../pages/sectors/bois-foret/bois-forets';
 import CreerEntreprise from '../../pages/investir/creerEntreprise/creerEntreprise';
 import DroitInvestisseur from '../../pages/investir/droitInvestisseur/droitInvestisseur';
-import Fiscalite from '../../pages/investir/fiscalite/fiscalite';
 import Foncier from '../../pages/investir/foncier/foncier';
+import Incitation from '../../pages/investir/incitation/incitation';
+import Fiscalite from '../../pages/investir/fiscalite/fiscalite'
 
 interface ContentProps {
     selectedMenu: any | null;
@@ -43,8 +44,11 @@ const content: React.FC<ContentProps> = ({ selectedMenu }) => {
                 <Route path='/facteurs-de-production' element={<FacteursProduction />} />
                 <Route path='/creation-dentreprise' element={<CreerEntreprise />} />
                 <Route path='/droits-des-investisseurs' element={<DroitInvestisseur />} />
-                <Route path='/fiscalite' element={<Fiscalite />} />
-                <Route path='/foncier' element={<Foncier />} />
+                {/* <Route path='/fiscalite' element={<Fiscalite/>} /> */}
+                {<Route path='/fiscalite' element={<Fiscalite/>}/>}
+                <Route path='/incitation' element={<Incitation />} />
+                <Route path='/foncier' element={<Foncier/>} />
+
 
                 {/* Routes secteurs et opportunités */}
                 <Route path='/sanctuaire-agro-industrie' element={<Agroindustrie />} />
@@ -65,7 +69,7 @@ const content: React.FC<ContentProps> = ({ selectedMenu }) => {
                 <Route path='/signin' element={<Login />} />
                 <Route path='/signup' element={<Logup />} />
                 <Route path='/login' element={<Login />} />
-                <Route path='/:selectedMenu' element={<Blank selectedMenu={selectedMenu} />} />
+                {/* <Route path='/:selectedMenu' element={<Blank selectedMenu={selectedMenu} />} /> */}
             </Routes>
         </div>
     );

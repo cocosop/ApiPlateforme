@@ -215,7 +215,7 @@ const home = () => {
                             >
                                 Guide de l'investisseur
                             </NavLink>
-                            <ActionButtonComponent title="Investissez maintenant" color="#0F0B60" />
+                            <ActionButtonComponent  title="Investissez maintenant" color="#0F0B60" />
                         </div>
                     </div>
                 </div>
