@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Home from '../../pages/home/home'
 import Login from '../../pages/login/login';
-import Faq from '../../pages/faq/faq';
+import Faq from '../../pages/aPropos/faq/faq';
 import Projets from '../../pages/projets/projets';
 import DetailProjet from '../../pages/detailProjet/detailProjet';
 import { staticData } from '../../staticData';
@@ -26,6 +26,7 @@ import TextileConfectionCuir from '../../pages/sectors/textile-confection-cuir/t
 import HydrocarburesRaffinage from '../../pages/sectors/hydrocarbures-raffinage/hydrocarbures-raffinage';
 import ChimiePharmacie from '../../pages/sectors/chimie-pharmacie/chimie-pharmacie';
 import MinesMetallurgieSiderurgie from '../../pages/sectors/mines-metallurgie-siderurgie/mines-metallurgie-siderurgie';
+import PresentationApi from '../../pages/aPropos/presentation-api/presentation-api';
 
 interface ContentProps {
     selectedMenu: any | null;
@@ -67,6 +68,7 @@ const content: React.FC<ContentProps> = ({ selectedMenu }) => {
                 <Route path="/projets/detailsProjets/:id" element={<DetailProjet projects={staticData} />} />
 
                 {/* Routes a propos */}
+                <Route path='/presentation-api' element={<PresentationApi />} />
                 <Route path='/faq' element={<Faq />} />
 
                 {/* Routes autres pages */}

@@ -129,34 +129,107 @@ const numerique = () => {
             </div>
 
             {/* Actions Stratégiques */}
-            <div className="overflow-hidden bg-white py-20 sm:py-20">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Actions Stratégiques</h2>
-                    <div className="space-y-12">
-                        {actions.map((section, index) => (
-                            <div key={index} className="space-y-8">
-                                <h3 className="text-2xl font-semibold text-gray-900">{section.title}</h3>
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                                    {section.items.map((item, idx) => {
-                                        const Icon = item.icon;
-                                        return (
-                                            <div key={idx} className="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                                                <div className="flex items-center gap-4">
-                                                    <div className="flex items-center justify-center w-12 h-12 p-4 bg-blue-100 rounded-full">
-                                                        <Icon className="size-6 text-[#0F0B60]" />
+            <div className="relative overflow-hidden bg-white">
+                <div className="pt-16 sm:pt-24 sm:pb-30 lg:pt-40 lg:pb-30">
+                    <div className="relative mx-auto max-w-7xl px-4 sm:static sm:px-6 lg:px-8">
+                        <div className="sm:max-w-full">
+                            <div className="space-y-12">
+                                {actions.map((section, index) => (
+                                    <div key={index} className="space-y-8">
+                                        <h3 className="text-2xl font-semibold text-gray-900">{section.title}</h3>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                                            {section.items.map((item, idx) => {
+                                                const Icon = item.icon;
+                                                return (
+                                                    <div key={idx} className="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                                                        <div className="flex items-center gap-4">
+                                                            <div className="flex items-center justify-center w-12 h-12 p-4 bg-blue-100 rounded-full">
+                                                                <Icon className="size-6 text-[#0F0B60]" />
+                                                            </div>
+                                                            <h4 className="text-lg font-semibold text-gray-900">{item.name}</h4>
+                                                        </div>
+                                                        <p className="mt-4 text-md text-gray-600">{item.description}</p>
                                                     </div>
-                                                    <h4 className="text-lg font-semibold text-gray-900">{item.name}</h4>
+                                                );
+                                            })}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div>
+                            <div className="mb-8">
+                                {/* Decorative image grid */}
+                                <div
+                                    aria-hidden="true"
+                                    className="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
+                                >
+                                    <div className="absolute mt-28 transform md:top-1/3 md:left-1/2 sm:translate-x-8 lg:top-1/2 lg:left-1/2 lg:-translate-y-1/2 lg:translate-x-8">
+                                        <div className="flex items-center space-x-6 lg:space-x-8">
+                                            <div className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                                                <div className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
+                                                    <img
+                                                        alt=""
+                                                        src="https://media.istockphoto.com/id/1321462048/fr/photo/concept-de-transformation-num%C3%A9rique-ing%C3%A9nierie-syst%C3%A8me-code-binaire-programmation.jpg?b=1&s=612x612&w=0&k=20&c=TsJtplZZveskEXDBT7YOGI8j-sM1Y8p_PPTIaOiTVys="
+                                                        className="size-full object-cover"
+                                                    />
                                                 </div>
-                                                <p className="mt-4 text-md text-gray-600">{item.description}</p>
+                                                <div className="h-64 w-44 overflow-hidden rounded-lg">
+                                                    <img
+                                                        alt=""
+                                                        src="https://images.unsplash.com/photo-1573164713712-03790a178651?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D"
+                                                        className="size-full object-cover"
+                                                    />
+                                                </div>
                                             </div>
-                                        );
-                                    })}
+                                            <div className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                                                <div className="h-64 w-44 overflow-hidden rounded-lg">
+                                                    <img
+                                                        alt=""
+                                                        src="https://images.unsplash.com/photo-1599949104055-2d04026aee1e?q=80&w=1373&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                                        className="size-full object-cover"
+                                                    />
+                                                </div>
+                                                <div className="h-64 w-44 overflow-hidden rounded-lg">
+                                                    <img
+                                                        alt=""
+                                                        src="https://img.freepik.com/photos-gratuite/homme-portant-lunettes-intelligentes-touchant-remix-numerique-technologie-futuriste-ecran-virtuel_53876-124731.jpg?t=st=1738610128~exp=1738613728~hmac=cecd0e771c4ce35c3cdca260bb72d4acd9652e0dbe166929fed441d9830181fc&w=740"
+                                                        className="size-full object-cover"
+                                                    />
+                                                </div>
+                                                <div className="h-64 w-44 overflow-hidden rounded-lg">
+                                                    <img
+                                                        alt=""
+                                                        src="https://images.unsplash.com/photo-1579403124614-197f69d8187b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D"
+                                                        className="size-full object-cover"
+                                                    />
+                                                </div>
+                                            </div>
+                                            <div className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
+                                                <div className="h-64 w-44 overflow-hidden rounded-lg">
+                                                    <img
+                                                        alt=""
+                                                        src="https://images.unsplash.com/photo-1604145559206-e3bce0040e2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fGRldmVsb3BlcnN8ZW58MHx8MHx8fDI%3D"
+                                                        className="size-full object-cover"
+                                                    />
+                                                </div>
+                                                <div className="h-64 w-44 overflow-hidden rounded-lg">
+                                                    <img
+                                                        alt=""
+                                                        src="https://images.unsplash.com/photo-1639066648921-82d4500abf1a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c2VydmV1cnN8ZW58MHx8MHx8fDI%3D"
+                                                        className="size-full object-cover"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
             </div>
+
             {/* Domaines Clés du Numérique */}
             <div className="overflow-hidden bg-gray-50 py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
