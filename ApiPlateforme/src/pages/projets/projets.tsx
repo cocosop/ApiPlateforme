@@ -1,17 +1,11 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Filters from "./../../components/filtreSecteur/filtreSecteur"; // Importation du composant
 import ProjectCard from "./../../components/projetCard/projetCard"; // Importation du composant ProjectCard
 import { NavLink } from "react-router-dom";
-import Fonciere from "../../assets/img/foncier.jpg"
 import CACAO from "../../assets/img/cacao4.png"
 import ENERGIE from "../../assets/img/solar.jpg"
-import NUMERIQUE from "../../assets/img/foncier.jpg"
-import FORET from "../../assets/img/foncier.jpg"
-import TEXTILE from "../../assets/img/foncier.jpg"
-import HYDROCARBURE from "../../assets/img/foncier.jpg"
 import CHIMIE from "../../assets/img/medoc.jpg"
 import MINE from "../../assets/img/mine.jpg"
-import FINANCEMENT from "../../assets/img/foncier.jpg"
 import INFRASTRUCTURE from "../../assets/img/pont.jpg"
 import PROJETS from "../../assets/img/projet.png"
 
@@ -20,11 +14,11 @@ const Projets = () => {
   const [filters, setFilters] = useState({
     secteur: "",
     ville: "",
-    region:""
+    region: ""
   });
 
 
-  const [projects, setProjects] = useState([
+  const [projects] = useState([
     {
       id: 1,
       secteur: "Agro-industrie",
@@ -206,9 +200,9 @@ const Projets = () => {
         </div>
       </div>
       <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-        <NavLink className="text-slate-500 hover:text-slate-600" to={'/'}>Accueil</NavLink>
+        <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
         <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>Banque de projet</NavLink>
+        <p className="text-slate-500">Banque de projet</p>
       </div>
       <div className="flex flex-col md:flex-row gap-6 p-4">
         {/* Filters Sidebar */}
@@ -241,23 +235,23 @@ const Projets = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {currentProjects.length > 0 ? (
               currentProjects.map((project) => (
-                <NavLink 
-                key={project.id} 
-                to={`/projets/detailsProjets/${project.id}`} 
-                className="block hover:shadow-lg transition"
-              >
-                <ProjectCard
-                  id={project.id}
-                  secteur={project.secteur}
-                  titre={project.titre}
-                  ville={project.ville}
-                  quartier={project.quartier}
-                  description={project.description}
-                  image={project.image}
-                  latitude={project.latitude}
-                  longitude={project.longitude}
-                />
-              </NavLink>
+                <NavLink
+                  key={project.id}
+                  to={`/projets/detailsProjets/${project.id}`}
+                  className="block hover:shadow-lg transition"
+                >
+                  <ProjectCard
+                    id={project.id}
+                    secteur={project.secteur}
+                    titre={project.titre}
+                    ville={project.ville}
+                    quartier={project.quartier}
+                    description={project.description}
+                    image={project.image}
+                    latitude={project.latitude}
+                    longitude={project.longitude}
+                  />
+                </NavLink>
               ))
             ) : (
               <p className="col-span-full text-center text-gray-600">

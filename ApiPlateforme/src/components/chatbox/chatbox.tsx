@@ -79,7 +79,7 @@ const Chatbox = () => {
   return (
     // Sur desktop, la chatbox est positionnée en bas à droite (sm:bottom-5 sm:right-5)
     // Sur mobile, elle occupe toute la largeur en bas et est centrée horizontalement.
-    <div className="fixed sm:bottom-5 sm:right-5 bottom-0 left-0 flex flex-col items-end z-50">
+    <div className="fixed sm:bottom-5 right-5 bottom-0 flex flex-col items-end z-50">
       {isOpen && (
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -124,11 +124,10 @@ const Chatbox = () => {
                         <img src={logo} alt="Bot" className="w-8 h-8 mr-2 rounded-full" />
                       )}
                       <p
-                        className={`px-3 py-2 rounded-lg text-sm max-w-[70%] ${
-                          msg.sender === "user"
-                            ? "bg-[#0F0B60] text-white"
-                            : "bg-[#0E600B] text-white"
-                        }`}
+                        className={`px-3 py-2 rounded-lg text-sm max-w-[70%] ${msg.sender === "user"
+                          ? "bg-[#0F0B60] text-white"
+                          : "bg-[#0E600B] text-white"
+                          }`}
                       >
                         {msg.text}
                       </p>

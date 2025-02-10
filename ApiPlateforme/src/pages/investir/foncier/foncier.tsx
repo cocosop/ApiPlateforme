@@ -49,7 +49,7 @@ const ReformListItem = ({ text }: { text: string }) => (
 const Accordion = ({ title, children, iconColor = '#0F0B60', className }: AccordionProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const contentId = useId();
-  
+
   return (
     <div className={`border border-gray-200 rounded-xl overflow-hidden mb-4 transition-all duration-200 hover:border-[#0F0B60] ${className}`}>
       <button
@@ -65,7 +65,7 @@ const Accordion = ({ title, children, iconColor = '#0F0B60', className }: Accord
           </svg>
         </span>
       </button>
-      <div 
+      <div
         id={contentId}
         className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-[1000px]' : 'max-h-0'}`}
       >
@@ -102,7 +102,7 @@ const LawLinkItem = ({ law }: { law: LawLink }) => (
 
 // Main Component
 const Foncier = () => {
-  const [projects, setProjects] = useState([
+  const [projects] = useState([
     {
       id: 1,
       secteur: "Agro-industrie",
@@ -187,113 +187,113 @@ const Foncier = () => {
 
   return (
     <div>
-    <div>
-    <div className="relative isolate overflow-hidden bg-green-900 py-24 sm:py-32">
-      <img src={oeuvre} alt="" className="absolute inset-0 z-10 size-full object-cover object-right md:object-center opacity-30" />
-      <div className="hidden sm:absolute sm:-top-10 sm:right-1/2 z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
-        <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-20"></div>
-      </div>
-      <div className="absolute -top-52 left-1/2 z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu" aria-hidden="true">
-        <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-30"></div>
-      </div>
-
-      <div className="max-w-6xl mx-auto text-center text-white">
-          <h2 className="text-4xl font-bold mb-4">
-            Système Foncier au Cameroun
-          </h2>
-          <p className="text-center text-white leading-relaxed opacity-90">
-            Le système foncier camerounais allie tradition et modernité, structuré autour 
-            des domaines public et privé de l'État. Explorez les mécanismes juridiques 
-            encadrant la propriété immobilière.
-          </p>
-        </div>
-
-    </div>
-  </div>
-    <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-      <NavLink className="text-slate-500 hover:text-slate-600" to={'/'}>Accueil</NavLink>
-      <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-      <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>Guide de l'investisseur</NavLink>
-      <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-      <NavLink className="text-slate-500 hover:text-slate-600" to={'/main-doeuvre'}>Main d'œuvre</NavLink>
-    </div>
-    <div className="max-w-7xl mx-auto p-6 space-y-8">
-   
-      <div className="grid lg:grid-cols-5 gap-8">
-        <div className="lg:col-span-4 space-y-8">
-          <section className="grid gap-6 md:grid-cols-2">
-            {acquisitionMethods.map((method, index) => (
-              <AcquisitionCard key={index} {...method} />
-            ))}
-          </section>
-          <section className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
-            <div className="max-w-3xl">
-              <div className="mb-6">
-                <span className="bg-[#0E600B]/10 text-[#0E600B] px-4 py-2 rounded-full text-sm font-semibold">
-                  Nouveauté 2005
-                </span>
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                Révolution des Réformes Foncières
-              </h3>
-              <ul className="space-y-4">
-                {reformsList.map((reform, index) => (
-                  <ReformListItem key={index} text={reform} />
-                ))}
-              </ul>
-            </div>
-          </section>
-
-          <div className="space-y-6">
-            <Accordion title="📜 Titre Foncier Garanti" iconColor="#F5BA3A">
-              <div className="space-y-3">
-                <p className="leading-relaxed">
-                  Une procédure sécurisée avec authentification biométrique 
-                  et vérification cadastrale numérique.
-                </p>
-                <ul className="list-disc pl-6 text-gray-600 space-y-2">
-                  <li>Certificat d'authenticité numérique</li>
-                  <li>Géolocalisation précise</li>
-                  <li>Protection contre les fraudes</li>
-                </ul>
-              </div>
-            </Accordion>
-
-            <Accordion title="🏢 Bail Commercial Sécurisé" iconColor="#DC2123">
-              <div className="space-y-3">
-                <p className="leading-relaxed">
-                  Contrats de bail modernisés avec protection des deux parties 
-                  et réévaluation encadrée.
-                </p>
-                <div className="bg-[#F5BA3A]/10 p-4 rounded-lg">
-                  <p className="text-sm text-[#0F0B60]">
-                    Durée maximale : 15 ans renouvelable<br />
-                    Indexation réglementée sur l'indice INSEE
-                  </p>
-                </div>
-              </div>
-            </Accordion>
+      <div>
+        <div className="relative isolate overflow-hidden bg-green-900 py-24 sm:py-32">
+          <img src={oeuvre} alt="" className="absolute inset-0 z-10 size-full object-cover object-right md:object-center opacity-30" />
+          <div className="hidden sm:absolute sm:-top-10 sm:right-1/2 z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
+            <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-20"></div>
           </div>
-        </div>
+          <div className="absolute -top-52 left-1/2 z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu" aria-hidden="true">
+            <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-30"></div>
+          </div>
 
-        <div className="lg:col-span-1">
-          <aside className="bg-white rounded-xl shadow-xl border border-gray-100 sticky top-6">
-            <div className="p-6">
-              <h3 className="text-xl font-bold text-[#0F0B60] mb-4 border-b pb-4">
-                📚 Code Foncier
-              </h3>
-              <nav>
-                <ul className="space-y-3">
-                  {legalLaws.map((law, index) => (
-                    <LawLinkItem key={index} law={law} />
+          <div className="max-w-6xl mx-auto text-center text-white">
+            <h2 className="text-4xl font-bold mb-4">
+              Système Foncier au Cameroun
+            </h2>
+            <p className="text-center text-white leading-relaxed opacity-90">
+              Le système foncier camerounais allie tradition et modernité, structuré autour
+              des domaines public et privé de l'État. Explorez les mécanismes juridiques
+              encadrant la propriété immobilière.
+            </p>
+          </div>
+
+        </div>
+      </div>
+      <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
+        <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
+        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+        <p className="text-slate-500">Guide de l'investisseur</p>
+        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+        <p className="text-slate-500">Foncier</p>
+      </div>
+      <div className="max-w-7xl mx-auto p-6 space-y-8">
+
+        <div className="grid lg:grid-cols-5 gap-8">
+          <div className="lg:col-span-4 space-y-8">
+            <section className="grid gap-6 md:grid-cols-2">
+              {acquisitionMethods.map((method, index) => (
+                <AcquisitionCard key={index} {...method} />
+              ))}
+            </section>
+            <section className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+              <div className="max-w-3xl">
+                <div className="mb-6">
+                  <span className="bg-[#0E600B]/10 text-[#0E600B] px-4 py-2 rounded-full text-sm font-semibold">
+                    Nouveauté 2005
+                  </span>
+                </div>
+                <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                  Révolution des Réformes Foncières
+                </h3>
+                <ul className="space-y-4">
+                  {reformsList.map((reform, index) => (
+                    <ReformListItem key={index} text={reform} />
                   ))}
                 </ul>
-              </nav>
+              </div>
+            </section>
+
+            <div className="space-y-6">
+              <Accordion title="📜 Titre Foncier Garanti" iconColor="#F5BA3A">
+                <div className="space-y-3">
+                  <p className="leading-relaxed">
+                    Une procédure sécurisée avec authentification biométrique
+                    et vérification cadastrale numérique.
+                  </p>
+                  <ul className="list-disc pl-6 text-gray-600 space-y-2">
+                    <li>Certificat d'authenticité numérique</li>
+                    <li>Géolocalisation précise</li>
+                    <li>Protection contre les fraudes</li>
+                  </ul>
+                </div>
+              </Accordion>
+
+              <Accordion title="🏢 Bail Commercial Sécurisé" iconColor="#DC2123">
+                <div className="space-y-3">
+                  <p className="leading-relaxed">
+                    Contrats de bail modernisés avec protection des deux parties
+                    et réévaluation encadrée.
+                  </p>
+                  <div className="bg-[#F5BA3A]/10 p-4 rounded-lg">
+                    <p className="text-sm text-[#0F0B60]">
+                      Durée maximale : 15 ans renouvelable<br />
+                      Indexation réglementée sur l'indice INSEE
+                    </p>
+                  </div>
+                </div>
+              </Accordion>
             </div>
-          </aside>
+          </div>
+
+          <div className="lg:col-span-1">
+            <aside className="bg-white rounded-xl shadow-xl border border-gray-100 sticky top-6">
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-[#0F0B60] mb-4 border-b pb-4">
+                  📚 Code Foncier
+                </h3>
+                <nav>
+                  <ul className="space-y-3">
+                    {legalLaws.map((law, index) => (
+                      <LawLinkItem key={index} law={law} />
+                    ))}
+                  </ul>
+                </nav>
+              </div>
+            </aside>
+          </div>
         </div>
-      </div>
-      <div className="container mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
+        <div className="container mx-auto p-6">
           {/* Titre avec style attractif */}
           <h2 className="text-3xl font-bold text-center text-[#0F0B60]">
             Saisissez des Opportunités Uniques !
@@ -323,8 +323,8 @@ const Foncier = () => {
               Voir plus de projets
             </a>
           </div>
-        </div>    
-    </div>
+        </div>
+      </div>
     </div>
   )
 }

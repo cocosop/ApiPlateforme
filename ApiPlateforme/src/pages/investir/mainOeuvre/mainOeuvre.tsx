@@ -8,7 +8,7 @@ import ENERGIE from "../../../assets/img/energie.jpg"
 import ModalsMainOeuvre from '../../../components/modalsMainOeuvre/modalsMainOeuvre';
 
 const MainOeuvre = () => {
-  const [projects, setProjects] = useState([
+  const [projects] = useState([
     {
       id: 1,
       secteur: "Agro-industrie",
@@ -309,12 +309,12 @@ const MainOeuvre = () => {
       </div>
 
       {/* Breadcrumbs */}
-      <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex items-center space-x-2 text-sm font-semibold p-6 lg:p-8">
-        <NavLink className="text-slate-500 hover:text-slate-600" to={'/'}>Accueil</NavLink>
+      <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
+        <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
         <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>Guide de l'investisseur</NavLink>
+        <p className="text-slate-500">Guide de l'investisseur</p>
         <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <NavLink className="text-slate-500 hover:text-slate-600" to={'/main-doeuvre'}>Main d'œuvre</NavLink>
+        <p className="text-slate-500">Main d'œuvre</p>
       </div>
 
       {/* Contenu principal */}
@@ -464,7 +464,7 @@ const MainOeuvre = () => {
           </section>
 
           {/* Section Projets */}
-          <div className="container mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
+          <div className="container mx-auto p-6">
             <h2 className="text-3xl font-bold text-center text-[#0F0B60]">
               Saisissez des Opportunités Uniques !
             </h2>
