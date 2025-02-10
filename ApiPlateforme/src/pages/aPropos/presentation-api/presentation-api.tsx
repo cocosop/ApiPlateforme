@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Building, Globe, Users, Briefcase, ArrowRight, CheckCircle, Shield, Handshake, Target, Database, Clipboard, Settings, Mail, Phone, MapPin } from 'lucide-react';
 
 const PresentationApi: React.FC = () => {
+    const [activeTab, setActiveTab] = useState<'direction' | 'consultatif'>('direction');
+
     // Données pour les statistiques
     const stats = [
         { name: 'Bureaux', value: '2', icon: Building, description: 'Yaoundé et Douala' },
@@ -59,17 +61,31 @@ const PresentationApi: React.FC = () => {
         },
     ];
 
-    // Données pour l'équipe dirigeante
-    const team = [
+    // Données pour l'équipe de direction
+    const directionTeams = [
         {
-            name: 'M. Shinwinsoh Boma Donatus',
-            role: 'DG ai',
+            name: 'Mr. Shinwinsoh Boma Donatus',
+            role: 'Directeur Général par intérim',
             image: 'https://api.kankogroup.com/img/equipe/dg-adjoint-equipe.png',
         },
         {
             name: 'Dr. Diana Acha-Morfaw',
-            role: 'PCA',
+            role: 'Présidente du Conseil d’Administration',
             image: 'https://api.kankogroup.com/img/equipe/pca-equipe.png',
+        },
+    ];
+
+    // Données pour l'équipe de direction
+    const consultatifTeams = [
+        {
+            name: 'SE Mr. Ferdinand Ngoh Ngoh',
+            role: 'Secrétariat Général de la Présidence de la République du Cameroun',
+            image: 'https://media.licdn.com/dms/image/v2/C4E03AQFzznCej69Yqw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1618553689792?e=2147483647&v=beta&t=Iam35xNyqIBsdauknghFJslrJh1oCj4_AIwKj7A1yXc',
+        },
+        {
+            name: 'SE Mr. Louis-Paul Motaze',
+            role: "Ministre de l'Economie et des Finances du Cameroun",
+            image: 'https://s7d1.scene7.com/is/image/wbcollab/louis_paul_motaze-2:220x220?qlt=90&fmt=webp&resMode=sharp2',
         },
     ];
 
@@ -197,7 +213,7 @@ const PresentationApi: React.FC = () => {
             </section>
 
             {/* Section Équipe */}
-            <section className="relative isolate overflow-hidden bg-white py-20 sm:py-24">
+            <section className="relative isolate overflow-hidden py-20 sm:py-24">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <motion.h2
                         initial={{ opacity: 0, y: 50 }}
@@ -205,28 +221,46 @@ const PresentationApi: React.FC = () => {
                         transition={{ duration: 1 }}
                         className="text-3xl font-bold text-center text-gray-900 mb-8"
                     >
-                        Notre Équipe
+                        Gouvernance
                     </motion.h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-                        <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-indigo-100),white)] opacity-20"></div>
-                        <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white ring-1 shadow-xl shadow-indigo-600/10 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
-                        {team.map((member, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.2 }}
-                                className="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow"
+
+                    <div className="overflow-hidden">
+                        <div className="flex border-b border-gray-200 mb-4">
+                            <button
+                                onClick={() => setActiveTab('consultatif')}
+                                className={`flex-1 p-4 font-medium ${activeTab === 'consultatif' ? 'bg-[#0F0B60] text-white' : 'text-gray-600'}`}
                             >
-                                <img
-                                    src={member.image}
-                                    alt={member.name}
-                                    className="mx-auto size-32 rounded-full"
-                                />
-                                <h3 className="mt-4 text-xl font-semibold text-gray-900">{member.name}</h3>
-                                <p className="mt-2 text-sm text-gray-600">{member.role}</p>
-                            </motion.div>
-                        ))}
+                                Conseil consultatif
+                            </button>
+                            <button
+                                onClick={() => setActiveTab('direction')}
+                                className={`flex-1 p-4 font-medium ${activeTab === 'direction' ? 'bg-[#0F0B60] text-white' : 'text-gray-600'}`}
+                            >
+                                Equipe de direction
+                            </button>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
+                            <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-indigo-100),white)] opacity-20"></div>
+                            <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white ring-1 shadow-xl shadow-indigo-600/10 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
+                            {(activeTab === 'direction' ? directionTeams : consultatifTeams).map((member, index) => (
+                                <motion.div
+                                    key={index}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                                    className="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow"
+                                >
+                                    <img
+                                        src={member.image}
+                                        alt={member.name}
+                                        className="mx-auto size-32 rounded-full"
+                                    />
+                                    <h3 className="mt-4 text-xl font-semibold text-gray-900">{member.name}</h3>
+                                    <p className="mt-2 text-sm text-gray-600">{member.role}</p>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </section>
