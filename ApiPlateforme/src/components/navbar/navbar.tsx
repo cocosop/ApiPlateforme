@@ -409,7 +409,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
               </PopoverPanel>
             </Popover>
 
-            <Link to="/login">
+            <Link to="/signin">
               <button className="ps-btn text-sm/6 font-semibold">
                 Espace  Privé
               </button>
@@ -553,7 +553,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                 <div className="py-6">
                   <CloseButton
                     as={NavLink}
-                    to={'/login'}
+                    to={'/signin'}
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
                     Espace Privé
