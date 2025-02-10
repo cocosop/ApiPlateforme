@@ -15,6 +15,7 @@ import {
   Bars3Icon,
   BuildingOfficeIcon,
   CogIcon,
+  GiftIcon,
   GlobeAltIcon,
   LightBulbIcon,
   UserGroupIcon,
@@ -73,7 +74,7 @@ const infos = [
 const investir = [
   {
     name: "Création d'entreprise",
-    description: "Guide pratique pour établir une entreprise au Cameroun, y compris les démarches administratives.",
+    description: "Guide pratique pour établir une entreprise au Cameroun.",
     link: "/creation-dentreprise",
     icon: BriefcaseIcon
   },
@@ -97,7 +98,7 @@ const investir = [
   },
   {
     name: "Foncier",
-    description: "Règles d'accès aux terres pour les investisseurs et opportunités dans l'immobilier.",
+    description: "Accès aux terres pour les investisseurs et opportunités dans l'immobilier.",
     link: "/foncier",
     icon: MapIcon
   },
@@ -109,9 +110,9 @@ const investir = [
   },
   {
     name: "Incitation",
-    description: "Régimes fiscaux avantageux et incitations offertes aux investisseurs.",
+    description: "Mesures incitatives et avantages fiscaux pour encourager l’investissement.",
     link: "/incitation",
-    icon: CurrencyDollarIcon
+    icon: GiftIcon
   }
 ];
 
@@ -147,7 +148,7 @@ const categories = [
 ];
 
 const aPropos = [
-  { name: "Présentation de l'API", description: "Découvrez le rôle de l’Agence de Promotion des Investissements dans l’accompagnement et la facilitation des projets d’investissement au Cameroun.", link: "/presentation-de-lAPI", icon: BuildingOfficeIcon },
+  { name: "Présentation de l'API", description: "Découvrez le rôle de l’Agence de Promotion des Investissements dans l’accompagnement et la facilitation des projets d’investissement au Cameroun.", link: "/presentation-api", icon: BuildingOfficeIcon },
   { name: "FAQ", description: "Trouvez des réponses rapides et claires à vos questions fréquentes concernant l’investissement au Cameroun.", link: "/FAQ", icon: QuestionMarkCircleIcon },
   { name: "Conseil en ligne", description: "Accédez à une assistance personnalisée et obtenez des réponses rapides à toutes vos questions sur les opportunités d'investissement.", link: "/conseil-en-ligne", icon: ChatBubbleBottomCenterTextIcon },
 ]
@@ -408,7 +409,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
               </PopoverPanel>
             </Popover>
 
-            <Link to="/login">
+            <Link to="/signin">
               <button className="ps-btn text-sm/6 font-semibold">
                 Espace  Privé
               </button>
@@ -552,7 +553,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                 <div className="py-6">
                   <CloseButton
                     as={NavLink}
-                    to={'/login'}
+                    to={'/signin'}
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
                     Espace Privé

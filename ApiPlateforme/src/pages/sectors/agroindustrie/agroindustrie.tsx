@@ -162,8 +162,8 @@ const Agriculture = () => {
 
                                 {/* Statistiques ou indicateurs */}
                                 <div className="mt-4">
-                                    <p className="text-sm text-gray-200">Production annuelle : <span className="font-bold">500 000 tonnes</span></p>
-                                    <p className="text-sm text-gray-200">Emplois générés : <span className="font-bold">10 000+</span></p>
+                                    <p className="text-sm text-gray-200">Production annuelle : Environ <span className="font-bold"> 500 000 tonnes</span></p>
+                                    <p className="text-sm text-gray-200">Emplois générés : <span className="font-bold">1 000+</span></p>
                                 </div>
 
                                 {/* Bouton "En savoir plus" */}

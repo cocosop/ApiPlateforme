@@ -64,19 +64,19 @@ const CadreJuridiqueFiscal: React.FC = () => {
             documents: [
                 {
                     name: "Code des Investissements",
-                    url: "https://www.investiraucameroun.com/sites/default/files/2021-02/Code%20des%20Investissements%20au%20Cameroun.pdf"
+                    url: "https://wipolex-resources-eu-central-1-358922420655.s3.amazonaws.com/edocs/lexdocs/laws/fr/cm/cm010fr.pdf"
                 },
                 {
                     name: "Code du Travail",
-                    url: "https://www.ilo.org/dyn/natlex/docs/WEBTEXT/48187/64823/F-1161908826/CMR-48187.pdf"
+                    url: "https://www.minfopra.gov.cm/recueil/fichiers%20word/LOI%20N%C2%B0%20092-007%20DU%2014%20A0UT%201992%20portant%20code%20du%20travail.pdf"
                 },
                 {
                     name: "Code de Commerce",
-                    url: "https://www.ilo.org/dyn/natlex/docs/WEBTEXT/48187/64823/F-1161908826/CMR-48187.pdf"
+                    url: "https://faolex.fao.org/docs/pdf/cmr220469.pdf"
                 },
                 {
                     name: "Réglementation Foncière",
-                    url: "https://www.investiraucameroun.com/sites/default/files/2021-02/Code%20des%20Investissements%20au%20Cameroun.pdf"
+                    url: "https://yaounde.eregulations.org/media/decret%2076-165%20du%2027%20avril%201976%20fixant%20les%20conditions%20d%27obtention%20du%20titre%20au%20foncier%20Cameroun.pdf"
                 }
             ],
             conclusion: "Le pays est également membre de l'Organisation pour l'Harmonisation en Afrique du Droit des Affaires (OHADA), ce qui garantit l'application d'un droit des affaires harmonisé dans 17 pays africains."
@@ -132,7 +132,7 @@ const CadreJuridiqueFiscal: React.FC = () => {
             documents: [
                 {
                     name: 'Code général des impôts',
-                    url: 'https://www.impots.cm/sites/default/files/2021-02/Code%20G%C3%A9n%C3%A9ral%20des%20Imp%C3%B4ts%20du%20Cameroun.pdf'
+                    url: 'https://www.impots.cm/fr/code-general-des-impots-mis-jour-au-1er-janvier-2025'
                 }
             ],
             conclusion: "L’administration fiscale est supervisée par la Direction Générale des Impôts (DGI), qui veille à la collecte des recettes et à l'application des lois fiscales. Des mesures de dématérialisation ont été mises en œuvre pour faciliter les déclarations fiscales et réduire les délais administratifs."
@@ -191,8 +191,8 @@ const CadreJuridiqueFiscal: React.FC = () => {
                     <div className="relative mt-8 lg:row-span-2 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500">
                         <div className="absolute inset-0 bg-gray-900 opacity-90 rounded-2xl"></div>
                         <div className="relative min-h-auto pb-6 w-full grow">
-                            <div className="z-10 absolute -top-5 left-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 p-4 rounded-md shadow-lg text-sm font-semibold w-max">
-                                Feature
+                            <div className="z-10 absolute -top-5 left-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 p-4 rounded-md shadow-lg text-sm font-light w-max">
+                                EN VEDETTE
                             </div>
                             <div className="px-8 pb-4 pt-10 sm:px-10 sm:pb-0 md:pt-12 text-white">
                                 <h3 className="font-bold text-2xl sm:text-3xl">
