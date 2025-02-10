@@ -26,6 +26,8 @@ import ChimiePharmacie from '../../pages/sectors/chimie-pharmacie/chimie-pharmac
 import MinesMetallurgieSiderurgie from '../../pages/sectors/mines-metallurgie-siderurgie/mines-metallurgie-siderurgie';
 import PresentationApi from '../../pages/aPropos/presentation-api/presentation-api';
 import Login from '../../pages/authentication/login/login';
+import Fiscalite from '../../pages/investir/fiscalite/fiscalite';
+import Incitation from '../../pages/investir/incitation/incitation';
 
 interface ContentProps {
     selectedMenu: any | null;
@@ -47,8 +49,7 @@ const content: React.FC<ContentProps> = ({ selectedMenu }) => {
                 <Route path='/facteurs-de-production' element={<FacteursProduction />} />
                 <Route path='/creation-dentreprise' element={<CreerEntreprise />} />
                 <Route path='/droits-des-investisseurs' element={<DroitInvestisseur />} />
-                {/* <Route path='/fiscalite' element={<Fiscalite/>} /> */}
-                {<Route path='/fiscalite' element={<Fiscalite />} />}
+                <Route path='/fiscalite' element={<Fiscalite />} />
                 <Route path='/incitation' element={<Incitation />} />
                 <Route path='/foncier' element={<Foncier />} />
 
