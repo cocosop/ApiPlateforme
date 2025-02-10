@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 interface ProjectCardProps {
   id: number;
@@ -9,6 +10,8 @@ interface ProjectCardProps {
   quartier: string;
   description: string;
   image: string;
+  latitude: number,
+    longitude: number
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
@@ -18,12 +21,12 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   image,
 }) => {
   return (
-    <a href={`/project/${id}`} className="block">
+    <a  className="block">
       <motion.div
-        key={id}
-        className="relative bg-white shadow-md overflow-hidden"
+       
+        className="relative bg-gray-200 shadow-md overflow-hidden"
       >
-        <motion.div className="relative" whileHover={{ x: 10 }}>
+        <motion.div className="relative" whileHover={{ x: 2 }}>
           <img
             src={image}
             alt={titre}
@@ -36,9 +39,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             whileHover={{ opacity: 1 }}
           >
             <p className="text-white p-4">{description}</p>
-            <button className="mt-4 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
-              Investir
-            </button>
+            <NavLink 
+  to={`/projets/detailsProjets/${id}`} 
+  className="mt-4 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+>
+  Plus de détails...
+</NavLink>
+
           </motion.div>
         </motion.div>
         <div className="p-4 min-h-[100px]"> {/* Ajout de min-h-[150px] pour fixer une hauteur minimale */}

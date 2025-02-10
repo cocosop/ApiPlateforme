@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import { useState } from "react";
-import { Droplet, Plane, Truck, Users, X, MessageSquare, Phone, Wifi } from "lucide-react";
+import { Droplet, Plane, Truck, Users, X, MessageSquare, Phone, Wifi, Cog, } from "lucide-react";
 import Courant from './../../../assets/img/energie.jpg'
 import Telecom from './../../../assets/img/telecommunication.jpg'
 import Assurance from './../../../assets/img/assurance.jpg'
@@ -14,6 +14,8 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recha
 import ProjectCard from '../../../components/projetCard/projetCard';
 import CACAO from "../../../assets/img/cacao4.png"
 import ENERGIE from "../../../assets/img/energie.jpg"
+import { } from "lucide-react";
+
 
 
 
@@ -23,12 +25,6 @@ interface Factor {
   image: string;
   details?: JSX.Element; // Optional details
 }
-// Définition des types pour les props
-// interface ProgressCardProps {
-//   title: string;
-//   percentage: number;
-//   color: string;
-// }
 
 const FacteursProduction = () => {
   const [projects] = useState([
@@ -40,6 +36,8 @@ const FacteursProduction = () => {
       quartier: "Bonaberi",
       description: "Mise en place d'une plantation moderne de cacao avec une production annuelle de 50 tonnes.",
       image: CACAO,
+      latitude: 4.0511, // Ajoutez cette propriété
+      longitude: 9.7679, // Ajoutez cette propriété
     },
     {
       id: 2,
@@ -49,6 +47,8 @@ const FacteursProduction = () => {
       quartier: "Ngaoundere route",
       description: "Construction d'un parc solaire pour fournir de l'énergie propre à la région du Nord.",
       image: ENERGIE,
+      latitude: 4.0511, // Ajoutez cette propriété
+      longitude: 9.7679, // Ajoutez cette propriété
     },
     {
       id: 3,
@@ -58,6 +58,8 @@ const FacteursProduction = () => {
       quartier: "Bastos",
       description: "Développement d'une application de paiement mobile visant à faciliter les transactions financières locales.",
       image: "https://img.freepik.com/free-photo/high-angle-friends-reading-menu-restaurant_23-2150384825.jpg?t=st=1738099850~exp=1738103450~hmac=263dee2608a764be0cc905367387bf817f98c3b6a3df41a0103a348fa8777175&w=996",
+      latitude: 4.0511, // Ajoutez cette propriété
+      longitude: 9.7679, // Ajoutez cette propriété
     }
     // Ajoutez plus de projets ici...
   ]);
@@ -78,113 +80,6 @@ const FacteursProduction = () => {
     { name: 'Terrains aménagés', cost: 300 },
     { name: 'Terrains bâtis', cost: 1000 },
   ];
-
-
-  // Définir un type pour les éléments de l'accordéon
-  // type AccordionItemType = {
-  //   title: string;
-  //   content: string;
-  // };
-
-  // Composant Accordéon Item avec typage
-  // const AccordionItem: React.FC<{
-  //   title: string;
-  //   content: string;
-  //   isOpen: boolean;
-  //   onToggle: () => void;
-  // }> = ({ title, content, isOpen, onToggle }) => (
-  //   <div className="border-b">
-  //     <button
-  //       onClick={onToggle}
-  //       className="flex justify-between w-full p-4 text-left bg-gray-200 hover:bg-gray-300 focus:outline-none"
-  //     >
-  //       <span className="text-lg font-semibold">{title}</span>
-  //       <span>{isOpen ? '-' : '+'}</span>
-  //     </button>
-  //     {isOpen && (
-  //       <div className="p-4 bg-gray-50">
-  //         <p>{content}</p>
-  //       </div>
-  //     )}
-  //   </div>
-  // );
-
-  // Composant Accordéon avec typage pour 'items'
-  // interface AccordionProps {
-  //   items: AccordionItemType[];
-  // }
-
-  // const Accordion: React.FC<AccordionProps> = ({ items }) => {
-  //   const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  //   const toggleItem = (index: number) => {
-  //     setOpenIndex(openIndex === index ? null : index);
-  //   };
-
-  //   return (
-  //     <div className="max-w-lg mx-auto mt-8">
-  //       {items.map((item, index) => (
-  //         <AccordionItem
-  //           key={index}
-  //           title={item.title}
-  //           content={item.content}
-  //           isOpen={openIndex === index}
-  //           onToggle={() => toggleItem(index)}
-  //         />
-  //       ))}
-  //     </div>
-  //   );
-  // };
-
-  // const salaryData = [
-  //   { category: "Cadres", min: 267000, max: 457000 },
-  //   { category: "Employés", min: 129000, max: 325000 },
-  //   { category: "Ouvriers", min: 40000, max: 134000 },
-  // ];
-
-  // const cotisationData = {
-  //   labels: ["Employeur", "Employé"],
-  //   datasets: [
-  //     {
-  //       data: [4.2, 4.2],
-  //       backgroundColor: ["#F5BA3A", "#0F0B60"],
-  //     },
-  //   ],
-  // };
-
-
-  //Partie Energie
-  // const [amount, setAmount] = useState(0);
-
-  // // Graphique des tarifs douaniers
-  // const douaneData = {
-  //   labels: ["0-10%", "10-20%", "20-50%", "50-81%"],
-  //   datasets: [
-  //     {
-  //       data: [20, 30, 25, 25],
-  //       backgroundColor: ["#4CAF50", "#FFC107", "#FF5722", "#F44336"],
-  //     },
-  //   ],
-  // };
-
-  // Graphique des frais financiers
-  // const fraisFinanciersData = {
-  //   labels: ["Min", "Max"],
-  //   datasets: [
-  //     {
-  //       data: [29000, 39000],
-  //       fill: false,
-  //       borderColor: "#FF9800",
-  //       tension: 0.1,
-  //     },
-  //   ],
-  // };
-  // const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setAmount(Number(e.target.value));
-  // };
-
-
-  // const [activeTab, setActiveTab] = useState("securite");
 
   const [selectedFactor, setSelectedFactor] = useState<Factor | null>(null);
   const closeModal = () => setSelectedFactor(null);
@@ -696,12 +591,12 @@ const FacteursProduction = () => {
 
         </div>
       </div>
-      <div aria-label="Breadcrumbs" className="bg-[#0F0B60] sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-        <NavLink className=" text-white hover:text-slate-600" to={'/'}>Accueil</NavLink>
+      <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
+        <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
         <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <NavLink className=" text-white hover:text-slate-600" to={'#'}>Investir</NavLink>
+        <p className="text-slate-500">Guide de l'investisseur</p>
         <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <NavLink className=" text-white hover:text-slate-600" to={'/secteur-de-lagriculture'}>Facteurs de production</NavLink>
+        <p className="text-slate-500">Facteurs de production</p>
       </div>
 
       <div className="bg-gray-100 min-h-screen p-6">
@@ -726,14 +621,18 @@ const FacteursProduction = () => {
           <p className="text-center text-gray-700 mb-6">
             "Découvrez les principaux postes de dépenses à prévoir pour assurer la rentabilité et la pérennité de votre investissement."      </p>
           <hr className="my-6 border-t-2 border-gray-300" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {factors.map((factor, index) => (
               <div
                 key={index}
                 onClick={() => setSelectedFactor(factor)}
                 className="bg-white shadow-lg rounded-2xl p-6 border-l-8 border-[#F5BA3A] hover:shadow-2xl flex flex-col items-center text-center hover:scale-105 transform transition-transform duration-300 cursor-pointer"
               >
-                <img src={factor.image} alt={factor.name} className="w-24 h-24 mb-4 rounded-full object-cover" />
+                {/* Icône commune pour tous les facteurs */}
+                <div className="w-24 h-24 flex items-center justify-center mb-4">
+                  <Cog size={96} className="text-[#0F0B60]" />
+                </div>
+
                 <h2 className="text-2xl font-semibold text-[#0F0B60] mb-2">{factor.name}</h2>
                 <p className="text-gray-700 mb-4">{factor.description}</p>
                 <button className="mt-auto bg-[#0E600B] text-white px-4 py-2 rounded-full hover:bg-[#0C550A] transition-colors duration-300">
@@ -741,7 +640,7 @@ const FacteursProduction = () => {
                 </button>
               </div>
             ))}
-          </div>
+          </div>;
 
           {selectedFactor && (
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -764,7 +663,7 @@ const FacteursProduction = () => {
           )}
         </div>
       </div>
-      <div className="container mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
+      <div className="container mx-auto p-6">
         {/* Titre avec style attractif */}
         <h2 className="text-3xl font-bold text-center text-green-700">
           Saisissez des Opportunités Uniques !

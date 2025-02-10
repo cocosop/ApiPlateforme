@@ -1,149 +1,174 @@
-import { useEffect, useState } from "react";
-import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
-import { ChatBubbleLeftRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
-import Logo from '../../assets/img/dj.png'
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MessageCircle } from "lucide-react";
+import messagesData from "../../assets/investmentData.json";
+import logo from "../../assets/img/avatar2.png";
 
+interface ChatMessage {
+  sender: "user" | "bot";
+  text: string;
+  question?: string;
+}
 
-const keywordsResponses = {
-    investissement:
-        "L'investissement est un excellent moyen de faire fructifier votre argent. Voulez-vous en savoir plus sur les différentes options disponibles ?",
-    actions:
-        "Investir dans des actions peut offrir des rendements élevés, mais comporte aussi des risques. Il est important de diversifier votre portefeuille.",
-    immobilier:
-        "L'immobilier est une option d'investissement stable et peut offrir des revenus passifs. Voulez-vous des informations sur les biens disponibles ?",
-    "crypto-monnaies":
-        "Les crypto-monnaies sont très volatiles mais peuvent offrir des rendements élevés. Assurez-vous de bien comprendre les risques avant d'investir.",
-};
+interface MessagesData {
+  preloadedQuestions: string[];
+  messages: ChatMessage[];
+}
 
-const Chatbot = () => {
-    const [messages, setMessages] = useState<{ text: string; user: string }[]>([]);
-    const [input, setInput] = useState("");
-    const [isOpen, setIsOpen] = useState(false);
-    const [welcomeMessage, setWelcomeMessage] = useState('');
+const Chatbox = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [chatMessages, setChatMessages] = useState<ChatMessage[]>(
+    JSON.parse(localStorage.getItem("chatMessages") || "[]")
+  );
+  const [userInput, setUserInput] = useState("");
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
-    useEffect(() => {
-        // Afficher le message d'accueil quand le composant est monté
-        setWelcomeMessage('Bienvenue ! Comment puis-je vous aider aujourd\'hui ?');
-    }, []);
-    const toggleChatbot = () => {
-        setIsOpen(!isOpen);
-    };
+  const { preloadedQuestions, messages } = messagesData as MessagesData;
 
-    const handleSendMessage = () => {
-        if (input.trim() !== "") {
-            // Ajouter le message de l'utilisateur
-            setMessages([...messages, { text: input, user: "user" }]);
+  const addBotMessage = (messageText: string) => {
+    const botMessage: ChatMessage = { sender: "bot", text: messageText };
+    setChatMessages((prevMessages) => [...prevMessages, botMessage]);
+  };
 
-            // Générer une réponse du chatbot
-            const response = getBotResponse(input);
-            setMessages((prevMessages) => [
-                ...prevMessages,
-                { text: response, user: "chatbot" },
-            ]);
+  const sendMessage = (messageText: string) => {
+    if (!messageText.trim()) return;
 
-            setInput("");
-        }
-    };
+    const userMessage: ChatMessage = { sender: "user", text: messageText };
+    setChatMessages((prevMessages) => [...prevMessages, userMessage]);
 
-    const getBotResponse = (message: string) => {
-        const lowercasedMessage = message.toLowerCase();
-        const keywords = Object.keys(
-            keywordsResponses
-        ) as Array<keyof typeof keywordsResponses>;
-
-        for (let keyword of keywords) {
-            if (lowercasedMessage.includes(keyword)) {
-                return keywordsResponses[keyword];
-            }
-        }
-        return "Merci pour votre message ! Comment puis-je vous aider davantage ?";
-    };
-
-    return (
-        <div className="z-50 fixed bottom-4 right-4">
-            {/* Bouton d'ouverture/fermeture du chatbot */}
-            <button
-                onClick={toggleChatbot}
-                className="bg-gray-900 text-white p-4 rounded-full shadow-lg focus:outline-none flex items-center justify-center"
-            >
-                {isOpen ? (
-                    <XMarkIcon className="h-6 w-6" />
-                ) : (
-                    <ChatBubbleLeftRightIcon className="h-6 w-6" />
-                )}
-            </button>
-
-            {isOpen && (
-                <div className="flex flex-col h-96 w-80 bg-blue border border-gray-300 rounded-lg shadow-lg mt-4">
-                    {/* Entête */}
-                    <div className="flex items-center justify-between p-4 bg-dark-green text-white rounded-t-lg">
-                        <h2 className="text-gray-500 text-lg font-semibold">Chatbot</h2>
-                        <button onClick={toggleChatbot} className="focus:outline-none">
-                            <XMarkIcon className="h-2 w-2" />
-                        </button>
-                    </div>
-
-                    {/* Zone des messages */}
-                    <div className="flex-1 overflow-auto p-4 space-y-4">
-                        {welcomeMessage && (
-                            <div className="chatbot-welcome">
-                                {welcomeMessage}
-                            </div>
-                        )}
-                        {messages.map((message, index) => (
-                            <div
-                                key={index}
-                                className={`flex items-start ${message.user === "user"
-                                    ? "justify-end"
-                                    : "justify-start"
-                                    }`}
-                            >
-                                {/* Affichage de l'avatar pour le chatbot */}
-                                {message.user === "chatbot" && (
-                                    <div className="mr-2">
-                                        <img
-                                            src={Logo} // Remplacez par l'URL ou le chemin réel de votre image
-                                            alt="Chatbot Avatar"
-
-                                        />
-                                    </div>
-                                )}
-
-                                {/* Bulles de message */}
-                                <div
-                                    className={`max-w-xs px-4 py-2 rounded-lg ${message.user === "user"
-                                        ? "bg-dark-green text-white"
-                                        : "bg-gray-300 text-black"
-                                        }`}
-                                >
-                                    {message.text}
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Barre d'entrée */}
-                    <div className="p-4 bg-white">
-                        <div className="flex">
-                            <input
-                                type="text"
-                                value={input}
-                                onChange={(e) => setInput(e.target.value)}
-                                className="flex-1 p-2 border border-gray-300 rounded-l-lg"
-                                placeholder="Entrez votre message..."
-                            />
-                            <button
-                                onClick={handleSendMessage}
-                                className="p-2 bg-blue-500 text-white rounded-r-lg"
-                            >
-                                <PaperAirplaneIcon className="h-5 w-5" />
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
-        </div>
+    const botResponse = messages.find(
+      (msg) =>
+        msg.question &&
+        messageText.toLowerCase().includes(msg.question.toLowerCase())
     );
+
+    setTimeout(() => {
+      setChatMessages((prevMessages) => [
+        ...prevMessages,
+        botResponse || {
+          sender: "bot",
+          text: "Désolé, je n'ai pas compris votre question. Pouvez-vous reformuler ?",
+        },
+      ]);
+    }, 1000);
+
+    setUserInput("");
+  };
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      setTimeout(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }, [chatMessages]);
+
+  useEffect(() => {
+    if (chatMessages.length > 0) {
+      localStorage.setItem("chatMessages", JSON.stringify(chatMessages));
+    }
+  }, [chatMessages]);
+
+  useEffect(() => {
+    if (chatMessages.length === 0) {
+      addBotMessage("Bonjour ! Comment puis-je vous aider aujourd'hui ? Voici quelques sujets que vous pouvez explorer :");
+      setTimeout(() => addBotMessage("suggestions"), 2000);
+    }
+  }, []);
+
+  return (
+    // Sur desktop, la chatbox est positionnée en bas à droite (sm:bottom-5 sm:right-5)
+    // Sur mobile, elle occupe toute la largeur en bas et est centrée horizontalement.
+    <div className="fixed sm:bottom-5 right-5 bottom-0 flex flex-col items-end z-50">
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          // Utilisation de "w-full max-w-md" pour une largeur maximale adaptée
+          // "mx-2" permet d'ajouter un padding horizontal sur mobile
+          className="w-full max-w-md bg-white rounded-2xl shadow-lg p-4 border border-[#0F0B60] mx-2 sm:mx-0"
+        >
+          <div className="flex items-center gap-3 border-b border-[#0F0B60] pb-3 mb-3">
+            <img src={logo} alt="Logo" className="w-14 h-14 rounded-full mt-3" />
+            <h2 className="text-xl font-semibold text-[#0F0B60]">e-API</h2>
+          </div>
+          {/* Hauteur adaptée : h-80 sur mobile et h-96 sur desktop */}
+          <div className="h-80 sm:h-96 overflow-y-auto p-2 space-y-2">
+            <AnimatePresence>
+              {chatMessages.map((msg, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 10 }}
+                  transition={{ duration: 0.3, delay: index * 0.1 }}
+                >
+                  {msg.text === "suggestions" ? (
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {preloadedQuestions.map((question, idx) => (
+                        <motion.button
+                          key={idx}
+                          onClick={() => sendMessage(question)}
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          className="px-3 py-2 bg-[#F5BA3A] rounded-lg text-sm text-[#0F0B60] hover:bg-[#DC2123] hover:text-white transition-colors"
+                        >
+                          {question}
+                        </motion.button>
+                      ))}
+                    </div>
+                  ) : (
+                    <div className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
+                      {msg.sender === "bot" && (
+                        <img src={logo} alt="Bot" className="w-8 h-8 mr-2 rounded-full" />
+                      )}
+                      <p
+                        className={`px-3 py-2 rounded-lg text-sm max-w-[70%] ${msg.sender === "user"
+                          ? "bg-[#0F0B60] text-white"
+                          : "bg-[#0E600B] text-white"
+                          }`}
+                      >
+                        {msg.text}
+                      </p>
+                    </div>
+                  )}
+                </motion.div>
+              ))}
+            </AnimatePresence>
+            <div ref={messagesEndRef} />
+          </div>
+          <div className="border-t border-[#0F0B60] pt-2 flex items-center">
+            <input
+              type="text"
+              value={userInput}
+              onChange={(e) => setUserInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && sendMessage(userInput)}
+              className="flex-1 p-2 text-sm border border-[#0F0B60] rounded-l-lg focus:outline-none focus:border-[#F5BA3A]"
+              placeholder="Écrivez un message..."
+            />
+            <motion.button
+              onClick={() => sendMessage(userInput)}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+              className="bg-[#0F0B60] text-white p-2 rounded-r-lg hover:bg-[#DC2123] transition-colors"
+            >
+              <MessageCircle size={20} />
+            </motion.button>
+          </div>
+        </motion.div>
+      )}
+      {/* Bouton d'activation du chat */}
+      {/* Taille du bouton responsive : plus petit sur mobile */}
+      <motion.button
+        onClick={() => setIsOpen(!isOpen)}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <img src={logo} alt="Chat" className="w-16 h-16 sm:w-[100px] sm:h-[100px]" />
+      </motion.button>
+    </div>
+  );
 };
 
-export default Chatbot;
+export default Chatbox;

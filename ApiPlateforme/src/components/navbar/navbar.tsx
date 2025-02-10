@@ -80,7 +80,7 @@ const investir = [
   {
     name: "Droit des investisseurs",
     description: "Présentation des protections légales et des droits garantis aux investisseurs étrangers.",
-    link: "/droit-des-investisseurs",
+    link: "/droits-des-investisseurs",
     icon: ShieldCheckIcon
   },
   {
@@ -105,6 +105,12 @@ const investir = [
     name: "Fiscalité",
     description: "Régimes fiscaux avantageux et incitations offertes aux investisseurs.",
     link: "/fiscalite",
+    icon: CurrencyDollarIcon
+  },
+  {
+    name: "Incitation",
+    description: "Régimes fiscaux avantageux et incitations offertes aux investisseurs.",
+    link: "/incitation",
     icon: CurrencyDollarIcon
   }
 ];

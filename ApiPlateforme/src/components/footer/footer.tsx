@@ -2,7 +2,6 @@ import { Box, Typography, Link, TextField, Button, Container } from "@mui/materi
 import LOGO3 from "../../assets/img/logo3.png"; // Importation du logo
 import './footer.css';
 
-
 // Composant Footer
 const Footer = () => {
   return (
@@ -27,7 +26,15 @@ const Footer = () => {
           {/* Description */}
           <Box>
             <Typography variant="body2" sx={{ color: "#fff" }}>
-              Envoi d'emails candidats en un clic, gratuitement.
+              Agence de Promotion des Investissements (API) - Cameroun
+            </Typography>
+            <Typography variant="body2" sx={{ color: "#fff", mt: 1 }}>
+              Tél. : (+237) 233 42 59 16 | (+237) 233 43 30 08
+            </Typography>
+            <Typography variant="body2" sx={{ color: "#fff", mt: 1 }}>
+              Website : <Link href="https://www.investincameroon.cm" color="#F5BA3A" target="_blank" rel="noopener">
+                www.investincameroon.cm
+              </Link>
             </Typography>
           </Box>
         </Box>
@@ -51,53 +58,67 @@ const Footer = () => {
                 Accueil
               </Link>
               <Link href="#" color="#fff" sx={{ mb: 1 }}>
-                Ressources
+                Informations générales
               </Link>
               <Link href="#" color="#fff" sx={{ mb: 1 }}>
-                Tarifs
+                Guide de l'investisseur
+              </Link>
+              <Link href="#" color="#fff" sx={{ mb: 1 }}>
+                Secteurs d'opportunités
               </Link>
               <Link href="#" color="#fff">
-                Partenaires
+                À propos
               </Link>
             </Box>
           </Box>
 
-          {/* Section Ressources */}
+          {/* Section Institutions compétentes */}
           <Box sx={{ flex: "1 1 200px", textAlign: { xs: "center", sm: "left" } }}>
             <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
-              Ressources
+              Institutions compétentes
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Link href="#" color="#fff" sx={{ mb: 1 }}>
-                Introduction
-              </Link>
-              <Link href="#" color="#fff" sx={{ mb: 1 }}>
-                Éléments
-              </Link>
-              <Link href="#" color="#fff" sx={{ mb: 1 }}>
-                Collections
-              </Link>
-              <Link href="#" color="#fff">
-                Accessibilité
-              </Link>
+              <Typography variant="body2" sx={{ color: "#fff", mb: 1 }}>
+                Ministère de l’Emploi et de la Formation Professionnelle
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#fff", mb: 1 }}>
+                Ministère du Travail et de la Prévoyance Sociale
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#fff", mb: 1 }}>
+                Ministère des Mines, de l’Industrie et du Développement Technologique
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#fff", mb: 1 }}>
+                Ministère des Petites et Moyennes Entreprises, de l’Economie Sociale et de l’Artisanat
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#fff" }}>
+                Caisse Nationale de la Prévoyance Sociale (CNPS)
+              </Typography>
             </Box>
           </Box>
 
-          {/* Section À propos */}
+          {/* Section Contacts */}
           <Box sx={{ flex: "1 1 200px", textAlign: { xs: "center", sm: "left" } }}>
             <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
-              À propos
+              Contacts
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Link href="#" color="#fff" sx={{ mb: 1 }}>
-                Soumettre un problème
-              </Link>
-              <Link href="#" color="#fff" sx={{ mb: 1 }}>
-                Github Blockmix
-              </Link>
-              <Link href="#" color="#fff">
-                Slack
-              </Link>
+              <Typography variant="body2" sx={{ color: "#fff", mb: 1 }}>
+                Agence de Promotion des Investissements (API)
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#fff", mb: 1 }}>
+                Tél. : (+237) 233 42 59 16
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#fff", mb: 1 }}>
+                Tél. : (+237) 233 43 30 08
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#fff", mb: 1 }}>
+                Courriel : <Link href="mailto:cnps.cameroun@cnps.cm" color="#F5BA3A">
+                  cnps.cameroun@cnps.cm
+                </Link>
+              </Typography>
+              <Typography variant="body2" sx={{ color: "#fff" }}>
+                BP 441, Yaoundé-Cameroun
+              </Typography>
             </Box>
           </Box>
 
