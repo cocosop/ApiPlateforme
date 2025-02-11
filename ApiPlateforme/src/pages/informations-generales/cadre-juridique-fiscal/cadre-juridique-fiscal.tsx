@@ -1,4 +1,5 @@
 import { CheckCircleIcon } from '@heroicons/react/20/solid';
+import { motion } from 'framer-motion';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
@@ -169,7 +170,11 @@ const CadreJuridiqueFiscal: React.FC = () => {
                     src="https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=600"
                     className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-50"
                 />
-                <div className="relative z-10 text-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="relative z-10 text-center">
                     <h1 className="text-5xl font-bold text-white reveal">
                         Cadre Juridique et Fiscal
                     </h1>
@@ -177,7 +182,7 @@ const CadreJuridiqueFiscal: React.FC = () => {
                         Comprendre le contexte juridique et fiscal pour des investissements
                         réussis au Cameroun.
                     </p>
-                </div>
+                </motion.div>
             </div>
             <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
                 <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
@@ -187,7 +192,11 @@ const CadreJuridiqueFiscal: React.FC = () => {
                 <p className="text-slate-500">Cadre juridique et fiscal</p>
             </div>
             <section className="bg-white py-20 sm:py-20 relative">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="relative mt-8 lg:row-span-2 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500">
                         <div className="absolute inset-0 bg-gray-900 opacity-90 rounded-2xl"></div>
                         <div className="relative min-h-auto pb-6 w-full grow">
@@ -204,12 +213,15 @@ const CadreJuridiqueFiscal: React.FC = () => {
                         </div>
                         <div className="pointer-events-none absolute inset-px rounded-2xl shadow-lg ring-2 ring-blue-500/50"></div>
                     </div>
-                </div>
+                </motion.div>
             </section>
             <section className="mx-auto mb-4 max-w-2xl px-6 lg:max-w-7xl lg:px-8">
                 {infos.map((section, index) => (
-                    <section
+                    <motion.section
                         key={index}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.2 }}
                         className={`mx-auto max-w-7xl px-6 lg:px-8 py-16 ${index % 2 === 0 ? "bg-gray-50" : "bg-white"
                             }`}
                     >
@@ -273,10 +285,14 @@ const CadreJuridiqueFiscal: React.FC = () => {
                                 <p className="mt-4 text-lg text-gray-600">{section.conclusion}</p>
                             </div>
                         </div>
-                    </section>
+                    </motion.section>
                 ))}
             </section>
-            <section className="mx-auto mb-4 max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+            <motion.section
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                className="mx-auto mb-4 max-w-2xl px-6 lg:max-w-7xl lg:px-8">
                 <div className="relative mt-8 lg:row-span-2 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500">
                     <div className="absolute inset-0 bg-white opacity-90 rounded-2xl"></div>
                     <div className="relative min-h-auto pb-6 w-full grow">
@@ -291,7 +307,7 @@ const CadreJuridiqueFiscal: React.FC = () => {
                     </div>
                     <div className="pointer-events-none absolute inset-px rounded-2xl shadow-lg ring-2 ring-gray-900"></div>
                 </div>
-            </section>
+            </motion.section>
         </div>
     );
 };

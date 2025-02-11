@@ -409,11 +409,11 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
               </PopoverPanel>
             </Popover>
 
-            <Link to="/signin">
+            <NavLink to="/signin">
               <button className="ps-btn text-sm/6 font-semibold">
                 Espace  Privé
               </button>
-            </Link>
+            </NavLink>
           </PopoverGroup>
         </nav>
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">

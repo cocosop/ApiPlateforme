@@ -2,6 +2,7 @@ import { ArrowTrendingUpIcon, BuildingOffice2Icon, GlobeAltIcon, LightBulbIcon }
 import { NavLink, useNavigate } from 'react-router-dom';
 import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
 import { Apple, Beef, Carrot, Coffee, Cookie, FactoryIcon, Fish, Leaf, Wheat } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const features = [
     {
@@ -44,7 +45,11 @@ const Agriculture = () => {
                     className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-50"
                     alt="Background"
                 />
-                <div className="relative z-10 text-start text-white px-6 lg:px-24">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="relative z-10 text-start text-white px-6 lg:px-24">
                     <h1 className="text-4xl font-bold">Investir dans l'avenir de l'agro-industrie</h1>
                     <p className="mt-4 text-lg max-w-2xl">
                         Rejoignez-nous pour révolutionner le sanctuaire de l'agro-industrie avec des technologies durables et des solutions agricoles innovantes.
@@ -56,7 +61,7 @@ const Agriculture = () => {
                             filterSecteur="Agro-industrie"
                         />
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             {/* Breadcrumbs */}
@@ -76,12 +81,16 @@ const Agriculture = () => {
 
             {/* Objectif Section */}
             <div className="bg-white py-20 sm:py-20">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="mx-auto max-w-7xl px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-center mb-8">Objectif Stratégique</h2>
                     <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
                         Approvisionner les marchés de l’intérieur, de la CEEAC et du Nigéria en produits alimentaires de 2ème et 3ème transformation à travers la valorisation plus poussée des matières premières locales et la promotion des exportations.
                     </p>
-                </div>
+                </motion.div>
             </div>
 
             {/* Actions Stratégiques */}
@@ -89,7 +98,11 @@ const Agriculture = () => {
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-center mb-8">Actions Stratégiques</h2>
                     <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-                        <div className="lg:pr-8 lg:pt-4">
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1 }}
+                            className="lg:pr-8 lg:pt-4">
                             <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
                                 {features.map((feature) => (
                                     <div key={feature.name} className="relative pl-9">
@@ -105,8 +118,12 @@ const Agriculture = () => {
                                     </div>
                                 ))}
                             </dl>
-                        </div>
-                        <div className="mx-auto mb-4 max-w-2xl lg:max-w-7xl">
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1 }}
+                            className="mx-auto mb-4 max-w-2xl lg:max-w-7xl">
                             <div className="relative mt-8 lg:row-span-2 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500">
                                 <div className="relative min-h-auto w-full grow">
                                     <div className="z-10 absolute -bottom-5 left-10 bg-white text-gray-900 p-4 rounded-md shadow-lg text-sm font-semibold w-max">
@@ -124,18 +141,26 @@ const Agriculture = () => {
                                 </div>
                                 <div className="pointer-events-none absolute inset-px rounded-2xl shadow-lg ring-2 ring-gray-900"></div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>
 
             {/* Nos Spéculations Phares */}
             <section className="grid py-12 px-6 bg-gray-100 justify-center">
-                <h2 className="text-3xl font-bold text-center mb-8">Nos Spéculations Phares</h2>
+                <motion.h2
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="text-3xl font-bold text-center mb-8">Nos Spéculations Phares</motion.h2>
                 <p className="text-center text-lg mb-8">
                     Une diversité de produits agricoles pour répondre aux besoins du marché
                 </p>
-                <div className="grid grid-cols-1 max-w-full md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 lg:max-w-7xl lg:px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="grid grid-cols-1 max-w-full md:grid-cols-2 lg:grid-cols-4 gap-6 px-6 lg:max-w-7xl lg:px-8">
                     {speculations.map((spec, index) => (
                         <div
                             key={index}
@@ -178,14 +203,19 @@ const Agriculture = () => {
                             </div>
                         </div>
                     ))}
-                </div>
+                </motion.div>
             </section>
 
             {/* Chiffres */}
             <section className="py-12 px-6">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {infos.map((info) => (
-                        <div key={info.title} className="flex flex-col bg-white shadow rounded-lg p-6">
+                    {infos.map((info, index) => (
+                        <motion.div
+                            key={info.title}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                            className="flex flex-col bg-white shadow rounded-lg p-6">
                             <div className="flex items-center justify-between">
                                 <info.icon className="h-12 w-12 text-green-500 mr-4" />
                                 <h2 className="font-bold text-xl text-green-500">{info.title}</h2>
@@ -196,7 +226,7 @@ const Agriculture = () => {
                             <div>
                                 <p className="mt-4 text-md text-gray-600">{info.text}</p>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </section>

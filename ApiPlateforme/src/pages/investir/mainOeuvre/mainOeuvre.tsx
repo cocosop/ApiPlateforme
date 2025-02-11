@@ -6,6 +6,7 @@ import ProjectCard from '../../../components/projetCard/projetCard';
 import CACAO from "../../../assets/img/cacao4.png"
 import ENERGIE from "../../../assets/img/energie.jpg"
 import ModalsMainOeuvre from '../../../components/modalsMainOeuvre/modalsMainOeuvre';
+import { motion } from 'framer-motion';
 
 const MainOeuvre = () => {
   const [projects] = useState([
@@ -297,14 +298,18 @@ const MainOeuvre = () => {
           <div className="absolute -top-52 left-1/2 z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0" aria-hidden="true">
             <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-30"></div>
           </div>
-          <div className="mx-auto max-w-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="mx-auto max-w-2xl">
             <h2 className="text-5xl font-semibold tracking-tight text-white text-center">
               Main d'oeuvre
             </h2>
             <p className="mt-4 text-lg text-gray-300 italic text-center">
               Une main-d'œuvre qualifiée est la clé qui déverrouille le potentiel de toute économie.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -325,7 +330,11 @@ const MainOeuvre = () => {
             {/* Section Population */}
             <div className="md:w-3/4 w-full pr-0 md:pr-4">
               <section>
-                <div className="flex flex-col items-center mb-6">
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1 }}
+                  className="flex flex-col items-center mb-6">
                   <h2 className="text-3xl font-bold text-center mb-4 mt-0 text-[#0F0B60]">
                     Croissance Démographique et Main-d'Œuvre Disponible - Opportunités d'Investissement au Cameroun
                   </h2>
@@ -334,20 +343,29 @@ const MainOeuvre = () => {
                     En 2017, la population du Cameroun était estimée à plus de 23 millions d'habitants, une dynamique qui reflète le fort potentiel humain de notre nation. Avec un taux de croissance démographique moyen de 2,8 % par an entre 1987 et 2015, le Cameroun est en constante expansion, offrant une main-d'œuvre jeune et dynamique, idéale pour soutenir divers secteurs d'investissement. Cette répartition équilibrée entre les sexes assure une diversité et une richesse humaine prêtes à contribuer au développement économique et social du pays. Dans cette perspective, la répartition de la population du Cameroun selon
                     l’année de projection est la suivante
                   </p>
-                </div>
+                </motion.div>
                 <div data-aos="fade-up" className="flex flex-wrap justify-center gap-6 py-10">
-                  {populationData.map((data) => (
-                    <div key={data.year} className={`w-32 h-32 rounded-full flex flex-col items-center justify-center text-white text-xl font-semibold shadow-lg transition transform hover:scale-105 hover:shadow-2xl ${data.color}`}>
+                  {populationData.map((data, i) => (
+                    <motion.div
+                      key={data.year}
+                      initial={{ opacity: 0, y: 50 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: i * 0.2 }}
+                      className={`w-32 h-32 rounded-full flex flex-col items-center justify-center text-white text-xl font-semibold shadow-lg transition transform hover:scale-105 hover:shadow-2xl ${data.color}`}>
                       <div>{data.year}</div>
                       <div className="mt-2">{data.population}</div>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </section>
             </div>
 
             {/* Section Institutions */}
-            <div className="md:w-1/4 w-full bg-gray-100 p-6 rounded-lg shadow-lg">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="md:w-1/4 w-full bg-gray-100 p-6 rounded-lg shadow-lg">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Institutions Compétentes</h3>
               <ul className="space-y-4">
                 <li>
@@ -384,7 +402,7 @@ const MainOeuvre = () => {
                   </a>
                 </li>
               </ul>
-            </div>
+            </motion.div>
           </div>
 
           {/* Slider Section */}
@@ -478,12 +496,12 @@ const MainOeuvre = () => {
               ))}
             </div>
             <div className="flex justify-center mt-8">
-              <a
-                href="/banque-de-projets"
+              <NavLink
+                to="/projets"
                 className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
               >
                 Voir plus de projets
-              </a>
+              </NavLink>
             </div>
           </div>
         </main>

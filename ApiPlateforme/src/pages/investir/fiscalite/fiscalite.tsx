@@ -5,6 +5,7 @@ import { useState } from 'react';
 import ProjectCard from '../../../components/projetCard/projetCard';
 import { NavLink } from 'react-router-dom';
 import oeuvre from "../../../assets/img/fiscal.jpg"
+import { motion } from 'framer-motion';
 
 const FiscalitePage = () => {
   const [projects] = useState([
@@ -65,14 +66,18 @@ const FiscalitePage = () => {
             <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-30"></div>
           </div>
 
-          <div className="text-center mb-12 max-w-3xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-center mb-12 max-w-3xl mx-auto">
             <h1 className="text-4xl font-bold mb-4 text-white">
               Fiscalité au Cameroun
             </h1>
             <p className="text-lg text-white">
               Panorama complet des régimes fiscaux, taxes douanières et obligations légales pour les investisseurs
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
       <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
@@ -83,7 +88,11 @@ const FiscalitePage = () => {
         <p className="text-slate-500">Fiscalité</p>
       </div>
       <div className="min-h-screen bg-gray-50 p-8">
-        <div className="max-w-4xl mx-auto space-y-6">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="max-w-4xl mx-auto space-y-6">
           {/* Régimes d'imposition */}
           <Disclosure>
             {({ open }) => (
@@ -486,7 +495,7 @@ const FiscalitePage = () => {
 
           {/* Ajouter les autres sections ici avec le même pattern */}
 
-        </div>
+        </motion.div>
 
         {/* Tableau des Tarifs Douaniers */}
         {/* Tableau des Tarifs Douaniers */}
@@ -560,12 +569,12 @@ const FiscalitePage = () => {
 
           {/* Lien Voir plus */}
           <div className="flex justify-center mt-8">
-            <a
-              href="/banque-de-projets"
+            <NavLink
+              to="/projets"
               className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
             >
               Voir plus de projets
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>

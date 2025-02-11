@@ -186,14 +186,18 @@ const PresentationCameroun: React.FC = () => {
                 </div>
             </div>
             <div className='mx-auto mb-4 max-w-2xl px-6 lg:max-w-6xl lg:px-8'>
-                <h2 className='order-first text-2xl font-semibold tracking-tight text-gray-900 sm:text-2xl text-center'>Principales villes</h2>
+                <motion.h2
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="text-2xl font-semibold tracking-tight text-gray-900 text-center mb-6"
+                >
+                    Principales villes du Cameroun
+                </motion.h2>
                 <div className="p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {cities.map((city, index) => (
-                        <motion.div
+                        <div
                             key={index}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: index * 0.2 }}
                             className="relative group bg-white rounded-2xl shadow-lg p-4 transition-transform transform hover:scale-105 hover:shadow-xl"
                         >
                             <div className="flex items-center justify-between">
@@ -205,7 +209,7 @@ const PresentationCameroun: React.FC = () => {
                             >
                                 {city.population}
                             </div>
-                        </motion.div>
+                        </div>
                     ))}
                 </div>
             </div>

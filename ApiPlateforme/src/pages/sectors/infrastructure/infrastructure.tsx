@@ -2,6 +2,7 @@ import { AcademicCapIcon, BuildingOfficeIcon } from '@heroicons/react/20/solid'
 import { NavLink } from "react-router-dom";
 import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
 import { Anchor, TrainTrack } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const statistiques = [
     { id: 1, name: "Projets Ferroviaires", value: "15+", icon: TrainTrack },
@@ -20,7 +21,11 @@ const infrastructure = () => {
                     className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-50"
                     alt="Background"
                 />
-                <div className="relative z-10 text-start text-white px-6 lg:px-24">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="relative z-10 text-start text-white px-6 lg:px-24">
                     <h1 className="text-4xl font-bold">Socle infrastructure</h1>
                     <p className="mt-4 text-lg max-w-2xl">
                         Socle infrastructure est un secteur clé pour le développement économique du Cameroun. Il regroupe les infrastructures de base nécessaires au bon fonctionnement de l’économie et à l’amélioration des conditions de vie des populations.
@@ -32,7 +37,7 @@ const infrastructure = () => {
                             filterSecteur="Infrastructures"
                         />
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             {/* Breadcrumbs */}
@@ -51,17 +56,29 @@ const infrastructure = () => {
             </div>
             {/* Objectif Section */}
             <div className="bg-white py-20 sm:py-20">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="mx-auto max-w-7xl px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-center mb-8">Objectif Stratégique</h2>
                     <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
                         Bâtir un socle solide d’infrastructures physiques, cognitives et institutionnelles pour favoriser le désenclavement du territoire et posséder une base de capital humain à même de servir l’industrialisation.                    </p>
-                </div>
+                </motion.div>
             </div>
             {/* Socle Infrastructure */}
             <div className="overflow-hidden bg-gray-50 py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Nos Actions</h2>
-                    <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="text-3xl font-bold text-center mb-8">Nos Actions</motion.h2>
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
 
                         {/* Infrastructure Physique */}
                         <div className="group relative">
@@ -122,23 +139,32 @@ const infrastructure = () => {
                             </div>
                         </div>
 
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
             {/* Indicateurs Clés */}
             <div className="bg-white py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Statistiques Clés</h2>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="text-3xl font-bold text-center mb-8">Statistiques Clés</motion.h2>
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                        {statistiques.map((stat) => (
-                            <div key={stat.id} className="bg-white p-6 rounded-xl shadow-lg text-center">
+                        {statistiques.map((stat, index) => (
+                            <motion.div
+                                key={stat.id}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.2 }}
+                                className="bg-white p-6 rounded-xl shadow-lg text-center">
                                 <div className="flex justify-center">
                                     <stat.icon className="h-12 w-12 text-[#0F0B60]" />
                                 </div>
                                 <p className="mt-4 text-3xl font-bold text-gray-900">{stat.value}</p>
                                 <p className="mt-2 text-lg text-gray-600">{stat.name}</p>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

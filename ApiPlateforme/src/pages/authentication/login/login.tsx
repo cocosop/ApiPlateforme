@@ -21,6 +21,8 @@ const Login = () => {
 
   const onSubmit = (e: any) => {
     e.preventDefault();
+    sessionStorage.setItem('secteur', '');
+    sessionStorage.setItem('isAuth', 'true');
     history('/projets');
   }
 
@@ -96,7 +98,7 @@ const Login = () => {
           </Typography>
 
           {/* Champs de connexion */}
-          <form action="/projets" method="GET" onSubmit={(e) => { onSubmit(e) }} >
+          <form>
             <TextField
               fullWidth
               margin="normal"
@@ -134,6 +136,7 @@ const Login = () => {
               fullWidth
               type="submit"
               variant="contained"
+              onClick={(e) => { onSubmit(e) }}
               sx={{ backgroundColor: "#2A337B", mt: 2, textTransform: "none", borderRadius: "8px" }}
             >
               Se connecter
@@ -166,7 +169,7 @@ const Login = () => {
             variant="body2"
             sx={{ mt: 2, color: "text.secondary", fontSize: "14px" }}
           >
-            Pas encore de compte ? <a href="/signup" style={{ color: "#2A337B" }}>Inscrivez-vous</a>
+            Pas encore de compte ? <NavLink to={"/signup"} style={{ color: "#2A337B" }}>Inscrivez-vous</NavLink>
           </Typography>
         </Box>
       </Box>

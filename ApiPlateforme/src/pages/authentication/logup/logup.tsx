@@ -210,7 +210,7 @@ const Logup = () => {
                         variant="body2"
                         sx={{ mt: 2, color: "text.secondary", fontSize: "14px" }}
                     >
-                        Avez-vous déjà un compte? Connectez vous ici <a href="/signin" style={{ color: "#2A337B" }}>Connectez-vous</a>
+                        Avez-vous déjà un compte? Connectez vous ici <NavLink to={"/signin"} style={{ color: "#2A337B" }}>Connectez-vous</NavLink>
                     </Typography>
                 </Box>
             </Box>

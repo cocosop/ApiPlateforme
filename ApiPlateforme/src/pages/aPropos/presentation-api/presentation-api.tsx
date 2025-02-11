@@ -1,10 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Building, Globe, Users, Briefcase, ArrowRight, CheckCircle, Shield, Handshake, Target, Database, Clipboard, Settings, Mail, Phone, MapPin } from 'lucide-react';
+import { Building, Globe, Users, Briefcase, ArrowRight, CheckCircle, Shield, Handshake, Target, Database, Clipboard, Settings } from 'lucide-react';
+import { MapContainer, Marker, TileLayer } from 'react-leaflet';
+import ProjectCard from '../../../components/projetCard/projetCard';
+import CACAO from "../../../assets/img/cacao4.png"
+import ENERGIE from "../../../assets/img/energie.jpg"
 
 const PresentationApi: React.FC = () => {
     const [activeTab, setActiveTab] = useState<'direction' | 'consultatif'>('direction');
+    const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(null);
+
+    useEffect(() => {
+        const fetchLocation = async () => {
+            setCoords({ lat: 3.848, lon: 11.5021 }); // Coordinates for the Agence de Promotion des Investissements in Yaoundé, Cameroon
+        };
+        fetchLocation();
+    }, []);
 
     // Données pour les statistiques
     const stats = [
@@ -89,33 +101,43 @@ const PresentationApi: React.FC = () => {
         },
     ];
 
-    // Données pour les coordonnées
-    const contactInfo = [
+    const [projects] = useState([
         {
-            icon: MapPin,
-            title: 'Adresse',
-            description: [
-                { item: 'Yaoundé, Cameroun (Siège principal)' },
-                { item: 'Douala, Cameroun (Antenne régionale)' }
-            ],
+            id: 1,
+            secteur: "Agro-industrie",
+            titre: "Exploitation de plantation de cacao",
+            ville: "Douala",
+            quartier: "Bonaberi",
+            description: "Mise en place d'une plantation moderne de cacao avec une production annuelle de 50 tonnes.",
+            image: CACAO,
+            latitude: 4.0511, // Ajoutez cette propriété
+            longitude: 9.7679, // Ajoutez cette propriété
         },
         {
-            icon: Mail,
-            title: 'Email',
-            description: [
-                { item: 'contact@api.cm' }
-            ],
+            id: 2,
+            secteur: "Énergie",
+            titre: "Parc solaire de 20 MW",
+            ville: "Garoua",
+            quartier: "Ngaoundere route",
+            description: "Construction d'un parc solaire pour fournir de l'énergie propre à la région du Nord.",
+            image: ENERGIE,
+            latitude: 4.0511, // Ajoutez cette propriété
+            longitude: 9.7679, // Ajoutez cette propriété
         },
         {
-            icon: Phone,
-            title: 'Téléphone',
-            description: [
-                { item: '+237 656 02 46 00' },
-                { item: '+237 672 30 52 22' },
-                { item: '+237 670 21 86 30' },
-            ],
-        },
-    ];
+            id: 3,
+            secteur: "Numérique",
+            titre: "Plateforme de paiement mobile",
+            ville: "Yaoundé",
+            quartier: "Bastos",
+            description: "Développement d'une application de paiement mobile visant à faciliter les transactions financières locales.",
+            image: "https://img.freepik.com/free-photo/high-angle-friends-reading-menu-restaurant_23-2150384825.jpg?t=st=1738099850~exp=1738103450~hmac=263dee2608a764be0cc905367387bf817f98c3b6a3df41a0103a348fa8777175&w=996",
+            latitude: 4.0511, // Ajoutez cette propriété
+            longitude: 9.7679, // Ajoutez cette propriété
+        }
+        // Ajoutez plus de projets ici...
+    ]);
+
 
     return (
         <div>
@@ -297,8 +319,8 @@ const PresentationApi: React.FC = () => {
                 </div>
             </section>
 
-            {/* Section Coordonnées */}
-            <section className="relative isolate overflow-hidden bg-indigo-50 py-20 sm:py-24">
+            {/* Section Map */}
+            <section className="relative isolate overflow-hidden bg-white py-20 sm:py-24">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <motion.h2
                         initial={{ opacity: 0, y: 50 }}
@@ -306,30 +328,47 @@ const PresentationApi: React.FC = () => {
                         transition={{ duration: 1 }}
                         className="text-3xl font-bold text-center text-gray-900 mb-8"
                     >
-                        Nous Contacter
+                        Carte
                     </motion.h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {contactInfo.map((info, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.2 }}
-                                className="bg-white p-6 rounded-lg shadow-lg text-center hover:shadow-xl transition-shadow"
-                            >
-                                <div className="flex justify-center">
-                                    <info.icon className="h-12 w-12 text-[#0F0B60]" />
-                                </div>
-                                <h3 className="mt-4 text-xl font-semibold text-gray-900">{info.title}</h3>
-                                <p className="mt-2 text-sm text-gray-600">
-                                    {info.description.map((desc, index) => (
-                                        <ul>
-                                            <li key={index}>{desc.item}</li>
-                                        </ul>
-                                    ))}
-                                </p>
-                            </motion.div>
+                    {coords ? (
+                        <MapContainer center={[coords.lat, coords.lon]} zoom={13} className="w-full h-96 rounded-lg" style={{ zIndex: 1 }}>
+                            <TileLayer
+                                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            />
+                            <Marker position={[coords.lat, coords.lon]}>
+                            </Marker>
+                        </MapContainer>
+                    ) : (
+                        <p className="text-center text-gray-500">Chargement de la carte...</p>
+                    )}
+                </div>
+
+                <div className="container mx-auto p-6">
+                    {/* Titre avec style attractif */}
+                    <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
+                        Saisissez des Opportunités Uniques !
+                    </h2>
+
+                    {/* Message d'encouragement */}
+                    <p className="text-center text-gray-700 mb-6">
+                        Investissez dès aujourd’hui dans des projets innovants et rentables pour bâtir l’avenir de l’économie camerounaise.
+                    </p>
+
+                    {/* Liste des projets */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {projects.map((project) => (
+                            <ProjectCard key={project.id} {...project} />
                         ))}
+                    </div>
+
+                    {/* Lien Voir plus */}
+                    <div className="flex justify-center mt-8">
+                        <NavLink
+                            to="/projets"
+                            className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
+                        >
+                            Voir plus de projets
+                        </NavLink>
                     </div>
                 </div>
             </section>

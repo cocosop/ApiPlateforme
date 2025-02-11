@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
 import { BuildingOfficeIcon } from "@heroicons/react/20/solid";
 import { LinkIcon, BeakerIcon, CogIcon } from "lucide-react";
+import { motion } from "framer-motion";
 
 const statistiques = [
     { id: 1, name: "Pôles de Compétitivité", value: "5+", icon: BuildingOfficeIcon },
@@ -21,7 +22,11 @@ const ChimiePharmacie = () => {
                     className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-50"
                     alt="Background"
                 />
-                <div className="relative z-10 text-start text-white px-6 lg:px-24">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="relative z-10 text-start text-white px-6 lg:px-24">
                     <h1 className="text-4xl font-bold">Pilier Chimie &bull; Pharmacie</h1>
                     <p className="mt-4 text-lg max-w-2xl">
                         Le pilier Chimie & Pharmacie vise à transformer les ressources naturelles en produits à haute valeur ajoutée, tout en favorisant l'innovation et la recherche dans les domaines de la chimie et de la pharmacie. Ce secteur stratégique est essentiel pour le développement économique et industriel du pays.
@@ -33,7 +38,7 @@ const ChimiePharmacie = () => {
                             filterSecteur="Chimie et Pharmacie"
                         />
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             {/* Breadcrumbs */}
@@ -52,20 +57,32 @@ const ChimiePharmacie = () => {
             </div>
             {/* Objectif Section */}
             <div className="bg-white py-20 sm:py-20">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="mx-auto max-w-7xl px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-center mb-8">Objectif Stratégique</h2>
                     <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
                         Développer et faire émerger un tissu d’industries du secteur chimique hautement intégrées à l’économie nationale.
                     </p>
-                </div>
+                </motion.div>
             </div>
             {/* Section Principale */}
             <div className="overflow-hidden bg-purple-50 py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Nos Actions</h2>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="text-3xl font-bold text-center mb-8">Nos Actions</motion.h2>
 
                     {/* Cartes Thématiques */}
-                    <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
 
                         {/* Compétitivité et Innovation */}
                         <div className="group relative">
@@ -161,23 +178,32 @@ const ChimiePharmacie = () => {
                             </div>
                         </div>
 
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
             {/* Indicateurs Clés */}
             <div className="bg-white py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Chiffres Clés</h2>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="text-3xl font-bold text-center mb-8">Chiffres Clés</motion.h2>
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                        {statistiques.map((stat) => (
-                            <div key={stat.id} className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                        {statistiques.map((stat, index) => (
+                            <motion.div
+                                key={stat.id}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.2 }}
+                                className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
                                 <div className="flex justify-center">
                                     <stat.icon className="h-12 w-12 text-[#A020F0]" />
                                 </div>
                                 <p className="mt-4 text-3xl font-bold text-gray-900">{stat.value}</p>
                                 <p className="mt-2 text-lg text-gray-600">{stat.name}</p>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

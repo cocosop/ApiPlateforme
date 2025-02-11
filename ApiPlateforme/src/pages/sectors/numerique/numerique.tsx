@@ -1,6 +1,7 @@
 import { BuildingLibraryIcon, ChartBarIcon, GlobeAltIcon, LightBulbIcon, ShieldCheckIcon } from '@heroicons/react/20/solid'
 import { NavLink } from "react-router-dom";
 import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
+import { motion } from 'framer-motion';
 
 const actions = [
     {
@@ -89,7 +90,11 @@ const numerique = () => {
                     className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-50"
                     alt="Background"
                 />
-                <div className="relative z-10 text-start text-white px-6 lg:px-24">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="relative z-10 text-start text-white px-6 lg:px-24">
                     <h1 className="text-4xl font-bold">Sanctuaire du numérique au Cameroun</h1>
                     <p className="mt-4 text-lg max-w-2xl">
                         Transformer le Cameroun en un hub numérique régional grâce à des infrastructures modernes, une gouvernance renforcée et des investissements stratégiques.
@@ -101,7 +106,7 @@ const numerique = () => {
                             filterSecteur="Numérique"
                         />
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             {/* Breadcrumbs */}
@@ -121,11 +126,15 @@ const numerique = () => {
 
             {/* Objectif Section */}
             <div className="bg-white py-20 sm:py-20">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="mx-auto max-w-7xl px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-center mb-8">Objectif Stratégique</h2>
                     <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
                         Faire évoluer le Cameroun dans le Top 5 des meilleurs pays africains les plus avancés en matière de révolution numérique tout en garantissant une sécurité globale accrue de la Souveraineté de l’Etat                    </p>
-                </div>
+                </motion.div>
             </div>
 
             {/* Actions Stratégiques */}
@@ -135,7 +144,12 @@ const numerique = () => {
                         <div className="sm:max-w-full">
                             <div className="space-y-12">
                                 {actions.map((section, index) => (
-                                    <div key={index} className="space-y-8">
+                                    <motion.div
+                                        key={index}
+                                        initial={{ opacity: 0, y: 50 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5, delay: index * 0.2 }}
+                                        className="space-y-8">
                                         <h3 className="text-2xl font-semibold text-gray-900">{section.title}</h3>
                                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                                             {section.items.map((item, idx) => {
@@ -153,7 +167,7 @@ const numerique = () => {
                                                 );
                                             })}
                                         </div>
-                                    </div>
+                                    </motion.div>
                                 ))}
                             </div>
                         </div>
@@ -165,7 +179,11 @@ const numerique = () => {
                                     className="pointer-events-none lg:absolute lg:inset-y-0 lg:mx-auto lg:w-full lg:max-w-7xl"
                                 >
                                     <div className="absolute mt-28 transform md:top-1/3 md:left-1/2 sm:translate-x-8 lg:top-1/2 lg:left-1/2 lg:-translate-y-1/2 lg:translate-x-8">
-                                        <div className="flex items-center space-x-6 lg:space-x-8">
+                                        <motion.div
+                                            initial={{ opacity: 0, y: 50 }}
+                                            whileInView={{ opacity: 1, y: 0 }}
+                                            transition={{ duration: 1 }}
+                                            className="flex items-center space-x-6 lg:space-x-8">
                                             <div className="grid shrink-0 grid-cols-1 gap-y-6 lg:gap-y-8">
                                                 <div className="h-64 w-44 overflow-hidden rounded-lg sm:opacity-0 lg:opacity-100">
                                                     <img
@@ -221,7 +239,7 @@ const numerique = () => {
                                                     />
                                                 </div>
                                             </div>
-                                        </div>
+                                        </motion.div>
                                     </div>
                                 </div>
                             </div>
@@ -233,11 +251,19 @@ const numerique = () => {
             {/* Domaines Clés du Numérique */}
             <div className="overflow-hidden bg-gray-50 py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Domaines Clés du Numérique</h2>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="text-3xl font-bold text-center mb-8">Domaines Clés du Numérique</motion.h2>
                     <p className="text-center text-lg mb-8">
                         Découvrez les domaines stratégiques qui font du Cameroun un hub numérique régional.
                     </p>
-                    <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                         {domainesNumeriques.map((domaine, index) => (
                             <div key={index} className="group relative">
                                 <div className="aspect-square w-full overflow-hidden rounded-xl lg:aspect-auto lg:h-80">
@@ -257,7 +283,7 @@ const numerique = () => {
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
             {/* Statistiques Clés */}
@@ -265,14 +291,19 @@ const numerique = () => {
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-center mb-8">Chiffres Clés</h2>
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                        {statsNumeriques.map((stat) => (
-                            <div key={stat.id} className="bg-white p-6 rounded-xl shadow-lg text-center">
+                        {statsNumeriques.map((stat, index) => (
+                            <motion.div
+                                key={stat.id}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.2 }}
+                                className="bg-white p-6 rounded-xl shadow-lg text-center">
                                 <div className="flex justify-center">
                                     <stat.icon className="h-12 w-12 text-[#0F0B60]" />
                                 </div>
                                 <p className="mt-4 text-3xl font-bold text-gray-900">{stat.value}</p>
                                 <p className="mt-2 text-lg text-gray-600">{stat.name}</p>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>
