@@ -6,6 +6,7 @@ import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 import ProjectCard from '../../../components/projetCard/projetCard';
 import CACAO from "../../../assets/img/cacao4.png"
 import ENERGIE from "../../../assets/img/energie.jpg"
+import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
 
 const PresentationApi: React.FC = () => {
     const [activeTab, setActiveTab] = useState<'direction' | 'consultatif'>('direction');
@@ -163,13 +164,15 @@ const PresentationApi: React.FC = () => {
                 </motion.div>
             </div>
 
-            {/* Fil d'Ariane */}
-            <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-                <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
-                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <p className="text-slate-500">A propos</p>
-                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <p className="text-slate-500">Présentation de l'API</p>
+            {/* Breadcrumbs */}
+            <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+                <BreadcrumbsComponent
+                    breadcrumbs={[
+                        { name: 'Accueil', path: '/' },
+                        { name: "A propos", path: '#' },
+                        { name: "Présentation de l'API", path: '#' }
+                    ]}
+                />
             </div>
 
             {/* Section Objectifs */}

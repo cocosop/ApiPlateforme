@@ -8,6 +8,7 @@ import CHIMIE from "../../assets/img/medoc.jpg"
 import MINE from "../../assets/img/mine.jpg"
 import INFRASTRUCTURE from "../../assets/img/pont.jpg"
 import PROJETS from "../../assets/img/projet.png"
+import BreadcrumbsComponent from "../../components/breadcrumbsComponent/breadcrumbsComponent";
 
 
 const Projets = () => {
@@ -199,10 +200,14 @@ const Projets = () => {
           </h2>
         </div>
       </div>
-      <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-        <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
-        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <p className="text-slate-500">Banque de projet</p>
+      {/* Breadcrumbs */}
+      <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+        <BreadcrumbsComponent
+          breadcrumbs={[
+            { name: 'Accueil', path: '/' },
+            { name: "Banque de projet", path: '#' },
+          ]}
+        />
       </div>
       <div className="flex flex-col md:flex-row gap-6 p-4">
         {/* Filters Sidebar */}

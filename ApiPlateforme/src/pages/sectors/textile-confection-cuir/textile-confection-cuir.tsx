@@ -1,9 +1,8 @@
-
-import { NavLink } from "react-router-dom";
 import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
 import { CubeIcon } from "@heroicons/react/20/solid";
 import { ClipboardIcon, CogIcon, ShieldCheckIcon } from "lucide-react";
 import { motion } from "framer-motion";
+import BreadcrumbsComponent from "../../../components/breadcrumbsComponent/breadcrumbsComponent";
 
 const statistiques = [
     { id: 1, name: "Coton Transformé", value: "600K t", icon: CubeIcon },
@@ -42,19 +41,16 @@ const TextileConfectionCuir = () => {
             </div>
 
             {/* Breadcrumbs */}
-            <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1 overflow-scroll">
-                <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to="/">
-                    Accueil
-                </NavLink>
-                <div aria-hidden="true" className="text-slate-400 select-none">
-                    /
-                </div>
-                <p className="text-slate-500">Sections et Opportunités</p>
-                <div aria-hidden="true" className="text-slate-400 select-none">
-                    /
-                </div>
-                <p className="text-slate-500">Pilier Textile&bull;Confection&bull;Cuir</p>
+            <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+                <BreadcrumbsComponent
+                    breadcrumbs={[
+                        { name: 'Accueil', path: '/' },
+                        { name: "Sections et Opportunités", path: '#' },
+                        { name: "Pilier Textile/Confection/Cuir", path: '#' }
+                    ]}
+                />
             </div>
+
             {/* Objectif Section */}
             <div className="bg-white py-20 sm:py-20">
                 <motion.div

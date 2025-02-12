@@ -1,11 +1,12 @@
 import { ArrowTopRightOnSquareIcon, BookOpenIcon, GlobeAltIcon, ScaleIcon } from '@heroicons/react/20/solid';
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import 'tailwindcss/tailwind.css';
 import ProjectCard from '../../../components/projetCard/projetCard';
 import CACAO from "../../../assets/img/cacao4.png"
 import ENERGIE from "../../../assets/img/energie.jpg"
+import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
+import { NavLink } from 'react-router-dom';
 
 const AspectsJuridiques: React.FC = () => {
     const [activeSection, setActiveSection] = useState<number | null>(null);
@@ -92,13 +93,14 @@ const AspectsJuridiques: React.FC = () => {
                     </p>
                 </motion.div>
             </div>
-
-            <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-                <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
-                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <p className="text-slate-500">Informations générales</p>
-                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <p className="text-slate-500">Aspects juridiques</p>
+            <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+                <BreadcrumbsComponent
+                    breadcrumbs={[
+                        { name: 'Accueil', path: '/' },
+                        { name: 'Informations générales', path: '#' },
+                        { name: 'Aspects juridiques', path: '#' }
+                    ]}
+                />
             </div>
             <section className='mx-auto m-4 max-w-2xl px-6 lg:max-w-7xl lg:px-8'>
                 <motion.div

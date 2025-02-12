@@ -1,7 +1,7 @@
 import { CheckCircleIcon } from '@heroicons/react/20/solid';
 import { motion } from 'framer-motion';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
 
 const CadreJuridiqueFiscal: React.FC = () => {
     const infos = [
@@ -184,12 +184,14 @@ const CadreJuridiqueFiscal: React.FC = () => {
                     </p>
                 </motion.div>
             </div>
-            <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-                <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
-                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <p className="text-slate-500">Informations générales</p>
-                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <p className="text-slate-500">Cadre juridique et fiscal</p>
+            <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+                <BreadcrumbsComponent
+                    breadcrumbs={[
+                        { name: 'Accueil', path: '/' },
+                        { name: 'Informations générales', path: '#' },
+                        { name: 'Cadre juridique et fiscal', path: '#' }
+                    ]}
+                />
             </div>
             <section className="bg-white py-20 sm:py-20 relative">
                 <motion.div

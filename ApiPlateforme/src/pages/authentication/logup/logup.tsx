@@ -34,30 +34,32 @@ const Logup = () => {
     return (
         <section className="flex flex-col md:flex-row">
             {/* Section Image */}
-            <Box
-                sx={{
-                    flex: 1,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                    height: { xs: "300px", md: "auto" },
-                    width: { xs: "100%", md: "50%" },
-                    mb: { xs: 4, md: 0 },
-                }}
-            >
-                <img
-                    src={LOGIN}
-                    alt="Login Illustration"
-                    style={{
-                        height: "100%",
-                        width: "100%",
-                        maxHeight: "600px",
-                        objectFit: "contain",
+            <div className="hidden md:flex md:w-1/2 md:items-center md:justify-center">
+                <Box
+                    sx={{
+                        flex: 1,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        height: { xs: "300px", md: "auto" },
+                        width: { xs: "100%", md: "50%" },
+                        mb: { xs: 4, md: 0 },
                     }}
-                />
-            </Box>
+                >
+                    <img
+                        src={LOGIN}
+                        alt="Login Illustration"
+                        style={{
+                            height: "100%",
+                            width: "100%",
+                            maxHeight: "600px",
+                            objectFit: "contain",
+                        }}
+                    />
+                </Box>
+            </div>
 
             {/* Section Formulaire */}
             <Box

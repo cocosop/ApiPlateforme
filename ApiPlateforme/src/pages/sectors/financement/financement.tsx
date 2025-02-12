@@ -1,7 +1,7 @@
 import { ChartBarIcon, CurrencyDollarIcon, FingerPrintIcon, ShieldCheckIcon } from '@heroicons/react/20/solid'
-import { NavLink } from "react-router-dom";
 import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
 import { motion } from 'framer-motion';
+import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
 
 const statistiques = [
     { id: 1, name: "Fonds Soustraits", value: "5B FCFA", icon: CurrencyDollarIcon },
@@ -40,19 +40,16 @@ const financement = () => {
             </div>
 
             {/* Breadcrumbs */}
-            <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-                <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to="/">
-                    Accueil
-                </NavLink>
-                <div aria-hidden="true" className="text-slate-400 select-none">
-                    /
-                </div>
-                <p className="text-slate-500">Sections et Opportunités</p>
-                <div aria-hidden="true" className="text-slate-400 select-none">
-                    /
-                </div>
-                <p className="text-slate-500">Socle financement</p>
+            <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+                <BreadcrumbsComponent
+                    breadcrumbs={[
+                        { name: 'Accueil', path: '/' },
+                        { name: "Sections et Opportunités", path: '#' },
+                        { name: "Socle Financement", path: '#' }
+                    ]}
+                />
             </div>
+
             {/* Objectif Section */}
             <div className="bg-white py-20 sm:py-20">
                 <motion.div
