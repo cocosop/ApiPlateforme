@@ -60,21 +60,7 @@ const accordionData1: AccordionData[] = [
         summaryTitle: 'Existe-t-il une base de données nationale des terrains disponibles pour les investisseurs ?',
         details: 'Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel est augue.',
     },
-    // {
-    //     id: 'panel4',
-    //     summaryTitle: 'Quelles sont les conditions pour obtenir un titre foncier ou une concession au Cameroun ?',
-    //     details: 'Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel est augue.',
-    // },
-    // {
-    //     id: 'panel5',
-    //     summaryTitle: 'Quels sont les délais moyens pour obtenir un terrain à usage économique ?',
-    //     details: 'Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel est augue.',
-    // },
-    // {
-    //     id: 'panel6',
-    //     summaryTitle: 'Comment résoudre un litige foncier lié à un projet d’investissement ?',
-    //     details: 'Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel est augue.',
-    // },
+   
 ];
 const accordionData2: AccordionData[] = [
     {
@@ -87,26 +73,7 @@ const accordionData2: AccordionData[] = [
         summaryTitle: 'Quels sont les types de sociétés reconnus par la loi camerounaise ?',
         details: 'Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis laoreet laoreet.',
     },
-    // {
-    //     id: 'panel9',
-    //     summaryTitle: 'Quelles formalités doivent être respectées pour employer des collaborateurs étrangers ?',
-    //     details: 'Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel est augue.',
-    // },
-    // {
-    //     id: 'panel10',
-    //     summaryTitle: 'Comment formaliser un partenariat avec des investisseurs locaux ?',
-    //     details: 'Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel est augue.',
-    // },
-    // {
-    //     id: 'panel11',
-    //     summaryTitle: 'Quels sont les délais et les coûts estimés pour créer une société au Cameroun ?',
-    //     details: 'Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel est augue.',
-    // },
-    // {
-    //     id: 'panel12',
-    //     summaryTitle: 'Quelles sont les meilleures pratiques pour développer un projet d’entreprise au Cameroun ?él’investissement au Cameroun ?',
-    //     details: 'Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel est augue.',
-    // },
+  
 ];
 const accordionData3: AccordionData[] = [
     {
@@ -119,26 +86,7 @@ const accordionData3: AccordionData[] = [
         summaryTitle: 'Existe-t-il des zones économiques spéciales (ZES) ou des zones franches au Cameroun ?',
         details: 'Donec placerat, lectus sed mattis semper, neque lectus feugiat lectus, varius pulvinar diam eros in elit. Pellentesque convallis laoreet laoreet.',
     },
-    // {
-    //     id: 'panel15',
-    //     summaryTitle: 'Quelles activités économiques bénéficient d’incitations particulières ?',
-    //     details: 'Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel est augue.',
-    // },
-    // {
-    //     id: 'panel16',
-    //     summaryTitle: 'Peut-on bénéficier d’exonérations fiscales ou douanières pour des projets innovants ?',
-    //     details: 'Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel est augue.',
-    // },
-    // {
-    //     id: 'panel17',
-    //     summaryTitle: 'Comment accéder aux programmes de soutien pour les petites et moyennes entreprises ?',
-    //     details: 'Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel est augue.',
-    // },
-    // {
-    //     id: 'panel18',
-    //     summaryTitle: 'Les équipements importés pour les projets sont-ils exonérés de droits de douane ?',
-    //     details: 'Nunc vitae orci ultricies, auctor nunc in, volutpat nisl. Integer sit amet egestas eros, vitae egestas augue. Duis vel est augue.',
-    // },
+   
 ];
 
 //Le tableau contenant les titres des catégories des accordéons
@@ -267,6 +215,122 @@ const BoisForets = () => {
                     </div>
                 </div>
             </div>
+            <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 p-8">
+            <div className="bg-gradient-to-r from-gray-50 to-white p-12 space-y-10">
+    {/* Section Potentiel */}
+    <div className="relative bg-gradient-to-tl from-green-500 to-green-700 text-white p-8 rounded-xl shadow-xl overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full bg-opacity-50 bg-green-800"></div>
+      <div className="relative z-10">
+       
+  {/* Conteneur principal */}
+  <div className="max-w-6xl mx-auto bg-transparent">
+    {/* Titre principal */}
+    <h1 className="text-4xl font-bold text-gray-900 mb-4 text-center">
+      Potentiel Agricole au Cameroun
+    </h1>
+    <p className="text-center leading-relaxed mb-6">
+          Le Cameroun est souvent qualifié de <span className="font-semibold">"grenier de l'Afrique centrale"</span> grâce à son climat varié et ses terres fertiles. Le pays produit une diversité de cultures, notamment du cacao, café, banane, huile de palme, coton, maïs, manioc, etc. :
+        </p>
+    {/* Grille des rubriques */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden">
+        {/* Fond dégradé au survol */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+        {/* Contenu */}
+        <div className="relative z-10">
+          <div className="flex items-center mb-6">
+            <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
+              <span className="text-blue-500 text-2xl">🚀</span>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">Opportunités</h2>
+          </div>
+          <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
+            <li className="flex items-start">
+              <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+              <span><span className="font-medium text-blue-600 group-hover:text-blue-200">Transformation locale</span> : Réduire les importations et augmenter la valeur ajoutée des produits locaux.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+              <span><span className="font-medium text-blue-600 group-hover:text-blue-200">Développement de chaînes de valeur</span> : Renforcer les exportations en améliorant la qualité et la compétitivité.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Rubrique Défis */}
+      <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden">
+        {/* Fond dégradé au survol */}
+        <div className="absolute inset-0 bg-gradient-to-r from-red-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+        {/* Contenu */}
+        <div className="relative z-10">
+          <div className="flex items-center mb-6">
+            <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+              <span className="text-red-500 text-2xl">⚠️</span>
+            </div>
+            <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">Défis</h2>
+          </div>
+          <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
+            <li className="flex items-start">
+              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+              <span><span className="font-medium text-red-600 group-hover:text-red-200">Manque d'infrastructures</span> : Insuffisance des infrastructures de stockage et de transformation.</span>
+            </li>
+            <li className="flex items-start">
+              <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+              <span><span className="font-medium text-red-600 group-hover:text-red-200">Accès limité aux financements</span> : Difficultés pour accéder à des crédits et investissements.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+      </div>
+    </div>
+
+    {/* Section Opportunités */}
+    <div className="relative bg-gradient-to-tl from-blue-500 to-blue-700 text-white p-8 rounded-xl shadow-xl overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full bg-opacity-50 bg-blue-800"></div>
+      <div className="relative z-10">
+        <h2 className="text-3xl font-bold mb-4">Opportunités</h2>
+        <ul className="space-y-4">
+          <li className="flex items-start space-x-4">
+            <div className="w-2 h-2 rounded-full bg-white mt-1"></div>
+            <p className="text-lg">
+              <span className="font-semibold">Transformation locale des produits agricoles</span> : Réduire les importations et augmenter la valeur ajoutée des produits locaux.
+            </p>
+          </li>
+          <li className="flex items-start space-x-4">
+            <div className="w-2 h-2 rounded-full bg-white mt-1"></div>
+            <p className="text-lg">
+              <span className="font-semibold">Développement de chaînes de valeur</span> : Renforcer les exportations en améliorant la qualité et la compétitivité des produits agricoles camerounais.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    {/* Section Défis */}
+    <div className="relative bg-gradient-to-tl from-red-500 to-red-700 text-white p-8 rounded-xl shadow-xl overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-full bg-opacity-50 bg-red-800"></div>
+      <div className="relative z-10">
+        <h2 className="text-3xl font-bold mb-4">Défis</h2>
+        <ul className="space-y-4">
+          <li className="flex items-start space-x-4">
+            <div className="w-2 h-2 rounded-full bg-white mt-1"></div>
+            <p className="text-lg">
+              <span className="font-semibold">Manque d'infrastructures</span> : Insuffisance des infrastructures de stockage et de transformation, ce qui limite la capacité à maximiser la valeur des produits.
+            </p>
+          </li>
+          <li className="flex items-start space-x-4">
+            <div className="w-2 h-2 rounded-full bg-white mt-1"></div>
+            <p className="text-lg">
+              <span className="font-semibold">Accès limité aux financements</span> : Les agriculteurs rencontrent des difficultés pour accéder à des crédits et des investissements nécessaires pour moderniser leurs exploitations.
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
     );
 };

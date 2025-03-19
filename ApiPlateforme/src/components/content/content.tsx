@@ -12,7 +12,7 @@ import Numerique from '../../pages/sectors/numerique/numerique';
 import PresentationCameroun from '../../pages/informations-generales/presentation-cameroun/presentation-cameroun';
 import Logup from '../../pages/authentification/logup/logup';
 import CadreJuridiqueFiscal from '../../pages/informations-generales/cadre-juridique-fiscal/cadre-juridique-fiscal';
-import MainOeuvre from '../../pages/investir/mainOeuvre/mainOeuvre';
+import MainOeuvre from '../mainOeuvre/mainOeuvre';
 import FacteursProduction from '../../pages/investir/facteursProduction/facteursProduction';
 import AspectsJuridiques from '../../pages/informations-generales/aspects-juridiques/aspects-juridiques';
 import Agroindustrie from '../../pages/sectors/agroindustrie/agroindustrie';
@@ -20,9 +20,9 @@ import Financement from '../../pages/sectors/financement/financement';
 import BoisForet from '../../pages/sectors/bois-foret/bois-forets';
 import CreerEntreprise from '../../pages/investir/creerEntreprise/creerEntreprise';
 import DroitInvestisseur from '../../pages/investir/droitInvestisseur/droitInvestisseur';
-import Foncier from '../../pages/investir/foncier/foncier';
+import Foncier from '../foncier/foncier';
 import Incitation from '../../pages/investir/incitation/incitation';
-import Fiscalite from '../../pages/investir/fiscalite/fiscalite'
+import Fiscalite from '../fiscalite/fiscalite'
 
 interface ContentProps {
     selectedMenu: any | null;

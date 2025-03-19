@@ -243,6 +243,7 @@ const agriculture = () => {
                     </div>
                 </div>
             </div>
+           
         </div>
     );
 };

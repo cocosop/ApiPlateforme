@@ -1,5 +1,5 @@
 import { Box, CardActions, CardContent, Typography } from "@mui/material";
-import HOMEVIDEOUPDATED from '../../assets/videos/COMPLEXE INDUSTRIALO-PORTUAIRE DE KRIBI (cameroun).mp4'
+import HOMEVIDEOUPDATED from '../../assets/videos/vid.mp4'
 import OPTIMISATION from "../../assets/img/optimisation.png"
 import AMELIORATION from "../../assets/img/amelioration.png"
 import SIMPLIFICATION from "../../assets/img/simplification.png"

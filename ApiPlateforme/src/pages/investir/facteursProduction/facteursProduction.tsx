@@ -15,19 +15,10 @@ import ProjectCard from '../../../components/projetCard/projetCard';
 import CACAO from "../../../assets/img/cacao4.png"
 import ENERGIE from "../../../assets/img/energie.jpg"
 import {  } from "lucide-react";
-
-const factorIcons: { [key: string]: JSX.Element } = {
-  "Agriculture": <Leaf size={96} className="text-green-600" />,
-  "Industrie": <Factory size={96} className="text-gray-700" />,
-  "Infrastructure": <Building2 size={96} className="text-blue-600" />,
-  "Énergie": <Lightbulb size={96} className="text-yellow-500" />,
-  "Technologie": <Server size={96} className="text-purple-600" />,
-  "Tourisme": <Globe size={96} className="text-orange-500" />,
-  "Construction": <Hammer size={96} className="text-red-500" />,
-  "Transport": <Plane size={96} className="text-indigo-600" />,
-};
-
-
+import MainOeuvre from '../../../components/mainOeuvre/mainOeuvre';
+import Foncier from '../../../components/foncier/foncier';
+import FiscalitePage from '../../../components/fiscalite/fiscalite';
+import ProductionCostsBySector from '../../../components/coutProdSecteur/coutProdSecteur';
 
 interface Factor {
   name: string;
@@ -35,13 +26,6 @@ interface Factor {
   image: string;
   details?: JSX.Element; // Optional details
 }
-// Définition des types pour les props
-interface ProgressCardProps {
-  title: string;
-  percentage: number;
-  color: string;
-}
-
 const FacteursProduction = () => {
   const [projects, setProjects] = useState([
     {
@@ -96,115 +80,7 @@ const FacteursProduction = () => {
     { name: 'Terrains aménagés', cost: 300 },
     { name: 'Terrains bâtis', cost: 1000 },
   ];
-
-
-  // Définir un type pour les éléments de l'accordéon
-  type AccordionItemType = {
-    title: string;
-    content: string;
-  };
-
-  // Composant Accordéon Item avec typage
-  const AccordionItem: React.FC<{
-    title: string;
-    content: string;
-    isOpen: boolean;
-    onToggle: () => void;
-  }> = ({ title, content, isOpen, onToggle }) => (
-    <div className="border-b">
-      <button
-        onClick={onToggle}
-        className="flex justify-between w-full p-4 text-left bg-gray-200 hover:bg-gray-300 focus:outline-none"
-      >
-        <span className="text-lg font-semibold">{title}</span>
-        <span>{isOpen ? '-' : '+'}</span>
-      </button>
-      {isOpen && (
-        <div className="p-4 bg-gray-50">
-          <p>{content}</p>
-        </div>
-      )}
-    </div>
-  );
-
-  // Composant Accordéon avec typage pour 'items'
-  interface AccordionProps {
-    items: AccordionItemType[];
-  }
-
-  const Accordion: React.FC<AccordionProps> = ({ items }) => {
-    const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-    const toggleItem = (index: number) => {
-      setOpenIndex(openIndex === index ? null : index);
-    };
-
-    return (
-      <div className="max-w-lg mx-auto mt-8">
-        {items.map((item, index) => (
-          <AccordionItem
-            key={index}
-            title={item.title}
-            content={item.content}
-            isOpen={openIndex === index}
-            onToggle={() => toggleItem(index)}
-          />
-        ))}
-      </div>
-    );
-  };
-
-  const salaryData = [
-    { category: "Cadres", min: 267000, max: 457000 },
-    { category: "Employés", min: 129000, max: 325000 },
-    { category: "Ouvriers", min: 40000, max: 134000 },
-  ];
-
-  const cotisationData = {
-    labels: ["Employeur", "Employé"],
-    datasets: [
-      {
-        data: [4.2, 4.2],
-        backgroundColor: ["#F5BA3A", "#0F0B60"],
-      },
-    ],
-  };
-
-
-  //Partie Energie
-  const [amount, setAmount] = useState(0);
-
-  // Graphique des tarifs douaniers
-  const douaneData = {
-    labels: ["0-10%", "10-20%", "20-50%", "50-81%"],
-    datasets: [
-      {
-        data: [20, 30, 25, 25],
-        backgroundColor: ["#4CAF50", "#FFC107", "#FF5722", "#F44336"],
-      },
-    ],
-  };
-
-  // Graphique des frais financiers
-  const fraisFinanciersData = {
-    labels: ["Min", "Max"],
-    datasets: [
-      {
-        data: [29000, 39000],
-        fill: false,
-        borderColor: "#FF9800",
-        tension: 0.1,
-      },
-    ],
-  };
-  const handleAmountChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setAmount(Number(e.target.value));
-  };
-
-
-  const [activeTab, setActiveTab] = useState("securite");
-
-  const [selectedFactor, setSelectedFactor] = useState<Factor | null>(null);
+    const [selectedFactor, setSelectedFactor] = useState<Factor | null>(null);
   const closeModal = () => setSelectedFactor(null);
   const factors = [
     {
@@ -692,10 +568,8 @@ const FacteursProduction = () => {
     },
   ];
 
-
   return (
     <div>
-
       <div className="relative isolate overflow-hidden bg-green-900 py-24 sm:py-32">
         <img src={Facteur} alt="" className="absolute inset-0 -z-10 size-full object-cover object-right md:object-center opacity-30" />
         <div className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
@@ -721,8 +595,7 @@ const FacteursProduction = () => {
         <div aria-hidden="true" className="text-slate-400 text-gray-800  select-none">/</div>
         <NavLink className="text-slate-500 text-gray-800  hover:text-slate-600" to={'/secteur-de-lagriculture'}>Facteurs de production</NavLink>
       </div>
-
-      <div className="bg-gray-100 min-h-screen p-6">
+      <div className="bg-white min-h-screen p-6">
         <div className="max-w-6xl mx-auto">
           <div id="segments" title="Facteurs de Production pour l'Investissement au Cameroun">
             <h2 className="text-3xl font-bold mb-4"></h2>
@@ -733,12 +606,11 @@ const FacteursProduction = () => {
 
           </div>
           {/* Trait de séparation horizontal */}
-          <h2 className="text-3xl font-bold text-center text-green-700">
+          <h2 className="text-3xl font-bold text-center text-[#0F0B60]">
             Coûts de Production : Les Facteurs Clés à Anticiper
           </h2>
-
           {/* Barre de séparation */}
-          <div className="w-24 h-1 bg-green-500 mx-auto my-4 rounded-full"></div>
+          <div className="w-80 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></div>
 
           {/* Message d'encouragement */}
           <p className="text-center text-gray-700 mb-6">
@@ -764,8 +636,7 @@ const FacteursProduction = () => {
     </div>
   ))}
 </div>;
-
-          {selectedFactor && (
+      {selectedFactor && (
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
               <div className="bg-white p-6 rounded-2xl shadow-xl max-w-4xl w-full mx-4">
                 <button
@@ -785,15 +656,23 @@ const FacteursProduction = () => {
             </div>
           )}
         </div>
-      </div>
+         
+         {/* {section main d'oeuvre} */}
+         <MainOeuvre/>
+         {/* {section main d'oeuvre} */}
+         <Foncier/>
+          {/* {Fiscalité} */}
+          <FiscalitePage/>
+          {/* {Couts moyen par secteurs d'activité} */}
+         <ProductionCostsBySector/>
+        {/* Opportunités de stage */}
       <div className="container mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
         {/* Titre avec style attractif */}
-        <h2 className="text-3xl font-bold text-center text-green-700">
+        <h2 className="text-3xl font-bold text-center text-[#0F0B60]">
           Saisissez des Opportunités Uniques !
         </h2>
-
         {/* Barre de séparation */}
-        <div className="w-24 h-1 bg-green-500 mx-auto my-4 rounded-full"></div>
+        <div className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></div>
 
         {/* Message d'encouragement */}
         <p className="text-center text-gray-700 mb-6">
@@ -806,7 +685,6 @@ const FacteursProduction = () => {
             <ProjectCard key={project.id} {...project} />
           ))}
         </div>
-
         {/* Lien Voir plus */}
         <div className="flex justify-center mt-8">
           <a
@@ -817,8 +695,8 @@ const FacteursProduction = () => {
           </a>
         </div>
       </div>
+      </div>      
     </div>
-
   );
 }
 

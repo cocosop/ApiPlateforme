@@ -1,8 +1,12 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 import messagesData from "../../assets/investmentData.json";
-import logo from "../../assets/img/avatar2.png";
+import logo from "../../assets/img/api-ico.png";
+import { Fab } from "@mui/material";
+import ChatIcon from '@mui/icons-material/Chat';
+import CloseIcon from '@mui/icons-material/Close';
+
 
 interface ChatMessage {
   sender: "user" | "bot";
@@ -17,157 +21,270 @@ interface MessagesData {
 
 const Chatbox = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [chatMessages, setChatMessages] = useState<ChatMessage[]>(
-    JSON.parse(localStorage.getItem("chatMessages") || "[]")
-  );
-  const [userInput, setUserInput] = useState("");
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [questions, setQuestions] = useState<string[]>([]);
+  const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  const { preloadedQuestions, messages } = messagesData as MessagesData;
-
-  const addBotMessage = (messageText: string) => {
-    const botMessage: ChatMessage = { sender: "bot", text: messageText };
-    setChatMessages((prevMessages) => [...prevMessages, botMessage]);
-  };
-
-  const sendMessage = (messageText: string) => {
-    if (!messageText.trim()) return;
-
-    const userMessage: ChatMessage = { sender: "user", text: messageText };
-    setChatMessages((prevMessages) => [...prevMessages, userMessage]);
-
-    const botResponse = messages.find(
-      (msg) =>
-        msg.question &&
-        messageText.toLowerCase().includes(msg.question.toLowerCase())
+  const validateMessage = (message: any): message is ChatMessage => {
+    return (
+      (message.sender === "user" || message.sender === "bot") &&
+      typeof message.text === "string"
     );
-
-    setTimeout(() => {
-      setChatMessages((prevMessages) => [
-        ...prevMessages,
-        botResponse || {
-          sender: "bot",
-          text: "Désolé, je n'ai pas compris votre question. Pouvez-vous reformuler ?",
-        },
-      ]);
-    }, 1000);
-
-    setUserInput("");
   };
-
+  
   useEffect(() => {
-    if (messagesEndRef.current) {
-      setTimeout(() => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
-    }
-  }, [chatMessages]);
-
-  useEffect(() => {
-    if (chatMessages.length > 0) {
-      localStorage.setItem("chatMessages", JSON.stringify(chatMessages));
-    }
-  }, [chatMessages]);
-
-  useEffect(() => {
-    if (chatMessages.length === 0) {
-      addBotMessage("Bonjour ! Comment puis-je vous aider aujourd'hui ? Voici quelques sujets que vous pouvez explorer :");
-      setTimeout(() => addBotMessage("suggestions"), 2000);
-    }
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        // Simuler une requête API
+        setQuestions(messagesData.preloadedQuestions);
+        const validatedMessages = messagesData.messages.filter(validateMessage);
+        setMessages(validatedMessages);
+      } catch (err) {
+        setError("Failed to load messages");
+      } finally {
+        setIsLoading(false);
+      }
+    };
+  
+    fetchData();
+  }, []);
+  // Fonction pour basculer l'état d'ouverture/fermeture du chat
+  const toggleChat = useCallback(() => {
+    setIsOpen((prev) => !prev);
   }, []);
 
+  // Fonction pour ajouter un message
+  const addMessage = useCallback((message: ChatMessage) => {
+    setMessages((prevMessages) => [...prevMessages, message]);
+  }, []);
+
+  // Fonction pour envoyer un message
+  const handleSendMessage = useCallback(() => {
+    if (inputValue.trim()) {
+      addMessage({ sender: "user", text: inputValue });
+      setInputValue("");
+    }
+  }, [inputValue, addMessage]);
+
+  // Fonction pour faire défiler vers le bas
+  const scrollToBottom = useCallback(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+   // Faire défiler vers le bas à chaque nouveau message
+   
+   // Fonction pour réinitialiser la conversation
+  const handleReset = useCallback(() => {
+    setMessages([]); // Réinitialiser les messages
+  }, []);
+
+  // Fonction pour revenir en arrière (exemple : retour à la liste des questions)
+  const handleBack = useCallback(() => {
+    setMessages(messagesData.messages as ChatMessage[]); // Revenir aux messages initiaux
+  }, []);
+
+   useEffect(() => {
+    scrollToBottom();
+  }, [messages, scrollToBottom]);
+
+  // Charger les questions préchargées et les messages initiaux
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     setIsLoading(true);
+  //     try {
+  //       // Simuler une requête API
+  //       setQuestions(messagesData.preloadedQuestions);
+  //       setMessages(messagesData.messages);
+  //     } catch (err) {
+  //       setError("Failed to load messages");
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
+  // Faire défiler vers le bas à chaque nouveau message
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, scrollToBottom]);
   return (
-    // Sur desktop, la chatbox est positionnée en bas à droite (sm:bottom-5 sm:right-5)
-    // Sur mobile, elle occupe toute la largeur en bas et est centrée horizontalement.
-    <div className="fixed sm:bottom-5 sm:right-5 bottom-0 left-0 flex flex-col items-end z-50">
-      {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          // Utilisation de "w-full max-w-md" pour une largeur maximale adaptée
-          // "mx-2" permet d'ajouter un padding horizontal sur mobile
-          className="w-full max-w-md bg-white rounded-2xl shadow-lg p-4 border border-[#0F0B60] mx-2 sm:mx-0"
-        >
-          <div className="flex items-center gap-3 border-b border-[#0F0B60] pb-3 mb-3">
-            <img src={logo} alt="Logo" className="w-14 h-14 rounded-full mt-3" />
-            <h2 className="text-xl font-semibold text-[#0F0B60]">e-API</h2>
-          </div>
-          {/* Hauteur adaptée : h-80 sur mobile et h-96 sur desktop */}
-          <div className="h-80 sm:h-96 overflow-y-auto p-2 space-y-2">
-            <AnimatePresence>
-              {chatMessages.map((msg, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 10 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
-                >
-                  {msg.text === "suggestions" ? (
-                    <div className="flex flex-wrap gap-2 mt-2">
-                      {preloadedQuestions.map((question, idx) => (
-                        <motion.button
-                          key={idx}
-                          onClick={() => sendMessage(question)}
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="px-3 py-2 bg-[#F5BA3A] rounded-lg text-sm text-[#0F0B60] hover:bg-[#DC2123] hover:text-white transition-colors"
-                        >
-                          {question}
-                        </motion.button>
-                      ))}
-                    </div>
-                  ) : (
-                    <div className={`flex ${msg.sender === "user" ? "justify-end" : "justify-start"}`}>
-                      {msg.sender === "bot" && (
-                        <img src={logo} alt="Bot" className="w-8 h-8 mr-2 rounded-full" />
-                      )}
-                      <p
-                        className={`px-3 py-2 rounded-lg text-sm max-w-[70%] ${
-                          msg.sender === "user"
-                            ? "bg-[#0F0B60] text-white"
-                            : "bg-[#0E600B] text-white"
-                        }`}
-                      >
-                        {msg.text}
-                      </p>
-                    </div>
-                  )}
-                </motion.div>
-              ))}
-            </AnimatePresence>
-            <div ref={messagesEndRef} />
-          </div>
-          <div className="border-t border-[#0F0B60] pt-2 flex items-center">
-            <input
-              type="text"
-              value={userInput}
-              onChange={(e) => setUserInput(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && sendMessage(userInput)}
-              className="flex-1 p-2 text-sm border border-[#0F0B60] rounded-l-lg focus:outline-none focus:border-[#F5BA3A]"
-              placeholder="Écrivez un message..."
-            />
-            <motion.button
-              onClick={() => sendMessage(userInput)}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="bg-[#0F0B60] text-white p-2 rounded-r-lg hover:bg-[#DC2123] transition-colors"
-            >
-              <MessageCircle size={20} />
-            </motion.button>
-          </div>
-        </motion.div>
-      )}
-      {/* Bouton d'activation du chat */}
-      {/* Taille du bouton responsive : plus petit sur mobile */}
-      <motion.button
-        onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+    <div className="fixed bottom-8 right-8 z-50">
+      {/* Bouton FAB */}
+      <Fab
+        color="primary"
+        onClick={toggleChat}
+        className="!bg-blue-500 !text-white !shadow-lg hover:!bg-blue-600"
+        aria-label={isOpen ? "Fermer le chat" : "Ouvrir le chat"}
       >
-        <img src={logo} alt="Chat" className="w-16 h-16 sm:w-[100px] sm:h-[100px]" />
-      </motion.button>
+        {isOpen ? <CloseIcon /> : <ChatIcon />}
+      </Fab>
+
+      {/* Fenêtre de chat avec animation */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 20 }}
+            className="fixed bottom-24 right-8 bg-white rounded-lg shadow-lg w-96 overflow-hidden"
+          >
+            {/* Header */}
+            <div className="flex items-center justify-between p-4 border-b bg-[#0f0b60]">
+  {/* Logo + Texte d'aide */}
+  <div className="flex items-center space-x-2">
+    <div className="relative">
+      <img
+        src={logo}
+        alt="Logo"
+        className="w-12 h-12 rounded-full"
+      />
+    </div>
+    <div className="flex flex-col">
+      <h5 className="text-lg text-white font-semibold">Besoin d'aide ?</h5>
+      <div className="flex items-center space-x-1">
+        <div className="w-2 h-2 rounded-full bg-green-500"></div>
+        <p className="text-sm text-gray-400">En ligne</p>
+      </div>
+    </div>
+  </div>
+
+  {/* Bouton de fermeture */}
+  <button className="p-2 rounded-full hover:bg-gray-200 transition">
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"
+      className="w-6 h-6 text-gray-500"
+      viewBox="0 0 24 24">
+      <path fill="currentColor" d="m13.41 12l4.3-4.29a1 1 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.29l-4.3 4.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0l4.29-4.3l4.29 4.3a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.42Z"></path>
+    </svg>
+  </button>
+</div>
+
+
+
+
+
+
+
+            {/* Chat Body */}
+            <div className="p-4 h-80 overflow-y-auto">
+              {isLoading ? (
+                <p>Chargement...</p>
+              ) : error ? (
+                <p className="text-red-500">{error}</p>
+              ) : (
+                <>
+                  {messages.map((msg, index) => (
+                    <div key={index} className={`mb-4 ${msg.sender === "user" ? "text-right" : ""}`}>
+                      <div className={`p-3 rounded-lg max-w-xs ${msg.sender === "user" ? "bg-blue-100 ml-auto" : "bg-blue-50"}`}>
+                        <p className="text-sm">{msg.text}</p>
+                      </div>
+                    </div>
+                  ))}
+                  <div ref={messagesEndRef} />
+                </>
+              )}
+
+              {/* Questions préchargées */}
+              <div className="space-y-2">
+                {questions.map((question, index) => (
+                  <button
+                    key={index}
+                    className="w-full text-left bg-blue-50 p-3 rounded-lg hover:bg-blue-100 transition-colors"
+                    onClick={() => addMessage({ sender: "user", text: question })}
+                  >
+                    {question}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+         {/* Actions (Retour et À zéro) */}
+<div className="flex justify-between text-xs mt-4 p-4 border-t border-green-500">
+  <button
+    className="flex items-center text-green-500 hover:text-green-700 border-2 border-green-500 p-2 rounded"
+    onClick={handleBack}
+  >
+    Retour
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-green-500"
+    >
+      <path d="M9 11l-4 4 4 4m-4-4h11a4 4 0 0 0 0-8h-1" />
+    </svg>
+  </button>
+  <button     
+  className="flex items-center text-xs text-green-500 hover:text-green-700 border-2 border-green-500 p-2 rounded"
+  onClick={handleReset}
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="text-green-500"
+    >
+      <path d="M9 11l-4 4 4 4m-4-4h11a4 4 0 0 0 0-8h-1" />
+    </svg>
+    A zéro
+  </button>
+</div>
+
+
+            {/* Input Area */}
+            <div className="p-4 border-t">
+              <div className="flex items-center space-x-2">
+                <input
+                  type="text"
+                  placeholder="Écrivez votre message..."
+                  className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+                />
+                <button
+                  className="text-blue-500 hover:text-blue-700"
+                  onClick={handleSendMessage}
+                  aria-label="Envoyer un message"
+                >
+ <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="mr-2"
+                >
+
+               
+                    <path d="m3.4 20.4 17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
