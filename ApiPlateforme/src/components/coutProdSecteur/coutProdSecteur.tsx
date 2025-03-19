@@ -126,7 +126,7 @@ const productionCosts = [
 
 const ProductionCostsBySector = () => {
   return (
-<div className="container mx-auto px-4 py-8 bg-gray-100">
+<div className="container mx-auto px-4 py-8 bg-gray-100 rounded-xl">
   {/* Titre et ligne de séparation */}
   <h2 className="text-2xl font-bold text-center mb-6 text-[#0F0B60]">
     Coûts des Facteurs de Production par Secteur
@@ -139,11 +139,15 @@ const ProductionCostsBySector = () => {
         key={item.id}
         className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100"
       >
-        {/* En-tête de la carte */}
-        <div className="bg-[#0F0B60] p-3">
-          <h3 className="text-lg font-bold text-white text-center">{item.sector}</h3>
-        </div>
-
+      
+      {/* Source */}
+      <p className="text-l font-bold text-green-500 mt-3 text-center">
+          <span >{item.sector}</span>
+          </p>
+           {/* Coût total */}
+           <div className="mt-4 pt-3 border-t border-gray-200"/>
+            
+          
         {/* Corps de la carte */}
         <div className="p-4">
           <ul className="space-y-2">
@@ -154,14 +158,12 @@ const ProductionCostsBySector = () => {
               </li>
             ))}
           </ul>
-
           {/* Coût total */}
-          <div className="mt-4 pt-3 border-t border-gray-100">
+          <div className="mt-4 pt-3 border-t border-gray-150">
             <p className="text-base font-semibold text-[#0E600B] text-center">
               Coût total : {item.totalCost}
             </p>
           </div>
-
           {/* Source */}
           <p className="text-xs text-gray-500 mt-3 text-center">
             Source : <span className="italic">{item.source}</span>

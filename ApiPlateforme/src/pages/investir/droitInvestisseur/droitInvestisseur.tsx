@@ -6,8 +6,6 @@ import {
   GlobeAltIcon,
   CurrencyDollarIcon,
   ShieldCheckIcon,
-  BookOpenIcon,
-  HomeModernIcon,
   ArrowsRightLeftIcon,
   BuildingLibraryIcon,
   BriefcaseIcon,
@@ -350,25 +348,12 @@ const InvestorRights = () => {
       </div>
 
       {/* Breadcrumbs */}
-      <div
-        aria-label="Breadcrumbs"
-        className="bg-gray-100 sticky top-0 sm:top-24 z-10 flex flex-wrap items-center space-x-2 text-sm font-semibold p-4 sm:p-6 border-b"
-      >
-        <NavLink className="text-slate-500 hover:text-slate-600" to={'/'}>
-          Accueil
-        </NavLink>
-        <div aria-hidden="true" className="text-slate-400 select-none">
-          /
-        </div>
-        <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>
-          Guide de l'investisseur
-        </NavLink>
-        <div aria-hidden="true" className="text-slate-400 select-none">
-          /
-        </div>
-        <NavLink className="text-slate-500 hover:text-slate-600" to={'/main-doeuvre'}>
-          Droit des Investisseurs
-        </NavLink>
+      <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
+        <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
+        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+        <p className="text-slate-500">Guide de l'investisseur</p>
+        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+        <p className="text-slate-500">Droit des Investisseurs</p>
       </div>
 
       {/* Bouton de menu pour mobile */}
@@ -416,7 +401,7 @@ const InvestorRights = () => {
       <main className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Navigation latérale (affichée sur md et plus) */}
-          <aside className="hidden md:block md:col-span-1 bg-white p-4 sm:p-6 rounded-lg shadow-md sticky top-24 h-fit">
+          <aside className="hidden md:block md:col-span-1 bg-white p-4 sm:p-6 rounded-lg shadow-md sticky top-48 h-fit">
             <nav className="space-y-2">
               <h2 className="text-[#0E600B] font-semibold mb-4 text-base sm:text-lg">
                 Navigation Rapide
@@ -425,11 +410,10 @@ const InvestorRights = () => {
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}
-                  className={`flex items-center w-full text-left p-3 rounded transition-colors text-sm sm:text-base ${
-                    window.location.hash === `#${section.id}`
-                      ? 'bg-[#0F0B60] text-white'
-                      : 'hover:bg-gray-100 text-[#0F0B60]'
-                  }`}
+                  className={`flex items-center w-full text-left p-3 rounded transition-colors text-sm sm:text-base ${window.location.hash === `#${section.id}`
+                    ? 'bg-[#0F0B60] text-white'
+                    : 'hover:bg-gray-100 text-[#0F0B60]'
+                    }`}
                 >
                   <section.icon className="h-5 w-5 mr-2" />
                   <span>{section.title}</span>

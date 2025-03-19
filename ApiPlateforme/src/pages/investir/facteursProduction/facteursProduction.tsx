@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
-import React, { useState } from "react";
-import { Droplet, Plane, Truck, Users, X, MessageSquare, Phone, Wifi, Lightbulb, Factory, Leaf, Building2, Server, Globe, Hammer, Cog, } from "lucide-react";
+import { useState } from "react";
+import { Droplet, Plane, Truck, Users, X, MessageSquare, Phone, Wifi, Cog, } from "lucide-react";
 import Courant from './../../../assets/img/energie.jpg'
 import Telecom from './../../../assets/img/telecommunication.jpg'
 import Assurance from './../../../assets/img/assurance.jpg'
@@ -27,7 +27,7 @@ interface Factor {
   details?: JSX.Element; // Optional details
 }
 const FacteursProduction = () => {
-  const [projects, setProjects] = useState([
+  const [projects] = useState([
     {
       id: 1,
       secteur: "Agro-industrie",
@@ -588,12 +588,12 @@ const FacteursProduction = () => {
 
         </div>
       </div>
-      <div aria-label="Breadcrumbs" className="bg-gray-200 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-        <NavLink className="text-slate-500 text-gray-800 hover:text-slate-600" to={'/'}>Accueil</NavLink>
-        <div aria-hidden="true" className="text-slate-400 text-gray-800  select-none">/</div>
-        <NavLink className="text-slate-500 text-gray-800  hover:text-slate-600" to={'#'}>Investir</NavLink>
-        <div aria-hidden="true" className="text-slate-400 text-gray-800  select-none">/</div>
-        <NavLink className="text-slate-500 text-gray-800  hover:text-slate-600" to={'/secteur-de-lagriculture'}>Facteurs de production</NavLink>
+      <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
+        <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
+        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+        <p className="text-slate-500">Guide de l'investisseur</p>
+        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
+        <p className="text-slate-500">Facteurs de production</p>
       </div>
       <div className="bg-white min-h-screen p-6">
         <div className="max-w-6xl mx-auto">
@@ -617,16 +617,16 @@ const FacteursProduction = () => {
             "Découvrez les principaux postes de dépenses à prévoir pour assurer la rentabilité et la pérennité de votre investissement."      </p>
           <hr className="my-6 border-t-2 border-gray-300" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-  {factors.map((factor, index) => (
-    <div
-      key={index}
-      onClick={() => setSelectedFactor(factor)}
-      className="bg-white shadow-lg rounded-2xl p-6 border-l-8 border-[#F5BA3A] hover:shadow-2xl transition-shadow duration-300 flex flex-col items-center text-center hover:scale-105 transform transition-transform duration-300 cursor-pointer"
-    >
-      {/* Icône commune pour tous les facteurs */}
-      <div className="w-24 h-24 flex items-center justify-center mb-4">
-        <Cog size={96} className="text-[#0F0B60]" />
-      </div>
+            {factors.map((factor, index) => (
+              <div
+                key={index}
+                onClick={() => setSelectedFactor(factor)}
+                className="bg-white shadow-lg rounded-2xl p-6 border-l-8 border-[#F5BA3A] hover:shadow-2xl flex flex-col items-center text-center hover:scale-105 transform transition-transform duration-300 cursor-pointer"
+              >
+                {/* Icône commune pour tous les facteurs */}
+                <div className="w-24 h-24 flex items-center justify-center mb-4">
+                  <Cog size={96} className="text-[#0F0B60]" />
+                </div>
 
       <h2 className="text-2xl font-semibold text-[#0F0B60] mb-2">{factor.name}</h2>
       <p className="text-gray-700 mb-4">{factor.description}</p>

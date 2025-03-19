@@ -1,13 +1,8 @@
 import { useState } from 'react';
-import { 
-  ChevronDownIcon,
+import {
   SparklesIcon,
   BanknotesIcon,
-  BuildingLibraryIcon,
   ChartBarIcon,
-  ClipboardDocumentCheckIcon,
-  FlagIcon,
-  ScaleIcon,
   TrophyIcon
 } from '@heroicons/react/24/outline';
 import CheckCircleIcon from '@heroicons/react/24/solid/CheckCircleIcon';
@@ -18,7 +13,7 @@ import ENERGIE from "../../../assets/img/energie.jpg"
 import ProjectCard from '../../../components/projetCard/projetCard';
 
 const Incitation = () => {
-  const [projects, setProjects] = useState([
+  const [projects] = useState([
     {
       id: 1,
       secteur: "Agro-industrie",
@@ -54,7 +49,6 @@ const Incitation = () => {
     }
     // Ajoutez plus de projets ici...
   ]);
-  const [activeTab, setActiveTab] = useState('avantages');
 
   // Données structurées
   const INCENTIVES_DATA = {
@@ -63,7 +57,7 @@ const Incitation = () => {
         title: "Phase d'Installation (0-5 ans)",
         icon: <BanknotesIcon className="h-8 w-8" />,
         benefits: [
-          { 
+          {
             title: "Exonérations Totales",
             items: [
               "Droits d'enregistrement",
@@ -134,33 +128,33 @@ const Incitation = () => {
     <div className="min-h-screen bg-gradient-to-b from-[#0F0B60]/5 to-white">
       {/* En-tête */}
       <div>
-      <div className="relative isolate overflow-hidden bg-green-900 py-24 sm:py-32">
-        <img src={oeuvre} alt="" className="absolute inset-0 z-10 size-full object-cover object-right md:object-center opacity-30" />
-        <div className="hidden sm:absolute sm:-top-10 sm:right-1/2 z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
-          <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-20"></div>
-        </div>
-        <div className="absolute -top-52 left-1/2 z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu" aria-hidden="true">
-          <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-30"></div>
-        </div>
+        <div className="relative isolate overflow-hidden bg-green-900 py-24 sm:py-32">
+          <img src={oeuvre} alt="" className="absolute inset-0 z-10 size-full object-cover object-right md:object-center opacity-30" />
+          <div className="hidden sm:absolute sm:-top-10 sm:right-1/2 z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
+            <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-20"></div>
+          </div>
+          <div className="absolute -top-52 left-1/2 z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu" aria-hidden="true">
+            <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-30"></div>
+          </div>
 
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-green">
-            <SparklesIcon className="h-16 w-16 mx-auto mb-4 text-white" />
-            Incitations Fiscales au Cameroun
-          </h1>
-          <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto">
-            Bénéficiez d'avantages exceptionnels pour votre investissement
-          </p>
-        </div>
+          <div className="max-w-7xl mx-auto text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-green">
+              <SparklesIcon className="h-16 w-16 mx-auto mb-4 text-white" />
+              Incitations Fiscales au Cameroun
+            </h1>
+            <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto">
+              Bénéficiez d'avantages exceptionnels pour votre investissement
+            </p>
+          </div>
 
+        </div>
       </div>
-    </div>
       <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-        <NavLink className="text-slate-500 hover:text-slate-600" to={'/'}>Accueil</NavLink>
+        <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
         <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <NavLink className="text-slate-500 hover:text-slate-600" to={'#'}>Guide de l'investisseur</NavLink>
+        <p className="text-slate-500">Guide de l'investisseur</p>
         <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <NavLink className="text-slate-500 hover:text-slate-600" to={'/main-doeuvre'}>Main d'œuvre</NavLink>
+        <p className="text-slate-500">Incitation</p>
       </div>
 
       {/* Chiffres clés */}
@@ -180,7 +174,7 @@ const Incitation = () => {
         <h2 className="text-3xl font-bold text-[#0F0B60] mb-12 text-center">
           Avantages par Phase d'Investissement
         </h2>
-        
+
         <div className="grid md:grid-cols-2 gap-8">
           {Object.entries(INCENTIVES_DATA.phases).map(([key, phase]) => (
             <div key={key} className="bg-white rounded-2xl shadow-xl overflow-hidden">
@@ -190,7 +184,7 @@ const Incitation = () => {
                 </div>
                 <h3 className="text-2xl font-bold text-white">{phase.title}</h3>
               </div>
-              
+
               <div className="p-6">
                 {phase.benefits.map((benefit, index) => (
                   <div key={index} className="mb-6 last:mb-0">
@@ -217,7 +211,7 @@ const Incitation = () => {
           <h2 className="text-3xl font-bold text-[#0F0B60] mb-8 text-center">
             Secteurs à Hauts Avantages
           </h2>
-          
+
           <div className="grid md:grid-cols-3 gap-6">
             {INCENTIVES_DATA.sectors.map((sector, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-lg">
@@ -240,37 +234,37 @@ const Incitation = () => {
       </section>
 
       {/* CTA */}
-      <div className="container mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
-          {/* Titre avec style attractif */}
-          <h2 className="text-3xl font-bold text-center text-[#0F0B60]">
-            Saisissez des Opportunités Uniques !
-          </h2>
+      <div className="container mx-auto p-6">
+        {/* Titre avec style attractif */}
+        <h2 className="text-3xl font-bold text-center text-[#0F0B60]">
+          Saisissez des Opportunités Uniques !
+        </h2>
 
-          {/* Barre de séparation */}
-          <div className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></div>
+        {/* Barre de séparation */}
+        <div className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></div>
 
-          {/* Message d'encouragement */}
-          <p className="text-center text-gray-700 mb-6">
-            Investissez dès aujourd’hui dans des projets innovants et rentables pour bâtir l’avenir de l’économie camerounaise.
-          </p>
+        {/* Message d'encouragement */}
+        <p className="text-center text-gray-700 mb-6">
+          Investissez dès aujourd’hui dans des projets innovants et rentables pour bâtir l’avenir de l’économie camerounaise.
+        </p>
 
-          {/* Liste des projets */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
-              <ProjectCard key={project.id} {...project} />
-            ))}
-          </div>
-
-          {/* Lien Voir plus */}
-          <div className="flex justify-center mt-8">
-            <a
-              href="/banque-de-projets"
-              className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
-            >
-              Voir plus de projets
-            </a>
-          </div>
+        {/* Liste des projets */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project) => (
+            <ProjectCard key={project.id} {...project} />
+          ))}
         </div>
+
+        {/* Lien Voir plus */}
+        <div className="flex justify-center mt-8">
+          <a
+            href="/banque-de-projets"
+            className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
+          >
+            Voir plus de projets
+          </a>
+        </div>
+      </div>
     </div>
   );
 };
