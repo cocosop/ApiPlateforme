@@ -579,21 +579,27 @@ const FacteursProduction = () => {
           <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-30" ></div>
         </div>
 
-        <div className="mx-auto max-w-2xl">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="mx-auto max-w-2xl">
           <h2 className="text-5xl font-semibold tracking-tight text-white text-center">
             Facteurs de production
           </h2>
           <p className="mt-4 text-lg text-gray-300 italic text-center">
             Aligner les facteurs de production avec les objectifs d'investissement est essentiel pour optimiser les gains et réduire les coûts.          </p>
 
-        </div>
+        </motion.div>
       </div>
-      <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-        <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
-        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <p className="text-slate-500">Guide de l'investisseur</p>
-        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <p className="text-slate-500">Facteurs de production</p>
+      <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+        <BreadcrumbsComponent
+          breadcrumbs={[
+            { name: 'Accueil', path: '/' },
+            { name: "Guide de l'investisseur", path: '#' },
+            { name: "Facteurs de production", path: '#' }
+          ]}
+        />
       </div>
       <div className="bg-white min-h-screen p-6">
         <div className="max-w-6xl mx-auto">
@@ -616,7 +622,11 @@ const FacteursProduction = () => {
           <p className="text-center text-gray-700 mb-6">
             "Découvrez les principaux postes de dépenses à prévoir pour assurer la rentabilité et la pérennité de votre investissement."      </p>
           <hr className="my-6 border-t-2 border-gray-300" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {factors.map((factor, index) => (
               <div
                 key={index}
@@ -687,8 +697,8 @@ const FacteursProduction = () => {
         </div>
         {/* Lien Voir plus */}
         <div className="flex justify-center mt-8">
-          <a
-            href="/banque-de-projets"
+          <NavLink
+            to="/projets"
             className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
           >
             Voir plus de projets

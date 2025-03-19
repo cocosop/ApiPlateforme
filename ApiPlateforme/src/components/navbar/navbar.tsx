@@ -15,6 +15,7 @@ import {
   Bars3Icon,
   BuildingOfficeIcon,
   CogIcon,
+  GiftIcon,
   GlobeAltIcon,
   LightBulbIcon,
   UserGroupIcon,
@@ -27,7 +28,6 @@ import {
   ChatBubbleBottomCenterTextIcon,
   ChevronDownIcon,
   ComputerDesktopIcon,
-  CubeTransparentIcon,
   CurrencyDollarIcon,
   DocumentTextIcon,
   FireIcon,
@@ -43,6 +43,7 @@ import { Link, NavLink } from 'react-router-dom'
 import CameroonFlag from '../../assets/img/Camer.png'
 import './navbar.css'
 import React from 'react'
+import { LeafyGreenIcon, PickaxeIcon, TreesIcon } from 'lucide-react'
 
 
 interface NavbartProps {
@@ -73,7 +74,7 @@ const infos = [
 const investir = [
   {
     name: "Création d'entreprise",
-    description: "Guide pratique pour établir une entreprise au Cameroun, y compris les démarches administratives.",
+    description: "Guide pratique pour établir une entreprise au Cameroun.",
     link: "/creation-dentreprise",
     icon: BriefcaseIcon
   },
@@ -97,7 +98,7 @@ const investir = [
   },
   {
     name: "Foncier",
-    description: "Règles d'accès aux terres pour les investisseurs et opportunités dans l'immobilier.",
+    description: "Accès aux terres pour les investisseurs et opportunités dans l'immobilier.",
     link: "/foncier",
     icon: MapIcon
   },
@@ -109,9 +110,9 @@ const investir = [
   },
   {
     name: "Incitation",
-    description: "Régimes fiscaux avantageux et incitations offertes aux investisseurs.",
+    description: "Mesures incitatives et avantages fiscaux pour encourager l’investissement.",
     link: "/incitation",
-    icon: CurrencyDollarIcon
+    icon: GiftIcon
   }
 ];
 
@@ -120,7 +121,7 @@ const categories = [
     name: "Sanctuaires",
     description: "Les infrastructures et pôles stratégiques du développement industriel.",
     secteurs: [
-      { name: "Agro-industrie", link: "/sanctuaire-agro-industrie", icon: BeakerIcon },
+      { name: "Agro-industrie", link: "/sanctuaire-agro-industrie", icon: LeafyGreenIcon },
       { name: "Énergie", link: "/sanctuaire-energie", icon: LightBulbIcon },
       { name: "Numérique", link: "/sanctuaire-numerique", icon: ComputerDesktopIcon },
     ],
@@ -129,11 +130,11 @@ const categories = [
     name: "Piliers",
     description: "Les secteurs clés qui soutiennent la croissance économique.",
     secteurs: [
-      { name: "Bois-Forêts", link: "/pilier-bois-forets", icon: SparklesIcon },
+      { name: "Bois-Forêts", link: "/pilier-bois-forets", icon: TreesIcon },
       { name: "Textile/Confection/Cuir", link: "/pilier-textile-confection-cuir", icon: ScissorsIcon },
       { name: "Hydrocarbures/Raffinage", icon: FireIcon, link: "/pilier-hydrocarbures-raffinage" },
-      { name: "Chimie et Pharmacie", icon: BeakerIcon, link: "/pilier-chimie-pharmacie" },
-      { name: "Mines/Métallurgie/Sidérurgie", icon: CubeTransparentIcon, link: "/pilier-mines-metallurgie-siderurgie" },
+      { name: "Chimie/Pharmacie", icon: BeakerIcon, link: "/pilier-chimie-pharmacie" },
+      { name: "Mines/Métallurgie/Sidérurgie", icon: PickaxeIcon, link: "/pilier-mines-metallurgie-siderurgie" },
     ],
   },
   {
@@ -147,7 +148,7 @@ const categories = [
 ];
 
 const aPropos = [
-  { name: "Présentation de l'API", description: "Découvrez le rôle de l’Agence de Promotion des Investissements dans l’accompagnement et la facilitation des projets d’investissement au Cameroun.", link: "/presentation-de-lAPI", icon: BuildingOfficeIcon },
+  { name: "Présentation de l'API", description: "Découvrez le rôle de l’Agence de Promotion des Investissements dans l’accompagnement et la facilitation des projets d’investissement au Cameroun.", link: "/presentation-api", icon: BuildingOfficeIcon },
   { name: "FAQ", description: "Trouvez des réponses rapides et claires à vos questions fréquentes concernant l’investissement au Cameroun.", link: "/FAQ", icon: QuestionMarkCircleIcon },
   { name: "Conseil en ligne", description: "Accédez à une assistance personnalisée et obtenez des réponses rapides à toutes vos questions sur les opportunités d'investissement.", link: "/conseil-en-ligne", icon: ChatBubbleBottomCenterTextIcon },
 ]
@@ -408,11 +409,11 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
               </PopoverPanel>
             </Popover>
 
-            <Link to="/login">
+            <NavLink to="/signin">
               <button className="ps-btn text-sm/6 font-semibold">
                 Espace  Privé
               </button>
-            </Link>
+            </NavLink>
           </PopoverGroup>
         </nav>
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
@@ -552,7 +553,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                 <div className="py-6">
                   <CloseButton
                     as={NavLink}
-                    to={'/login'}
+                    to={'/signin'}
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
                     Espace Privé

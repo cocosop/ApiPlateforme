@@ -5,6 +5,8 @@ import CACAO from "../../../assets/img/cacao4.png"
 import ENERGIE from "../../../assets/img/energie.jpg"
 import ProjectCard from '../../../components/projetCard/projetCard';
 import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
 
 type Section = 'Contexte Juridique' | 'Avantages Fiscaux' | 'Institutions';
 
@@ -117,7 +119,11 @@ export default function CreationEntreprise() {
           <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-30"></div>
         </div>
 
-        <div className="max-w-6xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="max-w-6xl mx-auto text-center">
           <h1 className="text-4xl font-bold mb-6 text-white">Votre entreprise au Cameroun en 72h</h1>
           <p className="text-xl mb-8 max-w-2xl mx-auto text-white">
             Bénéficiez d'un cadre juridique OHADA modernisé et d'un processus accéléré
@@ -130,26 +136,36 @@ export default function CreationEntreprise() {
               <span className="font-semibold text-[#0F0B60]">72 heures</span>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-      <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-        <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
-        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <p className="text-slate-500">Guide de l'investisseur</p>
-        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <p className="text-slate-500">Creation d'Entreprise</p>
+      <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+        <BreadcrumbsComponent
+          breadcrumbs={[
+            { name: 'Accueil', path: '/' },
+            { name: "Guide de l'investisseur", path: '#' },
+            { name: "Création d'entreprise", path: '#' }
+          ]}
+        />
       </div>
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 py-12">
         {/* Section CFCE Détaillée */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-[#0F0B60] mb-8 flex items-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-2xl font-bold text-[#0F0B60] mb-8 flex items-center">
             <BuildingLibraryIcon className="w-6 h-6 mr-2" />
             Le CFCE en Détail
-          </h2>
+          </motion.h2>
           {/* Avantages CFCE */}
-          <div className="mt-8 p-6 bg-[#0F0B60]/10 rounded-lg">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="mt-8 p-6 bg-[#0F0B60]/10 rounded-lg">
             <h3 className="text-lg font-semibold text-[#0F0B60] mb-4">Pourquoi le CFCE ?</h3>
 
             <div className="grid md:grid-cols-3 gap-4">
@@ -167,17 +183,26 @@ export default function CreationEntreprise() {
                   content: "Accompagnement par des conseillers spécialisés"
                 }
               ].map((avantage, i) => (
-                <div key={i} className="p-4 bg-white rounded-lg">
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.2 }}
+                  className="p-4 bg-white rounded-lg">
                   <div className="w-12 h-12 rounded-full bg-[#F5BA3A] flex items-center justify-center mb-3">
                     <LightBulbIcon className="w-6 h-6 text-[#0F0B60]" />
                   </div>
                   <p className="font-semibold text-[#0E600B]">{avantage.title}</p>
                   <p className="text-sm text-gray-600">{avantage.content}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 mt-8">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="grid md:grid-cols-2 gap-8 mt-8">
               {/* Localisation */}
               <div className="bg-white p-6 rounded-lg shadow-lg">
                 <h3 className="text-lg font-semibold text-[#0E600B] mb-4 flex items-center">
@@ -247,15 +272,19 @@ export default function CreationEntreprise() {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </section>
         {/* Types de Sociétés */}
         <section className="mb-16">
-          <h2 className="text-2xl font-bold text-[#0E600B] mb-8 flex items-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-2xl font-bold text-[#0E600B] mb-8 flex items-center">
             <BuildingLibraryIcon className="w-6 h-6 mr-2" />
             Structures Juridiques OHADA
-          </h2>
+          </motion.h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -276,10 +305,15 @@ export default function CreationEntreprise() {
                 desc: 'Société par Actions Simplifiée - Souplesse organisationnelle'
               },
             ].map((societe, i) => (
-              <div key={i} className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-[#F5BA3A] hover:shadow-xl transition-shadow">
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: i * 0.2 }}
+                className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-[#F5BA3A] hover:shadow-xl transition-shadow">
                 <h3 className="text-xl font-bold text-[#0F0B60] mb-3">{societe.type}</h3>
                 <p className="text-gray-600 text-sm">{societe.desc}</p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </section>
@@ -287,12 +321,20 @@ export default function CreationEntreprise() {
         <section className="mb-16">
           {/* Section Documents Requis */}
           <div className="mb-16">
-            <h2 className="text-2xl font-bold text-[#0E600B] mb-8 flex items-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="text-2xl font-bold text-[#0E600B] mb-8 flex items-center">
               <DocumentTextIcon className="w-6 h-6 mr-2" />
               Documents Requis
-            </h2>
+            </motion.h2>
 
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="bg-white rounded-lg shadow-lg overflow-hidden">
               <div className="flex border-b border-gray-200">
                 <button
                   onClick={() => setActiveTab('physique')}
@@ -318,20 +360,28 @@ export default function CreationEntreprise() {
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           </div>
 
           {/* Section Procédures au CFCE */}
           <div>
-            <h2 className="text-2xl font-bold text-[#0E600B] mb-8 flex items-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="text-2xl font-bold text-[#0E600B] mb-8 flex items-center">
               <ClockIcon className="w-6 h-6 mr-2" />
               Procédures au CFCE
-            </h2>
+            </motion.h2>
 
-            <div className="bg-white p-6 rounded-lg shadow-lg">
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="bg-white p-6 rounded-lg shadow-lg">
               <div className="space-y-4">
                 {etapesCFCE.map((step, i) => (
-                  <div key={i} className="flex justify-between items-start p-3 bg-gray-50 rounded-lg">
+                  <div key={i} className="flex flex-col md:flex-row justify-between items-start p-3 bg-gray-50 rounded-lg">
                     <div className="flex items-start">
                       <div className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 bg-[#0F0B60] text-white`}>
                         {i + 1}
@@ -341,18 +391,22 @@ export default function CreationEntreprise() {
                         <p className="text-sm text-gray-500">{step.details}</p>
                       </div>
                     </div>
-                    <span className="font-semibold text-[#DC2123] min-w-[120px] text-right">{step.cost}</span>
+                    <span className="font-semibold text-[#DC2123] text-right mt-2 md:mt-0 min-w-[80px] md:min-w-[120px]">{step.cost}</span>
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
 
 
         {/* Accordéon Sections */}
-        <div className="space-y-4 mb-16">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="space-y-4 mb-16">
           {[
             {
               title: 'Contexte Juridique',
@@ -451,10 +505,14 @@ export default function CreationEntreprise() {
               )}
             </div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Doing Business Banner */}
-        <div className="bg-[#F5BA3A] p-6 rounded-lg mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="bg-[#F5BA3A] p-6 rounded-lg mb-12">
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl font-bold text-[#0F0B60] mb-4">
               Environnement des Affaires en Progression
@@ -472,7 +530,7 @@ export default function CreationEntreprise() {
               centrale des incidents de paiement
             </p>
           </div>
-        </div>
+        </motion.div>
 
 
         <div className="container mx-auto p-6">
@@ -482,7 +540,8 @@ export default function CreationEntreprise() {
           </h2>
 
           {/* Barre de séparation */}
-          <div className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></div>
+          <div className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full">
+          </div>
 
           {/* Message d'encouragement */}
           <p className="text-center text-gray-700 mb-6">
@@ -498,12 +557,12 @@ export default function CreationEntreprise() {
 
           {/* Lien Voir plus */}
           <div className="flex justify-center mt-8">
-            <a
-              href="/banque-de-projets"
+            <NavLink
+              to="/projets"
               className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
             >
               Voir plus de projets
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>

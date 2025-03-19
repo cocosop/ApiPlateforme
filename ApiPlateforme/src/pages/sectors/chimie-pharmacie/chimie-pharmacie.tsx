@@ -1,23 +1,23 @@
 import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
-import { UserGroupIcon } from "@heroicons/react/20/solid";
-import { MapIcon, ScaleIcon, ShoppingCartIcon } from "lucide-react";
+import { BuildingOfficeIcon } from "@heroicons/react/20/solid";
+import { LinkIcon, BeakerIcon, CogIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import BreadcrumbsComponent from "../../../components/breadcrumbsComponent/breadcrumbsComponent";
 
 const statistiques = [
-    { id: 1, name: "UFA Gérées par l'ONB", value: "75%", icon: MapIcon },
-    { id: 2, name: "Volume MIB Régulé", value: "25m³/ha", icon: ScaleIcon },
-    { id: 3, name: "Magasins SCDPF", value: "50+", icon: ShoppingCartIcon },
-    { id: 4, name: "Artisans Formés", value: "1K+", icon: UserGroupIcon }
+    { id: 1, name: "Pôles de Compétitivité", value: "5+", icon: BuildingOfficeIcon },
+    { id: 2, name: "Filières Intégrées", value: "3", icon: LinkIcon },
+    { id: 3, name: "Médicaments Génériques", value: "100+", icon: BeakerIcon },
+    { id: 4, name: "Entreprises Modernisées", value: "50+", icon: CogIcon }
 ]
 
-const BoisForets = () => {
+const ChimiePharmacie = () => {
     return (
         <div>
             {/* Hero Section */}
             <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
                 <img
-                    src="https://img.freepik.com/photos-gratuite/clairiere-dans-foret-du-bois-chauffage-plie-pour-chambre-combustion_1153-6948.jpg?t=st=1738259561~exp=1738263161~hmac=cc5adaed90e2a863cd544d7716fe5b6358eb0f11875bf8aadeb9697283f0572e&w=740"
+                    src="https://media.istockphoto.com/id/658148844/fr/photo/laboratoire-de-recherche.jpg?b=1&s=612x612&w=0&k=20&c=n2lc6eC_wUt2zJu3KYcOyp4tQc3v1EQBuwoes6Svbzc="
                     className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-50"
                     alt="Background"
                 />
@@ -26,15 +26,15 @@ const BoisForets = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
                     className="relative z-10 text-start text-white px-6 lg:px-24">
-                    <h1 className="text-4xl font-bold">Pilier bois-forêts</h1>
+                    <h1 className="text-4xl font-bold">Pilier Chimie &bull; Pharmacie</h1>
                     <p className="mt-4 text-lg max-w-2xl">
-                        La filière bois-forêts est un secteur clé de l’économie camerounaise, offrant de nombreuses opportunités d’investissement et de développement. Découvrez les atouts, les avantages et les opportunités du secteur.
+                        Le pilier Chimie & Pharmacie vise à transformer les ressources naturelles en produits à haute valeur ajoutée, tout en favorisant l'innovation et la recherche dans les domaines de la chimie et de la pharmacie. Ce secteur stratégique est essentiel pour le développement économique et industriel du pays.
                     </p>
                     <div className="mt-6 py-2">
                         <ActionButtonComponent
                             title="Explorez les opportunités"
-                            color="#A86F32"
-                            filterSecteur="Bois-Forêt"
+                            color="#A020F0"
+                            filterSecteur="Chimie et Pharmacie"
                         />
                     </div>
                 </motion.div>
@@ -46,7 +46,7 @@ const BoisForets = () => {
                     breadcrumbs={[
                         { name: 'Accueil', path: '/' },
                         { name: "Sections et Opportunités", path: '#' },
-                        { name: "Pilier Bois-Forêts", path: '#' }
+                        { name: "Pilier Chimie/Pharmacie", path: '#' }
                     ]}
                 />
             </div>
@@ -60,18 +60,18 @@ const BoisForets = () => {
                     className="mx-auto max-w-7xl px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-center mb-8">Objectif Stratégique</h2>
                     <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
-                        Faire du massif forestier camerounais le pilier de lancement du plan ferroviaire, de l’exportation de l’énergie et du développement d’une filière hautement intégrée aux autres filières industrielles.
+                        Développer et faire émerger un tissu d’industries du secteur chimique hautement intégrées à l’économie nationale.
                     </p>
                 </motion.div>
             </div>
             {/* Section Principale */}
-            <div className="overflow-hidden bg-green-50 py-20 sm:py-20">
+            <div className="overflow-hidden bg-purple-50 py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <motion.h2
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
-                        className="text-3xl font-bold text-center mb-8">Pilier Bois-Forêts</motion.h2>
+                        className="text-3xl font-bold text-center mb-8">Nos Actions</motion.h2>
 
                     {/* Cartes Thématiques */}
                     <motion.div
@@ -80,101 +80,96 @@ const BoisForets = () => {
                         transition={{ duration: 1 }}
                         className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
 
-                        {/* Institutions et Organisations */}
+                        {/* Compétitivité et Innovation */}
                         <div className="group relative">
                             <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
                                 <img
-                                    src="https://img.freepik.com/photos-gratuite/batiment_1127-3357.jpg?t=st=1738407758~exp=1738411358~hmac=e7486709986163f6239be2470c94d5acc8195b742c05527a434838d52e6f9c88&w=740"
-                                    alt="Institutions et Organisations"
+                                    src="https://media.istockphoto.com/id/1190347732/fr/photo/concept-de-lindustrie-4-0-robot-ramasse-le-produit-de-la-voiture-automatis%C3%A9e-sur-la-ligne-de.webp?a=1&s=612x612&w=0&k=20&c=Xrvte_I_OkqwtvCy2b-O1iK_1KtXwJiHBS0csk6BJBw="
+                                    alt="Compétitivité et Innovation"
                                     className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                                 />
                             </div>
                             <div className="mt-4 text-center">
-                                <h3 className="text-lg font-semibold text-gray-900">Institutions et Organisations</h3>
+                                <h3 className="text-lg font-semibold text-gray-900">Compétitivité et Innovation</h3>
                                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                                    <li>Création de l'Office National du Bois (ONB)</li>
-                                    <li>Société Camerounaise de Dépôt des Produits Forestiers (SCDPF)</li>
-                                    <li>Société Camerounaise de la Pâte et du Papier (SOCAPAP)</li>
-                                    <li>Caisse de Stabilisation des Prix des Produits Forestiers (CSPPF)</li>
+                                    <li>Amélioration de la compétitivité-coûts</li>
+                                    <li>Groupements d'achats et filières intégrées (agrochimie)</li>
+                                    <li>Création de pôles de compétitivité (clusters)</li>
                                 </ul>
                             </div>
                         </div>
 
-                        {/* Zones et Complexes Industriels */}
+                        {/* Modernisation des Entreprises */}
                         <div className="group relative">
                             <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
                                 <img
-                                    src="https://images.pexels.com/photos/8994765/pexels-photo-8994765.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                                    alt="Zones et Complexes Industriels"
+                                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaX4jYrbeg45VmPF0TFOCrPUbYJUb37xAuzA&s"
+                                    alt="Modernisation des Entreprises"
                                     className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                                 />
                             </div>
                             <div className="mt-4 text-center">
-                                <h3 className="text-lg font-semibold text-gray-900">Zones et Complexes Industriels</h3>
+                                <h3 className="text-lg font-semibold text-gray-900">Modernisation des Entreprises</h3>
                                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                                    <li>Zone de Transformation Industrielle (ZTI)</li>
-                                    <li>Complexes Industriels Intégrés (CII)</li>
-                                    <li>Architecture des CII d'EDEA et BENGBIS</li>
-                                    <li>Unités de séchage obligatoires</li>
+                                    <li>Mise à niveau des entreprises (QHSE)</li>
+                                    <li>Innovation, production et vente</li>
+                                    <li>Maîtrise des fondamentaux industriels</li>
                                 </ul>
                             </div>
                         </div>
 
-                        {/* Commercialisation et Régulation */}
+                        {/* État Pro-Business */}
                         <div className="group relative">
                             <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
                                 <img
-                                    src="https://img.freepik.com/photos-gratuite/pile-planches-bois-dans-cour-bois-scierie_342744-510.jpg?t=st=1738408284~exp=1738411884~hmac=a3e41a6a5a053b231a6d574d14375079e68397680f11cbdae8041ab14b0d3efc&w=740"
-                                    alt="Commercialisation et Régulation"
+                                    src="https://img.freepik.com/photos-gratuite/travailleuse-afro-americaine-faisant-inventaire-colis-organisant-calendrier-livraison-tablette-numerique-sa-collegue-travaille-arriere-plan_637285-2227.jpg?ga=GA1.1.1625797867.1700058386&semt=ais_hybrid"
+                                    alt="État Pro-Business"
                                     className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                                 />
                             </div>
                             <div className="mt-4 text-center">
-                                <h3 className="text-lg font-semibold text-gray-900">Commercialisation et Régulation</h3>
+                                <h3 className="text-lg font-semibold text-gray-900">État Pro-Business</h3>
                                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                                    <li>Magasins de vente (gros, demi-gros, détail)</li>
-                                    <li>Régulation du MIB (12m³ à 25m³/ha)</li>
-                                    <li>Interdiction de transport de grumes hors ZTI</li>
-                                    <li>Accès aux déchets forestiers</li>
+                                    <li>Amélioration des conditions logistiques</li>
+                                    <li>Développement des infrastructures</li>
+                                    <li>Création d'un environnement favorable à la chimie</li>
                                 </ul>
                             </div>
                         </div>
 
-                        {/* Formation et Mutualisation */}
+                        {/* Filières Intégrées */}
                         <div className="group relative">
                             <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
                                 <img
-                                    src="https://img.freepik.com/photos-gratuite/charpentier-coupant-panneau-forces-defense-principale-interieur-atelier_23-2149451067.jpg?ga=GA1.1.1625797867.1700058386&semt=ais_hybrid"
-                                    alt="Formation et Mutualisation"
+                                    src="https://img.freepik.com/photos-gratuite/vaccin-3d-contre-coronavirus_23-2148963960.jpg"
+                                    alt="Filières Intégrées"
                                     className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                                 />
                             </div>
                             <div className="mt-4 text-center">
-                                <h3 className="text-lg font-semibold text-gray-900">Formation et Mutualisation</h3>
+                                <h3 className="text-lg font-semibold text-gray-900">Filières Intégrées</h3>
                                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                                    <li>École des Arts et Métiers du Bois</li>
-                                    <li>Centres Agréés d'Apprentissage (C3AMB)</li>
-                                    <li>Centres de Mutualisation (CMR2T)</li>
-                                    <li>Village Bois pour artisans</li>
+                                    <li>Pétrochimie-Plasturgie</li>
+                                    <li>Oléochimie et Chimie Verte</li>
                                 </ul>
                             </div>
                         </div>
 
-                        {/* Infrastructures Routières */}
+                        {/* Industrie Pharmaceutique */}
                         <div className="group relative">
                             <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
                                 <img
-                                    src="https://media.istockphoto.com/id/2164900011/fr/photo/route-%C3%A0-p%C3%A9age-ou-autoroute-%C3%A0-p%C3%A9age-sur-lautoroute-%C3%A0-acc%C3%A8s-limit%C3%A9-point-de-contr%C3%B4le-du.webp?a=1&b=1&s=612x612&w=0&k=20&c=Xp5dHUHBpXdQ5vYLluY-yYXqCzuGb0mX2CcfPV0XE58="
-                                    alt="Infrastructures Routières"
+                                    src="https://images.pexels.com/photos/593451/pexels-photo-593451.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                    alt="Industrie Pharmaceutique"
                                     className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                                 />
                             </div>
                             <div className="mt-4 text-center">
-                                <h3 className="text-lg font-semibold text-gray-900">Infrastructures Routières</h3>
+                                <h3 className="text-lg font-semibold text-gray-900">Industrie Pharmaceutique</h3>
                                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                                    <li>Petites Entreprises d'Entretien Routier (PEER)</li>
-                                    <li>Péages Routiers Spéciaux (PRS)</li>
-                                    <li>Financement des PEER via les PRS</li>
+                                    <li>Priorité aux médicaments génériques et essentiels</li>
+                                    <li>Développement des médicaments traditionnels</li>
+                                    <li>Émergence d'une industrie pharmaceutique locale</li>
                                 </ul>
                             </div>
                         </div>
@@ -200,7 +195,7 @@ const BoisForets = () => {
                                 transition={{ duration: 0.5, delay: index * 0.2 }}
                                 className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
                                 <div className="flex justify-center">
-                                    <stat.icon className="h-12 w-12 text-[#A86F32]" />
+                                    <stat.icon className="h-12 w-12 text-[#A020F0]" />
                                 </div>
                                 <p className="mt-4 text-3xl font-bold text-gray-900">{stat.value}</p>
                                 <p className="mt-2 text-lg text-gray-600">{stat.name}</p>
@@ -213,4 +208,4 @@ const BoisForets = () => {
     );
 };
 
-export default BoisForets;
+export default ChimiePharmacie;

@@ -4,6 +4,8 @@ import ENERGIE from "../../../assets/img/energie.jpg"
 import ProjectCard from '../../../components/projetCard/projetCard';
 import { NavLink } from 'react-router-dom';
 import oeuvre from "../../../assets/img/foncier.jpg"
+import { motion } from 'framer-motion';
+import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
 
 // Types
 interface AccordionProps {
@@ -197,7 +199,11 @@ const Foncier = () => {
             <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-30"></div>
           </div>
 
-          <div className="max-w-6xl mx-auto text-center text-white">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="max-w-6xl mx-auto text-center text-white">
             <h2 className="text-4xl font-bold mb-4">
               Système Foncier au Cameroun
             </h2>
@@ -206,21 +212,27 @@ const Foncier = () => {
               des domaines public et privé de l'État. Explorez les mécanismes juridiques
               encadrant la propriété immobilière.
             </p>
-          </div>
+          </motion.div>
 
         </div>
       </div>
-      <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-        <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
-        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <p className="text-slate-500">Guide de l'investisseur</p>
-        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <p className="text-slate-500">Foncier</p>
+      <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+        <BreadcrumbsComponent
+          breadcrumbs={[
+            { name: 'Accueil', path: '/' },
+            { name: "Guide de l'investisseur", path: '#' },
+            { name: "Foncier", path: '#' }
+          ]}
+        />
       </div>
       <div className="max-w-7xl mx-auto p-6 space-y-8">
 
         <div className="grid lg:grid-cols-5 gap-8">
-          <div className="lg:col-span-4 space-y-8">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="lg:col-span-4 space-y-8">
             <section className="grid gap-6 md:grid-cols-2">
               {acquisitionMethods.map((method, index) => (
                 <AcquisitionCard key={index} {...method} />
@@ -274,9 +286,13 @@ const Foncier = () => {
                 </div>
               </Accordion>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-1">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="lg:col-span-1">
             <aside className="bg-white rounded-xl shadow-xl border border-gray-100 sticky top-6">
               <div className="p-6">
                 <h3 className="text-xl font-bold text-[#0F0B60] mb-4 border-b pb-4">
@@ -291,7 +307,7 @@ const Foncier = () => {
                 </nav>
               </div>
             </aside>
-          </div>
+          </motion.div>
         </div>
         <div className="container mx-auto p-6">
           {/* Titre avec style attractif */}
@@ -316,12 +332,12 @@ const Foncier = () => {
 
           {/* Lien Voir plus */}
           <div className="flex justify-center mt-8">
-            <a
-              href="/banque-de-projets"
+            <NavLink
+              to="/projets"
               className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
             >
               Voir plus de projets
-            </a>
+            </NavLink>
           </div>
         </div>
       </div>

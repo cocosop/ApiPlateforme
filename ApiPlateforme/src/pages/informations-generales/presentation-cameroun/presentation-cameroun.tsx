@@ -1,6 +1,8 @@
 import { InformationCircleIcon, StarIcon } from '@heroicons/react/20/solid';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
+
 
 const PresentationCameroun: React.FC = () => {
     const images = [
@@ -66,29 +68,41 @@ const PresentationCameroun: React.FC = () => {
                     src="https://s.rfi.fr/media/display/a81774c2-e639-11ec-bd1c-005056a9a7b9/w:980/p:16x9/PLACEYAOUNDE.jpg"
                     className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-50"
                 />
-                <div className="relative z-10 text-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="relative z-10 text-center"
+                >
                     <h1 className="text-5xl font-bold text-white reveal">
                         Découvrez le Cameroun
                     </h1>
                     <p className="mt-4 text-lg text-gray-300">
                         Un pays d'opportunités et de diversité
                     </p>
-                </div>
+                </motion.div>
             </div>
-            <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-                <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
-                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <p className="text-slate-500">Informations générales</p>
-                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <p className="text-slate-500">Présentation du Cameroun</p>
+            <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+                <BreadcrumbsComponent
+                    breadcrumbs={[
+                        { name: 'Accueil', path: '/' },
+                        { name: 'Informations générales', path: '#' },
+                        { name: 'Présentation du Cameroun', path: '#' }
+                    ]}
+                />
             </div>
             <div className="bg-white py-20 sm:py-20 relative">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="mx-auto max-w-7xl px-6 lg:px-8"
+                >
                     <div className="relative mt-8 lg:row-span-2 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500">
                         <div className="absolute inset-0 bg-gray-900 opacity-90 rounded-2xl"></div>
                         <div className="relative min-h-auto pb-6 w-full grow">
-                            <div className="z-10 absolute -top-5 left-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 p-4 rounded-md shadow-lg text-sm font-semibold w-max">
-                                Feature
+                            <div className="z-10 absolute -top-5 left-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 p-4 rounded-md shadow-lg text-sm font-light w-max">
+                                EN VEDETTE
                             </div>
                             <div className="px-8 pb-4 pt-10 sm:px-10 sm:pb-0 md:pt-12 text-white">
                                 <h3 className="font-bold text-2xl sm:text-3xl">
@@ -113,18 +127,35 @@ const PresentationCameroun: React.FC = () => {
                         </div>
                         <div className="pointer-events-none absolute inset-px rounded-2xl shadow-lg ring-2 ring-blue-500/50"></div>
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             <div className="overflow-hidden bg-white py-20 sm:py-20">
-                <h2 className='order-first text-2xl font-semibold tracking-tight text-gray-900 sm:text-2xl text-center'>Situation géographique</h2>
+                <motion.h2
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="order-first text-2xl font-semibold tracking-tight text-gray-900 sm:text-2xl text-center"
+                >
+                    Situation Géographique
+                </motion.h2>
                 <div className="grid grid-cols-1 gap-6 xl:grid-cols-2 lg:grid-cols-2 items-center">
-                    <div className="group relative">
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="group relative"
+                    >
                         <img
                             src="https://static.vecteezy.com/system/resources/thumbnails/010/199/592/small_2x/cameroon-map-on-the-world-map-vector.jpg"
                         />
-                    </div>
-                    <div className='group relative'>
+                    </motion.div>
+                    <motion.div
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 1 }}
+                        className='group relative'
+                    >
                         <div className="flex items-center justify-center h-screen relative overflow-hidden">
                             <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center relative z-10 shadow-xl shadow-yellow-500 animate-pulse">
                                 <img
@@ -153,11 +184,18 @@ const PresentationCameroun: React.FC = () => {
                                 </div>
                             ))}
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
             <div className='mx-auto mb-4 max-w-2xl px-6 lg:max-w-6xl lg:px-8'>
-                <h2 className='order-first text-2xl font-semibold tracking-tight text-gray-900 sm:text-2xl text-center'>Principales villes</h2>
+                <motion.h2
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="text-2xl font-semibold tracking-tight text-gray-900 text-center mb-6"
+                >
+                    Principales villes du Cameroun
+                </motion.h2>
                 <div className="p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                     {cities.map((city, index) => (
                         <div
@@ -178,10 +216,20 @@ const PresentationCameroun: React.FC = () => {
                 </div>
             </div>
             <div className="mx-auto mb-4 max-w-xl px-6 lg:max-w-4xl lg:px-8">
-                <h2 className="text-2xl font-semibold tracking-tight text-gray-900 text-center mb-6">
+                <motion.h2
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="text-2xl font-semibold tracking-tight text-gray-900 text-center mb-6"
+                >
                     Les 10 régions camerounaises et leurs chefs-lieux et langues
-                </h2>
-                <div className="overflow-x-auto">
+                </motion.h2>
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="overflow-x-auto"
+                >
                     <table className="w-full border-collapse border border-gray-200">
                         <thead className="bg-green-900 text-gray-200">
                             <tr>
@@ -222,89 +270,86 @@ const PresentationCameroun: React.FC = () => {
                             ))}
                         </tbody>
                     </table>
-                </div>
+                </motion.div>
             </div>
 
             <div className="bg-white py-24 sm:py-32">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
-                        {stats.map((stat) => (
-                            <div key={stat.id} className="mx-auto flex max-w-xs flex-col gap-y-4">
+                        {stats.map((stat, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.2 }}
+                                className="mx-auto flex max-w-xs flex-col gap-y-4"
+                            >
                                 <dt className="text-base/7 text-gray-600">{stat.name}</dt>
                                 <dd className="order-first text-3xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
                                     {stat.value}
                                 </dd>
-                            </div>
+                            </motion.div>
                         ))}
                     </dl>
                 </div>
             </div>
             <div className='mx-auto mb-4 max-w-2xl px-6 lg:max-w-7xl lg:px-8'>
                 <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
-                    {images.map((image) => (
-                        <div className="group relative">
+                    {images.map((image, index) => (
+                        <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                            className="group relative"
+                        >
                             <img
                                 alt={image.alt}
                                 src={image.src}
                                 className="aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80"
                             />
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
 
             <div className="mx-auto mb-4 max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-                <div className="relative mt-8 lg:row-span-2 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500">
-                    <div className="absolute inset-0 bg-white opacity-90 rounded-2xl"></div>
-                    <div className="relative min-h-auto pb-6 w-full grow">
-                        <div className="z-10 absolute -top-5 left-10 bg-gradient-to-r from-green-500 via-red-500 to-yellow-400 text-gray-900 p-4 rounded-md shadow-lg text-sm font-semibold w-max">
-                            <StarIcon className="w-4 h-4 text-yellow-200" />
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="mx-auto max-w-7xl px-6 lg:px-8"
+                >
+                    <div className="relative mt-8 lg:row-span-2 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500">
+                        <div className="absolute inset-0 bg-white opacity-90 rounded-2xl"></div>
+                        <div className="relative min-h-auto pb-6 w-full grow">
+                            <div className="z-10 absolute -top-5 left-10 bg-gradient-to-r from-green-500 via-red-500 to-yellow-400 text-gray-900 p-4 rounded-md shadow-lg text-sm font-semibold w-max">
+                                <StarIcon className="w-4 h-4 text-yellow-200" />
+                            </div>
+                            <div className="px-8 pb-4 pt-10 sm:px-10 sm:pb-0 md:pt-12 text-gray-900">
+                                <h3 className="font-bold text-2xl sm:text-3xl">
+                                    Priorités du gouvernement
+                                </h3>
+                                <p className="text-justify leading-relaxed text-gray-700">
+                                    La vision à long terme du Cameroun comme pays émergent, démocratique et uni en 2035, a conduit à une réflexion globale et à l’adoption des orientations contenues dans le Document de Stratégie pour la Croissance et l’Emploi (DSCE). Le DSCE, comme document d’orientation par excel- lence, valable pour une période de dix ans (2010- 2020), recense les objectifs que le Cameroun s’est fixé au cours de cette période et qui se résument comme suit :                                </p>
+                                <ul className="list-disc  text-sm  list-inside text-gray-500 text-justify">
+                                    <li>relever la croissance à un niveau moyen de 5,5% par an jusqu’en 2020 ;</li>
+                                    <li>ramener le sous- emploi de 75,8% à 50% en 2020 ;</li>
+                                    <li>ramener le taux de pauvreté autour de 28% en 2020.</li>
+                                </ul>
+                                <p className="text-base leading-relaxed text-gray-700">
+                                    Pour atteindre ces 03 grands objectifs, trois stratégies ont été définies à savoir :                                </p>
+                                <ul className="list-disc  text-sm  list-inside text-gray-500 text-justify">
+                                    <li>la stratégie de croissance ;</li>
+                                    <li>la stratégie de l’emploi ;</li>
+                                    <li>la stratégie de gouvernance.</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div className="px-8 pb-4 pt-10 sm:px-10 sm:pb-0 md:pt-12 text-gray-900">
-                            <h3 className="font-bold text-2xl sm:text-3xl">
-                                Priorités du gouvernement
-                            </h3>
-                            <p className="text-justify leading-relaxed text-gray-700">
-                                La vision à long terme du Cameroun comme pays émergent, démocratique et uni en 2035, a conduit à une réflexion globale et à l’adoption des orientations contenues dans le Document de Stratégie pour la Croissance et l’Emploi (DSCE). Le DSCE, comme document d’orientation par excel- lence, valable pour une période de dix ans (2010- 2020), recense les objectifs que le Cameroun s’est fixé au cours de cette période et qui se résument comme suit :                                </p>
-                            <ul className="list-disc  text-sm  list-inside text-gray-500 text-justify">
-                                <li>relever la croissance à un niveau moyen de 5,5% par an jusqu’en 2020 ;</li>
-                                <li>ramener le sous- emploi de 75,8% à 50% en 2020 ;</li>
-                                <li>ramener le taux de pauvreté autour de 28% en 2020.</li>
-                            </ul>
-                            <p className="text-base leading-relaxed text-gray-700">
-                                Pour atteindre ces 03 grands objectifs, trois stratégies ont été définies à savoir :                                </p>
-                            <ul className="list-disc  text-sm  list-inside text-gray-500 text-justify">
-                                <li>la stratégie de croissance ;</li>
-                                <li>la stratégie de l’emploi ;</li>
-                                <li>la stratégie de gouvernance.</li>
-                            </ul>
-                        </div>
+                        <div className="pointer-events-none absolute inset-px rounded-2xl shadow-lg ring-2 ring-red-500/50"></div>
                     </div>
-                    <div className="pointer-events-none absolute inset-px rounded-2xl shadow-lg ring-2 ring-red-500/50"></div>
-                </div>
+                </motion.div>
             </div>
-
-            {/* <div className="mx-auto mb-4 max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-                <div className="px-8 pb-4 pt-10 sm:px-10 sm:pb-0 md:pt-12">
-                    <h3 className="font-bold text-2xl sm:text-3xl text-center">
-                        Priorités du gouvernement
-                    </h3>
-                    <p className="mt-4 text-sm text-gray-500 text-justify">
-                        La vision à long terme du Cameroun comme pays émergent, démocratique et uni en 2035, a conduit à une réflexion globale et à l’adoption des orientations contenues dans le Document de Stratégie pour la Croissance et l’Emploi (DSCE). Le DSCE, comme document d’orientation par excel- lence, valable pour une période de dix ans (2010- 2020), recense les objectifs que le Cameroun s’est fixé au cours de cette période et qui se résument comme suit :                                </p>
-                    <ul className="mt-4 list-disc  text-sm  list-inside text-gray-500 text-justify">
-                        <li>relever la croissance à un niveau moyen de 5,5% par an jusqu’en 2020 ;</li>
-                        <li>ramener le sous- emploi de 75,8% à 50% en 2020 ;</li>
-                        <li>ramener le taux de pauvreté autour de 28% en 2020.</li>
-                    </ul>
-                    <p className="mt-4 text-sm text-gray-500 text-justify">
-                        Pour atteindre ces 03 grands objectifs, trois stratégies ont été définies à savoir :                                </p>
-                    <ul className="mt-4 list-disc  text-sm  list-inside text-gray-500 text-justify">
-                        <li>la stratégie de croissance ;</li>
-                        <li>la stratégie de l’emploi ;</li>
-                        <li>la stratégie de gouvernance.</li>
-                    </ul>
-                </div>
-            </div> */}
         </div>
     );
 };

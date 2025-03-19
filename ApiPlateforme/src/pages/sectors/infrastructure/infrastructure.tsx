@@ -1,11 +1,12 @@
 import { AcademicCapIcon, BuildingOfficeIcon } from '@heroicons/react/20/solid'
-import { NavLink } from "react-router-dom";
 import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
-import { AdjustmentsVerticalIcon, ChartBarSquareIcon } from '@heroicons/react/24/outline';
+import { Anchor, TrainTrack } from 'lucide-react';
+import { motion } from 'framer-motion';
+import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
 
 const statistiques = [
-    { id: 1, name: "Projets Ferroviaires", value: "15+", icon: AdjustmentsVerticalIcon },
-    { id: 2, name: "Ports Modernisés", value: "4", icon: ChartBarSquareIcon },
+    { id: 1, name: "Projets Ferroviaires", value: "15+", icon: TrainTrack },
+    { id: 2, name: "Ports Modernisés", value: "4", icon: Anchor },
     { id: 3, name: "Écoles Professionnelles", value: "730+", icon: AcademicCapIcon },
     { id: 4, name: "Ministères Restructurés", value: "100%", icon: BuildingOfficeIcon }
 ]
@@ -20,44 +21,61 @@ const infrastructure = () => {
                     className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-50"
                     alt="Background"
                 />
-                <div className="relative z-10 text-start text-white px-6 lg:px-24">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="relative z-10 text-start text-white px-6 lg:px-24">
                     <h1 className="text-4xl font-bold">Socle infrastructure</h1>
                     <p className="mt-4 text-lg max-w-2xl">
                         Socle infrastructure est un secteur clé pour le développement économique du Cameroun. Il regroupe les infrastructures de base nécessaires au bon fonctionnement de l’économie et à l’amélioration des conditions de vie des populations.
                     </p>
                     <div className="mt-6 py-2">
-                        <ActionButtonComponent title="Explorez les opportunités" color="#DC2123" />
+                        <ActionButtonComponent
+                            title="Explorez les opportunités"
+                            color="#DC2123"
+                            filterSecteur="Infrastructures"
+                        />
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             {/* Breadcrumbs */}
-            <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-                <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to="/">
-                    Accueil
-                </NavLink>
-                <div aria-hidden="true" className="text-slate-400 select-none">
-                    /
-                </div>
-                <p className="text-slate-500">Sections et Opportunités</p>
-                <div aria-hidden="true" className="text-slate-400 select-none">
-                    /
-                </div>
-                <p className="text-slate-500">Socle infrastructure</p>
+            <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+                <BreadcrumbsComponent
+                    breadcrumbs={[
+                        { name: 'Accueil', path: '/' },
+                        { name: "Sections et Opportunités", path: '#' },
+                        { name: "Socle Infrastructure", path: '#' }
+                    ]}
+                />
             </div>
+
             {/* Objectif Section */}
             <div className="bg-white py-20 sm:py-20">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="mx-auto max-w-7xl px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-center mb-8">Objectif Stratégique</h2>
                     <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
                         Bâtir un socle solide d’infrastructures physiques, cognitives et institutionnelles pour favoriser le désenclavement du territoire et posséder une base de capital humain à même de servir l’industrialisation.                    </p>
-                </div>
+                </motion.div>
             </div>
             {/* Socle Infrastructure */}
             <div className="overflow-hidden bg-gray-50 py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Socle Infrastructure</h2>
-                    <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="text-3xl font-bold text-center mb-8">Nos Actions</motion.h2>
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
 
                         {/* Infrastructure Physique */}
                         <div className="group relative">
@@ -118,23 +136,32 @@ const infrastructure = () => {
                             </div>
                         </div>
 
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
             {/* Indicateurs Clés */}
             <div className="bg-white py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Statistiques Clés</h2>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="text-3xl font-bold text-center mb-8">Statistiques Clés</motion.h2>
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                        {statistiques.map((stat) => (
-                            <div key={stat.id} className="bg-white p-6 rounded-xl shadow-lg text-center">
+                        {statistiques.map((stat, index) => (
+                            <motion.div
+                                key={stat.id}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.2 }}
+                                className="bg-white p-6 rounded-xl shadow-lg text-center">
                                 <div className="flex justify-center">
                                     <stat.icon className="h-12 w-12 text-[#0F0B60]" />
                                 </div>
                                 <p className="mt-4 text-3xl font-bold text-gray-900">{stat.value}</p>
                                 <p className="mt-2 text-lg text-gray-600">{stat.name}</p>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

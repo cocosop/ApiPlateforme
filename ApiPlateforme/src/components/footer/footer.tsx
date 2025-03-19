@@ -29,9 +29,6 @@ const Footer = () => {
               Agence de Promotion des Investissements (API) - Cameroun
             </Typography>
             <Typography variant="body2" sx={{ color: "#fff", mt: 1 }}>
-              Tél. : (+237) 233 42 59 16 | (+237) 233 43 30 08
-            </Typography>
-            <Typography variant="body2" sx={{ color: "#fff", mt: 1 }}>
               Website : <Link href="https://www.investincameroon.cm" color="#F5BA3A" target="_blank" rel="noopener">
                 www.investincameroon.cm
               </Link>
@@ -112,8 +109,8 @@ const Footer = () => {
                 Tél. : (+237) 233 43 30 08
               </Typography>
               <Typography variant="body2" sx={{ color: "#fff", mb: 1 }}>
-                Courriel : <Link href="mailto:cnps.cameroun@cnps.cm" color="#F5BA3A">
-                  cnps.cameroun@cnps.cm
+                Courriel : <Link href="contact@api.cm" color="#F5BA3A">
+                  contact@api.cm
                 </Link>
               </Typography>
               <Typography variant="body2" sx={{ color: "#fff" }}>

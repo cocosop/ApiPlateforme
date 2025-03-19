@@ -16,10 +16,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
   id,
-  secteur,
   titre,
-  ville,
-  quartier,
   description,
   image,
 }) => {
@@ -52,7 +49,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           </motion.div>
         </motion.div>
         <div className="p-4 min-h-[100px]"> {/* Ajout de min-h-[150px] pour fixer une hauteur minimale */}
-          <h3 className="text-lg font-semibold text-gray-800 mb-2">{titre}</h3>        
+          <h3 className="text-lg font-semibold text-gray-800 mb-2">{titre}</h3>
         </div>
       </motion.div>
     </a>

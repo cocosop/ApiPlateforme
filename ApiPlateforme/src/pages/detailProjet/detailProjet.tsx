@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Typography } from '@mui/material';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { ProjeTypes } from '../../types'; // Mettez à jour le chemin vers votre fichier types
 import ActionButtonComponent from '../../components/actionButtonComponent/actionButtonComponent';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
@@ -16,6 +16,7 @@ type DetailProjetProps = {
 const DetailProjet: React.FC<DetailProjetProps> = ({ projects }) => {
   const { id } = useParams<{ id: string }>();
   const project = projects.find(proj => proj.id === parseInt(id || '', 10));
+  const history = useNavigate();
 
   if (!project) {
     return <Typography variant="h6">Projet introuvable</Typography>;
@@ -48,6 +49,13 @@ const DetailProjet: React.FC<DetailProjetProps> = ({ projects }) => {
     fetchLocation();
   }, [project.ville, project.quartier]);
 
+  const handleInvest = () => {
+    if (sessionStorage.getItem('isAuth') === 'true') {
+      console.log('Investir');
+    } else {
+      history('/signin');
+    }
+  }
 
   return (
     <div className="bg-gray-100 p-6">
@@ -113,8 +121,8 @@ const DetailProjet: React.FC<DetailProjetProps> = ({ projects }) => {
               </ul>
 
               <div className="mt-4">
-                <a href="/login" className="block">
-                  <ActionButtonComponent title="Investissez maintenant" color="#DC2123" />
+                <a href="#" onClick={handleInvest} className="block">
+                  <ActionButtonComponent title="Investissez maintenant" color="#DC2123" filterSecteur={''} />
                 </a>
               </div>
             </div>

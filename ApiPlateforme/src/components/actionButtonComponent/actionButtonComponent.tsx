@@ -4,10 +4,12 @@ import { useNavigate } from "react-router-dom";
 interface ActionButtonProps {
     title: string;
     color: string;
+    filterSecteur: string;
 }
 
-const ActionButtonComponent = ({ title, color }: ActionButtonProps): JSX.Element => {
+const ActionButtonComponent = ({ title, color, filterSecteur }: ActionButtonProps): JSX.Element => {
     const history = useNavigate();
+    sessionStorage.setItem("secteur", filterSecteur);
     const handleOnclick = () => {
         history("/projets");
     }

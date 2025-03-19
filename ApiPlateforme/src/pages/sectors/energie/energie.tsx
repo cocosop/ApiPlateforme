@@ -1,7 +1,8 @@
 import { AcademicCapIcon, BoltIcon, GlobeAltIcon, LightBulbIcon, ChartBarIcon, BuildingLibraryIcon, CpuChipIcon } from '@heroicons/react/20/solid';
-import { NavLink } from 'react-router-dom';
 import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
 import { FireIcon, SunIcon, Battery100Icon, CogIcon } from '@heroicons/react/24/outline';
+import { motion } from 'framer-motion';
+import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
 
 const features = [
     {
@@ -75,40 +76,48 @@ const Energie = () => {
                     className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-50"
                     alt="Background"
                 />
-                <div className="relative z-10 text-start text-white px-6 lg:px-24">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="relative z-10 text-start text-white px-6 lg:px-24">
                     <h1 className="text-4xl font-bold">Sanctuaire de l'énergie du Cameroun</h1>
                     <p className="mt-4 text-lg max-w-2xl">
                         Le Cameroun, riche en ressources énergétiques, offre des opportunités uniques pour les investisseurs dans les secteurs des énergies renouvelables, des infrastructures et de l’innovation technologique.
                     </p>
                     <div className="mt-6 py-2">
-                        <ActionButtonComponent title="Explorez les opportunités" color="#F5BA3A" />
+                        <ActionButtonComponent
+                            title="Explorez les opportunités"
+                            color="#F5BA3A"
+                            filterSecteur="Énergie"
+                        />
                     </div>
-                </div>
+                </motion.div>
             </div>
 
             {/* Breadcrumbs */}
-            <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-                <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to="/">
-                    Accueil
-                </NavLink>
-                <div aria-hidden="true" className="text-slate-400 select-none">
-                    /
-                </div>
-                <p className="text-slate-500">Sections et Opportunités</p>
-                <div aria-hidden="true" className="text-slate-400 select-none">
-                    /
-                </div>
-                <p className="text-slate-500">Sanctuaire Énergie</p>
+            <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+                <BreadcrumbsComponent
+                    breadcrumbs={[
+                        { name: 'Accueil', path: '/' },
+                        { name: "Sections et Opportunités", path: '#' },
+                        { name: "Sanctuaire Energie", path: '#' }
+                    ]}
+                />
             </div>
 
             {/* Objectif Section */}
             <div className="bg-white py-20 sm:py-20">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="mx-auto max-w-7xl px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-center mb-8">Objectif Stratégique</h2>
                     <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
                         Rationaliser l’utilisation de la biomasse, optimiser la production et la consommation d’énergie, et dégager des excédents d’exportation vers la CEEAC et le Nigéria.
                     </p>
-                </div>
+                </motion.div>
             </div>
 
             {/* Actions Stratégiques */}
@@ -116,7 +125,11 @@ const Energie = () => {
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-center mb-8">Actions Stratégiques</h2>
                     <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
-                        <div className="lg:pr-8 lg:pt-4">
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1 }}
+                            className="lg:pr-8 lg:pt-4">
                             <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none">
                                 {features.map((feature) => (
                                     <div key={feature.name} className="relative pl-9">
@@ -133,8 +146,12 @@ const Energie = () => {
                                     </div>
                                 ))}
                             </dl>
-                        </div>
-                        <div className="mx-auto mb-4 max-w-2xl lg:max-w-7xl">
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1 }}
+                            className="mx-auto mb-4 max-w-2xl lg:max-w-7xl">
                             <div className="relative mt-8 lg:row-span-2 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500">
                                 <div className="relative min-h-auto w-full grow">
                                     <div className="z-10 absolute -bottom-5 left-10 bg-white text-gray-900 p-4 rounded-md shadow-lg text-sm font-semibold w-max">
@@ -152,7 +169,7 @@ const Energie = () => {
                                 </div>
                                 <div className="pointer-events-none absolute inset-px rounded-2xl shadow-lg ring-2 ring-gray-900"></div>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
             </div>
@@ -160,8 +177,16 @@ const Energie = () => {
             {/* Sources d'Énergie */}
             <div className="overflow-hidden bg-gray-50 py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Sources d'énergie</h2>
-                    <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="text-3xl font-bold text-center mb-8">Sources d'énergie</motion.h2>
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                         {energySources.map((source, index) => (
                             <div key={index} className="group relative">
                                 <div className="aspect-square w-full overflow-hidden rounded-xl bg-gray-200 lg:aspect-auto lg:h-80">
@@ -177,22 +202,28 @@ const Energie = () => {
                                 </div>
                             </div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
 
             {/* Stats Section */}
             <div className="bg-white py-20 sm:py-20">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                    <h2 className="text-3xl font-bold text-center mb-8">Chiffres Clés</h2>
                     <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                        {stats.map((stat) => (
-                            <div key={stat.id} className="bg-white p-6 rounded-xl shadow-lg text-center">
+                        {stats.map((stat, index) => (
+                            <motion.div
+                                key={stat.id}
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: index * 0.2 }}
+                                className="bg-white p-6 rounded-xl shadow-lg text-center">
                                 <div className="flex justify-center">
                                     <stat.icon className="h-12 w-12 text-[#F5BA3A]" />
                                 </div>
                                 <p className="mt-4 text-3xl font-bold text-gray-900">{stat.value}</p>
                                 <p className="mt-2 text-lg text-gray-600">{stat.name}</p>
-                            </div>
+                            </motion.div>
                         ))}
                     </div>
                 </div>

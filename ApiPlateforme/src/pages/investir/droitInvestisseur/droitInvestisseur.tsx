@@ -12,7 +12,8 @@ import {
   HandThumbUpIcon,
   ChartBarIcon,
 } from '@heroicons/react/24/outline';
-import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
 
 type Section = {
   id: string;
@@ -337,23 +338,29 @@ const InvestorRights = () => {
         <div className="absolute -top-52 left-1/2 z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0" aria-hidden="true">
           <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-30"></div>
         </div>
-        <div className="mx-auto max-w-2xl px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="mx-auto max-w-2xl px-4">
           <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight text-white text-center">
             Droit des Investisseurs
           </h2>
           <p className="mt-4 text-lg text-gray-300 italic text-center">
             "Un cadre juridique clair et stable est la pierre angulaire d’un environnement propice aux investissements. Là où le droit protège, la confiance prospère."
           </p>
-        </div>
+        </motion.div>
       </div>
 
       {/* Breadcrumbs */}
-      <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-        <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
-        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <p className="text-slate-500">Guide de l'investisseur</p>
-        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <p className="text-slate-500">Droit des Investisseurs</p>
+      <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+        <BreadcrumbsComponent
+          breadcrumbs={[
+            { name: 'Accueil', path: '/' },
+            { name: "Guide de l'investisseur", path: '#' },
+            { name: "Droit des investisseurs", path: '#' }
+          ]}
+        />
       </div>
 
       {/* Bouton de menu pour mobile */}
@@ -399,7 +406,11 @@ const InvestorRights = () => {
 
       {/* Contenu principal */}
       <main className="container mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Navigation latérale (affichée sur md et plus) */}
           <aside className="hidden md:block md:col-span-1 bg-white p-4 sm:p-6 rounded-lg shadow-md sticky top-48 h-fit">
             <nav className="space-y-2">
@@ -438,7 +449,7 @@ const InvestorRights = () => {
               </section>
             ))}
           </div>
-        </div>
+        </motion.div>
       </main>
     </div>
   );

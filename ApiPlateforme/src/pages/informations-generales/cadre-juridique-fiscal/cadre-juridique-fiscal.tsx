@@ -1,6 +1,7 @@
 import { CheckCircleIcon } from '@heroicons/react/20/solid';
+import { motion } from 'framer-motion';
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
 
 const CadreJuridiqueFiscal: React.FC = () => {
     const infos = [
@@ -64,19 +65,19 @@ const CadreJuridiqueFiscal: React.FC = () => {
             documents: [
                 {
                     name: "Code des Investissements",
-                    url: "https://www.investiraucameroun.com/sites/default/files/2021-02/Code%20des%20Investissements%20au%20Cameroun.pdf"
+                    url: "https://wipolex-resources-eu-central-1-358922420655.s3.amazonaws.com/edocs/lexdocs/laws/fr/cm/cm010fr.pdf"
                 },
                 {
                     name: "Code du Travail",
-                    url: "https://www.ilo.org/dyn/natlex/docs/WEBTEXT/48187/64823/F-1161908826/CMR-48187.pdf"
+                    url: "https://www.minfopra.gov.cm/recueil/fichiers%20word/LOI%20N%C2%B0%20092-007%20DU%2014%20A0UT%201992%20portant%20code%20du%20travail.pdf"
                 },
                 {
                     name: "Code de Commerce",
-                    url: "https://www.ilo.org/dyn/natlex/docs/WEBTEXT/48187/64823/F-1161908826/CMR-48187.pdf"
+                    url: "https://faolex.fao.org/docs/pdf/cmr220469.pdf"
                 },
                 {
                     name: "Réglementation Foncière",
-                    url: "https://www.investiraucameroun.com/sites/default/files/2021-02/Code%20des%20Investissements%20au%20Cameroun.pdf"
+                    url: "https://yaounde.eregulations.org/media/decret%2076-165%20du%2027%20avril%201976%20fixant%20les%20conditions%20d%27obtention%20du%20titre%20au%20foncier%20Cameroun.pdf"
                 }
             ],
             conclusion: "Le pays est également membre de l'Organisation pour l'Harmonisation en Afrique du Droit des Affaires (OHADA), ce qui garantit l'application d'un droit des affaires harmonisé dans 17 pays africains."
@@ -132,7 +133,7 @@ const CadreJuridiqueFiscal: React.FC = () => {
             documents: [
                 {
                     name: 'Code général des impôts',
-                    url: 'https://www.impots.cm/sites/default/files/2021-02/Code%20G%C3%A9n%C3%A9ral%20des%20Imp%C3%B4ts%20du%20Cameroun.pdf'
+                    url: 'https://www.impots.cm/fr/code-general-des-impots-mis-jour-au-1er-janvier-2025'
                 }
             ],
             conclusion: "L’administration fiscale est supervisée par la Direction Générale des Impôts (DGI), qui veille à la collecte des recettes et à l'application des lois fiscales. Des mesures de dématérialisation ont été mises en œuvre pour faciliter les déclarations fiscales et réduire les délais administratifs."
@@ -169,7 +170,11 @@ const CadreJuridiqueFiscal: React.FC = () => {
                     src="https://images.pexels.com/photos/5668473/pexels-photo-5668473.jpeg?auto=compress&cs=tinysrgb&w=600"
                     className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-50"
                 />
-                <div className="relative z-10 text-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="relative z-10 text-center">
                     <h1 className="text-5xl font-bold text-white reveal">
                         Cadre Juridique et Fiscal
                     </h1>
@@ -177,22 +182,28 @@ const CadreJuridiqueFiscal: React.FC = () => {
                         Comprendre le contexte juridique et fiscal pour des investissements
                         réussis au Cameroun.
                     </p>
-                </div>
+                </motion.div>
             </div>
-            <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-                <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
-                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <p className="text-slate-500">Informations générales</p>
-                <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-                <p className="text-slate-500">Cadre juridique et fiscal</p>
+            <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+                <BreadcrumbsComponent
+                    breadcrumbs={[
+                        { name: 'Accueil', path: '/' },
+                        { name: 'Informations générales', path: '#' },
+                        { name: 'Cadre juridique et fiscal', path: '#' }
+                    ]}
+                />
             </div>
             <section className="bg-white py-20 sm:py-20 relative">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1 }}
+                    className="mx-auto max-w-7xl px-6 lg:px-8">
                     <div className="relative mt-8 lg:row-span-2 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500">
                         <div className="absolute inset-0 bg-gray-900 opacity-90 rounded-2xl"></div>
                         <div className="relative min-h-auto pb-6 w-full grow">
-                            <div className="z-10 absolute -top-5 left-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 p-4 rounded-md shadow-lg text-sm font-semibold w-max">
-                                Feature
+                            <div className="z-10 absolute -top-5 left-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 p-4 rounded-md shadow-lg text-sm font-light w-max">
+                                EN VEDETTE
                             </div>
                             <div className="px-8 pb-4 pt-10 sm:px-10 sm:pb-0 md:pt-12 text-white">
                                 <h3 className="font-bold text-2xl sm:text-3xl">
@@ -204,12 +215,15 @@ const CadreJuridiqueFiscal: React.FC = () => {
                         </div>
                         <div className="pointer-events-none absolute inset-px rounded-2xl shadow-lg ring-2 ring-blue-500/50"></div>
                     </div>
-                </div>
+                </motion.div>
             </section>
             <section className="mx-auto mb-4 max-w-2xl px-6 lg:max-w-7xl lg:px-8">
                 {infos.map((section, index) => (
-                    <section
+                    <motion.section
                         key={index}
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: index * 0.2 }}
                         className={`mx-auto max-w-7xl px-6 lg:px-8 py-16 ${index % 2 === 0 ? "bg-gray-50" : "bg-white"
                             }`}
                     >
@@ -273,10 +287,14 @@ const CadreJuridiqueFiscal: React.FC = () => {
                                 <p className="mt-4 text-lg text-gray-600">{section.conclusion}</p>
                             </div>
                         </div>
-                    </section>
+                    </motion.section>
                 ))}
             </section>
-            <section className="mx-auto mb-4 max-w-2xl px-6 lg:max-w-7xl lg:px-8">
+            <motion.section
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                className="mx-auto mb-4 max-w-2xl px-6 lg:max-w-7xl lg:px-8">
                 <div className="relative mt-8 lg:row-span-2 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500">
                     <div className="absolute inset-0 bg-white opacity-90 rounded-2xl"></div>
                     <div className="relative min-h-auto pb-6 w-full grow">
@@ -291,7 +309,7 @@ const CadreJuridiqueFiscal: React.FC = () => {
                     </div>
                     <div className="pointer-events-none absolute inset-px rounded-2xl shadow-lg ring-2 ring-gray-900"></div>
                 </div>
-            </section>
+            </motion.section>
         </div>
     );
 };

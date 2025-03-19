@@ -11,6 +11,8 @@ import oeuvre from "../../../assets/img/incitation2.jpg"
 import CACAO from "../../../assets/img/cacao4.png"
 import ENERGIE from "../../../assets/img/energie.jpg"
 import ProjectCard from '../../../components/projetCard/projetCard';
+import { motion } from 'framer-motion';
+import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
 
 const Incitation = () => {
   const [projects] = useState([
@@ -137,7 +139,11 @@ const Incitation = () => {
             <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-30"></div>
           </div>
 
-          <div className="max-w-7xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="max-w-7xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-green">
               <SparklesIcon className="h-16 w-16 mx-auto mb-4 text-white" />
               Incitations Fiscales au Cameroun
@@ -145,37 +151,52 @@ const Incitation = () => {
             <p className="text-xl md:text-2xl text-white max-w-3xl mx-auto">
               Bénéficiez d'avantages exceptionnels pour votre investissement
             </p>
-          </div>
+          </motion.div>
 
         </div>
       </div>
-      <div aria-label="Breadcrumbs" className="bg-gray-100 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-6 lg:p-8 border-spacing-1">
-        <NavLink className="text-slate-500 hover:text-slate-900 hover:underline" to={'/'}>Accueil</NavLink>
-        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <p className="text-slate-500">Guide de l'investisseur</p>
-        <div aria-hidden="true" className="text-slate-400 select-none">/</div>
-        <p className="text-slate-500">Incitation</p>
+      <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+        <BreadcrumbsComponent
+          breadcrumbs={[
+            { name: 'Accueil', path: '/' },
+            { name: "Guide de l'investisseur", path: '#' },
+            { name: "Incitation", path: '#' }
+          ]}
+        />
       </div>
 
       {/* Chiffres clés */}
       <section className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-4 gap-8">
           {INCENTIVES_DATA.keyFigures.map((figure, index) => (
-            <div key={index} className="text-center p-6 bg-white rounded-xl shadow-lg">
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="text-center p-6 bg-white rounded-xl shadow-lg">
               <div className="text-4xl font-bold text-[#0E600B]">{figure.value}</div>
               <div className="mt-2 text-[#0F0B60]">{figure.label}</div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </section>
 
       {/* Phases d'incitation */}
       <section className="max-w-7xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-[#0F0B60] mb-12 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="text-3xl font-bold text-[#0F0B60] mb-12 text-center">
           Avantages par Phase d'Investissement
-        </h2>
+        </motion.h2>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="grid md:grid-cols-2 gap-8">
           {Object.entries(INCENTIVES_DATA.phases).map(([key, phase]) => (
             <div key={key} className="bg-white rounded-2xl shadow-xl overflow-hidden">
               <div className="bg-[#0F0B60] p-6 flex items-center">
@@ -202,12 +223,16 @@ const Incitation = () => {
               </div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </section>
 
       {/* Secteurs Prioritaires */}
       <section className="bg-[#0E600B]/5 py-16">
-        <div className="max-w-7xl mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-[#0F0B60] mb-8 text-center">
             Secteurs à Hauts Avantages
           </h2>
@@ -230,7 +255,7 @@ const Incitation = () => {
               </div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* CTA */}
@@ -257,12 +282,12 @@ const Incitation = () => {
 
         {/* Lien Voir plus */}
         <div className="flex justify-center mt-8">
-          <a
-            href="/banque-de-projets"
+          <NavLink
+            to="/projets"
             className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
           >
             Voir plus de projets
-          </a>
+          </NavLink>
         </div>
       </div>
     </div>
