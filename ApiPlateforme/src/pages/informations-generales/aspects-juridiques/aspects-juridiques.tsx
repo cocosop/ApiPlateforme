@@ -74,34 +74,7 @@ const AspectsJuridiques: React.FC = () => {
     ]);
 
     return (
-        <div>
-            <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-                <img
-                    src="https://www.creation-site-web.tn/wp-content/uploads/2019/08/juridique-848x435.jpg"
-                    className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-50"
-                />
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="relative z-10 text-center">
-                    <h1 className="text-5xl font-bold text-white reveal">
-                        Aspects Juridiques
-                    </h1>
-                    <p className="mt-4 text-lg text-gray-300">
-                        Découvrez les spécificités du droit camerounais, mélange unique de traditions juridiques
-                    </p>
-                </motion.div>
-            </div>
-            <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
-                <BreadcrumbsComponent
-                    breadcrumbs={[
-                        { name: 'Accueil', path: '/' },
-                        { name: 'Informations générales', path: '#' },
-                        { name: 'Aspects juridiques', path: '#' }
-                    ]}
-                />
-            </div>
+        <div className='mt-9'>          
             <section className='mx-auto m-4 max-w-2xl px-6 lg:max-w-7xl lg:px-8'>
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
@@ -143,37 +116,7 @@ const AspectsJuridiques: React.FC = () => {
                     })}
                 </motion.div>
             </section>
-            <div className="container mx-auto p-6">
-                {/* Titre avec style attractif */}
-                <h2 className="text-3xl font-bold text-center text-green-600 mb-6">
-                    Saisissez des Opportunités Uniques !
-                </h2>
-
-                {/* Barre de séparation */}
-                <div className="w-24 h-1 bg-green-600 mb-6 mx-auto my-4 rounded-full"></div>
-
-                {/* Message d'encouragement */}
-                <p className="text-center text-gray-700 mb-6">
-                    Investissez dès aujourd’hui dans des projets innovants et rentables pour bâtir l’avenir de l’économie camerounaise.
-                </p>
-
-                {/* Liste des projets */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {projects.map((project) => (
-                        <ProjectCard key={project.id} {...project} />
-                    ))}
-                </div>
-
-                {/* Lien Voir plus */}
-                <div className="flex justify-center mt-8">
-                    <NavLink
-                        to="/projets"
-                        className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
-                    >
-                        Voir plus de projets
-                    </NavLink>
-                </div>
-            </div>
+            
         </div>
     );
 };

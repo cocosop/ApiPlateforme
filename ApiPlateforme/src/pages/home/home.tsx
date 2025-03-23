@@ -9,6 +9,12 @@ import SUIVI from "../../assets/img/suivi.png"
 import ACCES from "../../assets/img/acces.png"
 import CACAO from "../../assets/img/cacao4.png"
 import ENERGIE from "../../assets/img/energie.jpg"
+import Politic from "../../assets/img/politic.jpg"
+import InfraDev from "../../assets/img/infraDeve.jpg"
+import Economie from "../../assets/img/economie.jpg"
+import Ressources from "../../assets/img/naturelles.jpg"
+import MainOeuvre from "../../assets/img/mainOeuvre.jpg"
+import Marche from "../../assets/img/marche.jpg"
 import './home.css'
 import { NavLink } from "react-router-dom";
 import ActionButtonComponent from "../../components/actionButtonComponent/actionButtonComponent";
@@ -96,33 +102,33 @@ const testimonies = [
             imageUrl: 'https://randomuser.me/api/portraits/men/3.jpg',
         },
     },
-    {
-        id: 4,
-        description: "Nous avons été impressionnés par l'efficacité de l'API. Leur système de suivi en temps réel nous a permis de rester informés à chaque étape de notre projet. Leur approche moderne et innovante est un véritable atout pour les investisseurs.",
-        date: '18 Aug, 2023',
-        author: {
-            name: 'Amina Bello',
-            imageUrl: 'https://randomuser.me/api/portraits/women/4.jpg',
-        },
-    },
-    {
-        id: 5,
-        description: "L'API a dépassé nos attentes. Leur plateforme en ligne est intuitive et facile à utiliser, et leur équipe est toujours disponible pour répondre à nos questions. Nous avons pu finaliser notre projet en un temps record grâce à leur soutien.",
-        date: '30 Jul, 2023',
-        author: {
-            name: 'David Smith',
-            imageUrl: 'https://randomuser.me/api/portraits/men/5.jpg',
-        },
-    },
-    {
-        id: 6,
-        description: "L'API a été un partenaire de confiance pour notre projet d'investissement. Leur processus simplifié et leur accompagnement personnalisé nous ont permis de surmonter les défis administratifs avec facilité. Nous sommes très satisfaits de leur service.",
-        date: '10 Jul, 2023',
-        author: {
-            name: 'Lucie Atangana',
-            imageUrl: 'https://randomuser.me/api/portraits/women/36.jpg',
-        },
-    },
+    // {
+    //     id: 4,
+    //     description: "Nous avons été impressionnés par l'efficacité de l'API. Leur système de suivi en temps réel nous a permis de rester informés à chaque étape de notre projet. Leur approche moderne et innovante est un véritable atout pour les investisseurs.",
+    //     date: '18 Aug, 2023',
+    //     author: {
+    //         name: 'Amina Bello',
+    //         imageUrl: 'https://randomuser.me/api/portraits/women/4.jpg',
+    //     },
+    // },
+    // {
+    //     id: 5,
+    //     description: "L'API a dépassé nos attentes. Leur plateforme en ligne est intuitive et facile à utiliser, et leur équipe est toujours disponible pour répondre à nos questions. Nous avons pu finaliser notre projet en un temps record grâce à leur soutien.",
+    //     date: '30 Jul, 2023',
+    //     author: {
+    //         name: 'David Smith',
+    //         imageUrl: 'https://randomuser.me/api/portraits/men/5.jpg',
+    //     },
+    // },
+    // {
+    //     id: 6,
+    //     description: "L'API a été un partenaire de confiance pour notre projet d'investissement. Leur processus simplifié et leur accompagnement personnalisé nous ont permis de surmonter les défis administratifs avec facilité. Nous sommes très satisfaits de leur service.",
+    //     date: '10 Jul, 2023',
+    //     author: {
+    //         name: 'Lucie Atangana',
+    //         imageUrl: 'https://randomuser.me/api/portraits/women/36.jpg',
+    //     },
+
     // More posts...
 ]
 
@@ -208,100 +214,131 @@ const home = () => {
 
             </div>
             <div className="trans"></div>
+            <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
 
-            <div className="second-content mx-auto max-w-7xl px-6 lg:px-8">
-                <div className="second-title">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                        className="text-3xl font-bold text-center text-[#0F0B60]">Gérez votre investissement de manière efficace et efficiente</motion.h2>
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                        className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></motion.div>
-                </div>
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center">
-                    {cardData.map((data, index) => (
-                        <div
-                            key={index}
-                            className="max-w-sm rounded-lg shadow-lg overflow-hidden m-4 transition-transform duration-300 ease-in-out hover:scale-105"
-                            style={{ borderLeft: `5px solid ${data.color}` }}>
-                            <div className="flex flex-col items-center p-6">
-                                <img src={data.image} alt={data.title} className="w-12 h-12 mb-4" />
-                                <h2 className="text-xl font-bold mb-2" style={{ color: data.color }}>
-                                    {data.title}
-                                </h2>
-                                <p className="text-gray-600">
-                                    {data.description}
-                                </p>
+            </motion.div>
+            <div className="grid py-16 px-6 bg-gradient-to-r from-green-50 to-blue-50 justify-center">
+                {/* Conteneur principal */}
+                <div className="max-w-6xl mx-auto bg-transparent">
+                    {/* Titre principal */}
+                    <h1 className="text-5xl font-bold text-gray-900 mb-8 text-center relative z-10">
+                        Pourquoi Investir au Cameroun ?
+                    </h1>
+
+                    {/* Description */}
+                    <p className="text-center text-lg text-gray-700 leading-relaxed mb-12 max-w-2xl mx-auto">
+                        Le Cameroun, surnommé <span className="font-semibold text-green-600">"l'Afrique en miniature"</span>, offre un environnement propice aux investissements grâce à sa stabilité politique, sa diversité économique et ses opportunités inégalées. Découvrez les raisons de choisir le Cameroun comme destination d'investissement.
+                    </p>
+
+                    {/* Grille des raisons avec images interactives */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {/* Carte 1 : Stabilité politique */}
+                        <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-green-300 transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden">
+                            <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
+                                <img
+                                    src={Politic}
+                                    alt="Stabilité Politique"
+                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                                />
                             </div>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Stabilité Politique</h2>
+                            <p className="text-gray-600 leading-relaxed">
+                                Le Cameroun est l'un des pays les plus stables d'Afrique centrale, offrant un environnement sécurisé pour les investissements à long terme.
+                            </p>
                         </div>
-                    ))}
-                </motion.div>
-            </div>
-            <div className='third-content mx-auto max-w-full px-6 lg:px-8 py-8 bg-gradient-to-r from-blue-50 to-purple-50 border-gray-100'>
-                <motion.h2
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="text-3xl font-bold text-center text-[#0F0B60]">Qui peut utiliser cette plateforme</motion.h2>
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></motion.div>
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="grid grid-cols-1 gap-6 xl:grid-cols-2 lg:grid-cols-2 p-8">
-                    {/* Texte et liste */}
-                    <div className='group relative space-y-6'>
-                        <p className="font-bold text-2xl text-gray-800 bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                            Tout investisseur ou porteur de projet désirant
-                        </p>
-                        <ul className="space-y-4 list-none pl-0">
-                            {[
-                                "Accéder à des informations sur tous les aspects de la mise en place de son projet d’investissement ;",
-                                "Enregistrer officiellement son projet d’investissement ;",
-                                "Profiter des avantages prévus par la réglementation en matière d’encouragement à l’investissement ;",
-                                "Soumettre une demande pour obtenir un terrain économique ;",
-                                "Utiliser les services offerts par la plateforme."
-                            ].map((item, index) => (
-                                <li key={index} className="flex items-start space-x-3">
-                                    <span className="flex-shrink-0 w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                                        {index + 1}
-                                    </span>
-                                    <p className="text-gray-700 hover:text-gray-900 transition-colors duration-300">
-                                        {item}
-                                    </p>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
 
-                    {/* Image avec effet de survol */}
-                    <div className='group relative overflow-hidden rounded-xl'>
-                        <img
-                            src={UTILISATION}
-                            alt="utilisation-img"
-                            className="w-full h-auto rounded-xl transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-2"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div className="absolute bottom-0 left-0 p-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                            <p className="text-white text-lg font-semibold">
-                                Découvrez comment notre plateforme peut vous aider à réaliser vos projets !
+                        {/* Carte 2 : Diversité économique */}
+                        <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-blue-300 transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden">
+                            <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
+                                <img
+                                    src={Economie}
+                                    alt="Diversité Économique"
+                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                                />
+                            </div>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Diversité Économique</h2>
+                            <p className="text-gray-600 leading-relaxed">
+                                Avec des secteurs clés comme l'agro-industrie, les mines, l'énergie et le numérique, le Cameroun offre des opportunités variées pour les investisseurs.
+                            </p>
+                        </div>
+
+                        {/* Carte 3 : Ressources naturelles */}
+                        <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-yellow-300 transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden">
+                            <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
+                                <img
+                                    src={Ressources}
+                                    alt="Ressources Naturelles"
+                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                                />
+                            </div>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Ressources Naturelles</h2>
+                            <p className="text-gray-600 leading-relaxed">
+                                Le pays regorge de ressources naturelles (pétrole, gaz, minerais, forêts) et de terres agricoles fertiles, offrant un potentiel énorme pour les investissements.
+                            </p>
+                        </div>
+
+                        {/* Carte 4 : Marché régional */}
+                        <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-purple-300 transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden">
+                            <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
+                                <img
+                                    src={Marche}
+                                    alt="Marché Régional"
+                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                                />
+                            </div>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Marché Régional</h2>
+                            <p className="text-gray-600 leading-relaxed">
+                                Situé au cœur de l'Afrique centrale, le Cameroun est une porte d'entrée vers un marché régional de plus de 200 millions de consommateurs.
+                            </p>
+                        </div>
+
+                        {/* Carte 5 : Main-d'œuvre qualifiée */}
+                        <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-red-300 transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden">
+                            <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
+                                <img
+                                    src={MainOeuvre}
+                                    alt="Main-d'œuvre Qualifiée"
+                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                                />
+                            </div>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Main-d'œuvre Qualifiée</h2>
+                            <p className="text-gray-600 leading-relaxed">
+                                Avec une population jeune et dynamique, le Cameroun dispose d'une main-d'œuvre qualifiée et compétitive.
+                            </p>
+                        </div>
+
+                        {/* Carte 6 : Infrastructures en développement */}
+                        <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-indigo-300 transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden">
+                            <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
+                                <img
+                                    src={InfraDev}
+                                    alt="Infrastructures en Développement"
+                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
+                                />
+                            </div>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Infrastructures en Développement</h2>
+                            <p className="text-gray-600 leading-relaxed">
+                                Des projets d'infrastructures routières, portuaires et énergétiques sont en cours pour soutenir la croissance économique.
                             </p>
                         </div>
                     </div>
-                </motion.div>
+
+                    {/* Call-to-action */}
+                    <div className="text-center mt-12">
+                        <a
+                            href="#contact"
+                            className="inline-block bg-green-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                        >
+                            Investissez au Cameroun dès aujourd'hui !
+                        </a>
+                    </div>
+                </div>
             </div>
+
             <div className="fourth-content mx-auto max-w-7xl px-6 lg:px-8 mt-8">
                 <motion.h2
                     initial={{ opacity: 0, y: 50 }}

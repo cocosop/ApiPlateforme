@@ -207,6 +207,121 @@ const TextileConfectionCuir = () => {
                     </div>
                 </div>
             </div>
+            <div className="grid py-12 px-6 bg-gray-100 justify-center">
+  {/* Contenu principal (en arrière-plan) */}
+  <div className="relative z-0">
+    {/* Conteneur principal */}
+    <div className="max-w-6xl mx-auto bg-transparent">      
+      {/* Titre principal (en arrière-plan) */}
+      <h1 className="text-4xl font-bold text-gray-900 mb-4 text-center relative z-0">
+        Potentiel Textile/Confection/Cuir au Cameroun
+      </h1>
+
+      {/* Description (en arrière-plan) */}
+      <p className="text-center leading-relaxed mb-6 relative z-0">
+        Le secteur du <span className="font-semibold">Textile, de la Confection et du Cuir</span> au Cameroun dispose d'un potentiel important, grâce à des matières premières locales abondantes et une demande croissante pour les produits finis. Ce secteur peut contribuer à la création d'emplois et à la diversification de l'économie.
+      </p>
+
+      {/* Grille des rubriques (en arrière-plan) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center relative z-0">
+        
+        {/* Carte Opportunités */}
+        <div className="bg-gradient-to-r from-blue-400 to-purple-500  p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
+          {/* Fond dégradé au survol */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+
+          {/* Contenu */}
+          <div className="relative z-10">
+            {/* En-tête de la carte */}
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
+                <span className="text-blue-500 text-2xl">🚀</span>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
+                Opportunités
+              </h2>
+            </div>
+
+            {/* Liste des points */}
+            <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-blue-600 group-hover:text-blue-200">Matières premières locales</span> : Disponibilité de coton, cuir et autres matériaux pour la production.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-blue-600 group-hover:text-blue-200">Marché local et régional</span> : Demande croissante pour les vêtements, chaussures et accessoires.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-blue-600 group-hover:text-blue-200">Mode africaine</span> : Opportunités dans la promotion de la culture et des designs locaux.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-blue-600 group-hover:text-blue-200">Exportation</span> : Potentiel pour exporter des produits finis vers les marchés internationaux.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Carte Défis */}
+        <div className="bg-gradient-to-r from-red-400 to-orange-500 p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
+          {/* Fond dégradé au survol */}
+          <div className="absolute inset-0 bg-gradient-to-r from-red-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+
+          {/* Contenu */}
+          <div className="relative z-10">
+            {/* En-tête de la carte */}
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                <span className="text-red-500 text-2xl">⚠️</span>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
+                Défis
+              </h2>
+            </div>
+
+            {/* Liste des points */}
+            <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-red-600 group-hover:text-red-200">Manque d'infrastructures modernes</span> : Unités de production obsolètes et manque d'équipements.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-red-600 group-hover:text-red-200">Concurrence des importations</span> : Afflux de produits textiles et de cuir à bas coût en provenance d'Asie.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-red-600 group-hover:text-red-200">Formation insuffisante</span> : Manque de main-d'œuvre qualifiée dans les métiers de la confection et du cuir.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-red-600 group-hover:text-red-200">Accès au financement</span> : Difficultés pour les petites entreprises à obtenir des crédits pour investir.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
     );
 };

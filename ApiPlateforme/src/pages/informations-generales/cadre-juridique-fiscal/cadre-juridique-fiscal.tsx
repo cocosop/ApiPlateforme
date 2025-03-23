@@ -176,7 +176,7 @@ const CadreJuridiqueFiscal: React.FC = () => {
                     transition={{ duration: 1 }}
                     className="relative z-10 text-center">
                     <h1 className="text-5xl font-bold text-white reveal">
-                        Cadre Juridique et Fiscal
+                        Cadre Juridique 
                     </h1>
                     <p className="mt-4 text-lg text-gray-300">
                         Comprendre le contexte juridique et fiscal pour des investissements

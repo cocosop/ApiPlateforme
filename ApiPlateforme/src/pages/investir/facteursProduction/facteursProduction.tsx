@@ -1,32 +1,91 @@
-import { NavLink } from 'react-router-dom'
-import { useState } from "react";
-import { Droplet, Plane, Truck, Users, X, MessageSquare, Phone, Wifi, Cog, } from "lucide-react";
-import Courant from './../../../assets/img/energie.jpg'
-import Telecom from './../../../assets/img/telecommunication.jpg'
-import Assurance from './../../../assets/img/assurance.jpg'
-import Bank from './../../../assets/img/bank.jpg'
-import Transport from './../../../assets/img/transport.jpg'
-import Terrain from './../../../assets/img/terrains.jpg'
-import Personnel from './../../../assets/img/personnel.jpg'
-import Intrant from './../../../assets/img/intrants.jpg'
-import Facteur from './../../../assets/img/production.jpg'
+import React, { useEffect, useState } from "react";
+import { NavLink } from 'react-router-dom';
+import { Cog, Droplet, Plane, Truck, Users, X, MessageSquare, Phone, Wifi } from "lucide-react";
+import Courant from './../../../assets/img/energie.jpg';
+import Telecom from './../../../assets/img/telecommunication.jpg';
+import Assurance from './../../../assets/img/assurance.jpg';
+import Bank from './../../../assets/img/bank.jpg';
+import Transport from './../../../assets/img/transport.jpg';
+import Terrain from './../../../assets/img/terrains.jpg';
+import Personnel from './../../../assets/img/personnel.jpg';
+import Intrant from './../../../assets/img/intrants.jpg';
+import Facteur from './../../../assets/img/production.jpg';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import ProjectCard from '../../../components/projetCard/projetCard';
-import CACAO from "../../../assets/img/cacao4.png"
-import ENERGIE from "../../../assets/img/energie.jpg"
-import {  } from "lucide-react";
+import CACAO from "../../../assets/img/cacao4.png";
+import ENERGIE from "../../../assets/img/energie.jpg";
 import MainOeuvre from '../../../components/mainOeuvre/mainOeuvre';
 import Foncier from '../../../components/foncier/foncier';
 import FiscalitePage from '../../../components/fiscalite/fiscalite';
 import ProductionCostsBySector from '../../../components/coutProdSecteur/coutProdSecteur';
+import { motion } from 'framer-motion';
+import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
+import ShieldCheckIcon from "@heroicons/react/24/outline/ShieldCheckIcon";
 
 interface Factor {
   name: string;
   description: string;
   image: string;
-  details?: JSX.Element; // Optional details
+  details?: JSX.Element;
 }
+type Section = {
+  id: string;
+  title: string;
+  icon: React.ElementType;
+};
 const FacteursProduction = () => {
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const element = document.getElementById(hash.replace('#', ''));
+        element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+  }, []);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+
+  const scrollToSection = (sectionId: string) => {
+    window.history.replaceState(null, '', `#${sectionId}`);
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Ferme le menu mobile après navigation
+    setMenuOpen(false);
+  };
+
+  const sections: Section[] = [
+    {
+      id: 'facteurs',
+      title: 'Facteurs de Production',
+      icon: ShieldCheckIcon,
+    },
+    {
+      id: 'main_oeuvre',
+      title: 'Protection des Investissements',
+      icon: ShieldCheckIcon,
+    },
+    {
+      id: 'foncier',
+      title: 'Foncier',
+      icon: ShieldCheckIcon,
+    },
+    {
+      id: 'fiscalite',
+      title: 'Fiscalité',
+      icon: ShieldCheckIcon,
+    },
+    {
+      id: 'couts_secteur',
+      title: 'Couts par Secteurs',
+      icon: ShieldCheckIcon,
+    },
+    {
+      id: 'Projets',
+      title: 'Projets d\'investissment',
+      icon: ShieldCheckIcon,
+    },
+  ]
   const [projects] = useState([
     {
       id: 1,
@@ -80,7 +139,7 @@ const FacteursProduction = () => {
     { name: 'Terrains aménagés', cost: 300 },
     { name: 'Terrains bâtis', cost: 1000 },
   ];
-    const [selectedFactor, setSelectedFactor] = useState<Factor | null>(null);
+  const [selectedFactor, setSelectedFactor] = useState<Factor | null>(null);
   const closeModal = () => setSelectedFactor(null);
   const factors = [
     {
@@ -238,8 +297,6 @@ const FacteursProduction = () => {
             </ResponsiveContainer>
           </div>
         </div>
-
-        {/* Pied de page */}
 
       </div>)
     },
@@ -568,85 +625,158 @@ const FacteursProduction = () => {
     },
   ];
 
+
   return (
-    <div>
-      <div className="relative isolate overflow-hidden bg-green-900 py-24 sm:py-32">
-        <img src={Facteur} alt="" className="absolute inset-0 -z-10 size-full object-cover object-right md:object-center opacity-30" />
-        <div className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
-          <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-20" ></div>
-        </div>
-        <div className="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu" aria-hidden="true">
-          <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-30" ></div>
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="mx-auto max-w-2xl">
-          <h2 className="text-5xl font-semibold tracking-tight text-white text-center">
-            Facteurs de production
-          </h2>
-          <p className="mt-4 text-lg text-gray-300 italic text-center">
-            Aligner les facteurs de production avec les objectifs d'investissement est essentiel pour optimiser les gains et réduire les coûts.          </p>
-
-        </motion.div>
+    <div className="min-h-screen bg-gray-50">
+    {/* Section Hero */}
+    <div className="relative isolate overflow-hidden bg-green-900 py-24 sm:py-32">
+      <img src={Facteur} alt="" className="absolute inset-0 -z-10 w-full h-full object-cover object-right md:object-center opacity-30" />
+      <div className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
+        <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-20" ></div>
       </div>
-      <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
-        <BreadcrumbsComponent
-          breadcrumbs={[
-            { name: 'Accueil', path: '/' },
-            { name: "Guide de l'investisseur", path: '#' },
-            { name: "Facteurs de production", path: '#' }
-          ]}
-        />
+      <div className="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu" aria-hidden="true">
+        <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-30" ></div>
       </div>
-      <div className="bg-white min-h-screen p-6">
-        <div className="max-w-6xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8">
+        <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight text-white text-center">
+          Facteurs de production
+        </h2>
+        <p className="mt-4 text-lg text-gray-300 italic text-center">
+          Aligner les facteurs de production avec les objectifs d'investissement est essentiel pour optimiser les gains et réduire les coûts.
+        </p>
+      </motion.div>
+    </div>
+  
+    {/* Breadcrumbs */}
+    <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+      <BreadcrumbsComponent
+        breadcrumbs={[
+          { name: 'Accueil', path: '/' },
+          { name: "Guide de l'investisseur", path: '#' },
+          { name: "Facteurs de production", path: '#' }
+        ]}
+      />
+    </div>
+  
+    {/* Bouton de menu pour mobile */}
+    <div className="block md:hidden container mx-auto px-4 py-4">
+      <button
+        onClick={() => setMenuOpen(true)}
+        className="w-full flex items-center justify-between p-3 bg-white rounded-lg shadow-md text-[#0F0B60] font-semibold"
+      >
+        Navigation Rapide
+        <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div> 
+  
+    {/* Menu mobile (modal) */}
+    {menuOpen && (
+      <div className="fixed inset-0 z-50 flex bg-black bg-opacity-50">
+        <div className="ml-auto w-2/3 max-w-sm bg-white p-4">
+          <div className="flex justify-end">
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="text-gray-500 hover:text-gray-700"
+            >
+              Fermer
+            </button>
+          </div>
+          <nav className="mt-4 space-y-2">
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                onClick={() => scrollToSection(section.id)}
+                className="flex items-center w-full text-left p-3 rounded transition-colors hover:bg-gray-100 text-sm"
+              >
+                <section.icon className="h-5 w-5 mr-2" />
+                {section.title}
+              </button>
+            ))}
+          </nav>
+        </div>
+      </div>
+    )} 
+  
+    {/* Contenu principal */}
+    <main className="container mx-auto px-4 py-8">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+        className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {/* Navigation latérale (affichée sur md et plus) */}
+        <aside className="hidden md:block md:col-span-1 bg-gray-100 p-4 sm:p-6 rounded-lg shadow-md sticky top-48 h-screen">
+          <nav className="space-y-2">
+            <h2 className="text-[#0E600B] font-semibold mb-4 text-base sm:text-lg">
+              Navigation Rapide
+            </h2>
+            {sections.map((section) => (
+              <button
+                key={section.id}
+                onClick={() => scrollToSection(section.id)}
+                className={`flex items-center w-full text-left p-3 rounded transition-colors text-sm sm:text-base ${window.location.hash === `#${section.id}`
+                  ? 'bg-[#0F0B60] text-white'
+                  : 'hover:bg-gray-100 text-[#0F0B60]'
+                  }`}
+              >
+                <section.icon className="h-5 w-5 mr-2" />
+                <span>{section.title}</span>
+              </button>
+            ))}
+          </nav>
+        </aside>
+        {/* Sections de contenu */}
+        <div className="md:col-span-3 space-y-8">
           <div id="segments" title="Facteurs de Production pour l'Investissement au Cameroun">
             <h2 className="text-3xl font-bold mb-4"></h2>
-
             <p className="mb-4 text-justify">Au Cameroun, les coûts d'achat des intrants, y compris les matières premières et les équipements importés, varient en fonction des tarifs douaniers et des frais de transitaire. Le transport, qu'il soit ferroviaire, routier ou maritime, représente également un coût significatif pour les entreprises. Les terrains industriels, proposés en location par la MAGZI, offrent différentes options selon leur niveau d'aménagement. Les sources d'énergie telles que le carburant, l'électricité et le gaz sont fournies à des tarifs compétitifs, tandis que le réseau de télécommunications offre des services de téléphonie fixe et mobile, ainsi que des abonnements Internet adaptés aux besoins des entreprises.</p>
-
             <p className="mb-4 text-justify">Le personnel, avec des salaires variant selon les catégories et les zones géographiques, est un autre facteur crucial. Les entreprises doivent également prendre en compte les cotisations sociales et les assurances obligatoires pour leurs employés. Enfin, les frais bancaires, incluant les taux d'intérêt sur les crédits, jouent un rôle important dans la gestion financière des investissements.</p>
-
           </div>
-          {/* Trait de séparation horizontal */}
-          <h2 className="text-3xl font-bold text-center text-[#0F0B60]">
-            Coûts de Production : Les Facteurs Clés à Anticiper
-          </h2>
-          {/* Barre de séparation */}
-          <div className="w-80 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></div>
+          <h2 id="costs" className="text-3xl font-bold text-center text-[#0F0B60]">
+  Coûts de Production : Les Facteurs Clés à Anticiper
+</h2>
+<div className="w-80 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></div>
+<p className="text-center text-gray-700 mb-6">
+  "Découvrez les principaux postes de dépenses à prévoir pour assurer la rentabilité et la pérennité de votre investissement."
+</p>
+<hr className="my-6 border-t-2 border-gray-300" />
 
-          {/* Message d'encouragement */}
-          <p className="text-center text-gray-700 mb-6">
-            "Découvrez les principaux postes de dépenses à prévoir pour assurer la rentabilité et la pérennité de votre investissement."      </p>
-          <hr className="my-6 border-t-2 border-gray-300" />
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {factors.map((factor, index) => (
-              <div
-                key={index}
-                onClick={() => setSelectedFactor(factor)}
-                className="bg-white shadow-lg rounded-2xl p-6 border-l-8 border-[#F5BA3A] hover:shadow-2xl flex flex-col items-center text-center hover:scale-105 transform transition-transform duration-300 cursor-pointer"
-              >
-                {/* Icône commune pour tous les facteurs */}
-                <div className="w-24 h-24 flex items-center justify-center mb-4">
-                  <Cog size={96} className="text-[#0F0B60]" />
-                </div>
+<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+  {factors.map((factor, index) => (
+    <div
+      key={index}
+      onClick={() => setSelectedFactor(factor)}
+      className="bg-white shadow-lg rounded-xl p-4 border-l-8 border-[#F5BA3A] hover:shadow-xl flex flex-col items-center text-center hover:scale-105 transform transition-transform duration-300 cursor-pointer"
+    >
+      {/* Icône */}
+      <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center mb-2">
+        <Cog size={32} className="text-[#0F0B60] sm:size-10" />
+      </div>
 
-      <h2 className="text-2xl font-semibold text-[#0F0B60] mb-2">{factor.name}</h2>
-      <p className="text-gray-700 mb-4">{factor.description}</p>
-      <button className="mt-auto bg-[#0E600B] text-white px-4 py-2 rounded-full hover:bg-[#0C550A] transition-colors duration-300">
+      {/* Titre */}
+      <h2 className="text-lg sm:text-xl font-semibold text-[#0F0B60] mb-1">
+        {factor.name}
+      </h2>
+
+      {/* Description */}
+      <p className="text-xs sm:text-sm text-gray-700 mb-2">
+        {factor.description}
+      </p>
+
+      {/* Bouton */}
+      <button className="mt-auto bg-[#0E600B] text-white px-3 py-1 rounded-full text-xs sm:text-sm hover:bg-[#0C550A] transition-colors duration-300">
         En savoir plus
       </button>
     </div>
   ))}
-</div>;
-      {selectedFactor && (
+</div>
+          {selectedFactor && (
             <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
               <div className="bg-white p-6 rounded-2xl shadow-xl max-w-4xl w-full mx-4">
                 <button
@@ -665,52 +795,37 @@ const FacteursProduction = () => {
               </div>
             </div>
           )}
+          <MainOeuvre id="main" />
+          <Foncier id="foncier" />
+          <FiscalitePage id="fiscalite" />
+          <ProductionCostsBySector id="coutSecteur" />
+          <div id="opportunities" className="container mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
+            <h2 className="text-3xl font-bold text-center text-[#0F0B60]">
+              Saisissez des Opportunités Uniques !
+            </h2>
+            <div className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></div>
+            <p className="text-center text-gray-700 mb-6">
+              Investissez dès aujourd’hui dans des projets innovants et rentables pour bâtir l’avenir de l’économie camerounaise.
+            </p>
+            <div id="projects" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projects.map((project) => (
+                <ProjectCard key={project.id} {...project} />
+              ))}
+            </div>
+            <div className="flex justify-center mt-8">
+              <NavLink
+                to="/projets"
+                className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
+              >
+                Voir plus de projets
+              </NavLink>
+            </div>
+          </div>
         </div>
-         
-         {/* {section main d'oeuvre} */}
-         <MainOeuvre/>
-         {/* {section main d'oeuvre} */}
-         <Foncier/>
-          {/* {Fiscalité} */}
-          <FiscalitePage/>
-          {/* {Couts moyen par secteurs d'activité} */}
-         <ProductionCostsBySector/>
-        {/* Opportunités de stage */}
-      <div className="container mx-auto p-6 bg-gray-100 rounded-lg shadow-lg">
-        {/* Titre avec style attractif */}
-        <h2 className="text-3xl font-bold text-center text-[#0F0B60]">
-          Saisissez des Opportunités Uniques !
-        </h2>
-        {/* Barre de séparation */}
-        <div className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></div>
-
-        {/* Message d'encouragement */}
-        <p className="text-center text-gray-700 mb-6">
-          Investissez dès aujourd’hui dans des projets innovants et rentables pour bâtir l’avenir de l’économie camerounaise.
-        </p>
-
-        {/* Liste des projets */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} {...project} />
-          ))}
-        </div>
-        {/* Lien Voir plus */}
-        <div className="flex justify-center mt-8">
-          <NavLink
-            to="/projets"
-            className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
-          >
-            Voir plus de projets
-          </a>
-        </div>
-      </div>
-      </div>      
-    </div>
+      </motion.div>
+    </main>
+  </div>
   );
-}
+};
 
-export default FacteursProduction
-
-
-
+export default FacteursProduction;

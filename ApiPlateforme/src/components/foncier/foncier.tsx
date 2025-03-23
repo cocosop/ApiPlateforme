@@ -13,7 +13,9 @@ interface LawLink {
   year: string;
   link: string;
 }
-
+interface FoncierProps {
+  id?: string; // La prop id est optionnelle
+}
 // Subcomponents
 const AcquisitionCard = ({ title, content, icon }: { title: string; content: string; icon: string }) => (
   <div className="group bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#0E600B]">
@@ -95,7 +97,7 @@ const LawLinkItem = ({ law }: { law: LawLink }) => (
 )
 
 // Main Component
-const Foncier = () => {
+const Foncier: React.FC<FoncierProps> = ({ id }) => {  
   const acquisitionMethods = [
     {
       title: "Terrains Lotis",
@@ -142,7 +144,7 @@ const Foncier = () => {
     }
   ]
   return (   
-<div className="flex flex-col items-center mb-8">
+<div id={id} className="flex flex-col items-center mb-8">
   {/* Slider Section */}
   <div data-aos="fade-up" className="flex flex-col items-center mb-6">
   <h2 className="text-3xl font-bold text-center mb-4 mt-0 text-[#0F0B60]">

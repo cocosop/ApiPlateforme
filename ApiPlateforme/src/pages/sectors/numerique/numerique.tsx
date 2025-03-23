@@ -304,6 +304,121 @@ const numerique = () => {
                     </div>
                 </div>
             </div>
+            <div className="grid py-12 px-6 bg-gray-100 justify-center">
+  {/* Contenu principal (en arrière-plan) */}
+  <div className="relative z-0">
+    {/* Conteneur principal */}
+    <div className="max-w-6xl mx-auto bg-transparent">      
+      {/* Titre principal (en arrière-plan) */}
+      <h1 className="text-4xl font-bold text-gray-900 mb-4 text-center relative z-0">
+        Potentiel numérique au Cameroun
+      </h1>
+
+      {/* Description (en arrière-plan) */}
+      <p className="text-center leading-relaxed mb-6 relative z-0">
+        Le Cameroun connaît une <span className="font-semibold">croissance rapide du secteur numérique</span>, portée par une jeune population dynamique et une adoption accrue des technologies mobiles et internet. Le numérique est un levier clé pour la transformation économique et sociale du pays.
+      </p>
+
+      {/* Grille des rubriques (en arrière-plan) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center relative z-0">
+        
+        {/* Carte Opportunités */}
+        <div className="bg-gradient-to-r from-blue-400 to-purple-500  p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
+          {/* Fond dégradé au survol */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+
+          {/* Contenu */}
+          <div className="relative z-10">
+            {/* En-tête de la carte */}
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
+                <span className="text-blue-500 text-2xl">🚀</span>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
+                Opportunités
+              </h2>
+            </div>
+
+            {/* Liste des points */}
+            <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-blue-600 group-hover:text-blue-200">Pénétration mobile et internet</span> : Croissance rapide des utilisateurs de smartphones et d'internet.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-blue-600 group-hover:text-blue-200">Services financiers numériques</span> : Expansion du mobile money et des solutions de paiement en ligne.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-blue-600 group-hover:text-blue-200">E-gouvernement</span> : Modernisation des services publics grâce aux technologies numériques.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-blue-600 group-hover:text-blue-200">Entrepreneuriat numérique</span> : Émergence de startups innovantes dans les domaines de la fintech, de l'agritech et de l'edtech.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Carte Défis */}
+        <div className="bg-gradient-to-r from-red-400 to-orange-500 p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
+          {/* Fond dégradé au survol */}
+          <div className="absolute inset-0 bg-gradient-to-r from-red-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+
+          {/* Contenu */}
+          <div className="relative z-10">
+            {/* En-tête de la carte */}
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                <span className="text-red-500 text-2xl">⚠️</span>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
+                Défis
+              </h2>
+            </div>
+
+            {/* Liste des points */}
+            <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-red-600 group-hover:text-red-200">Infrastructures insuffisantes</span> : Couverture réseau limitée, surtout en zones rurales.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-red-600 group-hover:text-red-200">Coût élevé des services</span> : Accès à internet et aux smartphones encore coûteux pour une grande partie de la population.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-red-600 group-hover:text-red-200">Manque de compétences techniques</span> : Besoin de formation et de renforcement des capacités dans les métiers du numérique.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-red-600 group-hover:text-red-200">Cadre réglementaire à moderniser</span> : Nécessité d'adapter les lois pour favoriser l'innovation et protéger les utilisateurs.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
     );
 };

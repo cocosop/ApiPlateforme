@@ -58,7 +58,7 @@ const infos = [
     icon: LightBulbIcon
   },
   {
-    name: "Cadre juridique et fiscal",
+    name: "Cadre juridique",
     description: "Accédez à des informations essentielles sur la fiscalité et le cadre légal qui garantissent un environnement d’investissement sûr et compétitif au Cameroun.",
     link: "/cadre-juridique-et-fiscal",
     icon: ScaleIcon
@@ -85,28 +85,10 @@ const investir = [
     icon: ShieldCheckIcon
   },
   {
-    name: "Main d'œuvre",
-    description: "Données sur la disponibilité, les compétences et le coût de la main-d'œuvre locale.",
-    link: "/main-doeuvre",
-    icon: UserGroupIcon
-  },
-  {
     name: "Facteurs de production",
     description: "Informations sur les ressources nécessaires : capital, matières premières, et équipements.",
     link: "/facteurs-de-production",
     icon: CogIcon
-  },
-  {
-    name: "Foncier",
-    description: "Accès aux terres pour les investisseurs et opportunités dans l'immobilier.",
-    link: "/foncier",
-    icon: MapIcon
-  },
-  {
-    name: "Fiscalité",
-    description: "Régimes fiscaux avantageux et incitations offertes aux investisseurs.",
-    link: "/fiscalite",
-    icon: CurrencyDollarIcon
   },
   {
     name: "Incitation",
@@ -307,39 +289,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 
             <Popover className="relative">
               <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
-                Guide de l'investisseur
-                <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
-              </PopoverButton>
-
-              <PopoverPanel
-                transition
-                className="absolute -left-24 top-full z-10 mt-3 w-screen max-w-3xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
-              >
-                <div className="grid grid-cols-2 gap-4 p-4 text-sm/6 bg-white rounded-3xl shadow-lg ring-1 ring-gray-900/5">
-                  {investir.map((item) => (
-                    <div
-                      key={item.name}
-                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
-                    >
-                      <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
-                      </div>
-                      <div className="flex-auto">
-                        <CloseButton as={NavLink} to={item.link ? item.link : "#"} onClick={() => onMenuClick(item)} className="block font-semibold text-gray-900">
-                          {item.name}
-                          <span className="absolute inset-0" />
-                        </CloseButton>
-                        <small className="mt-1 text-gray-600">{item.description}</small>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </PopoverPanel>
-            </Popover>
-
-            <Popover className="relative">
-              <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
-                Secteurs d'opportunités
+                Opportunités
                 <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
               </PopoverButton>
 
@@ -371,6 +321,38 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                           </div>
                         </div>
                       ))}
+                    </div>
+                  ))}
+                </div>
+              </PopoverPanel>
+            </Popover>
+
+            <Popover className="relative">
+              <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
+                Investir
+                <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
+              </PopoverButton>
+
+              <PopoverPanel
+                transition
+                className="absolute -right-24 top-full z-10 mt-3 w-screen max-w-3xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
+              >
+                <div className="grid grid-cols-2 gap-4 p-4 text-sm/6 bg-white rounded-3xl shadow-lg ring-1 ring-gray-900/5">
+                  {investir.map((item) => (
+                    <div
+                      key={item.name}
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm/6 hover:bg-gray-50"
+                    >
+                      <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                      </div>
+                      <div className="flex-auto">
+                        <CloseButton as={NavLink} to={item.link ? item.link : "#"} onClick={() => onMenuClick(item)} className="block font-semibold text-gray-900">
+                          {item.name}
+                          <span className="absolute inset-0" />
+                        </CloseButton>
+                        <small className="mt-1 text-gray-600">{item.description}</small>
+                      </div>
                     </div>
                   ))}
                 </div>

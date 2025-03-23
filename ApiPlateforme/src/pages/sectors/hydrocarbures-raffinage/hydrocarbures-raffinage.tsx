@@ -187,6 +187,121 @@ const HydrocaburesRaffinage = () => {
                     </div>
                 </div>
             </div>
+            <div className="grid py-12 px-6 bg-gray-100 justify-center">
+  {/* Contenu principal (en arrière-plan) */}
+  <div className="relative z-0">
+    {/* Conteneur principal */}
+    <div className="max-w-6xl mx-auto bg-transparent">      
+      {/* Titre principal (en arrière-plan) */}
+      <h1 className="text-4xl font-bold text-gray-900 mb-4 text-center relative z-0">
+        Potentiel Hydrocarbures/Raffinage au Cameroun
+      </h1>
+
+      {/* Description (en arrière-plan) */}
+      <p className="text-center leading-relaxed mb-6 relative z-0">
+        Le Cameroun dispose d'un <span className="font-semibold">potentiel significatif dans le secteur des hydrocarbures et du raffinage</span>, avec des réserves de pétrole et de gaz naturel, ainsi que des infrastructures de raffinage. Ce secteur est un pilier important pour l'économie nationale.
+      </p>
+
+      {/* Grille des rubriques (en arrière-plan) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center relative z-0">
+        
+        {/* Carte Opportunités */}
+        <div className="bg-gradient-to-r from-blue-400 to-purple-500  p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
+          {/* Fond dégradé au survol */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+
+          {/* Contenu */}
+          <div className="relative z-10">
+            {/* En-tête de la carte */}
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
+                <span className="text-blue-500 text-2xl">🚀</span>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
+                Opportunités
+              </h2>
+            </div>
+
+            {/* Liste des points */}
+            <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-blue-600 group-hover:text-blue-200">Réserves de pétrole et de gaz</span> : Bassins pétroliers et gaziers actifs, notamment dans le Rio del Rey et le Logone Birni.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-blue-600 group-hover:text-blue-200">Raffinage local</span> : La Société Nationale de Raffinage (SONARA) permet de transformer le pétrole brut en produits finis.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-blue-600 group-hover:text-blue-200">Exportation de gaz naturel</span> : Potentiel pour développer le gaz naturel liquéfié (GNL) à l'exportation.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-blue-600 group-hover:text-blue-200">Création d'emplois</span> : Le secteur génère des emplois directs et indirects, notamment dans les zones pétrolières.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Carte Défis */}
+        <div className="bg-gradient-to-r from-red-400 to-orange-500 p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
+          {/* Fond dégradé au survol */}
+          <div className="absolute inset-0 bg-gradient-to-r from-red-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+
+          {/* Contenu */}
+          <div className="relative z-10">
+            {/* En-tête de la carte */}
+            <div className="flex items-center mb-6">
+              <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                <span className="text-red-500 text-2xl">⚠️</span>
+              </div>
+              <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
+                Défis
+              </h2>
+            </div>
+
+            {/* Liste des points */}
+            <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-red-600 group-hover:text-red-200">Dépendance aux prix mondiaux</span> : Vulnérabilité aux fluctuations des prix du pétrole sur le marché international.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-red-600 group-hover:text-red-200">Infrastructures vieillissantes</span> : Nécessité de moderniser les installations de raffinage et de distribution.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-red-600 group-hover:text-red-200">Impact environnemental</span> : Gestion des déchets et risques de pollution liés à l'exploitation pétrolière.
+                </span>
+              </li>
+              <li className="flex items-start">
+                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                <span>
+                  <span className="font-medium text-red-600 group-hover:text-red-200">Dépendance aux importations</span> : Malgré le raffinage local, le pays importe encore des produits pétroliers pour répondre à la demande.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
     );
 };

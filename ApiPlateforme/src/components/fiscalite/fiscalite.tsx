@@ -1,6 +1,8 @@
 import { Disclosure, Transition } from '@headlessui/react';
-
-const FiscalitePage = () => {
+interface FiscalitePageProps {
+  id?: string; // La prop id est optionnelle
+}
+const FiscalitePage: React.FC<FiscalitePageProps> = ({ id }) => {  
   const colors = {
     primary: '#0F0B60',
     secondary: '#0E600B',
@@ -9,7 +11,7 @@ const FiscalitePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-transport p-8">
+    <div id={id} className="min-h-screen bg-transport p-8">
       {/* Slider Section */}
       <div data-aos="fade-up" className="flex flex-col items-center mb-6">
         <h2 className="text-3xl font-bold text-center mb-4 mt-0 text-[#0F0B60]">
