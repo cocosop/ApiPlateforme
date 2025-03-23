@@ -63,12 +63,7 @@ const infos = [
     link: "/cadre-juridique-et-fiscal",
     icon: ScaleIcon
   },
-  {
-    name: "Aspects juridiques",
-    description: "Découvrez les lois et règlements conçus pour protéger et encourager les investissements dans différents secteurs au Cameroun.",
-    link: "/aspects-juridiques",
-    icon: DocumentTextIcon
-  },
+ 
 ];
 
 const investir = [
