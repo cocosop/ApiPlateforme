@@ -1,95 +1,140 @@
 // staticData.ts
 import { ProjeTypes } from './types'; // Update the path to your types file
 import CACAO from './assets/img/cacao4.png';
-import CACAO1 from './assets/img/solaire1.webp';
-import ARTISAN from './assets/img/eartisans.jpg';
-import TOURISTE from './assets/img/touriste.jpg';
-import USINECACAO from './assets/img/usinecacao.jpg';
-import AUTOROUTE from './assets/img/autoroute.jpg';
-import CAFE from './assets/img/café.jpg';
-import EOLIEN from './assets/img/eolien.jpg';
-import STARTUP from './assets/img/startup1.jpg';
+import ENERGIE from "../src/assets/img/solar.jpg"
+import CHIMIE from "../src/assets/img/medoc.jpg"
+import MINE from "../src/assets/img/mine.jpg"
+import INFRASTRUCTURE from "../src/assets/img/pont.jpg"
 
 export const staticData: ProjeTypes[] = [
-    {
-        id: 1,
-        secteur: "Agriculture",
-        titre: "Mise sur pied d'une Plantation de cacao",
-        ville: "Douala",
-        quartier: "Akwa",
-        description: "Ce projet consiste en la création d'une Plantation de cacao dédiée à la culture de caocao en masse. L'objectif est de répondre à la demande croissante en produits locaux et durables dans le pays. L'infrastructure sera équipée des dernières technologies agricoles.",
-        image: CACAO
-      },
-      {
-        id: 2,
-        secteur: "Energie",
-        titre: "Centrale solaire de Bafoussam",
-        ville: "Bafoussam",
-        quartier: "Centre-Ville",
-        description: "La centrale solaire de Bafoussam est un projet visant à fournir de l'énergie propre et renouvelable à la ville et ses environs. Elle permettra de réduire la dépendance aux sources d'énergie polluantes. Ce projet fait partie d'une initiative nationale pour développer les énergies renouvelables.",
-        image: CACAO1
-      },
-      {
-        id: 3,
-        secteur: "TIC",
-        titre: "Plateforme de e-commerce pour artisans",
-        ville: "Yaoundé",
-        quartier: "Messa",
-        description: "Ce projet développe une plateforme en ligne permettant aux artisans locaux de vendre leurs produits à une audience nationale et internationale. L'objectif est de promouvoir l'artisanat camerounais tout en offrant aux artisans une visibilité accrue. La plateforme inclut aussi des options de formation en ligne.",
-        image: ARTISAN
-        },
-      {
-        id: 4,
-        secteur: "Tourisme",
-        titre: "Resort écologique à Kribi",
-        ville: "Kribi",
-        quartier: "Plage",
-        description: "Un complexe touristique éco-responsable à Kribi, destiné à offrir une expérience de vacances immersive en harmonie avec la nature. Le projet vise à attirer des touristes locaux et étrangers tout en préservant l'environnement. Ce resort proposera des bungalows, des activités nautiques et des randonnées.",
-        image: TOURISTE
-        },
-      {
-        id: 5,
-        secteur: "Industrie",
-        titre: "Usine de transformation de cacao",
-        ville: "Bamenda",
-        quartier: "Bamenda Centre",
-        description: "Le projet consiste en la création d'une usine moderne de transformation de cacao, afin d'augmenter la valeur ajoutée du cacao camerounais. L'usine produira du chocolat et des dérivés pour le marché local et international. Cela contribuera à créer des emplois et à dynamiser l'économie régionale.",
-        image: USINECACAO
-        },
-      {
-        id: 6,
-        secteur: "Infrastructures",
-        titre: "Construction d'une autoroute Douala-Yaoundé",
-        ville: "Douala",
-        quartier: "Bonanjo",
-        description: "Le projet de construction d'une autoroute reliant Douala à Yaoundé vise à améliorer la connectivité entre les deux plus grandes villes du Cameroun. Cette infrastructure permettra de réduire le temps de trajet et de stimuler le commerce et le tourisme. Le projet inclut des bretelles et des zones de repos.",
-        image: AUTOROUTE
-        },
-      {
-        id: 7,
-        secteur: "Agriculture",
-        titre: "Plantation de café à l'ouest",
-        ville: "Dschang",
-        quartier: "Village voisin",
-        description: "Ce projet consiste en la création d'une grande plantation de café biologique dans la région de l'Ouest. L'objectif est de produire un café haut de gamme destiné aux marchés nationaux et internationaux. Le projet comprendra également un centre de formation pour les agriculteurs locaux.",
-        image: CAFE
-        },
-      {
-        id: 8,
-        secteur: "Energie",
-        titre: "Parc éolien de Maroua",
-        ville: "Maroua",
-        quartier: "Extrême-Nord",
-        description: "Le parc éolien de Maroua est un projet destiné à produire de l'électricité à partir de l'énergie éolienne. Ce projet permettra de diversifier les sources d'énergie et d'améliorer la couverture énergétique dans la région de l'Extrême-Nord. Il comprend également des infrastructures pour la formation des techniciens locaux.",
-        image: EOLIEN
-        },
-      {
-        id: 9,
-        secteur: "TIC",
-        titre: "Start-up de développement d'applications mobiles",
-        ville: "Yaoundé",
-        quartier: "Bastos",
-        description: "Cette start-up se spécialise dans le développement d'applications mobiles adaptées aux besoins des utilisateurs camerounais. L'objectif est de rendre les services numériques accessibles à tous et de créer des solutions innovantes dans les secteurs de l'éducation, de la santé et de l'administration.",
-        image: STARTUP
-        }
+  {
+    id: 1,
+    secteur: "Agro-industrie",
+    titre: "Exploitation de plantation de cacao",
+    ville: "Douala",
+    promoteur: "Snk1",
+    region: "Nord-Ouest",
+    quartier: "Bonaberi",
+    description: "Mise en place d'une plantation moderne de cacao avec une production annuelle de 50 tonnes.",
+    image: CACAO,
+    latitude: 4.0544,
+    longitude: 9.7679
+  },
+  {
+    id: 2,
+    secteur: "Énergie",
+    titre: "Parc solaire de 20 MW",
+    ville: "Garoua",
+    quartier: "Ngaoundere route",
+    promoteur: "Snk2",
+    region: "Centre",
+    description: "Construction d'un parc solaire pour fournir de l'énergie propre à la région du Nord.",
+    image: ENERGIE,
+    latitude: 9.3006,
+    longitude: 13.3930
+  },
+  {
+    id: 3,
+    secteur: "Numérique",
+    titre: "Plateforme de paiement mobile",
+    promoteur: "Snk3",
+    region: "Littoral",
+    ville: "Yaoundé",
+    quartier: "Bastos",
+    description: "Développement d'une application de paiement mobile visant à faciliter les transactions financières locales.",
+    image: "https://img.freepik.com/free-photo/high-angle-friends-reading-menu-restaurant_23-2150384825.jpg?t=st=1738099850~exp=1738103450~hmac=263dee2608a764be0cc905367387bf817f98c3b6a3df41a0103a348fa8777175&w=996",
+    latitude: 3.8480,
+    longitude: 11.5021
+  },
+  {
+    id: 4,
+    secteur: "Bois-Forêts",
+    titre: "Exploitation forestière durable",
+    promoteur: "Snk4",
+    region: "Adamaoua",
+    ville: "Bertoua",
+    quartier: "Dimako",
+    description: "Projet de reboisement et d'exploitation durable des ressources forestières locales.",
+    image: "https://img.freepik.com/free-photo/wood-processing-factory_1112-1218.jpg?uid=R145003395&ga=GA1.1.506201312.1736953208&semt=ais_hybrid",
+    latitude: 4.5773,
+    longitude: 13.6827
+  },
+  {
+    id: 5,
+    secteur: "Textile/Confection/Cuir",
+    titre: "Atelier de production de tissus locaux",
+    promoteur: "Snk5",
+    region: "Sud-Ouest",
+    ville: "Bafoussam",
+    quartier: "Marché A",
+    description: "Création d'un atelier pour la fabrication et la commercialisation de tissus traditionnels camerounais.",
+    image: "https://img.freepik.com/free-photo/tissue-shop-with-fabrics_1398-3773.jpg?t=st=1738100028~exp=1738103628~hmac=7aa2d06072648d91b7a3d7589ff78d1207b4271b355cde48bd7c7edf2b7160cc&w=360",
+    latitude: 5.4781,
+    longitude: 10.4134
+  },
+  {
+    id: 6,
+    secteur: "Hydrocarbures/Raffinage",
+    titre: "Extension d'une raffinerie de pétrole",
+    promoteur: "Snk6",
+    region: "Ouest",
+    ville: "Limbe",
+    quartier: "Ngeme",
+    description: "Modernisation et extension des installations de la raffinerie pour augmenter la capacité de production.",
+    image: "https://img.freepik.com/free-photo/modern-factory-industrial-zone-blue-sky_181624-6369.jpg?t=st=1738099433~exp=1738103033~hmac=49ac491f699945c02c195d6322c0379e4d908b8ec815cadea9242a34562c6307&w=996",
+    latitude: 4.0244,
+    longitude: 9.2008
+  },
+  {
+    id: 7,
+    secteur: "Chimie et Pharmacie",
+    titre: "Usine de production de médicaments génériques",
+    promoteur: "Snk7",
+    region: "Nord",
+    ville: "Douala",
+    quartier: "Makepe",
+    description: "Mise en place d'une usine spécialisée dans la fabrication de médicaments génériques à prix abordables.",
+    image: CHIMIE,
+    latitude: 4.0511,
+    longitude: 9.7679
+  },
+  {
+    id: 8,
+    secteur: "Mines/Métallurgie/Sidérurgie",
+    titre: "Exploitation d'une mine de bauxite",
+    promoteur: "Snk8",
+    region: "Sud",
+    ville: "Ngaoundal",
+    quartier: "Centre",
+    description: "Projet d'extraction et de transformation de la bauxite en aluminium.",
+    image: MINE,
+    latitude: 6.7486,
+    longitude: 12.5186
+  },
+  {
+    id: 9,
+    secteur: "Financements",
+    titre: "Fonds de soutien aux startups",
+    promoteur: "Snk9",
+    region: "Est",
+    ville: "Douala",
+    quartier: "Akwa",
+    description: "Mise en place d'un fonds de soutien pour les startups innovantes dans divers secteurs.",
+    image: "https://img.freepik.com/free-photo/innovation-creative-design-development-ideas-concept_53876-15871.jpg?uid=R145003395&ga=GA1.1.506201312.1736953208&semt=ais_hybrid",
+    latitude: 4.0503,
+    longitude: 9.7674
+  },
+  {
+    id: 10,
+    secteur: "Infrastructures",
+    titre: "Construction d'un pont urbain",
+    promoteur: "Snk10",
+    region: "Extrême-Nord",
+    ville: "Yaoundé",
+    quartier: "Nlongkak",
+    description: "Construction d'un pont pour améliorer la fluidité du trafic dans la capitale.",
+    image: INFRASTRUCTURE,
+    latitude: 3.8480,
+    longitude: 11.5021
+  }
 ];

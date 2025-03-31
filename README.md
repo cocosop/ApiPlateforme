@@ -1,2 +1,0 @@
-# ApiPlateforme
-Plateforme d'investissement
