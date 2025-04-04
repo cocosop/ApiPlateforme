@@ -225,17 +225,29 @@ const home = () => {
                 {/* Conteneur principal */}
                 <div className="max-w-6xl mx-auto bg-transparent">
                     {/* Titre principal */}
-                    <h1 className="text-5xl font-bold text-gray-900 mb-8 text-center relative z-10">
+                    <motion.h1
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="text-5xl font-bold text-gray-900 mb-8 text-center relative z-10">
                         Pourquoi Investir au Cameroun ?
-                    </h1>
+                    </motion.h1>
 
                     {/* Description */}
-                    <p className="text-center text-lg text-gray-700 leading-relaxed mb-12 max-w-2xl mx-auto">
+                    <motion.p
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="text-center text-lg text-gray-700 leading-relaxed mb-12 max-w-2xl mx-auto">
                         Le Cameroun, surnommé <span className="font-semibold text-green-600">"l'Afrique en miniature"</span>, offre un environnement propice aux investissements grâce à sa stabilité politique, sa diversité économique et ses opportunités inégalées. Découvrez les raisons de choisir le Cameroun comme destination d'investissement.
-                    </p>
+                    </motion.p>
 
                     {/* Grille des raisons avec images interactives */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 50 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {/* Carte 1 : Stabilité politique */}
                         <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-green-300 transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden">
                             <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
@@ -325,7 +337,7 @@ const home = () => {
                                 Des projets d'infrastructures routières, portuaires et énergétiques sont en cours pour soutenir la croissance économique.
                             </p>
                         </div>
-                    </div>
+                    </motion.div>
 
                     {/* Call-to-action */}
                     <div className="text-center mt-12">
@@ -361,13 +373,13 @@ const home = () => {
                             className="group relative bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
                         >
                             {/* Cercle numéroté avec dégradé */}
-                            <div className="absolute -top-4 -left-3 w-16 h-16 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-md">
+                            <div className="absolute -top-4 -left-3 w-16 h-16 bg-[#0F0B60] rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-md">
                                 {data.count}
                             </div>
 
                             {/* Image */}
                             <div className="p-6">
-                                <img src={data.image} alt={data.title} className="w-20 h-20 mx-auto mb-4 transform transition-all duration-300 group-hover:scale-110" />
+                                <img src={data.image} alt={data.title} className="w-20 h-20 mx-auto" />
                             </div>
 
                             {/* Contenu texte */}
