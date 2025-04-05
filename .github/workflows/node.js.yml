@@ -25,7 +25,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - run: ls
-    - run: npm i
+    - run: npm ci
     - run: npm run build --if-present
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
