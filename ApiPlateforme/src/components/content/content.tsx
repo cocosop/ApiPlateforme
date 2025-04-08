@@ -28,6 +28,7 @@ import PresentationApi from '../../pages/aPropos/presentation-api/presentation-a
 import Login from '../../pages/authentication/login/login';
 import Fiscalite from '../../pages/investir/fiscalite/fiscalite';
 import Incitation from '../../pages/investir/incitation/incitation';
+import AppLayout from '../../layouts/AppLayout';
 
 interface ContentProps {
     selectedMenu: any | null;
@@ -67,8 +68,11 @@ const content: React.FC<ContentProps> = ({ selectedMenu }) => {
                 <Route path='/pilier-mines-metallurgie-siderurgie' element={<MinesMetallurgieSiderurgie />} />
 
                 {/* Routes banque de projet */}
-                <Route path='/projets' element={<Projets />} />
-                <Route path="/projets/detailsProjets/:id" element={<DetailProjet projects={staticData} />} />
+                <Route element={<AppLayout />}>
+
+                    <Route path='/projets' element={<Projets />} />
+                    <Route path="/projets/detailsProjets/:id" element={<DetailProjet projects={staticData} />} />
+                </Route>
 
                 {/* Routes a propos */}
                 <Route path='/presentation-api' element={<PresentationApi />} />

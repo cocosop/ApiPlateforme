@@ -20,11 +20,11 @@ function App() {
     <>
       <BrowserRouter>
         <Chatbot />
-        <Navbar onMenuClick={handleMenuClick} />
+        {!localStorage.getItem('token') && <Navbar onMenuClick={handleMenuClick} />}
         <Content selectedMenu={selectedMenu} />
         <Chatbox />
         <Footer />
-      </BrowserRouter >
+      </BrowserRouter>
     </>
   )
 }

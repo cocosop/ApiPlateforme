@@ -3,10 +3,13 @@ import LOGIN from "../../../assets/img/account_illustration.png";
 import { Google as GoogleIcon, Apple as AppleIcon, VisibilityOff, Visibility, LinkedIn } from "@mui/icons-material";
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Login = () => {
-
+  const [email, setEmail] = React.useState(String);
+  const [password, setPassword] = React.useState(String);
   const [showPassword, setShowPassword] = React.useState(false);
+
   const history = useNavigate();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -19,12 +22,40 @@ const Login = () => {
     event.preventDefault();
   };
 
-  const onSubmit = (e: any) => {
+
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    sessionStorage.setItem('secteur', '');
-    sessionStorage.setItem('isAuth', 'true');
-    history('/projets');
-  }
+
+    axios.post("http://localhost:8080/api/v1/auth/login", {
+      email: email,
+      password: password,
+    })
+      .then((res) => {
+        console.log(res.data);
+        const token = res.data.token;
+        sessionStorage.setItem('secteur', '');
+        localStorage.setItem("token", token);
+        history("/projets");
+      })
+    axios.interceptors.response.use(
+      res => {
+        return res;
+      },
+      error => {
+        const statusHandlers: any = {
+          401: () => alert("Session expirée<"),
+          403: () => alert("Accès interdit"),
+          404: () => alert("L'adresse email est incorrecte"),
+          409: () => alert("Adresse email déjà utilisée"),
+          500: () => alert("Erreur serveur"),
+        };
+        const status = error.res?.status;
+        (statusHandlers[status] || (() => alert("Erreur inconnue")))();
+        return Promise.reject(error);
+      }
+    );
+  };
+
 
   return (
     <section className="flex flex-col md:flex-row">
@@ -67,15 +98,12 @@ const Login = () => {
         }}
       >
         <Box
-          component="form"
           sx={{
             justifyContent: "center",
             width: "100%",
             maxWidth: { xs: 300, sm: 400 },
             textAlign: "center",
             padding: { xs: 2, md: 6 },
-
-
           }}
         >
           <Typography
@@ -100,18 +128,24 @@ const Login = () => {
           </Typography>
 
           {/* Champs de connexion */}
-          <form>
+          <form onSubmit={handleSubmit}>
             <TextField
               fullWidth
               margin="normal"
               label="Adresse e-mail"
               variant="outlined"
+              value={email}
+              autoComplete="email"
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
             <FormControl fullWidth margin="normal" variant="outlined" required>
               <InputLabel htmlFor="outlined-adornment-password">Mot de passe</InputLabel>
               <OutlinedInput
                 id="outlined-adornment-password"
+                value={password}
+                autoComplete="current-password"
+                onChange={(e) => setPassword(e.target.value)}
                 type={showPassword ? 'text' : 'password'}
                 endAdornment={
                   <InputAdornment position="end">
@@ -138,7 +172,7 @@ const Login = () => {
               fullWidth
               type="submit"
               variant="contained"
-              onClick={(e) => { onSubmit(e) }}
+              onSubmit={handleSubmit}
               sx={{ backgroundColor: "#2A337B", mt: 2, textTransform: "none", borderRadius: "8px" }}
             >
               Se connecter
