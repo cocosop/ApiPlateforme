@@ -217,27 +217,6 @@ const PresentationCameroun: React.FC = () => {
         { id: 3, name: 'Consommateurs marchés régionaux', value: '300 millions' },
     ]
 
-    // const region = [
-    //     { id: 1, region: "Adamaoua", chefLieu: "Ngaoundéré", departements: 5, langues: "français (majoritaire), anglais" },
-    //     { id: 2, region: "Centre", chefLieu: "Yaoundé", departements: 10, langues: "français (majoritaire), anglais" },
-    //     { id: 3, region: "Est", chefLieu: "Bertoua", departements: 4, langues: "français (majoritaire), anglais" },
-    //     { id: 4, region: "Extrême-Nord", chefLieu: "Maroua", departements: 6, langues: "français (majoritaire), anglais" },
-    //     { id: 5, region: "Littoral", chefLieu: "Douala", departements: 4, langues: "français (majoritaire), anglais" },
-    //     { id: 6, region: "Nord", chefLieu: "Garoua", departements: 4, langues: "français (majoritaire), anglais" },
-    //     { id: 7, region: "Ouest", chefLieu: "Bafoussam", departements: 8, langues: "français (majoritaire), anglais" },
-    //     { id: 8, region: "Sud", chefLieu: "Ebolowa", departements: 4, langues: "français (majoritaire), anglais" },
-    //     { id: 9, region: "Nord-Ouest", chefLieu: "Bamenda", departements: 7, langues: "anglais (majoritaire), français" },
-    //     { id: 10, region: "Sud-Ouest", chefLieu: "Buea", departements: "--", langues: "anglais (majoritaire), français" },
-    // ];
-
-    // const languesRowspan: { [key: string]: number } = {
-    //     "français (majoritaire), anglais": 8,
-    //     "anglais (majoritaire), français": 2,
-    // };
-
-    // let renderLangues: { [key: string]: boolean } = {}; // Pour suivre si une langue a déjà été rendue
-
-
     return (
         <div>
             <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
@@ -422,65 +401,7 @@ const PresentationCameroun: React.FC = () => {
                     </motion.div>
                 </div>
             </div>
-            
-            {/* <div className="mx-auto mb-4 max-w-xl px-6 lg:max-w-4xl lg:px-8">
-                <motion.h2
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="text-2xl font-semibold tracking-tight text-gray-900 text-center mb-6"
-                >
-                    Les 10 régions camerounaises et leurs chefs-lieux et langues
-                </motion.h2>
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="overflow-x-auto"
-                >
-                    <table className="w-full border-collapse border border-gray-200">
-                        <thead className="bg-green-900 text-gray-200">
-                            <tr>
-                                <th className="px-4 py-2 border border-gray-300 text-xs font-semibold uppercase tracking-wider">
-                                    Nº
-                                </th>
-                                <th className="px-4 py-2 border border-gray-300 text-xs font-semibold uppercase tracking-wider">
-                                    Région
-                                </th>
-                                <th className="px-4 py-2 border border-gray-300 text-xs font-semibold uppercase tracking-wider">
-                                    Chef-lieu
-                                </th>
-                                <th className="px-4 py-2 border border-gray-300 text-xs font-semibold uppercase tracking-wider">
-                                    Nombre de départements
-                                </th>
-                                <th className="px-4 py-2 border border-gray-300 text-xs font-semibold uppercase tracking-wider">
-                                    Langues officielles
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {region.map((item, index) => (
-                                <tr key={item.id} className="bg-green-200">
-                                    <td className="px-4 py-2 border border-gray-300">{index + 1}</td>
-                                    <td className="px-4 py-2 border border-gray-300">{item.region}</td>
-                                    <td className="px-4 py-2 border border-gray-300">{item.chefLieu}</td>
-                                    <td className="px-4 py-2 border border-gray-300">{item.departements}</td>
-                                    {!renderLangues[item.langues] && (
-                                        <td
-                                            className="px-4 py-2 border border-gray-300"
-                                            rowSpan={languesRowspan[item.langues] || 1}
-                                        >
-                                            {item.langues}
-                                        </td>
-                                    )}
-                                    {renderLangues[item.langues] = true}
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </motion.div>
-            </div> */}
-
+         
             <div className="bg-white py-24 sm:py-32">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">
