@@ -16,9 +16,7 @@ import {
   BuildingOfficeIcon,
   CogIcon,
   GiftIcon,
-  GlobeAltIcon,
   LightBulbIcon,
-  UserGroupIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 
@@ -29,9 +27,7 @@ import {
   ChevronDownIcon,
   ComputerDesktopIcon,
   CurrencyDollarIcon,
-  DocumentTextIcon,
   FireIcon,
-  MapIcon,
   QuestionMarkCircleIcon,
   ScaleIcon,
   ScissorsIcon,
@@ -44,110 +40,18 @@ import CameroonFlag from '../../assets/img/Camer.png'
 import './navbar.css'
 import React from 'react'
 import { LeafyGreenIcon, PickaxeIcon, TreesIcon } from 'lucide-react'
-
+import BoutonLangue from '../boutonLangues/boutonLangue'
+import { useTranslation } from 'react-i18next'
 
 interface NavbartProps {
   onMenuClick: any | null;
 }
 
-const infos = [
-  {
-    name: "Présentation du Cameroun",
-    description: "Découvrez les opportunités stratégiques, économiques et naturelles du Cameroun qui attirent les investisseurs du monde entier.",
-    link: "/presentation-du-cameroun",
-    icon: LightBulbIcon
-  },
-  {
-    name: "Cadre juridique",
-    description: "Accédez à des informations essentielles sur la fiscalité et le cadre légal qui garantissent un environnement d’investissement sûr et compétitif au Cameroun.",
-    link: "/cadre-juridique-et-fiscal",
-    icon: ScaleIcon
-  },
-
-];
-
-const investir = [
-  {
-    name: "Création d'entreprise",
-    description: "Guide pratique pour établir une entreprise au Cameroun.",
-    link: "/creation-dentreprise",
-    icon: BriefcaseIcon
-  },
-  {
-    name: "Droit des investisseurs",
-    description: "Présentation des protections légales et des droits garantis aux investisseurs étrangers.",
-    link: "/droits-des-investisseurs",
-    icon: ShieldCheckIcon
-  },
-  {
-    name: "Facteurs de production",
-    description: "Informations sur les ressources nécessaires : capital, matières premières, et équipements.",
-    link: "/facteurs-de-production",
-    icon: CogIcon
-  },
-  {
-    name: "Incitation",
-    description: "Mesures incitatives et avantages fiscaux pour encourager l’investissement.",
-    link: "/incitation",
-    icon: GiftIcon
-  }
-];
-
-const categories = [
-  {
-    name: "Sanctuaires",
-    description: "Les infrastructures et pôles stratégiques du développement industriel.",
-    secteurs: [
-      { name: "Agro-industrie", link: "/sanctuaire-agro-industrie", icon: LeafyGreenIcon },
-      { name: "Énergie", link: "/sanctuaire-energie", icon: LightBulbIcon },
-      { name: "Numérique", link: "/sanctuaire-numerique", icon: ComputerDesktopIcon },
-    ],
-  },
-  {
-    name: "Piliers",
-    description: "Les secteurs clés qui soutiennent la croissance économique.",
-    secteurs: [
-      { name: "Bois-Forêts", link: "/pilier-bois-forets", icon: TreesIcon },
-      { name: "Textile/Confection/Cuir", link: "/pilier-textile-confection-cuir", icon: ScissorsIcon },
-      { name: "Hydrocarbures/Raffinage", icon: FireIcon, link: "/pilier-hydrocarbures-raffinage" },
-      { name: "Chimie/Pharmacie", icon: BeakerIcon, link: "/pilier-chimie-pharmacie" },
-      { name: "Mines/Métallurgie/Sidérurgie", icon: PickaxeIcon, link: "/pilier-mines-metallurgie-siderurgie" },
-    ],
-  },
-  {
-    name: "Socles",
-    description: "Les bases fondamentales pour un développement industriel solide.",
-    secteurs: [
-      { name: "Financement", link: "/socle-financement", icon: CurrencyDollarIcon },
-      { name: "Infrastructure", link: "/socle-infrastructure", icon: BuildingOfficeIcon },
-    ],
-  },
-];
-
-const aPropos = [
-  { name: "Présentation de l'API", description: "Découvrez le rôle de l’Agence de Promotion des Investissements dans l’accompagnement et la facilitation des projets d’investissement au Cameroun.", link: "/presentation-api", icon: BuildingOfficeIcon },
-  { name: "FAQ", description: "Trouvez des réponses rapides et claires à vos questions fréquentes concernant l’investissement au Cameroun.", link: "/FAQ", icon: QuestionMarkCircleIcon },
-  { name: "Conseil en ligne", description: "Accédez à une assistance personnalisée et obtenez des réponses rapides à toutes vos questions sur les opportunités d'investissement.", link: "/conseil-en-ligne", icon: ChatBubbleBottomCenterTextIcon },
-]
-
 const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 
-
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
   const [isOpen, setIsOpen] = useState(false);
   const [language, setLanguage] = useState('fr')
-
-  const languages = [
-    { code: "fr", label: "Français" },
-    { code: "en", label: "English" },
-    { code: "es", label: "Español" },
-  ];
-
-  const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
-  };
-
   const changeLanguage = (lang: any) => {
     setLanguage(lang);
     setIsOpen(false);
@@ -177,7 +81,84 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
     };
   }, []);
 
+  const { t } = useTranslation();
+  const infos = [
+    {
+      name: t('navbar.menu_items.presentation_cameroun'),
+      description: t('navbar.descriptions.presentation_cameroun'),
+      link: "/presentation-du-cameroun",
+      icon: LightBulbIcon
+    },
+    {
+      name: t('navbar.menu_items.cadre_juridique'),
+      description: t('navbar.descriptions.cadre_juridique'),
+      link: "/cadre-juridique-et-fiscal",
+      icon: ScaleIcon
+    },
 
+
+  ];
+  const investir = [
+    {
+      name: t('navbar.menu_items.creation_entreprise'),
+      description: t('navbar.descriptions.creation_entreprise'),
+      link: "/creation-dentreprise",
+      icon: BriefcaseIcon
+    },
+    {
+      name: t('navbar.menu_items.droit_investisseurs'),
+      description: t('navbar.descriptions.droit_investisseurs'),
+      link: "/droits-des-investisseurs",
+      icon: ShieldCheckIcon
+    },
+    {
+      name: t('navbar.menu_items.facteurs_production'),
+      description: t('navbar.descriptions.facteurs_production'),
+      link: "/facteurs-de-production",
+      icon: CogIcon
+    },
+    {
+      name: t('navbar.menu_items.incitation'),
+      description: t('navbar.descriptions.incitation'),
+      link: "/incitation",
+      icon: GiftIcon
+    }
+  ];
+  const categories = [
+    {
+      name: t('navbar.menu_items.sanctuaires'),
+      description: t('navbar.descriptions.sanctuaires'),
+      secteurs: [
+        { name: t('navbar.menu_items.agro_industrie'), link: "/sanctuaire-agro-industrie", icon: LeafyGreenIcon },
+        { name: t('navbar.menu_items.energie'), link: "/sanctuaire-energie", icon: LightBulbIcon },
+        { name: t('navbar.menu_items.numerique'), link: "/sanctuaire-numerique", icon: ComputerDesktopIcon },
+      ],
+    },
+    {
+      name: t('navbar.menu_items.piliers'),
+      description: t('navbar.descriptions.piliers'),
+      secteurs: [
+        { name: t('navbar.menu_items.bois_forets'), link: "/pilier-bois-forets", icon: TreesIcon },
+        { name: t('navbar.menu_items.textile_confection_cuir'), link: "/pilier-textile-confection-cuir", icon: ScissorsIcon },
+        { name: t('navbar.menu_items.hydrocarbures_raffinage'), icon: FireIcon, link: "/pilier-hydrocarbures-raffinage" },
+        { name: t('navbar.menu_items.chimie_pharmacie'), icon: BeakerIcon, link: "/pilier-chimie-pharmacie" },
+        { name: t('navbar.menu_items.mines_metallurgie_siderurgie'), icon: PickaxeIcon, link: "/pilier-mines-metallurgie-siderurgie" },
+      ],
+    },
+    {
+      name: t('navbar.menu_items.socles'),
+      description: t('navbar.descriptions.socles'),
+      secteurs: [
+        { name: t('navbar.menu_items.financement'), link: "/socle-financement", icon: CurrencyDollarIcon },
+        { name: t('navbar.menu_items.infrastructure'), link: "/socle-infrastructure", icon: BuildingOfficeIcon },
+      ],
+    },
+  ];
+  const aPropos = [
+    { name: t('navbar.menu_items.presentation_api'), description: t('navbar.menu_items.presentation_api'), link: "/presentation-api", icon: BuildingOfficeIcon },
+    { name: t('navbar.menu_items.faq'), description: t('navbar.menu_items.faq'), link: "/FAQ", icon: QuestionMarkCircleIcon },
+    { name: t('navbar.menu_items.conseil_en_ligne'), description: t('navbar.menu_items.conseil_en_ligne'), link: "/conseil-en-ligne", icon: ChatBubbleBottomCenterTextIcon },
+  ]
   return (
 
     <header className='bg-white'>
@@ -191,15 +172,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
         </span>
         <span>
           <div className="relative inline-block text-left">
-            <button
-              onClick={toggleMenu}
-              className="flex items-center px-4 py-2  rounded-md"
-            >
-              <GlobeAltIcon className="h-5 w-5 mr-2 text-gray-500" />
-              {languages.find((lang) => lang.code === language)?.code.toUpperCase()}
-              <ChevronDownIcon className="h-5 w-5 ml-2 text-gray-500" />
-            </button>
-
+            <BoutonLangue />
             {isOpen && (
               <div className="absolute right-0 z-30 mt-2 bg-white rounded-md shadow-lg w-28">
                 {languages.map((lang) => (
@@ -246,14 +219,12 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
             </button>
           </div>
           <PopoverGroup className="hidden lg:flex lg:gap-x-12 items-center">
-
             <Link to={"/"} className="text-sm/6 font-semibold text-gray-900">
-              Accueil
+              {t('navbar.accueil')}
             </Link>
-
             <Popover className="relative">
               <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
-                Informations générales
+                {t('navbar.informations')}
                 <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
               </PopoverButton>
               <PopoverPanel
@@ -284,7 +255,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 
             <Popover className="relative">
               <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
-                Opportunités
+                {t('navbar.opportunites')}
                 <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
               </PopoverButton>
 
@@ -324,7 +295,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 
             <Popover className="relative">
               <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
-                Investir
+                {t('navbar.investir')}
                 <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
               </PopoverButton>
 
@@ -356,7 +327,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 
             <Popover className="relative">
               <PopoverButton className="flex items-center gap-x-1 text-sm/6 font-semibold text-gray-900">
-                A propos
+                {t('navbar.apropos')}
                 <ChevronDownIcon aria-hidden="true" className="size-5 flex-none text-gray-400" />
               </PopoverButton>
 
@@ -388,7 +359,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 
             <NavLink to="/signin">
               <button className="ps-btn text-sm/6 font-semibold">
-                Espace  Privé
+                {t('navbar.espace_prive')}
               </button>
             </NavLink>
           </PopoverGroup>
@@ -421,11 +392,11 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                     to={'/'}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
-                    Accueil
+                    {t('navbar.accueil')}
                   </CloseButton>
                   <Disclosure as="div" className="-mx-3">
                     <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                      Informations générales
+                      Informations générales{t('navbar.Accueil')}
                       <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-[open]:rotate-180" />
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 ">
@@ -448,7 +419,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                   </Disclosure>
                   <Disclosure as="div" className="-mx-3">
                     <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                      Guide de l'investisseur
+                      {t('navbar.investir')}
                       <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-[open]:rotate-180" />
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 ">
@@ -471,7 +442,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                   </Disclosure>
                   <Disclosure as="div" className="-mx-3">
                     <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                      Secteurs d'opportunités
+                      {t('navbar.opportunites')}
                       <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-[open]:rotate-180" />
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 space-y-4">
@@ -505,7 +476,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                   </Disclosure>
                   <Disclosure as="div" className="-mx-3">
                     <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                      A propos
+                      A propos{t('navbar.Accueil')}
                       <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-[open]:rotate-180" />
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 ">
@@ -524,7 +495,6 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                         </CloseButton>
                       ))}
                     </DisclosurePanel>
-
                   </Disclosure>
                 </div>
                 <div className="py-6">
@@ -533,7 +503,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                     to={'/signin'}
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
-                    Espace Privé
+                    {t('navbar.Espace_Privé')}
                   </CloseButton>
                 </div>
               </div>

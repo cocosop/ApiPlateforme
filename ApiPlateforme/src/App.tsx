@@ -9,7 +9,6 @@ import { useState } from 'react'
 import Chatbot from './components/chatbox/chatbox'
 
 function App() {
-
   const [selectedMenu, setSelectedMenu] = useState(null);
 
   const handleMenuClick = (menuName: any) => {
