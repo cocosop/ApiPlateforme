@@ -32,7 +32,6 @@ import Incitation from '../../pages/investir/incitation/incitation';
 interface ContentProps {
     selectedMenu: any | null;
 }
-
 const content: React.FC<ContentProps> = ({ selectedMenu }) => {
     return (
         <div>

@@ -15,7 +15,6 @@ interface FiltersProps {
     }>
   >;
 }
-
 const Filters: React.FC<FiltersProps> = ({ filters, setFilters }) => {
   const [isOpen, setIsOpen] = useState(false);
 
