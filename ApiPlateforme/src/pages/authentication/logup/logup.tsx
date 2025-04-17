@@ -4,7 +4,7 @@ import { Google as GoogleIcon, Apple as AppleIcon, VisibilityOff, Visibility, Li
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
-import AlertComponent, { NotificationProvider } from "../../../components/alert/alertComponent";
+import AlertComponent, { NotificationProvider } from "../../../components/alert/AlertComponent";
 
 const Logup = () => {
 
