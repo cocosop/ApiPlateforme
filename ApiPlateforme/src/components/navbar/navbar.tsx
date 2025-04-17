@@ -63,7 +63,7 @@ const infos = [
     link: "/cadre-juridique-et-fiscal",
     icon: ScaleIcon
   },
- 
+
 ];
 
 const investir = [

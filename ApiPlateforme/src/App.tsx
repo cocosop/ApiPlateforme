@@ -1,30 +1,20 @@
 import './index.css'
 import './App.css'
-import { BrowserRouter } from 'react-router-dom'
-import Content from './components/content/content'
-import Navbar from './components/navbar/navbar'
-import Footer from './components/footer/footer'
+import { BrowserRouter, Routes } from 'react-router-dom'
 import Chatbox from './components/chatbox/chatbox'
-import { useState } from 'react'
-import Chatbot from './components/chatbox/chatbox'
+import PublicContent from './components/content/PublicContent'
+import PrivateContent from './components/content/PrivateContent'
 
 function App() {
-
-  const [selectedMenu, setSelectedMenu] = useState(null);
-
-  const handleMenuClick = (menuName: any) => {
-    setSelectedMenu(menuName);
-  };
-
   return (
     <>
       <BrowserRouter>
-        <Chatbot />
-        {!localStorage.getItem('token') && <Navbar onMenuClick={handleMenuClick} />}
-        <Content selectedMenu={selectedMenu} />
+        <Routes>
+          {PublicContent()}
+          {PrivateContent()}
+        </Routes>
         <Chatbox />
-        <Footer />
-      </BrowserRouter>
+      </BrowserRouter >
     </>
   )
 }

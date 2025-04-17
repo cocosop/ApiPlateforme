@@ -4,6 +4,7 @@ import { Google as GoogleIcon, Apple as AppleIcon, VisibilityOff, Visibility, Li
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
+import AlertComponent, { NotificationProvider } from "../../../components/alert/alertComponent";
 
 const Login = () => {
   const [email, setEmail] = React.useState(String);
@@ -11,6 +12,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const history = useNavigate();
+  const { showNotification } = AlertComponent();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -31,30 +33,31 @@ const Login = () => {
       password: password,
     })
       .then((res) => {
-        console.log(res.data);
-        const token = res.data.token;
-        sessionStorage.setItem('secteur', '');
-        localStorage.setItem("token", token);
-        history("/projets");
+        if (res.data.status === 200) {
+          const token = res.data.token;
+          sessionStorage.setItem('secteur', '');
+          localStorage.setItem("token", token);
+          history("/projets");
+        }
       })
-    axios.interceptors.response.use(
-      res => {
-        return res;
-      },
-      error => {
-        const statusHandlers: any = {
-          401: () => alert("Session expirée<"),
-          403: () => alert("Accès interdit"),
-          404: () => alert("L'adresse email est incorrecte"),
-          409: () => alert("Adresse email déjà utilisée"),
-          500: () => alert("Erreur serveur"),
-        };
-        const status = error.res?.status;
-        (statusHandlers[status] || (() => alert("Erreur inconnue")))();
-        return Promise.reject(error);
-      }
-    );
   };
+
+  axios.interceptors.response.use(
+    res => res,
+    error => {
+      const statusHandlers: any = {
+        403: () => showNotification("Accès interdit", "error"),
+        404: () => showNotification("L'adresse email est incorrecte", "warning"),
+        409: () => showNotification("Adresse email déjà utilisée", "warning"),
+        500: () => showNotification("Erreur serveur", "error"),
+      };
+
+      const status = error.response?.status;
+      (statusHandlers[status] || (() => showNotification("Erreur inconnue", "error")))();
+
+      return Promise.reject(error);
+    }
+  );
 
 
   return (
@@ -128,56 +131,58 @@ const Login = () => {
           </Typography>
 
           {/* Champs de connexion */}
-          <form onSubmit={handleSubmit}>
-            <TextField
-              fullWidth
-              margin="normal"
-              label="Adresse e-mail"
-              variant="outlined"
-              value={email}
-              autoComplete="email"
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-            <FormControl fullWidth margin="normal" variant="outlined" required>
-              <InputLabel htmlFor="outlined-adornment-password">Mot de passe</InputLabel>
-              <OutlinedInput
-                id="outlined-adornment-password"
-                value={password}
-                autoComplete="current-password"
-                onChange={(e) => setPassword(e.target.value)}
-                type={showPassword ? 'text' : 'password'}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton
-                      aria-label={
-                        showPassword ? 'hide the password' : 'display the password'
-                      }
-                      onClick={handleClickShowPassword}
-                      onMouseDown={handleMouseDownPassword}
-                      onMouseUp={handleMouseUpPassword}
-                      edge="end"
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                }
-                label="Mot de passe"
+          <NotificationProvider>
+            <form onSubmit={handleSubmit}>
+              <TextField
+                fullWidth
+                margin="normal"
+                label="Adresse e-mail"
+                variant="outlined"
+                value={email}
+                autoComplete="email"
+                onChange={(e) => setEmail(e.target.value)}
+                required
               />
-            </FormControl>
-            <div className="flex justify-end items-center">
-              <NavLink className="text-slate-500 hover:text-blue-900 text-sm" to={'#'}>Mot de passe oublié?</NavLink>
-            </div>
-            <Button
-              fullWidth
-              type="submit"
-              variant="contained"
-              onSubmit={handleSubmit}
-              sx={{ backgroundColor: "#2A337B", mt: 2, textTransform: "none", borderRadius: "8px" }}
-            >
-              Se connecter
-            </Button>
-          </form>
+              <FormControl fullWidth margin="normal" variant="outlined" required>
+                <InputLabel htmlFor="outlined-adornment-password">Mot de passe</InputLabel>
+                <OutlinedInput
+                  id="outlined-adornment-password"
+                  value={password}
+                  autoComplete="current-password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  type={showPassword ? 'text' : 'password'}
+                  endAdornment={
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label={
+                          showPassword ? 'hide the password' : 'display the password'
+                        }
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        onMouseUp={handleMouseUpPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  }
+                  label="Mot de passe"
+                />
+              </FormControl>
+              <div className="flex justify-end items-center">
+                <NavLink className="text-slate-500 hover:text-blue-900 text-sm" to={'/forget-password'}>Mot de passe oublié?</NavLink>
+              </div>
+              <Button
+                fullWidth
+                type="submit"
+                variant="contained"
+                onSubmit={handleSubmit}
+                sx={{ backgroundColor: "#2A337B", mt: 2, textTransform: "none", borderRadius: "8px" }}
+              >
+                Se connecter
+              </Button>
+            </form>
+          </NotificationProvider>
 
           {/* Connexion Google & Apple */}
           <Box sx={{ mt: 4 }}>
