@@ -49,14 +49,7 @@ interface NavbartProps {
 
 const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [isOpen, setIsOpen] = useState(false);
-  const [language, setLanguage] = useState('fr')
-  const changeLanguage = (lang: any) => {
-    setLanguage(lang);
-    setIsOpen(false);
-  };
-
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const firstNavRef = useRef<HTMLDivElement>(null);
   const secondNavRef = useRef<HTMLDivElement>(null);
@@ -396,7 +389,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                   </CloseButton>
                   <Disclosure as="div" className="-mx-3">
                     <DisclosureButton className="group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                      Informations générales{t('navbar.Accueil')}
+                      {t('navbar.informations')}
                       <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-[open]:rotate-180" />
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 ">
@@ -503,7 +496,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                     to={'/signin'}
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
-                    {t('navbar.Espace_Privé')}
+                    {t('navbar.espace_prive')}
                   </CloseButton>
                 </div>
               </div>
