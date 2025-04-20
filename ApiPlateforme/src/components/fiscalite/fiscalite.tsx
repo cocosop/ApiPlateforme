@@ -2,7 +2,7 @@ import { Disclosure, Transition } from '@headlessui/react';
 interface FiscalitePageProps {
   id?: string; // La prop id est optionnelle
 }
-const FiscalitePage: React.FC<FiscalitePageProps> = ({ id }) => {  
+const FiscalitePage: React.FC<FiscalitePageProps> = ({ id }) => {
   const colors = {
     primary: '#0F0B60',
     secondary: '#0E600B',
@@ -87,289 +87,289 @@ const FiscalitePage: React.FC<FiscalitePageProps> = ({ id }) => {
         </Disclosure>
         {/* Fiscalité Locale */}
         <Disclosure>
-  {({ open }) => (
-    <div className="bg-white rounded-xl shadow-lg border-l-8 p-4" style={{ borderColor: colors.accent }}>
-      <Disclosure.Button className="w-full text-left">
-        <div className="flex justify-between items-center">
-          <h2 className="text-sm font-bold" style={{ color: colors.primary }}>Fiscalité Locale</h2>
-          <span className={`transform transition-transform ${open ? 'rotate-180' : ''}`} style={{ color: colors.accent, fontSize: '1.2rem' }}>▼</span>
-        </div>
-      </Disclosure.Button>
+          {({ open }) => (
+            <div className="bg-white rounded-xl shadow-lg border-l-8 p-4" style={{ borderColor: colors.accent }}>
+              <Disclosure.Button className="w-full text-left">
+                <div className="flex justify-between items-center">
+                  <h2 className="text-sm font-bold" style={{ color: colors.primary }}>Fiscalité Locale</h2>
+                  <span className={`transform transition-transform ${open ? 'rotate-180' : ''}`} style={{ color: colors.accent, fontSize: '1.2rem' }}>▼</span>
+                </div>
+              </Disclosure.Button>
 
-      <Transition
-        enter="transition duration-150 ease-out"
-        enterFrom="opacity-0 -translate-y-1"
-        enterTo="opacity-100 translate-y-0"
-        leave="transition duration-100 ease-out"
-        leaveFrom="opacity-100 translate-y-0"
-        leaveTo="opacity-0 translate-y-1"
-      >
-        <Disclosure.Panel className="pt-4 space-y-4 border-t mt-2">
-          {[
-            { title: 'Patente', items: ['1% du chiffre d\'affaires', 'Déclaration sous 2 mois du démarrage', 'Paiement annuel (sauf transporteurs : trimestriel)'] },
-            { title: 'Licence', items: ['Boissons alcoolisées : 4x patente', 'Boissons non-alcoolisées : 2x patente', 'Calcul annuel personnalisé'] },
-            { title: 'Taxe sur le Bétail', items: ['200 FCFA/tête de bovin', 'Exemptions : animaux de labour', 'Recensement annuel obligatoire'] }
-          ].map((section, index) => (
-            <div key={index} className="space-y-1">
-              <h3 className="text-sm font-semibold" style={{ color: colors.accent }}>{section.title}</h3>
-              <ul className="list-disc pl-5 space-y-1 text-gray-700">
-                {section.items.map((item, i) => <li key={i}>{item}</li>)}
-              </ul>
+              <Transition
+                enter="transition duration-150 ease-out"
+                enterFrom="opacity-0 -translate-y-1"
+                enterTo="opacity-100 translate-y-0"
+                leave="transition duration-100 ease-out"
+                leaveFrom="opacity-100 translate-y-0"
+                leaveTo="opacity-0 translate-y-1"
+              >
+                <Disclosure.Panel className="pt-4 space-y-4 border-t mt-2">
+                  {[
+                    { title: 'Patente', items: ['1% du chiffre d\'affaires', 'Déclaration sous 2 mois du démarrage', 'Paiement annuel (sauf transporteurs : trimestriel)'] },
+                    { title: 'Licence', items: ['Boissons alcoolisées : 4x patente', 'Boissons non-alcoolisées : 2x patente', 'Calcul annuel personnalisé'] },
+                    { title: 'Taxe sur le Bétail', items: ['200 FCFA/tête de bovin', 'Exemptions : animaux de labour', 'Recensement annuel obligatoire'] }
+                  ].map((section, index) => (
+                    <div key={index} className="space-y-1">
+                      <h3 className="text-sm font-semibold" style={{ color: colors.accent }}>{section.title}</h3>
+                      <ul className="list-disc pl-5 space-y-1 text-gray-700">
+                        {section.items.map((item, i) => <li key={i}>{item}</li>)}
+                      </ul>
+                    </div>
+                  ))}
+                </Disclosure.Panel>
+              </Transition>
             </div>
-          ))}
-        </Disclosure.Panel>
-      </Transition>
-    </div>
-  )}
+          )}
         </Disclosure>
         {/* TVA & Droits Spéciaux */}
         <Disclosure>
-  {({ open }) => (
-    <div className="bg-white rounded-xl shadow-lg border-l-8 p-4" style={{ borderColor: colors.highlight }}>
-      <Disclosure.Button className="w-full text-left">
-        <div className="flex justify-between items-center">
-          <h2 className="text-sm font-bold" style={{ color: colors.primary }}>
-            TVA & Droits Spéciaux
-          </h2>
-          <span
-            className={`transform transition-transform ${open ? 'rotate-180' : ''}`}
-            style={{ color: colors.accent, fontSize: '1.2rem' }}
-          >
-            ▼
-          </span>
-        </div>
-      </Disclosure.Button>
+          {({ open }) => (
+            <div className="bg-white rounded-xl shadow-lg border-l-8 p-4" style={{ borderColor: colors.highlight }}>
+              <Disclosure.Button className="w-full text-left">
+                <div className="flex justify-between items-center">
+                  <h2 className="text-sm font-bold" style={{ color: colors.primary }}>
+                    TVA & Droits Spéciaux
+                  </h2>
+                  <span
+                    className={`transform transition-transform ${open ? 'rotate-180' : ''}`}
+                    style={{ color: colors.accent, fontSize: '1.2rem' }}
+                  >
+                    ▼
+                  </span>
+                </div>
+              </Disclosure.Button>
 
-      <Transition
-        enter="transition duration-150 ease-out"
-        enterFrom="opacity-0 -translate-y-1"
-        enterTo="opacity-100 translate-y-0"
-        leave="transition duration-100 ease-out"
-        leaveFrom="opacity-100 translate-y-0"
-        leaveTo="opacity-0 translate-y-1"
-      >
-        <Disclosure.Panel className="pt-4 space-y-4 border-t mt-2">
-          <div className="space-y-2">
-            <div className="flex justify-between items-center">
-              <span className="font-semibold">Taux Normal</span>
-              <span
-                className="px-3 py-1 rounded-full font-bold"
-                style={{ backgroundColor: colors.highlight, color: colors.primary }}
+              <Transition
+                enter="transition duration-150 ease-out"
+                enterFrom="opacity-0 -translate-y-1"
+                enterTo="opacity-100 translate-y-0"
+                leave="transition duration-100 ease-out"
+                leaveFrom="opacity-100 translate-y-0"
+                leaveTo="opacity-0 translate-y-1"
               >
-                19.25%
-              </span>
-            </div>
-            <p className="text-xs text-gray-600">(17.5% TVA + 1.75% CAC)</p>
-          </div>
+                <Disclosure.Panel className="pt-4 space-y-4 border-t mt-2">
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="font-semibold">Taux Normal</span>
+                      <span
+                        className="px-3 py-1 rounded-full font-bold"
+                        style={{ backgroundColor: colors.highlight, color: colors.primary }}
+                      >
+                        19.25%
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-600">(17.5% TVA + 1.75% CAC)</p>
+                  </div>
 
-          <div className="space-y-1">
-            <h3 className="text-sm font-semibold" style={{ color: colors.accent }}>Exonérations</h3>
-            <ul className="list-disc pl-5 space-y-1 text-gray-700">
-              <li>Exportations</li>
-              <li>Zones Franches Industrielles</li>
-              <li>Services éducatifs</li>
-            </ul>
-          </div>
+                  <div className="space-y-1">
+                    <h3 className="text-sm font-semibold" style={{ color: colors.accent }}>Exonérations</h3>
+                    <ul className="list-disc pl-5 space-y-1 text-gray-700">
+                      <li>Exportations</li>
+                      <li>Zones Franches Industrielles</li>
+                      <li>Services éducatifs</li>
+                    </ul>
+                  </div>
 
-          <div className="space-y-1">
-            <h3 className="text-sm font-semibold" style={{ color: colors.accent }}>Droit d'Accise</h3>
-            <div className="grid md:grid-cols-2 gap-2">
-              <div className="p-3 bg-gray-50 rounded-lg">
-                <div className="font-medium">Boissons alcoolisées</div>
-                <div className="mt-1" style={{ color: colors.secondary }}>
-                  Abattement : 35%
-                </div>
-              </div>
-              <div className="p-3 bg-gray-50 rounded-lg">
-                <div className="font-medium">Tabacs</div>
-                <div className="mt-1" style={{ color: colors.secondary }}>
-                  Abattement : 42.5%
-                </div>
-              </div>
+                  <div className="space-y-1">
+                    <h3 className="text-sm font-semibold" style={{ color: colors.accent }}>Droit d'Accise</h3>
+                    <div className="grid md:grid-cols-2 gap-2">
+                      <div className="p-3 bg-gray-50 rounded-lg">
+                        <div className="font-medium">Boissons alcoolisées</div>
+                        <div className="mt-1" style={{ color: colors.secondary }}>
+                          Abattement : 35%
+                        </div>
+                      </div>
+                      <div className="p-3 bg-gray-50 rounded-lg">
+                        <div className="font-medium">Tabacs</div>
+                        <div className="mt-1" style={{ color: colors.secondary }}>
+                          Abattement : 42.5%
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Disclosure.Panel>
+              </Transition>
             </div>
-          </div>
-        </Disclosure.Panel>
-      </Transition>
-    </div>
-  )}
+          )}
         </Disclosure>
         {/* Douanes */}
         <Disclosure>
-  {({ open }) => (
-    <div className="bg-white rounded-xl shadow-lg border-l-8 p-4" style={{ borderColor: colors.primary }}>
-      <Disclosure.Button className="w-full text-left">
-        <div className="flex justify-between items-center">
-          <h2 className="text-sm font-bold" style={{ color: colors.primary }}>
-            Régimes Douaniers
-          </h2>
-          <span
-            className={`transform transition-transform ${open ? 'rotate-180' : ''}`}
-            style={{ color: colors.accent, fontSize: '1.2rem' }}
-          >
-            ▼
-          </span>
-        </div>
-      </Disclosure.Button>
+          {({ open }) => (
+            <div className="bg-white rounded-xl shadow-lg border-l-8 p-4" style={{ borderColor: colors.primary }}>
+              <Disclosure.Button className="w-full text-left">
+                <div className="flex justify-between items-center">
+                  <h2 className="text-sm font-bold" style={{ color: colors.primary }}>
+                    Régimes Douaniers
+                  </h2>
+                  <span
+                    className={`transform transition-transform ${open ? 'rotate-180' : ''}`}
+                    style={{ color: colors.accent, fontSize: '1.2rem' }}
+                  >
+                    ▼
+                  </span>
+                </div>
+              </Disclosure.Button>
 
-      <Transition
-        enter="transition duration-150 ease-out"
-        enterFrom="opacity-0 -translate-y-1"
-        enterTo="opacity-100 translate-y-0"
-        leave="transition duration-100 ease-out"
-        leaveFrom="opacity-100 translate-y-0"
-        leaveTo="opacity-0 translate-y-1"
-      >
-        <Disclosure.Panel className="pt-4 space-y-4 border-t mt-2">
-          <div className="space-y-2">
-            <h3 className="font-semibold" style={{ color: colors.accent }}>Tarif Extérieur Commun</h3>
-            <div className="grid grid-cols-2 gap-2 text-xs">
-              <div>
-                <span className="font-medium">Biens essentiels</span>
-                <div className="flex items-center gap-1">
-                  <span>Taux :</span>
-                  <span style={{ color: colors.secondary }}>5%</span>
-                </div>
-              </div>
-              <div>
-                <span className="font-medium">Biens consommation</span>
-                <div className="flex items-center gap-1">
-                  <span>Taux :</span>
-                  <span style={{ color: colors.secondary }}>30%</span>
-                </div>
-              </div>
+              <Transition
+                enter="transition duration-150 ease-out"
+                enterFrom="opacity-0 -translate-y-1"
+                enterTo="opacity-100 translate-y-0"
+                leave="transition duration-100 ease-out"
+                leaveFrom="opacity-100 translate-y-0"
+                leaveTo="opacity-0 translate-y-1"
+              >
+                <Disclosure.Panel className="pt-4 space-y-4 border-t mt-2">
+                  <div className="space-y-2">
+                    <h3 className="font-semibold" style={{ color: colors.accent }}>Tarif Extérieur Commun</h3>
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      <div>
+                        <span className="font-medium">Biens essentiels</span>
+                        <div className="flex items-center gap-1">
+                          <span>Taux :</span>
+                          <span style={{ color: colors.secondary }}>5%</span>
+                        </div>
+                      </div>
+                      <div>
+                        <span className="font-medium">Biens consommation</span>
+                        <div className="flex items-center gap-1">
+                          <span>Taux :</span>
+                          <span style={{ color: colors.secondary }}>30%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <h3 className="font-semibold" style={{ color: colors.accent }}>Procédures</h3>
+                    <ul className="list-disc pl-5 space-y-1 text-xs">
+                      <li>Déclaration sous 24h après arrivée</li>
+                      <li>Manifeste de cargaison obligatoire</li>
+                      <li>Contrôle physique des marchandises</li>
+                    </ul>
+                  </div>
+                </Disclosure.Panel>
+              </Transition>
             </div>
-          </div>
-
-          <div className="space-y-1">
-            <h3 className="font-semibold" style={{ color: colors.accent }}>Procédures</h3>
-            <ul className="list-disc pl-5 space-y-1 text-xs">
-              <li>Déclaration sous 24h après arrivée</li>
-              <li>Manifeste de cargaison obligatoire</li>
-              <li>Contrôle physique des marchandises</li>
-            </ul>
-          </div>
-        </Disclosure.Panel>
-      </Transition>
-    </div>
-  )}
+          )}
         </Disclosure>
         {/* Impôt Sociétés */}
         <Disclosure>
-  {({ open }) => (
-    <div className="bg-white rounded-xl shadow-lg border-l-8 p-4" style={{ borderColor: colors.accent }}>
-      <Disclosure.Button className="w-full text-left">
-        <div className="flex justify-between items-center">
-          <h2 className="text-sm font-bold" style={{ color: colors.primary }}>
-            Impôt sur les Sociétés
-          </h2>
-          <span
-            className={`transform transition-transform ${open ? 'rotate-180' : ''}`}
-            style={{ color: colors.accent, fontSize: '1.2rem' }}
-          >
-            ▼
-          </span>
-        </div>
-      </Disclosure.Button>
+          {({ open }) => (
+            <div className="bg-white rounded-xl shadow-lg border-l-8 p-4" style={{ borderColor: colors.accent }}>
+              <Disclosure.Button className="w-full text-left">
+                <div className="flex justify-between items-center">
+                  <h2 className="text-sm font-bold" style={{ color: colors.primary }}>
+                    Impôt sur les Sociétés
+                  </h2>
+                  <span
+                    className={`transform transition-transform ${open ? 'rotate-180' : ''}`}
+                    style={{ color: colors.accent, fontSize: '1.2rem' }}
+                  >
+                    ▼
+                  </span>
+                </div>
+              </Disclosure.Button>
 
-      <Transition
-        enter="transition duration-150 ease-out"
-        enterFrom="opacity-0 -translate-y-1"
-        enterTo="opacity-100 translate-y-0"
-        leave="transition duration-100 ease-out"
-        leaveFrom="opacity-100 translate-y-0"
-        leaveTo="opacity-0 translate-y-1"
-      >
-        <Disclosure.Panel className="pt-4 space-y-4 border-t mt-2">
-          <div className="space-y-2">
-            <div className="flex justify-between items-center">
-              <span className="font-medium">Taux Normal</span>
-              <span
-                className="px-3 py-1 rounded-full text-xs font-bold"
-                style={{ backgroundColor: colors.highlight, color: colors.primary }}
+              <Transition
+                enter="transition duration-150 ease-out"
+                enterFrom="opacity-0 -translate-y-1"
+                enterTo="opacity-100 translate-y-0"
+                leave="transition duration-100 ease-out"
+                leaveFrom="opacity-100 translate-y-0"
+                leaveTo="opacity-0 translate-y-1"
               >
-                33%
-              </span>
-            </div>
-            <p className="text-xs text-gray-600">(30% IS + 3% CAC)</p>
-          </div>
+                <Disclosure.Panel className="pt-4 space-y-4 border-t mt-2">
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center">
+                      <span className="font-medium">Taux Normal</span>
+                      <span
+                        className="px-3 py-1 rounded-full text-xs font-bold"
+                        style={{ backgroundColor: colors.highlight, color: colors.primary }}
+                      >
+                        33%
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-600">(30% IS + 3% CAC)</p>
+                  </div>
 
-          <div className="space-y-1">
-            <h3 className="font-semibold" style={{ color: colors.accent }}>Acomptes</h3>
-            <div className="grid grid-cols-2 gap-2 text-xs">
-              <div>
-                <span className="font-medium">Régime réel</span>
-                <div className="flex items-center gap-1">
-                  <span>Taux :</span>
-                  <span style={{ color: colors.secondary }}>2.2% CA</span>
-                </div>
-              </div>
-              <div>
-                <span className="font-medium">RSI</span>
-                <div className="flex items-center gap-1">
-                  <span>Taux :</span>
-                  <span style={{ color: colors.secondary }}>5.5% CA</span>
-                </div>
-              </div>
+                  <div className="space-y-1">
+                    <h3 className="font-semibold" style={{ color: colors.accent }}>Acomptes</h3>
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      <div>
+                        <span className="font-medium">Régime réel</span>
+                        <div className="flex items-center gap-1">
+                          <span>Taux :</span>
+                          <span style={{ color: colors.secondary }}>2.2% CA</span>
+                        </div>
+                      </div>
+                      <div>
+                        <span className="font-medium">RSI</span>
+                        <div className="flex items-center gap-1">
+                          <span>Taux :</span>
+                          <span style={{ color: colors.secondary }}>5.5% CA</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </Disclosure.Panel>
+              </Transition>
             </div>
-          </div>
-        </Disclosure.Panel>
-      </Transition>
-    </div>
-  )}
+          )}
         </Disclosure>
         {/* Taxe Foncière */}
         <Disclosure>
-  {({ open }) => (
-    <div className="bg-white rounded-xl shadow-lg border-l-8 p-4" style={{ borderColor: colors.highlight }}>
-      <Disclosure.Button className="w-full text-left">
-        <div className="flex justify-between items-center">
-          <h2 className="text-sm font-bold" style={{ color: colors.primary }}>
-            Taxe Foncière
-          </h2>
-          <span
-            className={`transform transition-transform ${open ? 'rotate-180' : ''}`}
-            style={{ color: colors.accent, fontSize: '1.2rem' }}
-          >
-            ▼
-          </span>
-        </div>
-      </Disclosure.Button>
+          {({ open }) => (
+            <div className="bg-white rounded-xl shadow-lg border-l-8 p-4" style={{ borderColor: colors.highlight }}>
+              <Disclosure.Button className="w-full text-left">
+                <div className="flex justify-between items-center">
+                  <h2 className="text-sm font-bold" style={{ color: colors.primary }}>
+                    Taxe Foncière
+                  </h2>
+                  <span
+                    className={`transform transition-transform ${open ? 'rotate-180' : ''}`}
+                    style={{ color: colors.accent, fontSize: '1.2rem' }}
+                  >
+                    ▼
+                  </span>
+                </div>
+              </Disclosure.Button>
 
-      <Transition
-        enter="transition duration-150 ease-out"
-        enterFrom="opacity-0 -translate-y-1"
-        enterTo="opacity-100 translate-y-0"
-        leave="transition duration-100 ease-out"
-        leaveFrom="opacity-100 translate-y-0"
-        leaveTo="opacity-0 translate-y-1"
-      >
-        <Disclosure.Panel className="pt-4 space-y-4 border-t mt-2">
-          <div className="space-y-2">
-            <h3 className="font-semibold" style={{ color: colors.accent }}>Calcul</h3>
-            <div className="grid grid-cols-2 gap-2 text-xs">
-              <div className="p-2 rounded-lg bg-gray-50">
-                <div className="font-medium mb-1">Propriétaire</div>
-                <div style={{ color: colors.secondary }}>0.11% × (terrain + bâtiments)</div>
-              </div>
-              <div className="p-2 rounded-lg bg-gray-50">
-                <div className="font-medium mb-1">Locataire</div>
-                <div style={{ color: colors.secondary }}>5-10% loyer annuel + 50% précompte</div>
-              </div>
+              <Transition
+                enter="transition duration-150 ease-out"
+                enterFrom="opacity-0 -translate-y-1"
+                enterTo="opacity-100 translate-y-0"
+                leave="transition duration-100 ease-out"
+                leaveFrom="opacity-100 translate-y-0"
+                leaveTo="opacity-0 translate-y-1"
+              >
+                <Disclosure.Panel className="pt-4 space-y-4 border-t mt-2">
+                  <div className="space-y-2">
+                    <h3 className="font-semibold" style={{ color: colors.accent }}>Calcul</h3>
+                    <div className="grid grid-cols-2 gap-2 text-xs">
+                      <div className="p-2 rounded-lg bg-gray-50">
+                        <div className="font-medium mb-1">Propriétaire</div>
+                        <div style={{ color: colors.secondary }}>0.11% × (terrain + bâtiments)</div>
+                      </div>
+                      <div className="p-2 rounded-lg bg-gray-50">
+                        <div className="font-medium mb-1">Locataire</div>
+                        <div style={{ color: colors.secondary }}>5-10% loyer annuel + 50% précompte</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <h3 className="font-semibold" style={{ color: colors.accent }}>Paiement</h3>
+                    <ul className="list-disc pl-5 space-y-1 text-xs">
+                      <li>Date limite : 15 mars</li>
+                      <li>Sanctions pour retard</li>
+                      <li>Exonérations partielles possibles</li>
+                    </ul>
+                  </div>
+                </Disclosure.Panel>
+              </Transition>
             </div>
-          </div>
-
-          <div className="space-y-1">
-            <h3 className="font-semibold" style={{ color: colors.accent }}>Paiement</h3>
-            <ul className="list-disc pl-5 space-y-1 text-xs">
-              <li>Date limite : 15 mars</li>
-              <li>Sanctions pour retard</li>
-              <li>Exonérations partielles possibles</li>
-            </ul>
-          </div>
-        </Disclosure.Panel>
-      </Transition>
-    </div>
-  )}
+          )}
         </Disclosure>
 
 

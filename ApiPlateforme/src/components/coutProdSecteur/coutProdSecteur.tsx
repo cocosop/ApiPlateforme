@@ -8,7 +8,6 @@ import hydro from "./../../assets/img/hydro.jpg"
 import chimie from "./../../assets/img/chimie.jpg"
 import finance from "./../../assets/img/finance.jpg"
 import bois from "./../../assets/img/bois.jpg"
-// import { hover } from "framer-motion";
 
 interface ProductionCostsBySectorProps {
   id?: string; // La prop id est optionnelle
@@ -150,7 +149,7 @@ const productionCosts = [
 const ProductionCostsBySector: React.FC<ProductionCostsBySectorProps> = ({ id }) => {
   // Déclarer `hoveredCard` avec `useState`
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-  console.log(hoveredCard)
+
   const handleMouseEnter = (id: number) => {
     setHoveredCard(id);
   };
@@ -160,69 +159,69 @@ const ProductionCostsBySector: React.FC<ProductionCostsBySectorProps> = ({ id })
   };
   return (
     <div id={id} className="container mx-auto px-4 py-6 bg-gray-100 rounded-xl">
-    {/* Titre et ligne de séparation */}
-    <h2 className="text-xl font-bold text-center mb-4 text-[#0F0B60]">
-      Coûts des Facteurs de Production par Secteur
-    </h2>
-    <span className="block w-16 h-0.5 bg-[#0F0B60] mx-auto mb-8"></span>
-  
-    {/* Grille de cartes (5 colonnes et 2 lignes) */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-      {productionCosts.map((item) => (
-        <div
-          key={item.id}
-          className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100"
-          onMouseEnter={() => handleMouseEnter(item.id)}
-          onMouseLeave={handleMouseLeave}
-        >
-          {/* En-tête de la carte */}
-          <div className="p-3 border-b border-gray-200">
-            <p className="text-xs font-bold text-green-500 text-center">
-              {item.sector}
-            </p>
-          </div>
-  
-          {/* Corps de la carte */}
-          <div className="p-3">
-            {/* Section des détails des coûts avec l'image en arrière-plan */}
-            <div
-              className="relative rounded-lg overflow-hidden min-h-[100px] transition-transform duration-300 hover:scale-105"
-              style={{
-                backgroundImage: `url(${item.image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            >
-              {/* Overlay pour améliorer la lisibilité du texte */}
-              <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-  
-              {/* Détails des coûts */}
-              <div className="relative p-3">
-                <ul className="space-y-1">
-                  {item.factors.map((factor, index) => (
-                    <li key={index} className="text-xs text-white">
-                      <span className="font-semibold">{factor.name} :</span>{" "}
-                      <span>{factor.cost}</span>
-                    </li>
-                  ))}
-                </ul>
+      {/* Titre et ligne de séparation */}
+      <h2 className="text-xl font-bold text-center mb-4 text-[#0F0B60]">
+        Coûts des Facteurs de Production par Secteur
+      </h2>
+      <span className="block w-16 h-0.5 bg-[#0F0B60] mx-auto mb-8"></span>
+
+      {/* Grille de cartes (5 colonnes et 2 lignes) */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        {productionCosts.map((item) => (
+          <div
+            key={item.id}
+            className="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100"
+            onMouseEnter={() => handleMouseEnter(item.id)}
+            onMouseLeave={handleMouseLeave}
+          >
+            {/* En-tête de la carte */}
+            <div className="p-3 border-b border-gray-200">
+              <p className="text-xs font-bold text-green-500 text-center">
+                {item.sector}
+              </p>
+            </div>
+
+            {/* Corps de la carte */}
+            <div className="p-3">
+              {/* Section des détails des coûts avec l'image en arrière-plan */}
+              <div
+                className="relative rounded-lg overflow-hidden min-h-[100px] transition-transform duration-300 hover:scale-105"
+                style={{
+                  backgroundImage: `url(${item.image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+              >
+                {/* Overlay pour améliorer la lisibilité du texte */}
+                <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+
+                {/* Détails des coûts */}
+                <div className="relative p-3">
+                  <ul className="space-y-1">
+                    {item.factors.map((factor, index) => (
+                      <li key={index} className="text-xs text-white">
+                        <span className="font-semibold">{factor.name} :</span>{" "}
+                        <span>{factor.cost}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
+
+            {/* Pied de page de la carte */}
+            <div className="p-3 border-t border-gray-200">
+              <p className="text-sm font-semibold text-[#0E600B] text-center">
+                Coût total : {item.totalCost}
+              </p>
+              <p className="text-xs text-gray-500 mt-1 text-center">
+                Source : <span className="italic">{item.source}</span>
+              </p>
+            </div>
           </div>
-  
-          {/* Pied de page de la carte */}
-          <div className="p-3 border-t border-gray-200">
-            <p className="text-sm font-semibold text-[#0E600B] text-center">
-              Coût total : {item.totalCost}
-            </p>
-            <p className="text-xs text-gray-500 mt-1 text-center">
-              Source : <span className="italic">{item.source}</span>
-            </p>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-  </div>
   );
 };
 

@@ -45,7 +45,7 @@ const ReformListItem = ({ text }: { text: string }) => (
 const Accordion = ({ title, children, iconColor = '#0F0B60', className }: AccordionProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const contentId = useId();
-  
+
   return (
     <div className={`border border-gray-200 rounded-xl overflow-hidden mb-4 transition-all duration-200 hover:border-[#0F0B60] ${className}`}>
       <button
@@ -61,7 +61,7 @@ const Accordion = ({ title, children, iconColor = '#0F0B60', className }: Accord
           </svg>
         </span>
       </button>
-      <div 
+      <div
         id={contentId}
         className={`overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-[1000px]' : 'max-h-0'}`}
       >
@@ -97,7 +97,7 @@ const LawLinkItem = ({ law }: { law: LawLink }) => (
 )
 
 // Main Component
-const Foncier: React.FC<FoncierProps> = ({ id }) => {  
+const Foncier: React.FC<FoncierProps> = ({ id }) => {
   const acquisitionMethods = [
     {
       title: "Terrains Lotis",
@@ -143,84 +143,84 @@ const Foncier: React.FC<FoncierProps> = ({ id }) => {
       link: "https://legecam.cm/wp-content/uploads/2024/05/bb-rfi-05-loi-n8021-du-14-juillet-1980-modifiant-et-completant-certaines-dispositions-de-lordonnance.pdf",
     }
   ]
-  return (   
-<div id={id} className="flex flex-col items-center mb-8">
-  {/* Slider Section */}
-  <div data-aos="fade-up" className="flex flex-col items-center mb-6">
-  <h2 className="text-3xl font-bold text-center mb-4 mt-0 text-[#0F0B60]">
-    Foncier
-  </h2>
-  <span className="block w-96 h-1 bg-[#0F0B60]"></span> {/* Ajustez la largeur ici */}
-</div>
-  {/* Accordions */}
-  <div className="w-full max-w-4xl space-y-4">
-  <Accordion title="⚖️ Information générales" iconColor="#DC2123" className="bg-white shadow-sm border border-gray-100 rounded-lg">
-    <section className="grid gap-6 md:grid-cols-2">
-      {acquisitionMethods.map((method, index) => (
-        <AcquisitionCard key={index} {...method} />
-      ))}
-    </section>
-    <section className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 mt-6">
-      <div className="max-w-3xl">
-        <div className="mb-6">
-          <span className="bg-[#0E600B]/10 text-[#0E600B] px-4 py-2 rounded-full text-sm font-semibold">
-            Nouveauté 2005
-          </span>
-        </div>
-        <h3 className="text-3xl font-bold text-gray-900 mb-6">
-          Révolution des Réformes Foncières
-        </h3>
-        <ul className="space-y-4">
-          {reformsList.map((reform, index) => (
-            <ReformListItem key={index} text={reform} />
-          ))}
-        </ul>
+  return (
+    <div id={id} className="flex flex-col items-center mb-8">
+      {/* Slider Section */}
+      <div data-aos="fade-up" className="flex flex-col items-center mb-6">
+        <h2 className="text-3xl font-bold text-center mb-4 mt-0 text-[#0F0B60]">
+          Foncier
+        </h2>
+        <span className="block w-96 h-1 bg-[#0F0B60]"></span> {/* Ajustez la largeur ici */}
       </div>
-    </section>
-  </Accordion>
+      {/* Accordions */}
+      <div className="w-full max-w-4xl space-y-4">
+        <Accordion title="⚖️ Information générales" iconColor="#DC2123" className="bg-white shadow-sm border border-gray-100 rounded-lg">
+          <section className="grid gap-6 md:grid-cols-2">
+            {acquisitionMethods.map((method, index) => (
+              <AcquisitionCard key={index} {...method} />
+            ))}
+          </section>
+          <section className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100 mt-6">
+            <div className="max-w-3xl">
+              <div className="mb-6">
+                <span className="bg-[#0E600B]/10 text-[#0E600B] px-4 py-2 rounded-full text-sm font-semibold">
+                  Nouveauté 2005
+                </span>
+              </div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                Révolution des Réformes Foncières
+              </h3>
+              <ul className="space-y-4">
+                {reformsList.map((reform, index) => (
+                  <ReformListItem key={index} text={reform} />
+                ))}
+              </ul>
+            </div>
+          </section>
+        </Accordion>
 
-  <Accordion title="📜 Titre Foncier Garanti" iconColor="#F5BA3A" className="bg-white shadow-sm border border-gray-100 rounded-lg">
-    <div className="space-y-3">
-      <p className="leading-relaxed">
-        Une procédure sécurisée avec authentification biométrique 
-        et vérification cadastrale numérique.
-      </p>
-      <ul className="list-disc pl-6 text-gray-600 space-y-2">
-        <li>Certificat d'authenticité numérique</li>
-        <li>Géolocalisation précise</li>
-        <li>Protection contre les fraudes</li>
-      </ul>
-    </div>
-  </Accordion>
+        <Accordion title="📜 Titre Foncier Garanti" iconColor="#F5BA3A" className="bg-white shadow-sm border border-gray-100 rounded-lg">
+          <div className="space-y-3">
+            <p className="leading-relaxed">
+              Une procédure sécurisée avec authentification biométrique
+              et vérification cadastrale numérique.
+            </p>
+            <ul className="list-disc pl-6 text-gray-600 space-y-2">
+              <li>Certificat d'authenticité numérique</li>
+              <li>Géolocalisation précise</li>
+              <li>Protection contre les fraudes</li>
+            </ul>
+          </div>
+        </Accordion>
 
-  <Accordion title="🏢 Bail Commercial Sécurisé" iconColor="#DC2123" className="bg-white shadow-sm border border-gray-100 rounded-lg">
-    <div className="space-y-3">
-      <p className="leading-relaxed">
-        Contrats de bail modernisés avec protection des deux parties 
-        et réévaluation encadrée.
-      </p>
-      <div className="bg-[#F5BA3A]/10 p-4 rounded-lg">
-        <p className="text-sm text-[#0F0B60]">
-          Durée maximale : 15 ans renouvelable<br />
-          Indexation réglementée sur l'indice INSEE
-        </p>
+        <Accordion title="🏢 Bail Commercial Sécurisé" iconColor="#DC2123" className="bg-white shadow-sm border border-gray-100 rounded-lg">
+          <div className="space-y-3">
+            <p className="leading-relaxed">
+              Contrats de bail modernisés avec protection des deux parties
+              et réévaluation encadrée.
+            </p>
+            <div className="bg-[#F5BA3A]/10 p-4 rounded-lg">
+              <p className="text-sm text-[#0F0B60]">
+                Durée maximale : 15 ans renouvelable<br />
+                Indexation réglementée sur l'indice INSEE
+              </p>
+            </div>
+          </div>
+        </Accordion>
+
+        <Accordion title="⚖️ Code Foncier" iconColor="#DC2123" className="bg-white shadow-sm border border-gray-100 rounded-lg">
+          <nav>
+            <ul className="space-y-3">
+              {legalLaws.map((law, index) => (
+                <LawLinkItem key={index} law={law} />
+              ))}
+            </ul>
+          </nav>
+        </Accordion>
       </div>
     </div>
-  </Accordion>
 
-  <Accordion title="⚖️ Code Foncier" iconColor="#DC2123" className="bg-white shadow-sm border border-gray-100 rounded-lg">
-    <nav>
-      <ul className="space-y-3">
-        {legalLaws.map((law, index) => (
-          <LawLinkItem key={index} law={law} />
-        ))}
-      </ul>
-    </nav>
-  </Accordion>
-</div>
-</div>
 
-  
   )
 }
 

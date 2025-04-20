@@ -6,7 +6,7 @@ interface MainOeuvreProps {
   id?: string; // La prop id est optionnelle
 }
 
-const MainOeuvre: React.FC<MainOeuvreProps> = ({ id }) => {  
+const MainOeuvre: React.FC<MainOeuvreProps> = ({ id }) => {
   useEffect(() => {
     AOS.init({
       duration: 1000, // Durée de l'animation
@@ -155,7 +155,7 @@ const MainOeuvre: React.FC<MainOeuvreProps> = ({ id }) => {
     </div>
   );
 
- 
+
   const slides = [
     {
       id: "s1",
@@ -239,92 +239,92 @@ const MainOeuvre: React.FC<MainOeuvreProps> = ({ id }) => {
 
   return (
     <div id={id} className='mt-8'>
-    {/* Slider Section */}
-    <div data-aos="fade-up" className="flex flex-col items-center mb-6">
-      <h2 className="text-3xl font-bold text-center mb-4 mt-0 text-[#0F0B60]">
-        Main d'Oeuvre 
-      </h2>
-      <span className="block w-1/4 h-1 bg-[#0F0B60]"></span>
-    </div>
-    <div className="bg-white min-h-50 mt-8">      
-      <section
-        data-aos="fade-up"
-        id="slider"
-        className="relative perspective-3d transform-style-preserve-3d mx-auto"
-        style={{ height: '65vh' }} // Ajustement de la hauteur pour mobile
-      >
-        <div className="relative h-full" style={{ height: 'inherit' }}>
-          {slides.map((slide, index) => (
-            <input
-              key={slide.id}
-              type="radio"
-              name="slider"
-              id={slide.id}
-              checked={activeIndex === index}
-              onChange={() => setActiveIndex(index)}
-              className="hidden"
-            />
-          ))}
-
-          {slides.map((slide, index) => (
-            <label
-              key={slide.id}
-              htmlFor={slide.id}
-              className="absolute w-[80%] md:w-[50%] h-[60%] md:h-[80%] rounded-lg overflow-hidden shadow-lg mx-auto left-0 right-0 cursor-pointer transition-transform duration-500 ease-in-out"
-              style={{
-                backgroundColor: slide.color,
-                ...getTransformStyles(index),
-              }}
-            >
-              <div className="flex flex-col items-center justify-center h-full text-center text-black p-4">
-                <span className="text-4xl">{slide.icon}</span>
-                <h3 className="text-xl font-bold my-2">{slide.title}</h3>
-                <p className="text-sm">{slide.content1}</p>
-                <button
-                  className="mt-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-700"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleModalOpen(slide);
-                  }}
-                >
-                  En savoir plus
-                </button>
-              </div>
-            </label>
-          ))}
-
-          {/* Boutons de navigation */}
-          <button
-            onClick={handlePrev}
-            className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-900 z-50"
-            style={{ width: '40px', height: '40px' }} // Taille réduite pour mobile
-          >
-            &#9664;
-          </button>
-          <button
-            onClick={handleNext}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-900 z-50"
-            style={{ width: '40px', height: '40px' }} // Taille réduite pour mobile
-          >
-            &#9654;
-          </button>
-        </div>
-
-        {isModalOpen && (
-          <>
-            <div className="fixed inset-0 bg-black opacity-50 z-40" onClick={handleModalClose}></div>
-            <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
-              <ModalsMainOeuvre
-                title={modalContent.title}
-                content2={modalContent.content2}
-                onClose={handleModalClose}
+      {/* Slider Section */}
+      <div data-aos="fade-up" className="flex flex-col items-center mb-6">
+        <h2 className="text-3xl font-bold text-center mb-4 mt-0 text-[#0F0B60]">
+          Main d'Oeuvre
+        </h2>
+        <span className="block w-1/4 h-1 bg-[#0F0B60]"></span>
+      </div>
+      <div className="bg-white min-h-50 mt-8">
+        <section
+          data-aos="fade-up"
+          id="slider"
+          className="relative perspective-3d transform-style-preserve-3d mx-auto"
+          style={{ height: '65vh' }} // Ajustement de la hauteur pour mobile
+        >
+          <div className="relative h-full" style={{ height: 'inherit' }}>
+            {slides.map((slide, index) => (
+              <input
+                key={slide.id}
+                type="radio"
+                name="slider"
+                id={slide.id}
+                checked={activeIndex === index}
+                onChange={() => setActiveIndex(index)}
+                className="hidden"
               />
-            </div>
-          </>
-        )}
-      </section>        
+            ))}
+
+            {slides.map((slide, index) => (
+              <label
+                key={slide.id}
+                htmlFor={slide.id}
+                className="absolute w-[80%] md:w-[50%] h-[60%] md:h-[80%] rounded-lg overflow-hidden shadow-lg mx-auto left-0 right-0 cursor-pointer transition-transform duration-500 ease-in-out"
+                style={{
+                  backgroundColor: slide.color,
+                  ...getTransformStyles(index),
+                }}
+              >
+                <div className="flex flex-col items-center justify-center h-full text-center text-black p-4">
+                  <span className="text-4xl">{slide.icon}</span>
+                  <h3 className="text-xl font-bold my-2">{slide.title}</h3>
+                  <p className="text-sm">{slide.content1}</p>
+                  <button
+                    className="mt-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-700"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleModalOpen(slide);
+                    }}
+                  >
+                    En savoir plus
+                  </button>
+                </div>
+              </label>
+            ))}
+
+            {/* Boutons de navigation */}
+            <button
+              onClick={handlePrev}
+              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-900 z-50"
+              style={{ width: '40px', height: '40px' }} // Taille réduite pour mobile
+            >
+              &#9664;
+            </button>
+            <button
+              onClick={handleNext}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-900 z-50"
+              style={{ width: '40px', height: '40px' }} // Taille réduite pour mobile
+            >
+              &#9654;
+            </button>
+          </div>
+
+          {isModalOpen && (
+            <>
+              <div className="fixed inset-0 bg-black opacity-50 z-40" onClick={handleModalClose}></div>
+              <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
+                <ModalsMainOeuvre
+                  title={modalContent.title}
+                  content2={modalContent.content2}
+                  onClose={handleModalClose}
+                />
+              </div>
+            </>
+          )}
+        </section>
+      </div>
     </div>
-  </div>
   );
 }
 

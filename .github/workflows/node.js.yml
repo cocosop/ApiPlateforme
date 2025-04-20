@@ -24,13 +24,8 @@ jobs:
         working-directory: ApiPlateforme
     steps:
     - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
     - run: ls
-    - run: npm ci
+    - run: npm i
     - run: npm run build --if-present
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4

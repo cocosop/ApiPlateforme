@@ -1,8 +1,4 @@
 import HOMEVIDEOUPDATED from '../../assets/videos/COMPLEXE INDUSTRIALO-PORTUAIRE DE KRIBI (cameroun).mp4'
-// import OPTIMISATION from "../../assets/img/optimisation.png"
-// import AMELIORATION from "../../assets/img/amelioration.png"
-// import SIMPLIFICATION from "../../assets/img/simplification.png"
-// import UTILISATION from "../../assets/img/utilisation.png"
 import ENREGISTREMENT from "../../assets/img/enregistrement.png"
 import REDUCTION from "../../assets/img/reduction.png"
 import SUIVI from "../../assets/img/suivi.png"
@@ -22,27 +18,6 @@ import { useState } from 'react'
 import ProjectCard from '../../components/projetCard/projetCard'
 import { motion } from 'framer-motion'
 
-//Data table for the list of objectives
-// const cardData = [
-//     {
-//         image: SIMPLIFICATION,
-//         title: "Simplification et facilitation des processus",
-//         description: "Nous prenons en charge et simplifions la création d'entreprises et d'investissements, tout en rendant les procédures plus transparentes.",
-//         color: "#0E600B"
-//     },
-//     {
-//         image: OPTIMISATION,
-//         title: "Optimisation du service public",
-//         description: "Accélérez le traitement des dossiers, améliorez le rendement des agents et la qualité des prestations fournies.",
-//         color: "#DC2124"
-//     },
-//     {
-//         image: AMELIORATION,
-//         title: "Amélioration de la communication et du suivi ",
-//         description: "Nous favorisons l'interaction entre investisseurs et administration, et permettons aux investisseurs de suivre l'évolution de leurs dossiers à distance.",
-//         color: "#F5BA3A"
-//     },
-// ];
 
 //Data table for the list of advantages
 const ListData = [
@@ -102,34 +77,7 @@ const testimonies = [
             imageUrl: 'https://randomuser.me/api/portraits/men/3.jpg',
         },
     },
-    // {
-    //     id: 4,
-    //     description: "Nous avons été impressionnés par l'efficacité de l'API. Leur système de suivi en temps réel nous a permis de rester informés à chaque étape de notre projet. Leur approche moderne et innovante est un véritable atout pour les investisseurs.",
-    //     date: '18 Aug, 2023',
-    //     author: {
-    //         name: 'Amina Bello',
-    //         imageUrl: 'https://randomuser.me/api/portraits/women/4.jpg',
-    //     },
-    // },
-    // {
-    //     id: 5,
-    //     description: "L'API a dépassé nos attentes. Leur plateforme en ligne est intuitive et facile à utiliser, et leur équipe est toujours disponible pour répondre à nos questions. Nous avons pu finaliser notre projet en un temps record grâce à leur soutien.",
-    //     date: '30 Jul, 2023',
-    //     author: {
-    //         name: 'David Smith',
-    //         imageUrl: 'https://randomuser.me/api/portraits/men/5.jpg',
-    //     },
-    // },
-    // {
-    //     id: 6,
-    //     description: "L'API a été un partenaire de confiance pour notre projet d'investissement. Leur processus simplifié et leur accompagnement personnalisé nous ont permis de surmonter les défis administratifs avec facilité. Nous sommes très satisfaits de leur service.",
-    //     date: '10 Jul, 2023',
-    //     author: {
-    //         name: 'Lucie Atangana',
-    //         imageUrl: 'https://randomuser.me/api/portraits/women/36.jpg',
-    //     },
-
-    // More posts...
+   
 ]
 
 
