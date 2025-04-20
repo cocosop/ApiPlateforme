@@ -148,7 +148,7 @@ const productionCosts = [
 
 const ProductionCostsBySector: React.FC<ProductionCostsBySectorProps> = ({ id }) => {
   // Déclarer `hoveredCard` avec `useState`
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [, setHoveredCard] = useState<number | null>(null);
 
   const handleMouseEnter = (id: number) => {
     setHoveredCard(id);
