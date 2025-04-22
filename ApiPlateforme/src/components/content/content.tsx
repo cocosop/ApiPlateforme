@@ -31,7 +31,7 @@ import Incitation from '../../pages/investir/incitation/incitation';
 import Documents from '../dashboard/documents';
 import Projects from '../dashboard/projects';
 import Investment from '../dashboard/investment';
-import Layout from '../dashboardLayout.tsx/layout';
+import Layout from '../dashboardLayout/layout';
 import Dashboard from '../../pages/dashbordPage/dashboard';
 import UsersManagement from '../dashboard/usersManagement';
 import Analytics from '../dashboard/analytics';

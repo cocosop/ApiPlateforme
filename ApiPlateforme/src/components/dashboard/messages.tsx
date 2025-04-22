@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import MessagePanel from '../../pages/dashbordPage/messagePanel';
+import MessagePanel from '../../pages/dashbordPage/messagePanel'
 
 const initialMessages = [
   {

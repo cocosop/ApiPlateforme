@@ -1,8 +1,8 @@
 import React from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-import { useAuthStore } from '../../store/authStore';
+import { useAuthStore } from './../../store/authStore.ts';
 import  Sidebar from './sidebar.tsx';
-import HeaderDashboard from './headerDashboard.tsx';
+import HeaderDashboard from './../../components/dashboardLayout/headerDashboard.tsx';
 
 const Layout: React.FC = () => {
   const { user } = useAuthStore();
