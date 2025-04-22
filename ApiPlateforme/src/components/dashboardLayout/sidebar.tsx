@@ -1,4 +1,4 @@
-import React, { Profiler } from 'react';
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuthStore } from '../../store/authStore';
 import {
@@ -6,15 +6,13 @@ import {
   FolderKanban,
   PiggyBank,
   Settings,
-  FileText,
   BarChart,
   LucideIcon,
   Bell,
   MessageSquare,
   UserCircle,
-  User,
+    
 } from 'lucide-react';
-import { Person } from '@mui/icons-material';
 
 // Type pour les rôles utilisateur
 type UserRole = 'admin' | 'project_owner' | 'investor';

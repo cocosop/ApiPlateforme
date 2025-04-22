@@ -1,4 +1,3 @@
-import React from 'react';
 import { Bell, ChevronDown } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 

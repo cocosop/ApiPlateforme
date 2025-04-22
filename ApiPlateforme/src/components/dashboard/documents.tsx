@@ -13,7 +13,7 @@ interface DocumentManagerProps {
   projectId: string;
 }
 
-const Documents: React.FC<DocumentManagerProps> = ({ projectId }) => {
+const Documents: React.FC<DocumentManagerProps> = () => {
   const [documents, setDocuments] = useState<Document[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedType, setSelectedType] = useState('all');

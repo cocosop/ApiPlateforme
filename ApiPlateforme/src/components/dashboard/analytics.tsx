@@ -1,4 +1,3 @@
-import React from 'react';
 import { BarChart2, TrendingUp, PieChart, ArrowUpRight, ArrowDownRight } from 'lucide-react';
 
 const performanceData = [

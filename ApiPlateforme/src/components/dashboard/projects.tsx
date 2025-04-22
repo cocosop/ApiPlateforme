@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { Briefcase, Clock, Users, BarChart2, Plus, FileText } from 'lucide-react';
+import { Briefcase, Clock, Users, Plus, FileText } from 'lucide-react';
 import Documents from './documents';
-import { X } from '@mui/icons-material';
 import { Link } from 'react-router-dom';
-// import { DocumentManager } from './DocumentManager';
 
 const projects = [
   {

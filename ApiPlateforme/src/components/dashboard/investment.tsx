@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Briefcase, TrendingUp, AlertCircle, Check, Plus, X, MapPin } from 'lucide-react';
+import { Briefcase, AlertCircle, Check, Plus, X, MapPin } from 'lucide-react';
 import { ProjeTypes } from '../../types';
 
 const initialProjects: ProjeTypes[] = [
@@ -60,7 +60,7 @@ const initialProjects: ProjeTypes[] = [
 ];
 
 const Investment: React.FC = () => {
-  const [projects, setProjects] = useState<ProjeTypes[]>(initialProjects);
+  const [projects] = useState<ProjeTypes[]>(initialProjects);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newProject, setNewProject] = useState({
     id: Math.floor(Math.random() * 1000), // Génération d'un ID aléatoire
