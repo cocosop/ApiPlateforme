@@ -36,7 +36,6 @@ import {
 } from '@heroicons/react/20/solid'
 import Logo from '../../assets/img/logo.png'
 import { Link, NavLink } from 'react-router-dom'
-import CameroonFlag from '../../assets/img/Camer.png'
 import './navbar.css'
 import React from 'react'
 import { LeafyGreenIcon, PickaxeIcon, TreesIcon } from 'lucide-react'
@@ -156,32 +155,20 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 
     <header className='bg-white'>
       <div className='bg-gray-100 flex items-center justify-between p-3 px-10' ref={firstNavRef}>
-        <span>
+        <div className='flex items-center gap-2'>
           <img
             className="h-6 w-auto"
-            src={CameroonFlag}
+            src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg"
             alt='Cameroon-Flag'
           />
-        </span>
+          <span className='flex flex-col *:items-center'>
+            <p className='text-xs'>{t('navbar.pays-cm')}</p>
+            <small className="text-[10px]">{t('navbar.devise-cm')}</small>
+          </span>
+        </div>
         <span>
           <div className="relative inline-block text-left">
             <BoutonLangue />
-            {/* {isOpen && (
-              <div className="absolute right-0 z-30 mt-2 bg-white rounded-md shadow-lg w-28">
-                {languages.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => changeLanguage(lang.code)}
-                    className={`block w-full text-left px-4 py-2 text-sm ${lang.code === language
-                      ? "bg-blue-100 text-blue-600"
-                      : "text-gray-700 hover:bg-gray-100"
-                      }`}
-                  >
-                    {lang.label}
-                  </button>
-                ))}
-              </div>
-            )} */}
           </div>
         </span>
       </div>

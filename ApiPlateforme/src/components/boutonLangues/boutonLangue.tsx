@@ -1,16 +1,25 @@
 import { useTranslation } from 'react-i18next';
 import { GlobeAltIcon } from '@heroicons/react/20/solid';
 import { ChevronDownIcon } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 const BoutonLangue = () => {
-    
-    const {i18n } = useTranslation();
+
+    const { i18n } = useTranslation();
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
     useEffect(() => {
-        console.log(i18n)
-        console.log('Current language:', i18n.language);
-        console.log('Translations:', i18n.getResourceBundle(i18n.language, 'translation'));
-      }, [i18n]);
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
     const [isOpen, setIsOpen] = useState(false);
 
     const languages = [
@@ -25,9 +34,8 @@ const BoutonLangue = () => {
         i18n.changeLanguage(lng);
         setIsOpen(false);
     };
-
     return (
-        <div className="relative">
+        <div className="relative" ref={dropdownRef}>
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="flex items-center px-4 py-2 rounded-md"
@@ -44,11 +52,10 @@ const BoutonLangue = () => {
                         <button
                             key={lang.code}
                             onClick={() => changeLanguage(lang.code)}
-                            className={`block w-full text-left px-4 py-2 text-sm ${
-                                i18n.language === lang.code
-                                    ? "bg-blue-100 text-blue-600"
-                                    : "text-gray-700 hover:bg-gray-100"
-                            }`}
+                            className={`block w-full text-left px-4 py-2 text-sm ${i18n.language === lang.code
+                                ? "bg-blue-100 text-blue-600"
+                                : "text-gray-700 hover:bg-gray-100"
+                                }`}
                         >
                             {lang.label}
                         </button>
