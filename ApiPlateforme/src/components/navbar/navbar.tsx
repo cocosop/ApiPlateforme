@@ -50,13 +50,6 @@ interface NavbartProps {
 const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [isOpen, setIsOpen] = useState(false);
-  const [language, setLanguage] = useState('fr')
-  const changeLanguage = (lang: any) => {
-    setLanguage(lang);
-    setIsOpen(false);
-  };
-
   const [isSticky, setIsSticky] = useState(false);
   const firstNavRef = useRef<HTMLDivElement>(null);
   const secondNavRef = useRef<HTMLDivElement>(null);
@@ -172,23 +165,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
         </span>
         <span>
           <div className="relative inline-block text-left">
-            <BoutonLangue />
-            {/* {isOpen && (
-              <div className="absolute right-0 z-30 mt-2 bg-white rounded-md shadow-lg w-28">
-                {languages.map((lang) => (
-                  <button
-                    key={lang.code}
-                    onClick={() => changeLanguage(lang.code)}
-                    className={`block w-full text-left px-4 py-2 text-sm ${lang.code === language
-                      ? "bg-blue-100 text-blue-600"
-                      : "text-gray-700 hover:bg-gray-100"
-                      }`}
-                  >
-                    {lang.label}
-                  </button>
-                ))}
-              </div>
-            )} */}
+            <BoutonLangue />        
           </div>
         </span>
       </div>

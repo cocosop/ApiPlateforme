@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useParams } from 'react-router-dom';
 import Home from '../../pages/home/home'
 import Faq from '../../pages/aPropos/faq/faq';
 import Projets from '../../pages/projets/projets';
@@ -28,11 +28,24 @@ import PresentationApi from '../../pages/aPropos/presentation-api/presentation-a
 import Login from '../../pages/authentication/login/login';
 import Fiscalite from '../../pages/investir/fiscalite/fiscalite';
 import Incitation from '../../pages/investir/incitation/incitation';
+import Documents from '../dashboard/documents';
+import Projects from '../dashboard/projects';
+import Investment from '../dashboard/investment';
+import Layout from '../dashboardLayout.tsx/layout';
+import Dashboard from '../../pages/dashbordPage/dashboard';
+import UsersManagement from '../dashboard/usersManagement';
+import Analytics from '../dashboard/analytics';
+import Messages from '../dashboard/messages';
+import UserProfile from '../dashboard/profil';
+import Settings from '../dashboard/settings';
+import Notifications from '../dashboard/notifications';
 
 interface ContentProps {
     selectedMenu: any | null;
 }
 const content: React.FC<ContentProps> = ({ selectedMenu }) => {
+    const { selectedMenu: menuParam } = useParams(); // Récupérer selectedMenu via les paramètres de la route
+
     return (
         <div>
             <Routes>
@@ -76,7 +89,21 @@ const content: React.FC<ContentProps> = ({ selectedMenu }) => {
                 {/* Routes autres pages */}
                 <Route path='/signin' element={<Login />} />
                 <Route path='/signup' element={<Logup />} />
-                <Route path='/:selectedMenu' element={<Blank selectedMenu={selectedMenu} />} />
+                <Route path='/:selectedMenu' element={<Blank selectedMenu={menuParam || selectedMenu} />} />
+                {/* Routes dashboard */}
+                <Route path="/dashboard" element={<Layout />}>
+                    <Route index element={<Dashboard />} />
+                    <Route path="users" element={<UsersManagement />} />
+                    <Route path="projects" element={<Projects />} />
+                    <Route path="analytics" element={<Analytics />} />
+                    <Route path="my-projects" element={<Projects />} />
+                    <Route path="documents" element={<Documents projectId={''} />} />
+                    <Route path="investments" element={<Investment />} />
+                    <Route path="messages" element={<Messages/>} />
+                    <Route path="profil" element={<UserProfile/>} />
+                    <Route path="settings" element={<Settings/>} />
+                    <Route path="notifications" element={<Notifications/>} />
+                </Route>
             </Routes>
         </div>
     );
