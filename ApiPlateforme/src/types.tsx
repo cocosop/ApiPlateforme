@@ -7,7 +7,12 @@ export interface ProjeTypes {
     ville: string,
     quartier: string,
     description: string,
+    return: string;
+    montant:string;
+    statut: string;
     image: string;
+    risk: "Faible" | "Modéré" | "Élevé";
+    progress: number; 
     latitude: number,
     longitude: number
 }
