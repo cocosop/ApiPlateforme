@@ -11,7 +11,7 @@ import {
   Bell,
   MessageSquare,
   UserCircle,
-    
+
 } from 'lucide-react';
 
 // Type pour les rôles utilisateur
@@ -55,25 +55,24 @@ const commonMenuItems: MenuItem[] = [
 
 
 const Sidebar: React.FC = () => {
-  const { user } = useAuthStore();
+  // const { user } = useAuthStore();
 
-  if (!user || !user.role) return null;
+  // if (!user || !user.role) return null;
 
-  const roleMenu = roleMenus[user.role as UserRole] || [];
-  const fullMenu = [...roleMenu, ...commonMenuItems];
+  // const roleMenu = roleMenus[user.role as UserRole] || [];
+  const fullMenu = [...commonMenuItems];
 
   return (
-    <div className="h-100  w-64 bg-gray-900 text-white p-4">
-       <nav className="space-y-2">
+    <div className="h-full w-64 bg-gray-900 text-white p-4">
+      <nav className="space-y-2">
         {fullMenu.map((item) => (
           <NavLink
             key={item.path}
             to={item.path}
             className={({ isActive }) =>
-              `flex items-center space-x-3 px-4 py-2 rounded-lg transition-colors ${
-                isActive
-                  ? 'bg-gray-800 text-white'
-                  : 'text-gray-400 hover:bg-gray-800 hover:text-white'
+              `flex items-center space-x-3 px-4 py-2 rounded-lg transition-colors ${isActive
+                ? 'bg-gray-800 text-white'
+                : 'text-gray-400 hover:bg-gray-800 hover:text-white'
               }`
             }
           >

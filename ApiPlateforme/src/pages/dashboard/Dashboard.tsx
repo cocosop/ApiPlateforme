@@ -59,7 +59,7 @@ const performanceData = [
 
 export default function Dashboard() {
   return (
-    <div className="p-6">     
+    <div className="p-6">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
         {stats.map((stat, index) => (
           <div key={index} className="bg-white rounded-xl p-6 shadow-sm">

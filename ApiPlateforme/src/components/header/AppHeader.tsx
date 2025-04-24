@@ -12,7 +12,7 @@ const routeTitles: Record<string, string> = {
   '/dashboard/messages': 'Messages',
   '/dashboard/profil': 'Profil',
   '/dashboard/settings': 'Paramètres',
-  '/dashboard/notifications': 'Notifications',  
+  '/dashboard/notifications': 'Notifications',
   // Ajoute ici d'autres routes si nécessaire
 };
 const HeaderDashboard = () => {
@@ -20,19 +20,19 @@ const HeaderDashboard = () => {
   const pathname = location.pathname;
   const pageTitle = routeTitles[pathname] || 'Tableau de bord';
   return (
-    <header className="w-full h-16 px-6 bg-white border-b flex items-center justify-between shadow-sm m-0">
+    <header className="z-50 w-full h-16 px-6 bg-white border-b flex items-center justify-between shadow-sm m-0">
       {/* Titre de la page */}
       <h1 className="text-xl font-semibold text-gray-800">{pageTitle}</h1>
       {/* Zone de droite */}
       <div className="flex items-center gap-4">
         {/* Notification */}
 
-<Link to="/dashboard/notifications" className="relative p-2 rounded-full hover:bg-gray-100">
-  <Bell className="w-5 h-5 text-gray-600" />
-  <span className="absolute top-1 right-1 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
-    3
-  </span>
-</Link>
+        <Link to="/dashboard/notifications" className="relative p-2 rounded-full hover:bg-gray-100">
+          <Bell className="w-5 h-5 text-gray-600" />
+          <span className="absolute top-1 right-1 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
+            3
+          </span>
+        </Link>
 
         {/* Profil */}
         <div className="flex items-center gap-2 cursor-pointer hover:bg-gray-100 p-2 rounded-full transition">
