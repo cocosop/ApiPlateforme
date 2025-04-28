@@ -5,6 +5,7 @@ import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import AlertComponent, { NotificationProvider } from "../../../components/alert/AlertComponent";
+import { useAuthStore } from "../../../store/AuthStore";
 
 const Login = () => {
   const [email, setEmail] = React.useState(String);
@@ -32,13 +33,10 @@ const Login = () => {
       email: email,
       password: password,
     })
-      .then((res) => {
-        if (res.data.status === 200) {
-          const token = res.data.token;
-          sessionStorage.setItem('secteur', '');
-          localStorage.setItem("token", token);
-          history("/dashboard");
-        }
+      .then(res => {
+        useAuthStore.getState().setToken(res.data.token);
+        sessionStorage.setItem('secteur', '');
+        history("/dashboard");
       })
   };
 
@@ -48,7 +46,6 @@ const Login = () => {
       const statusHandlers: any = {
         403: () => showNotification("Accès interdit", "error"),
         404: () => showNotification("L'adresse email est incorrecte", "warning"),
-        409: () => showNotification("Adresse email déjà utilisée", "warning"),
         500: () => showNotification("Erreur serveur", "error"),
       };
 

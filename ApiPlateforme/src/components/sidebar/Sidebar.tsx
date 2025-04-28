@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useAuthStore } from '../../store/authStore';
+import { useAuthStore } from '../../store/AuthStore';
 import {
   Users,
   FolderKanban,
@@ -11,11 +11,12 @@ import {
   Bell,
   MessageSquare,
   UserCircle,
+  LayoutDashboard,
 
 } from 'lucide-react';
 
 // Type pour les rôles utilisateur
-type UserRole = 'admin' | 'project_owner' | 'investor';
+type UserRole = 'ADMIN' | 'PROJECT_OWNER' | 'INVESTOR';
 
 // Type pour un élément du menu
 interface MenuItem {
@@ -26,22 +27,22 @@ interface MenuItem {
 
 // Menus spécifiques selon le rôle
 const roleMenus: Record<UserRole, MenuItem[]> = {
-  admin: [
-    { icon: Users, label: 'Tableau de bord', path: '/dashboard' },
+  ADMIN: [
+    { icon: LayoutDashboard, label: 'Tableau de bord', path: '/dashboard' },
     { icon: Users, label: 'Utilisateurs', path: '/dashboard/users' },
-    { icon: FolderKanban, label: 'Tous les projets', path: '/dashboard/investments' },
+    { icon: FolderKanban, label: 'Tous les projets', path: '/projets' },
     { icon: BarChart, label: 'Analytique', path: '/dashboard/analytics' },
     { icon: Settings, label: 'Paramètres', path: '/dashboard/settings' },
   ],
-  project_owner: [
-    { icon: Users, label: 'Tableau de bord', path: '/dashboard' },
+  PROJECT_OWNER: [
+    { icon: LayoutDashboard, label: 'Tableau de bord', path: '/dashboard' },
     { icon: FolderKanban, label: 'Mes projets', path: '/dashboard/my-projects' },
     { icon: Settings, label: 'Paramètres', path: '/dashboard/settings' },
   ],
-  investor: [
-    { icon: Users, label: 'Tableau de bord', path: '/dashboard' },
-    { icon: Settings, label: 'Paramètres', path: '/dashboard/settings' },
+  INVESTOR: [
+    { icon: LayoutDashboard, label: 'Tableau de bord', path: '/dashboard' },
     { icon: FolderKanban, label: 'Mes projets', path: '/dashboard/my-projects' },
+    { icon: Settings, label: 'Paramètres', path: '/dashboard/settings' },
   ],
 };
 
@@ -55,12 +56,10 @@ const commonMenuItems: MenuItem[] = [
 
 
 const Sidebar: React.FC = () => {
-  // const { user } = useAuthStore();
+  const role = useAuthStore((state) => state.decoded?.role) as UserRole;
 
-  // if (!user || !user.role) return null;
-
-  // const roleMenu = roleMenus[user.role as UserRole] || [];
-  const fullMenu = [...commonMenuItems];
+  const roleMenu = roleMenus[role as UserRole] || [];
+  const fullMenu = [...roleMenu, ...commonMenuItems];
 
   return (
     <div className="h-full w-64 bg-gray-900 text-white p-4">
