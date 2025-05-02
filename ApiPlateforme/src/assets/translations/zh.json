@@ -56,5 +56,890 @@
       "faq": "查找有关投资的常见问题的快速清晰答案。",
       "conseil_en_ligne": "获取个性化支持并快速回答所有关于投资机会的问题。"
     }
+  },
+  "pages_secteurs": {
+    "agro_industrie": {
+      "hero": {
+        "titre": "投資未來的農業工業",
+        "sous_titre": "加入我們，利用可持續技術和創新的農業解決方案，徹底改變農業工業的聖地。",
+        "bouton": "探索機會"
+      },
+      "fil_ariane": {
+        "accueil": "首頁",
+        "sections": "部分與機會",
+        "agro": "農業工業聖地"
+      },
+      "objectif": {
+        "titre": "戰略目標",
+        "texte": "通過加強本地原料的價值增值和促進出口，向國內、CEEAC和尼日利亞市場提供第二和第三次轉化的食品產品。"
+      },
+      "actions": {
+        "titre": "戰略行動",
+        "developpement_technologique": "技術發展",
+        "desc_technologique": "發展和優化結構性農業技術。",
+        "integration_industrielle": "工業整合",
+        "desc_industrielle": "加強和整合農業部門與其他行業的聯繫。",
+        "innovation": "創新",
+        "desc_innovation": "工業農業技術。"
+      },
+      "speculations": {
+        "titre": "我們的主要預測",
+        "sous_titre": "多樣化的農產品以滿足市場需求",
+        "cereales": {
+          "titre": "穀物",
+          "produits": "玉米、米、飼料"
+        },
+        "oleagineux": {
+          "titre": "油料作物",
+          "produits": "棉花、棕櫚油、大豆"
+        },
+        "fruits_legumes": {
+          "titre": "水果和蔬菜",
+          "produits": "鳳梨、香蕉、青蕉"
+        },
+        "racines_tubercules": {
+          "titre": "根莖作物",
+          "produits": "木薯、馬鈴薯"
+        },
+        "plantes_stimulantes": {
+          "titre": "刺激性植物",
+          "produits": "可可、咖啡"
+        },
+        "autres_cultures": {
+          "titre": "其他作物",
+          "produits": "甘蔗"
+        },
+        "elevage": {
+          "titre": "畜牧業",
+          "produits": "牛肉、家禽、豬肉"
+        },
+        "peche": {
+          "titre": "漁業",
+          "produits": "水產養殖、工業漁業"
+        },
+        "production_annuelle": "年產量：約",
+        "emplois_generes": "創造的就業機會：",
+        "bouton": "了解更多"
+      },
+      "infos": {
+        "ceeac": "CEEAC",
+        "marche_regional": "區域市場",
+        "texte_ceeac": "區域整合及市場准入",
+        "innovation": "創新",
+        "technopoles": "科技園區",
+        "texte_innovation": "結構性農業工業發展",
+        "croissance": "增長",
+        "competitivite": "競爭力",
+        "texte_croissance": "現代化計劃"
+      },
+      "potentiel": {
+        "titre": "喀麥隆農業工業潛力",
+        "description": "喀麥隆，常被稱為「中非的穀倉」，憑藉其多樣的氣候、肥沃的土地和作物多樣性，擁有巨大的農業工業潛力。這個部門是糧食安全和經濟增長的基石。",
+        "opportunites": "機會",
+        "defis": "挑戰",
+        "diversite_cultures": "作物多樣性",
+        "texte_diversite": "可可、咖啡、香蕉、棕櫚油、棉花、玉米、木薯等的生產。",
+        "transformation_locale": "本地轉化",
+        "texte_transformation": "將農產品轉化為附加值產品（果汁、罐頭、油等）的機會。",
+        "exportation": "出口",
+        "texte_exportation": "將農業產品出口到區域和國際市場的潛力。",
+        "creation_emplois": "創造就業機會",
+        "texte_emplois": "通過發展價值鏈來創造直接和間接的工作機會。",
+        "infrastructures": "基礎設施不足",
+        "texte_infrastructures": "缺乏存儲、轉化和運輸基礎設施。",
+        "financement": "有限的融資渠道",
+        "texte_financement": "小型農民和中小型企業很難獲得信貸。",
+        "importations": "依賴進口",
+        "texte_importations": "儘管有本地原材料，仍需進口加工產品。",
+        "climat": "氣候變化",
+        "texte_climat": "對作物和生產力的影響。"
+      }
+    },
+    "energie": {
+      "hero": {
+        "titre": "喀麥隆能源聖地",
+        "sous_titre": "喀麥隆擁有豐富的能源資源，為投資者提供可再生能源、基礎設施和技術創新領域的獨特機會。",
+        "bouton": "探索機會"
+      },
+      "fil_ariane": {
+        "accueil": "首頁",
+        "sections": "板塊與機會",
+        "energie": "能源聖地"
+      },
+      "objectif": {
+        "titre": "戰略目標",
+        "texte": "優化生物質利用，提高能源生產和消費效率，並向中非國家經濟共同體和尼日利亞出口剩餘能源。"
+      },
+      "actions": {
+        "titre": "戰略行動",
+        "reseau_gazoducs": {
+          "titre": "天然氣管網",
+          "description": "建設連接林貝、克里比、杜阿拉、埃博洛瓦、雅溫得、巴富薩姆和巴門達的管道，促進向車用天然氣(GNV)過渡。",
+          "stats": "1,200公里管道"
+        },
+        "centrales_secours": {
+          "titre": "備用電廠",
+          "description": "在杜阿拉(300兆瓦)、雅溫得(300兆瓦)、巴富薩姆(100兆瓦)、巴門達(100兆瓦)、埃博洛瓦(40兆瓦)和林貝(40兆瓦)建設備用電廠。",
+          "stats": "總容量880兆瓦"
+        },
+        "voies_ferroviaires": {
+          "titre": "鐵路線",
+          "description": "建設1,850公里鐵路線用於收集和出口薪柴能源。",
+          "stats": "1,850公里軌道"
+        },
+        "exportation_energie": {
+          "titre": "能源出口",
+          "description": "向尼日利亞和中非經貨共同體國家供應50太瓦時電力。",
+          "stats": "出口50太瓦時"
+        },
+        "innovation": "創新",
+        "energies_renouvelables": "可再生能源。"
+      },
+      "sources": {
+        "titre": "能源來源",
+        "solaire": {
+          "titre": "太陽能",
+          "description": "利用太陽能進行可持續且環保的能源生產。"
+        },
+        "eolienne": {
+          "titre": "風能",
+          "description": "開發風電場生產清潔可再生能源。"
+        },
+        "hydraulique": {
+          "titre": "水電",
+          "description": "利用水資源進行穩定可靠的能源生產。"
+        },
+        "fossile": {
+          "titre": "化石能源",
+          "description": "在優化現有資源的同時逐步過渡到可持續替代方案。"
+        }
+      },
+      "stats": {
+        "titre": "關鍵數據",
+        "investissements": {
+          "titre": "計劃投資",
+          "valeur": "100億美元"
+        },
+        "emplois": {
+          "titre": "創造就業",
+          "valeur": "50,000+"
+        },
+        "energie_produite": {
+          "titre": "能源產量",
+          "valeur": "5,000兆瓦"
+        }
+      },
+      "potentiel": {
+        "titre": "喀麥隆能源潛力",
+        "texte": "喀麥隆擁有巨大的能源潛力，包括豐富的水電、太陽能和風能資源。能源部門是該國經濟和社會發展的重要支柱。",
+        "opportunites": {
+          "titre": "機遇",
+          "hydroelectriques": "水電資源：估計潛力超過23吉瓦，特別是薩納加河。",
+          "energies_renouvelables": "可再生能源：尚未充分利用的強大太陽能和風能潛力。",
+          "projets_structurants": "結構性項目：納赫蒂加爾大壩(420兆瓦)和其他在建電站。",
+          "exportation_energie": "能源出口：可向中非經貨共同體鄰國出口電力。"
+        },
+        "defis": {
+          "titre": "挑戰",
+          "electrification": "低電氣化率：僅65%人口能用電，城鄉差距明顯。",
+          "infrastructures": "基礎設施老化：配電網絡陳舊且技術損耗高。",
+          "energies_fossiles": "化石能源依賴：使用成本高且污染嚴重的熱電廠。",
+          "financement": "資金不足：需要大規模投資發展能源基礎設施。"
+        }
+      }
+    },
+    "numerique": {
+      "hero": {
+        "titre": "喀麥隆的數位聖地",
+        "sous_titre": "透過現代化基礎設施、強化治理和戰略投資，將喀麥隆轉型為區域數位中心。",
+        "bouton": "探索機會"
+      },
+      "fil_ariane": {
+        "accueil": "首頁",
+        "sections": "部分與機會",
+        "numerique": "數位聖地"
+      },
+      "objectif": {
+        "titre": "戰略目標",
+        "texte": "將喀麥隆提升至非洲數位革命最先進的前五名國家，同時加強國家主權的整體安全。"
+      },
+      "actions": {
+        "gouvernance_securite": {
+          "titre": "數位治理與安全",
+          "details": {
+            "commandement_numerique": "數位高層指揮",
+            "desc_commandement": "PRC、MINDEF、MINPOSTEL、MINEPAT、MINCOM、MINMIDT、ANTIC合作，建立一個安全的數位生態系統。",
+            "perimetre_numerique": "數位安全範圍",
+            "desc_perimetre": "識別並保護國家敏感的點。"
+          }
+        },
+        "modernisation_infrastructures": {
+          "titre": "基礎設施現代化",
+          "details": {
+            "restructuration": "CAMTEL重組",
+            "desc_restructuration": "在3年內使CAMTEL成為喀麥隆市場的領導者，並在CEEAC地區和尼日利亞成為主要玩家。"
+          }
+        },
+        "financement_investissement": {
+          "titre": "融資與投資",
+          "details": {
+            "fonderie_communautaire": "社區投資工廠",
+            "desc_fonderie": "20億FCFA用於支持創新項目和數位初創公司。"
+          }
+        },
+        "integration_regionale": {
+          "titre": "區域整合",
+          "details": {
+            "marche": "西非組裝市場",
+            "desc_marche": "與主要運營商合作，投資5000萬美元，目標市場佔有率為40%。"
+          }
+        }
+      },
+      "domaines": {
+        "titre": "數位關鍵領域",
+        "texte": "探索使喀麥隆成為區域數位中心的戰略領域。",
+        "cybersecurite": {
+          "titre": "網絡安全",
+          "description": "保護關鍵基礎設施和敏感數據免受數位威脅。"
+        },
+        "infrastructures": {
+          "titre": "數位基礎設施",
+          "description": "發展和現代化通信網絡和數位平台。"
+        },
+        "innovation": {
+          "titre": "創新與初創企業",
+          "description": "支持數位創業者和創新科技項目。"
+        },
+        "formation": {
+          "titre": "培訓與技能",
+          "description": "通過教育、培訓和轉型發展數位技能。"
+        }
+      },
+      "stats": {
+        "titre": "關鍵數據",
+        "investissements": {
+          "titre": "預計投資",
+          "valeur": "2000億非洲法郎"
+        },
+        "emplois": {
+          "titre": "創造的就業機會",
+          "valeur": "50,000+"
+        },
+        "part_marche": {
+          "titre": "目標市場份額",
+          "valeur": "40%"
+        }
+      },
+      "potentiel": {
+        "titre": "喀麥隆的數位潛力",
+        "texte": "喀麥隆的數位部門正在迅速增長，由年輕且充滿活力的人口以及對移動和互聯網技術的日益採用推動。數位化是該國經濟和社會轉型的關鍵槓桿。",
+        "opportunites": {
+          "titre": "機會",
+          "penetration_mobile": "移動和互聯網滲透率：智能手機和互聯網用戶迅速增長。",
+          "services_financiers": "數位金融服務：移動支付和在線支付解決方案的擴展。",
+          "e_gouvernement": "電子政務：通過數位技術現代化公共服務。",
+          "entrepreneuriat": "數位創業：金融科技、農業科技和教育科技領域創新初創企業的興起。"
+        },
+        "defis": {
+          "titre": "挑戰",
+          "infrastructures": "基礎設施不足：網絡覆蓋有限，特別是在農村地區。",
+          "couts": "服務成本高：對於大多數人口來說，互聯網和智能手機的接入仍然昂貴。",
+          "competences": "技術技能缺乏：需要在數位職業中進行培訓和能力建設。",
+          "reglementation": "需現代化的法規框架：有必要調整法律，以促進創新並保護使用者。"
+        }
+      }
+    },
+    "financement": {
+      "hero": {
+        "titre": "融資基礎",
+        "sous_titre": "融資基礎是一系列旨在加強喀麥隆金融系統以支持國家工業化的改革措施。",
+        "bouton": "探索機會"
+      },
+      "fil_ariane": {
+        "accueil": "首頁",
+        "sections": "部分與機會",
+        "financement": "融資基礎"
+      },
+      "objectif": {
+        "titre": "戰略目標",
+        "texte": "進行必要的改革，將喀麥隆轉變為幾內亞灣的一流金融中心，並支持國家工業化的願景。"
+      },
+      "actions": {
+        "titre": "我們的行動",
+        "restructuration": {
+          "titre": "制度重組",
+          "details": {
+            "transformation": "將SNI轉型為主權基金",
+            "mutation": "將BC-PME轉型為投資銀行",
+            "introduction": "將BC-PME上市",
+            "reforme": "將CARPA改革為公私合營機構"
+          }
+        },
+        "instruments": {
+          "titre": "金融工具",
+          "details": {
+            "fonds": "部門擔保基金（國家/APECCAM/ANEMCAM）",
+            "assurance": "出口信用保險機構（國家/ASAC）",
+            "agence": "喀麥隆信用評級機構",
+            "obligations": "用於股本的債券"
+          }
+        },
+        "environnement": {
+          "titre": "商業環境",
+          "details": {
+            "incitations": "對高資本企業的激勵措施",
+            "reforme": "股本稅收改革",
+            "systeme": "加強企業識別系統",
+            "partenariats": "行業戰略夥伴關係"
+          }
+        }
+      },
+      "stats": {
+        "titre": "關鍵數據",
+        "fonds": {
+          "titre": "提取基金",
+          "valeur": "50億 非洲法郎"
+        },
+        "capital": {
+          "titre": "BC-PME 私人資本",
+          "valeur": "65%"
+        },
+        "projets": {
+          "titre": "擔保項目",
+          "valeur": "300+"
+        },
+        "entreprises": {
+          "titre": "識別的企業",
+          "valeur": "10K"
+        }
+      },
+      "potentiel": {
+        "titre": "喀麥隆的融資潛力",
+        "description": "喀麥隆的融資部門在經濟發展中發揮著關鍵作用。它支持投資、創業和關鍵部門的增長，但面臨重大挑戰以滿足國家的需求。",
+        "opportunites": {
+          "titre": "機會",
+          "croissance": "銀行業增長：本地和國際金融機構的擴張。",
+          "financement": "中小企業融資：支援中小企業的計劃。",
+          "partenariats": "公私合營（PPP）：基礎設施重大項目的融資機會。",
+          "innovation": "金融創新：開發數位解決方案（行動支付、金融科技）以改善融資獲取。"
+        },
+        "defis": {
+          "titre": "挑戰",
+          "acces": "獲得信貸的途徑有限：高利率和擔保要求。",
+          "manque": "缺乏多樣化：金融產品選擇有限，難以滿足中小企業和個人需求。",
+          "inclusion": "金融包容性低：大部分人口無法獲得銀行服務。",
+          "risque": "投資風險：由於經濟和監管不穩定，投資者信心不足。"
+        }
+      }
+    },
+    "infrastructure": {
+      "hero": {
+        "titre": "基礎設施基石",
+        "description": "基礎設施基石是喀麥隆經濟發展的關鍵部門。它涵蓋了經濟正常運作和改善人民生活條件所需的基本設施。",
+        "bouton": "探索機會"
+      },
+      "fil_ariane": {
+        "accueil": "首頁",
+        "sections": "部門與機會",
+        "socle": "基礎設施基石"
+      },
+      "objectif": {
+        "titre": "戰略目標",
+        "texte": "建立穩固的物理、認知與制度性基礎設施，以促進地區開放並建立有能力支持工業化的人力資本基礎。"
+      },
+      "actions": {
+        "titre": "我們的行動",
+        "physique": {
+          "titre": "物理基礎設施",
+          "construction": "建設重大結構性項目",
+          "plan": "全國鐵路計劃",
+          "modernisation": "港口現代化",
+          "compagnies": "國有公司（渡輪、航空貨運）"
+        },
+        "cognitive": {
+          "titre": "認知基礎設施",
+          "professionnalisation": "教學專業化",
+          "reseau": "職業教育網絡",
+          "reformation": "培訓師再培訓",
+          "modules": "產業監控模組"
+        },
+        "institutionnelle": {
+          "titre": "制度性基礎設施",
+          "restructuration": "組織架構重組",
+          "services": "產業監控服務",
+          "alignement": "與工業化對齊"
+        }
+      },
+      "stats": {
+        "titre": "關鍵數據",
+        "ferroviaires": {
+          "titre": "鐵路項目",
+          "valeur": "15+"
+        },
+        "ports": {
+          "titre": "現代化港口",
+          "valeur": "4"
+        },
+        "ecoles": {
+          "titre": "職業學校",
+          "valeur": "730+"
+        },
+        "ministeres": {
+          "titre": "重組部會",
+          "valeur": "100%"
+        }
+      },
+      "potentiel": {
+        "titre": "喀麥隆的基礎設施潛力",
+        "description": "喀麥隆的基礎設施部門是支撐經濟成長與提升生活品質的核心。然而，在現代化和擴展基礎設施方面仍面臨重大挑戰。",
+        "opportunites": {
+          "titre": "機會",
+          "projets": "結構性項目：修建道路、橋樑、港口和機場以打通地區交通。",
+          "energie": "能源與電信：發展能源與數位基礎設施以支援成長。",
+          "partenariats": "公私合作夥伴關係（PPP）：共同資助與實施基礎設施項目。",
+          "integration": "區域整合：跨境基礎設施以加強中非地區貿易。"
+        },
+        "defis": {
+          "titre": "挑戰",
+          "manque": "資金短缺：需要大量投資來發展基礎設施。",
+          "retards": "項目延誤：項目管理與執行存在問題。",
+          "maintenance": "維護不足：因缺乏保養而導致現有基礎設施惡化。",
+          "desequilibre": "地區不平衡：基礎設施集中在城市地區，忽略了農村地區。"
+        }
+      }
+    },
+    "bois_forets": {
+      "hero": {
+        "titre": "木材與森林支柱",
+        "description": "木材與森林產業是喀麥隆經濟的重要領域，提供眾多投資與發展機會。",
+        "bouton": "探索機會"
+      },
+      "fil_ariane": {
+        "accueil": "首頁",
+        "sections": "區塊與機會",
+        "pilier": "木材與森林支柱"
+      },
+      "objectif": {
+        "titre": "戰略目標",
+        "texte": "將喀麥隆的森林區塊作為鐵路計劃啟動、能源出口與與其他產業高度整合的工業支柱。"
+      },
+      "actions": {
+        "titre": "木材與森林支柱",
+        "institutions": {
+          "titre": "機構與組織",
+          "creation": "成立國家木材辦公室（ONB）",
+          "societe_depot": "喀麥隆森林產品儲存公司（SCDPF）",
+          "societe_pate_papier": "喀麥隆紙漿與紙業公司（SOCAPAP）",
+          "caisse": "森林產品價格穩定基金（CSPPF）"
+        },
+        "zones": {
+          "titre": "工業區與綜合園區",
+          "zone": "工業加工區（ZTI）",
+          "complexes": "綜合工業園區（CII）",
+          "architecture": "EDEA 與 BENGBIS 工業園的架構",
+          "unites": "強制乾燥單元"
+        },
+        "commercialisation": {
+          "titre": "行銷與規範",
+          "magasins": "銷售店（批發、半批發、零售）",
+          "regulation": "MIB 規範（每公頃 12 至 25 立方米）",
+          "interdiction": "禁止將原木運出 ZTI",
+          "acces": "森林廢料的存取"
+        },
+        "formation": {
+          "titre": "培訓與共享",
+          "ecole": "木藝與手工藝學校",
+          "centres_agrees": "認證學習中心（C3AMB）",
+          "centre_mutualisation": "共享中心（CMR2T）",
+          "village": "工匠木材村"
+        },
+        "infrastructures": {
+          "titre": "道路基礎設施",
+          "petites_entreprises": "小型道路維護企業（PEER）",
+          "peages": "專用道路收費站（PRS）",
+          "financement": "透過 PRS 為 PEER 提供資金"
+        }
+      },
+      "stats": {
+        "titre": "關鍵數據",
+        "ufa": {
+          "titre": "由 ONB 管理的森林區",
+          "valeur": "75%"
+        },
+        "volume": {
+          "titre": "MIB 規範體積",
+          "valeur": "25m³/公頃"
+        },
+        "magasins": {
+          "titre": "SCDPF 店鋪數量",
+          "valeur": "50+"
+        },
+        "artisans": {
+          "titre": "已培訓工匠",
+          "valeur": "1K+"
+        }
+      },
+      "potentiel": {
+        "titre": "喀麥隆的木材與森林潛力",
+        "description": "喀麥隆擁有非洲第二大森林區塊，擁有豐富的生物多樣性與森林資源。木材與森林產業為國家經濟提供巨大機會，但也需可持續管理以保護環境。",
+        "opportunites": {
+          "titre": "機會",
+          "exploitation": "永續開發：負責任地管理森林以保護生物多樣性並創造收入。",
+          "transformation": "本地加工：發展木材加工產業（家具、地板等）以增加附加價值。",
+          "exportation": "出口：喀麥隆木材面向歐洲與亞洲等國際市場。",
+          "ecotourisme": "生態旅遊：利用森林吸引旅客，創造額外收益。"
+        },
+        "defis": {
+          "titre": "挑戰",
+          "exploitation": "非法砍伐：非法採伐與無管制木材交易。",
+          "deforestation": "森林砍伐：農業與城市擴張導致森林覆蓋面積減少。",
+          "manque": "缺乏本地加工：原木出口無附加價值。",
+          "concurrence": "國際競爭：難以與進口加工品競爭。"
+        }
+      }
+    },
+    "textile_confection_cuir": {
+      "hero": {
+        "titre": "紡織 • 成衣 • 皮革支柱",
+        "description": "紡織、成衣與皮革產業是喀麥隆經濟中的關鍵產業之一。該產業是全國主要的雇主之一，對經濟成長有顯著貢獻。",
+        "bouton": "探索機會"
+      },
+      "fil_ariane": {
+        "accueil": "首頁",
+        "sections": "部門與機會",
+        "pilier": "紡織／成衣／皮革支柱"
+      },
+      "objectif": {
+        "titre": "策略目標",
+        "texte": "透過當地原材料的加工與價值提升，並促進出口，以確保工業化。"
+      },
+      "actions": {
+        "titre": "我們的行動",
+        "renforcement_industriel": {
+          "titre": "產業強化",
+          "fusion": "CICAM 與 SODECOTON 合併",
+          "capacites": "更新工業產能",
+          "nouvelles_filatures": "支援建設新紡紗廠（每年 30 萬噸）",
+          "transformation_coton": "加工 50% 的棉花產量（60 萬噸）"
+        },
+        "innovation_formation": {
+          "titre": "創新與培訓",
+          "centre_technique": "設立紡織技術中心",
+          "encadrement_coton": "指導棉花種植（高效品種、灌溉、融資）",
+          "formation_cuir": "為皮革產業提供技術與技能培訓"
+        },
+        "securisation_regulation": {
+          "titre": "保障與監管",
+          "reduction_contrebande": "每年減少 20% 的走私、欺詐與仿冒行為",
+          "commande_publique": "設立公共採購政策（軍服佔 50%）",
+          "clauses_sauvegarde": "建立保護條款，扶植本地鞋業發展"
+        },
+        "industrie_cuir": {
+          "titre": "皮革產業",
+          "centre_tri": "建立國家皮革分類中心",
+          "tanneries": "強化現有製革廠",
+          "nouvelles_unites": "新建製造皮革產品的產業單位",
+          "redeploiement": "重新部署 TANICAM 與 NOTACAM"
+        },
+        "champions_regionaux": {
+          "titre": "區域領頭企業",
+          "creation_champions": "在紡織領域建立區域冠軍企業",
+          "securisation_matiere": "保障原料供應",
+          "recherche_cuir": "加強從原皮至成品皮的研發"
+        }
+      },
+      "stats": {
+        "titre": "關鍵數據",
+        "coton_transforme": {
+          "titre": "加工棉花",
+          "valeur": "60 萬噸"
+        },
+        "filatures": {
+          "titre": "新增紡紗廠",
+          "valeur": "每年 30 萬噸"
+        },
+        "contrebande": {
+          "titre": "走私減少",
+          "valeur": "每年 20%"
+        },
+        "commande_publique": {
+          "titre": "公共採購",
+          "valeur": "50%"
+        }
+      },
+      "potentiel": {
+        "titre": "喀麥隆紡織／成衣／皮革潛力",
+        "description": "喀麥隆的紡織、成衣與皮革產業擁有巨大潛力，得益於本地豐富的原材料和對成品不斷上升的需求。此產業可為就業創造與經濟多元化做出重要貢獻。",
+        "opportunites": {
+          "titre": "機會",
+          "matieres_premieres": "當地原料：可供生產的棉花、皮革與其他材料豐富。",
+          "marche": "本地與區域市場：對衣物、鞋類與配件的需求日益增加。",
+          "mode_africaine": "非洲時尚：推廣本土文化與設計的機會。",
+          "exportation": "出口潛力：將成品出口至國際市場。"
+        },
+        "defis": {
+          "titre": "挑戰",
+          "infrastructures": "現代化基礎設施不足：生產單位老舊，設備短缺。",
+          "concurrence": "進口競爭：來自亞洲的低價紡織與皮革產品大量湧入。",
+          "formation": "培訓不足：缺乏合格技術工人從事成衣與皮革相關職業。",
+          "financement": "資金獲取困難：小型企業難以取得投資貸款。"
+        }
+      }
+    },
+    "hydrocarbures_petrochimie_raffinage": {
+      "hero": {
+        "titre": "石油•石化•煉油支柱產業",
+        "description": "石油、石化和煉油產業是喀麥隆的戰略性產業，擁有眾多投資項目與商機。",
+        "bouton": "探索機會"
+      },
+      "fil_ariane": {
+        "accueil": "首頁",
+        "sections": "部門與機會",
+        "pilier": "石油/煉油支柱"
+      },
+      "objectif": {
+        "titre": "戰略目標",
+        "texte": "一方面對上游與下游的石油產業進行深度改革，另一方面通過多元化活動來發揮潛力，支持國家的整體工業化。"
+      },
+      "actions": {
+        "titre": "我們的行動",
+        "valorisation_ressources": {
+          "titre": "資源開發",
+          "petrole_gaz": "開發石油與天然氣潛能",
+          "mineraux": "促進礦產資源開採（鐵、鋁土礦、鎳-鈷等）",
+          "biocarburants": "生產第二代生質燃料"
+        },
+        "infrastructures_energetiques": {
+          "titre": "能源基礎設施",
+          "restructuration_sonara": "重組SONARA公司",
+          "usine_engrais": "在Njonji建設肥料工廠",
+          "centres_traitement": "在杜阿拉／林貝／克里比建立天然氣處理中心",
+          "pipeline": "Limbé-杜阿拉-巴富薩姆-雅溫得管線"
+        },
+        "gaz_naturel_gpl": {
+          "titre": "天然氣與液化石油氣",
+          "distribution_douala": "擴展杜阿拉的天然氣配送",
+          "promotion_carburant": "推廣天然氣作為燃料",
+          "installations_stockage": "建設液化石油氣儲存與裝載設施",
+          "usine_flotante": "克里比浮動液化工廠"
+        },
+        "centrales_energie": {
+          "titre": "熱能發電廠",
+          "extension_kribi": "擴建克里比熱電廠",
+          "fourniture_gaz": "向克里比發電廠供應天然氣"
+        }
+      },
+      "stats": {
+        "titre": "關鍵數據",
+        "gaz_distribue": {
+          "titre": "分配天然氣",
+          "valeur": "超過 50%"
+        },
+        "biocarburants": {
+          "titre": "生質燃料",
+          "valeur": "第二代"
+        },
+        "pipeline": {
+          "titre": "管線",
+          "valeur": "500 公里"
+        },
+        "mineraux_valorises": {
+          "titre": "開發礦產",
+          "valeur": "6 種礦物"
+        }
+      },
+      "potentiel": {
+        "titre": "喀麥隆石油/煉油潛能",
+        "description": "喀麥隆擁有豐富的石油與天然氣資源及煉油設施，是國家經濟的重要支柱之一。",
+        "opportunites": {
+          "titre": "機會",
+          "reserves": "石油與天然氣儲量：活躍的油氣盆地，特別是在Rio del Rey與Logone Birni。",
+          "raffinage_local": "本地煉油：國家煉油公司（SONARA）可將原油轉化為成品。",
+          "exportation_gaz": "天然氣出口：具備發展液化天然氣（LNG）出口的潛力。",
+          "emplois": "創造就業：該產業直接與間接創造大量就業機會，尤其在油區地區。"
+        },
+        "defis": {
+          "titre": "挑戰",
+          "prix_mondiaux": "依賴全球油價：容易受國際市場油價波動影響。",
+          "infrastructures_vieillissantes": "基礎設施老化：煉油與配送設施需現代化升級。",
+          "environnement": "環境影響：管理廢棄物與防範污染風險是石油開採的重要議題。",
+          "importations": "進口依賴：儘管有本地煉油，國內仍需進口石油產品以滿足需求。"
+        }
+      }
+    },
+    "chimie_pharmacie": {
+      "hero": {
+        "titre": "化學與製藥支柱",
+        "description": "化學與製藥支柱旨在將天然資源轉化為高附加價值產品，同時推動在化學與製藥領域的創新與研究。這一戰略性產業對國家的經濟與工業發展至關重要。",
+        "bouton": "探索機會"
+      },
+      "fil_ariane": {
+        "accueil": "首頁",
+        "sections": "部分與機會",
+        "pilier": "化學／製藥支柱"
+      },
+      "objectif": {
+        "titre": "戰略目標",
+        "texte": "發展並促進化學產業高度整合進入國家經濟的產業網絡。"
+      },
+      "actions": {
+        "titre": "我們的行動",
+        "competitivite_innovation": {
+          "titre": "競爭力與創新",
+          "amelioration_couts": "提升成本競爭力",
+          "groupements_filieres": "採購集團與整合供應鏈（農業化學）",
+          "poles_competitivite": "建立競爭力集群"
+        },
+        "modernisation_entreprises": {
+          "titre": "企業現代化",
+          "mise_niveau_qhse": "企業升級（QHSE）",
+          "innovation_production": "創新、生產與銷售",
+          "maitrise_industrielle": "掌握工業基本技能"
+        },
+        "etat_pro_business": {
+          "titre": "親商環境",
+          "logistique": "改善物流條件",
+          "infrastructures": "基礎設施建設",
+          "environnement_favorable": "創建有利於化學產業的環境"
+        },
+        "filieres_integrees": {
+          "titre": "整合產業鏈",
+          "petrochimie_plasturgie": "石化與塑膠產業",
+          "oleochimie_verte": "油脂化學與綠色化學"
+        },
+        "industrie_pharmaceutique": {
+          "titre": "製藥產業",
+          "medicaments_generiques": "優先發展仿製藥與基本藥物",
+          "medicaments_traditionnels": "發展傳統藥物",
+          "industrie_locale": "發展本地製藥產業"
+        }
+      },
+      "stats": {
+        "titre": "關鍵數據",
+        "poles_competitivite": {
+          "titre": "競爭力集群",
+          "valeur": "5+"
+        },
+        "filieres_integrees": {
+          "titre": "整合產業鏈",
+          "valeur": "3"
+        },
+        "medicaments_generiques": {
+          "titre": "仿製藥",
+          "valeur": "100+"
+        },
+        "entreprises_modernisees": {
+          "titre": "現代化企業",
+          "valeur": "50+"
+        }
+      },
+      "potentiel": {
+        "titre": "喀麥隆化學／製藥產業潛力",
+        "description": "喀麥隆的化學與製藥產業具有巨大的潛力，藥品與化工產品的需求不斷上升。此產業對於滿足健康需求與推動工業發展具有關鍵作用。",
+        "opportunites": {
+          "titre": "機會",
+          "marche_croissance": "本地市場增長：對藥品與化學品的需求增加。",
+          "production_generiques": "仿製藥生產：降低成本並提升醫療可及性的機會。",
+          "ressources_naturelles": "自然資源：具備製藥與化學品生產所需的原材料。",
+          "exportation_regionale": "區域出口：具有將藥品出口至鄰國的潛力。"
+        },
+        "defis": {
+          "titre": "挑戰",
+          "importations": "進口依賴：高度依賴進口的藥品與化學品。",
+          "recherche_developpement": "研發不足：本地創新與生產投資有限。",
+          "normes_qualite": "品質標準：需加強監管以確保產品品質。",
+          "acces_financement": "融資困難：本地企業獲取投資資金面臨困難。"
+        }
+      }
+    },
+    "mines_metallurgie": {
+      "hero": {
+        "titre": "礦業 • 冶金 • 鋼鐵支柱",
+        "description": "礦業、冶金和鋼鐵產業在經濟發展中扮演著至關重要的角色。透過開發自然資源和加工原材料，該產業提供了投資與增長的機會。",
+        "bouton": "探索機會"
+      },
+      "fil_ariane": {
+        "accueil": "首頁",
+        "sections": "章節與機會",
+        "pilier": "礦業/冶金/鋼鐵支柱"
+      },
+      "objectif": {
+        "titre": "戰略目標",
+        "texte": "利用本地業者的活力，發揮礦產資源的豐富潛力，並在中期推動大型礦業項目的啟動。"
+      },
+      "actions": {
+        "titre": "我們的行動",
+        "projets_phare": {
+          "titre": "重點項目",
+          "extension_alucam": "擴建 Edéa 的 ALUCAM",
+          "aluminerie_kribi": "克里比大型鋁廠",
+          "fer_mbalam": "姆巴拉姆鐵礦",
+          "nickel_lomie": "Lomié 鎳-鈷礦",
+          "rutile_akonolinga": "Akonolinga 金紅石礦",
+          "calcaire_mintom": "Mintom 石灰岩礦"
+        },
+        "exploitation_valorisation": {
+          "titre": "開發與價值提升",
+          "valorisation_or_diamant": "金鑽工業化開發",
+          "laboratoire_national": "國家礦物質分析實驗室",
+          "partenariats_strategiques": "戰略合作夥伴（SNH 與礦業經營者）"
+        },
+        "infrastructures_logistique": {
+          "titre": "基礎建設與物流",
+          "desenclavement_sites": "打通礦區交通",
+          "moyens_production": "提升生產設施（能源、水）",
+          "cartes_geologiques": "地質圖（比例 1/200,000）"
+        },
+        "formation_expertise": {
+          "titre": "培訓與專業",
+          "moyens_techniques": "強化教學機構的技術設施",
+          "plans_formation": "目標式培訓計畫",
+          "promotion_expertise": "推廣本地專業人才"
+        },
+        "innovation_politiques": {
+          "titre": "創新與政策",
+          "developpement_creativite": "發展創造力與創新",
+          "harmonisation_politiques": "礦業政策一致化",
+          "reduction_barrieres": "降低制度障礙"
+        }
+      },
+      "stats": {
+        "titre": "關鍵數據",
+        "projets_miniers": {
+          "titre": "礦業項目",
+          "valeur": "6+"
+        },
+        "sites_desenclaves": {
+          "titre": "已開通地區",
+          "valeur": "10+"
+        },
+        "cartes_geologiques": {
+          "titre": "地質圖",
+          "valeur": "1/200k"
+        },
+        "formations_ciblees": {
+          "titre": "專項培訓",
+          "valeur": "50+"
+        }
+      },
+      "potentiel": {
+        "titre": "喀麥隆的礦業/冶金/鋼鐵潛力",
+        "description": "喀麥隆擁有豐富多樣的礦產資源和金屬加工潛能，礦業和工業潛力巨大。此產業對經濟多元化與創造就業至關重要。",
+        "opportunites": {
+          "titre": "機會",
+          "ressources_abondantes": "豐富的礦產資源：鋁土礦、鐵、鈷、鎳、金、鑽石等。",
+          "projets_structurants": "基礎建設項目：姆巴拉姆-納貝巴鐵礦項目與其他礦床開採行動。",
+          "transformation_locale": "本地加工：發展礦產加工產業的機會。",
+          "exportation": "出口潛力：可向國際市場出口礦產與冶金產品。"
+        },
+        "defis": {
+          "titre": "挑戰",
+          "manque_infrastructures": "基礎設施不足：開採與加工礦產的設施不完善。",
+          "cadre_legal": "法律與稅收框架：需改善法規環境以吸引投資。",
+          "impact_environnemental": "環境影響：需妥善處理廢棄物與採礦污染風險。",
+          "concurrence_internationale": "國際競爭：難以與大型國際生產商競爭。"
+        }
+      }
+    }
   }
 }
