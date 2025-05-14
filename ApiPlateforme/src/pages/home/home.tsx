@@ -17,6 +17,7 @@ import ActionButtonComponent from "../../components/actionButtonComponent/action
 import { useState } from 'react'
 import ProjectCard from '../../components/projetCard/projetCard'
 import { motion } from 'framer-motion'
+import { useTranslation } from 'react-i18next'
 
 
 //Data table for the list of advantages
@@ -82,6 +83,7 @@ const testimonies = [
 
 
 const home = () => {
+    const { t } = useTranslation();
     const [projects] = useState([
         {
             id: 1,
@@ -121,108 +123,83 @@ const home = () => {
 
     return (
         <div>
-            <div className="hero-container bg-gray-100 grid p-20 grid-cols-1 gap-x-6 xl:grid-cols-1 lg:grid-cols-1 items-center relative">
-                <div className="absolute bottom-10 right-4z-10 h-24 rounded">
-                    scroll
-                </div>
-                <video className="video-background" autoPlay muted loop>
-                    <source
-                        src={HOMEVIDEOUPDATED}
-                        type="video/mp4"
-                    />
-                    Your browser does not support the video tag.
-                </video>
-                <div className="video-background-overlay"></div>
-                <div className="group relative hero-content">
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                        className="text-start">
-                        <h1 className="max-w-2xl	text-balance font-bold tracking-tight text-[#0F0B60] sm:text-5xl subpixel-antialiased leading-8 p-4 bg-[#ffffffd1]">
-                            Portail d'investissement du <span className="text-[#0E600B]"> Cameroun </span>
-                        </h1>
-                        <p className="mt-8 font-light sm:text-md/6 leading-7 max-w-2xl text-justify text-white">
-                            Découvrez les opportunités d'investissement au Cameroun grâce à notre portail dédié,
-                            source incontournable pour les investisseurs. Accédez à des informations sur les secteurs
-                            porteurs, la réglementation, des sites d’investissement géolocalisés et connectez-vous aux
-                            acteurs clés. Profitez aussi de conseils sur les procédures de création d'entreprise pour
-                            réussir sur ce marché dynamique.
-                        </p>
-                        <div className="mt-10 flex items-center">
-                            <NavLink to="/projets"
-                                className="rounded-md p-3 border border-solid border-white hover:border-[#0E600B] text-sm font-semibold text-white shadow-sm hover:bg-[#0E600B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 mr-5"
-                            >
-                                Guide de l'investisseur
-                            </NavLink>
-                            <ActionButtonComponent title="Investissez maintenant" color="#0F0B60" filterSecteur="" />
-                        </div>
-                    </motion.div>
-                </div>
-
-            </div>
-            <div className="trans"></div>
-            <motion.div
+          {/* Section Hero */}
+          <div className="hero-container bg-gray-100 grid p-20 grid-cols-1 gap-x-6 xl:grid-cols-1 lg:grid-cols-1 items-center relative">
+            <video className="video-background" autoPlay muted loop>
+              <source src={HOMEVIDEOUPDATED} type="video/mp4" />
+              {t('home.videoNotSupported')}
+            </video>
+            <div className="video-background-overlay"></div>
+            <div className="group relative hero-content">
+              <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 1 }}
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-            </motion.div>
-            <div className="grid py-16 px-6 bg-gradient-to-r from-green-50 to-blue-50 justify-center">
-                {/* Conteneur principal */}
-                <div className="max-w-6xl mx-auto bg-transparent">
-                    {/* Titre principal */}
-                    <motion.h1
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                        className="text-5xl font-bold text-gray-900 mb-8 text-center relative z-10">
-                        Pourquoi Investir au Cameroun ?
-                    </motion.h1>
-
-                    {/* Description */}
-                    <motion.p
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                        className="text-center text-lg text-gray-700 leading-relaxed mb-12 max-w-2xl mx-auto">
-                        Le Cameroun, surnommé <span className="font-semibold text-green-600">"l'Afrique en miniature"</span>, offre un environnement propice aux investissements grâce à sa stabilité politique, sa diversité économique et ses opportunités inégalées. Découvrez les raisons de choisir le Cameroun comme destination d'investissement.
-                    </motion.p>
-
-                    {/* Grille des raisons avec images interactives */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {/* Carte 1 : Stabilité politique */}
-                        <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-green-300 transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden">
-                            <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
-                                <img
-                                    src={Politic}
-                                    alt="Stabilité Politique"
-                                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
-                                />
-                            </div>
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Stabilité Politique</h2>
-                            <p className="text-gray-600 leading-relaxed">
-                                Le Cameroun est l'un des pays les plus stables d'Afrique centrale, offrant un environnement sécurisé pour les investissements à long terme.
-                            </p>
-                        </div>
-
-                        {/* Carte 2 : Diversité économique */}
-                        <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-blue-300 transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden">
+                className="text-start">
+                <h1 className="max-w-2xl text-balance font-bold tracking-tight text-[#0F0B60] sm:text-5xl subpixel-antialiased leading-8 p-4 bg-[#ffffffd1]">
+                  {t('home.hero.title')} <span className="text-[#0E600B]">{t('home.hero.cameroon')}</span>
+                </h1>
+                <p className="mt-8 font-light sm:text-md/6 leading-7 max-w-2xl text-justify text-white">
+                  {t('home.hero.description')}
+                </p>
+                <div className="mt-10 flex items-center">
+                  <NavLink to="/projets" className="rounded-md p-3 border border-solid border-white hover:border-[#0E600B] text-sm font-semibold text-white shadow-sm hover:bg-[#0E600B] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 mr-5">
+                    {t('home.hero.guideButton')}
+                  </NavLink>
+                  <ActionButtonComponent title={t('home.hero.investButton')} color="#0F0B60" filterSecteur="" />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+    
+          {/* Section Pourquoi Investir */}
+          <div className="grid py-16 px-6 bg-gradient-to-r from-green-50 to-blue-50 justify-center">
+            <div className="max-w-6xl mx-auto bg-transparent">
+              <motion.h1
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                className="text-5xl font-bold text-gray-900 mb-8 text-center relative z-10">
+                {t('home.whyInvest.title')}
+              </motion.h1>
+    
+              <motion.p
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                className="text-center text-lg text-gray-700 leading-relaxed mb-12 max-w-2xl mx-auto">
+                {t('home.whyInvest.subtitle')} <span className="font-semibold text-green-600">{t('home.whyInvest.africaMiniature')}</span> {t('home.whyInvest.description')}
+              </motion.p>
+    
+              <motion.div
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                {/* Carte 1 Stabilité Politique */}
+                <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-green-300 transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden">
+                  <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
+                    <img src={Politic} alt={t('home.whyInvest.reasons.politics.title')} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('home.whyInvest.reasons.politics.title')}</h2>
+                  <p className="text-gray-600 leading-relaxed">
+                    {t('home.whyInvest.reasons.politics.description')}
+                  </p>
+                </div>
+    
+ {/* Carte 2 : Diversité économique */}
+ <div className="bg-white p-8 rounded-2xl border border-gray-100 hover:border-blue-300 transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden">
                             <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
                                 <img
                                     src={Economie}
-                                    alt="Diversité Économique"
+                                    alt={t('home.whyInvest.reasons.economy.title')}
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
                                 />
                             </div>
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Diversité Économique</h2>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('home.whyInvest.reasons.economy.title')}</h2>
                             <p className="text-gray-600 leading-relaxed">
-                                Avec des secteurs clés comme l'agro-industrie, les mines, l'énergie et le numérique, le Cameroun offre des opportunités variées pour les investisseurs.
+                            {t('home.whyInvest.reasons.economy.description')}
                             </p>
                         </div>
 
@@ -231,13 +208,13 @@ const home = () => {
                             <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
                                 <img
                                     src={Ressources}
-                                    alt="Ressources Naturelles"
+                                    alt={t('home.whyInvest.reasons.resources.title')}
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
                                 />
                             </div>
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Ressources Naturelles</h2>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('home.whyInvest.reasons.resources.title')}</h2>
                             <p className="text-gray-600 leading-relaxed">
-                                Le pays regorge de ressources naturelles (pétrole, gaz, minerais, forêts) et de terres agricoles fertiles, offrant un potentiel énorme pour les investissements.
+                            {t('home.whyInvest.reasons.resources.description')}
                             </p>
                         </div>
 
@@ -246,14 +223,13 @@ const home = () => {
                             <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
                                 <img
                                     src={Marche}
-                                    alt="Marché Régional"
+                                    alt={t('home.whyInvest.reasons.market.title')}
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
                                 />
                             </div>
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Marché Régional</h2>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('home.whyInvest.reasons.market.title')}</h2>
                             <p className="text-gray-600 leading-relaxed">
-                                Situé au cœur de l'Afrique centrale, le Cameroun est une porte d'entrée vers un marché régional de plus de 200 millions de consommateurs.
-                            </p>
+                            {t('home.whyInvest.reasons.market.description')}                            </p>
                         </div>
 
                         {/* Carte 5 : Main-d'œuvre qualifiée */}
@@ -261,14 +237,13 @@ const home = () => {
                             <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
                                 <img
                                     src={MainOeuvre}
-                                    alt="Main-d'œuvre Qualifiée"
+                                    alt={t('home.whyInvest.reasons.workforce.title')}
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
                                 />
                             </div>
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Main-d'œuvre Qualifiée</h2>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('home.whyInvest.reasons.workforce.title')}</h2>
                             <p className="text-gray-600 leading-relaxed">
-                                Avec une population jeune et dynamique, le Cameroun dispose d'une main-d'œuvre qualifiée et compétitive.
-                            </p>
+                            {t('home.whyInvest.reasons.workforce.description')}                            </p>
                         </div>
 
                         {/* Carte 6 : Infrastructures en développement */}
@@ -276,151 +251,121 @@ const home = () => {
                             <div className="w-full h-48 mb-6 overflow-hidden rounded-lg">
                                 <img
                                     src={InfraDev}
-                                    alt="Infrastructures en Développement"
+                                    alt={t('home.whyInvest.reasons.infrastructure.title')}
                                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300"
                                 />
                             </div>
-                            <h2 className="text-2xl font-bold text-gray-800 mb-4">Infrastructures en Développement</h2>
+                            <h2 className="text-2xl font-bold text-gray-800 mb-4">{t('home.whyInvest.reasons.infrastructure.title')}</h2>
                             <p className="text-gray-600 leading-relaxed">
-                                Des projets d'infrastructures routières, portuaires et énergétiques sont en cours pour soutenir la croissance économique.
-                            </p>
-                        </div>
-                    </motion.div>
-
-                    {/* Call-to-action */}
-                    <div className="text-center mt-12">
-                        <a
-                            href="#contact"
-                            className="inline-block bg-green-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-xl"
-                        >
-                            Investissez au Cameroun dès aujourd'hui !
-                        </a>
+                            {t('home.whyInvest.reasons.infrastructure.description')}                            </p>
+                        </div>              
+                        </motion.div>
+    
+              <div className="text-center mt-12">
+                <a href="#contact" className="inline-block bg-green-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+                  {t('home.whyInvest.cta')}
+                </a>
+              </div>
+            </div>
+          </div>
+    
+          {/* Section Avantages */}
+          <div className="fourth-content mx-auto max-w-7xl px-6 lg:px-8 mt-8">
+            <motion.h2
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="text-3xl font-bold text-center text-[#0F0B60]">
+              {t('home.advantages.title')}
+            </motion.h2>
+            
+            <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-8 bg-white">
+              {ListData.map((data, index) => (
+                <div key={index} className="group relative bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                  <div className="absolute -top-4 -left-3 w-16 h-16 bg-[#0F0B60] rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-md">
+                    {data.count}
+                  </div>
+                  <div className="p-6">
+                    <img src={data.image} alt={t(`home.advantages.items.${index}.title`)} className="w-20 h-20 mx-auto" />
+                  </div>
+                  <div className="px-6 pb-8">
+                    <h3 className="text-xl font-bold text-gray-800 mb-3">
+                      {t(`home.advantages.items.${index}.title`)}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {t(`home.advantages.items.${index}.description`)}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+    
+          {/* Section Témoignages */}
+          <div className="fifth-content mx-auto max-w-full px-6 lg:px-8 py-8 bg-gradient-to-r from-blue-50 to-purple-50 border-gray-100">
+            <motion.h2
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="text-3xl font-bold text-center text-[#0F0B60]">
+              {t('home.testimonials.title')}
+            </motion.h2>
+            
+            <motion.div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {testimonies.map((testimony, index) => (
+                <div key={testimony.id} className="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <img src={testimony.author.imageUrl} alt={testimony.author.name} className="w-12 h-12 rounded-full" />
+                    <div>
+                      <p className="font-semibold text-gray-800">{testimony.author.name}</p>
+                      <p className="text-sm text-gray-500">{testimony.date}</p>
                     </div>
+                  </div>
+                  <p className="text-gray-600 italic">
+                    <span className='font-bold text-xl text-[#0F0B60]'>"</span>
+                    {t(`home.testimonials.items.${index}.text`)}
+                    <span className='font-bold text-xl text-[#0F0B60]'>"</span>
+                  </p>
                 </div>
+              ))}
+            </motion.div>
+            
+            <div className="mt-6 flex items-center">
+              <NavLink to="/#">
+                <button className="more-btn text-sm/6 font-semibold">
+                  {t('home.testimonials.more')}
+                </button>
+              </NavLink>
             </div>
-
-            <div className="fourth-content mx-auto max-w-7xl px-6 lg:px-8 mt-8">
-                <motion.h2
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="text-3xl font-bold text-center text-[#0F0B60]">Avantages</motion.h2>
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></motion.div>
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-8 bg-white">
-                    {ListData.map((data, index) => (
-                        <div
-                            key={index}
-                            className="group relative bg-white rounded-xl shadow-lg overflow-hidden transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
-                        >
-                            {/* Cercle numéroté avec dégradé */}
-                            <div className="absolute -top-4 -left-3 w-16 h-16 bg-[#0F0B60] rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-md">
-                                {data.count}
-                            </div>
-
-                            {/* Image */}
-                            <div className="p-6">
-                                <img src={data.image} alt={data.title} className="w-20 h-20 mx-auto" />
-                            </div>
-
-                            {/* Contenu texte */}
-                            <div className="px-6 pb-8">
-                                <h3 className="text-xl font-bold text-gray-800 mb-3">{data.title}</h3>
-                                <p className="text-gray-600 text-sm leading-relaxed">{data.description}</p>
-                            </div>
-
-                            {/* Overlay au survol */}
-                            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </div>
-                    ))}
-                </motion.div>
+          </div>
+    
+          {/* Section Projets */}
+          <div className="container mx-auto p-6">
+            <h2 className="text-3xl font-bold text-center text-[#0F0B60]">
+              {t('home.projects.title')}
+            </h2>
+            
+            <div className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></div>
+            
+            <p className="text-center text-gray-700 mb-6">
+              {t('home.projects.description')}
+            </p>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projects.map((project) => (
+                <ProjectCard key={project.id} {...project} />
+              ))}
             </div>
-
-            <div className="fifth-content mx-auto max-w-full px-6 lg:px-8 py-8 bg-gradient-to-r from-blue-50 to-purple-50 border-gray-100">
-                <motion.h2
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="text-3xl font-bold text-center text-[#0F0B60]">Nos investisseurs témoignent</motion.h2>
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></motion.div>
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {testimonies.map((testimony) => (
-                        <div key={testimony.id} className="bg-white rounded-xl shadow-lg p-6 transform transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
-                            <div className="flex items-center space-x-4 mb-4">
-                                <img
-                                    src={testimony.author.imageUrl}
-                                    alt={testimony.author.name}
-                                    className="w-12 h-12 rounded-full"
-                                />
-                                <div>
-                                    <p className="font-semibold text-gray-800">{testimony.author.name}</p>
-                                    <p className="text-sm text-gray-500">{testimony.date}</p>
-                                </div>
-                            </div>
-                            <p className="text-gray-600 italic">
-                                <span className='font-bold text-xl text-[#0F0B60]'>"</span>
-                                {testimony.description}
-                                <span className='font-bold text-xl text-[#0F0B60]'>"</span>
-                            </p>
-                        </div>
-                    ))}
-                </motion.div>
-                <div className="mt-6 flex items-center">
-                    <NavLink to="/#">
-                        <button className="more-btn text-sm/6 font-semibold">
-                            Plus
-                        </button>
-                    </NavLink>
-                </div>
+            
+            <div className="flex justify-center mt-8">
+              <NavLink to="/projets" className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all">
+                {t('home.projects.more')}
+              </NavLink>
             </div>
-            <div className="container mx-auto p-6">
-                {/* Titre avec style attractif */}
-                <h2 className="text-3xl font-bold text-center text-[#0F0B60]">
-                    Saisissez des Opportunités Uniques !
-                </h2>
-
-                {/* Barre de séparation */}
-                <div className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full"></div>
-
-                {/* Message d'encouragement */}
-                <p className="text-center text-gray-700 mb-6">
-                    Investissez dès aujourd’hui dans des projets innovants et rentables pour bâtir l’avenir de l’économie camerounaise.
-                </p>
-
-                {/* Liste des projets */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {projects.map((project) => (
-                        <ProjectCard key={project.id} {...project} />
-                    ))}
-                </div>
-
-                {/* Lien Voir plus */}
-                <div className="flex justify-center mt-8">
-                    <NavLink
-                        to="/projets"
-                        className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
-                    >
-                        Voir plus de projets
-                    </NavLink>
-                </div>
-            </div>
-        </div >
-    );
+          </div>
+        </div>
+      );
 };
 
 export default home;
+

@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import AlertComponent, { NotificationProvider } from "../../../components/alert/AlertComponent";
+import { useTranslation } from 'react-i18next';
 
 const Logup = () => {
 
@@ -20,6 +21,7 @@ const Logup = () => {
     const [isPasswordMatch, setIsPasswordMatch] = useState(true);
 
     const history = useNavigate();
+    const { t } = useTranslation();
 
 
     const isFormValid =
@@ -52,7 +54,7 @@ const Logup = () => {
             const res = await axios.post("http://localhost:8080/api/v1/auth/register", formData);
 
             if (res.status === 201) {
-                showNotification("Enregistrement réussi", "success");
+                showNotification(t('signup.success'), "success");
                 setStatus('success');
                 history("/activation-account");
             } else {
@@ -68,14 +70,14 @@ const Logup = () => {
         res => res,
         error => {
             const statusHandlers: any = {
-                403: () => showNotification("Accès interdit", "error"),
-                404: () => showNotification("L'adresse email est incorrecte", "warning"),
-                409: () => showNotification("Adresse email déjà utilisée", "warning"),
-                500: () => showNotification("Erreur serveur", "error"),
+                403: () => showNotification(t('signup.errors.forbidden'), "error"),
+                404: () => showNotification(t('signup.errors.not_found'), "warning"),
+                409: () => showNotification(t('signup.errors.conflict'), "warning"),
+                500: () => showNotification(t('signup.errors.server_error'), "error"),
             };
 
             const status = error.response?.status;
-            (statusHandlers[status] || (() => showNotification("Erreur inconnue", "error")))();
+            (statusHandlers[status] || (() => showNotification(t('signup.errors.unknown'), "error")))();
 
             return Promise.reject(error);
         }
@@ -119,7 +121,7 @@ const Logup = () => {
                 >
                     <img
                         src={LOGIN}
-                        alt="Login Illustration"
+                        alt={t('signup.alt_image')}
                         style={{
                             height: "100%",
                             width: "100%",
@@ -157,7 +159,7 @@ const Logup = () => {
                             fontWeight: "bold",
                         }}
                     >
-                        Bienvenue Au Portail Des Investisseurs de l’API
+                        {t('signup.title')}
                     </Typography>
                     <Typography
                         gutterBottom
@@ -167,7 +169,7 @@ const Logup = () => {
                             fontWeight: "semi-bold",
                         }}
                     >
-                        Créer votre compte
+                        {t('signup.subtitle')}
                     </Typography>
 
                     {/* Champs de connexion */}
@@ -176,7 +178,7 @@ const Logup = () => {
                             <TextField
                                 fullWidth
                                 margin="normal"
-                                label="Prenom"
+                                label={t('signup.firstname_label')}
                                 name="firstname"
                                 variant="outlined"
                                 value={formData.firstname}
@@ -186,7 +188,7 @@ const Logup = () => {
                             <TextField
                                 fullWidth
                                 margin="normal"
-                                label="Nom de famille"
+                                label={t('signup.lastname_label')}
                                 name="lastname"
                                 variant="outlined"
                                 value={formData.lastname}
@@ -199,7 +201,7 @@ const Logup = () => {
                                 type="email"
                                 name="email"
                                 autoComplete="email"
-                                label="Adresse email professionnelle"
+                                label={t('signup.email_label')}
                                 variant="outlined"
                                 value={formData.email}
                                 onChange={handleChange}
@@ -208,10 +210,10 @@ const Logup = () => {
                             <TextField
                                 fullWidth
                                 margin="normal"
-                                label="Numéro de téléphone"
+                                label={t('signup.phone_label')}
                                 variant="outlined"
                                 name="phone"
-                                placeholder="(+237) 6XX XXX XXX"
+                                placeholder={t('signup.phone_placeholder')}
                                 autoComplete="tel"
                                 type="tel"
                                 inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
@@ -220,7 +222,7 @@ const Logup = () => {
                                 required
                             />
                             <FormControl fullWidth margin="normal" variant="outlined" required>
-                                <InputLabel htmlFor="outlined-adornment-password">Mot de passe</InputLabel>
+                                <InputLabel htmlFor="outlined-adornment-password">{t('signup.password_label')}</InputLabel>
                                 <OutlinedInput
                                     id="outlined-adornment-password"
                                     name="password"
@@ -231,7 +233,7 @@ const Logup = () => {
                                         <InputAdornment position="end">
                                             <IconButton
                                                 aria-label={
-                                                    showPassword ? 'hide the password' : 'display the password'
+                                                    showPassword ? t('signup.password_hide') : t('signup.password_show')
                                                 }
                                                 onClick={handleClickShowPassword}
                                                 onMouseDown={handleMouseDownPassword}
@@ -242,13 +244,13 @@ const Logup = () => {
                                             </IconButton>
                                         </InputAdornment>
                                     }
-                                    label="Mot de passe"
+                                    label={t('signup.password_label')}
                                 />
                             </FormControl>
                             <FormControl fullWidth margin="normal" variant="outlined" required>
-                                <InputLabel htmlFor="outlined-adornment-password">Confirmer mot de passe</InputLabel>
+                                <InputLabel htmlFor="outlined-adornment-confirm-password">{t('signup.confirm_password_label')}</InputLabel>
                                 <OutlinedInput
-                                    id="outlined-adornment-password"
+                                    id="outlined-adornment-confirm-password"
                                     name="confirmePassword"
                                     value={confirmePassword}
                                     onChange={(e) => setConfirmePassword(e.target.value)}
@@ -259,7 +261,7 @@ const Logup = () => {
                                         <InputAdornment position="end">
                                             <IconButton
                                                 aria-label={
-                                                    showConfirmePassword ? 'hide the password' : 'display the password'
+                                                    showConfirmePassword ? t('signup.confirm_password_hide') : t('signup.confirm_password_show')
                                                 }
                                                 onClick={handleClickShowConfirmePassword}
                                                 onMouseDown={handleMouseDownConfirmePassword}
@@ -270,11 +272,11 @@ const Logup = () => {
                                             </IconButton>
                                         </InputAdornment>
                                     }
-                                    label="Confirmer mot de passe"
+                                    label={t('signup.confirm_password_label')}
                                 />
                                 {!isPasswordMatch && (
                                     <FormHelperText error>
-                                        Les mots de passe ne correspondent pas
+                                        {t('signup.password_mismatch')}
                                     </FormHelperText>
                                 )}
                             </FormControl>
@@ -282,19 +284,19 @@ const Logup = () => {
                             <TextField
                                 fullWidth
                                 select
-                                label="Quel est votre profil ?"
+                                label={t('signup.role_label')}
                                 name="role"
                                 value={formData.role}
                                 onChange={handleChange}
                                 margin="normal"
                                 required
                             >
-                                <MenuItem disabled>Sélectionnez un type</MenuItem>
-                                <MenuItem value="PROJECT_OWNER">Porteur de projet</MenuItem>
-                                <MenuItem value="INVESTOR">Investisseur</MenuItem>
+                                <MenuItem disabled>{t('signup.role_placeholder')}</MenuItem>
+                                <MenuItem value="PROJECT_OWNER">{t('signup.role_project_owner')}</MenuItem>
+                                <MenuItem value="INVESTOR">{t('signup.role_investor')}</MenuItem>
                             </TextField>
                             <div className="">
-                                <p className="text-sm text-center"><NavLink className="text-blue-900 hover:underline" to={'#'}> En cliquant sur le bouton « Créer un compte », vous acceptez les conditions d'utilisation et</NavLink> la politique de confidentialité du portail d'investissement du Cameroun .</p>
+                                <p className="text-sm text-center"><NavLink className="text-blue-900 hover:underline" to={'#'}> {t('signup.terms_privacy_prefix')}</NavLink> {t('signup.terms_privacy_link')} .</p>
                             </div>
                             <Button
                                 fullWidth
@@ -305,7 +307,7 @@ const Logup = () => {
                                 startIcon={status === 'loading' ? <CircularProgress size={20} /> : ''}
                                 sx={{ backgroundColor: "#2A337B", mt: 2, textTransform: "none", borderRadius: "8px" }}
                             >
-                                {status === 'loading' ? 'En cours...' : 'Créer un compte'}
+                                {status === 'loading' ? t('signup.button_loading') : t('signup.button_register')}
                             </Button>
 
                         </form>
@@ -316,19 +318,19 @@ const Logup = () => {
                     {/* Connexion Google & Apple */}
                     <Box sx={{ mt: 4 }}>
                         <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 }}>
-                            Ou connectez-vous avec :
+                            {t('signup.social_login_text')}
                         </Typography>
                         <div className="flex justify-center gap-4 border-t border-gray-100 px-6 py-5">
                             <a href="#" className="rounded-full border border-gray-200 p-2 text-gray-900 hover:bg-red-300">
-                                <span className="sr-only">Company Google</span>
+                                <span className="sr-only">{t('signup.google_login')}</span>
                                 <GoogleIcon color="error" />
                             </a>
                             <a href="#" className="rounded-full border border-gray-200 p-2 text-gray-900 hover:bg-gray-300">
-                                <span className="sr-only">Company Google</span>
+                                <span className="sr-only">{t('signup.apple_login')}</span>
                                 <AppleIcon />
                             </a>
                             <a href="#" className="rounded-full border border-gray-200 p-2 text-gray-900 hover:bg-blue-300">
-                                <span className="sr-only">Company Linkedin</span>
+                                <span className="sr-only">{t('signup.linkedin_login')}</span>
                                 <LinkedIn color="primary" />
                             </a>
                         </div>
@@ -339,7 +341,7 @@ const Logup = () => {
                         variant="body2"
                         sx={{ mt: 2, color: "text.secondary", fontSize: "14px" }}
                     >
-                        Avez-vous déjà un compte? Connectez vous ici <NavLink to={"/signin"} style={{ color: "#2A337B" }}>Connectez-vous</NavLink>
+                        {t('signup.already_have_account')} <NavLink to={"/signin"} style={{ color: "#2A337B" }}>{t('signup.login_link')}</NavLink>
                     </Typography>
                 </Box>
             </Box>

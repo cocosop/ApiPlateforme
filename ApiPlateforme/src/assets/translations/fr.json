@@ -1,60 +1,435 @@
 {
   "navbar": {
     "pays-cm": "République du Cameroun",
-    "devise-cm": "Paix-Travail-Patrie",
+    "devise-cm": "Paix - Travail - Patrie",
     "accueil": "Accueil",
-    "informations": "Informations générales",
+    "informations": "Informations Générales",
     "opportunites": "Opportunités",
     "investir": "Investir",
-    "apropos": "A propos",
+    "apropos": "À Propos",
     "espace_prive": "Espace Privé",
     "menu_items": {
       "presentation_cameroun": "Présentation du Cameroun",
-      "cadre_juridique": "Cadre juridique",
+      "cadre_juridique": "Cadre Juridique",
       "sanctuaires": "Sanctuaires",
-      "agro_industrie": "Agro-industrie",
+      "agro_industrie": "Agro-Industrie",
       "energie": "Énergie",
       "numerique": "Numérique",
       "piliers": "Piliers",
-      "bois_forets": "Bois-Forêts",
-      "textile_confection_cuir": "Textile/Confection/Cuir",
-      "hydrocarbures_raffinage": "Hydrocarbures/Raffinage",
-      "chimie_pharmacie": "Chimie/Pharmacie",
-      "mines_metallurgie_siderurgie": "Mines/Métallurgie/Sidérurgie",
+      "bois_forets": "Bois et Forêts",
+      "textile_confection_cuir": "Textile, Confection et Cuir",
+      "hydrocarbures_raffinage": "Hydrocarbures et Raffinage",
+      "chimie_pharmacie": "Chimie et Pharmacie",
+      "mines_metallurgie_siderurgie": "Mines, Métallurgie et Sidérurgie",
       "socles": "Socles",
       "financement": "Financement",
       "infrastructure": "Infrastructure",
-      "creation_entreprise": "Création d'entreprise",
-      "droit_investisseurs": "Droit des investisseurs",
-      "facteurs_production": "Facteurs de production",
-      "incitation": "Incitation",
+      "creation_entreprise": "Création d'Entreprise",
+      "droit_investisseurs": "Droits des Investisseurs",
+      "facteurs_production": "Facteurs de Production",
+      "incitation": "Incitations",
       "presentation_api": "Présentation de l'API",
       "faq": "FAQ",
-      "conseil_en_ligne": "Conseil en ligne"
+      "conseil_en_ligne": "Conseil en Ligne"
     },
     "descriptions": {
-      "presentation_cameroun": "Découvrez les opportunités stratégiques, économiques et naturelles du Cameroun qui attirent les investisseurs du monde entier.",
-      "cadre_juridique": "Accédez à des informations essentielles sur la fiscalité et le cadre légal qui garantissent un environnement d’investissement sûr et compétitif au Cameroun.",
-      "sanctuaires": "Les infrastructures et pôles stratégiques du développement industriel.",
+      "presentation_cameroun": "Découvrez les opportunités stratégiques, économiques et naturelles du Cameroun qui attirent les investisseurs mondiaux.",
+      "cadre_juridique": "Accédez aux informations essentielles sur les cadres fiscaux et juridiques garantissant un environnement d'investissement sûr et compétitif au Cameroun.",
+      "sanctuaires": "Infrastructures stratégiques et pôles de développement industriel.",
       "agro_industrie": "Secteur de l'agro-industrie.",
       "energie": "Secteur de l'énergie.",
       "numerique": "Secteur du numérique.",
-      "piliers": "Les secteurs clés qui soutiennent la croissance économique.",
+      "piliers": "Domaines clés soutenant la croissance économique.",
       "bois_forets": "Secteur du bois et des forêts.",
-      "textile_confection_cuir": "Secteur textile, confection, et cuir.",
+      "textile_confection_cuir": "Secteur du textile, de la confection et du cuir.",
       "hydrocarbures_raffinage": "Secteur des hydrocarbures et du raffinage.",
-      "chimie_pharmacie": "Secteur chimie et pharmacie.",
-      "mines_metallurgie_siderurgie": "Secteur des mines, métallurgie, et sidérurgie.",
-      "socles": "Les bases fondamentales pour un développement industriel solide.",
+      "chimie_pharmacie": "Secteur de la chimie et de la pharmacie.",
+      "mines_metallurgie_siderurgie": "Secteur des mines, de la métallurgie et de la sidérurgie.",
+      "socles": "Fondations solides pour le développement industriel.",
       "financement": "Financement des projets d'investissement.",
-      "infrastructure": "Infrastructure nécessaire pour soutenir le développement.",
-      "creation_entreprise": "Guide pratique pour établir une entreprise au Cameroun.",
-      "droit_investisseurs": "Présentation des protections légales et des droits garantis aux investisseurs étrangers.",
-      "facteurs_production": "Informations sur les ressources nécessaires : capital, matières premières, et équipements.",
-      "incitation": "Mesures incitatives et avantages fiscaux pour encourager l’investissement.",
-      "presentation_api": "Découvrez le rôle de l’API dans l’accompagnement des projets d’investissement.",
-      "faq": "Trouvez des réponses rapides et claires à vos questions fréquentes concernant l’investissement.",
-      "conseil_en_ligne": "Accédez à une assistance personnalisée et obtenez des réponses rapides à toutes vos questions sur les opportunités d'investissement."
+      "infrastructure": "Infrastructure soutenant le développement.",
+      "creation_entreprise": "Guide pratique pour démarrer une entreprise au Cameroun.",
+      "droit_investisseurs": "Introduction aux protections légales et aux droits des investisseurs étrangers.",
+      "facteurs_production": "Informations sur les ressources nécessaires : capital, matières premières et équipements.",
+      "incitation": "Incitations et avantages fiscaux encourageant l'investissement.",
+      "presentation_api": "Découvrez le rôle de l'API dans le soutien aux projets d'investissement.",
+      "faq": "Trouvez des réponses rapides et claires aux questions fréquentes sur l'investissement.",
+      "conseil_en_ligne": "Obtenez un soutien personnalisé et des réponses rapides à toutes vos questions sur les opportunités d'investissement."
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Portail d'Investissement du Cameroun",
+      "cameroon": "",
+      "description": "Découvrez les opportunités d'investissement au Cameroun grâce à notre portail d'investissement professionnel, une ressource essentielle pour les investisseurs. Accédez aux informations clés de l'industrie, aux réglementations, aux points d'investissement géographique et connectez-vous avec les principaux acteurs. Recevez également des conseils sur les procédures de création d'entreprise pour réussir dans ce marché dynamique.",
+      "guideButton": "Guide de l'Investisseur",
+      "investButton": "Investir Maintenant"
+    },
+    "whyInvest": {
+      "title": "Pourquoi Investir au Cameroun ?",
+      "subtitle": "Le Cameroun est connu comme",
+      "africaMiniature": "'L'Afrique en Miniature'",
+      "description": "Avec une stabilité politique, une diversité économique et des opportunités inégalées, le Cameroun offre un environnement propice à l'investissement. Découvrez pourquoi choisir le Cameroun comme destination d'investissement est avantageux.",
+      "reasons": {
+        "politics": {
+          "title": "Stabilité Politique",
+          "description": "Le Cameroun est l'un des pays les plus stables d'Afrique Centrale, offrant un environnement sûr pour les investissements à long terme."
+        },
+        "economy": {
+          "title": "Diversité Économique",
+          "description": "Avec des secteurs clés comme l'agro-industrie, les mines, l'énergie et le numérique, le Cameroun offre des opportunités diversifiées pour les investisseurs."
+        },
+        "resources": {
+          "title": "Ressources Naturelles",
+          "description": "Le pays possède d'abondantes ressources naturelles (pétrole, gaz, minéraux, forêts) et des terres agricoles fertiles, offrant un potentiel d'investissement significatif."
+        },
+        "market": {
+          "title": "Marché Régional",
+          "description": "Situé au cœur de l'Afrique Centrale, le Cameroun sert de porte d'entrée à un marché régional de plus de 200 millions de consommateurs."
+        },
+        "workforce": {
+          "title": "Main-d'œuvre Qualifiée",
+          "description": "Avec une population jeune et dynamique, le Cameroun dispose d'une main-d'œuvre qualifiée et compétitive."
+        },
+        "infrastructure": {
+          "title": "Développement des Infrastructures",
+          "description": "Les projets en cours dans les routes, les ports et les infrastructures énergétiques soutiennent la croissance économique."
+        }
+      },
+      "cta": "Investissez au Cameroun Maintenant !"
+    },
+    "advantages": {
+      "title": "Avantages",
+      "items": [
+        {
+          "title": "Enregistrement de Projet en Ligne",
+          "description": "Les investisseurs peuvent enregistrer leurs projets directement sur le portail sans paperasse. Ce système simplifie les procédures et permet un gain de temps considérable tout en assurant une gestion sécurisée et accessible à distance."
+        },
+        {
+          "title": "Réduction des Déplacements",
+          "description": "Toutes les procédures sont centralisées sur le portail, éliminant ainsi la nécessité pour les investisseurs de se déplacer. Cela simplifie les interactions avec les organismes administratifs et optimise les agendas."
+        },
+        {
+          "title": "Suivi Transparent des Documents",
+          "description": "Le portail offre une visibilité complète sur l'avancement des documents. Les investisseurs peuvent suivre chaque étape du traitement en temps réel, renforçant la confiance et réduisant l'incertitude."
+        },
+        {
+          "title": "Accès Rapide à l'Information",
+          "description": "Le portail offre un accès instantané aux informations clés sur les procédures et les services disponibles. Cette fonctionnalité permet aux investisseurs de mieux planifier et exécuter leurs projets, ce qui représente un gain de temps considérable."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Témoignages de Nos Investisseurs",
+      "items": [
+        {
+          "text": "L'API a été un partenaire clé dans le succès de notre projet d'investissement au Cameroun. Leur équipe nous a soutenus à chaque étape, de l'enregistrement en ligne au suivi transparent des documents. Grâce à eux, nous avons pu démarrer nos opérations rapidement et sans tracas.",
+          "author": "Jean Dupont",
+          "date": "12 Octobre 2023"
+        },
+        {
+          "text": "Travailler avec l'API a été une expérience très fluide. Leur plateforme en ligne a considérablement réduit nos déplacements et nos procédures administratives. Nous avons pu nous concentrer sur notre projet tout en ayant une visibilité complète sur l'avancement de nos documents.",
+          "author": "Fatoumata Diallo",
+          "date": "25 Septembre 2023"
+        },
+        {
+          "text": "L'API a transformé notre expérience d'investissement au Cameroun. Leurs processus simplifiés et transparents nous ont fait gagner un temps précieux. Leur équipe est réactive et professionnelle ; nous recommandons vivement leurs services à tout investisseur.",
+          "author": "Carlos Mendoza",
+          "date": "5 Septembre 2023"
+        }
+      ],
+      "more": "Plus"
+    },
+    "projects": {
+      "title": "Saisissez des Opportunités Uniques !",
+      "description": "Investissez dès aujourd'hui dans des projets innovants et rentables pour construire l'avenir de l'économie camerounaise.",
+      "more": "Voir Plus de Projets"
+    }
+  },
+  "footer": {
+    "agency": "Agence de Promotion des Investissements (API) - Cameroun",
+    "website": "Site Web",
+    "website_url": "www.investincameroon.cm",
+    "navigation": {
+      "title": "Menu de Navigation",
+      "home": "Accueil",
+      "general_info": "Informations Générales",
+      "investor_guide": "Guide de l'Investisseur",
+      "opportunity_sectors": "Secteurs d'Opportunités",
+      "about": "À Propos"
+    },
+    "institutions": {
+      "title": "Institutions Compétentes",
+      "ministry_employment": "Ministère de l'Emploi et de la Formation Professionnelle",
+      "ministry_labor": "Ministère du Travail et de la Sécurité Sociale",
+      "ministry_mines": "Ministère des Mines, de l'Industrie et du Développement Technologique",
+      "ministry_smes": "Ministère des Petites et Moyennes Entreprises, de l'Économie Sociale et de l'Artisanat",
+      "cnps": "Caisse Nationale de Prévoyance Sociale (CNPS)"
+    },
+    "contacts": {
+      "title": "Contacts",
+      "agency_name": "Agence de Promotion des Investissements (API)",
+      "phone1": "Tél. : (+237) 233 42 59 16",
+      "phone2": "Tél. : (+237) 233 43 30 08",
+      "email": "Email",
+      "email_address": "contact@api.cm",
+      "address": "B.P. 441, Yaoundé-Cameroun"
+    },
+    "subscribe": {
+      "title": "S'abonner",
+      "email_placeholder": "Votre adresse e-mail",
+      "button": "S'abonner",
+      "anti_spam": "PAS DE SPAM ● DÉSABONNEMENT À TOUT MOMENT"
+    },
+    "copyright": "© 2024 API | Tous droits réservés.",
+    "legal": {
+      "privacy": "Politique de Confidentialité",
+      "terms": "Conditions Générales d'Utilisation"
+    }
+  },
+    "login": {
+      "title": "Bienvenue Au Portail Des Investisseurs de l’API",
+      "subtitle": "Connectez-Vous",
+      "email_label": "Adresse e-mail",
+      "password_label": "Mot de passe",
+      "password_show": "Afficher le mot de passe",
+      "password_hide": "Masquer le mot de passe",
+      "forgot_password": "Mot de passe oublié?",
+      "button": "Se connecter",
+      "social_login_text": "Ou connectez-vous avec :",
+      "google_login": "Se connecter avec Google",
+      "apple_login": "Se connecter avec Apple",
+      "linkedin_login": "Se connecter avec LinkedIn",
+      "no_account_yet": "Pas encore de compte ?",
+      "signup_link": "Inscrivez-vous",
+      "alt_image": "Illustration de connexion",
+      "errors": {
+        "forbidden": "Accès interdit",
+        "not_found": "L'adresse email est incorrecte",
+        "server_error": "Erreur serveur",
+        "unknown": "Erreur inconnue"
+      }
+    },
+    "signup": {
+    "title": "Bienvenue Au Portail Des Investisseurs de l’API",
+    "subtitle": "Créer votre compte",
+    "firstname_label": "Prenom",
+    "lastname_label": "Nom de famille",
+    "email_label": "Adresse email professionnelle",
+    "phone_label": "Numéro de téléphone",
+    "phone_placeholder": "(+237) 6XX XXX XXX",
+    "password_label": "Mot de passe",
+    "confirm_password_label": "Confirmer mot de passe",
+    "password_show": "Afficher le mot de passe",
+    "password_hide": "Masquer le mot de passe",
+    "confirm_password_show": "Afficher le mot de passe de confirmation",
+    "confirm_password_hide": "Masquer le mot de passe de confirmation",
+    "password_mismatch": "Les mots de passe ne correspondent pas",
+    "role_label": "Quel est votre profil ?",
+    "role_placeholder": "Sélectionnez un type",
+    "role_project_owner": "Porteur de projet",
+    "role_investor": "Investisseur",
+    "terms_privacy_prefix": "En cliquant sur le bouton « Créer un compte », vous acceptez les conditions d'utilisation et",
+    "terms_privacy_link": "la politique de confidentialité du portail d'investissement du Cameroun",
+    "button_register": "Créer un compte",
+    "button_loading": "En cours...",
+    "social_login_text": "Ou connectez-vous avec :",
+    "google_login": "Se connecter avec Google",
+    "apple_login": "Se connecter avec Apple",
+    "linkedin_login": "Se connecter avec LinkedIn",
+    "already_have_account": "Avez-vous déjà un compte? Connectez vous ici",
+    "login_link": "Connectez-vous",
+    "success": "Enregistrement réussi",
+    "alt_image": "Illustration d'inscription",
+    "errors": {
+      "forbidden": "Accès interdit",
+      "not_found": "L'adresse email est incorrecte",
+      "conflict": "Adresse email déjà utilisée",
+      "server_error": "Erreur serveur",
+      "unknown": "Erreur inconnue"
+    }
+  },
+  "legalAspects": {
+    "sections": {
+      "system": {
+        "title": "Système Juridique",
+        "content": "Mixte : Droit civil et common law - Constitution de 1972 révisée",
+        "details": "Le Cameroun possède un système juridique mixte, influencé à la fois par le droit civil français et la common law anglaise. La Constitution de 1972, révisée plusieurs fois, constitue la loi fondamentale."
+      },
+      "codes": {
+        "title": "Codes Importants",
+        "content": "Code civil, Code pénal, OHADA, Code des investissements",
+        "details": "Les principaux codes juridiques incluent le Code civil, le Code pénal, les actes uniformes de l'OHADA, et le Code des investissements qui régit les activités économiques."
+      },
+      "jurisdictions": {
+        "title": "Juridictions",
+        "content": "Cour suprême, Cours d'appel, Tribunaux de première instance",
+        "details": "Le système judiciaire comprend la Cour suprême (plus haute juridiction), les Cours d'appel, et les Tribunaux de première instance répartis sur le territoire."
+      }
+    },
+    "buttons": {
+      "learnMore": "En savoir plus",
+      "reduce": "Réduire"
+    }
+  },
+  "breadcrumbs": {
+    "home": "Accueil",
+    "generalInformation": "Informations générales",
+    "legalAndFiscalFramework": "Cadre juridique et fiscal"
+  },
+  "information_general": {
+    "cadre_juridique_fiscal": {
+      "hero": {
+        "title": "Cadre Juridique et Fiscal",
+        "subtitle": "Comprendre le contexte juridique et fiscal pour des investissements réussis au Cameroun."
+      },
+      "featured": "EN VEDETTE",
+      "introduction": {
+        "title": "Présentation du Cadre Juridique et Fiscal au Cameroun",
+        "text": "Le Cameroun, pays d’Afrique centrale, dispose d’un cadre juridique et fiscal conçu pour favoriser les investissements et encadrer les activités économiques. Il s'agit d'un système hybride, mêlant modernité et tradition, avec des lois adaptées aux besoins des acteurs économiques locaux et internationaux."
+      },
+      "sections": {
+        "legalFramework": {
+          "title": "Cadre Juridique",
+          "text": "Le Cameroun dispose d'un système juridique basé sur le droit civil et le droit coutumier,tout en intégrant des spécificités liées à son contexte régional et historique. Les principales lois incluent le Code des Investissements, le Code du Travail, et le Code de Commerce.",
+          "description": {
+            "system": {
+              "title": "Système Juridique",
+              "aspects": {
+                "civilLaw": {
+                  "title": "Droit Civil",
+                  "text": "Hérité de la tradition française, le droit civil est le socle principal du système juridique camerounais. Il repose sur des textes écrits, tels que les codes et lois adoptés par le gouvernement."
+                },
+                "customaryLaw": {
+                  "title": "Droit Coutumier",
+                  "text": "Inspiré des traditions et coutumes locales, il coexiste avec le droit civil et est principalement utilisé dans les affaires familiales, successorales et foncières, particulièrement dans les communautés rurales."
+                }
+              }
+            },
+            "mainLaws": {
+              "title": "Les Principaux Textes Législatifs",
+              "aspects": {
+                "investmentCode": {
+                  "title": "Le Code des Investissements",
+                  "text": "Ce code établit les règles et incitations pour encourager les investissements nationaux et étrangers. Il propose des avantages fiscaux, des exonérations douanières et un environnement stable pour les investisseurs."
+                },
+                "laborCode": {
+                  "title": "Le Code du Travail",
+                  "text": "Ce texte régit les relations entre employeurs et employés. Il fixe les droits et obligations des deux parties, tels que les conditions d’emploi, la rémunération, la sécurité au travail et la résolution des conflits."
+                },
+                "commercialCode": {
+                  "title": "Le Code de Commerce",
+                  "text": "Il encadre les activités commerciales et industrielles. Il couvre des domaines tels que les contrats commerciaux, les sociétés, la faillite et le règlement des litiges commerciaux."
+                },
+                "landRegulation": {
+                  "title": "La Réglementation Foncière",
+                  "text": "Le cadre juridique foncier est crucial pour les investisseurs souhaitant acquérir des terres. Il différencie les terres relevant du domaine privé, public ou coutumier."
+                }
+              }
+            },
+            "legalInstitutions": {
+              "title": "Les Institutions Juridiques",
+              "aspects": {
+                "firstInstanceCourts": {
+                  "title": "Les tribunaux de première instance",
+                  "text": "Pour les affaires civiles, pénales et commerciales courantes."
+                },
+                "supremeCourt": {
+                  "title": "La Cour suprême",
+                  "text": "Plus haute juridiction du pays."
+                },
+                "administrativeTribunals": {
+                  "title": "Les tribunaux administratifs",
+                  "text": "Pour les litiges impliquant l'administration publique."
+                }
+              }
+            }
+          },
+          "documents": {
+            "investmentCode": "Code des Investissements",
+            "laborCode": "Code du Travail",
+            "commercialCode": "Code de Commerce",
+            "landRegulation": "Réglementation Foncière"
+          },
+          "conclusion": "Le pays est également membre de l'Organisation pour l'Harmonisation en Afrique du Droit des Affaires (OHADA), ce qui garantit l'application d'un droit des affaires harmonisé dans 17 pays africains."
+        },
+        "fiscalFramework": {
+          "title": "Cadre Fiscal",
+          "text": "Le Cameroun a mis en place un système fiscal structuré, destiné à collecter les ressources nécessaires au développement économique tout en encourageant les investissements.",
+          "description": {
+            "mainTaxes": {
+              "title": "Les Principaux Impôts et Taxes",
+              "aspects": {
+                "corporateTax": {
+                  "title": "Impôt sur les sociétés (IS) ",
+                  "text": "Taux standard : 30 % sur les bénéfices - Les entreprises étrangères peuvent être soumises à une retenue à la source de 15 % sur leurs revenus au Cameroun."
+                },
+                "incomeTax": {
+                  "title": "Impôt sur le revenu des personnes physiques (IRPP)",
+                  "text": "Progressif, avec des taux allant de 11 % à 38 %, en fonction du niveau de revenu."
+                },
+                "vat": {
+                  "title": "Taxe sur la valeur ajoutée (TVA)",
+                  "text": "Taux standard : 19,25 % - Exonérations possibles pour certains biens et services, notamment ceux liés aux secteurs prioritaires comme l'agriculture et l'éducation."
+                },
+                "customsDuties": {
+                  "title": "Taxes douanières",
+                  "text": "Les droits de douane varient en fonction des produits importés, avec des taux préférentiels pour les importations en provenance de certains pays ou blocs régionaux comme la CEMAC (Communauté Économique et Monétaire de l'Afrique Centrale)."
+                },
+                "otherTaxes": {
+                  "title": "Autres taxes",
+                  "text": "Taxe sur les activités économiques (TAE),Taxe foncière, Droits d'accises sur certains produits (alcool, tabac, carburant)."
+                }
+              }
+            },
+            "taxIncentives": {
+              "title": "Avantages Fiscaux pour les Investisseurs",
+              "aspects": {
+                "investmentCode": {
+                  "title": "Le Code des Investissements",
+                  "text": "Exonérations temporaires d’impôts sur les sociétés pour les nouvelles entreprises."
+                },
+                "bilateralAgreements": {
+                  "title": "Les Conventions Bilatérales",
+                  "text": "Réduction des droits de douane pour l’importation de matériel industriel."
+                },
+                "sectoralIncentives": {
+                  "title": "Les Incitations Sectorielles",
+                  "text": "Exonérations de la TVA pour certains secteurs prioritaires comme l’agriculture ou les énergies renouvelables."
+                }
+              }
+            }
+          },
+          "documents": {
+            "generalTaxCode": "Code général des impôts"
+          },
+          "conclusion": "L’administration fiscale est supervisée par la Direction Générale des Impôts (DGI), qui veille à la collecte des recettes et à l'application des lois fiscales. Des mesures de dématérialisation ont été mises en œuvre pour faciliter les déclarations fiscales et réduire les délais administratifs."
+        },
+        "opportunities": {
+          "title": "Opportunités",
+          "text": "Le Cameroun offre de nombreuses opportunités d'investissement dans des secteurs variés, tels que l'agriculture, l'énergie, les infrastructures, les nouvelles technologies, etc.",
+          "description": {
+            "standards": {
+              "title": "Normes misent en place",
+              "aspects": {
+                "regionalHarmonization": {
+                  "title": "Harmonisation régionale",
+                  "text": "L'appartenance à l’OHADA et à la CEMAC garantit une uniformité juridique et fiscale avec d'autres pays de la région, ce qui facilite les échanges."
+                },
+                "fiscalIncentives": {
+                  "title": "Incitations fiscales",
+                  "text": "Les nombreux avantages prévus par le Code des Investissements font du Cameroun une destination attractive pour les investisseurs."
+                },
+                "legalStability": {
+                  "title": "Stabilité juridique",
+                  "text": "Un cadre légal structuré et en constante amélioration."
+                }
+              }
+            }
+          }
+        }
+      },
+      "conclusionFinal": "Le Cameroun dispose d’un cadre juridique et fiscal robuste qui allie modernité et tradition. Ses lois et institutions visent à créer un environnement favorable pour les investissements et le développement économique, tout en garantissant une certaine stabilité. Cependant, des efforts sont encore nécessaires pour simplifier les démarches administratives, renforcer la transparence et promouvoir davantage l’attractivité du pays."
     }
   }
 }

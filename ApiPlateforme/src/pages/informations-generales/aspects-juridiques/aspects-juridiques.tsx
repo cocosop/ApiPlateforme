@@ -2,28 +2,30 @@ import { ArrowTopRightOnSquareIcon, BookOpenIcon, GlobeAltIcon, ScaleIcon } from
 import { motion } from 'framer-motion';
 import React, { useState } from 'react';
 import 'tailwindcss/tailwind.css';
+import { useTranslation } from 'react-i18next';
 
 const AspectsJuridiques: React.FC = () => {
     const [activeSection, setActiveSection] = useState<number | null>(null);
+    const { t } = useTranslation();
 
     const legalSections = [
         {
-            title: "Système Juridique",
+            title: t('legalAspects.sections.system.title'),
             icon: ScaleIcon,
-            content: "Mixte : Droit civil et common law - Constitution de 1972 révisée",
-            details: "Le Cameroun possède un système juridique mixte, influencé à la fois par le droit civil français et la common law anglaise. La Constitution de 1972, révisée plusieurs fois, constitue la loi fondamentale."
+            content: t('legalAspects.sections.system.content'),
+            details: t('legalAspects.sections.system.details')
         },
         {
-            title: "Codes Importants",
+            title: t('legalAspects.sections.codes.title'),
             icon: BookOpenIcon,
-            content: "Code civil, Code pénal, OHADA, Code des investissements",
-            details: "Les principaux codes juridiques incluent le Code civil, le Code pénal, les actes uniformes de l'OHADA, et le Code des investissements qui régit les activités économiques."
+            content: t('legalAspects.sections.codes.content'),
+            details: t('legalAspects.sections.codes.details')
         },
         {
-            title: "Juridictions",
+            title: t('legalAspects.sections.jurisdictions.title'),
             icon: GlobeAltIcon,
-            content: "Cour suprême, Cours d'appel, Tribunaux de première instance",
-            details: "Le système judiciaire comprend la Cour suprême (plus haute juridiction), les Cours d'appel, et les Tribunaux de première instance répartis sur le territoire."
+            content: t('legalAspects.sections.jurisdictions.content'),
+            details: t('legalAspects.sections.jurisdictions.details')
         }
     ];
 
@@ -31,10 +33,9 @@ const AspectsJuridiques: React.FC = () => {
         setActiveSection(activeSection === index ? null : index);
     };
 
-   
 
     return (
-        <div className='mt-9'>          
+        <div className='mt-9'>
             <section className='mx-auto m-4 max-w-2xl px-6 lg:max-w-7xl lg:px-8'>
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
@@ -60,7 +61,7 @@ const AspectsJuridiques: React.FC = () => {
                                     onClick={() => toggleSection(index)}
                                     className="mt-4 text-green-700 hover:text-green-800 flex items-center"
                                 >
-                                    {activeSection === index ? 'Réduire' : 'En savoir plus'}
+                                    {activeSection === index ? t('legalAspects.buttons.reduce') : t('legalAspects.buttons.learnMore')}
                                     <ArrowTopRightOnSquareIcon className="h-4 w-4 ml-2" />
                                 </button>
 
@@ -76,7 +77,7 @@ const AspectsJuridiques: React.FC = () => {
                     })}
                 </motion.div>
             </section>
-            
+
         </div>
     );
 };
