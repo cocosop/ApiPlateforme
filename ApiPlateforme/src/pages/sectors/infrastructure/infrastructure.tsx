@@ -3,15 +3,19 @@ import ActionButtonComponent from '../../../components/actionButtonComponent/act
 import { Anchor, TrainTrack } from 'lucide-react';
 import { motion } from 'framer-motion';
 import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
+import { useTranslation } from 'react-i18next';
 
-const statistiques = [
-  { id: 1, name: "Projets Ferroviaires", value: "15+", icon: TrainTrack },
-  { id: 2, name: "Ports Modernisés", value: "4", icon: Anchor },
-  { id: 3, name: "Écoles Professionnelles", value: "730+", icon: AcademicCapIcon },
-  { id: 4, name: "Ministères Restructurés", value: "100%", icon: BuildingOfficeIcon }
-]
 
 const infrastructure = () => {
+  const { t } = useTranslation();
+
+  const statistiques = [
+    { id: 1, name: t("pages_secteurs.infrastructure.stats.ferroviaires.titre"), value: t("pages_secteurs.infrastructure.stats.ferroviaires.valeur"), icon: TrainTrack },
+    { id: 2, name: t("pages_secteurs.infrastructure.stats.ports.titre"), value: t("pages_secteurs.infrastructure.stats.ports.valeur"), icon: Anchor },
+    { id: 3, name: t("pages_secteurs.infrastructure.stats.ecoles.titre"), value: t("pages_secteurs.infrastructure.stats.ecoles.valeur"), icon: AcademicCapIcon },
+    { id: 4, name: t("pages_secteurs.infrastructure.stats.ministeres.titre"), value: t("pages_secteurs.infrastructure.stats.ministeres.valeur"), icon: BuildingOfficeIcon }
+  ]
+
   return (
     <div>
       {/* Hero Section */}
@@ -26,13 +30,13 @@ const infrastructure = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="relative z-10 text-start text-white px-6 lg:px-24">
-          <h1 className="text-4xl font-bold">Socle infrastructure</h1>
+          <h1 className="text-4xl font-bold">{t("pages_secteurs.infrastructure.hero.titre")}</h1>
           <p className="mt-4 text-lg max-w-2xl">
-            Socle infrastructure est un secteur clé pour le développement économique du Cameroun. Il regroupe les infrastructures de base nécessaires au bon fonctionnement de l’économie et à l’amélioration des conditions de vie des populations.
+            {t("pages_secteurs.infrastructure.hero.description")}
           </p>
           <div className="mt-6 py-2">
             <ActionButtonComponent
-              title="Explorez les opportunités"
+              title={t("pages_secteurs.infrastructure.hero.bouton")}
               color="#DC2123"
               filterSecteur="Infrastructures"
             />
@@ -44,9 +48,9 @@ const infrastructure = () => {
       <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
         <BreadcrumbsComponent
           breadcrumbs={[
-            { name: 'Accueil', path: '/' },
-            { name: "Sections et Opportunités", path: '#' },
-            { name: "Socle Infrastructure", path: '#' }
+            { name: t("pages_secteurs.infrastructure.fil_ariane.accueil"), path: '/' },
+            { name: t("pages_secteurs.infrastructure.fil_ariane.sections"), path: '#' },
+            { name: t("pages_secteurs.infrastructure.fil_ariane.socle"), path: '#' }
           ]}
         />
       </div>
@@ -58,9 +62,10 @@ const infrastructure = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-8">Objectif Stratégique</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">{t("pages_secteurs.infrastructure.objectif.titre")}</h2>
           <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
-            Bâtir un socle solide d’infrastructures physiques, cognitives et institutionnelles pour favoriser le désenclavement du territoire et posséder une base de capital humain à même de servir l’industrialisation.                    </p>
+            {t("pages_secteurs.infrastructure.objectif.texte")}
+          </p>
         </motion.div>
       </div>
       {/* Socle Infrastructure */}
@@ -70,7 +75,7 @@ const infrastructure = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-3xl font-bold text-center mb-8">Nos Actions</motion.h2>
+            className="text-3xl font-bold text-center mb-8">{t("pages_secteurs.infrastructure.actions.titre")}</motion.h2>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -87,12 +92,12 @@ const infrastructure = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">Infrastructure Physique</h3>
+                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.infrastructure.actions.physique.titre")} </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>Construction des grands projets structurants</li>
-                  <li>Plan ferroviaire national</li>
-                  <li>Modernisation portuaire</li>
-                  <li>Compagnies nationales (Ferrys, fret aérien)</li>
+                  <li>{t("pages_secteurs.infrastructure.actions.physique.construction")}</li>
+                  <li>{t("pages_secteurs.infrastructure.actions.physique.plan")}</li>
+                  <li>{t("pages_secteurs.infrastructure.actions.physique.modernisation")}</li>
+                  <li>{t("pages_secteurs.infrastructure.actions.physique.compagnies")}</li>
                 </ul>
               </div>
             </div>
@@ -107,12 +112,12 @@ const infrastructure = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">Infrastructure Cognitive</h3>
+                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.infrastructure.actions.cognitive.titre")}</h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>Professionnalisation des enseignements</li>
-                  <li>Réseau d'enseignement professionnel</li>
-                  <li>Reformation des formateurs</li>
-                  <li>Modules de veille industrielle</li>
+                  <li>{t("pages_secteurs.infrastructure.actions.cognitive.professionnalisation")}</li>
+                  <li>{t("pages_secteurs.infrastructure.actions.cognitive.reseau")}</li>
+                  <li>{t("pages_secteurs.infrastructure.actions.cognitive.reformation")}</li>
+                  <li>{t("pages_secteurs.infrastructure.actions.cognitive.modules")}</li>
                 </ul>
               </div>
             </div>
@@ -127,11 +132,11 @@ const infrastructure = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">Infrastructure Institutionnelle</h3>
+                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.infrastructure.actions.institutionnelle.titre")}</h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>Restructuration des organigrammes</li>
-                  <li>Services de veille industrielle</li>
-                  <li>Alignement sur l'industrialisation</li>
+                  <li>{t("pages_secteurs.infrastructure.actions.institutionnelle.restructuration")}</li>
+                  <li>{t("pages_secteurs.infrastructure.actions.institutionnelle.services")}</li>
+                  <li>{t("pages_secteurs.infrastructure.actions.institutionnelle.alignement")}</li>
                 </ul>
               </div>
             </div>
@@ -147,7 +152,7 @@ const infrastructure = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-3xl font-bold text-center mb-8">Statistiques Clés</motion.h2>
+            className="text-3xl font-bold text-center mb-8">{t("pages_secteurs.infrastructure.stats.titre")}</motion.h2>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {statistiques.map((stat, index) => (
               <motion.div
@@ -173,12 +178,12 @@ const infrastructure = () => {
           <div className="max-w-6xl mx-auto bg-transparent">
             {/* Titre principal (en arrière-plan) */}
             <h1 className="text-4xl font-bold text-gray-900 mb-4 text-center relative z-0">
-              Potentiel Infrastructure au Cameroun
+              {t("pages_secteurs.infrastructure.potentiel.titre")}
             </h1>
 
             {/* Description (en arrière-plan) */}
             <p className="text-center leading-relaxed mb-6 relative z-0">
-              Le secteur des <span className="font-semibold">Infrastructures</span> au Cameroun est un pilier essentiel pour soutenir la croissance économique et améliorer la qualité de vie. Cependant, des défis majeurs persistent pour moderniser et étendre les infrastructures dans le pays.
+              {t("pages_secteurs.infrastructure.potentiel.description")}
             </p>
 
             {/* Grille des rubriques (en arrière-plan) */}
@@ -197,7 +202,7 @@ const infrastructure = () => {
                       <span className="text-blue-500 text-2xl">🚀</span>
                     </div>
                     <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
-                      Opportunités
+                      {t("pages_secteurs.infrastructure.potentiel.opportunites.titre")}
                     </h2>
                   </div>
 
@@ -206,25 +211,33 @@ const infrastructure = () => {
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
                       <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">Projets structurants</span> : Construction de routes, ponts, ports et aéroports pour désenclaver les régions.
+                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
+                          {t("pages_secteurs.infrastructure.potentiel.opportunites.projets")}
+                        </span>
                       </span>
                     </li>
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
                       <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">Énergie et télécommunications</span> : Développement des infrastructures énergétiques et numériques pour soutenir la croissance.
+                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
+                          {t("pages_secteurs.infrastructure.potentiel.opportunites.energie")}
+                        </span>
                       </span>
                     </li>
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
                       <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">Partenariats public-privé (PPP)</span> : Collaboration pour financer et réaliser des projets d'infrastructure.
+                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
+                          {t("pages_secteurs.infrastructure.potentiel.opportunites.partenariats")}
+                        </span>
                       </span>
                     </li>
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
                       <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">Intégration régionale</span> : Infrastructures transfrontalières pour renforcer les échanges commerciaux en Afrique centrale.
+                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
+                          {t("pages_secteurs.infrastructure.potentiel.opportunites.integration")}
+                        </span>
                       </span>
                     </li>
                   </ul>
@@ -244,7 +257,7 @@ const infrastructure = () => {
                       <span className="text-red-500 text-2xl">⚠️</span>
                     </div>
                     <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
-                      Défis
+                      {t("pages_secteurs.infrastructure.potentiel.defis.titre")}
                     </h2>
                   </div>
 
@@ -253,25 +266,33 @@ const infrastructure = () => {
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
                       <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">Manque de financement</span> : Besoin d'investissements massifs pour développer les infrastructures.
+                        <span className="font-medium text-red-600 group-hover:text-red-200">
+                          {t("pages_secteurs.infrastructure.potentiel.defis.manque")}
+                        </span>
                       </span>
                     </li>
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
                       <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">Retards dans les projets</span> : Problèmes de gestion et de réalisation des projets d'infrastructure.
+                        <span className="font-medium text-red-600 group-hover:text-red-200">
+                          {t("pages_secteurs.infrastructure.potentiel.defis.retards")}
+                        </span>
                       </span>
                     </li>
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
                       <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">Maintenance insuffisante</span> : Détérioration des infrastructures existantes faute d'entretien.
+                        <span className="font-medium text-red-600 group-hover:text-red-200">
+                          {t("pages_secteurs.infrastructure.potentiel.defis.maintenance")}
+                        </span>
                       </span>
                     </li>
                     <li className="flex items-start">
                       <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
                       <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">Déséquilibre régional</span> : Concentration des infrastructures dans les zones urbaines au détriment des zones rurales.
+                        <span className="font-medium text-red-600 group-hover:text-red-200">
+                          {t("pages_secteurs.infrastructure.potentiel.defis.desequilibre")}
+                        </span>
                       </span>
                     </li>
                   </ul>

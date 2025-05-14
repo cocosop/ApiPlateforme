@@ -3,327 +3,345 @@ import { CubeIcon } from "@heroicons/react/20/solid";
 import { ClipboardIcon, CogIcon, ShieldCheckIcon } from "lucide-react";
 import { motion } from "framer-motion";
 import BreadcrumbsComponent from "../../../components/breadcrumbsComponent/breadcrumbsComponent";
-
-const statistiques = [
-    { id: 1, name: "Coton Transformé", value: "600K t", icon: CubeIcon },
-    { id: 2, name: "Nouvelles Filatures", value: "300K t/an", icon: CogIcon },
-    { id: 3, name: "Contrebande Réduite", value: "20%/an", icon: ShieldCheckIcon },
-    { id: 4, name: "Commandes Publiques", value: "50%", icon: ClipboardIcon }
-]
+import { useTranslation } from 'react-i18next';
 
 const TextileConfectionCuir = () => {
-    return (
-        <div>
-            {/* Hero Section */}
-            <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+  const { t } = useTranslation()
+  const statistiques = [
+    { id: 1, name: t("pages_secteurs.textile_confection_cuir.stats.coton_transforme.titre"), value: t("pages_secteurs.textile_confection_cuir.stats.coton_transforme.valeur"), icon: CubeIcon },
+    { id: 2, name: t("pages_secteurs.textile_confection_cuir.stats.filatures.titre"), value: t("pages_secteurs.textile_confection_cuir.stats.filatures.valeur"), icon: CogIcon },
+    { id: 3, name: t("pages_secteurs.textile_confection_cuir.stats.contrebande.titre"), value: t("pages_secteurs.textile_confection_cuir.stats.contrebande.valeur"), icon: ShieldCheckIcon },
+    { id: 4, name: t("pages_secteurs.textile_confection_cuir.stats.commande_publique.titre"), value: t("pages_secteurs.textile_confection_cuir.stats.commande_publique.valeur"), icon: ClipboardIcon }
+  ]
+
+  return (
+    <div>
+      {/* Hero Section */}
+      <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
+        <img
+          src="https://img.freepik.com/photos-premium/pile-textile-colore-plie-tas-tissu-tissu_344538-423.jpg?w=740"
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-50"
+          alt="Background"
+        />
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="relative z-10 text-start text-white px-6 lg:px-24">
+          <h1 className="text-4xl font-bold">{t("pages_secteurs.textile_confection_cuir.hero.titre")}</h1>
+          <p className="mt-4 text-lg max-w-2xl">
+            {t("pages_secteurs.textile_confection_cuir.hero.description")}
+          </p>
+          <div className="mt-6 py-2">
+            <ActionButtonComponent
+              title={t("pages_secteurs.textile_confection_cuir.hero.bouton")}
+              color="#000000"
+              filterSecteur="Textile/Confection/Cuir"
+            />
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Breadcrumbs */}
+      <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
+        <BreadcrumbsComponent
+          breadcrumbs={[
+            { name: t("pages_secteurs.textile_confection_cuir.fil_ariane.accueil"), path: '/' },
+            { name: t("pages_secteurs.textile_confection_cuir.fil_ariane.sections"), path: '#' },
+            { name: t("pages_secteurs.textile_confection_cuir.fil_ariane.pilier"), path: '#' }
+          ]}
+        />
+      </div>
+
+      {/* Objectif Section */}
+      <div className="bg-white py-20 sm:py-20">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="mx-auto max-w-7xl px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-8">{t("pages_secteurs.textile_confection_cuir.objectif.titre")}</h2>
+          <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
+            {t("pages_secteurs.textile_confection_cuir.objectif.texte")}
+          </p>
+        </motion.div>
+      </div>
+      {/* Section Principale */}
+      <div className="overflow-hidden bg-gray-50 py-20 sm:py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-3xl font-bold text-center mb-8">{t("pages_secteurs.textile_confection_cuir.actions.titre")}</motion.h2>
+
+          {/* Cartes Thématiques */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
+
+            {/* Renforcement Industriel */}
+            <div className="group relative">
+              <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
                 <img
-                    src="https://img.freepik.com/photos-premium/pile-textile-colore-plie-tas-tissu-tissu_344538-423.jpg?w=740"
-                    className="absolute inset-0 -z-10 h-full w-full object-cover object-center brightness-50"
-                    alt="Background"
+                  src="https://media.istockphoto.com/id/174950853/fr/photo/denim-industrie-textile-tissage-airjet-m%C3%A9tiers-%C3%A0-tisser-recouverts-de-tissu-sur-un-jean.webp?a=1&b=1&s=612x612&w=0&k=20&c=GAgkE9Yf-XkjP9_I61H_rX23CakLnMzh7VFuxC2wTCk="
+                  alt="Renforcement Industriel"
+                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
                 />
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="relative z-10 text-start text-white px-6 lg:px-24">
-                    <h1 className="text-4xl font-bold">Pilier Textile &bull; Confection &bull; Cuir</h1>
-                    <p className="mt-4 text-lg max-w-2xl">
-                        Le secteur du textile, de la confection et du cuir est un secteur clé de l'économie camerounaise. Il est un des principaux employeurs du pays et contribue de manière significative à la croissance économique.
-                    </p>
-                    <div className="mt-6 py-2">
-                        <ActionButtonComponent
-                            title="Explorez les opportunités"
-                            color="#000000"
-                            filterSecteur="Textile/Confection/Cuir"
-                        />
-                    </div>
-                </motion.div>
-            </div>
-
-            {/* Breadcrumbs */}
-            <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
-                <BreadcrumbsComponent
-                    breadcrumbs={[
-                        { name: 'Accueil', path: '/' },
-                        { name: "Sections et Opportunités", path: '#' },
-                        { name: "Pilier Textile/Confection/Cuir", path: '#' }
-                    ]}
-                />
-            </div>
-
-            {/* Objectif Section */}
-            <div className="bg-white py-20 sm:py-20">
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 1 }}
-                    className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <h2 className="text-3xl font-bold text-center mb-8">Objectif Stratégique</h2>
-                    <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
-                        Assurer l’industrialisation à travers la transformation et la valorisation des matières premières locales et la promotion des exportations.
-                    </p>
-                </motion.div>
-            </div>
-            {/* Section Principale */}
-            <div className="overflow-hidden bg-gray-50 py-20 sm:py-20">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                        className="text-3xl font-bold text-center mb-8">Nos Actions</motion.h2>
-
-                    {/* Cartes Thématiques */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                        className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-
-                        {/* Renforcement Industriel */}
-                        <div className="group relative">
-                            <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
-                                <img
-                                    src="https://media.istockphoto.com/id/174950853/fr/photo/denim-industrie-textile-tissage-airjet-m%C3%A9tiers-%C3%A0-tisser-recouverts-de-tissu-sur-un-jean.webp?a=1&b=1&s=612x612&w=0&k=20&c=GAgkE9Yf-XkjP9_I61H_rX23CakLnMzh7VFuxC2wTCk="
-                                    alt="Renforcement Industriel"
-                                    className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                                />
-                            </div>
-                            <div className="mt-4 text-center">
-                                <h3 className="text-lg font-semibold text-gray-900">Renforcement Industriel</h3>
-                                <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                                    <li>Fusion CICAM/SODECOTON</li>
-                                    <li>Renouvellement des capacités industrielles</li>
-                                    <li>Appui à l'installation de nouvelles unités de filature (300 000 t/an)</li>
-                                    <li>Transformation de 50% de la production de coton (600 000 tonnes)</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* Innovation et Formation */}
-                        <div className="group relative">
-                            <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
-                                <img
-                                    src="https://img.freepik.com/photos-gratuite/couturier-travaillant-dans-atelier-couture_482257-78154.jpg?ga=GA1.1.1625797867.1700058386&semt=ais_hybrid"
-                                    alt="Innovation et Formation"
-                                    className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                                />
-                            </div>
-                            <div className="mt-4 text-center">
-                                <h3 className="text-lg font-semibold text-gray-900">Innovation et Formation</h3>
-                                <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                                    <li>Mise en place d'un Centre Technique du Textile</li>
-                                    <li>Encadrement de la culture du coton (variétés performantes, irrigation, financement)</li>
-                                    <li>Formation et renforcement technique pour l'industrie du cuir</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* Sécurisation et Régulation */}
-                        <div className="group relative">
-                            <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
-                                <img
-                                    src="https://img.freepik.com/photos-gratuite/employe-entrepot-feminin-serieux-dans-casque-debout-pres-chariot-elevateur-parler-au-telephone-mobile-etageres-marchandises-arriere-plan-copiez-espace-concept-travail-communication_74855-14264.jpg?t=st=1738413898~exp=1738417498~hmac=81cba32b56c2852fb322d2d29f05138c4d77d73e3fc7e65a9815f2ee5107d197&w=740"
-                                    alt="Sécurisation et Régulation"
-                                    className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                                />
-                            </div>
-                            <div className="mt-4 text-center">
-                                <h3 className="text-lg font-semibold text-gray-900">Sécurisation et Régulation</h3>
-                                <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                                    <li>Réduction de 20% par an de la contrebande, fraude et contrefaçon</li>
-                                    <li>Institution de la commande publique (50% pour les tenues de l'armée)</li>
-                                    <li>Clauses de sauvegarde pour l'émergence des chaussures locales</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* Industrie du Cuir */}
-                        <div className="group relative">
-                            <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
-                                <img
-                                    src="https://img.freepik.com/photos-gratuite/cordonnier-travaille-dans-son-atelier_641386-1147.jpg?t=st=1738414253~exp=1738417853~hmac=74ca76820e7096daa947e40623301fec7f4b077a8876a1e0ad6908874f15e63b&w=740"
-                                    alt="Industrie du Cuir"
-                                    className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                                />
-                            </div>
-                            <div className="mt-4 text-center">
-                                <h3 className="text-lg font-semibold text-gray-900">Industrie du Cuir</h3>
-                                <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                                    <li>Création d'un centre national de tri des cuirs</li>
-                                    <li>Renforcement des tanneries existantes</li>
-                                    <li>Nouvelles unités industrielles de fabrication de produits en cuir</li>
-                                    <li>Redéploiement de TANICAM et NOTACAM</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        {/* Champions Régionaux */}
-                        <div className="group relative">
-                            <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
-                                <img
-                                    src="https://media.istockphoto.com/id/157309320/fr/photo/robe-africaine-traditionnelle.jpg?b=1&s=612x612&w=0&k=20&c=rzwwMKMcRFDSiesx6zZJzmTtklz0ML0OZLdOMdNa5Qc="
-                                    alt="Champions Régionaux"
-                                    className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
-                                />
-                            </div>
-                            <div className="mt-4 text-center">
-                                <h3 className="text-lg font-semibold text-gray-900">Champions Régionaux</h3>
-                                <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                                    <li>Création de champions régionaux dans le textile</li>
-                                    <li>Sécurisation des approvisionnements en matières premières</li>
-                                    <li>Renforcement de la recherche sur le cuir brut au cuir fini</li>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </motion.div>
-                </div>
-            </div>
-
-            {/* Indicateurs Clés */}
-            <div className="bg-white py-20 sm:py-20">
-                <div className="mx-auto max-w-7xl px-6 lg:px-8">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1 }}
-                        className="text-3xl font-bold text-center mb-8">Chiffres Clés</motion.h2>
-                    <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-                        {statistiques.map((stat, index) => (
-                            <motion.div
-                                key={stat.id}
-                                initial={{ opacity: 0, y: 50 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.2 }}
-                                className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
-                                <div className="flex justify-center">
-                                    <stat.icon className="h-12 w-12 text-[#000000]" />
-                                </div>
-                                <p className="mt-4 text-3xl font-bold text-gray-900">{stat.value}</p>
-                                <p className="mt-2 text-lg text-gray-600">{stat.name}</p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-            <div className="grid py-12 px-6 bg-gray-100 justify-center">
-  {/* Contenu principal (en arrière-plan) */}
-  <div className="relative z-0">
-    {/* Conteneur principal */}
-    <div className="max-w-6xl mx-auto bg-transparent">      
-      {/* Titre principal (en arrière-plan) */}
-      <h1 className="text-4xl font-bold text-gray-900 mb-4 text-center relative z-0">
-        Potentiel Textile/Confection/Cuir au Cameroun
-      </h1>
-
-      {/* Description (en arrière-plan) */}
-      <p className="text-center leading-relaxed mb-6 relative z-0">
-        Le secteur du <span className="font-semibold">Textile, de la Confection et du Cuir</span> au Cameroun dispose d'un potentiel important, grâce à des matières premières locales abondantes et une demande croissante pour les produits finis. Ce secteur peut contribuer à la création d'emplois et à la diversification de l'économie.
-      </p>
-
-      {/* Grille des rubriques (en arrière-plan) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center relative z-0">
-        
-        {/* Carte Opportunités */}
-        <div className="bg-gradient-to-r from-blue-400 to-purple-500  p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
-          {/* Fond dégradé au survol */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
-
-          {/* Contenu */}
-          <div className="relative z-10">
-            {/* En-tête de la carte */}
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
-                <span className="text-blue-500 text-2xl">🚀</span>
               </div>
-              <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
-                Opportunités
-              </h2>
+              <div className="mt-4 text-center">
+                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.textile_confection_cuir.actions.renforcement_industriel.titre")}</h3>
+                <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.renforcement_industriel.fusion")}</li>
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.renforcement_industriel.capacites")}</li>
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.renforcement_industriel.nouvelles_filatures")}</li>
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.renforcement_industriel.transformation_coton")}</li>
+                </ul>
+              </div>
             </div>
 
-            {/* Liste des points */}
-            <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                <span>
-                  <span className="font-medium text-blue-600 group-hover:text-blue-200">Matières premières locales</span> : Disponibilité de coton, cuir et autres matériaux pour la production.
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                <span>
-                  <span className="font-medium text-blue-600 group-hover:text-blue-200">Marché local et régional</span> : Demande croissante pour les vêtements, chaussures et accessoires.
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                <span>
-                  <span className="font-medium text-blue-600 group-hover:text-blue-200">Mode africaine</span> : Opportunités dans la promotion de la culture et des designs locaux.
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                <span>
-                  <span className="font-medium text-blue-600 group-hover:text-blue-200">Exportation</span> : Potentiel pour exporter des produits finis vers les marchés internationaux.
-                </span>
-              </li>
-            </ul>
+            {/* Innovation et Formation */}
+            <div className="group relative">
+              <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
+                <img
+                  src="https://img.freepik.com/photos-gratuite/couturier-travaillant-dans-atelier-couture_482257-78154.jpg?ga=GA1.1.1625797867.1700058386&semt=ais_hybrid"
+                  alt="Innovation et Formation"
+                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.textile_confection_cuir.actions.innovation_formation.titre")}</h3>
+                <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.innovation_formation.centre_technique")}</li>
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.innovation_formation.encadrement_coton")}</li>
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.innovation_formation.formation_cuir")}</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Sécurisation et Régulation */}
+            <div className="group relative">
+              <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
+                <img
+                  src="https://img.freepik.com/photos-gratuite/employe-entrepot-feminin-serieux-dans-casque-debout-pres-chariot-elevateur-parler-au-telephone-mobile-etageres-marchandises-arriere-plan-copiez-espace-concept-travail-communication_74855-14264.jpg?t=st=1738413898~exp=1738417498~hmac=81cba32b56c2852fb322d2d29f05138c4d77d73e3fc7e65a9815f2ee5107d197&w=740"
+                  alt="Sécurisation et Régulation"
+                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.textile_confection_cuir.actions.securisation_regulation.titre")}</h3>
+                <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.securisation_regulation.reduction_contrebande")}</li>
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.securisation_regulation.commande_publique")}</li>
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.securisation_regulation.clauses_sauvegarde")}</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Industrie du Cuir */}
+            <div className="group relative">
+              <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
+                <img
+                  src="https://img.freepik.com/photos-gratuite/cordonnier-travaille-dans-son-atelier_641386-1147.jpg?t=st=1738414253~exp=1738417853~hmac=74ca76820e7096daa947e40623301fec7f4b077a8876a1e0ad6908874f15e63b&w=740"
+                  alt="Industrie du Cuir"
+                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.textile_confection_cuir.actions.industrie_cuir.titre")}</h3>
+                <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.industrie_cuir.centre_tri")}</li>
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.industrie_cuir.tanneries")}</li>
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.industrie_cuir.nouvelles_unites")}</li>
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.industrie_cuir.redeploiement")}</li>
+                </ul>
+              </div>
+            </div>
+
+            {/* Champions Régionaux */}
+            <div className="group relative">
+              <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
+                <img
+                  src="https://media.istockphoto.com/id/157309320/fr/photo/robe-africaine-traditionnelle.jpg?b=1&s=612x612&w=0&k=20&c=rzwwMKMcRFDSiesx6zZJzmTtklz0ML0OZLdOMdNa5Qc="
+                  alt="Champions Régionaux"
+                  className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div className="mt-4 text-center">
+                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.textile_confection_cuir.actions.champions_regionaux.titre")}</h3>
+                <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.champions_regionaux.creation_champions")}</li>
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.champions_regionaux.securisation_matiere")}</li>
+                  <li>{t("pages_secteurs.textile_confection_cuir.actions.champions_regionaux.recherche_cuir")}</li>
+                </ul>
+              </div>
+            </div>
+
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Indicateurs Clés */}
+      <div className="bg-white py-20 sm:py-20">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-3xl font-bold text-center mb-8">{t("pages_secteurs.textile_confection_cuir.stats.titre")}</motion.h2>
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {statistiques.map((stat, index) => (
+              <motion.div
+                key={stat.id}
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.2 }}
+                className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                <div className="flex justify-center">
+                  <stat.icon className="h-12 w-12 text-[#000000]" />
+                </div>
+                <p className="mt-4 text-3xl font-bold text-gray-900">{stat.value}</p>
+                <p className="mt-2 text-lg text-gray-600">{stat.name}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
+      </div>
+      <div className="grid py-12 px-6 bg-gray-100 justify-center">
+        {/* Contenu principal (en arrière-plan) */}
+        <div className="relative z-0">
+          {/* Conteneur principal */}
+          <div className="max-w-6xl mx-auto bg-transparent">
+            {/* Titre principal (en arrière-plan) */}
+            <h1 className="text-4xl font-bold text-gray-900 mb-4 text-center relative z-0">
+              {t("pages_secteurs.textile_confection_cuir.potentiel.titre")}
+            </h1>
 
-        {/* Carte Défis */}
-        <div className="bg-gradient-to-r from-red-400 to-orange-500 p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
-          {/* Fond dégradé au survol */}
-          <div className="absolute inset-0 bg-gradient-to-r from-red-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+            {/* Description (en arrière-plan) */}
+            <p className="text-center leading-relaxed mb-6 relative z-0">
+              {t("pages_secteurs.textile_confection_cuir.potentiel.description")}
+            </p>
 
-          {/* Contenu */}
-          <div className="relative z-10">
-            {/* En-tête de la carte */}
-            <div className="flex items-center mb-6">
-              <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
-                <span className="text-red-500 text-2xl">⚠️</span>
+            {/* Grille des rubriques (en arrière-plan) */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center relative z-0">
+
+              {/* Carte Opportunités */}
+              <div className="bg-gradient-to-r from-blue-400 to-purple-500  p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
+                {/* Fond dégradé au survol */}
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+
+                {/* Contenu */}
+                <div className="relative z-10">
+                  {/* En-tête de la carte */}
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
+                      <span className="text-blue-500 text-2xl">🚀</span>
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
+                      {t("pages_secteurs.textile_confection_cuir.potentiel.opportunites.titre")}
+                    </h2>
+                  </div>
+
+                  {/* Liste des points */}
+                  <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                      <span>
+                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
+                          {t("pages_secteurs.textile_confection_cuir.potentiel.opportunites.matieres_premieres")}
+                        </span>
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                      <span>
+                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
+                          {t("pages_secteurs.textile_confection_cuir.potentiel.opportunites.marche")}
+                        </span>
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                      <span>
+                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
+                          {t("pages_secteurs.textile_confection_cuir.potentiel.opportunites.mode_africaine")}
+                        </span>
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
+                      <span>
+                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
+                          {t("pages_secteurs.textile_confection_cuir.potentiel.opportunites.exportation")}
+                        </span>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
-                Défis
-              </h2>
-            </div>
 
-            {/* Liste des points */}
-            <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                <span>
-                  <span className="font-medium text-red-600 group-hover:text-red-200">Manque d'infrastructures modernes</span> : Unités de production obsolètes et manque d'équipements.
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                <span>
-                  <span className="font-medium text-red-600 group-hover:text-red-200">Concurrence des importations</span> : Afflux de produits textiles et de cuir à bas coût en provenance d'Asie.
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                <span>
-                  <span className="font-medium text-red-600 group-hover:text-red-200">Formation insuffisante</span> : Manque de main-d'œuvre qualifiée dans les métiers de la confection et du cuir.
-                </span>
-              </li>
-              <li className="flex items-start">
-                <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                <span>
-                  <span className="font-medium text-red-600 group-hover:text-red-200">Accès au financement</span> : Difficultés pour les petites entreprises à obtenir des crédits pour investir.
-                </span>
-              </li>
-            </ul>
+              {/* Carte Défis */}
+              <div className="bg-gradient-to-r from-red-400 to-orange-500 p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
+                {/* Fond dégradé au survol */}
+                <div className="absolute inset-0 bg-gradient-to-r from-red-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+
+                {/* Contenu */}
+                <div className="relative z-10">
+                  {/* En-tête de la carte */}
+                  <div className="flex items-center mb-6">
+                    <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
+                      <span className="text-red-500 text-2xl">⚠️</span>
+                    </div>
+                    <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
+                      {t("pages_secteurs.textile_confection_cuir.potentiel.defis.titre")}
+                    </h2>
+                  </div>
+
+                  {/* Liste des points */}
+                  <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                      <span>
+                        <span className="font-medium text-red-600 group-hover:text-red-200">
+                          {t("pages_secteurs.textile_confection_cuir.potentiel.defis.infrastructures")}
+                        </span>
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                      <span>
+                        <span className="font-medium text-red-600 group-hover:text-red-200">
+                          {t("pages_secteurs.textile_confection_cuir.potentiel.defis.concurrence")}
+                        </span>
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                      <span>
+                        <span className="font-medium text-red-600 group-hover:text-red-200">
+                          {t("pages_secteurs.textile_confection_cuir.potentiel.defis.formation")}
+                        </span>
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
+                      <span>
+                        <span className="font-medium text-red-600 group-hover:text-red-200">
+                          {t("pages_secteurs.textile_confection_cuir.potentiel.defis.financement")}
+                        </span>
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-        </div>
-    );
+  );
 };
 
 export default TextileConfectionCuir;

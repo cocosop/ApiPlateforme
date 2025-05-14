@@ -431,5 +431,890 @@
       },
       "conclusionFinal": "Camerún dispone de un marco jurídico y fiscal robusto que aúna modernidad y tradición. Sus leyes e instituciones tienen como objetivo crear un entorno favorable para las inversiones y el desarrollo económico, garantizando al mismo tiempo una cierta estabilidad. Sin embargo, aún son necesarios esfuerzos para simplificar los trámites administrativos, reforzar la transparencia y promover aún más el atractivo del país."
     }
+  },
+  "pages_secteurs": {
+    "agro_industrie": {
+      "hero": {
+        "titre": "Invertir en el futuro de la agroindustria",
+        "sous_titre": "Únase a nosotros para revolucionar el santuario de la agroindustria con tecnologías sostenibles y soluciones agrícolas innovadoras.",
+        "bouton": "Explorar las oportunidades"
+      },
+      "fil_ariane": {
+        "accueil": "Inicio",
+        "sections": "Secciones y Oportunidades",
+        "agro": "Santuario Agroindustrial"
+      },
+      "objectif": {
+        "titre": "Objetivo Estratégico",
+        "texte": "Abastecer los mercados nacionales, de la CEEAC y de Nigeria con productos alimentarios de segunda y tercera transformación mediante una mayor valorización de las materias primas locales y la promoción de exportaciones."
+      },
+      "actions": {
+        "titre": "Acciones Estratégicas",
+        "developpement_technologique": "Desarrollo Tecnológico",
+        "desc_technologique": "Desarrollo y optimización de tecnologías agrícolas estructurales.",
+        "integration_industrielle": "Integración Industrial",
+        "desc_industrielle": "Fortalecimiento e integración de los sectores agrícolas con otros sectores.",
+        "innovation": "Innovación",
+        "desc_innovation": "Tecnologías agrícolas industriales."
+      },
+      "speculations": {
+        "titre": "Nuestras Principales Especulaciones",
+        "sous_titre": "Una diversidad de productos agrícolas para satisfacer las necesidades del mercado",
+        "cereales": {
+          "titre": "Cereales",
+          "produits": "Maíz, Arroz, Sorgo"
+        },
+        "oleagineux": {
+          "titre": "Oleaginosas",
+          "produits": "Algodón, Nueces de palma, Soya"
+        },
+        "fruits_legumes": {
+          "titre": "Frutas y Verduras",
+          "produits": "Piña, Plátano, Banano"
+        },
+        "racines_tubercules": {
+          "titre": "Raíces y Tubérculos",
+          "produits": "Yuca, Papa"
+        },
+        "plantes_stimulantes": {
+          "titre": "Plantas Estimulantes",
+          "produits": "Cacao, Café"
+        },
+        "autres_cultures": {
+          "titre": "Otros Cultivos",
+          "produits": "Caña de azúcar"
+        },
+        "elevage": {
+          "titre": "Ganadería",
+          "produits": "Res, Aves, Cerdo"
+        },
+        "peche": {
+          "titre": "Pesca",
+          "produits": "Acuicultura, Pesca industrial"
+        },
+        "production_annuelle": "Producción anual: Aproximadamente",
+        "emplois_generes": "Empleos generados:",
+        "bouton": "Saber más"
+      },
+      "infos": {
+        "ceeac": "CEEAC",
+        "marche_regional": "Mercado Regional",
+        "texte_ceeac": "Integración regional y acceso a mercados",
+        "innovation": "Innovación",
+        "technopoles": "Tecnópolis",
+        "texte_innovation": "Desarrollo agroindustrial estructural",
+        "croissance": "Crecimiento",
+        "competitivite": "Competitividad",
+        "texte_croissance": "Programas de modernización"
+      },
+      "potentiel": {
+        "titre": "Potencial Agroindustrial en Camerún",
+        "description": "Camerún, a menudo llamado el \"granero de África Central\", tiene un enorme potencial agroindustrial gracias a su clima diverso, tierras fértiles y variedad de cultivos. Este sector es un pilar esencial para la seguridad alimentaria y el crecimiento económico.",
+        "opportunites": "Oportunidades",
+        "defis": "Desafíos",
+        "diversite_cultures": "Diversidad de cultivos",
+        "texte_diversite": "Producción de cacao, café, banano, aceite de palma, algodón, maíz, yuca, etc.",
+        "transformation_locale": "Transformación local",
+        "texte_transformation": "Oportunidades para transformar productos agrícolas en productos con valor agregado (jugos, conservas, aceites, etc.)",
+        "exportation": "Exportación",
+        "texte_exportation": "Potencial para exportar productos agroindustriales a mercados regionales e internacionales",
+        "creation_emplois": "Creación de empleos",
+        "texte_emplois": "Desarrollo de cadenas de valor para generar empleos directos e indirectos",
+        "infrastructures": "Falta de infraestructuras",
+        "texte_infrastructures": "Insuficiencia de infraestructuras de almacenamiento, transformación y transporte",
+        "financement": "Acceso limitado al financiamiento",
+        "texte_financement": "Dificultades para que los pequeños productores y las pymes accedan a créditos",
+        "importations": "Dependencia de las importaciones",
+        "texte_importations": "Importación de productos transformados a pesar de la disponibilidad de materias primas locales",
+        "climat": "Cambio climático",
+        "texte_climat": "Impacto en los rendimientos agrícolas y la productividad"
+      }
+    },
+    "energie": {
+      "hero": {
+        "titre": "Santuario Energético de Camerún",
+        "sous_titre": "Camerún, rico en recursos energéticos, ofrece oportunidades únicas para inversores en los sectores de energías renovables, infraestructuras e innovación tecnológica.",
+        "bouton": "Explore las oportunidades"
+      },
+      "fil_ariane": {
+        "accueil": "Inicio",
+        "sections": "Secciones y Oportunidades",
+        "energie": "Santuario Energía"
+      },
+      "objectif": {
+        "titre": "Objetivo Estratégico",
+        "texte": "Optimizar el uso de biomasa, mejorar la producción y consumo energético, y generar excedentes para exportación a la CEEAC y Nigeria."
+      },
+      "actions": {
+        "titre": "Acciones Estratégicas",
+        "reseau_gazoducs": {
+          "titre": "Red de Gasoductos",
+          "description": "Construcción de gasoductos que conectan Limbé, Kribi, Douala, Ebolowa, Yaundé, Bafoussam y Bamenda para facilitar la transición al gas natural vehicular (GNV).",
+          "stats": "1,200 km de gasoductos"
+        },
+        "centrales_secours": {
+          "titre": "Centrales de Respaldo",
+          "description": "Instalación de centrales de respaldo en Douala (300 MW), Yaundé (300 MW), Bafoussam (100 MW), Bamenda (100 MW), Ebolowa (40 MW) y Limbé (40 MW).",
+          "stats": "880 MW de capacidad total"
+        },
+        "voies_ferroviaires": {
+          "titre": "Vías Férreas",
+          "description": "Construcción de 1,850 km de vías férreas para recolección y exportación de leña energética.",
+          "stats": "1,850 km de vías"
+        },
+        "exportation_energie": {
+          "titre": "Exportación de Energía",
+          "description": "Suministro de 50 TWh de energía eléctrica a Nigeria y estados de la CEMAC.",
+          "stats": "50 TWh exportados"
+        },
+        "innovation": "Innovación",
+        "energies_renouvelables": "Energías renovables."
+      },
+      "sources": {
+        "titre": "Fuentes de energía",
+        "solaire": {
+          "titre": "Energía Solar",
+          "description": "Aprovechamiento de energía solar para producción sostenible y respetuosa con el medio ambiente."
+        },
+        "eolienne": {
+          "titre": "Energía Eólica",
+          "description": "Desarrollo de parques eólicos para producción de energía limpia y renovable."
+        },
+        "hydraulique": {
+          "titre": "Energía Hidráulica",
+          "description": "Uso de recursos hídricos para producción energética estable y confiable."
+        },
+        "fossile": {
+          "titre": "Energía Fósil",
+          "description": "Transición progresiva a alternativas sostenibles optimizando recursos existentes."
+        }
+      },
+      "stats": {
+        "titre": "Cifras Clave",
+        "investissements": {
+          "titre": "Inversiones previstas",
+          "valeur": "10 mil millones $"
+        },
+        "emplois": {
+          "titre": "Empleos creados",
+          "valeur": "50,000+"
+        },
+        "energie_produite": {
+          "titre": "Energía producida",
+          "valeur": "5,000 MW"
+        }
+      },
+      "potentiel": {
+        "titre": "Potencial energético en Camerún",
+        "texte": "Camerún posee un considerable potencial energético con abundantes recursos hidroeléctricos, solares y eólicos. El sector energético es pilar esencial para el desarrollo económico y social del país.",
+        "opportunites": {
+          "titre": "Oportunidades",
+          "hydroelectriques": "Recursos hidroeléctricos: Potencial estimado en más de 23 GW, especialmente en el río Sanaga.",
+          "energies_renouvelables": "Energías renovables: Gran potencial solar y eólico aún subutilizado.",
+          "projets_structurants": "Proyectos estructurantes: Presa Nachtigal (420 MW) y otras centrales en desarrollo.",
+          "exportation_energie": "Exportación energética: Posibilidad de exportar electricidad a países vecinos de la CEMAC."
+        },
+        "defis": {
+          "titre": "Desafíos",
+          "electrification": "Baja tasa de electrificación: Solo 65% de la población tiene acceso a electricidad, con disparidades urbano-rurales.",
+          "infrastructures": "Infraestructuras obsoletas: Redes de distribución anticuadas con altas pérdidas técnicas.",
+          "energies_fossiles": "Dependencia de energías fósiles: Uso de centrales térmicas costosas y contaminantes.",
+          "financement": "Financiación insuficiente: Necesidad de inversiones masivas para infraestructuras energéticas."
+        }
+      }
+    },
+    "numerique": {
+      "hero": {
+        "titre": "Santuario digital en Camerún",
+        "sous_titre": "Transformar Camerún en un centro digital regional mediante infraestructuras modernas, una gobernanza fortalecida y inversiones estratégicas.",
+        "bouton": "Explorar las oportunidades"
+      },
+      "fil_ariane": {
+        "accueil": "Inicio",
+        "sections": "Secciones y Oportunidades",
+        "numerique": "Santuario Digital"
+      },
+      "objectif": {
+        "titre": "Objetivo Estratégico",
+        "texte": "Elevar a Camerún al Top 5 de los países africanos más avanzados en la revolución digital, garantizando una mayor seguridad de la Soberanía del Estado."
+      },
+      "actions": {
+        "gouvernance_securite": {
+          "titre": "Gobernanza y Seguridad Digital",
+          "details": {
+            "commandement_numerique": "Mando Supremo Digital",
+            "desc_commandement": "Colaboración entre PRC, MINDEF, MINPOSTEL, MINEPAT, MINCOM, MINMIDT, ANTIC para un ecosistema digital seguro.",
+            "perimetre_numerique": "Perímetro de Seguridad Digital",
+            "desc_perimetre": "Identificación y protección de los puntos sensibles del Estado."
+          }
+        },
+        "modernisation_infrastructures": {
+          "titre": "Modernización de Infraestructuras",
+          "details": {
+            "restructuration": "Reestructuración de CAMTEL",
+            "desc_restructuration": "Convertir a CAMTEL en el líder del mercado camerunés en 3 años y un actor clave en la región CEEAC y Nigeria."
+          }
+        },
+        "financement_investissement": {
+          "titre": "Financiación e Inversión",
+          "details": {
+            "fonderie_communautaire": "Fundición Comunitaria de Inversiones",
+            "desc_fonderie": "2.000 millones de FCFA para apoyar proyectos innovadores y startups digitales."
+          }
+        },
+        "integration_regionale": {
+          "titre": "Integración Regional",
+          "details": {
+            "marche": "Mercado de Ensamblaje de África Occidental",
+            "desc_marche": "Asociación con un operador de referencia para una inversión de 50 millones de USD y una cuota de mercado objetivo del 40%."
+          }
+        }
+      },
+      "domaines": {
+        "titre": "Áreas Clave del Sector Digital",
+        "texte": "Descubre las áreas estratégicas que hacen de Camerún un hub digital regional.",
+        "cybersecurite": {
+          "titre": "Ciberseguridad",
+          "description": "Protección de infraestructuras críticas y datos sensibles contra amenazas digitales."
+        },
+        "infrastructures": {
+          "titre": "Infraestructuras Digitales",
+          "description": "Desarrollo y modernización de redes de comunicación y plataformas digitales."
+        },
+        "innovation": {
+          "titre": "Innovación y Startups",
+          "description": "Apoyo a emprendedores digitales y proyectos tecnológicos innovadores."
+        },
+        "formation": {
+          "titre": "Formación y Competencias",
+          "description": "Desarrollo de competencias digitales a través de la educación, formación y reconversión."
+        }
+      },
+      "stats": {
+        "titre": "Cifras Clave",
+        "investissements": {
+          "titre": "Inversiones previstas",
+          "valeur": "2000 mil millones FCFA"
+        },
+        "emplois": {
+          "titre": "Empleos creados",
+          "valeur": "50 000+"
+        },
+        "part_marche": {
+          "titre": "Cuota de mercado objetivo",
+          "valeur": "40 %"
+        }
+      },
+      "potentiel": {
+        "titre": "Potencial digital en Camerún",
+        "texte": "Camerún está experimentando un rápido crecimiento en el sector digital, impulsado por una población joven y dinámica y una creciente adopción de tecnologías móviles e internet. El sector digital es una palanca clave para la transformación económica y social del país.",
+        "opportunites": {
+          "titre": "Oportunidades",
+          "penetration_mobile": "Penetración móvil e internet: Rápido crecimiento de usuarios de smartphones e internet.",
+          "services_financiers": "Servicios financieros digitales: Expansión del dinero móvil y soluciones de pago en línea.",
+          "e_gouvernement": "Gobierno electrónico: Modernización de los servicios públicos mediante tecnologías digitales.",
+          "entrepreneuriat": "Emprendimiento digital: Emergencia de startups innovadoras en fintech, agritech y edtech."
+        },
+        "defis": {
+          "titre": "Desafíos",
+          "infrastructures": "Infraestructuras insuficientes: Cobertura de red limitada, especialmente en zonas rurales.",
+          "couts": "Alto costo de los servicios: Acceso a internet y smartphones aún costoso para gran parte de la población.",
+          "competences": "Falta de competencias técnicas: Necesidad de formación y fortalecimiento de capacidades en profesiones digitales.",
+          "reglementation": "Marco regulatorio a modernizar: Necesidad de adaptar las leyes para fomentar la innovación y proteger a los usuarios."
+        }
+      }
+    },
+    "financement": {
+      "hero": {
+        "titre": "Base Financiera",
+        "sous_titre": "La base financiera es un conjunto de reformas destinadas a fortalecer el sistema financiero de Camerún para apoyar la industrialización del país.",
+        "bouton": "Explorar las oportunidades"
+      },
+      "fil_ariane": {
+        "accueil": "Inicio",
+        "sections": "Secciones y Oportunidades",
+        "financement": "Base Financiera"
+      },
+      "objectif": {
+        "titre": "Objetivo Estratégico",
+        "texte": "Implementar reformas esenciales para transformar a Camerún en un centro financiero líder en el Golfo de Guinea y apoyar la visión de industrialización del país."
+      },
+      "actions": {
+        "titre": "Nuestras Acciones",
+        "restructuration": {
+          "titre": "Reestructuración Institucional",
+          "details": {
+            "transformation": "Transformación de la SNI en un fondo soberano",
+            "mutation": "Conversión de la BC-PME en un banco de inversión",
+            "introduction": "Cotización en bolsa de la BC-PME",
+            "reforme": "Reforma del CARPA en una agencia de APP"
+          }
+        },
+        "instruments": {
+          "titre": "Instrumentos Financieros",
+          "details": {
+            "fonds": "Fondo de garantía sectorial (Estado/APECCAM/ANEMCAM)",
+            "assurance": "Agencia de seguro de crédito a la exportación (Estado/ASAC)",
+            "agence": "Agencia camerunesa de calificación financiera",
+            "obligations": "Bonos de capital"
+          }
+        },
+        "environnement": {
+          "titre": "Entorno Empresarial",
+          "details": {
+            "incitations": "Incentivos para empresas de alto capital",
+            "reforme": "Reforma fiscal para capital propio",
+            "systeme": "Sistema mejorado de identificación empresarial",
+            "partenariats": "Asociaciones estratégicas sectoriales"
+          }
+        }
+      },
+      "stats": {
+        "titre": "Cifras Clave",
+        "fonds": {
+          "titre": "Fondos Retirados",
+          "valeur": "5B FCFA"
+        },
+        "capital": {
+          "titre": "Capital Privado de BC-PME",
+          "valeur": "65%"
+        },
+        "projets": {
+          "titre": "Proyectos Garantizados",
+          "valeur": "300+"
+        },
+        "entreprises": {
+          "titre": "Empresas Identificadas",
+          "valeur": "10K"
+        }
+      },
+      "potentiel": {
+        "titre": "Potencial de Financiamiento en Camerún",
+        "description": "El sector financiero en Camerún desempeña un papel crucial en el desarrollo económico. Apoya las inversiones, el emprendimiento y el crecimiento de sectores clave, pero enfrenta desafíos significativos para satisfacer las necesidades del país.",
+        "opportunites": {
+          "titre": "Oportunidades",
+          "croissance": "Crecimiento del sector bancario: Expansión de instituciones financieras locales e internacionales.",
+          "financement": "Financiamiento de PYMEs: Programas de apoyo para pequeñas y medianas empresas.",
+          "partenariats": "Asociaciones público-privadas (APP): Oportunidades para financiar grandes proyectos de infraestructura.",
+          "innovation": "Innovación financiera: Desarrollo de soluciones digitales (dinero móvil, fintech) para mejorar el acceso al financiamiento."
+        },
+        "defis": {
+          "titre": "Desafíos",
+          "acces": "Acceso limitado al crédito: Altas tasas de interés y garantías requeridas para préstamos.",
+          "manque": "Falta de diversificación: Oferta limitada de productos financieros adaptados a las necesidades de PYMEs e individuos.",
+          "inclusion": "Baja inclusión financiera: Una gran parte de la población no tiene acceso a servicios bancarios.",
+          "risque": "Riesgos relacionados con inversiones: Falta de confianza de los inversores debido a la inestabilidad económica y regulatoria."
+        }
+      }
+    },
+    "infrastructure": {
+      "hero": {
+        "titre": "Base de infraestructura",
+        "description": "La base de infraestructura es un sector clave para el desarrollo económico de Camerún. Agrupa las infraestructuras básicas necesarias para el buen funcionamiento de la economía y la mejora de las condiciones de vida de la población.",
+        "bouton": "Explorar las oportunidades"
+      },
+      "fil_ariane": {
+        "accueil": "Inicio",
+        "sections": "Secciones y Oportunidades",
+        "socle": "Base de Infraestructura"
+      },
+      "objectif": {
+        "titre": "Objetivo Estratégico",
+        "texte": "Construir una base sólida de infraestructuras físicas, cognitivas e institucionales para favorecer la conectividad territorial y contar con una base de capital humano capaz de servir a la industrialización."
+      },
+      "actions": {
+        "titre": "Nuestras Acciones",
+        "physique": {
+          "titre": "Infraestructura Física",
+          "construction": "Construcción de grandes proyectos estructurantes",
+          "plan": "Plan ferroviario nacional",
+          "modernisation": "Modernización portuaria",
+          "compagnies": "Compañías nacionales (Ferries, carga aérea)"
+        },
+        "cognitive": {
+          "titre": "Infraestructura Cognitiva",
+          "professionnalisation": "Profesionalización de la enseñanza",
+          "reseau": "Red de enseñanza profesional",
+          "reformation": "Reformación de formadores",
+          "modules": "Módulos de vigilancia industrial"
+        },
+        "institutionnelle": {
+          "titre": "Infraestructura Institucional",
+          "restructuration": "Reestructuración de los organigramas",
+          "services": "Servicios de vigilancia industrial",
+          "alignement": "Alineación con la industrialización"
+        }
+      },
+      "stats": {
+        "titre": "Cifras Clave",
+        "ferroviaires": {
+          "titre": "Proyectos Ferroviarios",
+          "valeur": "15+"
+        },
+        "ports": {
+          "titre": "Puertos Modernizados",
+          "valeur": "4"
+        },
+        "ecoles": {
+          "titre": "Escuelas Profesionales",
+          "valeur": "730+"
+        },
+        "ministeres": {
+          "titre": "Ministerios Reestructurados",
+          "valeur": "100%"
+        }
+      },
+      "potentiel": {
+        "titre": "Potencial de Infraestructura en Camerún",
+        "description": "El sector de infraestructuras en Camerún es un pilar esencial para apoyar el crecimiento económico y mejorar la calidad de vida. Sin embargo, persisten desafíos importantes para modernizar y ampliar las infraestructuras en el país.",
+        "opportunites": {
+          "titre": "Oportunidades",
+          "projets": "Proyectos estructurantes: Construcción de carreteras, puentes, puertos y aeropuertos para conectar las regiones.",
+          "energie": "Energía y telecomunicaciones: Desarrollo de infraestructuras energéticas y digitales para apoyar el crecimiento.",
+          "partenariats": "Asociaciones público-privadas (PPP): Colaboración para financiar y realizar proyectos de infraestructura.",
+          "integration": "Integración regional: Infraestructuras transfronterizas para fortalecer el comercio en África Central."
+        },
+        "defis": {
+          "titre": "Desafíos",
+          "manque": "Falta de financiación: Necesidad de inversiones masivas para desarrollar infraestructuras.",
+          "retards": "Retrasos en los proyectos: Problemas de gestión y realización de proyectos de infraestructura.",
+          "maintenance": "Mantenimiento insuficiente: Deterioro de las infraestructuras existentes por falta de mantenimiento.",
+          "desequilibre": "Desequilibrio regional: Concentración de infraestructuras en zonas urbanas en detrimento de las zonas rurales."
+        }
+      }
+    },
+    "bois_forets": {
+      "hero": {
+        "titre": "Pilar Madera-Bosques",
+        "description": "La industria de la madera y los bosques es un sector clave de la economía camerunesa, que ofrece numerosas oportunidades de inversión y desarrollo.",
+        "bouton": "Explora las oportunidades"
+      },
+      "fil_ariane": {
+        "accueil": "Inicio",
+        "sections": "Secciones y Oportunidades",
+        "pilier": "Pilar Madera-Bosques"
+      },
+      "objectif": {
+        "titre": "Objetivo Estratégico",
+        "texte": "Convertir el macizo forestal camerunés en el pilar de lanzamiento del plan ferroviario, la exportación de energía y el desarrollo de un sector altamente integrado con otros sectores industriales."
+      },
+      "actions": {
+        "titre": "Pilar Madera-Bosques",
+        "institutions": {
+          "titre": "Instituciones y Organizaciones",
+          "creation": "Creación de la Oficina Nacional de la Madera (ONB)",
+          "societe_depot": "Sociedad Camerunesa de Depósito de Productos Forestales (SCDPF)",
+          "societe_pate_papier": "Sociedad Camerunesa de Pasta y Papel (SOCAPAP)",
+          "caisse": "Caja de Estabilización de Precios de Productos Forestales (CSPPF)"
+        },
+        "zones": {
+          "titre": "Zonas y Complejos Industriales",
+          "zone": "Zona de Transformación Industrial (ZTI)",
+          "complexes": "Complejos Industriales Integrados (CII)",
+          "architecture": "Arquitectura de los CII de EDEA y BENGBIS",
+          "unites": "Unidades de secado obligatorias"
+        },
+        "commercialisation": {
+          "titre": "Comercialización y Regulación",
+          "magasins": "Tiendas de venta (mayorista, semi-mayorista, minorista)",
+          "regulation": "Regulación del MIB (12m³ a 25m³/ha)",
+          "interdiction": "Prohibición del transporte de troncos fuera de la ZTI",
+          "acces": "Acceso a residuos forestales"
+        },
+        "formation": {
+          "titre": "Formación y Mutualización",
+          "ecole": "Escuela de Artes y Oficios de la Madera",
+          "centres_agrees": "Centros de Aprendizaje Acreditados (C3AMB)",
+          "centre_mutualisation": "Centros de Mutualización (CMR2T)",
+          "village": "Aldea de la Madera para artesanos"
+        },
+        "infrastructures": {
+          "titre": "Infraestructuras Viales",
+          "petites_entreprises": "Pequeñas Empresas de Mantenimiento Vial (PEER)",
+          "peages": "Peajes Viales Especiales (PRS)",
+          "financement": "Financiación de las PEER a través de los PRS"
+        }
+      },
+      "stats": {
+        "titre": "Cifras Clave",
+        "ufa": {
+          "titre": "UFA gestionadas por la ONB",
+          "valeur": "75%"
+        },
+        "volume": {
+          "titre": "Volumen MIB Regulada",
+          "valeur": "25m³/ha"
+        },
+        "magasins": {
+          "titre": "Tiendas SCDPF",
+          "valeur": "50+"
+        },
+        "artisans": {
+          "titre": "Artesanos Formados",
+          "valeur": "1K+"
+        }
+      },
+      "potentiel": {
+        "titre": "Potencial de Madera y Bosques en Camerún",
+        "description": "Camerún posee el segundo macizo forestal más grande de África, con una rica biodiversidad y abundantes recursos forestales. El sector de la madera y los bosques ofrece importantes oportunidades para la economía nacional, aunque requiere una gestión sostenible para preservar el medio ambiente.",
+        "opportunites": {
+          "titre": "Oportunidades",
+          "exploitation": "Explotación sostenible: Gestión responsable de los bosques para preservar la biodiversidad y generar ingresos.",
+          "transformation": "Transformación local: Desarrollo de industrias de transformación de la madera (muebles, parquet, etc.) para añadir valor.",
+          "exportation": "Exportación: Mercado internacional para la madera camerunesa, especialmente hacia Europa y Asia.",
+          "ecotourisme": "Ecoturismo: Valorización de los bosques para atraer turistas y generar ingresos adicionales."
+        },
+        "defis": {
+          "titre": "Desafíos",
+          "exploitation": "Explotación ilegal: Tala ilegal y comercio no regulado de madera.",
+          "deforestation": "Deforestación: Pérdida de cobertura forestal debido a la agricultura y la urbanización.",
+          "manque": "Falta de transformación local: Exportación de madera en bruto sin valor añadido.",
+          "concurrence": "Competencia internacional: Dificultad para competir con productos transformados importados."
+        }
+      }
+    },
+    "textile_confection_cuir": {
+      "hero": {
+        "titre": "Pilar Textil • Confección • Cuero",
+        "description": "El sector textil, de confección y cuero es un sector clave de la economía camerunesa. Es uno de los principales empleadores del país y contribuye significativamente al crecimiento económico.",
+        "bouton": "Explora las oportunidades"
+      },
+      "fil_ariane": {
+        "accueil": "Inicio",
+        "sections": "Secciones y Oportunidades",
+        "pilier": "Pilar Textil/Confección/Cuero"
+      },
+      "objectif": {
+        "titre": "Objetivo Estratégico",
+        "texte": "Asegurar la industrialización a través de la transformación y valorización de las materias primas locales y la promoción de las exportaciones."
+      },
+      "actions": {
+        "titre": "Nuestras Acciones",
+        "renforcement_industriel": {
+          "titre": "Fortalecimiento Industrial",
+          "fusion": "Fusión CICAM/SODECOTON",
+          "capacites": "Renovación de capacidades industriales",
+          "nouvelles_filatures": "Apoyo a la instalación de nuevas unidades de hilado (300.000 t/año)",
+          "transformation_coton": "Transformación del 50% de la producción de algodón (600.000 toneladas)"
+        },
+        "innovation_formation": {
+          "titre": "Innovación y Formación",
+          "centre_technique": "Establecimiento de un Centro Técnico Textil",
+          "encadrement_coton": "Supervisión del cultivo de algodón (variedades de alto rendimiento, riego, financiación)",
+          "formation_cuir": "Formación y fortalecimiento técnico para la industria del cuero"
+        },
+        "securisation_regulation": {
+          "titre": "Seguridad y Regulación",
+          "reduction_contrebande": "Reducción del 20% anual del contrabando, fraude y falsificación",
+          "commande_publique": "Institución de la contratación pública (50% para uniformes del ejército)",
+          "clauses_sauvegarde": "Cláusulas de salvaguardia para el surgimiento del calzado local"
+        },
+        "industrie_cuir": {
+          "titre": "Industria del Cuero",
+          "centre_tri": "Creación de un centro nacional de clasificación de cueros",
+          "tanneries": "Fortalecimiento de las curtidurías existentes",
+          "nouvelles_unites": "Nuevas unidades industriales para la fabricación de productos de cuero",
+          "redeploiement": "Redistribución de TANICAM y NOTACAM"
+        },
+        "champions_regionaux": {
+          "titre": "Campeones Regionales",
+          "creation_champions": "Creación de campeones regionales en el sector textil",
+          "securisation_matiere": "Aseguramiento del suministro de materias primas",
+          "recherche_cuir": "Fortalecimiento de la investigación desde el cuero crudo hasta el cuero acabado"
+        }
+      },
+      "stats": {
+        "titre": "Cifras Clave",
+        "coton_transforme": {
+          "titre": "Algodón Transformado",
+          "valeur": "600K t"
+        },
+        "filatures": {
+          "titre": "Nuevas Hilanderías",
+          "valeur": "300K t/año"
+        },
+        "contrebande": {
+          "titre": "Contrabando Reducido",
+          "valeur": "20%/año"
+        },
+        "commande_publique": {
+          "titre": "Pedidos Públicos",
+          "valeur": "50%"
+        }
+      },
+      "potentiel": {
+        "titre": "Potencial Textil/Confección/Cuero en Camerún",
+        "description": "El sector textil, de confección y cuero en Camerún tiene un potencial significativo, gracias a materias primas locales abundantes y una demanda creciente de productos terminados. Este sector puede contribuir a la creación de empleo y a la diversificación económica.",
+        "opportunites": {
+          "titre": "Oportunidades",
+          "matieres_premieres": "Materias primas locales: Disponibilidad de algodón, cuero y otros materiales para la producción.",
+          "marche": "Mercado local y regional: Demanda creciente de ropa, calzado y accesorios.",
+          "mode_africaine": "Moda africana: Oportunidades en la promoción de la cultura y diseños locales.",
+          "exportation": "Exportación: Potencial para exportar productos terminados a mercados internacionales."
+        },
+        "defis": {
+          "titre": "Desafíos",
+          "infrastructures": "Falta de infraestructuras modernas: Unidades de producción obsoletas y falta de equipos.",
+          "concurrence": "Competencia de importaciones: Afluencia de productos textiles y de cuero de bajo costo procedentes de Asia.",
+          "formation": "Formación insuficiente: Falta de mano de obra calificada en los oficios de confección y cuero.",
+          "financement": "Acceso a financiación: Dificultades para que las pequeñas empresas obtengan créditos para invertir."
+        }
+      }
+    },
+    "hydrocarbures_petrochimie_raffinage": {
+      "hero": {
+        "titre": "Pilar Hidrocarburos • Petroquímica • Refinación",
+        "description": "El sector de hidrocarburos, petroquímica y refinación es un sector estratégico para Camerún. Presenta numerosos proyectos de inversión y oportunidades de negocio.",
+        "bouton": "Explorar las oportunidades"
+      },
+      "fil_ariane": {
+        "accueil": "Inicio",
+        "sections": "Secciones y Oportunidades",
+        "pilier": "Pilar Hidrocarburos/Refinación"
+      },
+      "objectif": {
+        "titre": "Objetivo Estratégico",
+        "texte": "Realizar una profunda transformación en el sector petrolero upstream y downstream, y valorizar el potencial mediante la diversificación de actividades para apoyar la industrialización integrada del país."
+      },
+      "actions": {
+        "titre": "Nuestras Acciones",
+        "valorisation_ressources": {
+          "titre": "Valorización de Recursos",
+          "petrole_gaz": "Valorización del potencial petrolero y gasífero",
+          "mineraux": "Promoción de la explotación de reservas minerales (Hierro, Bauxita, Níquel-Cobalto, etc.)",
+          "biocarburants": "Producción de biocombustibles de segunda generación"
+        },
+        "infrastructures_energetiques": {
+          "titre": "Infraestructuras Energéticas",
+          "restructuration_sonara": "Reestructuración de SONARA",
+          "usine_engrais": "Construcción de una planta de fertilizantes en Njonji",
+          "centres_traitement": "Centro de tratamiento de gas en Douala/Limbé/Kribi",
+          "pipeline": "Oleoducto Limbé-Douala-Bafoussam-Yaoundé"
+        },
+        "gaz_naturel_gpl": {
+          "titre": "Gas Natural y GLP",
+          "distribution_douala": "Ampliación de la distribución de gas en Douala",
+          "promotion_carburant": "Promoción del gas natural como combustible",
+          "installations_stockage": "Instalaciones de almacenamiento y carga de GLP",
+          "usine_flotante": "Planta flotante de licuefacción en Kribi"
+        },
+        "centrales_energie": {
+          "titre": "Centrales y Energía Térmica",
+          "extension_kribi": "Ampliación de la central térmica de Kribi",
+          "fourniture_gaz": "Suministro de gas a la central de Kribi"
+        }
+      },
+      "stats": {
+        "titre": "Cifras Clave",
+        "gaz_distribue": {
+          "titre": "Gas Distribuido",
+          "valeur": "50%+"
+        },
+        "biocarburants": {
+          "titre": "Biocombustibles",
+          "valeur": "2ª Generación"
+        },
+        "pipeline": {
+          "titre": "Oleoducto",
+          "valeur": "500 km"
+        },
+        "mineraux_valorises": {
+          "titre": "Reservas Valorizadas",
+          "valeur": "6 Minerales"
+        }
+      },
+      "potentiel": {
+        "titre": "Potencial de Hidrocarburos/Refinación en Camerún",
+        "description": "Camerún dispone de un importante potencial en el sector de hidrocarburos y refinación, con reservas de petróleo y gas natural, así como infraestructuras de refinación. Este sector es un pilar importante para la economía nacional.",
+        "opportunites": {
+          "titre": "Oportunidades",
+          "reserves": "Reservas de petróleo y gas: Cuencas activas, en particular en Río del Rey y Logone Birni.",
+          "raffinage_local": "Refinación local: La Sociedad Nacional de Refinación (SONARA) permite transformar el crudo en productos terminados.",
+          "exportation_gaz": "Exportación de gas natural: Potencial para desarrollar gas natural licuado (GNL) para exportación.",
+          "emplois": "Creación de empleo: El sector genera empleos directos e indirectos, sobre todo en las zonas petroleras."
+        },
+        "defis": {
+          "titre": "Desafíos",
+          "prix_mondiaux": "Dependencia de los precios mundiales: Vulnerabilidad frente a las fluctuaciones del precio del petróleo en el mercado internacional.",
+          "infrastructures_vieillissantes": "Infraestructuras obsoletas: Necesidad de modernizar las instalaciones de refinación y distribución.",
+          "environnement": "Impacto ambiental: Gestión de residuos y riesgos de contaminación ligados a la explotación petrolera.",
+          "importations": "Dependencia de importaciones: A pesar de la refinación local, el país sigue importando productos petrolíferos para satisfacer la demanda."
+        }
+      }
+    },
+    "chimie_pharmacie": {
+      "hero": {
+        "titre": "Pilar Química • Farmacia",
+        "description": "El pilar de Química y Farmacia busca transformar los recursos naturales en productos de alto valor agregado, promoviendo la innovación y la investigación en los campos de la química y la farmacia. Este sector estratégico es esencial para el desarrollo económico e industrial del país.",
+        "bouton": "Explorar las oportunidades"
+      },
+      "fil_ariane": {
+        "accueil": "Inicio",
+        "sections": "Secciones y Oportunidades",
+        "pilier": "Pilar Química/Farmacia"
+      },
+      "objectif": {
+        "titre": "Objetivo Estratégico",
+        "texte": "Desarrollar y hacer emerger un tejido de industrias del sector químico altamente integradas en la economía nacional."
+      },
+      "actions": {
+        "titre": "Nuestras Acciones",
+        "competitivite_innovation": {
+          "titre": "Competitividad e Innovación",
+          "amelioration_couts": "Mejora de la competitividad de costos",
+          "groupements_filieres": "Grupos de compras y cadenas de valor integradas (agroquímica)",
+          "poles_competitivite": "Creación de polos de competitividad (clústeres)"
+        },
+        "modernisation_entreprises": {
+          "titre": "Modernización de Empresas",
+          "mise_niveau_qhse": "Actualización de empresas (QHSE)",
+          "innovation_production": "Innovación, producción y venta",
+          "maitrise_industrielle": "Dominio de los fundamentos industriales"
+        },
+        "etat_pro_business": {
+          "titre": "Estado Pro-Empresa",
+          "logistique": "Mejora de las condiciones logísticas",
+          "infrastructures": "Desarrollo de infraestructuras",
+          "environnement_favorable": "Creación de un entorno favorable para la química"
+        },
+        "filieres_integrees": {
+          "titre": "Cadenas de Valor Integradas",
+          "petrochimie_plasturgie": "Petroquímica y Plásticos",
+          "oleochimie_verte": "Olequímica y Química Verde"
+        },
+        "industrie_pharmaceutique": {
+          "titre": "Industria Farmacéutica",
+          "medicaments_generiques": "Prioridad a medicamentos genéricos y esenciales",
+          "medicaments_traditionnels": "Desarrollo de medicamentos tradicionales",
+          "industrie_locale": "Emergencia de una industria farmacéutica local"
+        }
+      },
+      "stats": {
+        "titre": "Cifras Clave",
+        "poles_competitivite": {
+          "titre": "Polos de Competitividad",
+          "valeur": "5+"
+        },
+        "filieres_integrees": {
+          "titre": "Cadenas de Valor Integradas",
+          "valeur": "3"
+        },
+        "medicaments_generiques": {
+          "titre": "Medicamentos Genéricos",
+          "valeur": "100+"
+        },
+        "entreprises_modernisees": {
+          "titre": "Empresas Modernizadas",
+          "valeur": "50+"
+        }
+      },
+      "potentiel": {
+        "titre": "Potencial Química/Farmacia en Camerún",
+        "description": "El sector de la Química y la Farmacia en Camerún presenta un gran potencial, con una demanda creciente de productos farmacéuticos y químicos. Este sector es esencial para satisfacer las necesidades de salud y apoyar el desarrollo industrial.",
+        "opportunites": {
+          "titre": "Oportunidades",
+          "marche_croissance": "Mercado local en crecimiento: Aumento de la demanda de medicamentos y productos químicos.",
+          "production_generiques": "Producción de medicamentos genéricos: Oportunidades para reducir costos y mejorar el acceso a la atención médica.",
+          "ressources_naturelles": "Recursos naturales: Disponibilidad de materias primas para la producción de productos químicos y farmacéuticos.",
+          "exportation_regionale": "Exportación regional: Potencial para exportar productos farmacéuticos a países vecinos."
+        },
+        "defis": {
+          "titre": "Desafíos",
+          "importations": "Dependencia de las importaciones: Alta dependencia de productos farmacéuticos y químicos importados.",
+          "recherche_developpement": "Falta de I+D: Baja inversión en innovación y producción local.",
+          "normes_qualite": "Normas de calidad: Necesidad de fortalecer las regulaciones para garantizar la calidad de los productos.",
+          "acces_financement": "Acceso a financiamiento: Dificultades para que las empresas locales obtengan créditos para invertir."
+        }
+      }
+    },
+    "mines_metallurgie": {
+      "hero": {
+        "titre": "Pilar Minas • Metalurgia • Siderurgia",
+        "description": "El sector de las minas, la metalurgia y la siderurgia desempeña un papel crucial en el desarrollo económico. Ofrece oportunidades de inversión y crecimiento gracias a la explotación de los recursos naturales y la transformación de materias primas.",
+        "bouton": "Explorar las oportunidades"
+      },
+      "fil_ariane": {
+        "accueil": "Inicio",
+        "sections": "Secciones y Oportunidades",
+        "pilier": "Pilar Minas/Metalurgia/Siderurgia"
+      },
+      "objectif": {
+        "titre": "Objetivo Estratégico",
+        "texte": "Capitalizar el dinamismo de los operadores nacionales del sector para valorizar finalmente el rico potencial de los recursos mineros e iniciar los grandes proyectos mineros a medio plazo."
+      },
+      "actions": {
+        "titre": "Nuestras Acciones",
+        "projets_phare": {
+          "titre": "Proyectos Emblemáticos",
+          "extension_alucam": "Ampliación de ALUCAM en Edéa",
+          "aluminerie_kribi": "Mega planta de aluminio de Kribi",
+          "fer_mbalam": "Hierro de Mbalam",
+          "nickel_lomie": "Níquel-Cobalto de Lomié",
+          "rutile_akonolinga": "Rutilo de Akonolinga",
+          "calcaire_mintom": "Caliza de Mintom"
+        },
+        "exploitation_valorisation": {
+          "titre": "Explotación y Valorización",
+          "valorisation_or_diamant": "Valorización industrial del oro y diamante",
+          "laboratoire_national": "Laboratorio nacional de análisis de sustancias minerales",
+          "partenariats_strategiques": "Asociaciones estratégicas (SNH y operadores mineros)"
+        },
+        "infrastructures_logistique": {
+          "titre": "Infraestructura y Logística",
+          "desenclavement_sites": "Apertura de sitios mineros",
+          "moyens_production": "Mejora de los medios de producción (energía, agua)",
+          "cartes_geologiques": "Mapas geológicos detallados (1/200 000)"
+        },
+        "formation_expertise": {
+          "titre": "Formación y Pericia",
+          "moyens_techniques": "Mejora de los recursos técnicos de las instituciones",
+          "plans_formation": "Planes de formación específicos",
+          "promotion_expertise": "Promoción de la experiencia nacional"
+        },
+        "innovation_politiques": {
+          "titre": "Innovación y Políticas",
+          "developpement_creativite": "Desarrollo de la creatividad y la innovación",
+          "harmonisation_politiques": "Armonización de políticas mineras",
+          "reduction_barrieres": "Reducción de barreras institucionales"
+        }
+      },
+      "stats": {
+        "titre": "Cifras Clave",
+        "projets_miniers": {
+          "titre": "Proyectos Mineros",
+          "valeur": "6+"
+        },
+        "sites_desenclaves": {
+          "titre": "Sitios Desbloqueados",
+          "valeur": "10+"
+        },
+        "cartes_geologiques": {
+          "titre": "Mapas Geológicos",
+          "valeur": "1/200k"
+        },
+        "formations_ciblees": {
+          "titre": "Formaciones Específicas",
+          "valeur": "50+"
+        }
+      },
+      "potentiel": {
+        "titre": "Potencial Minas/Metalurgia/Siderurgia en Camerún",
+        "description": "Camerún posee un considerable potencial minero e industrial, con recursos minerales variados y oportunidades en la transformación de metales. Este sector es esencial para diversificar la economía y generar empleo.",
+        "opportunites": {
+          "titre": "Oportunidades",
+          "ressources_abondantes": "Recursos minerales abundantes: Bauxita, hierro, cobalto, níquel, oro, diamantes, etc.",
+          "projets_structurants": "Proyectos estructurales: Proyecto de hierro de Mbalam-Nabeba y otras iniciativas para explotar los yacimientos.",
+          "transformation_locale": "Transformación local: Oportunidades para desarrollar industrias de procesamiento de minerales.",
+          "exportation": "Exportación: Potencial para exportar minerales y productos metalúrgicos a los mercados internacionales."
+        },
+        "defis": {
+          "titre": "Desafíos",
+          "manque_infrastructures": "Falta de infraestructura: Infraestructura insuficiente para la explotación y transformación de minerales.",
+          "cadre_legal": "Marco legal y fiscal: Necesidad de mejorar el entorno normativo para atraer inversiones.",
+          "impact_environnemental": "Impacto ambiental: Gestión de residuos y riesgos de contaminación relacionados con la minería.",
+          "concurrence_internationale": "Competencia internacional: Dificultad para competir con los grandes productores mundiales."
+        }
+      }
+    }
   }
 }
