@@ -14,7 +14,7 @@ const PrivateContent = () => {
         return <Route path="*" element={<LoadingPage />} />;
     }
 
-    if (ready && !isAuth) {
+    if (!isAuth) {
         return <Route path="*" element={<Navigate to="/signin" replace />} />;
     }
 
