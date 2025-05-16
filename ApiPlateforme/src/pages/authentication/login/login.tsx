@@ -34,7 +34,7 @@ const Login = () => {
       password: password,
     })
       .then(res => {
-        useAuthStore.getState().setToken(res.data.token);
+        useAuthStore.getState().setToken(res.data.accessToken);
         sessionStorage.setItem('secteur', '');
         history("/dashboard");
       })
