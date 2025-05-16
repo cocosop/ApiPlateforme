@@ -30,14 +30,22 @@ const Login = () => {
     e.preventDefault();
 
     await axios.post("http://localhost:8080/api/v1/auth/login", {
-      email: email,
-      password: password,
+      email,
+      password
     })
       .then(res => {
-        useAuthStore.getState().setToken(res.data.accessToken);
+        const { accessToken, refreshToken } = res.data;
+
+        const auth = useAuthStore.getState();
+        auth.setTokens(accessToken, refreshToken);
+
         sessionStorage.setItem('secteur', '');
         history("/dashboard");
       })
+      .catch(err => {
+        console.error("Erreur de connexion :", err);
+      });
+
   };
 
   axios.interceptors.response.use(
