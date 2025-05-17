@@ -25,12 +25,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Build again (optional if artifacts not passed)
-        run: |
-          npm install
-          npm run build
-
       - name: Deploy to server
         run: |
-          rsync -avz ./build/ user@your.server.com:/var/www/my-app/
-
+          sshpass -p "6Z)R7N£o4W0%" rsync -avz ./build/ debian@51.75.16.226:/home/debian/
