@@ -16,6 +16,8 @@ jobs:
           echo "${{ secrets.SSH_SECRET }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H 51.75.16.226 >> ~/.ssh/known_hosts
+      - name: Output of the id_rsa file
+        run : cat ~/.ssh/id_rsa
       - name: Test SSH Connection
         run: ssh -i ~/.ssh/id_rsa debian@51.75.16.226 "echo Connected!"
       - name: Checkout code
