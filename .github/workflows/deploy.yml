@@ -18,6 +18,11 @@ jobs:
           ssh-keyscan -H 51.75.16.226 >> ~/.ssh/known_hosts
       - name: Output of the id_rsa file
         run : cat ~/.ssh/id_rsa
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-artifacts   # doit correspondre exactement au nom utilisé à l'upload
+          path: ./dist     # là où tu veux que l'artifact soit extrait
       - name: Install sshpass and connect
         run: |
           sudo apt-get update && sudo apt-get install -y sshpass
@@ -27,4 +32,4 @@ jobs:
 
       - name: Deploy to server
         run: |
-          sshpass -p "6Z)R7N£o4W0%" rsync -avz ./build/ debian@51.75.16.226:/home/debian/
+          sshpass -p "6Z)R7N£o4W0%" rsync -avz ./dist/ debian@51.75.16.226:/home/debian/
