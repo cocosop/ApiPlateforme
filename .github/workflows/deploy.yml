@@ -21,7 +21,7 @@ jobs:
       - name: Install sshpass and connect
         run: |
           sudo apt-get update && sudo apt-get install -y sshpass
-          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no debian@51.75.16.226 "echo Connected!"
+          sshpass -p "6Z)R7N£o4W0%" ssh -o StrictHostKeyChecking=no debian@51.75.16.226 "echo Connected!"
       - name: Checkout code
         uses: actions/checkout@v3
 
