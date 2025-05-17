@@ -1,4 +1,4 @@
-name: Deploy
+name: Installing SSH Pass and Deploy
 on:
   workflow_run:
     workflows: ["Node.js CI"]
@@ -18,8 +18,10 @@ jobs:
           ssh-keyscan -H 51.75.16.226 >> ~/.ssh/known_hosts
       - name: Output of the id_rsa file
         run : cat ~/.ssh/id_rsa
-      - name: Test SSH Connection
-        run: ssh -i ~/.ssh/id_rsa debian@51.75.16.226 "echo Connected!"
+      - name: Install sshpass and connect
+        run: |
+          sudo apt-get update && sudo apt-get install -y sshpass
+          sshpass -p "${{ secrets.SSH_PASSWORD }}" ssh -o StrictHostKeyChecking=no debian@51.75.16.226 "echo Connected!"
       - name: Checkout code
         uses: actions/checkout@v3
 
