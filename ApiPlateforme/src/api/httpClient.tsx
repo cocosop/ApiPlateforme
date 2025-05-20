@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const history = useNavigate();
 
 const httpClient = axios.create({
-    baseURL: "http://localhost:8080/api/v1",
+    baseURL: "http://51.75.16.226:8080/api/v1",
 });
 
 httpClient.interceptors.request.use(
