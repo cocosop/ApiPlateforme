@@ -30,7 +30,7 @@ jobs:
     - run: ls ./dist
     - name: Deploy to server
       run: |
-        sudo apt-get update && sudo apt-get install -y sshpass
+        sudo apt-get update && sudo apt-get install -y sshpass rsync
         sshpass -p "6Z)R7N£o4W0%" ssh -o StrictHostKeyChecking=no debian@51.75.16.226 "echo Connected!"
         sshpass -p "6Z)R7N£o4W0%" rsync -avz ./dist/ debian@51.75.16.226:/home/debian/
 
