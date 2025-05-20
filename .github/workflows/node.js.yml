@@ -27,10 +27,7 @@ jobs:
     - run: ls
     - run: npm i
     - run: npm run build --if-present
-    - name: Create dummy artifact
-      run: |
-        mkdir dist
-        echo "Hello world" > dist/test.txt
+    - run: ls ./dist
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
