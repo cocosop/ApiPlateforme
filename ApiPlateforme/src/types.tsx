@@ -1,5 +1,5 @@
 export interface ProjeTypes {
-    id: number,
+    id?: number,
     secteur: string,
     titre: string,
     promoteur: string,
@@ -11,9 +11,9 @@ export interface ProjeTypes {
     montant:string;
     statut: string;
     image: string;
-    risk: "Faible" | "Modéré" | "Élevé";
-    progress: number; 
-    latitude: number,
+    risk: string;
+    progress: number;
+    latitude: number;
     longitude: number
 }
   
@@ -22,3 +22,4 @@ export interface Filters {
     ville: string;
     region: string;
   }
+  export type CreateProjectType = Omit<ProjeTypes, 'id'>;

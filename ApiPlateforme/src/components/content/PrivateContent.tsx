@@ -1,11 +1,11 @@
 import { Navigate, Route } from 'react-router-dom';
 import PrivateLayout from '../../layouts/PrivateLayout';
-import Projets from '../../pages/projets/projets';
 import DetailProjet from '../../pages/detailProjet/detailProjet';
 import { staticData } from '../../staticData';
 import Dashboard from '../../pages/dashboard/Dashboard';
 import { useAuthReady } from '../../store/AuthReady';
 import LoadingPage from '../../pages/loading/LoadingPage';
+import Investment from '../../layouts/dashboard/investment';
 
 const PrivateContent = () => {
     const { isAuth, ready } = useAuthReady();
@@ -22,7 +22,7 @@ const PrivateContent = () => {
         isAuth && ready ? (
             <Route element={<PrivateLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/projets" element={<Projets />} />
+                <Route path="/projets" element={<Investment />} />
                 <Route path="/projets/detailsProjets/:id" element={<DetailProjet projects={staticData} />} />
             </Route>
         ) : (

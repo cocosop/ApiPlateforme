@@ -36,7 +36,7 @@ const roleMenus: Record<UserRole, MenuItem[]> = {
   ],
   PROJECT_OWNER: [
     { icon: LayoutDashboard, label: 'Tableau de bord', path: '/dashboard' },
-    { icon: FolderKanban, label: 'Mes projets', path: '/dashboard/my-projects' },
+    { icon: FolderKanban, label: 'Mes projets', path: '/projets' },
     { icon: Settings, label: 'Paramètres', path: '/dashboard/settings' },
   ],
   INVESTOR: [
