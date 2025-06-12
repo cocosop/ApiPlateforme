@@ -1,7 +1,7 @@
 // src/components/ProjectFormModal.tsx
 import React from 'react';
 import { X, Briefcase, MapPin } from 'lucide-react';
-import { ProjeTypes } from '../../../types'; 
+import { ProjeTypes } from '../../../types';
 
 interface ProjectFormModalProps {
   isOpen: boolean;
@@ -48,15 +48,25 @@ const ProjectFormModal: React.FC<ProjectFormModalProps> = ({
 
               <div>
                 <label htmlFor="secteur" className="block text-sm font-medium text-gray-700 mb-1">Secteur d'activité</label>
-                <input
+                <select
                   id="secteur"
-                  type="text"
                   name="secteur"
                   value={newProject.secteur}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
+                >
+                  <option value="">-- Sélectionnez un secteur --</option>
+                  <option value="Agro-industrie">Agro-industrie</option>
+                  <option value="Énergie">Énergie</option>
+                  <option value="Numérique">Numérique</option>
+                  <option value="Bois-Forêts">Bois-Forêts</option>
+                  <option value="Textile/Confection/Cuir">Textile/Confection/Cuir</option>
+                  <option value="Hydrocarbures/Raffinage">Hydrocarbures/Raffinage</option>
+                  <option value="Chimie/Pharmacie">Chimie/Pharmacie</option>
+                  <option value="Mines/Métallurgie/Sidérurgie">Mines/Métallurgie/Sidérurgie</option>
+                  <option value="Financement">Financement</option>
+                  <option value="Infrastructure">Infrastructure</option>
+                </select>
               </div>
 
               <div>
@@ -107,14 +117,25 @@ const ProjectFormModal: React.FC<ProjectFormModalProps> = ({
 
               <div>
                 <label htmlFor="region" className="block text-sm font-medium text-gray-700 mb-1">Région</label>
-                <input
+                <select
                   id="region"
-                  type="text"
                   name="region"
                   value={newProject.region}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
+                >
+                  <option value="">-- Sélectionnez une région --</option>
+                  <option value="Adamaoua">Adamaoua</option>
+                  <option value="Centre">Centre</option>
+                  <option value="Est">Est</option>
+                  <option value="Extrême-Nord">Extrême-Nord</option>
+                  <option value="Littoral">Littoral</option>
+                  <option value="Nord">Nord</option>
+                  <option value="Nord-Ouest">Nord-Ouest</option>
+                  <option value="Ouest">Ouest</option>
+                  <option value="Sud">Sud</option>
+                  <option value="Sud-Ouest">Sud-Ouest</option>
+                </select>
               </div>
 
               <div>
@@ -176,7 +197,7 @@ const ProjectFormModal: React.FC<ProjectFormModalProps> = ({
               <h4 className="font-medium text-gray-700">Informations financières</h4>
 
               <div>
-                <label htmlFor="montant" className="block text-sm font-medium text-gray-700 mb-1">Montant total (€)</label>
+                <label htmlFor="montant" className="block text-sm font-medium text-gray-700 mb-1">Montant total (XAF)</label>
                 <input
                   id="montant"
                   type="text"
@@ -188,19 +209,19 @@ const ProjectFormModal: React.FC<ProjectFormModalProps> = ({
               </div>
 
               <div>
-                <label htmlFor="return" className="block text-sm font-medium text-gray-700 mb-1">Retour sur investissement</label>
+                <label htmlFor="return" className="block text-sm font-medium text-gray-700 mb-1">Retour sur investissement(%)</label>
                 <input
                   id="return"
                   type="text"
                   name="return"
-                  value={newProject.return}
+                  value={newProject.retour}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
 
               <div>
-                <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-1">Budget alloué</label>
+                <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-1">Budget alloué(XAF)</label>
                 <input
                   id="budget"
                   type="text"

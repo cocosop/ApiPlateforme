@@ -18,7 +18,7 @@ const defaultNewProject: CreateProjectType = {
   latitude: 0,
   longitude: 0,
   montant: '',
-  return: '',
+  retour: '',
   statut: 'Planification',
   risk: 'Faible',
   progress: 0,
@@ -124,7 +124,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 
               <div className="p-6">
                 <h3 className="text-lg font-semibold mb-2">{project.titre}</h3>
-                <p className="text-gray-500 text-sm mb-4">{project.description}</p>
+                <p className="text-gray-500 text-sm mb-4 line-clamp-1">{project.description}</p>
 
                 <div className="space-y-4">
                   <div>
@@ -143,11 +143,11 @@ const handleSubmit = async (e: React.FormEvent) => {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm text-gray-500">Investissement</p>
-                      <p className="font-semibold">{project.montant}</p>
+                      <p className="font-semibold">{project.montant} XAF</p>
                     </div>
                     <div className="text-right">
                       <p className="text-sm text-gray-500">Retour prévu</p>
-                      <p className="font-semibold text-green-500">{project.return}</p>
+                      <p className="font-semibold text-green-500">{project.retour} par an</p>
                     </div>
                   </div>
 

@@ -6,6 +6,11 @@ import Dashboard from '../../pages/dashboard/Dashboard';
 import { useAuthReady } from '../../store/AuthReady';
 import LoadingPage from '../../pages/loading/LoadingPage';
 import Investment from '../../layouts/dashboard/investment';
+import Notifications from '../../layouts/dashboard/notifications';
+import Settings from '../../layouts/dashboard/settings';
+import UserProfile from '../../layouts/dashboard/profil';
+import MessagePanel from '../../pages/dashbordPage/messagePanel';
+import Messages from '../../layouts/dashboard/messages';
 
 const PrivateContent = () => {
     const { isAuth, ready } = useAuthReady();
@@ -24,6 +29,10 @@ const PrivateContent = () => {
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/projets" element={<Investment />} />
                 <Route path="/projets/detailsProjets/:id" element={<DetailProjet projects={staticData} />} />
+                <Route path="/notifications" element={<Notifications />} />
+                <Route path="/parametres" element={<Settings/>} />
+                 <Route path="/profil" element={<UserProfile />} />
+                <Route path="/messages" element={<Messages/>} />
             </Route>
         ) : (
             <Route path="*" element={<Navigate to="/signin" replace />} />

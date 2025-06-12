@@ -7,7 +7,7 @@ export interface ProjeTypes {
     ville: string,
     quartier: string,
     description: string,
-    return: string;
+    retour: string;
     montant:string;
     statut: string;
     image: string;
