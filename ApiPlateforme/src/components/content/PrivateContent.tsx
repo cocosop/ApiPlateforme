@@ -6,6 +6,7 @@ import { staticData } from '../../staticData';
 import Dashboard from '../../pages/dashboard/Dashboard';
 import { useAuthReady } from '../../store/AuthReady';
 import LoadingPage from '../../pages/loading/LoadingPage';
+import Projects from '../dashboard/projects';
 
 const PrivateContent = () => {
     const { isAuth, ready } = useAuthReady();
@@ -22,7 +23,8 @@ const PrivateContent = () => {
         isAuth && ready ? (
             <Route element={<PrivateLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/projets" element={<Projets />} />
+                <Route path="/projets" element={<Projets />} /> // Obsolète à retirer
+                <Route path="/projets" element={<Projects />} />  // Recommander pour l'affichage des projets
                 <Route path="/projets/detailsProjets/:id" element={<DetailProjet projects={staticData} />} />
             </Route>
         ) : (
