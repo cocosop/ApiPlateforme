@@ -20,7 +20,8 @@ export const staticData: ProjeTypes[] = [
     latitude: 4.0544,
     longitude: 9.7679,
     progress: 90,
-    return: "+15.7%",
+    returnRate: "+15.7%",
+    retour:"20 000 000 FCFA",
     risk: "Élevé",
     statut: "Bientôt terminé",
     montant: '5 000 000 FCFA'
@@ -38,7 +39,8 @@ export const staticData: ProjeTypes[] = [
     latitude: 9.3006,
     longitude: 13.3930,
     progress: 90,
-    return: "+15.7%",
+    returnRate: "+15.7%",
+    retour:"20 000 000 FCFA",
     risk: "Élevé",
     statut: "Bientôt terminé",
     montant: '5 000 000 FCFA'
@@ -56,7 +58,8 @@ export const staticData: ProjeTypes[] = [
     latitude: 3.8480,
     longitude: 11.5021,
     progress: 90,
-    return: "+15.7%",
+    returnRate: "+15.7%",
+    retour:"20 000 000 FCFA",
     risk: "Élevé",
     statut: "Bientôt terminé",
     montant: '5 000 000 FCFA'
@@ -74,7 +77,8 @@ export const staticData: ProjeTypes[] = [
     latitude: 4.5773,
     longitude: 13.6827,
     progress: 90,
-    return: "+15.7%",
+    returnRate: "+15.7%",
+    retour:"20 000 000 FCFA",
     risk: "Élevé",
     statut: "Bientôt terminé",
     montant: '5 000 000 FCFA'
@@ -92,7 +96,8 @@ export const staticData: ProjeTypes[] = [
     latitude: 5.4781,
     longitude: 10.4134,
     progress: 90,
-    return: "+15.7%",
+    returnRate: "+15.7%",
+    retour:"20 000 000 FCFA",
     risk: "Élevé",
     statut: "Bientôt terminé",
     montant: '5 000 000 FCFA'
@@ -110,7 +115,8 @@ export const staticData: ProjeTypes[] = [
     latitude: 4.0244,
     longitude: 9.2008,
     progress: 90,
-    return: "+15.7%",
+    returnRate: "+15.7%",
+    retour:"20 000 000 FCFA",
     risk: "Élevé",
     statut: "Bientôt terminé",
     montant: '5 000 000 FCFA'
@@ -128,7 +134,8 @@ export const staticData: ProjeTypes[] = [
     latitude: 4.0511,
     longitude: 9.7679,
     progress: 90,
-    return: "+15.7%",
+    returnRate: "+15.7%",
+    retour:"20 000 000 FCFA",
     risk: "Élevé",
     statut: "Bientôt terminé",
     montant: '5 000 000 FCFA'
@@ -146,7 +153,8 @@ export const staticData: ProjeTypes[] = [
     latitude: 6.7486,
     longitude: 12.5186,
     progress: 90,
-    return: "+15.7%",
+    returnRate: "+15.7%",
+    retour:"20 000 000 FCFA",
     risk: "Élevé",
     statut: "Bientôt terminé",
     montant: '5 000 000 FCFA'
@@ -164,7 +172,8 @@ export const staticData: ProjeTypes[] = [
     latitude: 4.0503,
     longitude: 9.7674,
     progress: 90,
-    return: "+15.7%",
+    returnRate: "+15.7%",
+    retour:"20 000 000 FCFA",
     risk: "Élevé",
     statut: "Bientôt terminé",
     montant: '5 000 000 FCFA'
@@ -182,7 +191,8 @@ export const staticData: ProjeTypes[] = [
     latitude: 3.8480,
     longitude: 11.5021,
     progress: 90,
-    return: "+15.7%",
+    returnRate: "+15.7%",
+    retour:"20 000 000 FCFA",
     risk: "Élevé",
     statut: "Bientôt terminé",
     montant: '5 000 000 FCFA'

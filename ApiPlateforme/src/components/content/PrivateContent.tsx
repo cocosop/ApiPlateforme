@@ -9,7 +9,6 @@ import Investment from '../../layouts/dashboard/investment';
 import Notifications from '../../layouts/dashboard/notifications';
 import Settings from '../../layouts/dashboard/settings';
 import UserProfile from '../../layouts/dashboard/profil';
-import MessagePanel from '../../pages/dashbordPage/messagePanel';
 import Messages from '../../layouts/dashboard/messages';
 
 const PrivateContent = () => {
