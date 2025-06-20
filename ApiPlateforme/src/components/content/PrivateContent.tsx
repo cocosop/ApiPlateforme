@@ -11,6 +11,8 @@ import Settings from '../../layouts/dashboard/settings';
 import UserProfile from '../../layouts/dashboard/profil';
 import MessagePanel from '../../pages/dashbordPage/messagePanel';
 import Messages from '../../layouts/dashboard/messages';
+import Projects from '../../layouts/dashboard/projects';
+import MyProjects from '../../layouts/dashboard/projects';
 
 const PrivateContent = () => {
     const { isAuth, ready } = useAuthReady();
@@ -33,6 +35,7 @@ const PrivateContent = () => {
                 <Route path="/parametres" element={<Settings/>} />
                  <Route path="/profil" element={<UserProfile />} />
                 <Route path="/messages" element={<Messages/>} />
+                <Route path="/investissements" element={<MyProjects/>} />              
             </Route>
         ) : (
             <Route path="*" element={<Navigate to="/signin" replace />} />
