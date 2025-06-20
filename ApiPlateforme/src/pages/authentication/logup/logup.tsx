@@ -5,6 +5,9 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import AlertComponent, { NotificationProvider } from "../../../components/alert/AlertComponent";
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/material.css'
+import fr from 'react-phone-input-2/lang/fr.json'
 
 const Logup = () => {
 
@@ -205,20 +208,20 @@ const Logup = () => {
                                 onChange={handleChange}
                                 required
                             />
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Numéro de téléphone"
-                                variant="outlined"
-                                name="phone"
-                                placeholder="(+237) 6XX XXX XXX"
-                                autoComplete="tel"
-                                type="tel"
-                                inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                                value={formData.phone}
-                                onChange={handleChange}
-                                required
-                            />
+                            <div style={{ margin: '16px 0' }}>
+                                <PhoneInput
+                                    country={'cm'}
+                                    localization={fr}
+                                    value={formData.phone}
+                                    onChange={(value: string) => setFormData({ ...formData, phone: value })}
+                                    inputProps={{
+                                        required: true,
+                                        autoFocus: true
+                                    }}
+                                    containerStyle={{ width: '100%' }}
+                                    inputStyle={{ width: '100%', padding: '14px 14px 14px 58px' }}
+                                />
+                            </div>
                             <FormControl fullWidth margin="normal" variant="outlined" required>
                                 <InputLabel htmlFor="outlined-adornment-password">Mot de passe</InputLabel>
                                 <OutlinedInput
