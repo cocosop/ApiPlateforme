@@ -22,7 +22,7 @@ const HeaderDashboard = () => {
   const pageTitle = routeTitles[pathname] || 'Tableau de bord';
   const history = useNavigate();
   const handleLogout = () => {
-    useAuthStore.getState().clearToken();
+    useAuthStore.getState().clearTokens();
     history('/signin');
   };
   return (

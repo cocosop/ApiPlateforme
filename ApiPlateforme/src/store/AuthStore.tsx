@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { jwtDecode } from 'jwt-decode';
+import axios from 'axios';
 
 interface DecodedToken {
     email: string;
@@ -9,71 +10,104 @@ interface DecodedToken {
 }
 
 interface AuthState {
-    token: string | null;
+    accessToken: string | null;
+    refreshToken: string | null;
     decoded: DecodedToken | null;
     ready: boolean;
-    setToken: (token: string) => void;
-    decodeToken: () => void;
-    clearToken: () => void;
-    isAuthenticated: () => boolean;
+
+    setTokens: (accessToken: string, refreshToken: string) => void;
+    clearTokens: () => void;
     isExpired: () => boolean;
+    isAuthenticated: () => boolean;
+    decodeAccessToken: () => void;
+    refreshAccessToken: () => Promise<void>;
 }
 
 export const useAuthStore = create<AuthState>()(
     persist(
         (set, get) => ({
-            token: null,
+            accessToken: null,
+            refreshToken: null,
             decoded: null,
             ready: false,
-            setToken: (token: string) => {
+
+            setTokens: (accessToken: string, refreshToken: string) => {
                 try {
-                    const decoded = jwtDecode<DecodedToken>(token);
-                    set({ token, decoded, ready: true });
-                } catch (error) {
-                    console.error("Invalid token:", error);
-                    set({ token: null, decoded: null, ready: false });
+                    const decoded = jwtDecode<DecodedToken>(accessToken);
+                    set({ accessToken, refreshToken, decoded, ready: true });
+                } catch (e) {
+                    console.error("Token decoding failed", e);
+                    set({ accessToken: null, refreshToken: null, decoded: null, ready: true });
                 }
             },
-            decodeToken: () => {
-                const token = get().token;
+
+            clearTokens: () => {
+                set({ accessToken: null, refreshToken: null, decoded: null, ready: true });
+            },
+
+            decodeAccessToken: () => {
+                const token = get().accessToken;
+                const start = Date.now();
 
                 if (!token) {
-                    set({ decoded: null, ready: false });
+                    setTimeout(() => set({ decoded: null, ready: true }), 1000);
                     return;
                 }
-
                 try {
                     const decoded = jwtDecode<DecodedToken>(token);
+                    const elapsed = Date.now() - start;
 
-                    const currentTime = Date.now() / 1000;
-                    if (decoded.exp && decoded.exp < currentTime) {
-                        set({ token: null, decoded: null, ready: false });
-                        return;
+                    const minDelay = 1000;
+                    const remaining = minDelay - elapsed;
+
+                    if (decoded.exp && decoded.exp < Date.now() / 1000) {
+                        setTimeout(() => set({ accessToken: null, decoded: null, ready: true }), Math.max(remaining, 0));
+                    } else {
+                        setTimeout(() => set({ decoded, ready: true }), Math.max(remaining, 0));
                     }
-
-                    set({ decoded, ready: true });
-
-                } catch (error) {
-                    console.error('Token decoding failed:', error);
-                    set({ token: null, decoded: null, ready: false });
+                } catch (e) {
+                    console.error("Token decoding failed:", e);
+                    setTimeout(() => set({ accessToken: null, decoded: null, ready: true }), 500);
                 }
             },
-            clearToken: () => set({ token: null, decoded: null, ready: false }),
-
-            isAuthenticated: () => {
-                const token = get().token;
-                return !!token && !get().isExpired();
-            },
-
             isExpired: () => {
                 const { decoded } = get();
                 return !decoded || decoded.exp < Date.now() / 1000;
             },
+
+            isAuthenticated: () => {
+                const { accessToken, isExpired } = get();
+                return !!accessToken && !isExpired();
+            },
+
+            refreshAccessToken: async () => {
+                const { refreshToken } = get();
+
+                if (!refreshToken) {
+                    console.warn("No refresh token available");
+                    get().clearTokens();
+                    return;
+                }
+
+                try {
+                    const response = await axios.post('http://localhost:8080/api/v1/auth/refresh-token', {
+                        refreshToken
+                    });
+
+                    const { accessToken: newAccess, refreshToken: newRefresh } = response.data;
+                    get().setTokens(newAccess, newRefresh);
+                } catch (error) {
+                    console.error("Failed to refresh access token", error);
+                    get().clearTokens();
+                }
+            }
         }),
         {
             name: "auth-storage",
-            partialize: (state) =>
-                ({ token: state.token }),
+            partialize: (state) => ({
+                accessToken: state.accessToken,
+                refreshToken: state.refreshToken
+            }),
             storage: {
                 getItem: (name) => {
                     const item = sessionStorage.getItem(name);

@@ -29,29 +29,31 @@ interface MenuItem {
 const roleMenus: Record<UserRole, MenuItem[]> = {
   ADMIN: [
     { icon: LayoutDashboard, label: 'Tableau de bord', path: '/dashboard' },
-    { icon: Users, label: 'Utilisateurs', path: '/dashboard/users' },
+    { icon: Users, label: 'Utilisateurs', path: '/users' },
     { icon: FolderKanban, label: 'Tous les projets', path: '/projets' },
-    { icon: BarChart, label: 'Analytique', path: '/dashboard/analytics' },
-    { icon: Settings, label: 'Paramètres', path: '/dashboard/settings' },
+    { icon: BarChart, label: 'Analytique', path: '/analytics' },
+    { icon: Settings, label: 'Paramètres', path: '/parametres' },
   ],
   PROJECT_OWNER: [
     { icon: LayoutDashboard, label: 'Tableau de bord', path: '/dashboard' },
-    { icon: FolderKanban, label: 'Mes projets', path: '/dashboard/my-projects' },
-    { icon: Settings, label: 'Paramètres', path: '/dashboard/settings' },
+    { icon: FolderKanban, label: 'Projets', path: '/projets' },
+    { icon: Settings, label: 'Paramètres', path: '/parametres' },
   ],
   INVESTOR: [
     { icon: LayoutDashboard, label: 'Tableau de bord', path: '/dashboard' },
-    { icon: FolderKanban, label: 'Mes projets', path: '/dashboard/my-projects' },
-    { icon: Settings, label: 'Paramètres', path: '/dashboard/settings' },
+    { icon: FolderKanban, label: 'Projets', path: '/investissements' },
+    { icon: Settings, label: 'Paramètres', path: '/parametres' },
   ],
 };
 
 // Menus communs à tous les rôles
 const commonMenuItems: MenuItem[] = [
-  { icon: Bell, label: 'Notifications', path: '/dashboard/notifications' },
-  { icon: MessageSquare, label: 'Messages', path: '/dashboard/messages' },
-  { icon: UserCircle, label: 'Profil', path: '/dashboard/profil' },
-  { icon: PiggyBank, label: 'Investissements', path: '/dashboard/investments' },
+  { icon: Bell, label: 'Notifications', path: '/notifications' },
+  { icon: MessageSquare, label: 'Messages', path: '/messages' },
+  { icon: UserCircle, label: 'Profil', path: '/profil' },
+  { icon: PiggyBank, label: 'Mes Projets', path: '/investissements' },
+  { icon: BarChart, label: 'Suivie Pojets', path: '/analytics' },
+
 ];
 
 
