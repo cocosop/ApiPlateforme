@@ -33,7 +33,7 @@ httpClient.interceptors.response.use(
             try {
                 const refreshToken = useAuthStore.getState().refreshToken;
 
-                const res = await axios.post("http://localhost:8080/api/v1/auth/refresh-token", {
+                const res = await axios.post("http://51.75.16.226:8080/api/v1/auth/refresh-token", {
                     refreshToken,
                 });
 

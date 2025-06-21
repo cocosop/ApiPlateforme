@@ -23,6 +23,7 @@ const defaultNewProject: CreateProjectType = {
   risk: 'Faible',
   progress: 0,
   image: '',
+  returnRate:''
 };
 const DEFAULT_IMAGE_URL = Projet;
 
