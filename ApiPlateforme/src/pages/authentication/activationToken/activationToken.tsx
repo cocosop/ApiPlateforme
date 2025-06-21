@@ -51,7 +51,7 @@ const ActivationToken = () => {
     setStatus('loading');
 
     try {
-      axios.post(`http://51.75.16.226:8080/api/v1/auth/activated-account?token=${token}`)
+      axios.post(`http://localhost:8080/api/v1/auth/activated-account?token=${token}`)
         .then((res) => {
           res.data.status === 202 ? setStatus('success') : setStatus('error');
           if (res.request.status === 202) {

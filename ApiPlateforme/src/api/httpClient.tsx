@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const history = useNavigate();
 
 const httpClient = axios.create({
-    baseURL: "http://51.75.16.226:8080/api/v1",
+    baseURL: "http://localhost:8080/api/v1",
 });
 
 httpClient.interceptors.request.use(
@@ -33,7 +33,7 @@ httpClient.interceptors.response.use(
             try {
                 const refreshToken = useAuthStore.getState().refreshToken;
 
-                const res = await axios.post("http://51.75.16.226:8080/api/v1/auth/refresh-token", {
+                const res = await axios.post("http://localhost:8080/api/v1/auth/refresh-token", {
                     refreshToken,
                 });
 

@@ -90,7 +90,7 @@ export const useAuthStore = create<AuthState>()(
                 }
 
                 try {
-                    const response = await axios.post('http://51.75.16.226:8080/api/v1/auth/refresh-token', {
+                    const response = await axios.post('http://localhost:8080/api/v1/auth/refresh-token', {
                         refreshToken
                     });
 

@@ -30,7 +30,7 @@ const ForgetPassword = () => {
         setError('');
 
         try {
-            await axios.post(`http://51.75.16.226:8080/api/auth/forgot-password?email=${email}`)
+            await axios.post(`http://localhost:8080/api/auth/forgot-password?email=${email}`)
                 .then((res) => {
                     console.log(res.data);
                     if (res.data.status === 200) {

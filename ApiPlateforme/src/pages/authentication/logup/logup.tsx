@@ -53,7 +53,7 @@ const Logup = () => {
         e.preventDefault();
         setStatus('loading');
         try {
-            const res = await axios.post("http://51.75.16.226:8080/api/v1/auth/register", formData);
+            const res = await axios.post("http://localhost:8080/api/v1/auth/register", formData);
 
             if (res.status === 201) {
                 showNotification(t('signup.success'), "success");
