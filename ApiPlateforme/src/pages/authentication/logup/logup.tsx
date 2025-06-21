@@ -5,7 +5,9 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import AlertComponent, { NotificationProvider } from "../../../components/alert/AlertComponent";
-import { useTranslation } from 'react-i18next';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/material.css'
+import fr from 'react-phone-input-2/lang/fr.json'
 
 const Logup = () => {
 
@@ -51,7 +53,7 @@ const Logup = () => {
         e.preventDefault();
         setStatus('loading');
         try {
-            const res = await axios.post("http://localhost:8080/api/v1/auth/register", formData);
+            const res = await axios.post("http://51.75.16.226:8080/api/v1/auth/register", formData);
 
             if (res.status === 201) {
                 showNotification(t('signup.success'), "success");
@@ -105,7 +107,7 @@ const Logup = () => {
     return (
         <section className="flex flex-col md:flex-row">
             {/* Section Image */}
-            <div className="hidden md:flex md:w-1/2 md:items-start md:justify-center">
+            <div className="hidden lg:flex w-1/2 items-start justify-center">
                 <Box
                     sx={{
                         flex: 1,
@@ -148,7 +150,7 @@ const Logup = () => {
                         width: "100%",
                         maxWidth: { xs: 300, sm: 400 },
                         textAlign: "center",
-                        padding: { xs: 2, md: 6 },
+                        // padding: { xs: 2, md: 6 },
                     }}
                 >
                     <Typography
@@ -175,126 +177,133 @@ const Logup = () => {
                     {/* Champs de connexion */}
                     <NotificationProvider>
                         <form onSubmit={handleSubmit}>
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label={t('signup.firstname_label')}
-                                name="firstname"
-                                variant="outlined"
-                                value={formData.firstname}
-                                onChange={handleChange}
-                                required
-                            />
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label={t('signup.lastname_label')}
-                                name="lastname"
-                                variant="outlined"
-                                value={formData.lastname}
-                                onChange={handleChange}
-                                required
-                            />
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                type="email"
-                                name="email"
-                                autoComplete="email"
-                                label={t('signup.email_label')}
-                                variant="outlined"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                            />
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label={t('signup.phone_label')}
-                                variant="outlined"
-                                name="phone"
-                                placeholder={t('signup.phone_placeholder')}
-                                autoComplete="tel"
-                                type="tel"
-                                inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }}
-                                value={formData.phone}
-                                onChange={handleChange}
-                                required
-                            />
-                            <FormControl fullWidth margin="normal" variant="outlined" required>
-                                <InputLabel htmlFor="outlined-adornment-password">{t('signup.password_label')}</InputLabel>
-                                <OutlinedInput
-                                    id="outlined-adornment-password"
-                                    name="password"
-                                    value={formData.password}
+                            <div className="md:flex items-center gap-2">
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Prenom"
+                                    name="firstname"
+                                    variant="outlined"
+                                    value={formData.firstname}
                                     onChange={handleChange}
-                                    type={showPassword ? 'text' : 'password'}
-                                    endAdornment={
-                                        <InputAdornment position="end">
-                                            <IconButton
-                                                aria-label={
-                                                    showPassword ? t('signup.password_hide') : t('signup.password_show')
-                                                }
-                                                onClick={handleClickShowPassword}
-                                                onMouseDown={handleMouseDownPassword}
-                                                onMouseUp={handleMouseUpPassword}
-                                                edge="end"
-                                            >
-                                                {showPassword ? <VisibilityOff /> : <Visibility />}
-                                            </IconButton>
-                                        </InputAdornment>
-                                    }
-                                    label={t('signup.password_label')}
+                                    required
                                 />
-                            </FormControl>
-                            <FormControl fullWidth margin="normal" variant="outlined" required>
-                                <InputLabel htmlFor="outlined-adornment-confirm-password">{t('signup.confirm_password_label')}</InputLabel>
-                                <OutlinedInput
-                                    id="outlined-adornment-confirm-password"
-                                    name="confirmePassword"
-                                    value={confirmePassword}
-                                    onChange={(e) => setConfirmePassword(e.target.value)}
-                                    onBlur={checkPasswordMatch}
-                                    error={!isPasswordMatch}
-                                    type={showConfirmePassword ? 'text' : 'password'}
-                                    endAdornment={
-                                        <InputAdornment position="end">
-                                            <IconButton
-                                                aria-label={
-                                                    showConfirmePassword ? t('signup.confirm_password_hide') : t('signup.confirm_password_show')
-                                                }
-                                                onClick={handleClickShowConfirmePassword}
-                                                onMouseDown={handleMouseDownConfirmePassword}
-                                                onMouseUp={handleMouseUpConfirmePassword}
-                                                edge="end"
-                                            >
-                                                {showConfirmePassword ? <VisibilityOff /> : <Visibility />}
-                                            </IconButton>
-                                        </InputAdornment>
-                                    }
-                                    label={t('signup.confirm_password_label')}
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Nom de famille"
+                                    name="lastname"
+                                    variant="outlined"
+                                    value={formData.lastname}
+                                    onChange={handleChange}
+                                    required
                                 />
-                                {!isPasswordMatch && (
-                                    <FormHelperText error>
-                                        {t('signup.password_mismatch')}
-                                    </FormHelperText>
-                                )}
-                            </FormControl>
-
-                            <TextField
-                                fullWidth
-                                select
-                                label={t('signup.role_label')}
-                                name="role"
-                                value={formData.role}
-                                onChange={handleChange}
-                                margin="normal"
-                                required
-                            >
-                                <MenuItem disabled>{t('signup.role_placeholder')}</MenuItem>
-                                <MenuItem value="PROJECT_OWNER">{t('signup.role_project_owner')}</MenuItem>
-                                <MenuItem value="INVESTOR">{t('signup.role_investor')}</MenuItem>
-                            </TextField>
+                            </div>
+                            <div className="md:flex items-center gap-2">
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    type="email"
+                                    name="email"
+                                    autoComplete="email"
+                                    label="Email professionnelle"
+                                    variant="outlined"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <div style={{ width: "100%", margin: '16px 0' }}>
+                                    <PhoneInput
+                                        country={'cm'}
+                                        localization={fr}
+                                        value={formData.phone}
+                                        onChange={(value: string) => setFormData({ ...formData, phone: value })}
+                                        inputProps={{
+                                            required: true,
+                                            autoFocus: true
+                                        }}
+                                        containerStyle={{ width: '100%' }}
+                                        inputStyle={{ width: '100%', padding: '14px 14px 14px 58px' }}
+                                    />
+                                </div>
+                            </div>
+                            <div className="md:flex items-center gap-2">
+                                <FormControl fullWidth margin="normal" variant="outlined" required>
+                                    <InputLabel htmlFor="outlined-adornment-password">Mot de passe</InputLabel>
+                                    <OutlinedInput
+                                        id="outlined-adornment-password"
+                                        name="password"
+                                        value={formData.password}
+                                        onChange={handleChange}
+                                        type={showPassword ? 'text' : 'password'}
+                                        endAdornment={
+                                            <InputAdornment position="end">
+                                                <IconButton
+                                                    aria-label={
+                                                        showPassword ? 'hide the password' : 'display the password'
+                                                    }
+                                                    onClick={handleClickShowPassword}
+                                                    onMouseDown={handleMouseDownPassword}
+                                                    onMouseUp={handleMouseUpPassword}
+                                                    edge="end"
+                                                >
+                                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        }
+                                        label="Mot de passe"
+                                    />
+                                </FormControl>
+                                <FormControl fullWidth margin="normal" variant="outlined" required>
+                                    <InputLabel htmlFor="outlined-adornment-password">Confirmer mot de passe</InputLabel>
+                                    <OutlinedInput
+                                        id="outlined-adornment-password"
+                                        name="confirmePassword"
+                                        value={confirmePassword}
+                                        onChange={(e) => setConfirmePassword(e.target.value)}
+                                        onBlur={checkPasswordMatch}
+                                        error={!isPasswordMatch}
+                                        type={showConfirmePassword ? 'text' : 'password'}
+                                        endAdornment={
+                                            <InputAdornment position="end">
+                                                <IconButton
+                                                    aria-label={
+                                                        showConfirmePassword ? 'hide the password' : 'display the password'
+                                                    }
+                                                    onClick={handleClickShowConfirmePassword}
+                                                    onMouseDown={handleMouseDownConfirmePassword}
+                                                    onMouseUp={handleMouseUpConfirmePassword}
+                                                    edge="end"
+                                                >
+                                                    {showConfirmePassword ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        }
+                                        label="Confirmer mot de passe"
+                                    />
+                                    {!isPasswordMatch && (
+                                        <FormHelperText error>
+                                            Incorrect
+                                        </FormHelperText>
+                                    )}
+                                </FormControl>
+                            </div>
+                            <div className="md:flex items-center gap-2">
+                                <TextField
+                                    fullWidth
+                                    select
+                                    label="Quel est votre profil ?"
+                                    name="role"
+                                    value={formData.role}
+                                    onChange={handleChange}
+                                    margin="normal"
+                                    required
+                                >
+                                    <MenuItem disabled>Sélectionnez un type</MenuItem>
+                                    <MenuItem value="PROJECT_OWNER">Porteur de projet</MenuItem>
+                                    <MenuItem value="INVESTOR">Investisseur</MenuItem>
+                                </TextField>
+                            </div>
                             <div className="">
                                 <p className="text-sm text-center"><NavLink className="text-blue-900 hover:underline" to={'#'}> {t('signup.terms_privacy_prefix')}</NavLink> {t('signup.terms_privacy_link')} .</p>
                             </div>

@@ -14,7 +14,8 @@ export interface ProjeTypes {
     risk: string;
     progress: number;
     latitude: number;
-    longitude: number
+    longitude: number;
+    returnRate:string;
 }
   
 export interface Filters {

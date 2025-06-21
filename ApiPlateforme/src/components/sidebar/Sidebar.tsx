@@ -14,6 +14,7 @@ import {
   LayoutDashboard,
 
 } from 'lucide-react';
+import logo from '../../assets/img/logo.png'
 
 // Type pour les rôles utilisateur
 type UserRole = 'ADMIN' | 'PROJECT_OWNER' | 'INVESTOR';
@@ -65,6 +66,9 @@ const Sidebar: React.FC = () => {
 
   return (
     <div className="h-full w-64 bg-gray-900 text-white p-4">
+      <div className="flex items-center bg-white w-full p-4 mb-4 shadow-lg rounded-xl">
+        <img src={logo} alt="logo-api" />
+      </div>
       <nav className="space-y-2">
         {fullMenu.map((item) => (
           <NavLink

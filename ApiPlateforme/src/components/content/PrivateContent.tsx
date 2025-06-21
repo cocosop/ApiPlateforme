@@ -35,13 +35,13 @@ const PrivateContent = () => {
                 <Route path="/projets" element={<Investment />} />
                 <Route path="/projets/detailsProjets/:id" element={<DetailProjet projects={staticData} />} />
                 <Route path="/notifications" element={<Notifications />} />
-                <Route path="/parametres" element={<Settings/>} />
-                 <Route path="/profil" element={<UserProfile />} />
-                <Route path="/messages" element={<Messages/>} />
-                <Route path="/investissements" element={<MyProjects/>} /> 
-                <Route path="/analytics" element={<SuiviProjetDetail/>} /> 
+                <Route path="/parametres" element={<Settings />} />
+                <Route path="/profil" element={<UserProfile />} />
+                <Route path="/messages" element={<Messages />} />
+                <Route path="/investissements" element={<MyProjects />} />
+                <Route path="/analytics" element={<SuiviProjetDetail />} />
 
-                             
+
             </Route>
         ) : (
             <Route path="*" element={<Navigate to="/signin" replace />} />

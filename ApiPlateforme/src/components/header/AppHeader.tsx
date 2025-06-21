@@ -4,22 +4,22 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../../store/AuthStore';
 
 const routeTitles: Record<string, string> = {
-  '/dashboard/': 'Tableau de bord',
-  '/dashboard/analytics': 'Analytique',
+  '/dashboard': 'Tableau de bord',
+  '/analytics': 'Analytique',
   '/projets': 'Tous les projets',
-  '/dashboard/my-projects': 'Mes projets',
-  '/dashboard/documents': 'Documents',
-  '/dashboard/users': 'Utilisateurs',
-  '/dashboard/investments': 'Investissements',
-  '/dashboard/messages': 'Messages',
-  '/dashboard/profil': 'Profil',
-  '/dashboard/settings': 'Paramètres',
-  '/dashboard/notifications': 'Notifications',
+  '/my-projects': 'Mes projets',
+  '/documents': 'Documents',
+  '/users': 'Utilisateurs',
+  '/investissements': 'Investissements',
+  '/messages': 'Messages',
+  '/profil': 'Profil',
+  '/parametres': 'Paramètres',
+  '/notifications': 'Notifications',
   // Ajoute ici d'autres routes si nécessaire
 };
 const HeaderDashboard = () => {
   const pathname = location.pathname;
-  const pageTitle = routeTitles[pathname] || 'Tableau de bord';
+  const pageTitle = routeTitles[pathname];
   const history = useNavigate();
   const handleLogout = () => {
     useAuthStore.getState().clearTokens();
@@ -33,7 +33,7 @@ const HeaderDashboard = () => {
       <div className="flex items-center gap-4">
         {/* Notification */}
 
-        <Link to="/dashboard/notifications" className="relative p-2 rounded-full hover:bg-gray-100">
+        <Link to="/notifications" className="relative p-2 rounded-full hover:bg-gray-100">
           <Bell className="w-5 h-5 text-gray-600" />
           <span className="absolute top-1 right-1 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
             3
@@ -72,7 +72,7 @@ const HeaderDashboard = () => {
                 <div className="space-y-0.5">
                   <button
                     className="flex w-full items-center gap-x-2 rounded-lg px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors"
-                    onClick={() => console.log('Settings clicked')}
+                    onClick={() => history("/parametres")}
                   >
                     <Settings className="h-4 w-4 text-gray-400" />
                     Paramètres
