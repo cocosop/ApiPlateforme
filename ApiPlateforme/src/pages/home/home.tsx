@@ -1,4 +1,4 @@
-import HOMEVIDEOUPDATED from '../../assets/videos/COMPLEXE INDUSTRIALO-PORTUAIRE DE KRIBI (cameroun).mp4'
+import HOMEVIDEOUPDATED from '../../assets/videos/home1.mp4'
 import ENREGISTREMENT from "../../assets/img/enregistrement.png"
 import REDUCTION from "../../assets/img/reduction.png"
 import SUIVI from "../../assets/img/suivi.png"

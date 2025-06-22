@@ -8,6 +8,7 @@ import AlertComponent, { NotificationProvider } from "../../../components/alert/
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/material.css'
 import fr from 'react-phone-input-2/lang/fr.json'
+import { useTranslation } from "react-i18next";
 
 const Logup = () => {
 
