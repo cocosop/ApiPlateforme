@@ -18,8 +18,8 @@ import { useState } from 'react'
 import ProjectCard from '../../components/projetCard/projetCard'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { Button, Dialog, DialogContent, DialogTitle, Icon, IconButton } from '@mui/material'
-
+import { Dialog, DialogContent, DialogTitle,  IconButton } from '@mui/material'
+import CloseIcon from '@mui/icons-material/Close';
 
 //Data table for the list of advantages
 const ListData = [
@@ -186,7 +186,7 @@ const home = () => {
                   </h1>
                 </DialogTitle>
                 <IconButton onClick={handleClose}>
-                  <Icon />
+                  <CloseIcon />
                 </IconButton>
               </div>
 
