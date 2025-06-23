@@ -11,10 +11,6 @@ import Settings from '../../layouts/dashboard/settings';
 import UserProfile from '../../layouts/dashboard/profil';
 import Messages from '../../layouts/dashboard/messages';
 import MyProjects from '../../layouts/dashboard/projects';
-import Analytics from '../../layouts/dashboard/analytics';
-import Documents from '../../layouts/dashboard/documents';
-import Analyse from '../../layouts/dashboard/analytics';
-import AnalyseAmeliore from '../../layouts/dashboard/analytics';
 import SuiviProjetDetail from '../../layouts/dashboard/analytics';
 
 const PrivateContent = () => {
