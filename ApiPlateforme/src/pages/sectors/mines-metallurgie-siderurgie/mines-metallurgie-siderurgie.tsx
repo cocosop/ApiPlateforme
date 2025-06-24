@@ -2,7 +2,6 @@ import ActionButtonComponent from '../../../components/actionButtonComponent/act
 import { AcademicCapIcon } from "@heroicons/react/20/solid";
 import { MapIcon, MapPinIcon, TruckIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import BreadcrumbsComponent from "../../../components/breadcrumbsComponent/breadcrumbsComponent";
 import { useTranslation } from 'react-i18next';
 
 
@@ -42,17 +41,6 @@ const MinesMetallurgieSiderurgie = () => {
             />
           </div>
         </motion.div>
-      </div>
-
-      {/* Breadcrumbs */}
-      <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
-        <BreadcrumbsComponent
-          breadcrumbs={[
-            { name: t("pages_secteurs.mines_metallurgie.fil_ariane.accueil"), path: '/' },
-            { name: t("pages_secteurs.mines_metallurgie.fil_ariane.sections"), path: '#' },
-            { name: t("pages_secteurs.mines_metallurgie.fil_ariane.pilier"), path: '#' }
-          ]}
-        />
       </div>
 
       {/* Objectif Section */}

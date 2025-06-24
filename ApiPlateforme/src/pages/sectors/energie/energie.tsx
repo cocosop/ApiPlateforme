@@ -2,7 +2,6 @@ import { AcademicCapIcon, BoltIcon, GlobeAltIcon, LightBulbIcon, ChartBarIcon, B
 import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
 import { FireIcon, SunIcon, Battery100Icon, CogIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
-import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
 import { useTranslation } from 'react-i18next';
 
 const Energie = () => {
@@ -94,17 +93,6 @@ const Energie = () => {
             />
           </div>
         </motion.div>
-      </div>
-
-      {/* Breadcrumbs */}
-      <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
-        <BreadcrumbsComponent
-          breadcrumbs={[
-            { name: t('pages_secteurs.energie.fil_ariane.accueil'), path: '/' },
-            { name: t('pages_secteurs.energie.fil_ariane.sections'), path: '#' },
-            { name: t('pages_secteurs.energie.fil_ariane.energie'), path: '#' }
-          ]}
-        />
       </div>
 
       {/* Objectif Section */}

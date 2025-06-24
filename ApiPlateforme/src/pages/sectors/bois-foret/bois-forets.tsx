@@ -2,7 +2,6 @@ import ActionButtonComponent from '../../../components/actionButtonComponent/act
 import { UserGroupIcon } from "@heroicons/react/20/solid";
 import { MapIcon, ScaleIcon, ShoppingCartIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import BreadcrumbsComponent from "../../../components/breadcrumbsComponent/breadcrumbsComponent";
 import { useTranslation } from 'react-i18next';
 
 const BoisForets = () => {
@@ -41,17 +40,6 @@ const BoisForets = () => {
             />
           </div>
         </motion.div>
-      </div>
-
-      {/* Breadcrumbs */}
-      <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
-        <BreadcrumbsComponent
-          breadcrumbs={[
-            { name: t("pages_secteurs.bois_forets.fil_ariane.accueil"), path: '/' },
-            { name: t("pages_secteurs.bois_forets.fil_ariane.sections"), path: '#' },
-            { name: t("pages_secteurs.bois_forets.fil_ariane.pilier"), path: '#' }
-          ]}
-        />
       </div>
 
       {/* Objectif Section */}
