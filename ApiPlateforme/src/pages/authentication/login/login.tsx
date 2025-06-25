@@ -7,6 +7,7 @@ import axios from "axios";
 import AlertComponent, { NotificationProvider } from "../../../components/alert/AlertComponent";
 import { useAuthStore } from "../../../store/AuthStore";
 import { useTranslation } from 'react-i18next';
+import { backendUrl } from "../../../constants/constants";
 
 const Login = () => {
   const [email, setEmail] = React.useState(String);
@@ -31,7 +32,7 @@ const Login = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    await axios.post("http://51.75.16.226/backend/api/v1/auth/login", {
+    await axios.post(`${backendUrl}/api/v1/auth/login`, {
       email,
       password
     })

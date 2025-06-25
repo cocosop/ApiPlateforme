@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { jwtDecode } from 'jwt-decode';
 import axios from 'axios';
+import { backendUrl } from '../constants/constants';
 
 interface DecodedToken {
     email: string;
@@ -90,7 +91,7 @@ export const useAuthStore = create<AuthState>()(
                 }
 
                 try {
-                    const response = await axios.post('http://51.75.16.226/backend/api/v1/auth/refresh-token', {
+                    const response = await axios.post(`${backendUrl}/api/v1/auth/refresh-token`, {
                         refreshToken
                     });
 

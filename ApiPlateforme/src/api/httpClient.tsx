@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useAuthStore } from "../store/AuthStore";
 import { useNavigate } from "react-router-dom";
+import { backendUrl } from "../constants/constants";
 
 const history = useNavigate();
 
 const httpClient = axios.create({
-    baseURL: "http://51.75.16.226/backend/api/v1",
+    baseURL: `${backendUrl}/api/v1`,
 });
 
 httpClient.interceptors.request.use(
@@ -33,7 +34,7 @@ httpClient.interceptors.response.use(
             try {
                 const refreshToken = useAuthStore.getState().refreshToken;
 
-                const res = await axios.post("http://51.75.16.226/backend/api/v1/auth/refresh-token", {
+                const res = await axios.post(`${backendUrl}/api/v1/auth/refresh-token`, {
                     refreshToken,
                 });
 

@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { ProjeTypes, CreateProjectType } from '../../types'; // Assurez-vous que ce chemin est correct
+import { backendUrl } from '../../constants/constants';
 
 // URL de base de votre API Spring Boot
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://51.75.16.226/backend/api/v1';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || `${backendUrl}/api/v1`;
 
 // Instance Axios configurée
 const apiClient = axios.create({

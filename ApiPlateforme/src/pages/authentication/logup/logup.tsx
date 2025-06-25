@@ -9,6 +9,7 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/material.css'
 import fr from 'react-phone-input-2/lang/fr.json'
 import { useTranslation } from "react-i18next";
+import { backendUrl } from "../../../constants/constants";
 
 const Logup = () => {
 
@@ -54,7 +55,7 @@ const Logup = () => {
         e.preventDefault();
         setStatus('loading');
         try {
-            const res = await axios.post("http://51.75.16.226/backend/api/v1/auth/register", formData);
+            const res = await axios.post(`${backendUrl}/api/v1/auth/register`, formData);
 
             if (res.status === 201) {
                 showNotification(t('signup.success'), "success");

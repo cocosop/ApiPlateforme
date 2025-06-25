@@ -15,6 +15,7 @@ import LockOpenIcon from '@mui/icons-material/LockOpen';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import TokenInput from '../../../components/tokenInput/tokenInput';
 import axios from 'axios';
+import { backendUrl } from '../../../constants/constants';
 
 const theme = createTheme({
     palette: {
@@ -48,7 +49,7 @@ const ResetPassword = () => {
         setError('');
 
         try {
-            await axios.post(`http://51.75.16.226/backend/api/auth/reset-password?token=${token}neWPassword=${newPassword}`)
+            await axios.post(`${backendUrl}/api/auth/reset-password?token=${token}neWPassword=${newPassword}`)
                 .then((res) => {
                     console.log(res.data);
                     if (res.data.status === 202) {
