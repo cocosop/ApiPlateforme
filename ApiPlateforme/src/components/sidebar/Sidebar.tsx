@@ -42,7 +42,8 @@ const roleMenus: Record<UserRole, MenuItem[]> = {
   ],
   INVESTOR: [
     { icon: LayoutDashboard, label: 'Tableau de bord', path: '/dashboard' },
-    { icon: FolderKanban, label: 'Projets', path: '/investissements' },
+    { icon: FolderKanban, label: 'Mes demandes', path: '/demandes' },
+    { icon: PiggyBank, label: 'Mes Projets', path: '/investissements' },
     { icon: Settings, label: 'Paramètres', path: '/parametres' },
   ],
 };
@@ -52,7 +53,6 @@ const commonMenuItems: MenuItem[] = [
   { icon: Bell, label: 'Notifications', path: '/notifications' },
   { icon: MessageSquare, label: 'Messages', path: '/messages' },
   { icon: UserCircle, label: 'Profil', path: '/profil' },
-  { icon: PiggyBank, label: 'Mes Projets', path: '/investissements' },
   { icon: BarChart, label: 'Suivie Pojets', path: '/analytics' },
 
 ];

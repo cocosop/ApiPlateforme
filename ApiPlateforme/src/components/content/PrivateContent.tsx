@@ -12,6 +12,7 @@ import UserProfile from '../../layouts/dashboard/profil';
 import Messages from '../../layouts/dashboard/messages';
 import MyProjects from '../../layouts/dashboard/projects';
 import SuiviProjetDetail from '../../layouts/dashboard/analytics';
+import Demandes from '../../layouts/dashboard/demandes';
 
 const PrivateContent = () => {
     const { isAuth, ready } = useAuthReady();
@@ -36,6 +37,8 @@ const PrivateContent = () => {
                 <Route path="/messages" element={<Messages />} />
                 <Route path="/investissements" element={<MyProjects />} />
                 <Route path="/analytics" element={<SuiviProjetDetail />} />
+                <Route path="/demandes" element={<Demandes />} />
+
 
 
             </Route>
