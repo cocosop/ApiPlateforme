@@ -25,6 +25,29 @@ const HeaderDashboard = () => {
     useAuthStore.getState().clearTokens();
     history('/signin');
   };
+  const decoded = useAuthStore((state) => state.decoded);
+
+  if (!decoded) {
+    return <p>Utilisateur non connecté</p>;
+  }
+
+  const getInitial = (name) => name?.charAt(0).toUpperCase() || "?";
+
+  // Liste de couleurs modernes
+  const modernColors = [
+    "#6366F1", // indigo-500
+    "#10B981", // emerald-500
+    "#F59E0B", // amber-500
+    "#EF4444", // red-500
+    "#3B82F6", // blue-500
+    "#8B5CF6", // violet-500
+    "#EC4899", // pink-500
+    "#14B8A6", // teal-500
+  ];
+
+  // Choisir une couleur aléatoire
+  const randomColor = modernColors[Math.floor(Math.random() * modernColors.length)];
+
   return (
     <header className="z-50 w-full h-16 px-6 bg-white border-b flex items-center justify-between shadow-sm m-0">
       {/* Titre de la page */}
@@ -44,12 +67,15 @@ const HeaderDashboard = () => {
         <div className="flex items-center gap-2 cursor-pointer hover:bg-gray-100 p-2 rounded-full transition">
           <Popover className="relative">
             <PopoverButton className="flex items-center gap-x-2 rounded-full p-1 hover:bg-gray-100 transition-all focus:outline-none">
-              <img
-                src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=40&h=40&q=80"
-                alt="Profile"
-                className="h-8 w-8 rounded-full border border-gray-200"
-              />
-              <span className="hidden sm:inline text-sm font-medium text-gray-700">Moi</span>
+              <div
+                style={{
+                  backgroundColor: randomColor,
+                }}
+                className="h-8 w-8 rounded-full border border-gray-200 flex items-center justify-center text-white font-bold text-xl"
+              >
+                {getInitial(decoded.sub)}
+              </div>
+              <span className="hidden sm:inline text-sm font-medium text-gray-700">{decoded?.sub}</span>
               <ChevronDown className="hidden sm:block h-4 w-4 text-gray-500" aria-hidden="true" />
             </PopoverButton>
 
@@ -60,12 +86,15 @@ const HeaderDashboard = () => {
               <div className="p-2">
                 {/* Section info utilisateur */}
                 <div className="flex flex-col items-center px-3 py-2 border-b border-gray-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1502685104226-ee32379fefbe?auto=format&fit=crop&w=40&h=40&q=80"
-                    alt="Profile"
-                    className="h-16 w-16 rounded-full border border-gray-200"
-                  />
-                  <p className="text-xs text-gray-500 truncate">utilisateur@example.com</p>
+                  <div
+                    style={{
+                      backgroundColor: randomColor,
+                    }}
+                    className="h-16 w-16 rounded-full border border-gray-200 flex items-center justify-center text-white font-bold text-xl"
+                  >
+                    {getInitial(decoded.sub)}
+                  </div>
+                  <p className="text-xs text-gray-500 truncate">{decoded.sub}</p>
                 </div>
 
                 {/* Boutons actions */}

@@ -5,7 +5,7 @@ import axios from 'axios';
 import { backendUrl } from '../constants/constants';
 
 interface DecodedToken {
-    email: string;
+    sub: string;
     role: string;
     exp: number;
 }
