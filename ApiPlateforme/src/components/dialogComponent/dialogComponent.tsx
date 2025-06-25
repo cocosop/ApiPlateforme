@@ -11,7 +11,7 @@ const DialogComponent: React.FC<{ open: boolean; onClose: () => void }> = ({ ope
     const handleSubmit = async () => {
         try {
             await axios
-                .post(`http://localhost:8080/api/v1/auth/resend-activation-token?email=${email}`)
+                .post(`http://localhost:8082/api/v1/auth/resend-activation-token?email=${email}`)
                 .then((res) => {
                     res.request.status === 202 ? setStatus('success') : setStatus('error');
                     if (res.request.status === 429) {

@@ -48,7 +48,7 @@ const ResetPassword = () => {
         setError('');
 
         try {
-            await axios.post(`http://localhost:8080/api/auth/reset-password?token=${token}neWPassword=${newPassword}`)
+            await axios.post(`http://localhost:8082/api/auth/reset-password?token=${token}neWPassword=${newPassword}`)
                 .then((res) => {
                     console.log(res.data);
                     if (res.data.status === 202) {
