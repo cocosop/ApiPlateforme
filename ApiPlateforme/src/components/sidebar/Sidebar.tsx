@@ -29,9 +29,8 @@ interface MenuItem {
 // Menus spécifiques selon le rôle
 const roleMenus: Record<UserRole, MenuItem[]> = {
   ADMIN: [
-    { icon: LayoutDashboard, label: 'Tableau de bord', path: '/dashboard' },
-    { icon: Users, label: 'Utilisateurs', path: '/users' },
-    { icon: FolderKanban, label: 'Tous les projets', path: '/projets' },
+    { icon: FolderKanban, label: 'Toutes les demandes', path: '/demandes' },
+    { icon: PiggyBank, label: 'Tous les projets', path: '/projets' },
     { icon: BarChart, label: 'Analytique', path: '/analytics' },
     { icon: Settings, label: 'Paramètres', path: '/parametres' },
   ],
@@ -53,8 +52,6 @@ const commonMenuItems: MenuItem[] = [
   { icon: Bell, label: 'Notifications', path: '/notifications' },
   { icon: MessageSquare, label: 'Messages', path: '/messages' },
   { icon: UserCircle, label: 'Profil', path: '/profil' },
-  { icon: BarChart, label: 'Suivie Pojets', path: '/analytics' },
-
 ];
 
 

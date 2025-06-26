@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { ProjeTypes, CreateProjectType } from '../../types'; // Assurez-vous que ce chemin est correct
 import { backendUrl } from '../../constants/constants';
+import { useAuthStore } from '../../store/AuthStore';
 
 // URL de base de votre API Spring Boot
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || `${backendUrl}/api/v1`;
@@ -10,8 +11,20 @@ const apiClient = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
-    // 'Authorization': `Bearer ${localStorage.getItem('yourAuthTokenKey')}`
   },
+});
+
+apiClient.interceptors.request.use(config => {
+  // Ajout du token d'authentification si disponible
+  const token = useAuthStore.getState().accessToken;
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+}, error => {
+  // Gestion des erreurs de requête
+  console.error('Erreur lors de la configuration de la requête:', error);
+  return Promise.reject(error);
 });
 
 // Intercepteur pour la gestion globale des erreurs Axios

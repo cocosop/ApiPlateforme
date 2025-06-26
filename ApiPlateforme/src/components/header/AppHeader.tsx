@@ -31,7 +31,7 @@ const HeaderDashboard = () => {
     return <p>Utilisateur non connecté</p>;
   }
 
-  const getInitial = (name) => name?.charAt(0).toUpperCase() || "?";
+  const getInitial = (name: string) => name?.charAt(0).toUpperCase() || "?";
 
   // Liste de couleurs modernes
   const modernColors = [

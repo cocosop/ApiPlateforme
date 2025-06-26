@@ -5,12 +5,11 @@ import { ProjeTypes, CreateProjectType } from '../../types';
 import ProjectFormModal from './../../components/dashboardComponent/newProjectForm/NewProjectForm';
 import { projectApi } from '../../api/services/projectService';
 import Projet from '../../assets/img/ampoule.jpg';
- 
+
 
 const defaultNewProject: CreateProjectType = {
   secteur: '',
   titre: '',
-  promoteur: '',
   description: '',
   region: '',
   ville: '',
@@ -18,12 +17,10 @@ const defaultNewProject: CreateProjectType = {
   latitude: 0,
   longitude: 0,
   montant: '',
-  retour: '',
-  statut: 'Planification',
-  risk: 'Faible',
-  progress: 0,
-  image: '',
-  returnRate:''
+  status: 'Planification',
+  image_url: '',
+  ROI: '',
+  budget: 0,
 };
 const DEFAULT_IMAGE_URL = Projet;
 
@@ -56,7 +53,7 @@ const Investment: React.FC = () => {
     setNewProject(prev => ({ ...prev, [name]: Number(value) }));
   };
 
-const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // AJOUT : Préparez les données à envoyer en vérifiant si le champ 'image' est vide.
@@ -64,13 +61,13 @@ const handleSubmit = async (e: React.FormEvent) => {
       ...newProject, // On copie toutes les données saisies dans le formulaire
       // Si `newProject.image` est vide, on utilise `DEFAULT_IMAGE_URL`.
       // Sinon, on garde la valeur saisie par l'utilisateur.
-      image: newProject.image || DEFAULT_IMAGE_URL,
+      image: newProject.image_url || DEFAULT_IMAGE_URL,
     };
 
     try {
       // On envoie les données préparées à l'API
       const created = await projectApi.createProject(projectDataToSend);
-      
+
       setProjects(prev => [...prev, created]);
       alert("Projet créé avec succès !");
       setIsModalOpen(false);
@@ -108,17 +105,16 @@ const handleSubmit = async (e: React.FormEvent) => {
             <div key={project.id} className="bg-white rounded-xl shadow-sm overflow-hidden">
               <div className="h-48 relative">
                 <img
-                  src={project.image || DEFAULT_IMAGE_URL}
+                  src={project.image_url || DEFAULT_IMAGE_URL}
                   alt={project.titre}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute top-3 right-3">
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                    project.risk === 'Faible' ? 'bg-green-100 text-green-700' :
-                    project.risk === 'Modéré' ? 'bg-yellow-100 text-yellow-700' :
-                    'bg-red-100 text-red-700'
-                  }`}>
-                    {project.risk}
+                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${'Faible' === 'Faible' ? 'bg-green-100 text-green-700' :
+                      'Modéré' === 'Modéré' ? 'bg-yellow-100 text-yellow-700' :
+                        'bg-red-100 text-red-700'
+                    }`}>
+                    {'Modéré'}
                   </span>
                 </div>
               </div>
@@ -131,12 +127,12 @@ const handleSubmit = async (e: React.FormEvent) => {
                   <div>
                     <div className="flex items-center justify-between text-sm mb-1">
                       <span>Progression</span>
-                      <span>{project.progress}%</span>
+                      <span>{0}%</span>
                     </div>
                     <div className="h-2 bg-gray-100 rounded-full">
                       <div
                         className="h-full bg-blue-500 rounded-full"
-                        style={{ width: `${project.progress}%` }}
+                        style={{ width: `${0}%` }}
                       ></div>
                     </div>
                   </div>
@@ -148,7 +144,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                     </div>
                     <div className="text-right">
                       <p className="text-sm text-gray-500">Retour prévu</p>
-                      <p className="font-semibold text-green-500">{project.retour} par an</p>
+                      <p className="font-semibold text-green-500">{0} par an</p>
                     </div>
                   </div>
 

@@ -2,20 +2,17 @@ export interface ProjeTypes {
     id?: number,
     secteur: string,
     titre: string,
-    promoteur: string,
     region: string,
     ville: string,
     quartier: string,
     description: string,
-    retour: string;
     montant:string;
-    statut: string;
-    image: string;
-    risk: string;
-    progress: number;
+    status?: string;
+    image_url: string;
     latitude: number;
     longitude: number;
-    returnRate:string;
+    ROI:string;
+    budget:number;
 }
   
 export interface Filters {
