@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuthStore } from '../../store/AuthStore';
 import {
-  Users,
   FolderKanban,
   PiggyBank,
   Settings,

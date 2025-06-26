@@ -74,5 +74,29 @@ export const projectApi = {
     }
   },
 
+  updateProjectToStudying: async (titre: string): Promise<void> => {
+    try {
+      await apiClient.patch(`/projet/${encodeURIComponent(titre)}/studying`);
+    } catch (error) {
+      console.error('Erreur lors de la mise en étude du projet:', error);
+      if (axios.isAxiosError(error) && error.response) {
+        console.error('Réponse d\'erreur de l\'API:', error.response.data);
+      }
+      throw error;
+    }
+  },
+
+  rejectProject: async (titre: string): Promise<void> => {
+    try {
+      await apiClient.patch(`/projet/${encodeURIComponent(titre)}/reject`);
+    } catch (error) {
+      console.error('Erreur lors du rejet du projet:', error);
+      if (axios.isAxiosError(error) && error.response) {
+        console.error('Réponse d\'erreur de l\'API:', error.response.data);
+      }
+      throw error;
+    }
+  },
+
   // Ajoutez ici d'autres fonctions comme updateProject, deleteProject, etc.
 };

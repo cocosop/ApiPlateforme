@@ -116,7 +116,7 @@ const DetailProjet: React.FC<DetailProjetProps> = ({ projects }) => {
                 </li>
 
                 <li>
-                  <strong>Promoteurs :</strong> {project.promoteur}
+                  <strong>Promoteurs :</strong> {"promoteur"}
                 </li>
               </ul>
 

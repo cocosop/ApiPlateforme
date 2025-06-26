@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Plus, Loader2, X } from 'lucide-react';
+import { Loader2, X } from 'lucide-react';
 import { ProjeTypes, CreateProjectType } from '../../types';
 import { projectApi } from '../../api/services/projectService';
 import Projet from '../../assets/img/ampoule.jpg';
 import NewDemandeProjectForm from '../../components/dashboardComponent/newProjectForm/NewDemandeProjectForm';
 import { AnimatePresence, motion } from 'framer-motion';
 import clsx from 'clsx';
+import { useAuthStore } from '../../store/AuthStore';
 
 const defaultNewProject: CreateProjectType = {
     secteur: '',
@@ -24,6 +25,8 @@ const defaultNewProject: CreateProjectType = {
 const DEFAULT_IMAGE_URL = Projet;
 
 const Demandes: React.FC = () => {
+    const { decoded } = useAuthStore();
+    const isAdmin = decoded?.role === 'ADMIN';
     const [projects, setProjects] = useState<ProjeTypes[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [newProject, setNewProject] = useState<CreateProjectType>(defaultNewProject);
@@ -88,6 +91,8 @@ const Demandes: React.FC = () => {
                 return 'bg-green-100 text-green-700';
             case 'REJECTED':
                 return 'bg-red-100 text-red-700';
+            case 'STUDYING':
+                return 'bg-blue-100 text-blue-700';
             case 'PENDING':
             default:
                 return 'bg-yellow-100 text-yellow-700';
@@ -194,6 +199,48 @@ const Demandes: React.FC = () => {
                                 {selectedProject.status}
                             </span>
                         </p>
+                        {/* Boutons Admin */}
+                        {isAdmin && (
+                            <div className="flex gap-3 pt-4 border-t border-gray-200 mt-4">
+                                <button
+                                    onClick={async () => {
+                                        try {
+                                            await projectApi.updateProjectToStudying(selectedProject.titre);
+                                            setProjects(prev =>
+                                                prev.map(p =>
+                                                    p.id === selectedProject.id ? { ...p, status: 'STUDYING' } : p
+                                                )
+                                            );
+                                            setSelectedProject({ ...selectedProject, status: 'STUDYING' });
+                                        } catch (error) {
+                                            console.error('Erreur mise en étude du projet', error);
+                                        }
+                                    }}
+                                    className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+                                >
+                                    Mettre en étude
+                                </button>
+
+                                <button
+                                    onClick={async () => {
+                                        try {
+                                            await projectApi.rejectProject(selectedProject.titre);
+                                            setProjects(prev =>
+                                                prev.map(p =>
+                                                    p.id === selectedProject.id ? { ...p, status: 'REJECTED' } : p
+                                                )
+                                            );
+                                            setSelectedProject({ ...selectedProject, status: 'REJECTED' });
+                                        } catch (error) {
+                                            console.error('Erreur rejet du projet', error);
+                                        }
+                                    }}
+                                    className="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700"
+                                >
+                                    Rejeter
+                                </button>
+                            </div>
+                        )}
                     </div>
                 </motion.div>
             )}
