@@ -1,26 +1,25 @@
 export interface ProjeTypes {
-    id?: number,
-    secteur: string,
-    titre: string,
-    promoteur: string,
-    region: string,
-    ville: string,
-    quartier: string,
-    description: string,
-    retour: string;
-    montant:string;
-    statut: string;
-    image: string;
-    risk: string;
-    progress: number;
+    url_image: string;
+    titre: string;
+    secteur: string;
+    region: string;
+    ville: string;
+    quartier: string;
+    description: string;
     latitude: number;
     longitude: number;
-    returnRate:string;
+    dateDebut: Date;
+    dateFin: Date;
+    investor: any;
+    ROI: number;
+    montant: number;
+    budget: number;
+    status: string;
 }
-  
+
 export interface Filters {
     secteur: string;
     ville: string;
     region: string;
-  }
-  export type CreateProjectType = Omit<ProjeTypes, 'id'>;
+}
+export type CreateProjectType = Omit<ProjeTypes, 'id'>;

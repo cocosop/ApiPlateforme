@@ -3,10 +3,10 @@ import LOGIN from "../../../assets/img/account_illustration.png";
 import { Google as GoogleIcon, Apple as AppleIcon, VisibilityOff, Visibility, LinkedIn } from "@mui/icons-material";
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import axios from "axios";
-import AlertComponent, { NotificationProvider } from "../../../components/alert/AlertComponent";
+import { NotificationProvider } from "../../../components/alert/AlertComponent";
 import { useAuthStore } from "../../../store/AuthStore";
 import { useTranslation } from 'react-i18next';
+import userService from "../../../services/userService";
 
 const Login = () => {
   const [email, setEmail] = React.useState(String);
@@ -14,7 +14,6 @@ const Login = () => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const history = useNavigate();
-  const { showNotification } = AlertComponent();
   const { t } = useTranslation();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -31,41 +30,19 @@ const Login = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    await axios.post("http://localhost:8080/api/v1/auth/login", {
-      email,
-      password
-    })
-      .then(res => {
-        const { accessToken, refreshToken } = res.data;
+    const res = await userService.login(email, password);
+    try {
+      const { accessToken, refreshToken } = res.data;
 
-        const auth = useAuthStore.getState();
-        auth.setTokens(accessToken, refreshToken);
+      const auth = useAuthStore.getState();
+      auth.setTokens(accessToken, refreshToken);
 
-        sessionStorage.setItem('secteur', '');
-        history("/dashboard");
-      })
-      .catch(err => {
-        console.error("Erreur de connexion :", err);
-      });
-
-  };
-
-  axios.interceptors.response.use(
-    res => res,
-    error => {
-      const statusHandlers: any = {
-        403: () => showNotification(t('login.errors.forbidden'), "error"),
-        404: () => showNotification(t('login.errors.not_found'), "warning"),
-        500: () => showNotification(t('login.errors.server_error'), "error"),
-      };
-
-      const status = error.response?.status;
-      (statusHandlers[status] || (() => showNotification(t('login.errors.unknown'), "error")))();
-
-      return Promise.reject(error);
+      sessionStorage.setItem('secteur', '');
+      history("/dashboard");
+    } catch {
+      console.error("Erreur de connexion");
     }
-  );
-
+  };
 
   return (
     <section className="flex flex-col md:flex-row">

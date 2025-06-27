@@ -29,6 +29,7 @@ const PrivateContent = () => {
             <Route element={<PrivateLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/projets" element={<Investment />} />
+                <Route path="/projet/details/:titre" element={<SuiviProjetDetail />} />
                 <Route path="/projets/detailsProjets/:id" element={<DetailProjet projects={staticData} />} />
                 <Route path="/notifications" element={<Notifications />} />
                 <Route path="/parametres" element={<Settings />} />

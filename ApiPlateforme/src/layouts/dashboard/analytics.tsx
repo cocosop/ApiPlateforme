@@ -1,65 +1,73 @@
-import React, { useState } from 'react';
-import { FaMapMarkerAlt, FaCalendarAlt, FaFileAlt, FaMoneyBillWave, FaChartLine, FaCheckCircle, FaSpinner, FaClock, FaEdit, FaSave, FaTimes } from 'react-icons/fa';
+import React, { useEffect, useState } from 'react';
+import { FaMapMarkerAlt, FaCalendarAlt, FaMoneyBillWave, FaChartLine, FaCheckCircle, FaSpinner, FaClock, FaEdit, FaSave, FaTimes } from 'react-icons/fa';
+import { useParams } from 'react-router-dom';
+import projectService from '../../services/projectService';
 
-type Jalon = {
+type Stage = {
   titre: string;
-  statut: 'terminé' | 'en cours' | 'à venir';
+  status: string;
   date: string;
 };
 
 type Projet = {
-  nom: string;
+  titre: string;
   description: string;
-  localisation: string;
-  statut: string;
-  avancement: number;
-  financementTotal: string;
-  montantInvesti: string;
-  tauxRetour: string;
-  debut: string;
-  finPrevue: string;
-  documents: string[];
-  jalons: Jalon[];
+  ville: string;
+  region: string;
+  quartier: string;
+  status: string;
+  budget: number;
+  ROI: number;
+  montant: number;
+  dateDebut: string;
+  dateFin: string;
+  // documents: string[];
+  stages: Stage[];
 };
 
 const SuiviProjetDetail: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
+  const projectTitle = useParams().titre;
   const [projet, setProjet] = useState<Projet>({
-    nom: 'Projet Énergie Solaire pour Zones Rurales',
-    description:
-      'Ce projet ambitieux vise à installer des panneaux solaires autonomes dans 100 villages reculés du Cameroun, offrant un accès stable à l\'électricité et réduisant drastiquement la dépendance au réseau national, améliorant ainsi la qualité de vie des communautés locales.',
-    localisation: 'Nord, Cameroun',
-    statut: 'En cours',
-    avancement: 65,
-    financementTotal: '100 000 000 FCFA',
-    montantInvesti: '45 000 000 FCFA',
-    tauxRetour: '12%',
-    debut: '2024-01-01',
-    finPrevue: '2025-12-31',
-    documents: ['Business Plan V2.pdf', 'Rapport Trimestriel Q1.pdf', 'Plan d\'Installation.docx'],
-    jalons: [
-      { titre: 'Étude de faisabilité et sélection sites', statut: 'terminé', date: '2024-02-15' },
-      { titre: 'Lancement officiel des travaux', statut: 'terminé', date: '2024-04-01' },
-      { titre: 'Installation panneaux phase 1 (25 villages)', statut: 'en cours', date: '2024-06-10' },
-      { titre: 'Installation panneaux phase 2 (50 villages)', statut: 'à venir', date: '2024-11-20' },
-      { titre: 'Mise en service finale et formation', statut: 'à venir', date: '2025-01-15' },
-    ],
+    titre: '',
+    description: '',
+    ville: '',
+    region: '',
+    quartier: '',
+    status: '',
+    budget: 0,
+    ROI: 0,
+    montant: 0,
+    dateDebut: '',
+    dateFin: '',
+    // documents: [],
+    stages: [],
   });
-
   const [editProjet, setEditProjet] = useState<Projet>({ ...projet });
 
   const getStatusClasses = (status: string) => {
-    switch (status.toLowerCase()) {
-      case 'terminé':
+    switch (status) {
+      case 'completed':
         return 'bg-green-100 text-green-700';
-      case 'en cours':
+      case 'in_progress':
         return 'bg-yellow-100 text-yellow-700';
-      case 'à venir':
+      case 'upcoming':
         return 'bg-blue-100 text-blue-700';
       default:
         return 'bg-gray-100 text-gray-700';
     }
   };
+
+  const handleProjectStatus = (status: string) => {
+    if (status.toLowerCase() === 'pending') {
+      return 'En attente';
+    } else if (status.toLowerCase() === 'rejected') {
+      return 'Rejeté';
+    } else if (status.toLowerCase() === 'studying') {
+      return 'En étude';
+    }
+    return '';
+  }
 
   const handleEditClick = () => {
     setEditProjet({ ...projet });
@@ -83,8 +91,8 @@ const SuiviProjetDetail: React.FC = () => {
     }));
   };
 
-  const handleJalonChange = (index: number, field: keyof Jalon, value: string) => {
-    const updatedJalons = [...editProjet.jalons];
+  const handleJalonChange = (index: number, field: keyof Stage, value: string) => {
+    const updatedJalons = [...editProjet.stages];
     updatedJalons[index] = {
       ...updatedJalons[index],
       [field]: value
@@ -95,40 +103,40 @@ const SuiviProjetDetail: React.FC = () => {
     }));
   };
 
-  const handleDocumentChange = (index: number, value: string) => {
-    const updatedDocuments = [...editProjet.documents];
-    updatedDocuments[index] = value;
-    setEditProjet(prev => ({
-      ...prev,
-      documents: updatedDocuments
-    }));
-  };
+  // const handleDocumentChange = (index: number, value: string) => {
+  //   const updatedDocuments = [...editProjet.documents];
+  //   updatedDocuments[index] = value;
+  //   setEditProjet(prev => ({
+  //     ...prev,
+  //     documents: updatedDocuments
+  //   }));
+  // };
 
-  const addDocument = () => {
-    setEditProjet(prev => ({
-      ...prev,
-      documents: [...prev.documents, 'Nouveau document.pdf']
-    }));
-  };
+  // const addDocument = () => {
+  //   setEditProjet(prev => ({
+  //     ...prev,
+  //     documents: [...prev.documents, 'Nouveau document.pdf']
+  //   }));
+  // };
 
-  const removeDocument = (index: number) => {
-    setEditProjet(prev => ({
-      ...prev,
-      documents: prev.documents.filter((_, i) => i !== index)
-    }));
-  };
+  // const removeDocument = (index: number) => {
+  //   setEditProjet(prev => ({
+  //     ...prev,
+  //     documents: prev.documents.filter((_, i) => i !== index)
+  //   }));
+  // };
 
   const addJalon = () => {
     setEditProjet(prev => ({
       ...prev,
-      jalons: [...prev.jalons, { titre: 'Nouveau jalon', statut: 'à venir', date: '2024-01-01' }]
+      stages: [...prev.stages, { titre: 'Nouveau jalon', status: 'à venir', date: new Date().toISOString().split('T')[0] }]
     }));
   };
 
   const removeJalon = (index: number) => {
     setEditProjet(prev => ({
       ...prev,
-      jalons: prev.jalons.filter((_, i) => i !== index)
+      stages: prev.stages.filter((_, i) => i !== index)
     }));
   };
 
@@ -155,19 +163,44 @@ const SuiviProjetDetail: React.FC = () => {
     </div>
   );
 
+  const fetchProject = async () => {
+    const res = await projectService.getProject(projectTitle ?? '');
+    try {
+      setProjet(res.data);
+      setEditProjet(res.data);
+    } catch (error) {
+      console.error("Erreur lors de la récupération du projet :", error);
+    }
+  };
+
+  const handleProgressionProject = (project: Projet) => {
+    if (!project.stages || project.stages.length === 0) return 0;
+    const completedStages = project.stages.reduce((acc, stage) => {
+      if (stage.status.toLowerCase() === 'completed') {
+        return acc + 1;
+      }
+      return acc;
+    }, 0);
+    return Math.round((completedStages / project.stages.length) * 100);
+  };
+
+  useEffect(() => {
+    fetchProject();
+  }, [projectTitle]);
+
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-3xl p-8 shadow-xl border border-gray-100 my-8">
       {/* Header Section with Edit Button */}
       <div className="flex justify-between items-start pb-6 border-b border-gray-200 mb-6">
         <div className="flex-1">
           {isEditing ? (
-            renderEditableField('nom', 'Nom du projet')
+            renderEditableField('titre', 'titre du projet')
           ) : (
             <h1 className="text-3xl font-extrabold text-indigo-900 mb-2">
-              {projet.nom}
+              {projet.titre}
             </h1>
           )}
-          
+
           {isEditing ? (
             renderEditableField('description', 'Description', true)
           ) : (
@@ -175,17 +208,21 @@ const SuiviProjetDetail: React.FC = () => {
               {projet.description}
             </p>
           )}
-          
+
           {isEditing ? (
-            renderEditableField('localisation', 'Localisation')
+            <>
+              {renderEditableField('region', 'Région')}
+              {renderEditableField('ville', 'Ville')}
+              {renderEditableField('quartier', 'Quartier')}
+            </>
           ) : (
             <p className="text-sm text-gray-500 flex items-center">
               <FaMapMarkerAlt className="mr-2 text-indigo-500" />
-              {projet.localisation}
+              {projet.region}, {projet.ville}, {projet.quartier}
             </p>
           )}
         </div>
-        
+
         <div className="ml-4">
           {isEditing ? (
             <div className="flex space-x-2">
@@ -220,49 +257,38 @@ const SuiviProjetDetail: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center mb-8">
         <div>
           <h3 className="text-xl font-semibold text-gray-800 mb-3">Avancement Global</h3>
-          {isEditing ? (
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-1">Avancement (%)</label>
-              <input
-                type="number"
-                min="0"
-                max="100"
-                name="avancement"
-                value={editProjet.avancement}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
-          ) : (
-            <div className="w-full bg-gray-200 h-6 rounded-full overflow-hidden shadow-inner">
+          <div className="w-full bg-gray-200 h-6 rounded-full overflow-hidden shadow-inner">
+            <div className="relative w-full h-6">
               <div
-                className="bg-gradient-to-r from-emerald-400 to-teal-500 h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end pr-3"
-                style={{ width: `${projet.avancement}%` }}
-              >
-                <span className="text-white text-sm font-bold">{projet.avancement}%</span>
-              </div>
+                className="bg-gradient-to-r from-emerald-400 to-teal-500 h-full rounded-full transition-all duration-700 ease-out"
+                style={{ width: `${handleProgressionProject(projet)}%` }}
+              ></div>
+              <span className="absolute inset-0 flex items-center justify-center text-white text-sm font-bold pointer-events-none">
+                {handleProgressionProject(projet)}%
+              </span>
             </div>
-          )}
+          </div>
         </div>
         <div className="flex flex-col items-start md:items-end">
           <p className="text-md font-medium text-gray-600 mb-2">Statut Actuel du Projet</p>
           {isEditing ? (
             <select
               name="statut"
-              value={editProjet.statut}
+              value={editProjet.status}
               onChange={handleInputChange}
-              className={`px-4 py-2 rounded-full text-sm font-bold ${getStatusClasses(editProjet.statut)}`}
+              className={`px-4 py-2 rounded-full text-sm font-bold ${getStatusClasses(editProjet.status)}`}
             >
-              <option value="En cours">En cours</option>
-              <option value="terminé">Terminé</option>
-              <option value="à venir">À venir</option>
+              <option value="STUDYING">En étude</option>
+              <option value="ACCEPTED">Accepté</option>
+              <option value="REJECTED">Rejeté</option>
             </select>
           ) : (
-            <span className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-bold ${getStatusClasses(projet.statut)}`}>
-              {projet.statut === 'En cours' && <FaSpinner className="animate-spin mr-2" />}
-              {projet.statut === 'Terminé' && <FaCheckCircle className="mr-2" />}
-              {projet.statut === 'À venir' && <FaClock className="mr-2" />}
-              {projet.statut}
+            <span className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-bold ${getStatusClasses(projet.status)}`}>
+              {handleProjectStatus(projet.status).toLowerCase() === 'en attente' && <FaSpinner className="animate-spin mr-2" />}
+              {handleProjectStatus(projet.status).toLowerCase() === 'completed' && <FaCheckCircle className="mr-2" />}
+              {handleProjectStatus(projet.status).toLowerCase() === 'studying' && <FaClock className="mr-2" />}
+              {handleProjectStatus(projet.status).toLowerCase() === 'rejected' && <FaTimes className="mr-2" />}
+              {handleProjectStatus(projet.status)}
             </span>
           )}
         </div>
@@ -280,13 +306,13 @@ const SuiviProjetDetail: React.FC = () => {
             {isEditing ? (
               <input
                 type="text"
-                name="financementTotal"
-                value={editProjet.financementTotal}
+                name="budget"
+                value={editProjet.budget}
                 onChange={handleInputChange}
                 className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />
             ) : (
-              <p className="font-bold text-lg text-blue-900">{projet.financementTotal}</p>
+              <p className="font-bold text-lg text-blue-900">{projet.budget ?? 0}</p>
             )}
           </div>
           <div className="bg-green-50 p-5 rounded-lg border border-green-100 flex flex-col items-start justify-center">
@@ -295,13 +321,13 @@ const SuiviProjetDetail: React.FC = () => {
             {isEditing ? (
               <input
                 type="text"
-                name="montantInvesti"
-                value={editProjet.montantInvesti}
+                name="montant"
+                value={editProjet.montant}
                 onChange={handleInputChange}
                 className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />
             ) : (
-              <p className="font-bold text-lg text-green-900">{projet.montantInvesti}</p>
+              <p className="font-bold text-lg text-green-900">{projet.montant ?? 0}</p>
             )}
           </div>
           <div className="bg-purple-50 p-5 rounded-lg border border-purple-100 flex flex-col items-start justify-center">
@@ -311,12 +337,12 @@ const SuiviProjetDetail: React.FC = () => {
               <input
                 type="text"
                 name="tauxRetour"
-                value={editProjet.tauxRetour}
+                value={editProjet.ROI}
                 onChange={handleInputChange}
                 className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />
             ) : (
-              <p className="font-bold text-lg text-purple-900">{projet.tauxRetour}</p>
+              <p className="font-bold text-lg text-purple-900">{projet.ROI ?? 0}%</p>
             )}
           </div>
           <div className="bg-yellow-50 p-5 rounded-lg border border-yellow-100 flex flex-col items-start justify-center">
@@ -327,21 +353,21 @@ const SuiviProjetDetail: React.FC = () => {
                 <input
                   type="date"
                   name="debut"
-                  value={editProjet.debut}
+                  value={editProjet.dateDebut}
                   onChange={handleInputChange}
                   className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 />
                 <input
                   type="date"
                   name="finPrevue"
-                  value={editProjet.finPrevue}
+                  value={editProjet.dateFin}
                   onChange={handleInputChange}
                   className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
             ) : (
               <p className="font-bold text-lg text-yellow-900">
-                {projet.debut} ➜ {projet.finPrevue}
+                {projet.dateDebut ?? '0'} ➜ {projet.dateFin ?? '0'}
               </p>
             )}
           </div>
@@ -354,35 +380,33 @@ const SuiviProjetDetail: React.FC = () => {
       <div className="mb-8">
         <div className="flex justify-between items-center mb-5">
           <h3 className="text-xl font-semibold text-gray-800">Jalons Clés du Projet</h3>
-          {isEditing && (
-            <button
-              onClick={addJalon}
-              className="px-3 py-1 bg-indigo-500 text-white rounded-md text-sm hover:bg-indigo-600"
-            >
-              + Ajouter un jalon
-            </button>
-          )}
+          <button
+            onClick={addJalon}
+            className="px-3 py-1 bg-indigo-500 text-white rounded-md text-sm hover:bg-indigo-600"
+          >
+            + Ajouter un jalon
+          </button>
         </div>
         <div className="space-y-4">
-          {(isEditing ? editProjet.jalons : projet.jalons).map((jalon, index) => (
+          {(isEditing ? editProjet.stages : projet.stages).map((stage, index) => (
             <div
               key={index}
               className={`flex items-center p-4 rounded-lg shadow-sm border
-                ${jalon.statut === 'terminé' ? 'bg-green-50 border-green-200' :
-                  jalon.statut === 'en cours' ? 'bg-yellow-50 border-yellow-200' :
-                  'bg-gray-50 border-gray-200'}`}
+                ${stage.status === 'terminé' ? 'bg-green-50 border-green-200' :
+                  stage.status === 'en cours' ? 'bg-yellow-50 border-yellow-200' :
+                    'bg-gray-50 border-gray-200'}`}
             >
               <div className="flex-shrink-0 mr-4">
-                {jalon.statut === 'terminé' && <FaCheckCircle className="text-green-600 text-2xl" />}
-                {jalon.statut === 'en cours' && <FaSpinner className="animate-spin text-yellow-600 text-2xl" />}
-                {jalon.statut === 'à venir' && <FaClock className="text-blue-600 text-2xl" />}
+                {stage.status === 'terminé' && <FaCheckCircle className="text-green-600 text-2xl" />}
+                {stage.status === 'en cours' && <FaSpinner className="animate-spin text-yellow-600 text-2xl" />}
+                {stage.status === 'à venir' && <FaClock className="text-blue-600 text-2xl" />}
               </div>
               <div className="flex-grow">
                 {isEditing ? (
                   <div className="space-y-2">
                     <input
                       type="text"
-                      value={jalon.titre}
+                      value={stage.titre}
                       onChange={(e) => handleJalonChange(index, 'titre', e.target.value)}
                       className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                     />
@@ -390,7 +414,7 @@ const SuiviProjetDetail: React.FC = () => {
                       <FaCalendarAlt className="mr-2 text-gray-400" />
                       <input
                         type="date"
-                        value={jalon.date}
+                        value={stage.date}
                         onChange={(e) => handleJalonChange(index, 'date', e.target.value)}
                         className="px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                       />
@@ -398,10 +422,10 @@ const SuiviProjetDetail: React.FC = () => {
                   </div>
                 ) : (
                   <>
-                    <p className="font-medium text-gray-900 text-lg">{jalon.titre}</p>
+                    <p className="font-medium text-gray-900 text-lg">{stage.titre}</p>
                     <p className="text-sm text-gray-600 flex items-center mt-1">
                       <FaCalendarAlt className="mr-2 text-gray-400" />
-                      Date prévue : {jalon.date}
+                      Date prévue : {stage.date}
                     </p>
                   </>
                 )}
@@ -409,9 +433,9 @@ const SuiviProjetDetail: React.FC = () => {
               {isEditing ? (
                 <div className="flex flex-col items-center space-y-2 ml-4">
                   <select
-                    value={jalon.statut}
-                    onChange={(e) => handleJalonChange(index, 'statut', e.target.value as Jalon['statut'])}
-                    className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${getStatusClasses(jalon.statut)}`}
+                    value={stage.status}
+                    onChange={(e) => handleJalonChange(index, 'status', e.target.value as Stage['status'])}
+                    className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${getStatusClasses(stage.status)}`}
                   >
                     <option value="terminé">terminé</option>
                     <option value="en cours">en cours</option>
@@ -425,8 +449,8 @@ const SuiviProjetDetail: React.FC = () => {
                   </button>
                 </div>
               ) : (
-                <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${getStatusClasses(jalon.statut)}`}>
-                  {jalon.statut}
+                <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${getStatusClasses(stage.status)}`}>
+                  {stage.status}
                 </span>
               )}
             </div>
@@ -437,7 +461,7 @@ const SuiviProjetDetail: React.FC = () => {
       <hr className="my-8 border-gray-200" />
 
       {/* Documents Section */}
-      <div>
+      {/* <div>
         <div className="flex justify-between items-center mb-5">
           <h3 className="text-xl font-semibold text-gray-800">Documents Liés</h3>
           {isEditing && (
@@ -478,7 +502,7 @@ const SuiviProjetDetail: React.FC = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 };

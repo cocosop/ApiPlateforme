@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useAuthStore } from "../store/AuthStore";
-import { useNavigate } from "react-router-dom";
+import userService from "./userService";
 
-const history = useNavigate();
+const baseURL = import.meta.env.VITE_BASE_URL;
 
-const httpClient = axios.create({
-    baseURL: "http://localhost:8080/api/v1",
+const apiConfig = axios.create({
+    baseURL: baseURL,
 });
 
-httpClient.interceptors.request.use(
+apiConfig.interceptors.request.use(
     (config) => {
         const token = useAuthStore.getState().accessToken;
         if (token) {
@@ -19,7 +19,7 @@ httpClient.interceptors.request.use(
     (error) => Promise.reject(error)
 );
 
-httpClient.interceptors.response.use(
+apiConfig.interceptors.response.use(
     (response) => response,
     async (error) => {
         const originalRequest = error.config;
@@ -31,11 +31,9 @@ httpClient.interceptors.response.use(
             originalRequest._retry = true;
 
             try {
-                const refreshToken = useAuthStore.getState().refreshToken;
+                // const refreshToken = useAuthStore.getState().refreshToken;
 
-                const res = await axios.post("http://localhost:8080/api/v1/auth/refresh-token", {
-                    refreshToken,
-                });
+                const res = await userService.refreshToken()
 
                 const { accessToken, refreshToken: newRefreshToken } = res.data;
 
@@ -44,10 +42,10 @@ httpClient.interceptors.response.use(
 
                 originalRequest.headers.Authorization = `Bearer ${accessToken}`;
 
-                return httpClient(originalRequest);
+                return apiConfig(originalRequest);
             } catch (refreshError) {
                 useAuthStore.getState().clearTokens();
-                history("/login");
+                window.location.href = '/signin';
                 return Promise.reject(refreshError);
             }
         }
@@ -56,4 +54,4 @@ httpClient.interceptors.response.use(
     }
 );
 
-export default httpClient;
+export default apiConfig;

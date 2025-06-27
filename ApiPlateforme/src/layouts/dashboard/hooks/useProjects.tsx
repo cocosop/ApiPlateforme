@@ -1,6 +1,6 @@
 // src/features/projects/hooks/useProjects.ts
 import { useState, useEffect, useCallback } from 'react';
-import { projectApi } from '../../../api/services/projectService'; // Chemin ajusté
+import { projectApi } from '../../../services/projectService'; // Chemin ajusté
 import { ProjeTypes } from '../../../types'; // Chemin ajusté
 
 interface UseProjectsResult {
