@@ -34,11 +34,14 @@ apiConfig.interceptors.response.use(
                 // const refreshToken = useAuthStore.getState().refreshToken;
 
                 const res = await userService.refreshToken()
-
-                const { accessToken, refreshToken: newRefreshToken } = res.data;
+                if (res.status !== 200) {
+                    throw new Error("Failed to refresh token");
+                }
+                // Assuming the response contains the new access token
+                const { accessToken } = res.data.accessToken;
 
                 const auth = useAuthStore.getState();
-                auth.setTokens(accessToken, newRefreshToken);
+                auth.setToken(res.data.accessToken);
 
                 originalRequest.headers.Authorization = `Bearer ${accessToken}`;
 

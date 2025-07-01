@@ -91,6 +91,19 @@ const MyProjects: React.FC = () => {
     return '';
   }
 
+  const getStatusClasses = (project: Project) => {
+    switch (project.status.toLowerCase()) {
+      case 'studying':
+        return 'bg-blue-100 text-green-700';
+      case 'in_progress':
+        return 'bg-red-100 text-yellow-700';
+      case 'rejected':
+        return 'bg-blue-100 text-blue-700';
+      default:
+        return 'bg-gray-100 text-gray-700';
+    }
+  };
+
   useEffect(() => {
     fetchProjects();
   }, [])
@@ -101,7 +114,7 @@ const MyProjects: React.FC = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.map((project, key) => (
           <div key={key}
-            className="bg-white rounded-xl shadow-md overflow-hidden"
+            className="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer hover:shadow-xl transition-shadow duration-300"
             onClick={() => handleProjectClick(project)}
           >
             <img src={project.image || defaultImage} alt={project.titre} className="w-full h-auto object-cover" />
@@ -110,7 +123,7 @@ const MyProjects: React.FC = () => {
               <h2 className="text-lg font-semibold text-gray-800">{project.titre}</h2>
               <p className="text-sm text-gray-600">Secteur : <span className="font-medium">{project.secteur}</span></p>
               {<p className="text-sm text-gray-600">Promoteur : <span className="font-medium">{project.investor.firstname}</span></p>}
-              <p className="text-sm text-gray-600">Statut : <span className="font-semibold">{handleProjectStatus(project)}</span></p>
+              <p className="text-sm text-gray-600">Statut : <span className={`px-4 py-2 rounded-full text-sm font-bold ${getStatusClasses(project)}`}>{handleProjectStatus(project)}</span></p>
 
               <div className="mt-2">
                 <label className="text-xs text-gray-500">Progression</label>

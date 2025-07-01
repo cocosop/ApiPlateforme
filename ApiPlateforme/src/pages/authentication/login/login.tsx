@@ -32,10 +32,10 @@ const Login = () => {
 
     const res = await userService.login(email, password);
     try {
-      const { accessToken, refreshToken } = res.data;
+      const { accessToken } = res.data;
 
       const auth = useAuthStore.getState();
-      auth.setTokens(accessToken, refreshToken);
+      auth.setToken(accessToken);
 
       sessionStorage.setItem('secteur', '');
       history("/dashboard");
