@@ -16,7 +16,7 @@ type Project = {
     date: string;
     status: string;
   }>;
-  soumissionDate?: string;
+  soumissionDate?: Date;
   description?: string;
   budget?: number;
   deadline?: string;
@@ -120,10 +120,10 @@ const MyProject: React.FC = () => {
   return (
     <div>
       {/* Filter Bar */}
-      <div className="fixed top-16 z-20 bg-gray-50 border-b">
+      <div className="fixed top-16 left-64 w-[calc(100vw-16rem)] z-20 bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 max-w-full">
               <button
                 onClick={() => setStatusFilter('all')}
                 className={`px-4 py-2 text-sm font-medium rounded-md ${statusFilter === 'all' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-300'}`}
@@ -170,9 +170,9 @@ const MyProject: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="bg-gray-50 min-h-screen">
+      <div className="bg-gray-50 min-h-screen pt-16">
         {/* Content */}
-        <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col" style={{ height: 'calc(100vh - 112px)' }}>
+        <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col">
           <div className="flex-1 min-h-0 overflow-y-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProjects.map((project) => {
@@ -211,7 +211,9 @@ const MyProject: React.FC = () => {
                       </div>
                       <div className="flex justify-between items-center mb-2">
                         <span className="text-xs text-gray-400">
-                          {project.soumissionDate ? `Soumis: ${project.soumissionDate}` : 'Date inconnue'}
+                          {project.soumissionDate
+                            ? `Soumis: ${new Date(project.soumissionDate).toISOString().slice(0, 10)
+                            }` : 'Date inconnue'}
                         </span>
                         {project.status.toLowerCase() === 'accepted' && (
                           <button
@@ -226,7 +228,7 @@ const MyProject: React.FC = () => {
                         )}
                       </div>
                       {/* Actions */}
-                      <div className="flex gap-2 mt-auto">
+                      <div className="flex flex-wrap gap-2 mt-auto">
                         {project.status.toLowerCase() === 'pending' && (
                           <>
                             <button
@@ -376,7 +378,9 @@ const MyProject: React.FC = () => {
                         <div>
                           <h3 className="text-sm font-medium text-gray-500">Date de soumission</h3>
                           <p className="text-sm text-gray-900 mt-1">
-                            {selectedProject.soumissionDate || 'Date inconnue'}
+                            {selectedProject.soumissionDate
+                              ? new Date(selectedProject.soumissionDate).toISOString().slice(0, 10)
+                              : 'Date inconnue'}
                           </p>
                         </div>
 
