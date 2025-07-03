@@ -275,12 +275,10 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                   <h3 className="text-sm font-semibold text-gray-500">
                     Potentiel
                   </h3>
-                  <Link
-                    to={'/potentiel'}
-                    className="text-sm font-semibold text-indigo-600 hover:underline flex items-center gap-1"
-                  >
+                  <CloseButton as={NavLink} to={'/potentiel'}>
                     Voir plus <span aria-hidden="true">→</span>
-                  </Link>
+                    <span className="absolute inset-0" />
+                  </CloseButton>
                 </div>
 
               </PopoverPanel>
