@@ -151,6 +151,7 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
     { name: t('navbar.menu_items.faq'), description: t('navbar.menu_items.faq'), link: "/FAQ", icon: QuestionMarkCircleIcon },
     { name: t('navbar.menu_items.conseil_en_ligne'), description: t('navbar.menu_items.conseil_en_ligne'), link: "/conseil-en-ligne", icon: ChatBubbleBottomCenterTextIcon },
   ]
+
   return (
 
     <header className='bg-white'>
@@ -243,11 +244,11 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                 transition
                 className="absolute -left-[34rem] top-full z-10 mt-3 w-screen max-w-5xl overflow-hidden rounded-3xl bg-white shadow-lg ring-1 ring-gray-900/5 transition data-[closed]:translate-y-1 data-[closed]:opacity-0 data-[enter]:duration-200 data-[leave]:duration-150 data-[enter]:ease-out data-[leave]:ease-in"
               >
-                <div className="grid grid-cols-3 gap-4 p-4 text-sm/6 bg-white rounded-3xl shadow-lg ring-1 ring-gray-900/5">
+                <div className="grid grid-cols-3 gap-4 p-4 text-sm/6 bg-white shadow-lg ring-1 ring-gray-900/5">
                   {categories.map((category, index) => (
                     <div
                       key={category.name}
-                      className={`mb-6 p-4 ${index < categories.length - 1 ? "border-r-2 border-gray-200" : ""}`}
+                      className={`p-4 ${index < categories.length - 1 ? "border-r-2 border-gray-200" : ""}`}
                     >
                       <h3 className="mb-2 text-sm/6 font-semibold text-gray-900">{category.name}</h3>
                       <small className="mb-6 text-gray-600">{category.description}</small>
@@ -270,6 +271,18 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                     </div>
                   ))}
                 </div>
+                <div className="flex items-center justify-evenly px-4 py-2 border-t border-gray-100 bg-gray-50">
+                  <h3 className="text-sm font-semibold text-gray-500">
+                    Potentiel
+                  </h3>
+                  <Link
+                    to={'/potentiel'}
+                    className="text-sm font-semibold text-indigo-600 hover:underline flex items-center gap-1"
+                  >
+                    Voir plus <span aria-hidden="true">→</span>
+                  </Link>
+                </div>
+
               </PopoverPanel>
             </Popover>
 
@@ -452,6 +465,17 @@ const navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                           </div>
                         </div>
                       ))}
+                      <div className="flex flex-col px-4 py-2">
+                        <h3 className="text-sm font-semibold text-gray-900">
+                          Potentiel
+                        </h3>
+                        <Link
+                          to={"/potentiel"}
+                          className="text-sm font-semibold text-indigo-600 hover:underline flex items-center gap-1"
+                        >
+                          Voir plus <span aria-hidden="true">→</span>
+                        </Link>
+                      </div>
                     </DisclosurePanel>
                   </Disclosure>
                   <Disclosure as="div" className="-mx-3">

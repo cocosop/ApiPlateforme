@@ -1,8 +1,8 @@
 import apiConfig from "./apiConfig";
 
 class UserService {
-    refreshToken() {
-        return apiConfig.post(`/auth/refresh-token`);
+    refreshToken(accessToken: string) {
+        return apiConfig.post(`/auth/refresh-token`, accessToken);
     }
 
     verifyActivationToken(token: string) {

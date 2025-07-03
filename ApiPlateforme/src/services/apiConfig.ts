@@ -31,9 +31,8 @@ apiConfig.interceptors.response.use(
             originalRequest._retry = true;
 
             try {
-                // const refreshToken = useAuthStore.getState().refreshToken;
-
-                const res = await userService.refreshToken()
+                const token = useAuthStore.getState().accessToken;
+                const res = await userService.refreshToken(token!)
                 if (res.status !== 200) {
                     throw new Error("Failed to refresh token");
                 }
