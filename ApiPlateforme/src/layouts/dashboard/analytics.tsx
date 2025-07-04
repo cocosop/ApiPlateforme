@@ -23,10 +23,11 @@ type Projet = {
   quartier: string;
   status: string;
   budget: number;
-  ROI: number;
+  roi: number;
   montant: number;
   dateDebut: string;
   dateFin: string;
+  url_image?: string; // Ajout d'un champ images (URLs ou base64)
   // documents: string[];
   stages: Stage[];
 };
@@ -46,6 +47,7 @@ const SuiviProjetDetail: React.FC = () => {
   const [editJalonIndex, setEditJalonIndex] = useState<number | null>(null);
   const projectTitle = useParams().titre;
   const [projet, setProjet] = useState<Projet>({
+    url_image: '',
     titre: '',
     description: '',
     ville: '',
@@ -53,7 +55,7 @@ const SuiviProjetDetail: React.FC = () => {
     quartier: '',
     status: '',
     budget: 0,
-    ROI: 0,
+    roi: 0,
     montant: 0,
     dateDebut: '',
     dateFin: '',
@@ -61,6 +63,7 @@ const SuiviProjetDetail: React.FC = () => {
     stages: [],
   });
   const [editProjet, setEditProjet] = useState<Projet>({ ...projet });
+  const [image, setImage] = useState<string>(projet.url_image!);
 
   const getStatusClasses = (status: string) => {
     switch (status) {
@@ -70,6 +73,12 @@ const SuiviProjetDetail: React.FC = () => {
         return 'bg-yellow-100 text-yellow-700';
       case 'upcoming':
         return 'bg-blue-100 text-blue-700';
+      case 'accepted':
+        return 'bg-green-100 text-gray-700';
+      case 'rejected':
+        return 'bg-red-100 text-gray-700';
+      case 'studying':
+        return 'bg-blue-100 text-gray-700';
       default:
         return 'bg-gray-100 text-gray-700';
     }
@@ -82,6 +91,8 @@ const SuiviProjetDetail: React.FC = () => {
       return 'Rejeté';
     } else if (status.toLowerCase() === 'studying') {
       return 'En étude';
+    } else if (status.toLowerCase() === 'accepted') {
+      return 'Approuvé';
     }
     return '';
   }
@@ -94,6 +105,13 @@ const SuiviProjetDetail: React.FC = () => {
   const handleSaveClick = () => {
     setProjet({ ...editProjet });
     setIsEditing(false);
+    projectService.updateProject(editProjet.titre, editProjet)
+      .then(() => {
+        // Optionnel : afficher un message de succès ou mettre à jour l'état
+      })
+      .catch(error => {
+        console.error("Erreur lors de la mise à jour du projet :", error);
+      });
   };
 
   const handleCancelClick = () => {
@@ -104,7 +122,9 @@ const SuiviProjetDetail: React.FC = () => {
     const { name, value } = e.target;
     setEditProjet(prev => ({
       ...prev,
-      [name]: value
+      [name]: name === "budget" || name === "montant" || name === "roi"
+        ? Number(value)
+        : value
     }));
   };
 
@@ -229,12 +249,64 @@ const SuiviProjetDetail: React.FC = () => {
     return Math.round((completedStages / project.stages.length) * 100);
   };
 
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImage(reader.result as string);
+      setEditProjet(prev => ({ ...prev, url_image: reader.result as string }));
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleRemoveImage = () => {
+    setImage('');
+  };
+
   useEffect(() => {
     fetchProject();
   }, [projectTitle]);
 
   return (
     <div className="max-w-4xl mx-auto bg-white rounded-3xl p-8 shadow-xl border border-gray-100 my-8">
+      {/* Section Ajout d'image du projet (en haut) */}
+      <div className="mb-8 flex flex-col items-center">
+        <h3 className="text-xl font-semibold text-gray-800 mb-3">Image du Projet</h3>
+        <div className="flex flex-col items-center">
+          {image ? (
+            <div className="relative w-64 h-40 rounded-xl overflow-hidden border border-gray-200 shadow mb-2">
+              <img src={image} alt="Projet" className="object-cover w-fit h-fit" />
+              {isEditing && (
+                <button
+                  onClick={handleRemoveImage}
+                  className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-2 hover:bg-red-600"
+                  title="Supprimer l'image"
+                >
+                  <FaTimes />
+                </button>
+              )}
+            </div>
+          ) : isEditing ? (
+            <label className="w-64 h-40 flex flex-col items-center justify-center border-2 border-dashed border-indigo-300 rounded-xl cursor-pointer hover:bg-indigo-50 transition mb-2">
+              <span className="text-indigo-400 text-4xl mb-2">+</span>
+              <span className="text-sm text-indigo-400">Ajouter une image</span>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+                className="hidden"
+              />
+            </label>
+          ) : (
+            <div className="w-64 h-40 flex items-center justify-center border-2 border-dashed border-gray-200 rounded-xl text-gray-300 mb-2">
+              <span>Aucune image</span>
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* Header Section with Edit Button */}
       <div className="flex justify-between items-start pb-6 border-b border-gray-200 mb-6">
         <div className="flex-1">
@@ -318,7 +390,7 @@ const SuiviProjetDetail: React.FC = () => {
           <p className="text-md font-medium text-gray-600 mb-2">Statut Actuel du Projet</p>
           {isEditing ? (
             <select
-              name="statut"
+              name="status"
               value={editProjet.status}
               onChange={handleInputChange}
               className={`px-4 py-2 rounded-full text-sm font-bold ${getStatusClasses(editProjet.status)}`}
@@ -331,6 +403,7 @@ const SuiviProjetDetail: React.FC = () => {
             <span className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-bold ${getStatusClasses(projet.status)}`}>
               {handleProjectStatus(projet.status).toLowerCase() === 'en attente' && <FaSpinner className="animate-spin mr-2" />}
               {handleProjectStatus(projet.status).toLowerCase() === 'completed' && <FaCheckCircle className="mr-2" />}
+              {handleProjectStatus(projet.status).toLowerCase() === 'accepted' && <FaCheckCircle className="mr-2" />}
               {handleProjectStatus(projet.status).toLowerCase() === 'studying' && <FaClock className="mr-2" />}
               {handleProjectStatus(projet.status).toLowerCase() === 'rejected' && <FaTimes className="mr-2" />}
               {handleProjectStatus(projet.status)}
@@ -380,14 +453,14 @@ const SuiviProjetDetail: React.FC = () => {
             <p className="text-sm text-gray-600">Taux de Retour Prévu</p>
             {isEditing ? (
               <input
-                type="text"
-                name="tauxRetour"
-                value={editProjet.ROI}
+                type="number"
+                name="roi"
+                value={editProjet.roi}
                 onChange={handleInputChange}
                 className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />
             ) : (
-              <p className="font-bold text-lg text-purple-900">{projet.ROI ?? 0}%</p>
+              <p className="font-bold text-lg text-purple-900">{projet.roi ?? 0}%</p>
             )}
           </div>
           <div className="bg-yellow-50 p-5 rounded-lg border border-yellow-100 flex flex-col items-start justify-center">
@@ -397,14 +470,14 @@ const SuiviProjetDetail: React.FC = () => {
               <div className="space-y-2">
                 <input
                   type="date"
-                  name="debut"
+                  name="dateDebut"
                   value={editProjet.dateDebut}
                   onChange={handleInputChange}
                   className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 />
                 <input
                   type="date"
-                  name="finPrevue"
+                  name="dateFin"
                   value={editProjet.dateFin}
                   onChange={handleInputChange}
                   className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"

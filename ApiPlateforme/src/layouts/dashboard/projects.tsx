@@ -19,7 +19,6 @@ type Project = {
   soumissionDate?: Date;
   description?: string;
   budget?: number;
-  deadline?: string;
 }
 
 const MyProject: React.FC = () => {
@@ -40,11 +39,11 @@ const MyProject: React.FC = () => {
     }
   };
 
-  const handleAction = async (project: Project, action: 'studying' | 'approve' | 'rejected') => {
+  const handleAction = async (project: Project, action: 'studying' | 'accepted' | 'rejected') => {
     setLoadingId(project.id);
     try {
       if (action === 'studying') await projectService.studyingProject(project.titre);
-      if (action === 'approve') await projectService.approveProject(project.titre);
+      if (action === 'accepted') await projectService.approveProject(project.titre);
       if (action === 'rejected') await projectService.rejectedProject(project.titre);
       await fetchProjects();
     } catch (e) {
@@ -223,7 +222,7 @@ const MyProject: React.FC = () => {
                               navigate(`/projet/details/${project.titre}`);
                             }}
                           >
-                            Voir détails
+                            Configurer
                           </button>
                         )}
                       </div>
@@ -246,7 +245,7 @@ const MyProject: React.FC = () => {
                               disabled={loadingId === project.id}
                               onClick={e => {
                                 e.stopPropagation();
-                                handleAction(project, 'approve');
+                                handleAction(project, 'accepted');
                               }}
                             >
                               {loadingId === project.id ? '...' : 'Approuver'}
@@ -270,7 +269,7 @@ const MyProject: React.FC = () => {
                               disabled={loadingId === project.id}
                               onClick={e => {
                                 e.stopPropagation();
-                                handleAction(project, 'approve');
+                                handleAction(project, 'accepted');
                               }}
                             >
                               {loadingId === project.id ? '...' : 'Approuver'}
@@ -363,17 +362,10 @@ const MyProject: React.FC = () => {
                           <h3 className="text-sm font-medium text-gray-500">Budget</h3>
                           <p className="text-sm text-gray-900 mt-1">
                             {selectedProject.budget
-                              ? `${selectedProject.budget.toLocaleString()} €`
+                              ? `${selectedProject.budget.toLocaleString()} XAF`
                               : 'Non spécifié'}
                           </p>
                         </div>
-
-                        {selectedProject.deadline && (
-                          <div>
-                            <h3 className="text-sm font-medium text-gray-500">Date limite</h3>
-                            <p className="text-sm text-gray-900 mt-1">{selectedProject.deadline}</p>
-                          </div>
-                        )}
 
                         <div>
                           <h3 className="text-sm font-medium text-gray-500">Date de soumission</h3>

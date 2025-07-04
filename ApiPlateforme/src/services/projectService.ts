@@ -18,23 +18,23 @@ class ProjectService {
     }
 
     disableProject(titre: string) {
-        return apiConfig.put(`/projet/${titre}/disable`);
+        return apiConfig.patch(`/projet/${titre}/disable`);
     }
 
     approveProject(titre: string) {
-        return apiConfig.put(`/projet/${titre}/approve`);
+        return apiConfig.patch(`/projet/${titre}/approve`);
     }
 
     studyingProject(titre: string) {
-        return apiConfig.put(`/projet/${titre}/studying`);
+        return apiConfig.patch(`/projet/${titre}/studying`);
     }
 
     rejectedProject(titre: string) {
-        return apiConfig.put(`/projet/${titre}/rejected`);
+        return apiConfig.patch(`/projet/${titre}/reject`);
     }
 
     enableProject(titre: string) {
-        return apiConfig.put(`/projet/${titre}/enable`);
+        return apiConfig.patch(`/projet/${titre}/enable`);
     }
 }
 
