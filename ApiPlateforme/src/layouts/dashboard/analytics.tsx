@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { FaMapMarkerAlt, FaCalendarAlt, FaMoneyBillWave, FaChartLine, FaCheckCircle, FaSpinner, FaClock, FaEdit, FaSave, FaTimes, FaEllipsisV } from 'react-icons/fa';
+import { FaMapMarkerAlt, FaCalendarAlt, FaMoneyBillWave, FaChartLine, FaCheckCircle, FaSpinner, FaClock, FaEdit, FaSave, FaTimes, FaEllipsisV, FaFileAlt } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
 import projectService from '../../services/projectService';
 import stageService from '../../services/stageService';
+import docService from '../../services/docService';
 
 type Stage = {
   id?: number;
@@ -13,6 +14,13 @@ type Stage = {
   date: string;
   projectId: number;
 };
+
+type Document = {
+  title: string;
+  description: string;
+  url_file: string;
+  projectId: number;
+}
 
 type Projet = {
   id?: number;
@@ -27,14 +35,15 @@ type Projet = {
   montant: number;
   dateDebut: string;
   dateFin: string;
-  url_image?: string; // Ajout d'un champ images (URLs ou base64)
-  // documents: string[];
+  url_image?: string;
+  documents: Document[];
   stages: Stage[];
 };
 
 const SuiviProjetDetail: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [isAddingJalon, setIsAddingJalon] = useState(false);
+  const [isAddingDoc, setIsAddingDoc] = useState(false);
   const [newJalon, setNewJalon] = useState<Omit<Stage, 'id'>>({
     title: '',
     description: '',
@@ -45,6 +54,14 @@ const SuiviProjetDetail: React.FC = () => {
   });
   const [moreMenuIndex, setMoreMenuIndex] = useState<number | null>(null);
   const [editJalonIndex, setEditJalonIndex] = useState<number | null>(null);
+  const [editDocumentIndex, setEditDocumentIndex] = useState<number | null>(null);
+  const [moreDocMenuIndex, setMoreDocMenuIndex] = useState<number | null>(null);
+  const [newDocument, setNewDocument] = useState<Document>({
+    title: '',
+    description: '',
+    url_file: '',
+    projectId: 0,
+  });
   const projectTitle = useParams().titre;
   const [projet, setProjet] = useState<Projet>({
     url_image: '',
@@ -59,7 +76,7 @@ const SuiviProjetDetail: React.FC = () => {
     montant: 0,
     dateDebut: '',
     dateFin: '',
-    // documents: [],
+    documents: [],
     stages: [],
   });
   const [editProjet, setEditProjet] = useState<Projet>({ ...projet });
@@ -265,12 +282,101 @@ const SuiviProjetDetail: React.FC = () => {
     setImage('');
   };
 
+  // Ajout d'un document (affiche le formulaire)
+  const handleAddDocumentClick = () => {
+    setIsAddingDoc(true);
+    setNewDocument({
+      title: '',
+      description: '',
+      url_file: '',
+      projectId: projet.id ?? 0
+    });
+  };
+
+  // Sauvegarde d'un nouveau document
+  const handleSaveDocument = async () => {
+    if (!projet.id) return;
+    try {
+      const docToAdd = { ...newDocument, projectId: projet.id };
+      const res = await docService.addDoc(docToAdd);
+      setEditProjet(prev => ({
+        ...prev,
+        documents: [...prev.documents, res.data]
+      }));
+      setIsAddingDoc(false);
+      setNewDocument({ title: '', description: '', url_file: '', projectId: projet.id ?? 0 });
+    } catch (e) {
+      // Gérer l'erreur si besoin
+    }
+  };
+
+  // Annulation de l'ajout
+  const handleCancelAddDocument = () => {
+    setIsAddingDoc(false);
+    setNewDocument({ title: '', description: '', url_file: '', projectId: projet.id ?? 0 });
+  };
+
+  // Modification d'un document (en local)
+  const handleDocumentChange = (i: number, field: keyof Document, value: string) => {
+    setEditProjet(prev => {
+      const docs = [...prev.documents];
+      docs[i] = { ...docs[i], [field]: value };
+      return { ...prev, documents: docs };
+    });
+  };
+
+  // Sauvegarde de la modification d'un document
+  const handleEditDocumentSave = async (i: number) => {
+    const doc = editProjet.documents[i];
+    try {
+      await docService.editDoc(doc.title, doc);
+      setEditDocumentIndex(null);
+    } catch (e) {
+      // Gérer l'erreur si besoin
+    }
+  };
+
+  // Annulation de la modification d'un document
+  const handleEditDocumentCancel = () => {
+    setEditDocumentIndex(null);
+  };
+
+  // Suppression d'un document
+  const handleRemoveDocument = async (i: number) => {
+    const doc = editProjet.documents[i];
+    try {
+      await docService.removeDoc(doc.title);
+      setEditProjet(prev => ({
+        ...prev,
+        documents: prev.documents.filter((_, idx) => idx !== i)
+      }));
+      setMoreDocMenuIndex(null);
+    } catch (e) {
+      // Gérer l'erreur si besoin
+    }
+  };
+
+  // Upload de fichier pour document
+  const handleDocumentFileChange = (e: React.ChangeEvent<HTMLInputElement>, i?: number) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      if (typeof i === 'number') {
+        handleDocumentChange(i, 'url_file', reader.result as string);
+      } else {
+        setNewDocument(prev => ({ ...prev, url_file: reader.result as string }));
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
   useEffect(() => {
     fetchProject();
   }, [projectTitle]);
 
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-3xl p-8 shadow-xl border border-gray-100 my-8">
+    <div className="max-w-6xl mx-auto bg-white rounded-3xl p-8 shadow-xl border border-gray-100 my-8">
       {/* Section Ajout d'image du projet (en haut) */}
       <div className="mb-8 flex flex-col items-center">
         <h3 className="text-xl font-semibold text-gray-800 mb-3">Image du Projet</h3>
@@ -430,7 +536,7 @@ const SuiviProjetDetail: React.FC = () => {
                 className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />
             ) : (
-              <p className="font-bold text-lg text-blue-900">{projet.budget ?? 0} XAF</p>
+              <p className="font-bold text-lg text-blue-900">{projet.budget.toLocaleString() ?? 0} XAF</p>
             )}
           </div>
           <div className="bg-green-50 p-5 rounded-lg border border-green-100 flex flex-col items-start justify-center">
@@ -445,7 +551,7 @@ const SuiviProjetDetail: React.FC = () => {
                 className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />
             ) : (
-              <p className="font-bold text-lg text-green-900">{projet.montant ?? 0} XAF</p>
+              <p className="font-bold text-lg text-green-900">{projet.montant.toLocaleString() ?? 0} XAF</p>
             )}
           </div>
           <div className="bg-purple-50 p-5 rounded-lg border border-purple-100 flex flex-col items-start justify-center">
@@ -485,7 +591,7 @@ const SuiviProjetDetail: React.FC = () => {
               </div>
             ) : (
               <p className="font-bold text-lg text-yellow-900">
-                {projet.dateDebut ?? '0'} ➜ {projet.dateFin ?? '0'}
+                {projet.dateDebut ?? '...'} ➜ {projet.dateFin ?? '...'}
               </p>
             )}
           </div>
@@ -640,7 +746,7 @@ const SuiviProjetDetail: React.FC = () => {
                       </button>
                       <button
                         onClick={handleEditJalonCancel}
-                        className="px-3 py-1 bg-gray-300 text-gray-700 rounded-md text-sm hover:bg-gray-400"
+                        className="px-3 py-1 bg-red-500 text-white rounded-md text-sm hover:bg-red-600"
                       >
                         Annuler
                       </button>
@@ -693,48 +799,160 @@ const SuiviProjetDetail: React.FC = () => {
       <hr className="my-8 border-gray-200" />
 
       {/* Documents Section */}
-      {/* <div>
+      <div className="mb-8">
         <div className="flex justify-between items-center mb-5">
           <h3 className="text-xl font-semibold text-gray-800">Documents Liés</h3>
-          {isEditing && (
+          {!isAddingDoc ? (
             <button
-              onClick={addDocument}
+              onClick={handleAddDocumentClick}
               className="px-3 py-1 bg-indigo-500 text-white rounded-md text-sm hover:bg-indigo-600"
+            >
+              + Ajouter un document
+            </button>
+          ) : (
+            <button
+              disabled={isAddingDoc}
+              className="px-3 py-1 bg-indigo-300 text-white rounded-md text-sm"
             >
               + Ajouter un document
             </button>
           )}
         </div>
-        <ul className="space-y-3">
-          {(isEditing ? editProjet.documents : projet.documents).map((doc, i) => (
-            <li key={i} className="flex items-center justify-between">
-              <div className="flex items-center">
-                <FaFileAlt className="mr-3 text-blue-500 text-xl" />
-                {isEditing ? (
-                  <input
-                    type="text"
-                    value={doc}
-                    onChange={(e) => handleDocumentChange(i, e.target.value)}
-                    className="px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                  />
+        {isAddingDoc && (
+          <div className="mb-4 flex flex-col gap-2 p-4 rounded-lg shadow-sm border bg-gray-50 border-gray-200">
+            <input
+              type="text"
+              value={newDocument.title}
+              onChange={e => setNewDocument(prev => ({ ...prev, title: e.target.value }))}
+              placeholder="Titre du document"
+              className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm"
+            />
+            <textarea
+              value={newDocument.description}
+              onChange={e => setNewDocument(prev => ({ ...prev, description: e.target.value }))}
+              placeholder="Description"
+              className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm"
+              rows={2}
+            />
+            <input
+              type="file"
+              accept="application/pdf,image/*"
+              onChange={e => handleDocumentFileChange(e)}
+              className="w-full"
+            />
+            <div className="flex gap-2 mt-2">
+              <button
+                onClick={handleSaveDocument}
+                className="px-3 py-1 bg-green-500 text-white rounded-md text-sm hover:bg-green-600"
+                disabled={!newDocument.title || !newDocument.url_file}
+              >
+                Enregistrer
+              </button>
+              <button
+                onClick={handleCancelAddDocument}
+                className="px-3 py-1 bg-red-500 text-white rounded-md text-sm hover:bg-red-600"
+              >
+                Annuler
+              </button>
+            </div>
+          </div>
+        )}
+        <div className="space-y-4">
+          {editProjet.documents.map((doc, i) => (
+            <div
+              key={i}
+              className="flex items-center p-4 rounded-lg shadow-sm border bg-gray-50 border-gray-200"
+            >
+              <div className="flex-shrink-0 mr-4">
+                <FaFileAlt className="text-blue-500 text-2xl" />
+              </div>
+              <div className="flex-grow">
+                {editDocumentIndex === i ? (
+                  <div className="flex flex-col gap-2">
+                    <input
+                      type="text"
+                      value={doc.title}
+                      onChange={e => handleDocumentChange(i, 'title', e.target.value)}
+                      className="px-2 py-1 border border-gray-300 rounded-md shadow-sm w-full"
+                      placeholder="Titre"
+                    />
+                    <textarea
+                      value={doc.description}
+                      onChange={e => handleDocumentChange(i, 'description', e.target.value)}
+                      className="px-2 py-1 border border-gray-300 rounded-md shadow-sm w-full"
+                      placeholder="Description"
+                      rows={2}
+                    />
+                    <input
+                      type="file"
+                      accept="application/pdf,image/*"
+                      onChange={e => handleDocumentFileChange(e, i)}
+                      className="w-full"
+                    />
+                    <div className="flex gap-2 mt-1">
+                      <button
+                        onClick={() => handleEditDocumentSave(i)}
+                        className="px-2 py-1 bg-green-500 text-white rounded hover:bg-green-600 text-xs"
+                      >
+                        Sauvegarder
+                      </button>
+                      <button
+                        onClick={handleEditDocumentCancel}
+                        className="px-3 py-1 bg-red-500 text-white rounded-md text-sm hover:bg-red-600"
+                      >
+                        Annuler
+                      </button>
+                    </div>
+                  </div>
                 ) : (
-                  <a href="#" className="font-medium text-blue-700 hover:text-blue-800 hover:underline transition-colors duration-200">
-                    {doc}
-                  </a>
+                  <div className="flex flex-col">
+                    <span className="font-medium text-blue-700">{doc.title}</span>
+                    <span className="text-xs text-gray-500">{doc.description}</span>
+                    {doc.url_file && (
+                      <a
+                        href={doc.url_file}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-indigo-600 hover:underline"
+                      >
+                        Voir le fichier
+                      </a>
+                    )}
+                  </div>
                 )}
               </div>
-              {isEditing && (
+              <div className="relative ml-4">
                 <button
-                  onClick={() => removeDocument(i)}
-                  className="text-red-500 hover:text-red-700 ml-2"
+                  onClick={() => setMoreDocMenuIndex(moreDocMenuIndex === i ? null : i)}
+                  className="p-2 rounded-full hover:bg-gray-200"
+                  title="Plus d'options"
                 >
-                  <FaTimes />
+                  <FaEllipsisV />
                 </button>
-              )}
-            </li>
+                {moreDocMenuIndex === i && (
+                  <div className="absolute right-0 mt-2 w-36 bg-white border rounded shadow-lg z-10">
+                    <button
+                      onClick={() => {
+                        setEditDocumentIndex(i);
+                        setMoreDocMenuIndex(null);
+                      }}
+                      className="block w-full text-left px-4 py-2 text-sm hover:bg-yellow-100"
+                    >
+                      Modifier
+                    </button>
+                    <button
+                      onClick={() => handleRemoveDocument(i)}
+                      className="block w-full text-left px-4 py-2 text-sm hover:bg-red-100 text-red-600"
+                    >
+                      Supprimer
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
           ))}
-        </ul>
-      </div> */}
+        </div>
+      </div>
     </div>
   );
 };

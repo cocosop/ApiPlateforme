@@ -19,4 +19,4 @@ class StageService {
 }
 
 
-export default new StageService();;
+export default new StageService();
