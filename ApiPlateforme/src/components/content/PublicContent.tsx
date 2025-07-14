@@ -28,8 +28,7 @@ import PublicLayout from '../../layouts/PublicLayout';
 import ActivationToken from '../../pages/authentication/activationToken/activationToken';
 import ForgetPassword from '../../pages/authentication/forgetPassword/forgetPassword';
 import ResetPassword from '../../pages/authentication/resetPassword/resetPassword';
-import Dashboard from '../../pages/dashboard/Dashboard';
-import PrivateLayout from '../../layouts/PrivateLayout';
+
 
 
 const PublicContent = () => {

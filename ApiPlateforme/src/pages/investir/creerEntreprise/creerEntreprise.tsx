@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { ChevronDownIcon, DocumentTextIcon, BuildingLibraryIcon, ClockIcon, CheckBadgeIcon, CheckCircleIcon, LightBulbIcon, MapPinIcon } from '@heroicons/react/24/outline';
 import oeuvre from "../../../assets/img/entreprise.jpg"
 import CACAO from "../../../assets/img/cacao4.png"
@@ -49,6 +49,19 @@ export default function CreationEntreprise() {
   ]);
   const [activeTab, setActiveTab] = useState<'physique' | 'morale'>('physique');
   const [openSection, setOpenSection] = useState<Section | null>(null);
+
+  // Sticky nav logic
+  const navRef = useRef<HTMLDivElement>(null);
+  const [isSticky, setIsSticky] = useState(false);
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!navRef.current) return;
+      const { top } = navRef.current.getBoundingClientRect();
+      setIsSticky(top <= 0);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleSection = (section: Section) => {
     setOpenSection(openSection === section ? null : section);
@@ -108,201 +121,194 @@ export default function CreationEntreprise() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
       {/* Hero Section */}
-      <div className="relative isolate overflow-hidden bg-green-900 py-24 sm:py-32">
-        <img src={oeuvre} alt="" className="absolute inset-0 z-10 size-full object-cover object-right md:object-center opacity-30" />
-        <div className="hidden sm:absolute sm:-top-10 sm:right-1/2 z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
-          <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-20"></div>
+      <div className="relative h-[65vh] min-h-[400px] max-h-[700px] bg-gray-900 flex items-center justify-center">
+        <img src={oeuvre} alt="" className="absolute inset-0 z-0 w-full h-full object-cover object-center opacity-70" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/30 to-transparent" />
+        <div className="absolute inset-0 bg-gray-900/40" />
+        <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-4 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-3xl mx-auto"
+          >
+            <motion.div
+              initial={{ scale: 0.9 }}
+              whileInView={{ scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="mb-6 inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 ring-1 ring-white/20 backdrop-blur-sm hover:bg-white/20 transition-colors duration-300"
+            >
+              Création d'entreprise simplifiée
+            </motion.div>
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-4">
+              <motion.span
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="bg-gradient-to-r from-emerald-400 to-teal-300 bg-clip-text text-transparent"
+              >
+                Votre entreprise au Cameroun en 72h
+              </motion.span>
+            </h1>
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="mt-6 text-lg md:text-xl text-gray-200 font-normal max-w-2xl mx-auto leading-relaxed"
+            >
+              Bénéficiez d'un cadre juridique OHADA modernisé et d'un processus accéléré grâce aux Centres de Formalités de Création d'Entreprises (CFCE)
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.7 }}
+              className="mt-8"
+            >
+              <a
+                href="#contenu"
+                className="inline-flex items-center px-6 py-3 rounded-full bg-emerald-500 hover:bg-emerald-400 text-gray-900 font-medium transition-all duration-300 group"
+              >
+                Découvrir le guide
+                <ClockIcon className="ml-2 h-5 w-5 group-hover:translate-y-1 transition-transform duration-300" />
+              </a>
+            </motion.div>
+          </motion.div>
         </div>
-        <div className="absolute -top-52 left-1/2 z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu" aria-hidden="true">
-          <div className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#0E600B] to-[#F5BA3A] opacity-30"></div>
-        </div>
+      </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="max-w-6xl mx-auto text-center">
-          <h1 className="text-4xl font-bold mb-6 text-white">Votre entreprise au Cameroun en 72h</h1>
-          <p className="text-xl mb-8 max-w-2xl mx-auto text-white">
-            Bénéficiez d'un cadre juridique OHADA modernisé et d'un processus accéléré
-            grâce aux Centres de Formalités de Création d'Entreprises (CFCE)
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <div className="flex items-center bg-white px-6 py-2 rounded-full">
-              <ClockIcon className="w-5 h-5 mr-2 text-[#0F0B60]" />
-              <span className="font-semibold text-[#0F0B60]">72 heures</span>
-            </div>
+      {/* Sticky Navigation */}
+      <div ref={navRef}>
+        <nav
+          className={`w-full transition-all duration-300 z-50 ${
+            isSticky
+              ? 'fixed top-0 left-0 bg-gray-900 border-t border-gray-700 py-4 shadow-lg'
+              : 'bg-gray-900 border-t border-gray-700 py-4 shadow-lg'
+          }`}
+          style={isSticky ? { position: 'fixed', top: 0, left: 0 } : {}}
+        >
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <ul className="flex items-center justify-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
+              {[
+                { id: 'cfce', title: 'CFCE', icon: BuildingLibraryIcon },
+                { id: 'structures', title: 'Structures', icon: BuildingLibraryIcon },
+                { id: 'documents', title: 'Documents', icon: DocumentTextIcon },
+                { id: 'projets', title: 'Projets', icon: CheckCircleIcon },
+              ].map((section, index) => (
+                <motion.li
+                  key={section.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 * index }}
+                >
+                  <a
+                    href={`#${section.id}`}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 hover:bg-emerald-500 hover:text-gray-900 text-white text-sm font-medium transition-all duration-200 whitespace-nowrap hover:shadow-lg hover:shadow-emerald-500/20"
+                  >
+                    <section.icon className="h-4 w-4" />
+                    {section.title}
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
           </div>
-        </motion.div>
+        </nav>
       </div>
-      <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
-        <BreadcrumbsComponent
-          breadcrumbs={[
-            { name: 'Accueil', path: '/' },
-            { name: "Guide de l'investisseur", path: '#' },
-            { name: "Création d'entreprise", path: '#' }
-          ]}
-        />
-      </div>
-
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-12">
+      <main id="contenu" className="max-w-7xl mx-auto px-4 py-12">
         {/* Section CFCE Détaillée */}
-        <section className="mb-16">
+        <section id="cfce" className="mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-2xl font-bold text-[#0F0B60] mb-8 flex items-center">
-            <BuildingLibraryIcon className="w-6 h-6 mr-2" />
-            Le CFCE en Détail
+            className="text-3xl font-bold text-[#0F0B60] mb-8 flex items-center justify-center"
+          >
+            <BuildingLibraryIcon className="w-7 h-7 mr-3" />
+            Le CFCE en Bref
           </motion.h2>
-          {/* Avantages CFCE */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="mt-8 p-6 bg-[#0F0B60]/10 rounded-lg">
-            <h3 className="text-lg font-semibold text-[#0F0B60] mb-4">Pourquoi le CFCE ?</h3>
-
-            <div className="grid md:grid-cols-3 gap-4">
-              {[
-                {
-                  title: "Centralisation",
-                  content: "Toutes les administrations regroupées en un seul lieu"
-                },
-                {
-                  title: "Rapidité",
-                  content: "Délai légal de traitement de 3 jours ouvrés"
-                },
-                {
-                  title: "Expertise",
-                  content: "Accompagnement par des conseillers spécialisés"
-                }
-              ].map((avantage, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: i * 0.2 }}
-                  className="p-4 bg-white rounded-lg">
-                  <div className="w-12 h-12 rounded-full bg-[#F5BA3A] flex items-center justify-center mb-3">
-                    <LightBulbIcon className="w-6 h-6 text-[#0F0B60]" />
-                  </div>
-                  <p className="font-semibold text-[#0E600B]">{avantage.title}</p>
-                  <p className="text-sm text-gray-600">{avantage.content}</p>
-                </motion.div>
-              ))}
+            className="grid md:grid-cols-3 gap-8"
+          >
+            <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center text-center">
+              <LightBulbIcon className="w-10 h-10 text-[#F5BA3A] mb-4" />
+              <div className="text-xl font-bold text-[#0E600B] mb-2">Centralisé</div>
+              <div className="text-gray-600 text-sm">Toutes les démarches en un seul lieu</div>
             </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="grid md:grid-cols-2 gap-8 mt-8">
-              {/* Localisation */}
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h3 className="text-lg font-semibold text-[#0E600B] mb-4 flex items-center">
-                  <MapPinIcon className="w-5 h-5 mr-2" />
-                  Implantation Nationale
-                </h3>
-                <p className="mb-4">Disponible dans tous les chefs-lieux de région :</p>
-                <div className="grid grid-cols-2 gap-3">
-                  {[
-                    'Adamaoua - Ngaoundéré',
-                    'Centre - Yaoundé',
-                    'Est - Bertoua',
-                    'Extrême-Nord - Maroua',
-                    'Littoral - Douala',
-                    'Nord - Garoua',
-                    'Nord-Ouest - Bamenda',
-                    'Ouest - Bafoussam',
-                    'Sud - Ebolowa',
-                    'Sud-Ouest - Buéa'
-                  ].map((region, i) => (
-                    <div key={i} className="flex items-center p-2 bg-gray-50 rounded">
-                      <CheckCircleIcon className="w-4 h-4 text-[#0E600B] mr-2" />
-                      <span className="text-sm">{region}</span>
-                    </div>
-                  ))}
-                </div>
+            <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center text-center">
+              <ClockIcon className="w-10 h-10 text-[#0F0B60] mb-4" />
+              <div className="text-xl font-bold text-[#0F0B60] mb-2">72h chrono</div>
+              <div className="text-gray-600 text-sm">Création d'entreprise rapide et simplifiée</div>
+            </div>
+            <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col items-center text-center">
+              <CheckCircleIcon className="w-10 h-10 text-green-600 mb-4" />
+              <div className="text-xl font-bold text-green-700 mb-2">Accompagnement</div>
+              <div className="text-gray-600 text-sm">Conseillers dédiés à chaque étape</div>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="mt-12 grid md:grid-cols-2 gap-8"
+          >
+            <div className="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-8 flex flex-col items-center text-center">
+              <MapPinIcon className="w-8 h-8 text-[#0E600B] mb-3" />
+              <div className="text-lg font-semibold text-[#0E600B] mb-2">Présence nationale</div>
+              <div className="text-gray-600 text-sm mb-2">10 villes principales</div>
+              <div className="flex flex-wrap gap-2 justify-center">
+                {[
+                  'Yaoundé', 'Douala', 'Bafoussam', 'Garoua', 'Bertoua',
+                  'Ngaoundéré', 'Maroua', 'Bamenda', 'Ebolowa', 'Buéa'
+                ].map((city, i) => (
+                  <span key={i} className="bg-white px-3 py-1 rounded-full text-xs text-[#0F0B60] border">{city}</span>
+                ))}
               </div>
-
-              {/* Étapes de Création */}
-              <div className="bg-white p-6 rounded-lg shadow-lg">
-                <h3 className="text-lg font-semibold text-[#DC2123] mb-4 flex items-center">
-                  <ClockIcon className="w-5 h-5 mr-2" />
-                  Processus en 72h
-                </h3>
-                <div className="space-y-4">
-                  {[
-                    {
-                      step: 1,
-                      title: "Préparation des documents",
-                      content: "Rassembler les pièces selon votre statut (physique/moral)"
-                    },
-                    {
-                      step: 2,
-                      title: "Dépôt au CFCE",
-                      content: "Dossier complet déposé au guichet unique"
-                    },
-                    {
-                      step: 3,
-                      title: "Traitement multiservice",
-                      content: "CNPS • Impôts • Greffe • Registre de commerce"
-                    },
-                    {
-                      step: 4,
-                      title: "Retrait des documents",
-                      content: "Récupération des attestations et enregistrements"
-                    }
-                  ].map((etape, i) => (
-                    <div key={i} className="flex items-start">
-                      <div className="w-8 h-8 rounded-full bg-[#0F0B60] text-white flex items-center justify-center mr-4">
-                        {etape.step}
-                      </div>
-                      <div>
-                        <p className="font-semibold text-[#0F0B60]">{etape.title}</p>
-                        <p className="text-sm text-gray-600">{etape.content}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
+            </div>
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 flex flex-col items-center text-center">
+              <ClockIcon className="w-8 h-8 text-[#0F0B60] mb-3" />
+              <div className="text-lg font-semibold text-[#0F0B60] mb-2">Étapes express</div>
+              <ol className="text-gray-600 text-sm space-y-2 text-left mx-auto max-w-xs">
+                <li><span className="font-bold text-[#0F0B60]">1.</span> Préparez vos documents</li>
+                <li><span className="font-bold text-[#0F0B60]">2.</span> Déposez au CFCE</li>
+                <li><span className="font-bold text-[#0F0B60]">3.</span> Traitement multiservice</li>
+                <li><span className="font-bold text-[#0F0B60]">4.</span> Retirez vos attestations</li>
+              </ol>
+            </div>
           </motion.div>
         </section>
         {/* Types de Sociétés */}
-        <section className="mb-16">
+        <section id="structures" className="mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-2xl font-bold text-[#0E600B] mb-8 flex items-center">
-            <BuildingLibraryIcon className="w-6 h-6 mr-2" />
-            Structures Juridiques OHADA
+            className="text-3xl font-bold text-[#0E600B] mb-8 flex items-center justify-center"
+          >
+            <BuildingLibraryIcon className="w-7 h-7 mr-3" />
+            Structures Juridiques
           </motion.h2>
-
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 type: 'EURL',
-                desc: 'Entreprise Unipersonnelle à Responsabilité Limitée - Capital minimal flexible'
+                desc: 'Un associé, capital flexible'
               },
               {
                 type: 'SARL',
-                desc: 'Société à Responsabilité Limitée - 2 associés minimum, capital variable'
+                desc: '2+ associés, capital variable'
               },
               {
                 type: 'SA',
-                desc: 'Société Anonyme - Capital minimum 10 millions XAF, forme actionnariat'
+                desc: 'Actionnariat, capital min. 10M XAF'
               },
               {
                 type: 'SAS',
-                desc: 'Société par Actions Simplifiée - Souplesse organisationnelle'
+                desc: 'Organisation souple'
               },
             ].map((societe, i) => (
               <motion.div
@@ -310,209 +316,170 @@ export default function CreationEntreprise() {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: i * 0.2 }}
-                className="bg-white p-6 rounded-lg shadow-lg border-t-4 border-[#F5BA3A] hover:shadow-xl transition-shadow">
-                <h3 className="text-xl font-bold text-[#0F0B60] mb-3">{societe.type}</h3>
+                className="bg-white p-6 rounded-2xl shadow-lg border-t-4 border-[#F5BA3A] hover:shadow-xl transition-shadow text-center"
+              >
+                <h3 className="text-xl font-bold text-[#0F0B60] mb-2">{societe.type}</h3>
                 <p className="text-gray-600 text-sm">{societe.desc}</p>
               </motion.div>
             ))}
           </div>
         </section>
         {/* Documents Section */}
-        <section className="mb-16">
-          {/* Section Documents Requis */}
-          <div className="mb-16">
-            <motion.h2
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="text-2xl font-bold text-[#0E600B] mb-8 flex items-center">
-              <DocumentTextIcon className="w-6 h-6 mr-2" />
-              Documents Requis
-            </motion.h2>
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="flex border-b border-gray-200">
+        <section id="documents" className="mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="text-3xl font-bold text-[#0E600B] mb-8 flex items-center justify-center"
+          >
+            <DocumentTextIcon className="w-7 h-7 mr-3" />
+            Documents Requis
+          </motion.h2>
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="flex-1 bg-white rounded-2xl shadow-lg p-8">
+              <div className="flex justify-center mb-4">
                 <button
                   onClick={() => setActiveTab('physique')}
-                  className={`flex-1 p-4 font-medium ${activeTab === 'physique' ? 'bg-[#0F0B60] text-white' : 'text-gray-600'}`}
+                  className={`px-6 py-2 rounded-full font-medium mr-2 ${activeTab === 'physique' ? 'bg-[#0F0B60] text-white' : 'bg-gray-100 text-gray-600'}`}
                 >
-                  Personne Physique
+                  Physique
                 </button>
                 <button
                   onClick={() => setActiveTab('morale')}
-                  className={`flex-1 p-4 font-medium ${activeTab === 'morale' ? 'bg-[#0F0B60] text-white' : 'text-gray-600'}`}
+                  className={`px-6 py-2 rounded-full font-medium ${activeTab === 'morale' ? 'bg-[#0F0B60] text-white' : 'bg-gray-100 text-gray-600'}`}
                 >
-                  Personne Morale
+                  Morale
                 </button>
               </div>
-
-              <div className="p-6">
-                <ul className="space-y-3">
-                  {documents[activeTab].map((doc, i) => (
-                    <li key={i} className="flex items-start">
-                      <CheckBadgeIcon className="w-5 h-5 text-[#0E600B] mr-2 mt-1" />
-                      <span>{doc}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Section Procédures au CFCE */}
-          <div>
-            <motion.h2
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="text-2xl font-bold text-[#0E600B] mb-8 flex items-center">
-              <ClockIcon className="w-6 h-6 mr-2" />
-              Procédures au CFCE
-            </motion.h2>
-
-            <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="bg-white p-6 rounded-lg shadow-lg">
-              <div className="space-y-4">
-                {etapesCFCE.map((step, i) => (
-                  <div key={i} className="flex flex-col md:flex-row justify-between items-start p-3 bg-gray-50 rounded-lg">
-                    <div className="flex items-start">
-                      <div className={`w-8 h-8 rounded-full flex items-center justify-center mr-3 bg-[#0F0B60] text-white`}>
-                        {i + 1}
-                      </div>
-                      <div>
-                        <p className="font-medium">{step.title}</p>
-                        <p className="text-sm text-gray-500">{step.details}</p>
-                      </div>
-                    </div>
-                    <span className="font-semibold text-[#DC2123] text-right mt-2 md:mt-0 min-w-[80px] md:min-w-[120px]">{step.cost}</span>
-                  </div>
+              <ul className="space-y-3">
+                {documents[activeTab].map((doc, i) => (
+                  <li key={i} className="flex items-center">
+                    <CheckBadgeIcon className="w-5 h-5 text-[#0E600B] mr-2" />
+                    <span>{doc}</span>
+                  </li>
                 ))}
-              </div>
-            </motion.div>
+              </ul>
+            </div>
+            <div className="flex-1 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-8 flex flex-col items-center justify-center text-center">
+              <ClockIcon className="w-8 h-8 text-[#0F0B60] mb-3" />
+              <div className="text-lg font-semibold text-[#0F0B60] mb-2">Procédures CFCE</div>
+              <ol className="text-gray-600 text-sm space-y-2 text-left mx-auto max-w-xs">
+                {[
+                  "Préparez vos documents",
+                  "Déposez au CFCE",
+                  "Traitement multiservice",
+                  "Retirez vos attestations"
+                ].map((step, i) => (
+                  <li key={i}><span className="font-bold text-[#0F0B60]">{i + 1}.</span> {step}</li>
+                ))}
+              </ol>
+            </div>
           </div>
         </section>
-
-
-
         {/* Accordéon Sections */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="space-y-4 mb-16">
+          className="space-y-4 mb-16"
+        >
           {[
             {
               title: 'Contexte Juridique',
-              content: <>
-                <p className="mb-4">Cadre légal renforcé par :</p>
-                <ul className="list-disc pl-6 space-y-2 text-blue">
-                  <li>
-                    <a
-                      href="https://www.droit-afrique.com/upload/doc/ohada/Ohada-Acte-Uniforme-2010-droit-commercial.pdf"
-                      className="text-blue-600 hover:text-blue-800 underline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Traité OHADA (Droit Commercial Général)
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://douala.eregulations.org/media/-2016-decembre-2016-fixant-22417_1.pdf"
-                      className="text-blue-600 hover:text-blue-800 underline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Loi N°2016/014 du 14/12/2016
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.droit-afrique.com/uploads/Cameroun-Decret-2017-877-modalites-authentification-sarl.pdf"
-                      className="text-blue-600 hover:text-blue-800 underline"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Décret N°2017/0877/PM du 28/02/2017
-                    </a>
-                  </li>
-                </ul>
-              </>
-            }
-            ,
+              content: (
+                <div className="flex flex-col md:flex-row gap-4">
+                  <a
+                    href="https://www.droit-afrique.com/upload/doc/ohada/Ohada-Acte-Uniforme-2010-droit-commercial.pdf"
+                    className="flex-1 bg-blue-50 rounded-xl p-4 flex flex-col items-center hover:bg-blue-100 transition"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <span className="font-bold text-[#0F0B60] mb-2">Traité OHADA</span>
+                    <span className="text-xs text-gray-600 text-center">Droit Commercial Général</span>
+                  </a>
+                  <a
+                    href="https://douala.eregulations.org/media/-2016-decembre-2016-fixant-22417_1.pdf"
+                    className="flex-1 bg-blue-50 rounded-xl p-4 flex flex-col items-center hover:bg-blue-100 transition"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <span className="font-bold text-[#0F0B60] mb-2">Loi 2016/014</span>
+                    <span className="text-xs text-gray-600 text-center">14/12/2016</span>
+                  </a>
+                  <a
+                    href="https://www.droit-afrique.com/uploads/Cameroun-Decret-2017-877-modalites-authentification-sarl.pdf"
+                    className="flex-1 bg-blue-50 rounded-xl p-4 flex flex-col items-center hover:bg-blue-100 transition"
+                    target="_blank" rel="noopener noreferrer"
+                  >
+                    <span className="font-bold text-[#0F0B60] mb-2">Décret 2017/0877</span>
+                    <span className="text-xs text-gray-600 text-center">28/02/2017</span>
+                  </a>
+                </div>
+              )
+            },
             {
               title: 'Avantages Fiscaux',
-              content: <>
-                <p className="mb-4">Incitations principales :</p>
+              content: (
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div className="p-4 bg-[#0E600B]/10 rounded-lg">
+                  <div className="p-4 bg-[#0E600B]/10 rounded-lg text-center">
                     <p className="font-semibold text-[#0E600B]">Exonération de patente</p>
-                    <p className="text-sm">Première année d'activité exonérée</p>
+                    <p className="text-xs">1ère année d'activité exonérée</p>
                   </div>
-                  <div className="p-4 bg-[#0F0B60]/10 rounded-lg">
+                  <div className="p-4 bg-[#0F0B60]/10 rounded-lg text-center">
                     <p className="font-semibold text-[#0F0B60]">Coûts réduits</p>
-                    <p className="text-sm">Enregistrement gratuit de la carte de contribuable</p>
+                    <p className="text-xs">Carte de contribuable gratuite</p>
                   </div>
                 </div>
-              </>
+              )
             },
             {
               title: 'Institutions',
-              content: <>
+              content: (
                 <div className="grid md:grid-cols-2 gap-4">
                   {[
-                    { name: 'API (Promotion Investissements)', link: 'https://investincameroon.net/' },
-                    { name: 'APME (Soutien PME)', link: 'https://www.apme.cm/en/home-en-2/?lang=en%20/' },
-                    { name: 'CFCE (Guichets Uniques)', link: 'https://www.cfce.cm/' },
-                    { name: 'MINMIDT (Industrie)', link: 'https://www.minmidt.cm/' },
-                    { name: 'MINPMESA (Artisanat)', link: 'https://www.minpmeesa.cm/site/' }
+                    { name: 'API', desc: 'Promotion Investissements', link: 'https://investincameroon.net/' },
+                    { name: 'APME', desc: 'Soutien PME', link: 'https://www.apme.cm/en/home-en-2/?lang=en%20/' },
+                    { name: 'CFCE', desc: 'Guichets Uniques', link: 'https://www.cfce.cm/' },
+                    { name: 'MINMIDT', desc: 'Industrie', link: 'https://www.minmidt.cm/' },
+                    { name: 'MINPMESA', desc: 'Artisanat', link: 'https://www.minpmeesa.cm/site/' }
                   ].map((inst, i) => (
                     <a
                       key={i}
                       href={inst.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition"
+                      className="flex items-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition"
                     >
                       <CheckBadgeIcon className="w-5 h-5 text-[#0F0B60] mr-2" />
-                      <span className="text-blue-600 hover:text-blue-800">{inst.name}</span>
+                      <span className="font-semibold text-[#0F0B60]">{inst.name}</span>
+                      <span className="ml-2 text-xs text-gray-500">{inst.desc}</span>
                     </a>
                   ))}
                 </div>
-              </>
+              )
             }
-
           ].map((section, i) => (
-            <div key={i} className="border rounded-lg">
+            <div key={i} className="border rounded-xl bg-white">
               <button
                 onClick={() => toggleSection(section.title as Section)}
-                className="flex justify-between items-center w-full p-4 bg-gray-50 hover:bg-gray-100"
+                className="flex justify-between items-center w-full p-4 bg-gray-50 hover:bg-gray-100 rounded-t-xl"
               >
                 <span className="font-semibold text-[#0F0B60]">{section.title}</span>
                 <ChevronDownIcon className={`w-5 h-5 transition-transform ${openSection === section.title ? 'transform rotate-180' : ''}`} />
               </button>
               {openSection === section.title && (
-                <div className="p-4 bg-white space-y-4">
+                <div className="p-4 bg-white space-y-4 rounded-b-xl">
                   {section.content}
                 </div>
               )}
             </div>
           ))}
         </motion.div>
-
         {/* Doing Business Banner */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="bg-[#F5BA3A] p-6 rounded-lg mb-12">
+          className="bg-[#F5BA3A] p-6 rounded-2xl mb-12"
+        >
           <div className="max-w-4xl mx-auto text-center">
             <h3 className="text-2xl font-bold text-[#0F0B60] mb-4">
               Environnement des Affaires en Progression
@@ -531,41 +498,8 @@ export default function CreationEntreprise() {
             </p>
           </div>
         </motion.div>
-
-
-        <div className="container mx-auto p-6">
-          {/* Titre avec style attractif */}
-          <h2 className="text-3xl font-bold text-center text-[#0F0B60]">
-            Saisissez des Opportunités Uniques !
-          </h2>
-
-          {/* Barre de séparation */}
-          <div className="w-24 h-1 bg-[#0F0B60] mx-auto my-4 rounded-full">
-          </div>
-
-          {/* Message d'encouragement */}
-          <p className="text-center text-gray-700 mb-6">
-            Investissez dès aujourd’hui dans des projets innovants et rentables pour bâtir l’avenir de l’économie camerounaise.
-          </p>
-
-          {/* Liste des projets */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project) => (
-              <ProjectCard key={project.id} {...project} />
-            ))}
-          </div>
-
-          {/* Lien Voir plus */}
-          <div className="flex justify-center mt-8">
-            <NavLink
-              to="/projets"
-              className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
-            >
-              Voir plus de projets
-            </NavLink>
-          </div>
-        </div>
-      </div>
+       
+      </main>
     </div>
   );
 }

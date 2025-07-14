@@ -1,331 +1,348 @@
-import React, { useEffect, useState } from 'react';
-import AOS from 'aos';
-import ModalsMainOeuvre from '../modalsMainOeuvre/modalsMainOeuvre';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { Users, TrendingUp, MapPin, GraduationCap, FileText, Shield, Calculator } from 'lucide-react';
 
-interface MainOeuvreProps {
-  id?: string; // La prop id est optionnelle
-}
-
-const MainOeuvre: React.FC<MainOeuvreProps> = ({ id }) => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Durée de l'animation
-      easing: 'ease-in-out', // Effet de l'animation
-    });
-  }, []);
-  const [activeIndex, setActiveIndex] = useState<number>(2);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalContent, setModalContent] = useState<{ title: string; content2: React.ReactNode }>({ title: '', content2: null });
-
-  // Contenus des modals
-  const modalContent1 = (
-    <div className="p-4">
-      <h2 className="flex items-center text-lg font-bold text-green-600">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12V8m0 4v4m-4-4H8m4 0h4m-8 4a4 4 0 10-4-4 4 4 0 004 4z" />
-        </svg>
-        Une Main-d'œuvre Qualifiée
-      </h2>
-      <p className="ml-4 text-gray-700">
-        Le Cameroun dispose d’une main-d’œuvre jeune et dynamique, soutenue par des taux élevés d’alphabétisation et de formation :
-      </p>
-      <ul className="ml-8 space-y-4 list-disc">
-        <li>
-          <strong>71,2%</strong> des adultes (15 ans et plus) sont alphabétisés, avec une répartition par genre prometteuse :
-          <ul className="ml-4 list-none space-y-1">
-            <li>• Hommes : <strong>78,2%</strong></li>
-            <li>• Femmes : <strong>64,7%</strong></li>
-          </ul>
-        </li>
-        <li>
-          Taux net de scolarisation (TNS) :
-          <ul className="ml-4 list-none space-y-1">
-            <li>• Primaire : <strong>78,8%</strong></li>
-            <li>• Secondaire : <strong>49,3%</strong></li>
-          </ul>
-        </li>
-        <li>
-          Répartition par niveau d’éducation :
-          <ul className="ml-4 list-none space-y-1">
-            <li>➤ Non scolarisés : <strong>33,7%</strong></li>
-            <li>➤ Niveau primaire : <strong>35,7%</strong></li>
-            <li>➤ Niveau secondaire : <strong>26%</strong></li>
-            <li>➤ Niveau supérieur : <strong>4,6%</strong></li>
-          </ul>
-        </li>
-        <li>
-          Formation professionnelle diversifiée :
-          <ul className="ml-4 list-none space-y-1">
-            <li>★ Apprentissage sur le tas : <strong>39,3%</strong></li>
-            <li>★ Formation dans des centres spécialisés : <strong>19,1%</strong></li>
-            <li>★ Diplômes de niveau supérieur : <strong>16,7%</strong></li>
-          </ul>
-        </li>
-      </ul>
-      <p className="ml-4 text-gray-700">
-        Ces statistiques démontrent que le Cameroun est un vivier de talents, prêt à soutenir vos projets dans divers secteurs stratégiques.
-      </p>
-    </div>
-  );
-
-  const modalContent2 = (
-    <div className="p-4">
-      <p className="ml-4 text-gray-700">
-        Depuis juillet 2014, le SMIG est égal à <strong>36 270 F CFA</strong> (soit 55,3 €) par mois pour 40 heures de travail par semaine.
-      </p>
-      <h3 className="ml-4 text-lg font-semibold text-green-600">Assurance volontaire</h3>
-      <p className="ml-4 text-gray-700">
-        Depuis le 3 novembre 2014, la CNPS propose une assurance volontaire couvrant les risques vieillesse, invalidité et décès. Les travailleurs indépendants et les étudiants dès l'âge de 14 ans peuvent y adhérer. Le montant de la cotisation représente <strong>8,40 %</strong> du revenu mensuel moyen sans que ce revenu ne soit inférieur au SMIG, ni supérieur au plafond des rémunérations en vigueur (750 000 F CFA ou 1 143,4 €).
-      </p>
-      <h3 className="ml-4 text-lg font-semibold text-green-600">Travailleurs expatriés</h3>
-      <p className="ml-4 text-gray-700">
-        Tout étranger peut exercer une activité salariée au Cameroun, et aucun quota n'est fixé quant au nombre d’employés étrangers qu’une société peut recruter. En revanche, une société ne peut faire appel à une main d’œuvre étrangère que si la compétence recherchée est indisponible sur le marché du travail national.
-      </p>
-      <p className="ml-4 text-gray-700">
-        Dès que vous exercez une activité professionnelle (sauf si vous êtes "détaché" par votre employeur dans le cadre de la convention), vous êtes assujetti à la législation camerounaise de sécurité sociale et bénéficiez de ses prestations pour vous-même et les membres de votre famille qui résident sur le territoire camerounais.
-      </p>
-    </div>
-  );
-
-  const modalContent3 = (
-    <div className="p-6 bg-white rounded-lg shadow-lg">
-      <p className="ml-4 text-gray-700 mb-4">
-        Le Code de Travail est libéral, permettant de conclure librement les contrats de travail entre employeur et employé. L’âge légal du travail est établi à 16 ans. La durée légale de travail est fixée à 48 heures par semaine. Les employés ont droit à 24 heures de repos par semaine, le vendredi d’ordinaire, mais ce repos peut être aussi pris pendant la semaine. Les salariés bénéficient d’un congé de 30 jours par an.
-      </p>
-      <h3 className="ml-4 text-xl font-semibold text-green-600 mb-2">Types de contrats</h3>
-      <ul className="ml-8 space-y-4 list-disc text-gray-700 mb-4">
-        <li>
-          <strong>Le contrat de travail à durée déterminée</strong> : Tout contrat conclu pour une durée déterminée ne peut excéder, en cas de renouvellement répétitif, la durée totale de 12 mois renouvelable une fois.
-        </li>
-        <li>
-          <strong>Le contrat de travail à durée indéterminée</strong> : Le contrat de travail à durée indéterminée peut être écrit ou verbal. Le contrat de travail à durée indéterminée peut être conclu pour un travail à temps plein ou pour un travail à temps partiel. Dans les contrats à durée indéterminée, la période d’essai ne peut excéder quinze jours pour les employés, ouvriers et manœuvres payés à l’heure ; un mois pour les employés, ouvriers et manœuvres payés au mois et trois mois pour les agents de maîtrise, cadres et assimilés. Cette période ne peut être renouvelée qu’une fois et par écrit.
-        </li>
-      </ul>
-      <h3 className="ml-4 text-xl font-semibold text-green-600 mb-2">Licenciement</h3>
-      <p className="ml-4 text-gray-700 mb-4">
-        Le contrat de travail à durée déterminée prend fin de plein droit à l’échéance du terme. Le contrat de travail à durée déterminée peut être rompu avant l’échéance du terme dans les cas suivants :
-      </p>
-      <ul className="ml-8 space-y-2 list-disc text-gray-700 mb-4">
-        <li>faute lourde</li>
-        <li>cas de force majeure</li>
-        <li>cas de difficultés économiques et financières ou encore techniques</li>
-        <li>décision judiciaire</li>
-        <li>accord écrit des parties</li>
-      </ul>
-      <p className="ml-4 text-gray-700 mb-2">
-        Dans le contrat à durée indéterminée, un salarié ne peut être licencié que s’il existe une cause réelle et sérieuse de ne pas maintenir son contrat de travail. Le motif du licenciement peut être économique ou technique, par exemple la suppression ou la transformation substantielle du poste de travail occupé par le salarié pour des raisons tenant, soit aux changements technologiques, soit à l’organisation, aux difficultés économiques ou à la fermeture de l’entreprise.
-      </p>
-    </div>
-  );
-
-  const modalContent4 = (
-    <div className="p-6 bg-white rounded-lg shadow-lg">
-      <p className="ml-4 text-gray-700 mb-4">
-        Les taux de cotisations sociales sont fixés par décret et varient suivant les branches des prestations sociales.
-      </p>
-      <h3 className="ml-4 text-xl font-semibold text-green-600 mb-2">Branches des prestations familiales</h3>
-      <ul className="ml-8 space-y-2 list-disc text-gray-700 mb-4">
-        <li>Régime général : <strong>7%</strong></li>
-        <li>Régime agricole : <strong>5,65%</strong></li>
-        <li>Régime de l’enseignement privé : <strong>3,7%</strong></li>
-        <li>Régime domestique : <strong>7%</strong></li>
-      </ul>
-      <p className="ml-4 text-gray-700 mb-4">
-        Les cotisations de cette branche sont entièrement à la charge de l’employeur. Elles sont plafonnées par salarié.
-      </p>
-      <h3 className="ml-4 text-xl font-semibold text-green-600 mb-2">Branches des risques professionnels</h3>
-      <ul className="ml-8 space-y-2 list-disc text-gray-700 mb-4">
-        <li>Groupe A (risques faibles) : <strong>1,75% du salaire</strong></li>
-        <li>Groupe B (risques moyens) : <strong>2,50% du salaire</strong></li>
-        <li>Groupe C (risques élevés) : <strong>5% du salaire</strong></li>
-      </ul>
-      <p className="ml-4 text-gray-700 mb-4">
-        Les cotisations dues pour le compte de cette branche sont entièrement à la charge de l’employeur. Elles ne sont pas plafonnées par salarié.
-      </p>
-      <h3 className="ml-4 text-xl font-semibold text-green-600 mb-2">Branche de l’assurance pension de vieillesse d’invalidité et de décès</h3>
-      <p className="ml-4 text-gray-700 mb-4">
-        Le taux de cotisation est de <strong>8,4%</strong> (depuis la signature du décret n°2016/072 du 15 février 2016) pour tous les régimes et est réparti de la manière suivante :
-      </p>
-      <ul className="ml-8 space-y-2 list-disc text-gray-700 mb-4">
-        <li>4,2% à la charge de l’employeur</li>
-        <li>4,2% à la charge du travailleur</li>
-        <li>Les assurés volontaires prennent entièrement en charge leurs cotisations, c'est-à-dire <strong>8,4%</strong></li>
-        <li>Les cotisations de cette branche sont plafonnées par salarié.</li>
-      </ul>
-    </div>
-  );
-
-
-  const slides = [
+const MainOeuvre: React.FC = () => {
+  const workforceData = [
     {
-      id: "s1",
-      color: "#A8D5BA",
       title: "Qualification de la Main d'Œuvre",
-      content1: `Le Cameroun a deux langues officielles : le français et l'anglais. 
-          Alphabétisation: 71,2 % des personnes de 15 ans et plus.`,
-      content2: modalContent1,
-      icon: "👩‍🎓",
+      icon: GraduationCap,
+      color: "from-green-500 to-green-600",
+      stats: [
+        { label: "Alphabétisation", value: "71.2%", detail: "15 ans et plus" },
+        { label: "Hommes", value: "78.2%", detail: "alphabétisés" },
+        { label: "Femmes", value: "64.7%", detail: "alphabétisées" },
+        { label: "Primaire", value: "78.8%", detail: "taux net scolarisation" },
+        { label: "Secondaire", value: "49.3%", detail: "taux net scolarisation" }
+      ],
+      details: {
+        education: [
+          { level: "Non scolarisés", percentage: 33.7 },
+          { level: "Niveau primaire", percentage: 35.7 },
+          { level: "Niveau secondaire", percentage: 26.0 },
+          { level: "Niveau supérieur", percentage: 4.6 }
+        ],
+        formation: [
+          { type: "Apprentissage sur le tas", percentage: 39.3 },
+          { type: "Formation centres spécialisés", percentage: 19.1 },
+          { type: "Diplômes niveau supérieur", percentage: 16.7 }
+        ]
+      }
     },
     {
-      id: "s2",
-      color: "#F96D6D",
-      title: "Salaires et Conditions d'Emploi",
-      content1: `SMIG : 36 270 F CFA/mois pour 40 heures par semaine.`,
-      content2: modalContent2,
-      icon: "💼",
+      title: "Salaires et Conditions",
+      icon: TrendingUp,
+      color: "from-blue-500 to-blue-600",
+      stats: [
+        { label: "SMIG", value: "36,270 FCFA", detail: "55.3 € / mois" },
+        { label: "Cadres", value: "267k - 457k", detail: "FCFA / mois" },
+        { label: "Employés", value: "129k - 325k", detail: "FCFA / mois" },
+        { label: "Ouvriers", value: "40k - 134k", detail: "FCFA / mois" }
+      ],
+      workConditions: {
+        workWeek: "48 heures",
+        rest: "24 heures par semaine",
+        vacation: "30 jours par an",
+        minAge: "16 ans"
+      }
     },
     {
-      id: "s3",
-      color: "#FFC107",
-      title: "Contrat et Licenciement",
-      content1: `Code de Travail : Permet la conclusion libre des contrats.`,
-      content2: modalContent3,
-      icon: "📜",
+      title: "Types de Contrats",
+      icon: FileText,
+      color: "from-yellow-500 to-yellow-600",
+      contracts: [
+        {
+          type: "Contrat à Durée Déterminée",
+          duration: "12 mois max (renouvelable une fois)",
+          trial: "15 jours à 3 mois selon poste"
+        },
+        {
+          type: "Contrat à Durée Indéterminée",
+          duration: "Temps plein ou partiel",
+          trial: "15 jours à 3 mois selon poste"
+        }
+      ],
+      termination: [
+        "Faute lourde",
+        "Force majeure",
+        "Difficultés économiques",
+        "Décision judiciaire",
+        "Accord écrit des parties"
+      ]
     },
     {
-      id: "s4",
-      color: " #B3DDF2",
-      title: "Les Cotisations Sociales",
-      content1: `Prestations familiales, risques professionnels, pensions.`,
-      content2: modalContent4,
-      icon: "📊",
-    },
+      title: "Cotisations Sociales",
+      icon: Shield,
+      color: "from-purple-500 to-purple-600",
+      socialContributions: [
+        {
+          branch: "Prestations familiales",
+          rates: [
+            { regime: "Général", rate: "7%" },
+            { regime: "Agricole", rate: "5.65%" },
+            { regime: "Enseignement privé", rate: "3.7%" },
+            { regime: "Domestique", rate: "7%" }
+          ],
+          paidBy: "Employeur uniquement"
+        },
+        {
+          branch: "Risques professionnels",
+          rates: [
+            { regime: "Groupe A (faibles)", rate: "1.75%" },
+            { regime: "Groupe B (moyens)", rate: "2.50%" },
+            { regime: "Groupe C (élevés)", rate: "5%" }
+          ],
+          paidBy: "Employeur uniquement"
+        },
+        {
+          branch: "Pension vieillesse",
+          rates: [
+            { regime: "Total", rate: "8.4%" },
+            { regime: "Employeur", rate: "4.2%" },
+            { regime: "Travailleur", rate: "4.2%" }
+          ],
+          ceiling: "750,000 FCFA/mois"
+        }
+      ]
+    }
   ];
 
-  const getTransformStyles = (index: number) => {
-    const diff = index - activeIndex;
-    const totalSlides = slides.length;
-
-    if (diff === 0) {
-      return {
-        transform: "translate3d(0, 0, 0)",
-        zIndex: 3,
-        boxShadow: "0 13px 25px rgba(0,0,0,0.3)",
-      };
-    } else if (diff === 1 || diff === -totalSlides + 1) {
-      return {
-        transform: "translate3d(10%, 0, -100px)",
-        zIndex: 2,
-      };
-    } else if (diff === -1 || diff === totalSlides - 1) {
-      return {
-        transform: "translate3d(-10%, 0, -100px)",
-        zIndex: 2,
-      };
-    } else {
-      return {
-        transform: "translate3d(0, 0, -200px)",
-        zIndex: 1,
-      };
-    }
-  };
-
-  const handlePrev = () => {
-    setActiveIndex((prevIndex) => (prevIndex - 1 + slides.length) % slides.length);
-  };
-
-  const handleNext = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % slides.length);
-  };
-
-  const handleModalOpen = (slide: { title: string; content2: React.ReactNode }) => {
-    setModalContent({ title: slide.title, content2: slide.content2 });
-    setIsModalOpen(true);
-  };
-
-  const handleModalClose = () => {
-    setIsModalOpen(false);
-  };
-
   return (
-    <div id={id} className='mt-8'>
-      {/* Slider Section */}
-      <div data-aos="fade-up" className="flex flex-col items-center mb-6">
-        <h2 className="text-3xl font-bold text-center mb-4 mt-0 text-[#0F0B60]">
-          Main d'Oeuvre
-        </h2>
-        <span className="block w-1/4 h-1 bg-[#0F0B60]"></span>
-      </div>
-      <div className="bg-white min-h-50 mt-8">
-        <section
-          data-aos="fade-up"
-          id="slider"
-          className="relative perspective-3d transform-style-preserve-3d mx-auto"
-          style={{ height: '65vh' }} // Ajustement de la hauteur pour mobile
+    <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-3xl">
+      <div className="max-w-6xl mx-auto px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
         >
-          <div className="relative h-full" style={{ height: 'inherit' }}>
-            {slides.map((slide, index) => (
-              <input
-                key={slide.id}
-                type="radio"
-                name="slider"
-                id={slide.id}
-                checked={activeIndex === index}
-                onChange={() => setActiveIndex(index)}
-                className="hidden"
-              />
-            ))}
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-6">
+            <Users className="h-8 w-8 text-white" />
+          </div>
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Main d'Œuvre</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Découvrez les atouts, salaires, contrats et protections sociales de la main d'œuvre camerounaise
+          </p>
+        </motion.div>
 
-            {slides.map((slide, index) => (
-              <label
-                key={slide.id}
-                htmlFor={slide.id}
-                className="absolute w-[80%] md:w-[50%] h-[60%] md:h-[80%] rounded-lg overflow-hidden shadow-lg mx-auto left-0 right-0 cursor-pointer transition-transform duration-500 ease-in-out"
-                style={{
-                  backgroundColor: slide.color,
-                  ...getTransformStyles(index),
-                }}
-              >
-                <div className="flex flex-col items-center justify-center h-full text-center text-black p-4">
-                  <span className="text-4xl">{slide.icon}</span>
-                  <h3 className="text-xl font-bold my-2">{slide.title}</h3>
-                  <p className="text-sm">{slide.content1}</p>
-                  <button
-                    className="mt-2 px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-700"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      handleModalOpen(slide);
-                    }}
-                  >
-                    En savoir plus
-                  </button>
+        <div className="grid lg:grid-cols-2 gap-8">
+          {/* Qualification Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="bg-white rounded-2xl p-8 shadow-lg"
+          >
+            <div className="flex items-center mb-6">
+              <GraduationCap className="h-8 w-8 text-green-600 mr-3" />
+              <h3 className="text-2xl font-bold text-gray-900">Qualification</h3>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="grid grid-cols-2 gap-4">
+                {workforceData[0].stats?.map((stat, index) => (
+                  <div key={index} className="text-center p-4 bg-green-50 rounded-lg">
+                    <div className="text-2xl font-bold text-green-600">{stat.value}</div>
+                    <div className="text-sm text-gray-600">{stat.label}</div>
+                    <div className="text-xs text-gray-500">{stat.detail}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-gray-800 mb-3">Répartition par niveau d'éducation</h4>
+                <div className="space-y-2">
+                  {workforceData[0].details?.education?.map((item, index) => (
+                    <div key={index} className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600">{item.level}</span>
+                      <div className="flex items-center gap-2">
+                        <div className="w-24 bg-gray-200 rounded-full h-2">
+                          <div 
+                            className="bg-green-500 h-2 rounded-full" 
+                            style={{ width: `${item.percentage}%` }}
+                          />
+                        </div>
+                        <span className="text-sm font-medium">{item.percentage}%</span>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              </label>
-            ))}
+              </div>
+            </div>
+          </motion.div>
 
-            {/* Boutons de navigation */}
-            <button
-              onClick={handlePrev}
-              className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-900 z-50"
-              style={{ width: '40px', height: '40px' }} // Taille réduite pour mobile
-            >
-              &#9664;
-            </button>
-            <button
-              onClick={handleNext}
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full hover:bg-gray-900 z-50"
-              style={{ width: '40px', height: '40px' }} // Taille réduite pour mobile
-            >
-              &#9654;
-            </button>
+          {/* Salaires Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="bg-white rounded-2xl p-8 shadow-lg"
+          >
+            <div className="flex items-center mb-6">
+              <TrendingUp className="h-8 w-8 text-blue-600 mr-3" />
+              <h3 className="text-2xl font-bold text-gray-900">Salaires</h3>
+            </div>
+
+            <div className="space-y-6">
+              <div className="text-center p-6 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl text-white">
+                <p className="text-3xl font-bold">36,270 FCFA</p>
+                <p className="text-blue-100">(55,3 €)</p>
+                <p className="text-sm mt-2 text-blue-200">Salaire minimum depuis 2014</p>
+              </div>
+
+              <div className="space-y-3">
+                <div className="flex justify-between items-center p-3 bg-green-50 rounded-lg">
+                  <span className="font-semibold text-green-800">Cadres</span>
+                  <span className="text-green-600 font-bold">267k - 457k FCFA</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-yellow-50 rounded-lg">
+                  <span className="font-semibold text-yellow-800">Employés</span>
+                  <span className="text-yellow-600 font-bold">129k - 325k FCFA</span>
+                </div>
+                <div className="flex justify-between items-center p-3 bg-red-50 rounded-lg">
+                  <span className="font-semibold text-red-800">Ouvriers</span>
+                  <span className="text-red-600 font-bold">40k - 134k FCFA</span>
+                </div>
+              </div>
+
+              <div className="p-4 bg-gray-50 rounded-lg">
+                <h4 className="font-semibold text-gray-800 mb-2">Conditions de travail</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Durée légale : 48h/semaine</li>
+                  <li>• Repos : 24h/semaine</li>
+                  <li>• Congés : 30 jours/an</li>
+                  <li>• Âge minimum : 16 ans</li>
+                </ul>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Cotisations Sociales */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="mt-8 bg-white rounded-2xl p-8 shadow-lg"
+        >
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">Cotisations Sociales</h3>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="text-center">
+              <div className="w-20 h-20 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+                <span className="text-2xl font-bold text-green-600">7%</span>
+              </div>
+              <h4 className="font-semibold text-gray-800 mb-2">Prestations Familiales</h4>
+              <p className="text-sm text-gray-600">À charge de l'employeur</p>
+              <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+                <div className="bg-green-500 h-2 rounded-full" style={{ width: '35%' }}></div>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-20 h-20 mx-auto mb-4 bg-yellow-100 rounded-full flex items-center justify-center">
+                <span className="text-xl font-bold text-yellow-600">1.75%</span>
+              </div>
+              <h4 className="font-semibold text-gray-800 mb-2">Risques Professionnels</h4>
+              <p className="text-sm text-gray-600">Groupe A (faibles risques)</p>
+              <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+                <div className="bg-yellow-500 h-2 rounded-full" style={{ width: '17.5%' }}></div>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <div className="w-20 h-20 mx-auto mb-4 bg-purple-100 rounded-full flex items-center justify-center">
+                <span className="text-xl font-bold text-purple-600">8.4%</span>
+              </div>
+              <h4 className="font-semibold text-gray-800 mb-2">Pension Vieillesse</h4>
+              <p className="text-sm text-gray-600">4.2% employeur + 4.2% employé</p>
+              <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+                <div className="bg-purple-500 h-2 rounded-full" style={{ width: '42%' }}></div>
+              </div>
+            </div>
           </div>
 
-          {isModalOpen && (
-            <>
-              <div className="fixed inset-0 bg-black opacity-50 z-40" onClick={handleModalClose}></div>
-              <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
-                <ModalsMainOeuvre
-                  title={modalContent.title}
-                  content2={modalContent.content2}
-                  onClose={handleModalClose}
-                />
+          <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+            <h4 className="font-semibold text-blue-800 mb-2">Plafond des cotisations</h4>
+            <p className="text-blue-700">750,000 FCFA par mois pour les prestations familiales et pensions</p>
+          </div>
+        </motion.div>
+
+        {/* Contrats et Expatriés */}
+        <div className="grid md:grid-cols-2 gap-8 mt-8">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="bg-white rounded-2xl p-8 shadow-lg"
+          >
+            <div className="flex items-center mb-6">
+              <FileText className="h-8 w-8 text-yellow-600 mr-3" />
+              <h3 className="text-2xl font-bold text-gray-900">Types de Contrats</h3>
+            </div>
+
+            <div className="space-y-4">
+              <div className="p-4 border-l-4 border-yellow-500 bg-yellow-50">
+                <h4 className="font-semibold text-yellow-800">Durée Déterminée</h4>
+                <p className="text-sm text-yellow-700 mt-1">
+                  Maximum 12 mois, renouvelable une fois
+                </p>
               </div>
-            </>
-          )}
-        </section>
+              
+              <div className="p-4 border-l-4 border-green-500 bg-green-50">
+                <h4 className="font-semibold text-green-800">Durée Indéterminée</h4>
+                <p className="text-sm text-green-700 mt-1">
+                  Temps plein ou partiel, période d'essai variable
+                </p>
+              </div>
+
+              <div className="p-4 bg-gray-50 rounded-lg">
+                <h4 className="font-semibold text-gray-800 mb-2">Période d'essai</h4>
+                <ul className="text-sm text-gray-600 space-y-1">
+                  <li>• Employés/ouvriers payés à l'heure : 15 jours</li>
+                  <li>• Employés/ouvriers payés au mois : 1 mois</li>
+                  <li>• Cadres et assimilés : 3 mois</li>
+                </ul>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="bg-white rounded-2xl p-8 shadow-lg"
+          >
+            <div className="flex items-center mb-6">
+              <MapPin className="h-8 w-8 text-purple-600 mr-3" />
+              <h3 className="text-2xl font-bold text-gray-900">Travailleurs Expatriés</h3>
+            </div>
+
+            <div className="space-y-4">
+              <div className="p-4 bg-purple-50 rounded-lg">
+                <h4 className="font-semibold text-purple-800 mb-2">Conditions</h4>
+                <ul className="text-sm text-purple-700 space-y-1">
+                  <li>• Aucun quota fixé</li>
+                  <li>• Compétence indisponible localement</li>
+                  <li>• Assujettissement à la sécurité sociale</li>
+                </ul>
+              </div>
+
+              <div className="p-4 bg-blue-50 rounded-lg">
+                <h4 className="font-semibold text-blue-800 mb-2">Assurance volontaire</h4>
+                <p className="text-sm text-blue-700">
+                  Disponible depuis 2014 pour travailleurs indépendants et étudiants (dès 14 ans)
+                </p>
+                <p className="text-sm text-blue-600 font-medium mt-1">
+                  Cotisation : 8.4% du revenu mensuel
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </section>
   );
-}
+};
 
 export default MainOeuvre;

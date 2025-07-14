@@ -1,16 +1,9 @@
-import React, { useState } from 'react';
-import { FileText, Upload, Trash2, Search, Filter } from 'lucide-react';
+import {Upload,Search, Filter } from 'lucide-react';
 
 
 const Documents: React.FC = () => {
 
-  const formatFileSize = (bytes: number) => {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-  };
+  
 
   return (
     <div className="bg-white rounded-xl shadow-sm  space-y-6">
