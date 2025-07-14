@@ -14,6 +14,7 @@ import {
 import LockResetIcon from '@mui/icons-material/LockReset';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import axios from 'axios';
+import { backendUrl } from '../../../constants/constants';
 
 const theme = createTheme();
 
@@ -30,7 +31,7 @@ const ForgetPassword = () => {
         setError('');
 
         try {
-            await axios.post(`http://localhost:8080/api/auth/forgot-password?email=${email}`)
+            await axios.post(`${backendUrl}/api/auth/forgot-password?email=${email}`)
                 .then((res) => {
                     console.log(res.data);
                     if (res.data.status === 200) {

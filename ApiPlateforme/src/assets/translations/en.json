@@ -1,7 +1,7 @@
 {
   "navbar": {
     "pays-cm": "Republic of Cameroon",
-    "devise-cm": "Peace-Work-Fatherland",
+    "devise-cm": "Peace - Work - Fatherland",
     "accueil": "Home",
     "informations": "General Information",
     "opportunites": "Opportunities",
@@ -9,18 +9,18 @@
     "apropos": "About",
     "espace_prive": "Private Area",
     "menu_items": {
-      "presentation_cameroun": "Presentation of Cameroon",
+      "presentation_cameroun": "Cameroon Overview",
       "cadre_juridique": "Legal Framework",
       "sanctuaires": "Sanctuaries",
-      "agro_industrie": "Agro-industry",
+      "agro_industrie": "Agro-Industry",
       "energie": "Energy",
       "numerique": "Digital",
       "piliers": "Pillars",
-      "bois_forets": "Wood and Forests",
-      "textile_confection_cuir": "Textiles, Clothing, Leather",
-      "hydrocarbures_raffinage": "Hydrocarbons and Refining",
-      "chimie_pharmacie": "Chemicals and Pharmaceuticals",
-      "mines_metallurgie_siderurgie": "Mining, Metallurgy, Steelmaking",
+      "bois_forets": "Wood & Forests",
+      "textile_confection_cuir": "Textiles, Garments & Leather",
+      "hydrocarbures_raffinage": "Hydrocarbons & Refining",
+      "chimie_pharmacie": "Chemistry & Pharmaceuticals",
+      "mines_metallurgie_siderurgie": "Mining, Metallurgy & Steel",
       "socles": "Foundations",
       "financement": "Financing",
       "infrastructure": "Infrastructure",
@@ -28,33 +28,408 @@
       "droit_investisseurs": "Investor Rights",
       "facteurs_production": "Production Factors",
       "incitation": "Incentives",
-      "presentation_api": "API Presentation",
+      "presentation_api": "API Overview",
       "faq": "FAQ",
       "conseil_en_ligne": "Online Advice"
     },
     "descriptions": {
-      "presentation_cameroun": "Discover the strategic, economic, and natural opportunities of Cameroon that attract investors from around the world.",
-      "cadre_juridique": "Access essential information on tax and legal frameworks that ensure a safe and competitive investment environment in Cameroon.",
-      "sanctuaires": "Strategic infrastructures and hubs for industrial development.",
+      "presentation_cameroun": "Discover Cameroon's strategic, economic, and natural opportunities attracting global investors.",
+      "cadre_juridique": "Access essential information on tax and legal frameworks ensuring a secure and competitive investment environment in Cameroon.",
+      "sanctuaires": "Strategic infrastructure and industrial development hubs.",
       "agro_industrie": "Agro-industry sector.",
       "energie": "Energy sector.",
       "numerique": "Digital sector.",
-      "piliers": "Key sectors supporting economic growth.",
-      "bois_forets": "Wood and forests sector.",
-      "textile_confection_cuir": "Textiles, clothing, and leather sector.",
+      "piliers": "Key areas supporting economic growth.",
+      "bois_forets": "Wood and forest sector.",
+      "textile_confection_cuir": "Textiles, garments, and leather sector.",
       "hydrocarbures_raffinage": "Hydrocarbons and refining sector.",
-      "chimie_pharmacie": "Chemicals and pharmaceuticals sector.",
-      "mines_metallurgie_siderurgie": "Mining, metallurgy, and steelmaking sector.",
-      "socles": "Fundamental bases for solid industrial development.",
+      "chimie_pharmacie": "Chemistry and pharmaceutical sector.",
+      "mines_metallurgie_siderurgie": "Mining, metallurgy, and steel sector.",
+      "socles": "Solid foundations for industrial development.",
       "financement": "Financing investment projects.",
-      "infrastructure": "Infrastructure necessary to support development.",
+      "infrastructure": "Infrastructure supporting development.",
       "creation_entreprise": "Practical guide to starting a business in Cameroon.",
-      "droit_investisseurs": "Presentation of legal protections and rights guaranteed to foreign investors.",
+      "droit_investisseurs": "Introduction to legal protections and rights for foreign investors.",
       "facteurs_production": "Information on required resources: capital, raw materials, and equipment.",
-      "incitation": "Incentive measures and tax advantages to encourage investment.",
-      "presentation_api": "Discover the role of the API in supporting investment projects.",
-      "faq": "Find quick and clear answers to your frequently asked questions about investment.",
-      "conseil_en_ligne": "Access personalized assistance and get quick answers to all your investment opportunities questions."
+      "incitation": "Incentives and tax benefits encouraging investment.",
+      "presentation_api": "Learn about the API's role in supporting investment projects.",
+      "faq": "Find quick and clear answers to common investment questions.",
+      "conseil_en_ligne": "Get personalized support and quick answers to all your investment opportunity questions."
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "Cameroon Investment Portal",
+      "cameroon": "",
+      "description": "Discover investment opportunities in Cameroon through our professional investment portal, a vital resource for investors. Access key industry information, regulations, geographical investment points, and connect with key stakeholders. Also, receive advice on business creation procedures to succeed in this dynamic market.",
+      "guideButton": "Investor Guide",
+      "investButton": "Invest Now"
+    },
+    "whyInvest": {
+      "title": "Why Invest in Cameroon?",
+      "subtitle": "Cameroon is known as",
+      "africaMiniature": "'Africa in Miniature'",
+      "description": "With political stability, economic diversity, and unparalleled opportunities, Cameroon offers an environment conducive to investment. Discover why choosing Cameroon as an investment destination is advantageous.",
+      "reasons": {
+        "politics": {
+          "title": "Political Stability",
+          "description": "Cameroon is one of the most stable countries in Central Africa, providing a secure environment for long-term investments."
+        },
+        "economy": {
+          "title": "Economic Diversity",
+          "description": "With key sectors like agro-industry, mining, energy, and digital, Cameroon offers diverse opportunities for investors."
+        },
+        "resources": {
+          "title": "Natural Resources",
+          "description": "The country boasts abundant natural resources (oil, gas, minerals, forests) and fertile agricultural land, offering significant investment potential."
+        },
+        "market": {
+          "title": "Regional Market",
+          "description": "Located in the heart of Central Africa, Cameroon serves as a gateway to a regional market of over 200 million consumers."
+        },
+        "workforce": {
+          "title": "Skilled Workforce",
+          "description": "With a young and dynamic population, Cameroon has a skilled and competitive workforce."
+        },
+        "infrastructure": {
+          "title": "Infrastructure Development",
+          "description": "Ongoing projects in roads, ports, and energy infrastructure support economic growth."
+        }
+      },
+      "cta": "Invest in Cameroon Now!"
+    },
+    "advantages": {
+      "title": "Advantages",
+      "items": [
+        {
+          "title": "Online Project Registration",
+          "description": "Investors can register projects directly on the portal without paperwork. This system simplifies procedures and saves significant time while ensuring secure and remote-accessible management."
+        },
+        {
+          "title": "Reduced Travel",
+          "description": "All procedures are centralized on the portal, eliminating the need for investors to travel. This simplifies interactions with administrative bodies and optimizes schedules."
+        },
+        {
+          "title": "Transparent Document Tracking",
+          "description": "The portal provides complete visibility into document progress. Investors can track each processing step in real-time, enhancing confidence and reducing uncertainty."
+        },
+        {
+          "title": "Quick Access to Information",
+          "description": "The portal offers instant access to key information about procedures and available services. This time-saving feature helps investors better plan and execute their projects."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "Our Investors' Testimonials",
+      "items": [
+        {
+          "text": "The API has been a key partner in the success of our investment project in Cameroon. Their team supported us at every stage, from online registration to transparent document tracking. Thanks to them, we were able to start our operations quickly and hassle-free.",
+          "author": "Jean Dupont",
+          "date": "October 12, 2023"
+        },
+        {
+          "text": "Working with the API was a very smooth experience. Their online platform significantly reduced our travel and administrative procedures. We were able to focus on our project while having full visibility into our document progress.",
+          "author": "Fatoumata Diallo",
+          "date": "September 25, 2023"
+        },
+        {
+          "text": "The API transformed our investment experience in Cameroon. Their simplified and transparent processes saved us valuable time. Their team is responsive and professional; we highly recommend their services to any investor.",
+          "author": "Carlos Mendoza",
+          "date": "September 5, 2023"
+        }
+      ],
+      "more": "More"
+    },
+    "projects": {
+      "title": "Seize Unique Opportunities!",
+      "description": "Invest today in innovative and profitable projects to build the future of Cameroon's economy.",
+      "more": "View More Projects"
+    }
+  },
+  "footer": {
+      "agency": "Investment Promotion Agency (API) - Cameroon",
+      "website": "Website",
+      "website_url": "www.investincameroon.cm",
+      "navigation": {
+        "title": "Navigation Menu",
+        "home": "Home",
+        "general_info": "General Information",
+        "investor_guide": "Investor Guide",
+        "opportunity_sectors": "Opportunity Sectors",
+        "about": "About"
+      },
+      "institutions": {
+        "title": "Competent Institutions",
+        "ministry_employment": "Ministry of Employment and Vocational Training",
+        "ministry_labor": "Ministry of Labor and Social Security",
+        "ministry_mines": "Ministry of Mines, Industry and Technological Development",
+        "ministry_smes": "Ministry of Small and Medium Enterprises, Social Economy and Handicrafts",
+        "cnps": "National Social Insurance Fund (CNPS)"
+      },
+      "contacts": {
+        "title": "Contacts",
+        "agency_name": "Investment Promotion Agency (API)",
+        "phone1": "Tel.: (+237) 233 42 59 16",
+        "phone2": "Tel.: (+237) 233 43 30 08",
+        "email": "Email",
+        "email_address": "contact@api.cm",
+        "address": "P.O. Box 441, Yaoundé-Cameroon"
+      },
+      "subscribe": {
+        "title": "Subscribe",
+        "email_placeholder": "Your email address",
+        "button": "Subscribe",
+        "anti_spam": "NO SPAM ● UNSUBSCRIBE ANYTIME"
+      },
+      "copyright": "© 2024 API | All rights reserved.",
+      "legal": {
+        "privacy": "Privacy Policy",
+        "terms": "Terms and Conditions"
+      }
+    },
+    "login": {
+      "title": "Welcome To the API Investors Portal",
+      "subtitle": "Sign In",
+      "email_label": "Email Address",
+      "password_label": "Password",
+      "password_show": "Show password",
+      "password_hide": "Hide password",
+      "forgot_password": "Forgot password?",
+      "button": "Sign In",
+      "social_login_text": "Or sign in with:",
+      "google_login": "Sign in with Google",
+      "apple_login": "Sign in with Apple",
+      "linkedin_login": "Sign in with LinkedIn",
+      "no_account_yet": "Don't have an account yet?",
+      "signup_link": "Sign up",
+      "alt_image": "Login Illustration",
+      "errors": {
+        "forbidden": "Access forbidden",
+        "not_found": "The email address is incorrect",
+        "server_error": "Server error",
+        "unknown": "Unknown error"
+      }
+    },
+    "signup": {
+    "title": "Welcome To the API Investors Portal",
+    "subtitle": "Create your account",
+    "firstname_label": "First Name",
+    "lastname_label": "Last Name",
+    "email_label": "Professional Email Address",
+    "phone_label": "Phone Number",
+    "phone_placeholder": "(+237) 6XX XXX XXX",
+    "password_label": "Password",
+    "confirm_password_label": "Confirm Password",
+    "password_show": "Show password",
+    "password_hide": "Hide password",
+    "confirm_password_show": "Show confirm password",
+    "confirm_password_hide": "Hide confirm password",
+    "password_mismatch": "Passwords do not match",
+    "role_label": "What is your profile?",
+    "role_placeholder": "Select a type",
+    "role_project_owner": "Project Owner",
+    "role_investor": "Investor",
+    "terms_privacy_prefix": "By clicking the « Create an account » button, you agree to the terms of use and",
+    "terms_privacy_link": "the privacy policy of the Cameroon Investment Portal",
+    "button_register": "Create an account",
+    "button_loading": "Loading...",
+    "social_login_text": "Or connect with:",
+    "google_login": "Connect with Google",
+    "apple_login": "Connect with Apple",
+    "linkedin_login": "Connect with LinkedIn",
+    "already_have_account": "Already have an account? Sign in here",
+    "login_link": "Sign in",
+    "success": "Registration successful",
+    "alt_image": "Signup Illustration",
+    "errors": {
+      "forbidden": "Access forbidden",
+      "not_found": "The email address is incorrect",
+      "conflict": "Email address already used",
+      "server_error": "Server error",
+      "unknown": "Unknown error"
+    }
+  },
+  "legalAspects": {
+    "sections": {
+      "system": {
+        "title": "Legal System",
+        "content": "Mixed: Civil law and common law - Constitution of 1972 revised",
+        "details": "Cameroon has a mixed legal system, influenced by both French civil law and English common law. The Constitution of 1972, revised several times, constitutes the fundamental law."
+      },
+      "codes": {
+        "title": "Important Codes",
+        "content": "Civil Code, Penal Code, OHADA, Investment Code",
+        "details": "The main legal codes include the Civil Code, the Penal Code, the uniform acts of OHADA, and the Investment Code which governs economic activities."
+      },
+      "jurisdictions": {
+        "title": "Jurisdictions",
+        "content": "Supreme Court, Courts of Appeal, Courts of First Instance",
+        "details": "The judicial system includes the Supreme Court (highest jurisdiction), the Courts of Appeal, and the Courts of First Instance distributed throughout the territory."
+      }
+    },
+    "buttons": {
+      "learnMore": "Learn More",
+      "reduce": "Reduce"
+    }
+  },
+  "breadcrumbs": {
+    "home": "Home",
+    "generalInformation": "General Information",
+    "legalAndFiscalFramework": "Legal and Fiscal Framework"
+  },
+  "information_general": {
+    "cadre_juridique_fiscal": {
+      "hero": {
+        "title": "Legal and Fiscal Framework",
+        "subtitle": "Understanding the legal and fiscal context for successful investments in Cameroon."
+      },
+      "featured": "FEATURED",
+      "introduction": {
+        "title": "Presentation of the Legal and Fiscal Framework in Cameroon",
+        "text": "Cameroon, a Central African country, has a legal and fiscal framework designed to promote investments and regulate economic activities. It is a hybrid system, blending modernity and tradition, with laws adapted to the needs of local and international economic players."
+      },
+      "sections": {
+        "legalFramework": {
+          "title": "Legal Framework",
+          "text": "Cameroon has a legal system based on civil law and customary law, while integrating specificities related to its regional and historical context. The main laws include the Investment Code, the Labour Code, and the Commercial Code.",
+          "description": {
+            "system": {
+              "title": "Legal System",
+              "aspects": {
+                "civilLaw": {
+                  "title": "Civil Law",
+                  "text": "Inherited from the French tradition, civil law is the main foundation of the Cameroonian legal system. It is based on written texts, such as codes and laws adopted by the government."
+                },
+                "customaryLaw": {
+                  "title": "Customary Law",
+                  "text": "Inspired by local traditions and customs, it coexists with civil law and is mainly used in family, inheritance, and land matters, particularly in rural communities."
+                }
+              }
+            },
+            "mainLaws": {
+              "title": "Main Legislative Texts",
+              "aspects": {
+                "investmentCode": {
+                  "title": "The Investment Code",
+                  "text": "This code establishes the rules and incentives to encourage national and foreign investments. It offers tax advantages, customs exemptions, and a stable environment for investors."
+                },
+                "laborCode": {
+                  "title": "The Labour Code",
+                  "text": "This text governs the relations between employers and employees. It sets the rights and obligations of both parties, such as employment conditions, remuneration, workplace safety, and conflict resolution."
+                },
+                "commercialCode": {
+                  "title": "The Commercial Code",
+                  "text": "It regulates commercial and industrial activities. It covers areas such as commercial contracts, companies, bankruptcy, and the settlement of commercial disputes."
+                },
+                "landRegulation": {
+                  "title": "Land Regulation",
+                  "text": "The land legal framework is crucial for investors wishing to acquire land. It differentiates between land belonging to the private, public, or customary domain."
+                }
+              }
+            },
+            "legalInstitutions": {
+              "title": "Legal Institutions",
+              "aspects": {
+                "firstInstanceCourts": {
+                  "title": "Courts of First Instance",
+                  "text": "For ordinary civil, criminal, and commercial cases."
+                },
+                "supremeCourt": {
+                  "title": "The Supreme Court",
+                  "text": "The highest court in the country."
+                },
+                "administrativeTribunals": {
+                  "title": "Administrative Tribunals",
+                  "text": "For disputes involving the public administration."
+                }
+              }
+            }
+          },
+          "documents": {
+            "investmentCode": "Investment Code",
+            "laborCode": "Labour Code",
+            "commercialCode": "Commercial Code",
+            "landRegulation": "Land Regulation"
+          },
+          "conclusion": "The country is also a member of the Organization for the Harmonization of Business Law in Africa (OHADA), which ensures the application of harmonized business law in 17 African countries."
+        },
+        "fiscalFramework": {
+          "title": "Fiscal Framework",
+          "text": "Cameroon has put in place a structured tax system, designed to collect the resources necessary for economic development while encouraging investments.",
+          "description": {
+            "mainTaxes": {
+              "title": "Main Taxes",
+              "aspects": {
+                "corporateTax": {
+                  "title": "Corporate Income Tax (CIT)",
+                  "text": "Standard rate: 30% on profits - Foreign companies may be subject to a 15% withholding tax on their income in Cameroon."
+                },
+                "incomeTax": {
+                  "title": "Personal Income Tax (PIT)",
+                  "text": "Progressive, with rates ranging from 11% to 38%, depending on the income level."
+                },
+                "vat": {
+                  "title": "Value Added Tax (VAT)",
+                  "text": "Standard rate: 19.25% - Possible exemptions for certain goods and services, particularly those related to priority sectors such as agriculture and education."
+                },
+                "customsDuties": {
+                  "title": "Customs Duties",
+                  "text": "Customs duties vary depending on the imported products, with preferential rates for imports from certain countries or regional blocs such as CEMAC (Economic and Monetary Community of Central Africa)."
+                },
+                "otherTaxes": {
+                  "title": "Other Taxes",
+                  "text": "Tax on Economic Activities (TAE), Property Tax, Excise Duties on certain products (alcohol, tobacco, fuel)."
+                }
+              }
+            },
+            "taxIncentives": {
+              "title": "Tax Incentives for Investors",
+              "aspects": {
+                "investmentCode": {
+                  "title": "The Investment Code",
+                  "text": "Temporary exemptions from corporate income tax for new companies."
+                },
+                "bilateralAgreements": {
+                  "title": "Bilateral Agreements",
+                  "text": "Reduction of customs duties for the import of industrial equipment."
+                },
+                "sectoralIncentives": {
+                  "title": "Sectoral Incentives",
+                  "text": "VAT exemptions for certain priority sectors such as agriculture or renewable energies."
+                }
+              }
+            }
+          },
+          "documents": {
+            "generalTaxCode": "General Tax Code"
+          },
+          "conclusion": "The tax administration is supervised by the Directorate General of Taxes (DGI), which ensures the collection of revenue and the application of tax laws. Dematerialization measures have been implemented to facilitate tax declarations and reduce administrative delays."
+        },
+        "opportunities": {
+          "title": "Opportunities",
+          "text": "Cameroon offers numerous investment opportunities in various sectors, such as agriculture, energy, infrastructure, new technologies, etc.",
+          "description": {
+            "standards": {
+              "title": "Standards in Place",
+              "aspects": {
+                "regionalHarmonization": {
+                  "title": "Regional Harmonization",
+                  "text": "Membership in OHADA and CEMAC guarantees legal and fiscal uniformity with other countries in the region, which facilitates trade."
+                },
+                "fiscalIncentives": {
+                  "title": "Fiscal Incentives",
+                  "text": "The numerous advantages provided by the Investment Code make Cameroon an attractive destination for investors."
+                },
+                "legalStability": {
+                  "title": "Legal Stability",
+                  "text": "A structured and constantly improving legal framework."
+                }
+              }
+            }
+          }
+        }
+      },
+      "conclusionFinal": "Cameroon has a robust legal and fiscal framework that combines modernity and tradition. Its laws and institutions aim to create a favorable environment for investment and economic development, while ensuring a certain stability. However, efforts are still needed to simplify administrative procedures, strengthen transparency, and further promote the country's attractiveness."
     }
   },
   "pages_secteurs": {
@@ -942,4 +1317,4 @@
       }
     }
   }
-}
+ }

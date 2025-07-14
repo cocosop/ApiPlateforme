@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
 import { Apple, Beef, Carrot, Coffee, Cookie, FactoryIcon, Fish, Leaf, Wheat } from 'lucide-react';
 import { motion } from 'framer-motion';
-import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
 import { useTranslation } from 'react-i18next';
+import EcoCarte from "../../../assets/img/Zones-agro-ecologiques-du-Cameroun-Source-IRAD-2000.png"
 
 const Agriculture = () => {
   const history = useNavigate();
@@ -63,17 +63,6 @@ const Agriculture = () => {
             />
           </div>
         </motion.div>
-      </div>
-
-      {/* Breadcrumbs */}
-      <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
-        <BreadcrumbsComponent
-          breadcrumbs={[
-            { name: t('pages_secteurs.agro_industrie.fil_ariane.accueil'), path: '/' },
-            { name: t('pages_secteurs.agro_industrie.fil_ariane.sections'), path: '#' },
-            { name: t('pages_secteurs.agro_industrie.fil_ariane.agro'), path: '#' }
-          ]}
-        />
       </div>
 
       {/* Objectif Section */}
@@ -143,6 +132,16 @@ const Agriculture = () => {
         </div>
       </div>
 
+      {/* Carte agro ecologique  */}
+      <section className="grid py-12 px-6 bg-white-100 justify-center" >
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          <img src={EcoCarte} alt="carte-zones-agro-ecologiques-du-Cameroun" />
+        </motion.div>
+      </section>
       {/* Nos Spéculations Phares */}
       <section className="grid py-12 px-6 bg-gray-100 justify-center">
         <motion.h2

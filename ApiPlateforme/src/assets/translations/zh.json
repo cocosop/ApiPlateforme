@@ -1,60 +1,435 @@
 {
   "navbar": {
     "pays-cm": "喀麦隆共和国",
-    "devise-cm": "和平-工作-祖国",
+    "devise-cm": "和平 - 劳动 - 祖国",
     "accueil": "首页",
-    "informations": "一般信息",
-    "opportunites": "机会",
+    "informations": "基本信息",
+    "opportunites": "机遇",
     "investir": "投资",
     "apropos": "关于",
     "espace_prive": "私人区域",
     "menu_items": {
-      "presentation_cameroun": "喀麦隆介绍",
+      "presentation_cameroun": "喀麦隆概览",
       "cadre_juridique": "法律框架",
-      "sanctuaires": "圣地",
-      "agro_industrie": "农业工业",
+      "sanctuaires": "保护区",
+      "agro_industrie": "农产工业",
       "energie": "能源",
       "numerique": "数字",
       "piliers": "支柱",
       "bois_forets": "木材与森林",
-      "textile_confection_cuir": "纺织、服装、皮革",
+      "textile_confection_cuir": "纺织品、服装和皮革",
       "hydrocarbures_raffinage": "碳氢化合物与炼油",
       "chimie_pharmacie": "化学与制药",
-      "mines_metallurgie_siderurgie": "矿业、冶金与钢铁",
+      "mines_metallurgie_siderurgie": "采矿、冶金和钢铁",
       "socles": "基础",
       "financement": "融资",
       "infrastructure": "基础设施",
       "creation_entreprise": "企业创建",
-      "droit_investisseurs": "投资者权利",
-      "facteurs_production": "生产因素",
-      "incitation": "激励",
-      "presentation_api": "API介绍",
-      "faq": "常见问题",
+      "droit_investisseurs": "投资者权益",
+      "facteurs_production": "生产要素",
+      "incitation": "激励措施",
+      "presentation_api": "投资促进署概览",
+      "faq": "常见问题解答",
       "conseil_en_ligne": "在线咨询"
     },
     "descriptions": {
-      "presentation_cameroun": "了解吸引全球投资者的喀麦隆战略、经济和自然机会。",
-      "cadre_juridique": "访问有关税收和法律框架的基本信息，确保喀麦隆的安全竞争投资环境。",
-      "sanctuaires": "战略性基础设施和工业发展中心。",
-      "agro_industrie": "农业工业领域。",
-      "energie": "能源领域。",
-      "numerique": "数字领域。",
+      "presentation_cameroun": "了解喀麦隆吸引全球投资者的战略、经济和自然机遇。",
+      "cadre_juridique": "获取关于税收和法律框架的重要信息，确保在喀麦隆拥有安全且具竞争力的投资环境。",
+      "sanctuaires": "战略基础设施和工业发展中心。",
+      "agro_industrie": "农产工业部门。",
+      "energie": "能源部门。",
+      "numerique": "数字部门。",
       "piliers": "支持经济增长的关键领域。",
-      "bois_forets": "木材和森林领域。",
-      "textile_confection_cuir": "纺织、服装和皮革领域。",
-      "hydrocarbures_raffinage": "碳氢化合物与炼油领域。",
-      "chimie_pharmacie": "化学和制药领域。",
-      "mines_metallurgie_siderurgie": "矿业、冶金和钢铁领域。",
-      "socles": "坚实工业发展的基础。",
-      "financement": "融资投资项目。",
+      "bois_forets": "木材和森林部门。",
+      "textile_confection_cuir": "纺织品、服装和皮革部门。",
+      "hydrocarbures_raffinage": "碳氢化合物和炼油部门。",
+      "chimie_pharmacie": "化学和制药部门。",
+      "mines_metallurgie_siderurgie": "采矿、冶金和钢铁部门。",
+      "socles": "工业发展的坚实基础。",
+      "financement": "投资项目融资。",
       "infrastructure": "支持发展的基础设施。",
-      "creation_entreprise": "在喀麦隆创办企业的实用指南。",
-      "droit_investisseurs": "介绍外商投资者的法律保护和权利。",
+      "creation_entreprise": "在喀麦隆创业的实用指南。",
+      "droit_investisseurs": "外国投资者法律保护和权利简介。",
       "facteurs_production": "关于所需资源的信息：资本、原材料和设备。",
       "incitation": "鼓励投资的激励措施和税收优惠。",
-      "presentation_api": "了解API在支持投资项目中的作用。",
-      "faq": "查找有关投资的常见问题的快速清晰答案。",
-      "conseil_en_ligne": "获取个性化支持并快速回答所有关于投资机会的问题。"
+      "presentation_api": "了解投资促进署在支持投资项目中的作用。",
+      "faq": "查找常见投资问题的快速清晰解答。",
+      "conseil_en_ligne": "获得个性化支持和关于所有投资机会问题的快速解答。"
+    }
+  },
+  "home": {
+    "hero": {
+      "title": "喀麦隆投资门户",
+      "cameroon": "",
+      "description": "通过我们的专业投资门户网站，探索喀麦隆的投资机会，这是投资者重要的资源。获取关键行业信息、法规、地理投资点，并与主要利益相关者联系。此外，还可以获得关于企业创建程序的建议，以便在这个充满活力的市场中取得成功。",
+      "guideButton": "投资者指南",
+      "investButton": "立即投资"
+    },
+    "whyInvest": {
+      "title": "为什么投资喀麦隆？",
+      "subtitle": "喀麦隆被称为",
+      "africaMiniature": "“袖珍非洲”",
+      "description": "凭借政治稳定、经济多元化和无与伦比的机遇，喀麦隆为投资提供了有利的环境。了解为什么选择喀麦隆作为投资目的地是有利的。",
+      "reasons": {
+        "politics": {
+          "title": "政治稳定",
+          "description": "喀麦隆是中非最稳定的国家之一，为长期投资提供了安全的环境。"
+        },
+        "economy": {
+          "title": "经济多元化",
+          "description": "凭借农产工业、矿业、能源和数字等关键领域，喀麦隆为投资者提供了多样化的机遇。"
+        },
+        "resources": {
+          "title": "自然资源",
+          "description": "该国拥有丰富的自然资源（石油、天然气、矿产、森林）和肥沃的农业用地，提供了巨大的投资潜力。"
+        },
+        "market": {
+          "title": "区域市场",
+          "description": "喀麦隆位于中非中心地带，是通往超过 2 亿消费者的区域市场的门户。"
+        },
+        "workforce": {
+          "title": "技术熟练的劳动力",
+          "description": "喀麦隆拥有年轻而充满活力的人口，以及技术熟练且具有竞争力的劳动力。"
+        },
+        "infrastructure": {
+          "title": "基础设施建设",
+          "description": "正在进行的道路、港口和能源基础设施项目支持经济增长。"
+        }
+      },
+      "cta": "立即投资喀麦隆！"
+    },
+    "advantages": {
+      "title": "优势",
+      "items": [
+        {
+          "title": "在线项目注册",
+          "description": "投资者可以直接在门户网站上注册项目，无需纸质文件。该系统简化了流程，节省了大量时间，同时确保安全和远程可访问的管理。"
+        },
+        {
+          "title": "减少出行",
+          "description": "所有程序都集中在门户网站上，消除了投资者出行的需要。这简化了与行政机构的互动并优化了时间安排。"
+        },
+        {
+          "title": "透明的文档跟踪",
+          "description": "门户网站提供对文档进度的完全可见性。投资者可以实时跟踪每个处理步骤，从而增强信心并减少不确定性。"
+        },
+        {
+          "title": "快速获取信息",
+          "description": "门户网站提供对程序和可用服务的关键信息的即时访问。这项节省时间的功能有助于投资者更好地规划和执行他们的项目。"
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "我们的投资者感言",
+      "items": [
+        {
+          "text": "投资促进署是我们喀麦隆投资项目成功的关键合作伙伴。他们的团队在每个阶段都为我们提供了支持，从在线注册到透明的文档跟踪。多亏了他们，我们能够快速顺利地启动我们的运营。",
+          "author": "让·杜邦",
+          "date": "2023 年 10 月 12 日"
+        },
+        {
+          "text": "与投资促进署合作的体验非常顺利。他们的在线平台大大减少了我们的出行和行政程序。我们能够在充分了解文档进度的同时专注于我们的项目。",
+          "author": "法图玛塔·迪亚洛",
+          "date": "2023 年 9 月 25 日"
+        },
+        {
+          "text": "投资促进署改变了我们在喀麦隆的投资体验。他们简化和透明的流程为我们节省了宝贵的时间。他们的团队反应迅速且专业；我们强烈推荐他们的服务给所有投资者。",
+          "author": "卡洛斯·门多萨",
+          "date": "2023 年 9 月 5 日"
+        }
+      ],
+      "more": "更多"
+    },
+    "projects": {
+      "title": "抓住独特机遇！",
+      "description": "立即投资创新且盈利的项目，共创喀麦隆经济的未来。",
+      "more": "查看更多项目"
+    }
+  },
+  "footer": {
+    "agency": "喀麦隆投资促进署 (API)",
+    "website": "网站",
+    "website_url": "www.investincameroon.cm",
+    "navigation": {
+      "title": "导航菜单",
+      "home": "首页",
+      "general_info": "基本信息",
+      "investor_guide": "投资者指南",
+      "opportunity_sectors": "机遇领域",
+      "about": "关于"
+    },
+    "institutions": {
+      "title": "主管机构",
+      "ministry_employment": "就业和职业培训部",
+      "ministry_labor": "劳动和社会保障部",
+      "ministry_mines": "矿业、工业和技术发展部",
+      "ministry_smes": "中小企业、社会经济和手工业部",
+      "cnps": "国家社会保险基金 (CNPS)"
+    },
+    "contacts": {
+      "title": "联系方式",
+      "agency_name": "投资促进署 (API)",
+      "phone1": "电话：(+237) 233 42 59 16",
+      "phone2": "电话：(+237) 233 43 30 08",
+      "email": "电子邮件",
+      "email_address": "contact@api.cm",
+      "address": "邮政信箱 441, 雅温得，喀麦隆"
+    },
+    "subscribe": {
+      "title": "订阅",
+      "email_placeholder": "您的电子邮件地址",
+      "button": "订阅",
+      "anti_spam": "无垃圾邮件 ● 随时取消订阅"
+    },
+    "copyright": "© 2024 API | 保留所有权利。",
+    "legal": {
+      "privacy": "隐私政策",
+      "terms": "条款和条件"
+    }
+  },
+"login": {
+    "title": "欢迎来到投资促进署投资者门户",
+    "subtitle": "登录",
+    "email_label": "电子邮件地址",
+    "password_label": "密码",
+    "password_show": "显示密码",
+    "password_hide": "隐藏密码",
+    "forgot_password": "忘记密码？",
+    "button": "登录",
+    "social_login_text": "或通过以下方式登录：",
+    "google_login": "使用 Google 登录",
+    "apple_login": "使用 Apple 登录",
+    "linkedin_login": "使用 LinkedIn 登录",
+    "no_account_yet": "还没有账户？",
+    "signup_link": "注册",
+    "alt_image": "登录示意图",
+    "errors": {
+      "forbidden": "禁止访问",
+      "not_found": "电子邮件地址不正确",
+      "server_error": "服务器错误",
+      "unknown": "未知错误"
+    }
+  },
+  "signup": {
+    "title": "欢迎来到投资促进署投资者门户",
+    "subtitle": "创建您的账户",
+    "firstname_label": "名字",
+    "lastname_label": "姓氏",
+    "email_label": "专业邮箱地址",
+    "phone_label": "电话号码",
+    "phone_placeholder": "(+237) 6XX XXX XXX",
+    "password_label": "密码",
+    "confirm_password_label": "确认密码",
+    "password_show": "显示密码",
+    "password_hide": "隐藏密码",
+    "confirm_password_show": "显示确认密码",
+    "confirm_password_hide": "隐藏确认密码",
+    "password_mismatch": "密码不匹配",
+    "role_label": "您的身份是？",
+    "role_placeholder": "选择类型",
+    "role_project_owner": "项目所有者",
+    "role_investor": "投资者",
+    "terms_privacy_prefix": "点击“创建账户”按钮，即表示您同意使用条款和",
+    "terms_privacy_link": "喀麦隆投资门户网站的隐私政策",
+    "button_register": "创建账户",
+    "button_loading": "正在加载...",
+    "social_login_text": "或通过以下方式连接：",
+    "google_login": "通过 Google 连接",
+    "apple_login": "通过 Apple 连接",
+    "linkedin_login": "通过 LinkedIn 连接",
+    "already_have_account": "已有账户？在此登录",
+    "login_link": "登录",
+    "success": "注册成功",
+    "alt_image": "注册示意图",
+    "errors": {
+      "forbidden": "禁止访问",
+      "not_found": "电子邮件地址不正确",
+      "conflict": "电子邮件地址已被使用",
+      "server_error": "服务器错误",
+      "unknown": "未知错误"
+    }
+  },
+  "legalAspects": {
+    "sections": {
+      "system": {
+        "title": "法律体系",
+        "content": "混合制：大陆法系和普通法系 - 1972年宪法修订版",
+        "details": "喀麦隆拥有混合法律体系，受法国大陆法系和英国普通法系的影响。《1972年宪法》（经多次修订）是根本大法。"
+      },
+      "codes": {
+        "title": "重要法典",
+        "content": "民法典，刑法典，非洲商法协调组织法，投资法典",
+        "details": "主要的法律法典包括《民法典》、《刑法典》、《非洲商法协调组织统一法案》以及规范经济活动的《投资法典》。"
+      },
+      "jurisdictions": {
+        "title": "司法管辖",
+        "content": "最高法院，上诉法院，初审法院",
+        "details": "司法系统包括最高法院（最高司法机关）、上诉法院和分布在全国各地的初审法院。"
+      }
+    },
+    "buttons": {
+      "learnMore": "了解更多",
+      "reduce": "减少"
+    }
+  },
+  "breadcrumbs": {
+    "home": "首页",
+    "generalInformation": "一般信息",
+    "legalAndFiscalFramework": "法律和财政框架"
+  },
+  "information_general": {
+    "cadre_juridique_fiscal": {
+      "hero": {
+        "title": "法律和财政框架",
+        "subtitle": "了解喀麦隆成功的投资的法律和财政背景。"
+      },
+      "featured": "特别推荐",
+      "introduction": {
+        "title": "喀麦隆法律和财政框架介绍",
+        "text": "喀麦隆是中非国家，拥有旨在促进投资和规范经济活动的法律和财政框架。这是一个现代与传统相结合的混合体系，其法律适应当地和国际经济参与者的需求。"
+      },
+      "sections": {
+        "legalFramework": {
+          "title": "法律框架",
+          "text": "喀麦隆的法律体系基于民法和习惯法，同时融入了与其区域和历史背景相关的具体规定。主要法律包括《投资法》、《劳动法》和《商法》。",
+          "description": {
+            "system": {
+              "title": "法律体系",
+              "aspects": {
+                "civilLaw": {
+                  "title": "民法",
+                  "text": "继承自法国传统，民法是喀麦隆法律体系的主要基础。它基于书面文本，例如政府通过的法典和法律。"
+                },
+                "customaryLaw": {
+                  "title": "习惯法",
+                  "text": "受当地传统和习俗的启发，它与民法共存，主要用于家庭、继承和土地事务，尤其是在农村社区。"
+                }
+              }
+            },
+            "mainLaws": {
+              "title": "主要立法文本",
+              "aspects": {
+                "investmentCode": {
+                  "title": "投资法",
+                  "text": "该法典确立了鼓励国内外投资的规则和激励措施。它为投资者提供税收优惠、关税豁免和稳定的环境。"
+                },
+                "laborCode": {
+                  "title": "劳动法",
+                  "text": "该文本规范了雇主和雇员之间的关系。它规定了双方的权利和义务，例如就业条件、薪酬、工作安全和冲突解决。"
+                },
+                "commercialCode": {
+                  "title": "商法",
+                  "text": "它规范了商业和工业活动。它涵盖了商业合同、公司、破产和商业纠纷解决等领域。"
+                },
+                "landRegulation": {
+                  "title": "土地法规",
+                  "text": "土地法律框架对于希望获得土地的投资者至关重要。它区分了属于私人、公共或习惯领域的土地。"
+                }
+              }
+            },
+            "legalInstitutions": {
+              "title": "法律机构",
+              "aspects": {
+                "firstInstanceCourts": {
+                  "title": "初审法院",
+                  "text": "处理常见的民事、刑事和商业案件。"
+                },
+                "supremeCourt": {
+                  "title": "最高法院",
+                  "text": "国家最高司法机关。"
+                },
+                "administrativeTribunals": {
+                  "title": "行政法院",
+                  "text": "处理涉及公共管理的诉讼。"
+                }
+              }
+            }
+          },
+          "documents": {
+            "investmentCode": "投资法",
+            "laborCode": "劳动法",
+            "commercialCode": "商法",
+            "landRegulation": "土地法规"
+          },
+          "conclusion": "该国也是非洲商业法协调组织（OHADA）的成员，该组织确保在 17 个非洲国家适用统一的商业法。"
+        },
+        "fiscalFramework": {
+          "title": "财政框架",
+          "text": "喀麦隆建立了一个结构化的财政体系，旨在筹集经济发展所需的资源，同时鼓励投资。",
+          "description": {
+            "mainTaxes": {
+              "title": "主要税收",
+              "aspects": {
+                "corporateTax": {
+                  "title": "公司所得税 (IS)",
+                  "text": "标准税率：利润的 30% - 外国公司在喀麦隆的收入可能需要缴纳 15% 的预提税。"
+                },
+                "incomeTax": {
+                  "title": "个人所得税 (IRPP)",
+                  "text": "累进税制，税率根据收入水平从 11% 到 38% 不等。"
+                },
+                "vat": {
+                  "title": "增值税 (TVA)",
+                  "text": "标准税率：19.25% - 特定商品和服务可能享受豁免，特别是与农业和教育等优先部门相关的商品和服务。"
+                },
+                "customsDuties": {
+                  "title": "关税",
+                  "text": "关税根据进口商品的不同而有所不同，来自特定国家或区域集团（如中部非洲经济与货币共同体 (CEMAC)）的进口商品享有优惠税率。"
+                },
+                "otherTaxes": {
+                  "title": "其他税收",
+                  "text": "经济活动税 (TAE)、土地税、特定商品（酒精、烟草、燃料）的消费税。"
+                }
+              }
+            },
+            "taxIncentives": {
+              "title": "投资者的税收优惠",
+              "aspects": {
+                "investmentCode": {
+                  "title": "投资法",
+                  "text": "新公司可享受临时性的公司所得税减免。"
+                },
+                "bilateralAgreements": {
+                  "title": "双边协议",
+                  "text": "工业设备进口关税减免。"
+                },
+                "sectoralIncentives": {
+                  "title": "行业激励",
+                  "text": "某些优先部门（如农业或可再生能源）可享受增值税豁免。"
+                }
+              }
+            }
+          },
+          "documents": {
+            "generalTaxCode": "一般税法"
+          },
+          "conclusion": "税务管理由税务总局 (DGI) 监督，该局负责税收的征收和税法的执行。已实施非物质化措施，以方便税务申报并缩短行政审批时间。"
+        },
+        "opportunities": {
+          "title": "机遇",
+          "text": "喀麦隆在农业、能源、基础设施、新技术等多个领域提供了众多的投资机会。",
+          "description": {
+            "standards": {
+              "title": "既定标准",
+              "aspects": {
+                "regionalHarmonization": {
+                  "title": "区域协调",
+                  "text": "加入非洲商业法协调组织和中部非洲经济与货币共同体确保了与该地区其他国家的法律和财政统一，从而促进了贸易。"
+                },
+                "fiscalIncentives": {
+                  "title": "财政激励",
+                  "text": "《投资法》规定的众多优惠措施使喀麦隆成为对投资者有吸引力的目的地。"
+                },
+                "legalStability": {
+                  "title": "法律稳定性",
+                  "text": "结构完善且不断完善的法律框架。"
+                }
+              }
+            }
+          }
+        }
+      },
+      "conclusionFinal": "喀麦隆拥有一个结合了现代与传统的健全的法律和财政框架。其法律和机构旨在为投资和经济发展创造有利的环境，同时确保一定的稳定性。然而，仍需努力简化行政程序，加强透明度，并进一步提升该国的吸引力。"
     }
   },
   "pages_secteurs": {

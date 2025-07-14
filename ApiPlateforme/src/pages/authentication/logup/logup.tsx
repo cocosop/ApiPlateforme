@@ -8,6 +8,8 @@ import AlertComponent, { NotificationProvider } from "../../../components/alert/
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/material.css'
 import fr from 'react-phone-input-2/lang/fr.json'
+import { useTranslation } from "react-i18next";
+import { backendUrl } from "../../../constants/constants";
 
 const Logup = () => {
 
@@ -23,6 +25,7 @@ const Logup = () => {
     const [isPasswordMatch, setIsPasswordMatch] = useState(true);
 
     const history = useNavigate();
+    const { t } = useTranslation();
 
 
     const isFormValid =
@@ -52,10 +55,10 @@ const Logup = () => {
         e.preventDefault();
         setStatus('loading');
         try {
-            const res = await axios.post("http://localhost:8080/api/v1/auth/register", formData);
+            const res = await axios.post(`${backendUrl}/api/v1/auth/register`, formData);
 
             if (res.status === 201) {
-                showNotification("Enregistrement réussi", "success");
+                showNotification(t('signup.success'), "success");
                 setStatus('success');
                 history("/activation-account");
             } else {
@@ -71,14 +74,14 @@ const Logup = () => {
         res => res,
         error => {
             const statusHandlers: any = {
-                403: () => showNotification("Accès interdit", "error"),
-                404: () => showNotification("L'adresse email est incorrecte", "warning"),
-                409: () => showNotification("Adresse email déjà utilisée", "warning"),
-                500: () => showNotification("Erreur serveur", "error"),
+                403: () => showNotification(t('signup.errors.forbidden'), "error"),
+                404: () => showNotification(t('signup.errors.not_found'), "warning"),
+                409: () => showNotification(t('signup.errors.conflict'), "warning"),
+                500: () => showNotification(t('signup.errors.server_error'), "error"),
             };
 
             const status = error.response?.status;
-            (statusHandlers[status] || (() => showNotification("Erreur inconnue", "error")))();
+            (statusHandlers[status] || (() => showNotification(t('signup.errors.unknown'), "error")))();
 
             return Promise.reject(error);
         }
@@ -106,7 +109,7 @@ const Logup = () => {
     return (
         <section className="flex flex-col md:flex-row">
             {/* Section Image */}
-            <div className="hidden md:flex md:w-1/2 md:items-start md:justify-center">
+            <div className="hidden lg:flex w-1/2 items-start justify-center">
                 <Box
                     sx={{
                         flex: 1,
@@ -122,7 +125,7 @@ const Logup = () => {
                 >
                     <img
                         src={LOGIN}
-                        alt="Login Illustration"
+                        alt={t('signup.alt_image')}
                         style={{
                             height: "100%",
                             width: "100%",
@@ -149,7 +152,7 @@ const Logup = () => {
                         width: "100%",
                         maxWidth: { xs: 300, sm: 400 },
                         textAlign: "center",
-                        padding: { xs: 2, md: 6 },
+                        // padding: { xs: 2, md: 6 },
                     }}
                 >
                     <Typography
@@ -160,7 +163,7 @@ const Logup = () => {
                             fontWeight: "bold",
                         }}
                     >
-                        Bienvenue Au Portail Des Investisseurs de l’API
+                        {t('signup.title')}
                     </Typography>
                     <Typography
                         gutterBottom
@@ -170,134 +173,141 @@ const Logup = () => {
                             fontWeight: "semi-bold",
                         }}
                     >
-                        Créer votre compte
+                        {t('signup.subtitle')}
                     </Typography>
 
                     {/* Champs de connexion */}
                     <NotificationProvider>
                         <form onSubmit={handleSubmit}>
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Prenom"
-                                name="firstname"
-                                variant="outlined"
-                                value={formData.firstname}
-                                onChange={handleChange}
-                                required
-                            />
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                label="Nom de famille"
-                                name="lastname"
-                                variant="outlined"
-                                value={formData.lastname}
-                                onChange={handleChange}
-                                required
-                            />
-                            <TextField
-                                fullWidth
-                                margin="normal"
-                                type="email"
-                                name="email"
-                                autoComplete="email"
-                                label="Adresse email professionnelle"
-                                variant="outlined"
-                                value={formData.email}
-                                onChange={handleChange}
-                                required
-                            />
-                            <div style={{ margin: '16px 0' }}>
-                                <PhoneInput
-                                    country={'cm'}
-                                    localization={fr}
-                                    value={formData.phone}
-                                    onChange={(value: string) => setFormData({ ...formData, phone: value })}
-                                    inputProps={{
-                                        required: true,
-                                        autoFocus: true
-                                    }}
-                                    containerStyle={{ width: '100%' }}
-                                    inputStyle={{ width: '100%', padding: '14px 14px 14px 58px' }}
+                            <div className="md:flex items-center gap-2">
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Prenom"
+                                    name="firstname"
+                                    variant="outlined"
+                                    value={formData.firstname}
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    label="Nom de famille"
+                                    name="lastname"
+                                    variant="outlined"
+                                    value={formData.lastname}
+                                    onChange={handleChange}
+                                    required
                                 />
                             </div>
-                            <FormControl fullWidth margin="normal" variant="outlined" required>
-                                <InputLabel htmlFor="outlined-adornment-password">Mot de passe</InputLabel>
-                                <OutlinedInput
-                                    id="outlined-adornment-password"
-                                    name="password"
-                                    value={formData.password}
+                            <div className="md:flex items-center gap-2">
+                                <TextField
+                                    fullWidth
+                                    margin="normal"
+                                    type="email"
+                                    name="email"
+                                    autoComplete="email"
+                                    label="Email professionnelle"
+                                    variant="outlined"
+                                    value={formData.email}
                                     onChange={handleChange}
-                                    type={showPassword ? 'text' : 'password'}
-                                    endAdornment={
-                                        <InputAdornment position="end">
-                                            <IconButton
-                                                aria-label={
-                                                    showPassword ? 'hide the password' : 'display the password'
-                                                }
-                                                onClick={handleClickShowPassword}
-                                                onMouseDown={handleMouseDownPassword}
-                                                onMouseUp={handleMouseUpPassword}
-                                                edge="end"
-                                            >
-                                                {showPassword ? <VisibilityOff /> : <Visibility />}
-                                            </IconButton>
-                                        </InputAdornment>
-                                    }
-                                    label="Mot de passe"
+                                    required
                                 />
-                            </FormControl>
-                            <FormControl fullWidth margin="normal" variant="outlined" required>
-                                <InputLabel htmlFor="outlined-adornment-password">Confirmer mot de passe</InputLabel>
-                                <OutlinedInput
-                                    id="outlined-adornment-password"
-                                    name="confirmePassword"
-                                    value={confirmePassword}
-                                    onChange={(e) => setConfirmePassword(e.target.value)}
-                                    onBlur={checkPasswordMatch}
-                                    error={!isPasswordMatch}
-                                    type={showConfirmePassword ? 'text' : 'password'}
-                                    endAdornment={
-                                        <InputAdornment position="end">
-                                            <IconButton
-                                                aria-label={
-                                                    showConfirmePassword ? 'hide the password' : 'display the password'
-                                                }
-                                                onClick={handleClickShowConfirmePassword}
-                                                onMouseDown={handleMouseDownConfirmePassword}
-                                                onMouseUp={handleMouseUpConfirmePassword}
-                                                edge="end"
-                                            >
-                                                {showConfirmePassword ? <VisibilityOff /> : <Visibility />}
-                                            </IconButton>
-                                        </InputAdornment>
-                                    }
-                                    label="Confirmer mot de passe"
-                                />
-                                {!isPasswordMatch && (
-                                    <FormHelperText error>
-                                        Les mots de passe ne correspondent pas
-                                    </FormHelperText>
-                                )}
-                            </FormControl>
-
-                            <TextField
-                                fullWidth
-                                select
-                                label="Quel est votre profil ?"
-                                name="role"
-                                value={formData.role}
-                                onChange={handleChange}
-                                margin="normal"
-                                required
-                            >
-                                <MenuItem disabled>Sélectionnez un type</MenuItem>
-                                <MenuItem value="PROJECT_OWNER">Porteur de projet</MenuItem>
-                                <MenuItem value="INVESTOR">Investisseur</MenuItem>
-                            </TextField>
+                                <div style={{ width: "100%", margin: '16px 0' }}>
+                                    <PhoneInput
+                                        country={'cm'}
+                                        localization={fr}
+                                        value={formData.phone}
+                                        onChange={(value: string) => setFormData({ ...formData, phone: value })}
+                                        inputProps={{
+                                            required: true,
+                                            autoFocus: true
+                                        }}
+                                        containerStyle={{ width: '100%' }}
+                                        inputStyle={{ width: '100%', padding: '14px 14px 14px 58px' }}
+                                    />
+                                </div>
+                            </div>
+                            <div className="md:flex items-center gap-2">
+                                <FormControl fullWidth margin="normal" variant="outlined" required>
+                                    <InputLabel htmlFor="outlined-adornment-password">Mot de passe</InputLabel>
+                                    <OutlinedInput
+                                        id="outlined-adornment-password"
+                                        name="password"
+                                        value={formData.password}
+                                        onChange={handleChange}
+                                        type={showPassword ? 'text' : 'password'}
+                                        endAdornment={
+                                            <InputAdornment position="end">
+                                                <IconButton
+                                                    aria-label={
+                                                        showPassword ? 'hide the password' : 'display the password'
+                                                    }
+                                                    onClick={handleClickShowPassword}
+                                                    onMouseDown={handleMouseDownPassword}
+                                                    onMouseUp={handleMouseUpPassword}
+                                                    edge="end"
+                                                >
+                                                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        }
+                                        label="Mot de passe"
+                                    />
+                                </FormControl>
+                                <FormControl fullWidth margin="normal" variant="outlined" required>
+                                    <InputLabel htmlFor="outlined-adornment-password">Confirmer mot de passe</InputLabel>
+                                    <OutlinedInput
+                                        id="outlined-adornment-password"
+                                        name="confirmePassword"
+                                        value={confirmePassword}
+                                        onChange={(e) => setConfirmePassword(e.target.value)}
+                                        onBlur={checkPasswordMatch}
+                                        error={!isPasswordMatch}
+                                        type={showConfirmePassword ? 'text' : 'password'}
+                                        endAdornment={
+                                            <InputAdornment position="end">
+                                                <IconButton
+                                                    aria-label={
+                                                        showConfirmePassword ? 'hide the password' : 'display the password'
+                                                    }
+                                                    onClick={handleClickShowConfirmePassword}
+                                                    onMouseDown={handleMouseDownConfirmePassword}
+                                                    onMouseUp={handleMouseUpConfirmePassword}
+                                                    edge="end"
+                                                >
+                                                    {showConfirmePassword ? <VisibilityOff /> : <Visibility />}
+                                                </IconButton>
+                                            </InputAdornment>
+                                        }
+                                        label="Confirmer mot de passe"
+                                    />
+                                    {!isPasswordMatch && (
+                                        <FormHelperText error>
+                                            Incorrect
+                                        </FormHelperText>
+                                    )}
+                                </FormControl>
+                            </div>
+                            <div className="md:flex items-center gap-2">
+                                <TextField
+                                    fullWidth
+                                    select
+                                    label="Quel est votre profil ?"
+                                    name="role"
+                                    value={formData.role}
+                                    onChange={handleChange}
+                                    margin="normal"
+                                    required
+                                >
+                                    <MenuItem disabled>Sélectionnez un type</MenuItem>
+                                    <MenuItem value="PROJECT_OWNER">Porteur de projet</MenuItem>
+                                    <MenuItem value="INVESTOR">Investisseur</MenuItem>
+                                </TextField>
+                            </div>
                             <div className="">
-                                <p className="text-sm text-center"><NavLink className="text-blue-900 hover:underline" to={'#'}> En cliquant sur le bouton « Créer un compte », vous acceptez les conditions d'utilisation et</NavLink> la politique de confidentialité du portail d'investissement du Cameroun .</p>
+                                <p className="text-sm text-center"><NavLink className="text-blue-900 hover:underline" to={'#'}> {t('signup.terms_privacy_prefix')}</NavLink> {t('signup.terms_privacy_link')} .</p>
                             </div>
                             <Button
                                 fullWidth
@@ -308,7 +318,7 @@ const Logup = () => {
                                 startIcon={status === 'loading' ? <CircularProgress size={20} /> : ''}
                                 sx={{ backgroundColor: "#2A337B", mt: 2, textTransform: "none", borderRadius: "8px" }}
                             >
-                                {status === 'loading' ? 'En cours...' : 'Créer un compte'}
+                                {status === 'loading' ? t('signup.button_loading') : t('signup.button_register')}
                             </Button>
 
                         </form>
@@ -319,19 +329,19 @@ const Logup = () => {
                     {/* Connexion Google & Apple */}
                     <Box sx={{ mt: 4 }}>
                         <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 }}>
-                            Ou connectez-vous avec :
+                            {t('signup.social_login_text')}
                         </Typography>
                         <div className="flex justify-center gap-4 border-t border-gray-100 px-6 py-5">
                             <a href="#" className="rounded-full border border-gray-200 p-2 text-gray-900 hover:bg-red-300">
-                                <span className="sr-only">Company Google</span>
+                                <span className="sr-only">{t('signup.google_login')}</span>
                                 <GoogleIcon color="error" />
                             </a>
                             <a href="#" className="rounded-full border border-gray-200 p-2 text-gray-900 hover:bg-gray-300">
-                                <span className="sr-only">Company Google</span>
+                                <span className="sr-only">{t('signup.apple_login')}</span>
                                 <AppleIcon />
                             </a>
                             <a href="#" className="rounded-full border border-gray-200 p-2 text-gray-900 hover:bg-blue-300">
-                                <span className="sr-only">Company Linkedin</span>
+                                <span className="sr-only">{t('signup.linkedin_login')}</span>
                                 <LinkedIn color="primary" />
                             </a>
                         </div>
@@ -342,7 +352,7 @@ const Logup = () => {
                         variant="body2"
                         sx={{ mt: 2, color: "text.secondary", fontSize: "14px" }}
                     >
-                        Avez-vous déjà un compte? Connectez vous ici <NavLink to={"/signin"} style={{ color: "#2A337B" }}>Connectez-vous</NavLink>
+                        {t('signup.already_have_account')} <NavLink to={"/signin"} style={{ color: "#2A337B" }}>{t('signup.login_link')}</NavLink>
                     </Typography>
                 </Box>
             </Box>

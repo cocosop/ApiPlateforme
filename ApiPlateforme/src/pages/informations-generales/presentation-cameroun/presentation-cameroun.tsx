@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
 import AspectsJuridiques from '../aspects-juridiques/aspects-juridiques';
 
 type City = {
@@ -237,15 +236,6 @@ const PresentationCameroun: React.FC = () => {
                     </p>
                 </motion.div>
             </div>
-            <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
-                <BreadcrumbsComponent
-                    breadcrumbs={[
-                        { name: 'Accueil', path: '/' },
-                        { name: 'Informations générales', path: '#' },
-                        { name: 'Présentation du Cameroun', path: '#' }
-                    ]}
-                />
-            </div>
             <div className="bg-white py-20 sm:py-20 relative">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
@@ -285,40 +275,40 @@ const PresentationCameroun: React.FC = () => {
                 </motion.div>
             </div>
 
-            <div className="overflow-hidden bg-white py-20 sm:py-20">
-                <motion.h2
+            <div className="bg-white py-20 sm:py-20">
+                {/* <motion.h2
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
                     className="order-first text-2xl font-semibold tracking-tight text-gray-900 sm:text-2xl text-center"
                 >
                     Situation Géographique
-                </motion.h2>
-                <div className="grid grid-cols-2 gap-6 xl:grid-cols-2 lg:grid-cols-2 items-center">
+                </motion.h2> */}
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 items-center">
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
                         className="group relative"
                     >
-                        <div className="relative flex items-center justify-center h-[600px] overflow-hidden">
+                        <div className="relative flex items-center justify-center h-[700px]">
 
                             <svg
                                 baseProfile="tiny"
                                 fill="#6f9c76"
-                                height="500"
+                                height="1000"
                                 stroke="#ffffff"
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
                                 strokeWidth=".5"
                                 version="1.2"
                                 viewBox="0 0 1000 1000"
-                                width="500"
+                                width="1000"
                                 xmlns="http://www.w3.org/2000/svg"
-                                className="w-150 h-150 absolute"
+                                className="absolute w-auto h-auto transition-transform duration-300 ease-in-out hover:scale-[1.02]"
                             >
                                 {cities.map((city) => (
-                                    <g key={city.id}>
+                                    <g key={city.id} className="group">
                                         <path
                                             d={city.d}
                                             id={city.id}
@@ -327,18 +317,19 @@ const PresentationCameroun: React.FC = () => {
                                             onMouseEnter={() => handleMouseEnter(city.id)}
                                             onMouseLeave={handleMouseLeave}
                                         />
-                                        {/* Point de localisation multicolore */}
+
                                         <circle
-                                            cx={city.circleX} // Position X du cercle
-                                            cy={city.circleY} // Position Y du cercle
-                                            r="8" // Taille du cercle
-                                            fill={city.circleColor} // Couleur du cercle
-                                            className="pointer-events-none border-none"
+                                            cx={city.circleX}
+                                            cy={city.circleY}
+                                            r="8"
+                                            fill={city.circleColor}
+                                            className="pointer-events-none animate-pulse drop-shadow-md"
                                         />
+
                                         <text
                                             x={city.textX}
                                             y={city.textY}
-                                            className="text-900 font-bold-100  pointer-events-none"
+                                            className="text-sm font-semibold fill-white stroke-black stroke-[0.2px] pointer-events-none drop-shadow-sm"
                                         >
                                             {city.name}
                                         </text>
@@ -347,21 +338,27 @@ const PresentationCameroun: React.FC = () => {
                             </svg>
 
                             {hoveredCity && (
-                                <div className="absolute bg-white bg-opacity-80 p-4 rounded-lg shadow-lg" style={{ top: '40%', left: '50%' }}>
-                                    <h2 className="text-2xl text-blue-900 font-bold mb-4">{cities.find(city => city.id === hoveredCity)?.name}</h2>
-
-                                    <p className="text-green-900 mb-4">{cities.find(city => city.id === hoveredCity)?.description}</p>
-
-                                    <div className="space-y-2">
-                                        <p className="text-gray-700"><strong className="text-blue-900">Attractions:</strong> {cities.find(city => city.id === hoveredCity)?.attractions}</p>
-                                        <p className="text-gray-700"><strong className="text-blue-900">Population:</strong> {cities.find(city => city.id === hoveredCity)?.population}</p>
-                                        <p className="text-gray-700"><strong className="text-blue-900">Chef-lieu:</strong> {cities.find(city => city.id === hoveredCity)?.cheflieu}</p>
-                                        <p className="text-gray-700"><strong className="text-blue-900">Nombre de départements:</strong> {cities.find(city => city.id === hoveredCity)?.departements}</p>
-                                        <p className="text-gray-700"><strong className="text-blue-900">Langues Parlées:</strong> {cities.find(city => city.id === hoveredCity)?.langues}</p>
+                                <div
+                                    className="absolute bg-white bg-opacity-90 p-6 rounded-xl shadow-2xl w-[300px] max-w-[90%] backdrop-blur-md transition-all duration-300"
+                                    style={{ top: '30%', left: '50%', zIndex: '1000', position: 'fixed' }}
+                                >
+                                    <h2 className="text-xl text-blue-800 font-bold mb-3">
+                                        {cities.find(city => city.id === hoveredCity)?.name}
+                                    </h2>
+                                    <p className="text-gray-600 italic mb-4">
+                                        {cities.find(city => city.id === hoveredCity)?.description}
+                                    </p>
+                                    <div className="space-y-1 text-sm">
+                                        <p><strong className="text-blue-900">Attractions :</strong> {cities.find(city => city.id === hoveredCity)?.attractions}</p>
+                                        <p><strong className="text-blue-900">Population :</strong> {cities.find(city => city.id === hoveredCity)?.population}</p>
+                                        <p><strong className="text-blue-900">Chef-lieu :</strong> {cities.find(city => city.id === hoveredCity)?.cheflieu}</p>
+                                        <p><strong className="text-blue-900">Départements :</strong> {cities.find(city => city.id === hoveredCity)?.departements}</p>
+                                        <p><strong className="text-blue-900">Langues :</strong> {cities.find(city => city.id === hoveredCity)?.langues}</p>
                                     </div>
                                 </div>
                             )}
                         </div>
+
                     </motion.div>
                     <motion.div
                         initial={{ opacity: 0, x: 50 }}
@@ -369,8 +366,8 @@ const PresentationCameroun: React.FC = () => {
                         transition={{ duration: 1 }}
                         className='group relative'
                     >
-                        <div className="flex items-center justify-center h-[600px] w-full relative overflow-hidden">
-                            <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center relative shadow-xl shadow-gray-200">
+                        <div className="flex items-center justify-center h-[50rem] w-full relative overflow-hidden">
+                            <div className="w-10 h-10 bg-yellow-500 rounded-full flex items-center justify-center relative shadow-xl shadow-gray-200">
                                 <img
                                     src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg"
                                     alt="Cameroon Flag"
@@ -383,7 +380,7 @@ const PresentationCameroun: React.FC = () => {
                                     className={`absolute ${info.orbit} flex items-center justify-center`}
                                     style={{
                                         transformOrigin: '0 0',
-                                        transform: `rotate(${index * (360 / infos.length)}deg) translate(200px) rotate(-${index * (360 / infos.length)}deg)`,
+                                        transform: `rotate(${index * (360 / infos.length)}deg) translate(150px) rotate(-${index * (360 / infos.length)}deg)`,
                                     }}
                                 >
                                     <div className={`${info.size} ${info.color} rounded-full shadow-md flex items-center justify-center relative`}>
@@ -400,6 +397,7 @@ const PresentationCameroun: React.FC = () => {
                     </motion.div>
                 </div>
             </div>
+
             <div className="bg-white py-24 sm:py-32">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <dl className="grid grid-cols-1 gap-x-8 gap-y-16 text-center lg:grid-cols-3">

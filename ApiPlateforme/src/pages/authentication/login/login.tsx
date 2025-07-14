@@ -6,6 +6,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import AlertComponent, { NotificationProvider } from "../../../components/alert/AlertComponent";
 import { useAuthStore } from "../../../store/AuthStore";
+import { useTranslation } from 'react-i18next';
+import { backendUrl } from "../../../constants/constants";
 
 const Login = () => {
   const [email, setEmail] = React.useState(String);
@@ -14,6 +16,7 @@ const Login = () => {
 
   const history = useNavigate();
   const { showNotification } = AlertComponent();
+  const { t } = useTranslation();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -29,7 +32,7 @@ const Login = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    await axios.post("http://localhost:8080/api/v1/auth/login", {
+    await axios.post(`${backendUrl}/api/v1/auth/login`, {
       email,
       password
     })
@@ -52,13 +55,13 @@ const Login = () => {
     res => res,
     error => {
       const statusHandlers: any = {
-        403: () => showNotification("Accès interdit", "error"),
-        404: () => showNotification("L'adresse email est incorrecte", "warning"),
-        500: () => showNotification("Erreur serveur", "error"),
+        403: () => showNotification(t('login.errors.forbidden'), "error"),
+        404: () => showNotification(t('login.errors.not_found'), "warning"),
+        500: () => showNotification(t('login.errors.server_error'), "error"),
       };
 
       const status = error.response?.status;
-      (statusHandlers[status] || (() => showNotification("Erreur inconnue", "error")))();
+      (statusHandlers[status] || (() => showNotification(t('login.errors.unknown'), "error")))();
 
       return Promise.reject(error);
     }
@@ -84,7 +87,7 @@ const Login = () => {
         >
           <img
             src={LOGIN}
-            alt="Login Illustration"
+            alt={t('login.alt_image')}
             style={{
               height: "100%",
               width: "100%",
@@ -122,7 +125,7 @@ const Login = () => {
               fontWeight: "bold",
             }}
           >
-            Bienvenue Au Portail Des Investisseurs de l’API
+            {t('login.title')}
           </Typography>
           <Typography
             gutterBottom
@@ -132,7 +135,7 @@ const Login = () => {
               fontWeight: "semi-bold",
             }}
           >
-            Connectez-Vous
+            {t('login.subtitle')}
           </Typography>
 
           {/* Champs de connexion */}
@@ -141,7 +144,7 @@ const Login = () => {
               <TextField
                 fullWidth
                 margin="normal"
-                label="Adresse e-mail"
+                label={t('login.email_label')}
                 variant="outlined"
                 value={email}
                 autoComplete="email"
@@ -149,7 +152,7 @@ const Login = () => {
                 required
               />
               <FormControl fullWidth margin="normal" variant="outlined" required>
-                <InputLabel htmlFor="outlined-adornment-password">Mot de passe</InputLabel>
+                <InputLabel htmlFor="outlined-adornment-password">{t('login.password_label')}</InputLabel>
                 <OutlinedInput
                   id="outlined-adornment-password"
                   value={password}
@@ -160,7 +163,7 @@ const Login = () => {
                     <InputAdornment position="end">
                       <IconButton
                         aria-label={
-                          showPassword ? 'hide the password' : 'display the password'
+                          showPassword ? t('login.password_hide') : t('login.password_show')
                         }
                         onClick={handleClickShowPassword}
                         onMouseDown={handleMouseDownPassword}
@@ -171,11 +174,11 @@ const Login = () => {
                       </IconButton>
                     </InputAdornment>
                   }
-                  label="Mot de passe"
+                  label={t('login.password_label')}
                 />
               </FormControl>
               <div className="flex justify-end items-center">
-                <NavLink className="text-slate-500 hover:text-blue-900 text-sm" to={'/forget-password'}>Mot de passe oublié?</NavLink>
+                <NavLink className="text-slate-500 hover:text-blue-900 text-sm" to={'/forget-password'}>{t('login.forgot_password')}</NavLink>
               </div>
               <Button
                 fullWidth
@@ -184,7 +187,7 @@ const Login = () => {
                 onSubmit={handleSubmit}
                 sx={{ backgroundColor: "#2A337B", mt: 2, textTransform: "none", borderRadius: "8px" }}
               >
-                Se connecter
+                {t('login.button')}
               </Button>
             </form>
           </NotificationProvider>
@@ -192,19 +195,19 @@ const Login = () => {
           {/* Connexion Google & Apple */}
           <Box sx={{ mt: 4 }}>
             <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 }}>
-              Ou connectez-vous avec :
+              {t('login.social_login_text')}
             </Typography>
             <div className="flex justify-center gap-4 border-t border-gray-100 px-6 py-5">
               <a href="#" className="rounded-full border border-gray-200 p-2 text-gray-900 hover:bg-red-300">
-                <span className="sr-only">Company Google</span>
+                <span className="sr-only">{t('login.google_login')}</span>
                 <GoogleIcon color="error" />
               </a>
               <a href="#" className="rounded-full border border-gray-200 p-2 text-gray-900 hover:bg-gray-300">
-                <span className="sr-only">Company Google</span>
+                <span className="sr-only">{t('login.apple_login')}</span>
                 <AppleIcon />
               </a>
               <a href="#" className="rounded-full border border-gray-200 p-2 text-gray-900 hover:bg-blue-300">
-                <span className="sr-only">Company Linkedin</span>
+                <span className="sr-only">{t('login.linkedin_login')}</span>
                 <LinkedIn color="primary" />
               </a>
             </div>
@@ -215,7 +218,7 @@ const Login = () => {
             variant="body2"
             sx={{ mt: 2, color: "text.secondary", fontSize: "14px" }}
           >
-            Pas encore de compte ? <NavLink to={"/signup"} style={{ color: "#2A337B" }}>Inscrivez-vous</NavLink>
+            {t('login.no_account_yet')} <NavLink to={"/signup"} style={{ color: "#2A337B" }}>{t('login.signup_link')}</NavLink>
           </Typography>
         </Box>
       </Box>
