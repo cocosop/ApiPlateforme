@@ -29,8 +29,6 @@ import ActivationToken from '../../pages/authentication/activationToken/activati
 import ForgetPassword from '../../pages/authentication/forgetPassword/forgetPassword';
 import ResetPassword from '../../pages/authentication/resetPassword/resetPassword';
 
-
-
 const PublicContent = () => {
     return (
         <Route element={<PublicLayout />}>

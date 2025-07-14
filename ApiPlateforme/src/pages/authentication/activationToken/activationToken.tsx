@@ -17,6 +17,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import DialogComponent from '../../../components/dialogComponent/dialogComponent';
 import TokenInput from '../../../components/tokenInput/tokenInput';
+import { backendUrl } from '../../../constants/constants';
 
 // Thème personnalisé
 const theme = createTheme({
@@ -51,7 +52,7 @@ const ActivationToken = () => {
     setStatus('loading');
 
     try {
-      axios.post(`http://localhost:8080/api/v1/auth/activated-account?token=${token}`)
+      axios.post(`${backendUrl}/api/v1/auth/activated-account?token=${token}`)
         .then((res) => {
           res.data.status === 202 ? setStatus('success') : setStatus('error');
           if (res.request.status === 202) {

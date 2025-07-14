@@ -1,9 +1,7 @@
-import {Upload,Search, Filter } from 'lucide-react';
+import { Upload,  Search, Filter } from 'lucide-react';
 
 
 const Documents: React.FC = () => {
-
-  
 
   return (
     <div className="bg-white rounded-xl shadow-sm  space-y-6">

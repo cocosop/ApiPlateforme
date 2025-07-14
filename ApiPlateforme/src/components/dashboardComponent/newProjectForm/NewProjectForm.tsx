@@ -83,19 +83,6 @@ const ProjectFormModal: React.FC<ProjectFormModalProps> = ({
               </div>
 
               <div>
-                <label htmlFor="promoteur" className="block text-sm font-medium text-gray-700 mb-1">Promoteur</label>
-                <input
-                  id="promoteur"
-                  type="text"
-                  name="promoteur"
-                  value={newProject.promoteur}
-                  onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  required
-                />
-              </div>
-
-              <div>
                 <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">Description</label>
                 <textarea
                   id="description"
@@ -195,33 +182,8 @@ const ProjectFormModal: React.FC<ProjectFormModalProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-4">
               <h4 className="font-medium text-gray-700">Informations financières</h4>
-
               <div>
-                <label htmlFor="montant" className="block text-sm font-medium text-gray-700 mb-1">Montant total (XAF)</label>
-                <input
-                  id="montant"
-                  type="text"
-                  name="montant"
-                  value={newProject.montant}
-                  onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="return" className="block text-sm font-medium text-gray-700 mb-1">Retour sur investissement(%)</label>
-                <input
-                  id="return"
-                  type="text"
-                  name="return"
-                  value={newProject.retour}
-                  onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-1">Budget alloué(XAF)</label>
+                <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-1">Budget Prévu(XAF)</label>
                 <input
                   id="budget"
                   type="text"
@@ -230,57 +192,6 @@ const ProjectFormModal: React.FC<ProjectFormModalProps> = ({
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
-              </div>
-            </div>
-
-            {/* Suivi du projet */}
-            <div className="space-y-4">
-              <h4 className="font-medium text-gray-700">Suivi du projet</h4>
-
-              <div>
-                <label htmlFor="statut" className="block text-sm font-medium text-gray-700 mb-1">Statut</label>
-                <select
-                  id="statut"
-                  name="statut"
-                  value={newProject.statut}
-                  onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="Planification">Planification</option>
-                  <option value="En cours">En cours</option>
-                  <option value="Terminé">Terminé</option>
-                  <option value="Suspendu">Suspendu</option>
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="risk" className="block text-sm font-medium text-gray-700 mb-1">Niveau de risque</label>
-                <select
-                  id="risk"
-                  name="risk"
-                  value={newProject.risk}
-                  onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                >
-                  <option value="Faible">Faible</option>
-                  <option value="Modéré">Modéré</option>
-                  <option value="Élevé">Élevé</option>
-                </select>
-              </div>
-
-              <div>
-                <label htmlFor="progress" className="block text-sm font-medium text-gray-700 mb-1">Progression (%)</label>
-                <input
-                  id="progress"
-                  type="range"
-                  name="progress"
-                  min="0"
-                  max="100"
-                  value={newProject.progress}
-                  onChange={handleInputChange}
-                  className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-                />
-                <div className="text-center mt-1">{newProject.progress}%</div>
               </div>
             </div>
           </div>
@@ -292,7 +203,7 @@ const ProjectFormModal: React.FC<ProjectFormModalProps> = ({
               id="image"
               type="url"
               name="image"
-              value={newProject.image}
+              value={newProject.image_url}
               onChange={handleInputChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="https://example.com/image.jpg"

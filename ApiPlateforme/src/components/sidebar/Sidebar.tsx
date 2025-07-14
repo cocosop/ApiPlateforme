@@ -2,7 +2,6 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuthStore } from '../../store/AuthStore';
 import {
-  Users,
   FolderKanban,
   PiggyBank,
   Settings,
@@ -29,9 +28,8 @@ interface MenuItem {
 // Menus spécifiques selon le rôle
 const roleMenus: Record<UserRole, MenuItem[]> = {
   ADMIN: [
-    { icon: LayoutDashboard, label: 'Tableau de bord', path: '/dashboard' },
-    { icon: Users, label: 'Utilisateurs', path: '/users' },
-    { icon: FolderKanban, label: 'Tous les projets', path: '/projets' },
+    { icon: FolderKanban, label: 'Toutes les demandes', path: '/demandes' },
+    { icon: PiggyBank, label: 'Tous les projets', path: '/projets' },
     { icon: BarChart, label: 'Analytique', path: '/analytics' },
     { icon: Settings, label: 'Paramètres', path: '/parametres' },
   ],
@@ -42,7 +40,8 @@ const roleMenus: Record<UserRole, MenuItem[]> = {
   ],
   INVESTOR: [
     { icon: LayoutDashboard, label: 'Tableau de bord', path: '/dashboard' },
-    { icon: FolderKanban, label: 'Projets', path: '/investissements' },
+    { icon: FolderKanban, label: 'Mes demandes', path: '/demandes' },
+    { icon: PiggyBank, label: 'Mes Projets', path: '/investissements' },
     { icon: Settings, label: 'Paramètres', path: '/parametres' },
   ],
 };
@@ -52,9 +51,6 @@ const commonMenuItems: MenuItem[] = [
   { icon: Bell, label: 'Notifications', path: '/notifications' },
   { icon: MessageSquare, label: 'Messages', path: '/messages' },
   { icon: UserCircle, label: 'Profil', path: '/profil' },
-  { icon: PiggyBank, label: 'Mes Projets', path: '/investissements' },
-  { icon: BarChart, label: 'Suivie Pojets', path: '/analytics' },
-
 ];
 
 

@@ -1,10 +1,18 @@
 import { Outlet } from "react-router-dom";
 import AppHeader from "../components/header/AppHeader";
 import Sidebar from "../components/sidebar/Sidebar";
+import { useAuthStore } from "../store/AuthStore";
 
 
 
 const PrivateLayout = () => {
+    const decoded = useAuthStore((state) => state.decoded);
+    console.log(`decoded`);
+    console.log(decoded);
+
+    if (!decoded) {
+        return <p>Utilisateur non connecté</p>;
+    }
     return (
         <div className="flex min-h-screen">
             <div className="sticky top-0 h-screen">

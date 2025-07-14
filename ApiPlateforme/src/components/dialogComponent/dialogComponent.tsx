@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { TextField } from '@mui/material';
+import { backendUrl } from '../../constants/constants';
 
 const DialogComponent: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => {
     const [email, setEmail] = useState('');
@@ -11,7 +12,7 @@ const DialogComponent: React.FC<{ open: boolean; onClose: () => void }> = ({ ope
     const handleSubmit = async () => {
         try {
             await axios
-                .post(`http://localhost:8080/api/v1/auth/resend-activation-token?email=${email}`)
+                .post(`${backendUrl}/api/v1/auth/resend-activation-token?email=${email}`)
                 .then((res) => {
                     res.request.status === 202 ? setStatus('success') : setStatus('error');
                     if (res.request.status === 429) {

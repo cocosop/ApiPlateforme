@@ -1,7 +1,6 @@
 import { CheckCircleIcon } from '@heroicons/react/20/solid';
 import { motion } from 'framer-motion';
 import React from 'react';
-import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
 import { useTranslation } from 'react-i18next';
 
 const CadreJuridiqueFiscal: React.FC = () => {
@@ -178,7 +177,7 @@ const CadreJuridiqueFiscal: React.FC = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
                     className="relative z-10 text-center">
-                   <h1 className="text-5xl font-bold text-white reveal">
+                    <h1 className="text-5xl font-bold text-white reveal">
                         {t('information_general.cadre_juridique_fiscal.hero.title')}
                     </h1>
                     <p className="mt-4 text-lg text-gray-300">
@@ -186,15 +185,7 @@ const CadreJuridiqueFiscal: React.FC = () => {
                     </p>
                 </motion.div>
             </div>
-            <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
-            <BreadcrumbsComponent
-                    breadcrumbs={[
-                        { name: t('breadcrumbs.home'), path: '/' },
-                        { name: t('breadcrumbs.generalInformation'), path: '#' },
-                        { name: t('breadcrumbs.legalAndFiscalFramework'), path: '#' }
-                    ]}
-                />
-            </div>
+
             <section className="bg-white py-20 sm:py-20 relative">
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
@@ -204,11 +195,11 @@ const CadreJuridiqueFiscal: React.FC = () => {
                     <div className="relative mt-8 lg:row-span-2 rounded-2xl shadow-lg transform hover:scale-105 transition-transform duration-500">
                         <div className="absolute inset-0 bg-gray-900 opacity-90 rounded-2xl"></div>
                         <div className="relative min-h-auto pb-6 w-full grow">
-                        <div className="z-10 absolute -top-5 left-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 p-4 rounded-md shadow-lg text-sm font-light w-max">
+                            <div className="z-10 absolute -top-5 left-10 bg-gradient-to-r from-yellow-400 to-orange-500 text-gray-900 p-4 rounded-md shadow-lg text-sm font-light w-max">
                                 {t('information_general.cadre_juridique_fiscal.featured')}
                             </div>
                             <div className="px-8 pb-4 pt-10 sm:px-10 sm:pb-0 md:pt-12 text-white">
-                            <h3 className="font-bold text-2xl sm:text-3xl">
+                                <h3 className="font-bold text-2xl sm:text-3xl">
                                     {t('information_general.cadre_juridique_fiscal.introduction.title')}
                                 </h3>
                                 <p className="mt-6 text-base leading-relaxed text-gray-300">
@@ -305,7 +296,7 @@ const CadreJuridiqueFiscal: React.FC = () => {
                             <CheckCircleIcon className="h-6 w-6 text-white" />
                         </div>
                         <div className="px-8 pb-4 pt-10 sm:px-10 sm:pb-0 md:pt-12 text-white">
-                        <p className="text-justify leading-relaxed text-gray-700">
+                            <p className="text-justify leading-relaxed text-gray-700">
                                 {t('information_general.cadre_juridique_fiscal.conclusionFinal')}
                             </p>
                         </div>
