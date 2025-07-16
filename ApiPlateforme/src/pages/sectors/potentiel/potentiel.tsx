@@ -11,31 +11,18 @@ import {
   Building, 
   CreditCard, 
   ChevronRight,
-  TrendingUp,
-  Globe,
-  Users,
-  DollarSign,
   BarChart3,
-  ArrowRight,
   Lightbulb,
   X,
   ExternalLink,
   Info,
   Eye,
   Truck,
-  Ship,
-  Plane,
   Shield,
-  FileText,
   CheckCircle,
   AlertCircle,
-  Anchor,
-  Route,
-  Zap as Lightning,
   Home,
   Factory,
-  Percent,
-  TrendingDown
 } from 'lucide-react';
 
 interface Sector {
@@ -293,75 +280,8 @@ const sectors: Sector[] = [
   }
 ];
 
-const officialStats = [
-  { icon: <Users className="w-6 h-6" />, label: 'Population', value: '28M habitants', subtext: 'Population active: 17M' },
-  { icon: <DollarSign className="w-6 h-6" />, label: 'PIB 2023', value: '46,5 Mds USD', subtext: 'Croissance: 3,9%' },
-  { icon: <TrendingUp className="w-6 h-6" />, label: 'Prévision 2024', value: 'Croissance 4,3%', subtext: 'PIB/hab: 1 650 USD' },
-  { icon: <Globe className="w-6 h-6" />, label: 'Urbanisation', value: '58%+', subtext: 'Croissance: 2,6%/an' }
-];
 
-const legalFramework = [
-  {
-    icon: <Shield className="w-6 h-6" />,
-    title: 'Sécurité Juridique',
-    description: 'Système juridique mixte (droit civil et common law). Membre de l\'OHADA garantissant une sécurité juridique régionale.'
-  },
-  {
-    icon: <FileText className="w-6 h-6" />,
-    title: 'Charte des Investissements',
-    description: 'Lois n°2013/004 et n°2017/015 sur les incitations à l\'investissement privé avec cadre législatif favorable.'
-  },
-  {
-    icon: <CheckCircle className="w-6 h-6" />,
-    title: 'Accords Bilatéraux',
-    description: 'Accords bilatéraux de protection de l\'investissement signés avec de nombreux pays partenaires.'
-  },
-  {
-    icon: <Percent className="w-6 h-6" />,
-    title: 'Incitations Fiscales',
-    description: 'Exonérations fiscales et douanières pendant les phases d\'installation et d\'exploitation.'
-  }
-];
 
-const transportInfra = [
-  {
-    icon: <Ship className="w-8 h-8" />,
-    title: 'Port de Douala',
-    description: 'Principal port commercial traitant 80% des importations/exportations',
-    status: 'Opérationnel - Modernisation en cours',
-    challenge: 'Congestion portuaire à résoudre'
-  },
-  {
-    icon: <Anchor className="w-8 h-8" />,
-    title: 'Port de Kribi',
-    description: 'Port en eaux profondes pour navires de grande capacité',
-    status: 'Récemment inauguré - Solution moderne',
-    challenge: 'Désengorger Douala'
-  },
-  {
-    icon: <Route className="w-8 h-8" />,
-    title: 'Corridors Régionaux',
-    description: 'Douala-N\'Djamena (Tchad) et Douala-Bangui (RCA)',
-    status: 'Fonctionnels - Vitaux pour pays enclavés',
-    challenge: 'Modernisation nécessaire'
-  },
-  {
-    icon: <Plane className="w-8 h-8" />,
-    title: 'Transport Aérien',
-    description: 'Aéroports internationaux (Douala, Yaoundé, Garoua)',
-    status: 'Opérationnels - Marchandises haute valeur',
-    challenge: 'Coût élevé du transport aérien'
-  }
-];
-
-const keyIndicators = [
-  { label: 'PIB par habitant', value: '1 650 USD', trend: 'up' },
-  { label: 'Inflation', value: '6,7%', trend: 'neutral' },
-  { label: 'Taux d\'alphabétisation', value: '77%', trend: 'up' },
-  { label: 'Doing Business', value: '167e/190', trend: 'neutral' },
-  { label: 'Compétitivité mondiale', value: '131e/141', trend: 'neutral' },
-  { label: 'Monnaie', value: 'Franc CFA (XAF)', trend: 'stable' }
-];
 
 const Potentiel = () => {
   const [selectedSector, setSelectedSector] = useState<string | null>(null);

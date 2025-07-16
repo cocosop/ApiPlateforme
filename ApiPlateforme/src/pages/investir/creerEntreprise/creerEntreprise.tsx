@@ -1,51 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
-import { ChevronDownIcon, DocumentTextIcon, BuildingLibraryIcon, ClockIcon, CheckBadgeIcon, CheckCircleIcon, LightBulbIcon, MapPinIcon, CurrencyDollarIcon, UserIcon, UsersIcon, ScaleIcon, BanknotesIcon } from '@heroicons/react/24/outline';
+import { ChevronDownIcon, DocumentTextIcon, BuildingLibraryIcon, ClockIcon, CheckBadgeIcon, CheckCircleIcon, LightBulbIcon, MapPinIcon, CurrencyDollarIcon, UserIcon, UsersIcon, BanknotesIcon } from '@heroicons/react/24/outline';
 import oeuvre from "../../../assets/img/entreprise.jpg"
-import CACAO from "../../../assets/img/cacao4.png"
-import ENERGIE from "../../../assets/img/energie.jpg"
-import ProjectCard from '../../../components/projetCard/projetCard';
-import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 type Section = 'Contexte Juridique' | 'Avantages Fiscaux' | 'Institutions' | 'Processus Détaillé' | 'Coûts et Délais';
 
   const CreationEntreprise = () => {
 
-  const [projects] = useState([
-    {
-      id: 1,
-      secteur: "Agro-industrie",
-      titre: "Exploitation de plantation de cacao",
-      ville: "Douala",
-      quartier: "Bonaberi",
-      description: "Mise en place d'une plantation moderne de cacao avec une production annuelle de 50 tonnes.",
-      image: CACAO,
-      latitude: 4.0511,
-      longitude: 9.7679,
-    },
-    {
-      id: 2,
-      secteur: "Énergie",
-      titre: "Parc solaire de 20 MW",
-      ville: "Garoua",
-      quartier: "Ngaoundere route",
-      description: "Construction d'un parc solaire pour fournir de l'énergie propre à la région du Nord.",
-      image: ENERGIE,
-      latitude: 4.0511,
-      longitude: 9.7679,
-    },
-    {
-      id: 3,
-      secteur: "Numérique",
-      titre: "Plateforme de paiement mobile",
-      ville: "Yaoundé",
-      quartier: "Bastos",
-      description: "Développement d'une application de paiement mobile visant à faciliter les transactions financières locales.",
-      image: "https://img.freepik.com/free-photo/high-angle-friends-reading-menu-restaurant_23-2150384825.jpg?t=st=1738099850~exp=1738103450~hmac=263dee2608a764be0cc905367387bf817f98c3b6a3df41a0103a348fa8777175&w=996",
-      latitude: 4.0511,
-      longitude: 9.7679,
-    }
-  ]);
   const [activeTab, setActiveTab] = useState<'physique' | 'morale'>('physique');
   const [openSection, setOpenSection] = useState<Section | null>(null);
 
