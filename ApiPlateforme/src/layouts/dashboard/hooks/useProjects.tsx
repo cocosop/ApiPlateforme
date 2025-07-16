@@ -1,6 +1,6 @@
 // src/features/projects/hooks/useProjects.ts
 import { useState, useEffect, useCallback } from 'react';
-import { projectApi } from '../../../api/services/projectService'; // Chemin ajusté
+import projectService from '../../../services/projectService';
 import { ProjeTypes } from '../../../types'; // Chemin ajusté
 
 interface UseProjectsResult {
@@ -20,8 +20,8 @@ export const useProjects = (): UseProjectsResult => {
     setLoading(true);
     setError(null);
     try {
-      const data = await projectApi.getAllProjects();
-      setProjects(data);
+      const res = await projectService.fetchAllProjects();
+      setProjects(res.data);
     } catch (err) {
       setError('Failed to fetch projects.');
       console.error(err);
@@ -34,8 +34,8 @@ export const useProjects = (): UseProjectsResult => {
     setLoading(true); // Indiquer un chargement pendant l'ajout
     setError(null);
     try {
-      const newProject = await projectApi.createProject(project);
-      setProjects(prevProjects => [...prevProjects, newProject]);
+      const res = await projectService.addProject(project);
+      setProjects(prevProjects => [...prevProjects, res.data]);
     } catch (err) {
       setError('Failed to create project.');
       console.error(err);

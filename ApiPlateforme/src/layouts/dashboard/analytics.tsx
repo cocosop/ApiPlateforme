@@ -1,65 +1,118 @@
-import React, { useState } from 'react';
-import { FaMapMarkerAlt, FaCalendarAlt, FaFileAlt, FaMoneyBillWave, FaChartLine, FaCheckCircle, FaSpinner, FaClock, FaEdit, FaSave, FaTimes } from 'react-icons/fa';
+import React, { useEffect, useState } from 'react';
+import { FaMapMarkerAlt, FaCalendarAlt, FaMoneyBillWave, FaChartLine, FaCheckCircle, FaSpinner, FaClock, FaEdit, FaSave, FaTimes, FaEllipsisV, FaFileAlt } from 'react-icons/fa';
+import { useParams } from 'react-router-dom';
+import projectService from '../../services/projectService';
+import stageService from '../../services/stageService';
+import docService from '../../services/docService';
 
-type Jalon = {
-  titre: string;
-  statut: 'terminé' | 'en cours' | 'à venir';
+type Stage = {
+  id?: number;
+  title: string;
+  description: string;
+  seq: number;
+  status: 'IN_PROGRESS' | 'COMPLETED' | 'UPCOMING';
   date: string;
+  projectId: number;
 };
 
-type Projet = {
-  nom: string;
+type Document = {
+  title: string;
   description: string;
-  localisation: string;
-  statut: string;
-  avancement: number;
-  financementTotal: string;
-  montantInvesti: string;
-  tauxRetour: string;
-  debut: string;
-  finPrevue: string;
-  documents: string[];
-  jalons: Jalon[];
+  url_file: string;
+  projectId: number;
+}
+
+type Projet = {
+  id?: number;
+  titre: string;
+  description: string;
+  ville: string;
+  region: string;
+  quartier: string;
+  status: string;
+  budget: number;
+  roi: number;
+  montant: number;
+  dateDebut: string;
+  dateFin: string;
+  url_image?: string;
+  documents: Document[];
+  stages: Stage[];
 };
 
 const SuiviProjetDetail: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [projet, setProjet] = useState<Projet>({
-    nom: 'Projet Énergie Solaire pour Zones Rurales',
-    description:
-      'Ce projet ambitieux vise à installer des panneaux solaires autonomes dans 100 villages reculés du Cameroun, offrant un accès stable à l\'électricité et réduisant drastiquement la dépendance au réseau national, améliorant ainsi la qualité de vie des communautés locales.',
-    localisation: 'Nord, Cameroun',
-    statut: 'En cours',
-    avancement: 65,
-    financementTotal: '100 000 000 FCFA',
-    montantInvesti: '45 000 000 FCFA',
-    tauxRetour: '12%',
-    debut: '2024-01-01',
-    finPrevue: '2025-12-31',
-    documents: ['Business Plan V2.pdf', 'Rapport Trimestriel Q1.pdf', 'Plan d\'Installation.docx'],
-    jalons: [
-      { titre: 'Étude de faisabilité et sélection sites', statut: 'terminé', date: '2024-02-15' },
-      { titre: 'Lancement officiel des travaux', statut: 'terminé', date: '2024-04-01' },
-      { titre: 'Installation panneaux phase 1 (25 villages)', statut: 'en cours', date: '2024-06-10' },
-      { titre: 'Installation panneaux phase 2 (50 villages)', statut: 'à venir', date: '2024-11-20' },
-      { titre: 'Mise en service finale et formation', statut: 'à venir', date: '2025-01-15' },
-    ],
+  const [isAddingJalon, setIsAddingJalon] = useState(false);
+  const [isAddingDoc, setIsAddingDoc] = useState(false);
+  const [newJalon, setNewJalon] = useState<Omit<Stage, 'id'>>({
+    title: '',
+    description: '',
+    seq: 1,
+    status: 'UPCOMING',
+    date: new Date().toISOString().split('T')[0],
+    projectId: 0,
   });
-
+  const [moreMenuIndex, setMoreMenuIndex] = useState<number | null>(null);
+  const [editJalonIndex, setEditJalonIndex] = useState<number | null>(null);
+  const [editDocumentIndex, setEditDocumentIndex] = useState<number | null>(null);
+  const [moreDocMenuIndex, setMoreDocMenuIndex] = useState<number | null>(null);
+  const [newDocument, setNewDocument] = useState<Document>({
+    title: '',
+    description: '',
+    url_file: '',
+    projectId: 0,
+  });
+  const projectTitle = useParams().titre;
+  const [projet, setProjet] = useState<Projet>({
+    url_image: '',
+    titre: '',
+    description: '',
+    ville: '',
+    region: '',
+    quartier: '',
+    status: '',
+    budget: 0,
+    roi: 0,
+    montant: 0,
+    dateDebut: '',
+    dateFin: '',
+    documents: [],
+    stages: [],
+  });
   const [editProjet, setEditProjet] = useState<Projet>({ ...projet });
+  const [image, setImage] = useState<string>(projet.url_image!);
 
   const getStatusClasses = (status: string) => {
-    switch (status.toLowerCase()) {
-      case 'terminé':
+    switch (status) {
+      case 'completed':
         return 'bg-green-100 text-green-700';
-      case 'en cours':
+      case 'in_progress':
         return 'bg-yellow-100 text-yellow-700';
-      case 'à venir':
+      case 'upcoming':
         return 'bg-blue-100 text-blue-700';
+      case 'accepted':
+        return 'bg-green-100 text-gray-700';
+      case 'rejected':
+        return 'bg-red-100 text-gray-700';
+      case 'studying':
+        return 'bg-blue-100 text-gray-700';
       default:
         return 'bg-gray-100 text-gray-700';
     }
   };
+
+  const handleProjectStatus = (status: string) => {
+    if (status.toLowerCase() === 'pending') {
+      return 'En attente';
+    } else if (status.toLowerCase() === 'rejected') {
+      return 'Rejeté';
+    } else if (status.toLowerCase() === 'studying') {
+      return 'En étude';
+    } else if (status.toLowerCase() === 'accepted') {
+      return 'Approuvé';
+    }
+    return '';
+  }
 
   const handleEditClick = () => {
     setEditProjet({ ...projet });
@@ -69,6 +122,13 @@ const SuiviProjetDetail: React.FC = () => {
   const handleSaveClick = () => {
     setProjet({ ...editProjet });
     setIsEditing(false);
+    projectService.updateProject(editProjet.titre, editProjet)
+      .then(() => {
+        // Optionnel : afficher un message de succès ou mettre à jour l'état
+      })
+      .catch(error => {
+        console.error("Erreur lors de la mise à jour du projet :", error);
+      });
   };
 
   const handleCancelClick = () => {
@@ -79,57 +139,87 @@ const SuiviProjetDetail: React.FC = () => {
     const { name, value } = e.target;
     setEditProjet(prev => ({
       ...prev,
-      [name]: value
+      [name]: name === "budget" || name === "montant" || name === "roi"
+        ? Number(value)
+        : value
     }));
   };
 
-  const handleJalonChange = (index: number, field: keyof Jalon, value: string) => {
-    const updatedJalons = [...editProjet.jalons];
-    updatedJalons[index] = {
-      ...updatedJalons[index],
+  const handleNewJalonChange = (field: keyof Omit<Stage, 'id'>, value: string) => {
+    setNewJalon(prev => ({
+      ...prev,
       [field]: value
+    }));
+  };
+
+  const handleAddJalonClick = () => {
+    setIsAddingJalon(true);
+    setNewJalon({
+      title: '',
+      description: '',
+      seq: (editProjet.stages?.length || 0) + 1,
+      status: 'UPCOMING',
+      date: new Date().toISOString().split('T')[0],
+      projectId: projet.id ?? 0,
+    });
+  };
+
+  const handleSaveJalon = async () => {
+    if (!projet.id) return;
+    const jalonToSend = {
+      ...newJalon,
+      seq: (editProjet.stages?.length || 0) + 1,
+      projectId: projet.id,
+      date: newJalon.date,
     };
-    setEditProjet(prev => ({
-      ...prev,
-      jalons: updatedJalons
-    }));
+    try {
+      const res = await stageService.addStage(jalonToSend);
+      setEditProjet(prev => ({
+        ...prev,
+        stages: [...prev.stages, res.data]
+      }));
+      setIsAddingJalon(false);
+    } catch (e) {
+      // Gérer l'erreur si besoin
+    }
   };
 
-  const handleDocumentChange = (index: number, value: string) => {
-    const updatedDocuments = [...editProjet.documents];
-    updatedDocuments[index] = value;
-    setEditProjet(prev => ({
-      ...prev,
-      documents: updatedDocuments
-    }));
+  const handleCancelAddJalon = () => {
+    setIsAddingJalon(false);
   };
 
-  const addDocument = () => {
+  const handleRemoveJalon = async (index: number) => {
+    const stage = editProjet.stages[index];
+    if (stage.id) {
+      await stageService.deleteStage(stage.id);
+    }
     setEditProjet(prev => ({
       ...prev,
-      documents: [...prev.documents, 'Nouveau document.pdf']
+      stages: prev.stages.filter((_, i) => i !== index)
     }));
+    setMoreMenuIndex(null);
   };
 
-  const removeDocument = (index: number) => {
-    setEditProjet(prev => ({
-      ...prev,
-      documents: prev.documents.filter((_, i) => i !== index)
-    }));
+  const handleEditJalonSave = async (index: number) => {
+    console.log('Saving stage at index:', index);
+    const stage = editProjet.stages[index];
+    if (!stage.id) {
+      setEditJalonIndex(null);
+      return;
+    }
+    try {
+      await stageService.updateStage(stage.id, {
+        ...stage,
+        date: stage.date, // conversion ici aussi
+      });
+      setEditJalonIndex(null);
+    } catch (e) {
+      alert('Erreur lors de la sauvegarde du jalon. Veuillez réessayer.');
+    }
   };
 
-  const addJalon = () => {
-    setEditProjet(prev => ({
-      ...prev,
-      jalons: [...prev.jalons, { titre: 'Nouveau jalon', statut: 'à venir', date: '2024-01-01' }]
-    }));
-  };
-
-  const removeJalon = (index: number) => {
-    setEditProjet(prev => ({
-      ...prev,
-      jalons: prev.jalons.filter((_, i) => i !== index)
-    }));
+  const handleEditJalonCancel = () => {
+    setEditJalonIndex(null);
   };
 
   const renderEditableField = (name: keyof Projet, label: string, isTextarea = false) => (
@@ -155,19 +245,185 @@ const SuiviProjetDetail: React.FC = () => {
     </div>
   );
 
+  const fetchProject = async () => {
+    const res = await projectService.getProject(projectTitle ?? '');
+    try {
+      setProjet(res.data);
+      setEditProjet(res.data);
+    } catch (error) {
+      console.error("Erreur lors de la récupération du projet :", error);
+    }
+  };
+
+  const handleProgressionProject = (project: Projet) => {
+    if (!project.stages || project.stages.length === 0) return 0;
+    const completedStages = project.stages.reduce((acc, stage) => {
+      if (stage.status.toLowerCase() === 'completed') {
+        return acc + 1;
+      }
+      return acc;
+    }, 0);
+    return Math.round((completedStages / project.stages.length) * 100);
+  };
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setImage(reader.result as string);
+      setEditProjet(prev => ({ ...prev, url_image: reader.result as string }));
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleRemoveImage = () => {
+    setImage('');
+  };
+
+  // Ajout d'un document (affiche le formulaire)
+  const handleAddDocumentClick = () => {
+    setIsAddingDoc(true);
+    setNewDocument({
+      title: '',
+      description: '',
+      url_file: '',
+      projectId: projet.id ?? 0
+    });
+  };
+
+  // Sauvegarde d'un nouveau document
+  const handleSaveDocument = async () => {
+    if (!projet.id) return;
+    try {
+      const docToAdd = { ...newDocument, projectId: projet.id };
+      const res = await docService.addDoc(docToAdd);
+      setEditProjet(prev => ({
+        ...prev,
+        documents: [...prev.documents, res.data]
+      }));
+      setIsAddingDoc(false);
+      setNewDocument({ title: '', description: '', url_file: '', projectId: projet.id ?? 0 });
+    } catch (e) {
+      // Gérer l'erreur si besoin
+    }
+  };
+
+  // Annulation de l'ajout
+  const handleCancelAddDocument = () => {
+    setIsAddingDoc(false);
+    setNewDocument({ title: '', description: '', url_file: '', projectId: projet.id ?? 0 });
+  };
+
+  // Modification d'un document (en local)
+  const handleDocumentChange = (i: number, field: keyof Document, value: string) => {
+    setEditProjet(prev => {
+      const docs = [...prev.documents];
+      docs[i] = { ...docs[i], [field]: value };
+      return { ...prev, documents: docs };
+    });
+  };
+
+  // Sauvegarde de la modification d'un document
+  const handleEditDocumentSave = async (i: number) => {
+    const doc = editProjet.documents[i];
+    try {
+      await docService.editDoc(doc.title, doc);
+      setEditDocumentIndex(null);
+    } catch (e) {
+      // Gérer l'erreur si besoin
+    }
+  };
+
+  // Annulation de la modification d'un document
+  const handleEditDocumentCancel = () => {
+    setEditDocumentIndex(null);
+  };
+
+  // Suppression d'un document
+  const handleRemoveDocument = async (i: number) => {
+    const doc = editProjet.documents[i];
+    try {
+      await docService.removeDoc(doc.title);
+      setEditProjet(prev => ({
+        ...prev,
+        documents: prev.documents.filter((_, idx) => idx !== i)
+      }));
+      setMoreDocMenuIndex(null);
+    } catch (e) {
+      // Gérer l'erreur si besoin
+    }
+  };
+
+  // Upload de fichier pour document
+  const handleDocumentFileChange = (e: React.ChangeEvent<HTMLInputElement>, i?: number) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      if (typeof i === 'number') {
+        handleDocumentChange(i, 'url_file', reader.result as string);
+      } else {
+        setNewDocument(prev => ({ ...prev, url_file: reader.result as string }));
+      }
+    };
+    reader.readAsDataURL(file);
+  };
+
+  useEffect(() => {
+    fetchProject();
+  }, [projectTitle]);
+
   return (
-    <div className="max-w-4xl mx-auto bg-white rounded-3xl p-8 shadow-xl border border-gray-100 my-8">
+    <div className="max-w-6xl mx-auto bg-white rounded-3xl p-8 shadow-xl border border-gray-100 my-8">
+      {/* Section Ajout d'image du projet (en haut) */}
+      <div className="mb-8 flex flex-col items-center">
+        <h3 className="text-xl font-semibold text-gray-800 mb-3">Image du Projet</h3>
+        <div className="flex flex-col items-center">
+          {image ? (
+            <div className="relative w-64 h-40 rounded-xl overflow-hidden border border-gray-200 shadow mb-2">
+              <img src={image} alt="Projet" className="object-cover w-fit h-fit" />
+              {isEditing && (
+                <button
+                  onClick={handleRemoveImage}
+                  className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-2 hover:bg-red-600"
+                  title="Supprimer l'image"
+                >
+                  <FaTimes />
+                </button>
+              )}
+            </div>
+          ) : isEditing ? (
+            <label className="w-64 h-40 flex flex-col items-center justify-center border-2 border-dashed border-indigo-300 rounded-xl cursor-pointer hover:bg-indigo-50 transition mb-2">
+              <span className="text-indigo-400 text-4xl mb-2">+</span>
+              <span className="text-sm text-indigo-400">Ajouter une image</span>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+                className="hidden"
+              />
+            </label>
+          ) : (
+            <div className="w-64 h-40 flex items-center justify-center border-2 border-dashed border-gray-200 rounded-xl text-gray-300 mb-2">
+              <span>Aucune image</span>
+            </div>
+          )}
+        </div>
+      </div>
+
       {/* Header Section with Edit Button */}
       <div className="flex justify-between items-start pb-6 border-b border-gray-200 mb-6">
         <div className="flex-1">
           {isEditing ? (
-            renderEditableField('nom', 'Nom du projet')
+            renderEditableField('titre', 'titre du projet')
           ) : (
             <h1 className="text-3xl font-extrabold text-indigo-900 mb-2">
-              {projet.nom}
+              {projet.titre}
             </h1>
           )}
-          
+
           {isEditing ? (
             renderEditableField('description', 'Description', true)
           ) : (
@@ -175,17 +431,21 @@ const SuiviProjetDetail: React.FC = () => {
               {projet.description}
             </p>
           )}
-          
+
           {isEditing ? (
-            renderEditableField('localisation', 'Localisation')
+            <>
+              {renderEditableField('region', 'Région')}
+              {renderEditableField('ville', 'Ville')}
+              {renderEditableField('quartier', 'Quartier')}
+            </>
           ) : (
             <p className="text-sm text-gray-500 flex items-center">
               <FaMapMarkerAlt className="mr-2 text-indigo-500" />
-              {projet.localisation}
+              {projet.region}, {projet.ville}, {projet.quartier}
             </p>
           )}
         </div>
-        
+
         <div className="ml-4">
           {isEditing ? (
             <div className="flex space-x-2">
@@ -220,49 +480,39 @@ const SuiviProjetDetail: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center mb-8">
         <div>
           <h3 className="text-xl font-semibold text-gray-800 mb-3">Avancement Global</h3>
-          {isEditing ? (
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700 mb-1">Avancement (%)</label>
-              <input
-                type="number"
-                min="0"
-                max="100"
-                name="avancement"
-                value={editProjet.avancement}
-                onChange={handleInputChange}
-                className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-              />
-            </div>
-          ) : (
-            <div className="w-full bg-gray-200 h-6 rounded-full overflow-hidden shadow-inner">
+          <div className="w-full bg-gray-200 h-6 rounded-full overflow-hidden shadow-inner">
+            <div className="relative w-full h-6">
               <div
-                className="bg-gradient-to-r from-emerald-400 to-teal-500 h-full rounded-full transition-all duration-700 ease-out flex items-center justify-end pr-3"
-                style={{ width: `${projet.avancement}%` }}
-              >
-                <span className="text-white text-sm font-bold">{projet.avancement}%</span>
-              </div>
+                className="bg-gradient-to-r from-emerald-400 to-teal-500 h-full rounded-full transition-all duration-700 ease-out"
+                style={{ width: `${handleProgressionProject(projet)}%` }}
+              ></div>
+              <span className="absolute inset-0 flex items-center justify-center text-white text-sm font-bold pointer-events-none">
+                {handleProgressionProject(projet)}%
+              </span>
             </div>
-          )}
+          </div>
         </div>
         <div className="flex flex-col items-start md:items-end">
           <p className="text-md font-medium text-gray-600 mb-2">Statut Actuel du Projet</p>
           {isEditing ? (
             <select
-              name="statut"
-              value={editProjet.statut}
+              name="status"
+              value={editProjet.status}
               onChange={handleInputChange}
-              className={`px-4 py-2 rounded-full text-sm font-bold ${getStatusClasses(editProjet.statut)}`}
+              className={`px-4 py-2 rounded-full text-sm font-bold ${getStatusClasses(editProjet.status)}`}
             >
-              <option value="En cours">En cours</option>
-              <option value="terminé">Terminé</option>
-              <option value="à venir">À venir</option>
+              <option value="STUDYING">En étude</option>
+              <option value="ACCEPTED">Accepté</option>
+              <option value="REJECTED">Rejeté</option>
             </select>
           ) : (
-            <span className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-bold ${getStatusClasses(projet.statut)}`}>
-              {projet.statut === 'En cours' && <FaSpinner className="animate-spin mr-2" />}
-              {projet.statut === 'Terminé' && <FaCheckCircle className="mr-2" />}
-              {projet.statut === 'À venir' && <FaClock className="mr-2" />}
-              {projet.statut}
+            <span className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-bold ${getStatusClasses(projet.status)}`}>
+              {handleProjectStatus(projet.status).toLowerCase() === 'en attente' && <FaSpinner className="animate-spin mr-2" />}
+              {handleProjectStatus(projet.status).toLowerCase() === 'completed' && <FaCheckCircle className="mr-2" />}
+              {handleProjectStatus(projet.status).toLowerCase() === 'accepted' && <FaCheckCircle className="mr-2" />}
+              {handleProjectStatus(projet.status).toLowerCase() === 'studying' && <FaClock className="mr-2" />}
+              {handleProjectStatus(projet.status).toLowerCase() === 'rejected' && <FaTimes className="mr-2" />}
+              {handleProjectStatus(projet.status)}
             </span>
           )}
         </div>
@@ -280,13 +530,13 @@ const SuiviProjetDetail: React.FC = () => {
             {isEditing ? (
               <input
                 type="text"
-                name="financementTotal"
-                value={editProjet.financementTotal}
+                name="budget"
+                value={editProjet.budget}
                 onChange={handleInputChange}
                 className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />
             ) : (
-              <p className="font-bold text-lg text-blue-900">{projet.financementTotal}</p>
+              <p className="font-bold text-lg text-blue-900">{projet.budget.toLocaleString() ?? 0} XAF</p>
             )}
           </div>
           <div className="bg-green-50 p-5 rounded-lg border border-green-100 flex flex-col items-start justify-center">
@@ -295,13 +545,13 @@ const SuiviProjetDetail: React.FC = () => {
             {isEditing ? (
               <input
                 type="text"
-                name="montantInvesti"
-                value={editProjet.montantInvesti}
+                name="montant"
+                value={editProjet.montant}
                 onChange={handleInputChange}
                 className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />
             ) : (
-              <p className="font-bold text-lg text-green-900">{projet.montantInvesti}</p>
+              <p className="font-bold text-lg text-green-900">{projet.montant.toLocaleString() ?? 0} XAF</p>
             )}
           </div>
           <div className="bg-purple-50 p-5 rounded-lg border border-purple-100 flex flex-col items-start justify-center">
@@ -309,14 +559,14 @@ const SuiviProjetDetail: React.FC = () => {
             <p className="text-sm text-gray-600">Taux de Retour Prévu</p>
             {isEditing ? (
               <input
-                type="text"
-                name="tauxRetour"
-                value={editProjet.tauxRetour}
+                type="number"
+                name="roi"
+                value={editProjet.roi}
                 onChange={handleInputChange}
                 className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />
             ) : (
-              <p className="font-bold text-lg text-purple-900">{projet.tauxRetour}</p>
+              <p className="font-bold text-lg text-purple-900">{projet.roi ?? 0}%</p>
             )}
           </div>
           <div className="bg-yellow-50 p-5 rounded-lg border border-yellow-100 flex flex-col items-start justify-center">
@@ -326,22 +576,22 @@ const SuiviProjetDetail: React.FC = () => {
               <div className="space-y-2">
                 <input
                   type="date"
-                  name="debut"
-                  value={editProjet.debut}
+                  name="dateDebut"
+                  value={editProjet.dateDebut}
                   onChange={handleInputChange}
                   className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 />
                 <input
                   type="date"
-                  name="finPrevue"
-                  value={editProjet.finPrevue}
+                  name="dateFin"
+                  value={editProjet.dateFin}
                   onChange={handleInputChange}
                   className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 />
               </div>
             ) : (
               <p className="font-bold text-lg text-yellow-900">
-                {projet.debut} ➜ {projet.finPrevue}
+                {projet.dateDebut ?? '...'} ➜ {projet.dateFin ?? '...'}
               </p>
             )}
           </div>
@@ -354,81 +604,193 @@ const SuiviProjetDetail: React.FC = () => {
       <div className="mb-8">
         <div className="flex justify-between items-center mb-5">
           <h3 className="text-xl font-semibold text-gray-800">Jalons Clés du Projet</h3>
-          {isEditing && (
+          {!isAddingJalon ? (<button
+            onClick={handleAddJalonClick}
+            className="px-3 py-1 bg-indigo-500 text-white rounded-md text-sm hover:bg-indigo-600"
+          >
+            + Ajouter un jalon
+          </button>) : (
             <button
-              onClick={addJalon}
-              className="px-3 py-1 bg-indigo-500 text-white rounded-md text-sm hover:bg-indigo-600"
+              disabled={isAddingJalon}
+              className="px-3 py-1 bg-indigo-300 text-white rounded-md text-sm"
             >
               + Ajouter un jalon
             </button>
           )}
         </div>
+        {isAddingJalon && (
+          <div className="mb-4 flex items-center p-4 rounded-lg shadow-sm border bg-gray-50 border-gray-200">
+            <div className="flex-grow space-y-2">
+              <input
+                type="text"
+                value={newJalon.title}
+                onChange={e => handleNewJalonChange('title', e.target.value)}
+                placeholder="Titre du jalon"
+                className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+              />
+              <textarea
+                value={newJalon.description}
+                onChange={e => handleNewJalonChange('description', e.target.value)}
+                placeholder="Description du jalon"
+                className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                rows={2}
+              />
+              <div className="flex items-center">
+                <FaCalendarAlt className="mr-2 text-gray-400" />
+                <input
+                  type="date"
+                  value={newJalon.date}
+                  onChange={e => handleNewJalonChange('date', e.target.value)}
+                  className="px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                />
+              </div>
+              <div className="flex space-x-2">
+                <button
+                  onClick={handleSaveJalon}
+                  className="px-3 py-1 bg-green-500 text-white rounded-md text-sm hover:bg-green-600"
+                >
+                  Enregistrer
+                </button>
+                <button
+                  onClick={handleCancelAddJalon}
+                  className="px-3 py-1 bg-red-500 text-white rounded-md text-sm hover:bg-red-600"
+                >
+                  Annuler
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
         <div className="space-y-4">
-          {(isEditing ? editProjet.jalons : projet.jalons).map((jalon, index) => (
+          {editProjet.stages.map((stage, index) => (
             <div
-              key={index}
+              key={stage.id ?? index}
               className={`flex items-center p-4 rounded-lg shadow-sm border
-                ${jalon.statut === 'terminé' ? 'bg-green-50 border-green-200' :
-                  jalon.statut === 'en cours' ? 'bg-yellow-50 border-yellow-200' :
-                  'bg-gray-50 border-gray-200'}`}
+                ${stage.status === 'COMPLETED' ? 'bg-green-50 border-green-200' :
+                  stage.status === 'IN_PROGRESS' ? 'bg-yellow-50 border-yellow-200' :
+                    'bg-gray-50 border-gray-200'}`}
             >
               <div className="flex-shrink-0 mr-4">
-                {jalon.statut === 'terminé' && <FaCheckCircle className="text-green-600 text-2xl" />}
-                {jalon.statut === 'en cours' && <FaSpinner className="animate-spin text-yellow-600 text-2xl" />}
-                {jalon.statut === 'à venir' && <FaClock className="text-blue-600 text-2xl" />}
+                {stage.status === 'COMPLETED' && <FaCheckCircle className="text-green-600 text-2xl" />}
+                {stage.status === 'IN_PROGRESS' && <FaSpinner className="animate-spin text-yellow-600 text-2xl" />}
+                {stage.status === 'UPCOMING' && <FaClock className="text-blue-600 text-2xl" />}
               </div>
               <div className="flex-grow">
-                {isEditing ? (
+                {editJalonIndex === index ? (
                   <div className="space-y-2">
                     <input
                       type="text"
-                      value={jalon.titre}
-                      onChange={(e) => handleJalonChange(index, 'titre', e.target.value)}
+                      value={stage.title}
+                      onChange={e => {
+                        const value = e.target.value;
+                        setEditProjet(prev => {
+                          const stages = [...prev.stages];
+                          stages[index] = { ...stages[index], title: value };
+                          return { ...prev, stages };
+                        });
+                      }}
                       className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                    />
+                    <textarea
+                      value={stage.description}
+                      onChange={e => {
+                        const value = e.target.value;
+                        setEditProjet(prev => {
+                          const stages = [...prev.stages];
+                          stages[index] = { ...stages[index], description: value };
+                          return { ...prev, stages };
+                        });
+                      }}
+                      className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                      rows={2}
+                      placeholder="Description du jalon"
                     />
                     <div className="flex items-center">
                       <FaCalendarAlt className="mr-2 text-gray-400" />
                       <input
                         type="date"
-                        value={jalon.date}
-                        onChange={(e) => handleJalonChange(index, 'date', e.target.value)}
+                        value={stage.date}
+                        onChange={e => {
+                          const value = e.target.value;
+                          setEditProjet(prev => {
+                            const stages = [...prev.stages];
+                            stages[index] = { ...stages[index], date: value };
+                            return { ...prev, stages };
+                          });
+                        }}
                         className="px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                       />
+                    </div>
+                    <select
+                      value={stage.status}
+                      onChange={e => {
+                        const value = e.target.value as Stage['status'];
+                        setEditProjet(prev => {
+                          const stages = [...prev.stages];
+                          stages[index] = { ...stages[index], status: value };
+                          return { ...prev, stages };
+                        });
+                      }}
+                      className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${getStatusClasses(stage.status)}`}
+                    >
+                      <option value="IN_PROGRESS">En cours</option>
+                      <option value="COMPLETED">Terminé</option>
+                      <option value="UPCOMING">À venir</option>
+                    </select>
+                    <div className="flex space-x-2">
+                      <button
+                        onClick={() => handleEditJalonSave(index)}
+                        className="px-3 py-1 bg-green-500 text-white rounded-md text-sm hover:bg-green-600"
+                      >
+                        Sauvegarder
+                      </button>
+                      <button
+                        onClick={handleEditJalonCancel}
+                        className="px-3 py-1 bg-red-500 text-white rounded-md text-sm hover:bg-red-600"
+                      >
+                        Annuler
+                      </button>
                     </div>
                   </div>
                 ) : (
                   <>
-                    <p className="font-medium text-gray-900 text-lg">{jalon.titre}</p>
+                    <p className="font-medium text-gray-900 text-lg">{stage.title}</p>
+                    <p className="text-sm text-gray-600">{stage.description}</p>
                     <p className="text-sm text-gray-600 flex items-center mt-1">
                       <FaCalendarAlt className="mr-2 text-gray-400" />
-                      Date prévue : {jalon.date}
+                      Date prévue : {stage.date}
                     </p>
                   </>
                 )}
               </div>
-              {isEditing ? (
-                <div className="flex flex-col items-center space-y-2 ml-4">
-                  <select
-                    value={jalon.statut}
-                    onChange={(e) => handleJalonChange(index, 'statut', e.target.value as Jalon['statut'])}
-                    className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${getStatusClasses(jalon.statut)}`}
-                  >
-                    <option value="terminé">terminé</option>
-                    <option value="en cours">en cours</option>
-                    <option value="à venir">à venir</option>
-                  </select>
-                  <button
-                    onClick={() => removeJalon(index)}
-                    className="text-red-500 hover:text-red-700 text-sm"
-                  >
-                    Supprimer
-                  </button>
-                </div>
-              ) : (
-                <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${getStatusClasses(jalon.statut)}`}>
-                  {jalon.statut}
-                </span>
-              )}
+              <div className="relative ml-4">
+                <button
+                  onClick={() => setMoreMenuIndex(moreMenuIndex === index ? null : index)}
+                  className="p-2 rounded-full hover:bg-gray-200"
+                  title="Plus d'options"
+                >
+                  <FaEllipsisV />
+                </button>
+                {moreMenuIndex === index && (
+                  <div className="absolute right-0 mt-2 w-36 bg-white border rounded shadow-lg z-10">
+                    <button
+                      onClick={() => {
+                        setEditJalonIndex(index);
+                        setMoreMenuIndex(null);
+                      }}
+                      className="block w-full text-left px-4 py-2 text-sm hover:bg-yellow-100"
+                    >
+                      Modifier
+                    </button>
+                    <button
+                      onClick={() => handleRemoveJalon(index)}
+                      className="block w-full text-left px-4 py-2 text-sm hover:bg-red-100 text-red-600"
+                    >
+                      Supprimer
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>
@@ -437,47 +799,159 @@ const SuiviProjetDetail: React.FC = () => {
       <hr className="my-8 border-gray-200" />
 
       {/* Documents Section */}
-      <div>
+      <div className="mb-8">
         <div className="flex justify-between items-center mb-5">
           <h3 className="text-xl font-semibold text-gray-800">Documents Liés</h3>
-          {isEditing && (
+          {!isAddingDoc ? (
             <button
-              onClick={addDocument}
+              onClick={handleAddDocumentClick}
               className="px-3 py-1 bg-indigo-500 text-white rounded-md text-sm hover:bg-indigo-600"
+            >
+              + Ajouter un document
+            </button>
+          ) : (
+            <button
+              disabled={isAddingDoc}
+              className="px-3 py-1 bg-indigo-300 text-white rounded-md text-sm"
             >
               + Ajouter un document
             </button>
           )}
         </div>
-        <ul className="space-y-3">
-          {(isEditing ? editProjet.documents : projet.documents).map((doc, i) => (
-            <li key={i} className="flex items-center justify-between">
-              <div className="flex items-center">
-                <FaFileAlt className="mr-3 text-blue-500 text-xl" />
-                {isEditing ? (
-                  <input
-                    type="text"
-                    value={doc}
-                    onChange={(e) => handleDocumentChange(i, e.target.value)}
-                    className="px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
-                  />
+        {isAddingDoc && (
+          <div className="mb-4 flex flex-col gap-2 p-4 rounded-lg shadow-sm border bg-gray-50 border-gray-200">
+            <input
+              type="text"
+              value={newDocument.title}
+              onChange={e => setNewDocument(prev => ({ ...prev, title: e.target.value }))}
+              placeholder="Titre du document"
+              className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm"
+            />
+            <textarea
+              value={newDocument.description}
+              onChange={e => setNewDocument(prev => ({ ...prev, description: e.target.value }))}
+              placeholder="Description"
+              className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm"
+              rows={2}
+            />
+            <input
+              type="file"
+              accept="application/pdf,image/*"
+              onChange={e => handleDocumentFileChange(e)}
+              className="w-full"
+            />
+            <div className="flex gap-2 mt-2">
+              <button
+                onClick={handleSaveDocument}
+                className="px-3 py-1 bg-green-500 text-white rounded-md text-sm hover:bg-green-600"
+                disabled={!newDocument.title || !newDocument.url_file}
+              >
+                Enregistrer
+              </button>
+              <button
+                onClick={handleCancelAddDocument}
+                className="px-3 py-1 bg-red-500 text-white rounded-md text-sm hover:bg-red-600"
+              >
+                Annuler
+              </button>
+            </div>
+          </div>
+        )}
+        <div className="space-y-4">
+          {editProjet.documents.map((doc, i) => (
+            <div
+              key={i}
+              className="flex items-center p-4 rounded-lg shadow-sm border bg-gray-50 border-gray-200"
+            >
+              <div className="flex-shrink-0 mr-4">
+                <FaFileAlt className="text-blue-500 text-2xl" />
+              </div>
+              <div className="flex-grow">
+                {editDocumentIndex === i ? (
+                  <div className="flex flex-col gap-2">
+                    <input
+                      type="text"
+                      value={doc.title}
+                      onChange={e => handleDocumentChange(i, 'title', e.target.value)}
+                      className="px-2 py-1 border border-gray-300 rounded-md shadow-sm w-full"
+                      placeholder="Titre"
+                    />
+                    <textarea
+                      value={doc.description}
+                      onChange={e => handleDocumentChange(i, 'description', e.target.value)}
+                      className="px-2 py-1 border border-gray-300 rounded-md shadow-sm w-full"
+                      placeholder="Description"
+                      rows={2}
+                    />
+                    <input
+                      type="file"
+                      accept="application/pdf,image/*"
+                      onChange={e => handleDocumentFileChange(e, i)}
+                      className="w-full"
+                    />
+                    <div className="flex gap-2 mt-1">
+                      <button
+                        onClick={() => handleEditDocumentSave(i)}
+                        className="px-2 py-1 bg-green-500 text-white rounded hover:bg-green-600 text-xs"
+                      >
+                        Sauvegarder
+                      </button>
+                      <button
+                        onClick={handleEditDocumentCancel}
+                        className="px-3 py-1 bg-red-500 text-white rounded-md text-sm hover:bg-red-600"
+                      >
+                        Annuler
+                      </button>
+                    </div>
+                  </div>
                 ) : (
-                  <a href="#" className="font-medium text-blue-700 hover:text-blue-800 hover:underline transition-colors duration-200">
-                    {doc}
-                  </a>
+                  <div className="flex flex-col">
+                    <span className="font-medium text-blue-700">{doc.title}</span>
+                    <span className="text-xs text-gray-500">{doc.description}</span>
+                    {doc.url_file && (
+                      <a
+                        href={doc.url_file}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs text-indigo-600 hover:underline"
+                      >
+                        Voir le fichier
+                      </a>
+                    )}
+                  </div>
                 )}
               </div>
-              {isEditing && (
+              <div className="relative ml-4">
                 <button
-                  onClick={() => removeDocument(i)}
-                  className="text-red-500 hover:text-red-700 ml-2"
+                  onClick={() => setMoreDocMenuIndex(moreDocMenuIndex === i ? null : i)}
+                  className="p-2 rounded-full hover:bg-gray-200"
+                  title="Plus d'options"
                 >
-                  <FaTimes />
+                  <FaEllipsisV />
                 </button>
-              )}
-            </li>
+                {moreDocMenuIndex === i && (
+                  <div className="absolute right-0 mt-2 w-36 bg-white border rounded shadow-lg z-10">
+                    <button
+                      onClick={() => {
+                        setEditDocumentIndex(i);
+                        setMoreDocMenuIndex(null);
+                      }}
+                      className="block w-full text-left px-4 py-2 text-sm hover:bg-yellow-100"
+                    >
+                      Modifier
+                    </button>
+                    <button
+                      onClick={() => handleRemoveDocument(i)}
+                      className="block w-full text-left px-4 py-2 text-sm hover:bg-red-100 text-red-600"
+                    >
+                      Supprimer
+                    </button>
+                  </div>
+                )}
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   );

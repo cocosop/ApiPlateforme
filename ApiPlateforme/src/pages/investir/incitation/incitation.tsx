@@ -7,13 +7,11 @@ import {
   CheckCircle,
   ArrowDown,
   ChevronRight,
-  Eye
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import oeuvre from '../../../assets/img/incitation2.jpg';
 
 const Incitation = () => {
-  const [showIncentivesModal, setShowIncentivesModal] = useState(false);
   const [activeSection, setActiveSection] = useState('overview');
   const [openPhaseKey, setOpenPhaseKey] = useState<'installation' | 'exploitation' | null>(null);
 
@@ -374,24 +372,6 @@ const Incitation = () => {
               </div>
             </motion.div>
           </div>
-
-          {/* Final CTA */}
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center py-16 bg-gradient-to-r from-amber-600 to-yellow-600 rounded-3xl text-white"
-          >
-            <h2 className="text-3xl font-bold mb-4">Prêt à bénéficier de ces avantages ?</h2>
-            <p className="text-xl text-amber-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-              Contactez nos experts pour une analyse personnalisée de votre éligibilité.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="px-8 py-3 bg-white text-amber-600 font-semibold rounded-full hover:bg-gray-100 transition-colors duration-300">
-                Contactez un expert
-              </button>
-            </div>
-          </motion.section>
         </motion.div>
       </main>
 

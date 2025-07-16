@@ -3,13 +3,12 @@ import LOGIN from "../../../assets/img/account_illustration.png";
 import { Google as GoogleIcon, Apple as AppleIcon, VisibilityOff, Visibility, LinkedIn } from "@mui/icons-material";
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import axios from "axios";
 import AlertComponent, { NotificationProvider } from "../../../components/alert/AlertComponent";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/material.css'
 import fr from 'react-phone-input-2/lang/fr.json'
 import { useTranslation } from "react-i18next";
-import { backendUrl } from "../../../constants/constants";
+import userService from "../../../services/userService";
 
 const Logup = () => {
 
@@ -54,9 +53,9 @@ const Logup = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus('loading');
-        try {
-            const res = await axios.post(`${backendUrl}/api/v1/auth/register`, formData);
 
+        const res = await userService.register(formData);
+        try {
             if (res.status === 201) {
                 showNotification(t('signup.success'), "success");
                 setStatus('success');
@@ -64,28 +63,10 @@ const Logup = () => {
             } else {
                 setStatus('error');
             }
-        } catch (err) {
-            setStatus('error');
-            console.error(err);
+        } catch {
+            console.error("Erreur de connexion");
         }
     };
-
-    axios.interceptors.response.use(
-        res => res,
-        error => {
-            const statusHandlers: any = {
-                403: () => showNotification(t('signup.errors.forbidden'), "error"),
-                404: () => showNotification(t('signup.errors.not_found'), "warning"),
-                409: () => showNotification(t('signup.errors.conflict'), "warning"),
-                500: () => showNotification(t('signup.errors.server_error'), "error"),
-            };
-
-            const status = error.response?.status;
-            (statusHandlers[status] || (() => showNotification(t('signup.errors.unknown'), "error")))();
-
-            return Promise.reject(error);
-        }
-    );
 
     // State for password visibility
     const [showPassword, setShowPassword] = React.useState(false);

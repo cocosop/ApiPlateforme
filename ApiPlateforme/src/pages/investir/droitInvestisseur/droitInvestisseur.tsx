@@ -854,30 +854,6 @@ const InvestorRights: React.FC = () => {
             'to-purple-100',
             'bg-indigo-600',
           )}
-
-          {/* Call to Action Final */}
-          <motion.section
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center py-16 bg-gradient-to-r from-emerald-600 to-blue-600 rounded-3xl text-white"
-          >
-            <h2 className="text-3xl font-bold mb-4">Prêt à Sécuriser votre Investissement ?</h2>
-            <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto">
-              Le Cameroun vous offre un environnement juridique stable et protecteur.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => scrollToSection('protection')}
-                className="px-8 py-3 bg-white text-emerald-600 font-semibold rounded-full hover:bg-gray-100 transition-colors duration-300"
-              >
-                Revoir les Garanties
-              </button>
-              <button className="px-8 py-3 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-emerald-600 transition-colors duration-300">
-                Contacter un Conseiller Juridique
-              </button>
-            </div>
-          </motion.section>
         </motion.div>
       </main>
 

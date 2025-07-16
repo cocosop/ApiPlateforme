@@ -2,14 +2,15 @@
 import React, { useEffect, useState } from 'react';
 import { Plus } from 'lucide-react';
 import { ProjeTypes, CreateProjectType } from '../../types';
-import ProjectFormModal from './../../components/dashboardComponent/newProjectForm/NewProjectForm';
-import { projectApi } from '../../api/services/projectService';
+import NewDemandeProjectForm from '../../components/dashboardComponent/newDemandeProjectForm';
+import projectService from '../../services/projectService';
 import Projet from '../../assets/img/ampoule.jpg';
 
 
 const defaultNewProject: CreateProjectType = {
   secteur: '',
   titre: '',
+  investor: '',
   description: '',
   region: '',
   ville: '',
@@ -17,10 +18,12 @@ const defaultNewProject: CreateProjectType = {
   latitude: 0,
   longitude: 0,
   montant: '',
-  status: 'Planification',
-  image_url: '',
   ROI: '',
-  budget: 0,
+  status: 'PENDING',
+  url_image: '',
+  dateDebut: new Date,
+  dateFin: new Date,
+  budget: 0
 };
 const DEFAULT_IMAGE_URL = Projet;
 
@@ -29,12 +32,13 @@ const Investment: React.FC = () => {
   const [projects, setProjects] = useState<ProjeTypes[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newProject, setNewProject] = useState<CreateProjectType>(defaultNewProject);
+  const [creating, setCreating] = useState(false);
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const data = await projectApi.getAllProjects();
-        setProjects(data);
+        const res = await projectService.fetchAllProjects();
+        setProjects(res.data);
       } catch (error) {
         console.error("Erreur chargement des projets :", error);
       }
@@ -53,30 +57,29 @@ const Investment: React.FC = () => {
     setNewProject(prev => ({ ...prev, [name]: Number(value) }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+ const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  setCreating(true); // Début chargement
 
-    // AJOUT : Préparez les données à envoyer en vérifiant si le champ 'image' est vide.
-    const projectDataToSend = {
-      ...newProject, // On copie toutes les données saisies dans le formulaire
-      // Si `newProject.image` est vide, on utilise `DEFAULT_IMAGE_URL`.
-      // Sinon, on garde la valeur saisie par l'utilisateur.
-      image: newProject.image_url || DEFAULT_IMAGE_URL,
-    };
-
-    try {
-      // On envoie les données préparées à l'API
-      const created = await projectApi.createProject(projectDataToSend);
-
-      setProjects(prev => [...prev, created]);
-      alert("Projet créé avec succès !");
-      setIsModalOpen(false);
-      setNewProject(defaultNewProject);
-    } catch (error) {
-      console.error("Erreur création projet :", error);
-      alert("Erreur lors de la création du projet.");
-    }
+  const projectDataToSend = {
+    ...newProject,
+    image: newProject.url_image || DEFAULT_IMAGE_URL,
   };
+
+  try {
+    const res = await projectService.addProject(projectDataToSend);
+    setProjects(res.data);
+    alert("Projet créé avec succès !");
+    setIsModalOpen(false);
+    setNewProject(defaultNewProject);
+  } catch (error) {
+    console.error("Erreur création projet :", error);
+    alert("Erreur lors de la création du projet.");
+  } finally {
+    setCreating(false); // Fin chargement
+  }
+};
+
 
   return (
     <div className="space-y-6 p-4">
@@ -90,33 +93,35 @@ const Investment: React.FC = () => {
         </button>
       </div>
 
-      <ProjectFormModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        newProject={newProject}
-        handleInputChange={handleInputChange}
-        handleNumberInputChange={handleNumberInputChange}
-        handleSubmit={handleSubmit}
-      />
+      <NewDemandeProjectForm
+  isOpen={isModalOpen}
+  onClose={() => setIsModalOpen(false)}
+  newProject={newProject}
+  handleInputChange={handleInputChange}
+  handleNumberInputChange={handleNumberInputChange}
+  handleSubmit={handleSubmit}
+  creating={creating}  // <-- Ici !
+/>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
         {projects.length > 0 ? (
-          projects.map((project) => (
-            <div key={project.id} className="bg-white rounded-xl shadow-sm overflow-hidden">
+          projects.map((project, key) => (
+            <div key={key} className="bg-white rounded-xl shadow-sm overflow-hidden">
               <div className="h-48 relative">
                 <img
-                  src={project.image_url || DEFAULT_IMAGE_URL}
+                  src={project.url_image || DEFAULT_IMAGE_URL}
                   alt={project.titre}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute top-3 right-3">
-                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${'Faible' === 'Faible' ? 'bg-green-100 text-green-700' :
-                      'Modéré' === 'Modéré' ? 'bg-yellow-100 text-yellow-700' :
-                        'bg-red-100 text-red-700'
-                    }`}>
-                    {'Modéré'}
+                {/* <div className="absolute top-3 right-3">
+                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                    project.risk === 'Faible' ? 'bg-green-100 text-green-700' :
+                    project.risk === 'Modéré' ? 'bg-yellow-100 text-yellow-700' :
+                    'bg-red-100 text-red-700'
+                  }`}>
+                    {project.risk}
                   </span>
-                </div>
+                </div> */}
               </div>
 
               <div className="p-6">
@@ -124,7 +129,7 @@ const Investment: React.FC = () => {
                 <p className="text-gray-500 text-sm mb-4 line-clamp-1">{project.description}</p>
 
                 <div className="space-y-4">
-                  <div>
+                  {/* <div>
                     <div className="flex items-center justify-between text-sm mb-1">
                       <span>Progression</span>
                       <span>{0}%</span>
@@ -135,7 +140,7 @@ const Investment: React.FC = () => {
                         style={{ width: `${0}%` }}
                       ></div>
                     </div>
-                  </div>
+                  </div> */}
 
                   <div className="flex items-center justify-between">
                     <div>
@@ -144,7 +149,7 @@ const Investment: React.FC = () => {
                     </div>
                     <div className="text-right">
                       <p className="text-sm text-gray-500">Retour prévu</p>
-                      <p className="font-semibold text-green-500">{0} par an</p>
+                      <p className="font-semibold text-green-500">{project.ROI} par an</p>
                     </div>
                   </div>
 

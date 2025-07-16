@@ -1,17 +1,13 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import messagesData from "../../assets/investmentData.json";
-import logo from "../../assets/img/api-ico.png";
 import { Fab } from "@mui/material";
-import ChatIcon from '@mui/icons-material/Chat';
 import CloseIcon from '@mui/icons-material/Close';
+import ChatIcon from '@mui/icons-material/chat';
 
-
-interface ChatMessage {
-  sender: "user" | "bot";
-  text: string;
-  question?: string;
-}
+import { Bot, User, Clock, HelpCircle } from 'lucide-react';
+import { ChatMessage } from '../../types';
+import { chatService } from '../../services/ChatService';
+import { v4 as uuidv4 } from 'uuid';
 
 const Chatbox = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,26 +15,33 @@ const Chatbox = () => {
   const [questions, setQuestions] = useState<string[]>([]);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  const validateMessage = (message: any): message is ChatMessage => {
-    return (
-      (message.sender === "user" || message.sender === "bot") &&
-      typeof message.text === "string"
-    );
-  };
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        // Simuler une requête API
-        setQuestions(messagesData.preloadedQuestions);
-        const validatedMessages = messagesData.messages.filter(validateMessage);
-        setMessages(validatedMessages);
+        // Créer une nouvelle session de chat
+        chatService.createSession("Consultation d'investissement");
+        
+        // Charger les questions préchargées
+        const preloadedQuestions = chatService.getPreloadedQuestions();
+        setQuestions(preloadedQuestions);
+        
+        // Message de bienvenue
+        const welcomeMessage: ChatMessage = {
+          id: uuidv4(),
+          sender: "bot",
+          text: "Bonjour ! Je suis votre assistant intelligent pour l'investissement au Cameroun. Je peux vous aider avec :\n\n• Les secteurs porteurs\n• Les procédures administratives\n• Les avantages fiscaux\n• Les options de financement\n• Les infrastructures disponibles\n\nComment puis-je vous aider aujourd'hui ?",
+          timestamp: new Date(),
+          relatedQuestions: preloadedQuestions.slice(0, 3)
+        };
+        
+        setMessages([welcomeMessage]);
+        chatService.addMessage(welcomeMessage);
       } catch (err) {
-        setError("Failed to load messages");
+        console.error("Erreur lors du chargement des données:", err);
       } finally {
         setIsLoading(false);
       }
@@ -46,47 +49,192 @@ const Chatbox = () => {
 
     fetchData();
   }, []);
-  // Fonction pour basculer l'état d'ouverture/fermeture du chat
+
   const toggleChat = useCallback(() => {
     setIsOpen((prev) => !prev);
   }, []);
 
-  // Fonction pour ajouter un message
   const addMessage = useCallback((message: ChatMessage) => {
     setMessages((prevMessages) => [...prevMessages, message]);
+    chatService.addMessage(message);
   }, []);
 
-  // Fonction pour envoyer un message
-  const handleSendMessage = useCallback(() => {
-    if (inputValue.trim()) {
-      addMessage({ sender: "user", text: inputValue });
-      setInputValue("");
-    }
-  }, [inputValue, addMessage]);
+  const simulateTyping = useCallback(async (response: ChatMessage) => {
+    setIsTyping(true);
+    
+    // Simuler le temps de réflexion (1-2 secondes)
+    await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 1000));
+    
+    setIsTyping(false);
+    addMessage(response);
+  }, [addMessage]);
 
-  // Fonction pour faire défiler vers le bas
+  const handleSendMessage = useCallback(async (messageText?: string) => {
+    const text = messageText || inputValue.trim();
+    
+    if (!text) return;
+
+    // Ajouter le message de l'utilisateur
+    const userMessage: ChatMessage = {
+      id: uuidv4(),
+      sender: "user",
+      text: text,
+      timestamp: new Date()
+    };
+    
+    addMessage(userMessage);
+    setInputValue("");
+
+    // Générer la réponse du bot
+    const botResponse = chatService.processMessage(text);
+    await simulateTyping(botResponse);
+  }, [inputValue, addMessage, simulateTyping]);
+
+  const handleQuestionClick = useCallback((question: string) => {
+    handleSendMessage(question);
+  }, [handleSendMessage]);
+
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, []);
-  // Faire défiler vers le bas à chaque nouveau message
 
-  // Fonction pour réinitialiser la conversation
   const handleReset = useCallback(() => {
-    setMessages([]); // Réinitialiser les messages
-  }, []);
+    setMessages([]);
+    chatService.clearCurrentSession();
+    
+    // Ajouter un nouveau message de bienvenue
+    const welcomeMessage: ChatMessage = {
+      id: uuidv4(),
+      sender: "bot",
+      text: "Conversation réinitialisée. Comment puis-je vous aider avec vos projets d'investissement au Cameroun ?",
+      timestamp: new Date(),
+      relatedQuestions: questions.slice(0, 3)
+    };
+    
+    setMessages([welcomeMessage]);
+    chatService.addMessage(welcomeMessage);
+  }, [questions]);
 
-  // Fonction pour revenir en arrière (exemple : retour à la liste des questions)
   const handleBack = useCallback(() => {
-    setMessages(messagesData.messages as ChatMessage[]); // Revenir aux messages initiaux
+    // Revenir au message de bienvenue avec les questions suggérées
+    const welcomeMessage: ChatMessage = {
+      id: uuidv4(),
+      sender: "bot",
+      text: "Voici les questions les plus fréquentes. Cliquez sur une question pour obtenir des informations détaillées :",
+      timestamp: new Date(),
+      relatedQuestions: questions.slice(0, 5)
+    };
+    
+    addMessage(welcomeMessage);
+  }, [questions, addMessage]);
+
+  const handleExportConversation = useCallback(() => {
+    const exportData = chatService.exportConversation();
+    const blob = new Blob([exportData], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `conversation_${new Date().toISOString().split('T')[0]}.txt`;
+    a.click();
+    URL.revokeObjectURL(url);
   }, []);
 
   useEffect(() => {
     scrollToBottom();
   }, [messages, scrollToBottom]);
-  // Faire défiler vers le bas à chaque nouveau message
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages, scrollToBottom]);
+
+  const TypingIndicator = () => (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 10 }}
+      className="flex items-center space-x-2 mb-4"
+    >
+      <div className="flex-shrink-0 w-8 h-8 bg-gray-300 rounded-full flex items-center justify-center">
+        <Bot size={16} className="text-gray-600" />
+      </div>
+      <div className="bg-gray-100 rounded-2xl rounded-bl-md p-3">
+        <div className="flex space-x-1">
+          <motion.div
+            className="w-2 h-2 bg-gray-500 rounded-full"
+            animate={{ scale: [1, 1.3, 1] }}
+            transition={{ duration: 1, repeat: Infinity, delay: 0 }}
+          />
+          <motion.div
+            className="w-2 h-2 bg-gray-500 rounded-full"
+            animate={{ scale: [1, 1.3, 1] }}
+            transition={{ duration: 1, repeat: Infinity, delay: 0.2 }}
+          />
+          <motion.div
+            className="w-2 h-2 bg-gray-500 rounded-full"
+            animate={{ scale: [1, 1.3, 1] }}
+            transition={{ duration: 1, repeat: Infinity, delay: 0.4 }}
+          />
+        </div>
+      </div>
+    </motion.div>
+  );
+
+  const MessageBubble = ({ message }: { message: ChatMessage }) => {
+    const isUser = message.sender === 'user';
+    
+    return (
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className={`mb-4 flex ${isUser ? 'justify-end' : 'justify-start'}`}
+      >
+        <div className={`max-w-xs lg:max-w-md ${isUser ? 'order-1' : 'order-2'}`}>
+          <div className={`flex items-end space-x-2 ${isUser ? 'flex-row-reverse space-x-reverse' : ''}`}>
+            <div className={`p-3 rounded-2xl ${
+              isUser 
+                ? 'bg-blue-500 text-white rounded-br-md' 
+                : 'bg-gray-100 text-gray-800 rounded-bl-md'
+            }`}>
+              <p className="text-sm whitespace-pre-line">{message.text}</p>
+            </div>
+            
+            <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
+              isUser ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-600'
+            }`}>
+              {isUser ? <User size={14} /> : <Bot size={14} />}
+            </div>
+          </div>
+          
+          <div className={`flex items-center mt-1 text-xs text-gray-500 ${isUser ? 'justify-end' : 'justify-start'}`}>
+            <Clock size={10} className="mr-1" />
+            {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+          </div>
+
+          {/* Questions liées */}
+          {!isUser && message.relatedQuestions && message.relatedQuestions.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              transition={{ delay: 0.5, duration: 0.3 }}
+              className="mt-3 space-y-2"
+            >
+              <div className="flex items-center space-x-1 text-xs text-gray-500">
+                <HelpCircle size={12} />
+                <span>Questions suggérées :</span>
+              </div>
+              {message.relatedQuestions.map((question, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleQuestionClick(question)}
+                  className="block w-full text-left bg-blue-50 hover:bg-blue-100 p-2 rounded-lg text-xs text-blue-700 transition-colors duration-200"
+                >
+                  {question}
+                </button>
+              ))}
+            </motion.div>
+          )}
+        </div>
+      </motion.div>
+    );
+  };
+
   return (
     <div className="fixed bottom-8 right-8 z-50">
       {/* Bouton FAB */}
@@ -98,148 +246,147 @@ const Chatbox = () => {
       >
         {isOpen ? <CloseIcon /> : <ChatIcon />}
       </Fab>
+
       {/* Fenêtre de chat avec animation */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 20 }}
-            className="fixed bottom-24 right-8 bg-white rounded-lg shadow-lg w-96 overflow-hidden"
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            className="fixed bottom-24 right-8 bg-white rounded-lg shadow-xl w-96 max-h-[600px] overflow-hidden border"
           >
             {/* Header */}
-            <div className="flex items-center justify-between p-4 border-b bg-[#0f0b60]">
-              {/* Logo + Texte d'aide */}
-              <div className="flex items-center space-x-2">
+            <div className="flex items-center justify-between p-4 border-b bg-gradient-to-r from-blue-600 to-indigo-600">
+              <div className="flex items-center space-x-3">
                 <div className="relative">
-                  <img
-                    src={logo}
-                    alt="Logo"
-                    className="w-12 h-12 rounded-full"
-                  />
+                  <div className="w-10 h-10 rounded-full border-2 border-white/20 bg-white/10 flex items-center justify-center">
+                    <Bot className="w-6 h-6 text-white" />
+                  </div>
+                  <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white"></div>
                 </div>
                 <div className="flex flex-col">
-                  <h5 className="text-lg text-white font-semibold">Besoin d'aide ?</h5>
+                  <h5 className="text-white font-semibold">Assistant IA Investissement</h5>
                   <div className="flex items-center space-x-1">
-                    <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                    <p className="text-sm text-gray-400">En ligne</p>
+                    <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                    <p className="text-xs text-blue-100">En ligne</p>
                   </div>
                 </div>
               </div>
-              {/* Bouton de fermeture */}
-              <button className="p-2 rounded-full hover:bg-gray-200 transition">
-                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img"
-                  className="w-6 h-6 text-gray-500"
-                  viewBox="0 0 24 24">
-                  <path fill="currentColor" d="m13.41 12l4.3-4.29a1 1 0 1 0-1.42-1.42L12 10.59l-4.29-4.3a1 1 0 0 0-1.42 1.42l4.3 4.29l-4.3 4.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0l4.29-4.3l4.29 4.3a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.42Z"></path>
-                </svg>
+              
+              <button 
+                onClick={toggleChat}
+                className="p-2 rounded-full hover:bg-white/20 transition-colors"
+              >
+                <CloseIcon className="w-5 h-5 text-white" />
               </button>
             </div>
+
             {/* Chat Body */}
-            <div className="p-4 h-80 overflow-y-auto">
+            <div className="h-80 overflow-y-auto p-4 bg-gray-50">
               {isLoading ? (
-                <p>Chargement...</p>
-              ) : error ? (
-                <p className="text-red-500">{error}</p>
+                <div className="flex items-center justify-center h-full">
+                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
+                </div>
               ) : (
                 <>
-                  {messages.map((msg, index) => (
-                    <div key={index} className={`mb-4 ${msg.sender === "user" ? "text-right" : ""}`}>
-                      <div className={`p-3 rounded-lg max-w-xs ${msg.sender === "user" ? "bg-blue-100 ml-auto" : "bg-blue-50"}`}>
-                        <p className="text-sm">{msg.text}</p>
-                      </div>
-                    </div>
+                  {messages.map((message) => (
+                    <MessageBubble key={message.id} message={message} />
                   ))}
+                  
+                  {isTyping && <TypingIndicator />}
+                  
                   <div ref={messagesEndRef} />
                 </>
               )}
-              {/* Questions préchargées */}
-              <div className="space-y-2">
-                {questions.map((question, index) => (
-                  <button
-                    key={index}
-                    className="w-full text-left bg-blue-50 p-3 rounded-lg hover:bg-blue-100 transition-colors"
-                    onClick={() => addMessage({ sender: "user", text: question })}
-                  >
-                    {question}
-                  </button>
-                ))}
+
+              {/* Questions préchargées (affichées quand il n'y a pas de messages) */}
+              {!isLoading && messages.length === 0 && (
+                <div className="space-y-2">
+                  <div className="flex items-center space-x-2 text-sm text-gray-600 mb-3">
+                    <HelpCircle size={16} />
+                    <span>Questions fréquentes :</span>
+                  </div>
+                  {questions.slice(0, 5).map((question, index) => (
+                    <motion.button
+                      key={index}
+                      onClick={() => handleQuestionClick(question)}
+                      className="w-full text-left bg-gradient-to-r from-blue-50 to-indigo-50 hover:from-blue-100 hover:to-indigo-100 p-3 rounded-lg border border-blue-200 hover:border-blue-300 transition-all duration-200 shadow-sm hover:shadow-md group"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-blue-500 rounded-full group-hover:scale-110 transition-transform"></div>
+                        <span className="text-sm text-gray-700 group-hover:text-gray-900">{question}</span>
+                      </div>
+                    </motion.button>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Actions */}
+            <div className="flex justify-between items-center p-3 border-t border-gray-200 bg-white">
+              <div className="flex space-x-2">
+                <button
+                  className="flex items-center space-x-1 text-xs text-green-600 hover:text-green-700 border border-green-300 hover:border-green-400 px-3 py-1 rounded-md transition-colors"
+                  onClick={handleBack}
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  </svg>
+                  <span>Retour</span>
+                </button>
+                
+                <button
+                  className="flex items-center space-x-1 text-xs text-orange-600 hover:text-orange-700 border border-orange-300 hover:border-orange-400 px-3 py-1 rounded-md transition-colors"
+                  onClick={handleReset}
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                  </svg>
+                  <span>Réinitialiser</span>
+                </button>
               </div>
-            </div>
-            {/* Actions (Retour et À zéro) */}
-            <div className="flex justify-between text-xs mt-4 p-4 border-t border-green-500">
+              
               <button
-                className="flex items-center text-green-500 hover:text-green-700 border-2 border-green-500 p-2 rounded"
-                onClick={handleBack}
+                className="flex items-center space-x-1 text-xs text-blue-600 hover:text-blue-700 border border-blue-300 hover:border-blue-400 px-3 py-1 rounded-md transition-colors"
+                onClick={handleExportConversation}
               >
-                Retour
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-green-500"
-                >
-                  <path d="M9 11l-4 4 4 4m-4-4h11a4 4 0 0 0 0-8h-1" />
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-              </button>
-              <button
-                className="flex items-center text-xs text-green-500 hover:text-green-700 border-2 border-green-500 p-2 rounded"
-                onClick={handleReset}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-green-500"
-                >
-                  <path d="M9 11l-4 4 4 4m-4-4h11a4 4 0 0 0 0-8h-1" />
-                </svg>
-                A zéro
+                <span>Exporter</span>
               </button>
             </div>
+
             {/* Input Area */}
-            <div className="p-4 border-t">
+            <div className="p-4 border-t bg-white">
               <div className="flex items-center space-x-2">
                 <input
                   type="text"
                   placeholder="Écrivez votre message..."
-                  className="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="flex-1 p-3 border rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+                  disabled={isTyping}
                 />
-                <button
-                  className="text-blue-500 hover:text-blue-700"
-                  onClick={handleSendMessage}
+                <motion.button
+                  className="p-3 bg-blue-500 text-white rounded-full hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                  onClick={() => handleSendMessage()}
+                  disabled={!inputValue.trim() || isTyping}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   aria-label="Envoyer un message"
                 >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="mr-2"
-                  >
-                    <path d="m3.4 20.4 17.45-7.48a1 1 0 0 0 0-1.84L3.4 3.6a.993.993 0 0 0-1.39.91L2 9.12c0 .5.37.93.87.99L17 12 2.87 13.88c-.5.07-.87.5-.87 1l.01 4.61c0 .71.73 1.2 1.39.91" />
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                   </svg>
-                </button>
+                </motion.button>
               </div>
             </div>
           </motion.div>

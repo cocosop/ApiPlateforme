@@ -1,7 +1,6 @@
 import React from 'react';
 import { 
   X, 
-  Banknote,
   BarChart2,
   Award,
   CheckCircle,

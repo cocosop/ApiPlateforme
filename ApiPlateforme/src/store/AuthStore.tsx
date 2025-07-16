@@ -1,8 +1,6 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { jwtDecode } from 'jwt-decode';
-import axios from 'axios';
-import { backendUrl } from '../constants/constants';
 
 interface DecodedToken {
     sub: string;
@@ -12,16 +10,14 @@ interface DecodedToken {
 
 interface AuthState {
     accessToken: string | null;
-    refreshToken: string | null;
     decoded: DecodedToken | null;
     ready: boolean;
 
-    setTokens: (accessToken: string, refreshToken: string) => void;
+    setToken: (accessToken: string) => void;
     clearTokens: () => void;
     isExpired: () => boolean;
     isAuthenticated: () => boolean;
     decodeAccessToken: () => void;
-    refreshAccessToken: () => Promise<void>;
 }
 
 export const useAuthStore = create<AuthState>()(
@@ -32,18 +28,18 @@ export const useAuthStore = create<AuthState>()(
             decoded: null,
             ready: false,
 
-            setTokens: (accessToken: string, refreshToken: string) => {
+            setToken: (accessToken: string) => {
                 try {
                     const decoded = jwtDecode<DecodedToken>(accessToken);
-                    set({ accessToken, refreshToken, decoded, ready: true });
+                    set({ accessToken, decoded, ready: true });
                 } catch (e) {
                     console.error("Token decoding failed", e);
-                    set({ accessToken: null, refreshToken: null, decoded: null, ready: true });
+                    set({ accessToken: null, decoded: null, ready: true });
                 }
             },
 
             clearTokens: () => {
-                set({ accessToken: null, refreshToken: null, decoded: null, ready: true });
+                set({ accessToken: null, decoded: null, ready: true });
             },
 
             decodeAccessToken: () => {
@@ -79,35 +75,12 @@ export const useAuthStore = create<AuthState>()(
             isAuthenticated: () => {
                 const { accessToken, isExpired } = get();
                 return !!accessToken && !isExpired();
-            },
-
-            refreshAccessToken: async () => {
-                const { refreshToken } = get();
-
-                if (!refreshToken) {
-                    console.warn("No refresh token available");
-                    get().clearTokens();
-                    return;
-                }
-
-                try {
-                    const response = await axios.post(`${backendUrl}/api/v1/auth/refresh-token`, {
-                        refreshToken
-                    });
-
-                    const { accessToken: newAccess, refreshToken: newRefresh } = response.data;
-                    get().setTokens(newAccess, newRefresh);
-                } catch (error) {
-                    console.error("Failed to refresh access token", error);
-                    get().clearTokens();
-                }
             }
         }),
         {
             name: "auth-storage",
             partialize: (state) => ({
                 accessToken: state.accessToken,
-                refreshToken: state.refreshToken
             }),
             storage: {
                 getItem: (name) => {

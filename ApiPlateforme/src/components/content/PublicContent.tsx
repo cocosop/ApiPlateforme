@@ -28,6 +28,7 @@ import PublicLayout from '../../layouts/PublicLayout';
 import ActivationToken from '../../pages/authentication/activationToken/activationToken';
 import ForgetPassword from '../../pages/authentication/forgetPassword/forgetPassword';
 import ResetPassword from '../../pages/authentication/resetPassword/resetPassword';
+import Potentiel from '../../pages/sectors/potentiel/potentiel';
 
 const PublicContent = () => {
     return (
@@ -61,6 +62,7 @@ const PublicContent = () => {
             <Route path='/pilier-hydrocarbures-raffinage' element={<HydrocarburesRaffinage />} />
             <Route path='/pilier-chimie-pharmacie' element={<ChimiePharmacie />} />
             <Route path='/pilier-mines-metallurgie-siderurgie' element={<MinesMetallurgieSiderurgie />} />
+            <Route path='/potentiel' element={<Potentiel />} />
 
             {/* Routes a propos */}
             <Route path='/presentation-api' element={<PresentationApi />} />

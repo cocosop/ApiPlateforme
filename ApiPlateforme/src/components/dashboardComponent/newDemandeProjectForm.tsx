@@ -1,31 +1,38 @@
-// src/components/ProjectFormModal.tsx
 import React from 'react';
-import { X, Briefcase, MapPin } from 'lucide-react';
-import { ProjeTypes } from '../../../types';
+import { X, Briefcase, MapPin, Loader2 } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { CreateProjectType } from '../../types';
 
 interface ProjectFormModalProps {
   isOpen: boolean;
   onClose: () => void;
-  newProject: ProjeTypes;
+  newProject: CreateProjectType; // ✅
   handleInputChange: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => void;
   handleNumberInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (e: React.FormEvent) => void;
+  creating: boolean;
 }
 
-const ProjectFormModal: React.FC<ProjectFormModalProps> = ({
+const NewDemandeProjectForm: React.FC<ProjectFormModalProps> = ({
   isOpen,
   onClose,
   newProject,
   handleInputChange,
   handleNumberInputChange,
   handleSubmit,
+  creating
 }) => {
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-xl p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto">
-        <div className="flex justify-between items-center mb-4 sticky top-0 bg-white py-2">
+      <motion.div
+        initial={{ opacity: 0, y: -30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.3 }}
+        className="bg-white rounded-xl p-6 w-full max-w-2xl max-h-[90vh] overflow-y-auto relative"
+      >
+        <div className="flex justify-between items-center mb-4 sticky top-0 bg-white py-2 z-10">
           <h3 className="text-lg font-semibold">Nouveau Projet</h3>
           <button
             onClick={onClose}
@@ -47,12 +54,13 @@ const ProjectFormModal: React.FC<ProjectFormModalProps> = ({
               </h4>
 
               <div>
-                <label htmlFor="secteur" className="block text-sm font-medium text-gray-700 mb-1">Secteur d'activité</label>
+                <label htmlFor="secteur" className="block text-sm font-medium text-gray-700 mb-1">Secteur d'activité *</label>
                 <select
                   id="secteur"
                   name="secteur"
                   value={newProject.secteur}
                   onChange={handleInputChange}
+                  required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="">-- Sélectionnez un secteur --</option>
@@ -70,18 +78,17 @@ const ProjectFormModal: React.FC<ProjectFormModalProps> = ({
               </div>
 
               <div>
-                <label htmlFor="titre" className="block text-sm font-medium text-gray-700 mb-1">Titre du projet</label>
+                <label htmlFor="titre" className="block text-sm font-medium text-gray-700 mb-1">Titre du projet *</label>
                 <input
                   id="titre"
                   type="text"
                   name="titre"
                   value={newProject.titre}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
-
               <div>
                 <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">Description</label>
                 <textarea
@@ -103,12 +110,13 @@ const ProjectFormModal: React.FC<ProjectFormModalProps> = ({
               </h4>
 
               <div>
-                <label htmlFor="region" className="block text-sm font-medium text-gray-700 mb-1">Région</label>
+                <label htmlFor="region" className="block text-sm font-medium text-gray-700 mb-1">Région *</label>
                 <select
                   id="region"
                   name="region"
                   value={newProject.region}
                   onChange={handleInputChange}
+                  required
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="">-- Sélectionnez une région --</option>
@@ -183,31 +191,17 @@ const ProjectFormModal: React.FC<ProjectFormModalProps> = ({
             <div className="space-y-4">
               <h4 className="font-medium text-gray-700">Informations financières</h4>
               <div>
-                <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-1">Budget Prévu(XAF)</label>
+                <label htmlFor="budget" className="block text-sm font-medium text-gray-700 mb-1">Budget prévu (XAF)</label>
                 <input
                   id="budget"
                   type="text"
                   name="budget"
-                  value={newProject.montant}
+                  value={newProject.budget}
                   onChange={handleInputChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>
             </div>
-          </div>
-
-          {/* Image du projet */}
-          <div>
-            <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-1">Image du projet (URL)</label>
-            <input
-              id="image"
-              type="url"
-              name="image"
-              value={newProject.image_url}
-              onChange={handleInputChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="https://example.com/image.jpg"
-            />
           </div>
 
           {/* Boutons */}
@@ -216,20 +210,29 @@ const ProjectFormModal: React.FC<ProjectFormModalProps> = ({
               type="button"
               onClick={onClose}
               className="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-100"
+              disabled={creating}
             >
               Annuler
             </button>
             <button
               type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              className="px-4 py-2 bg-blue-600 text-white rounded-md flex items-center justify-center gap-2 hover:bg-blue-700 disabled:opacity-50"
+              disabled={creating}
             >
-              Enregistrer
+              {creating ? (
+                <>
+                  <Loader2 className="h-4 w-4 animate-spin" />
+                  Enregistrement...
+                </>
+              ) : (
+                "Enregistrer"
+              )}
             </button>
           </div>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 };
 
-export default ProjectFormModal;
+export default NewDemandeProjectForm;

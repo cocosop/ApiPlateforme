@@ -1,6 +1,5 @@
 import { Navigate, Route } from 'react-router-dom';
 import PrivateLayout from '../../layouts/PrivateLayout';
-import DetailProjet from '../../pages/detailProjet/detailProjet';
 import Dashboard from '../../pages/dashboard/Dashboard';
 import { useAuthReady } from '../../store/AuthReady';
 import LoadingPage from '../../pages/loading/LoadingPage';
@@ -29,6 +28,7 @@ const PrivateContent = () => {
             <Route element={<PrivateLayout />}>
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/projets" element={<Investment />} />
+                <Route path="/projet/details/:titre" element={<SuiviProjetDetail />} />
                 <Route path="/notifications" element={<Notifications />} />
                 <Route path="/parametres" element={<Settings />} />
                 <Route path="/profil" element={<UserProfile />} />

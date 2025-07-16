@@ -33,7 +33,7 @@ const Navigation: React.FC<NavigationProps> = ({
           {/* Desktop menu */}
           <div className="hidden md:block">
             <div className="flex items-center justify-center space-x-2 py-4 overflow-x-auto">
-              {sections.map((section, index) => (
+              {sections.map((section) => (
                 <button
                   key={section.id}
                   onClick={() => scrollToSection(section.id)}

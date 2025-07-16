@@ -1,15 +1,14 @@
 import axios from "axios";
 import { useAuthStore } from "../store/AuthStore";
-import { useNavigate } from "react-router-dom";
-import { backendUrl } from "../constants/constants";
+import userService from "./userService";
 
-const history = useNavigate();
+const baseURL = import.meta.env.VITE_BASE_URL;
 
-const httpClient = axios.create({
-    baseURL: `${backendUrl}/api/v1`,
+const apiConfig = axios.create({
+    baseURL: baseURL,
 });
 
-httpClient.interceptors.request.use(
+apiConfig.interceptors.request.use(
     (config) => {
         const token = useAuthStore.getState().accessToken;
         if (token) {
@@ -20,7 +19,7 @@ httpClient.interceptors.request.use(
     (error) => Promise.reject(error)
 );
 
-httpClient.interceptors.response.use(
+apiConfig.interceptors.response.use(
     (response) => response,
     async (error) => {
         const originalRequest = error.config;
@@ -32,23 +31,23 @@ httpClient.interceptors.response.use(
             originalRequest._retry = true;
 
             try {
-                const refreshToken = useAuthStore.getState().refreshToken;
-
-                const res = await axios.post(`${backendUrl}/api/v1/auth/refresh-token`, {
-                    refreshToken,
-                });
-
-                const { accessToken, refreshToken: newRefreshToken } = res.data;
+                const token = useAuthStore.getState().accessToken;
+                const res = await userService.refreshToken(token!)
+                if (res.status !== 200) {
+                    throw new Error("Failed to refresh token");
+                }
+                // Assuming the response contains the new access token
+                const { accessToken } = res.data.accessToken;
 
                 const auth = useAuthStore.getState();
-                auth.setTokens(accessToken, newRefreshToken);
+                auth.setToken(res.data.accessToken);
 
                 originalRequest.headers.Authorization = `Bearer ${accessToken}`;
 
-                return httpClient(originalRequest);
+                return apiConfig(originalRequest);
             } catch (refreshError) {
                 useAuthStore.getState().clearTokens();
-                history("/login");
+                window.location.href = '/signin';
                 return Promise.reject(refreshError);
             }
         }
@@ -57,4 +56,4 @@ httpClient.interceptors.response.use(
     }
 );
 
-export default httpClient;
+export default apiConfig;
