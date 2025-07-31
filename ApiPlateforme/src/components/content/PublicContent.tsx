@@ -40,6 +40,8 @@ const PublicContent = () => {
             <Route path='/presentation-du-cameroun' element={<PresentationCameroun />} />
             <Route path='/cadre-juridique-et-fiscal' element={<CadreJuridiqueFiscal />} />
             <Route path='/aspects-juridiques' element={<AspectsJuridiques />} />
+                {/* <Route path="/messages" element={<Messages />} /> */}
+
 
             {/* Routes guide de l'investisseur */}
             <Route path='/main-doeuvre' element={<MainOeuvre />} />

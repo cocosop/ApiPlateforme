@@ -1,180 +1,252 @@
+
 import React, { useState } from 'react';
-import { Send, Search } from 'lucide-react';
+import { Send, Search, Users, TrendingUp, Calendar, Crown, Shield } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
-
-interface Message {
-  id: number;
-  from: string;
-  avatar: string;
-  message: string;
-  time: string;
-  unread: boolean;
-}
+import { Message, ChatMessages, User } from '../../types';
 
 interface MessagePanelProps {
   messages: Message[];
   selectedChat: number | null;
   onSelectChat: (id: number) => void;
+  chatMessages: ChatMessages[];
+  onSendMessage: (message: string) => void;
+  currentUser: User;
 }
 
-const mockChatHistory = [
-  {
-    id: 1,
-    senderId: 1,
-    message: "Bonjour, j'aimerais discuter du projet d'investissement",
-    timestamp: new Date(2024, 2, 20, 10, 30),
-  },
-  {
-    id: 2,
-    senderId: 2,
-    message: "Bien sûr, je suis disponible pour en discuter. Quel aspect du projet vous intéresse particulièrement ?",
-    timestamp: new Date(2024, 2, 20, 10, 32),
-  },
-  {
-    id: 3,
-    senderId: 1,
-    message: "Je suis particulièrement intéressé par le retour sur investissement prévu",
-    timestamp: new Date(2024, 2, 20, 10, 35),
-  },
-];
-
-const MessagePanel: React.FC<MessagePanelProps> = ({ messages, selectedChat, onSelectChat }) => {
+const MessagePanel: React.FC<MessagePanelProps> = ({ 
+  messages, 
+  selectedChat, 
+  onSelectChat, 
+  chatMessages,
+  onSendMessage,
+  currentUser
+}) => {
   const [newMessage, setNewMessage] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
     if (newMessage.trim()) {
-      // Handle sending message
-      console.log('Sending message:', newMessage);
+      onSendMessage(newMessage);
       setNewMessage('');
     }
   };
 
   const filteredMessages = messages.filter(message =>
-    message.from.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    message.message.toLowerCase().includes(searchTerm.toLowerCase())
+    message.projectName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    message.lastMessage.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    message.participants.some(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
+  const selectedMessage = messages.find(m => m.id === selectedChat);
+
+  const getRoleIcon = (role: string) => {
+    switch (role) {
+      case 'admin':
+        return <Shield className="h-4 w-4 text-red-500" />;
+      case 'project_owner':
+        return <Crown className="h-4 w-4 text-yellow-500" />;
+      default:
+        return null;
+    }
+  };
+
+  const getRoleLabel = (role: string) => {
+    switch (role) {
+      case 'admin':
+        return 'Admin';
+      case 'project_owner':
+        return 'Propriétaire';
+      default:
+        return '';
+    }
+  };
+
   return (
-    <div className="bg-white rounded-lg shadow-md h-[calc(100vh-12rem)] space-y-6">
+    <div className="bg-white rounded-xl shadow-lg h-[calc(100vh-12rem)] overflow-hidden">
       <div className="grid grid-cols-3 h-full">
-        {/* Messages List */}
-        <div className="col-span-1 border-r">
-          <div className="p-4 border-b">
+        {/* Liste des Projets/Chats */}
+        <div className="col-span-1 border-r border-gray-200">
+          <div className="p-4 border-b border-gray-200 bg-gray-50">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
               <input
                 type="text"
-                placeholder="Rechercher une conversation..."
+                placeholder="Rechercher un projet..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               />
             </div>
           </div>
-          <div className="overflow-y-auto h-[calc(100%-4rem)]">
+          <div className="overflow-y-auto h-[calc(100%-5rem)]">
             {filteredMessages.map((message) => (
               <div
                 key={message.id}
                 onClick={() => onSelectChat(message.id)}
-                className={`p-4 border-b cursor-pointer hover:bg-gray-50 transition-colors ${
-                  selectedChat === message.id ? 'bg-blue-50' : ''
+                className={`p-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 transition-all duration-200 ${
+                  selectedChat === message.id ? 'bg-blue-50 border-l-4 border-l-blue-500' : ''
                 }`}
               >
-                <div className="flex items-center space-x-3">
-                  <div className="relative">
-                    <img src={message.avatar} alt="" className="w-10 h-10 rounded-full" />
-                    <div className={`absolute -bottom-1 -right-1 w-3 h-3 border-2 border-white rounded-full ${
-                      message.unread ? 'bg-green-500' : 'bg-gray-300'
-                    }`}></div>
+                <div className="flex items-start space-x-3">
+                  <div className="relative flex-shrink-0">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                      <TrendingUp className="h-6 w-6 text-white" />
+                    </div>
+                    {message.unreadCount > 0 && (
+                      <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
+                        {message.unreadCount}
+                      </div>
+                    )}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex justify-between">
-                      <h3 className="font-semibold text-gray-900 truncate">{message.from}</h3>
-                      <span className="text-sm text-gray-500">{message.time}</span>
+                    <div className="flex justify-between items-start mb-1">
+                      <h3 className="font-semibold text-gray-900 truncate text-sm">{message.projectName}</h3>
+                      <span className="text-xs text-gray-500 flex-shrink-0">{message.lastMessageTime}</span>
                     </div>
-                    <p className="text-sm text-gray-600 truncate">{message.message}</p>
+                    <div className="flex items-center space-x-2 mb-2">
+                      <div className="flex items-center space-x-1">
+                        {getRoleIcon(message.projectOwner.role)}
+                        <span className="text-xs text-gray-600">{message.projectOwner.name}</span>
+                      </div>
+                      <span className="text-xs text-gray-400">•</span>
+                      <div className="flex items-center space-x-1">
+                        <Users className="h-3 w-3 text-gray-400" />
+                        <span className="text-xs text-gray-500">{message.participants.length}</span>
+                      </div>
+                    </div>
+                    <p className="text-sm text-gray-600 truncate">{message.lastMessage}</p>
                   </div>
-                  {message.unread && (
-                    <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  )}
                 </div>
               </div>
             ))}
           </div>
         </div>
 
-        {/* Chat Area */}
+        {/* Zone de Chat */}
         <div className="col-span-2 flex flex-col">
           {selectedChat ? (
             <>
-              <div className="p-4 border-b">
+              {/* En-tête du Chat */}
+              <div className="p-4 border-b border-gray-200 bg-white">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
-                    <img
-                      src={messages.find(m => m.id === selectedChat)?.avatar}
-                      alt=""
-                      className="w-10 h-10 rounded-full"
-                    />
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                      <TrendingUp className="h-6 w-6 text-white" />
+                    </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">
-                        {messages.find(m => m.id === selectedChat)?.from}
+                      <h3 className="font-semibold text-gray-900 text-lg">
+                        {selectedMessage?.projectName}
                       </h3>
-                      <p className="text-sm text-gray-500">En ligne</p>
+                      <div className="flex items-center space-x-2 mt-1">
+                        <div className="flex items-center space-x-1">
+                          {getRoleIcon(selectedMessage?.projectOwner.role || '')}
+                        </div>
+                      </div>
+                      <p className="text-sm text-green-500 flex items-center mt-1">
+                        <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                        {selectedMessage?.participants.length} participants actifs
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <div className="flex -space-x-2">
+                      {selectedMessage?.participants.slice(0, 4).map((participant, index) => (
+                        <div key={participant.id} className="relative">
+                          <img
+                            src={participant.avatar}
+                            alt={participant.name}
+                            className="w-8 h-8 rounded-full border-2 border-white object-cover"
+                            title={`${participant.name} (${getRoleLabel(participant.role)})`}
+                          />
+                         
+                        </div>
+                      ))}
+                      {(selectedMessage?.participants.length || 0) > 4 && (
+                        <div className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center">
+                          <span className="text-xs text-gray-600">+{(selectedMessage?.participants.length || 0) - 4}</span>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="flex-1 overflow-y-auto p-4 space-y-4">
-                {mockChatHistory.map((chat) => (
+
+              {/* Messages du Chat */}
+              <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
+                {chatMessages.map((chat) => (
                   <div
                     key={chat.id}
-                    className={`flex ${chat.senderId === 1 ? 'justify-end' : 'justify-start'}`}
+                    className={`flex ${chat.isCurrentUser ? 'justify-end' : 'justify-start'}`}
                   >
-                    <div className={`max-w-[70%] rounded-lg p-3 ${
-                      chat.senderId === 1
-                        ? 'bg-blue-500 text-white'
-                        : 'bg-gray-100 text-gray-900'
-                    }`}>
-                      <p className="text-sm">{chat.message}</p>
-                      <p className={`text-xs mt-1 ${
-                        chat.senderId === 1 ? 'text-blue-100' : 'text-gray-500'
+                    <div className={`max-w-[70%] ${chat.isCurrentUser ? 'order-2' : 'order-1'}`}>
+                      <div className={`rounded-xl p-4 shadow-sm ${
+                        chat.isCurrentUser
+                          ? 'bg-blue-600 text-white'
+                          : 'bg-white text-gray-900 border border-gray-200'
                       }`}>
-                        {format(chat.timestamp, 'HH:mm', { locale: fr })}
-                      </p>
+                        {!chat.isCurrentUser && (
+                          <div className="flex items-center space-x-2 mb-2">
+                            <img
+                              src={chat.senderAvatar}
+                              alt={chat.senderName}
+                              className="w-6 h-6 rounded-full object-cover"
+                            />
+                            <p className="text-xs font-medium text-blue-600">{chat.senderName}</p>
+                          </div>
+                        )}
+                        <p className="text-sm leading-relaxed">{chat.message}</p>
+                        <p className={`text-xs mt-2 ${
+                          chat.isCurrentUser ? 'text-blue-100' : 'text-gray-500'
+                        }`}>
+                          {format(chat.timestamp, 'HH:mm', { locale: fr })}
+                        </p>
+                      </div>
                     </div>
+                    {!chat.isCurrentUser && (
+                      <div className="order-1 mr-3 mt-1">
+                        <img
+                          src={chat.senderAvatar}
+                          alt={chat.senderName}
+                          className="w-8 h-8 rounded-full object-cover"
+                        />
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
-              <div className="p-4 border-t">
-                <form onSubmit={handleSendMessage} className="flex space-x-2">
+
+              {/* Saisie de Message */}
+              <div className="p-4 border-t border-gray-200 bg-white">
+                <form onSubmit={handleSendMessage} className="flex space-x-3">
                   <input
                     type="text"
                     value={newMessage}
                     onChange={(e) => setNewMessage(e.target.value)}
                     placeholder="Écrivez votre message..."
-                    className="flex-1 px-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="flex-1 px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                   />
                   <button
                     type="submit"
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                    disabled={!newMessage.trim()}
+                    className="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
                   >
                     <Send className="h-5 w-5" />
+                    <span className="hidden sm:inline">Envoyer</span>
                   </button>
                 </form>
               </div>
             </>
           ) : (
-            <div className="flex flex-col items-center justify-center h-full text-gray-500">
-              <img
-                src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=200&h=200&fit=crop"
-                alt="Select a chat"
-                className="w-32 h-32 rounded-full mb-4 opacity-50"
-              />
-              <p className="text-lg font-medium">Sélectionnez une conversation pour commencer</p>
-              <p className="text-sm">Choisissez un contact dans la liste à gauche</p>
+            <div className="flex flex-col items-center justify-center h-full text-gray-500 bg-gray-50">
+              <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mb-6 opacity-50">
+                <TrendingUp className="h-16 w-16 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Sélectionnez un projet</h3>
+              <p className="text-sm text-center max-w-md">
+                Choisissez un projet dans la liste à gauche pour accéder à son chat et communiquer avec les participants
+              </p>
             </div>
           )}
         </div>

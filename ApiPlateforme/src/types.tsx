@@ -116,3 +116,81 @@ export interface QuestionPattern {
   responses: string[];
   followupQuestions: string[];
 }
+
+export interface Message {
+  id: number;
+  projectId: number;
+  projectName: string;
+  lastMessage: string;
+  lastMessageTime: string;
+  unreadCount: number;
+  participants: User[];
+  projectOwner: User;
+}
+
+export interface ChatMessage {
+  senderName: string;
+  senderAvatar: string;
+  message: string;
+  timestamp: Date;
+  isCurrentUser: boolean;
+}
+
+export interface User {
+  name: string;
+  avatar: string;
+  role: 'admin' | 'project_owner' | 'participant';
+}
+
+export interface Project {
+  id: number;
+  name: string;
+  description: string;
+  investmentAmount: number;
+  expectedReturn: number;
+  duration: string;
+  createdAt: Date;
+  participants: User[];
+  projectOwner: User;
+  chatId: number;
+}
+
+export interface Message {
+  id: number;
+  projectId: number;
+  projectName: string;
+  lastMessage: string;
+  lastMessageTime: string;
+  unreadCount: number;
+  participants: User[];
+  projectOwner: User;
+}
+
+export interface ChatMessages {
+  id: number;
+  senderId: number;
+  senderName: string;
+  senderAvatar: string;
+  message: string;
+  timestamp: Date;
+  isCurrentUser: boolean;
+}
+
+export interface User {
+  id: number;
+  name: string;
+  avatar: string;
+  role: 'admin' | 'project_owner' | 'participant';
+}
+
+export interface Project {
+  id: number;
+  name: string;
+  description: string;
+  investmentAmount: number;
+  expectedReturn: number;
+  duration: string;
+  createdAt: Date;
+  projectOwner: User;
+  chatId: number;
+}
