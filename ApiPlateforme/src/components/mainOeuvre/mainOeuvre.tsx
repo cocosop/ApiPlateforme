@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, TrendingUp, MapPin, GraduationCap, FileText, Shield, Calculator } from 'lucide-react';
+import { Users, TrendingUp, MapPin, GraduationCap, FileText, Shield } from 'lucide-react';
 
 const MainOeuvre: React.FC = () => {
   const workforceData = [
@@ -11,7 +11,7 @@ const MainOeuvre: React.FC = () => {
       stats: [
         { label: "Alphabétisation", value: "71.2%", detail: "15 ans et plus" },
         { label: "Hommes", value: "78.2%", detail: "alphabétisés" },
-        { label: "Femmes", value: "64.7%", detail: "alphabétisées" },
+        { label: "Femmes", value: "64.7%", detail: "alphabétisés" },
         { label: "Primaire", value: "78.8%", detail: "taux net scolarisation" },
         { label: "Secondaire", value: "49.3%", detail: "taux net scolarisation" }
       ],

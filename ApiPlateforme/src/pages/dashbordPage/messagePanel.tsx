@@ -1,29 +1,35 @@
-
-import React, { useState } from 'react';
-import { Send, Search, Users, TrendingUp, Calendar, Crown, Shield } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Send, Search, Users, TrendingUp, Crown, Shield, Paperclip } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { Message, ChatMessages, User } from '../../types';
 
-interface MessagePanelProps {
+export interface MessagePanelProps {
   messages: Message[];
   selectedChat: number | null;
-  onSelectChat: (id: number) => void;
+  onSelectChat: (chatId: number) => void;
   chatMessages: ChatMessages[];
-  onSendMessage: (message: string) => void;
+  onSendMessage: (messageText: string) => void;
   currentUser: User;
 }
-
 const MessagePanel: React.FC<MessagePanelProps> = ({ 
   messages, 
   selectedChat, 
   onSelectChat, 
   chatMessages,
   onSendMessage,
-  currentUser
 }) => {
   const [newMessage, setNewMessage] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [chatMessages, selectedChat]);
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
@@ -31,6 +37,22 @@ const MessagePanel: React.FC<MessagePanelProps> = ({
       onSendMessage(newMessage);
       setNewMessage('');
     }
+    if (selectedFile) {
+      handleSendFile(selectedFile);
+      setSelectedFile(null);
+      if (fileInputRef.current) fileInputRef.current.value = '';
+    }
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setSelectedFile(e.target.files[0]);
+    }
+  };
+
+  const handleSendFile = (file: File) => {
+    const url = URL.createObjectURL(file);
+    onSendMessage(`[file]${file.name}|${url}`);
   };
 
   const filteredMessages = messages.filter(message =>
@@ -64,8 +86,8 @@ const MessagePanel: React.FC<MessagePanelProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg h-[calc(100vh-12rem)] overflow-hidden">
-      <div className="grid grid-cols-3 h-full">
+    <div className="bg-white rounded-xl shadow-lg h-full overflow-hidden"> {/* h-full au lieu de h-[calc(100vh-12rem)] */}
+      <div className="grid grid-cols-3 h-full min-h-0"> {/* Ajout de min-h-0 */}
         {/* Liste des Projets/Chats */}
         <div className="col-span-1 border-r border-gray-200">
           <div className="p-4 border-b border-gray-200 bg-gray-50">
@@ -125,11 +147,11 @@ const MessagePanel: React.FC<MessagePanelProps> = ({
         </div>
 
         {/* Zone de Chat */}
-        <div className="col-span-2 flex flex-col">
+        <div className="col-span-2 flex flex-col h-full min-h-0"> {/* Ajout de min-h-0 ici */}
           {selectedChat ? (
             <>
               {/* En-tête du Chat */}
-              <div className="p-4 border-b border-gray-200 bg-white">
+              <div className="p-4 border-b border-gray-200 bg-white flex-shrink-0">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
                     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
@@ -152,7 +174,7 @@ const MessagePanel: React.FC<MessagePanelProps> = ({
                   </div>
                   <div className="flex items-center space-x-2">
                     <div className="flex -space-x-2">
-                      {selectedMessage?.participants.slice(0, 4).map((participant, index) => (
+                      {selectedMessage?.participants.slice(0, 4).map((participant) => (
                         <div key={participant.id} className="relative">
                           <img
                             src={participant.avatar}
@@ -160,7 +182,6 @@ const MessagePanel: React.FC<MessagePanelProps> = ({
                             className="w-8 h-8 rounded-full border-2 border-white object-cover"
                             title={`${participant.name} (${getRoleLabel(participant.role)})`}
                           />
-                         
                         </div>
                       ))}
                       {(selectedMessage?.participants.length || 0) > 4 && (
@@ -196,7 +217,23 @@ const MessagePanel: React.FC<MessagePanelProps> = ({
                             <p className="text-xs font-medium text-blue-600">{chat.senderName}</p>
                           </div>
                         )}
-                        <p className="text-sm leading-relaxed">{chat.message}</p>
+                        {/* Affichage du message ou du fichier */}
+                        {chat.message.startsWith('[file]') ? (() => {
+                          const fileInfo = chat.message.replace('[file]', '');
+                          const [fileName, url] = fileInfo.split('|');
+                          return (
+                            <a
+                              href={url}
+                              download={fileName}
+                              className="flex items-center space-x-2 text-blue-500 underline"
+                            >
+                              <Paperclip className="h-4 w-4" />
+                              <span>Télécharger : {fileName}</span>
+                            </a>
+                          );
+                        })() : (
+                          <p className="text-sm leading-relaxed">{chat.message}</p>
+                        )}
                         <p className={`text-xs mt-2 ${
                           chat.isCurrentUser ? 'text-blue-100' : 'text-gray-500'
                         }`}>
@@ -215,11 +252,26 @@ const MessagePanel: React.FC<MessagePanelProps> = ({
                     )}
                   </div>
                 ))}
+                <div ref={messagesEndRef} />
               </div>
 
               {/* Saisie de Message */}
-              <div className="p-4 border-t border-gray-200 bg-white">
+              <div className="p-4 border-t border-gray-200 bg-white flex-shrink-0">
                 <form onSubmit={handleSendMessage} className="flex space-x-3">
+                  <button
+                    type="button"
+                    onClick={() => fileInputRef.current?.click()}
+                    className="px-3 py-3 bg-gray-100 rounded-xl hover:bg-gray-200 flex items-center"
+                    title="Envoyer un fichier"
+                  >
+                    <Paperclip className="h-5 w-5 text-gray-500" />
+                  </button>
+                  <input
+                    type="file"
+                    ref={fileInputRef}
+                    style={{ display: 'none' }}
+                    onChange={handleFileChange}
+                  />
                   <input
                     type="text"
                     value={newMessage}
@@ -229,13 +281,19 @@ const MessagePanel: React.FC<MessagePanelProps> = ({
                   />
                   <button
                     type="submit"
-                    disabled={!newMessage.trim()}
+                    disabled={!newMessage.trim() && !selectedFile}
                     className="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
                   >
                     <Send className="h-5 w-5" />
                     <span className="hidden sm:inline">Envoyer</span>
                   </button>
                 </form>
+                {selectedFile && (
+                  <div className="mt-2 text-xs text-gray-600 flex items-center space-x-2">
+                    <Paperclip className="h-4 w-4" />
+                    <span>{selectedFile.name}</span>
+                  </div>
+                )}
               </div>
             </>
           ) : (

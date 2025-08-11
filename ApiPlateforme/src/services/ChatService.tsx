@@ -150,10 +150,14 @@ class ChatService {
     return {
       id: uuidv4(),
       sender: "bot",
-      text: response,
+      senderName: "Assistant",
+      senderAvatar: "/assets/bot-avatar.png", // Update path as needed
+      message: response,
+      text: response, // If 'text' is still needed elsewhere
       timestamp: new Date(),
       relatedQuestions,
-      category: match?.category
+      category: match?.category,
+      isCurrentUser: false
     };
   }
 

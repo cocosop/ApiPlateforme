@@ -174,6 +174,8 @@ export interface ChatMessages {
   message: string;
   timestamp: Date;
   isCurrentUser: boolean;
+  fileUrl?: string;
+
 }
 
 export interface User {
@@ -193,4 +195,12 @@ export interface Project {
   createdAt: Date;
   projectOwner: User;
   chatId: number;
+}
+export interface MessagePanelProps {
+  messages: Message[];
+  selectedChat: number | null;
+  onSelectChat: (chatId: number) => void;
+  chatMessages: ChatMessages[];
+  onSendMessage: (messageText: string) => void;
+  currentUser: User;
 }

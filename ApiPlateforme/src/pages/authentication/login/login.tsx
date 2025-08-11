@@ -4,7 +4,7 @@ import { Google as GoogleIcon, Apple as AppleIcon, VisibilityOff, Visibility, Li
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { NotificationProvider } from "../../../components/alert/AlertComponent";
-// import { useAuthStore } from "../../../store/AuthStore";
+import { useAuthStore } from "../../../store/AuthStore";
 import { useTranslation } from 'react-i18next';
 import userService from "../../../services/userService";
 
@@ -27,22 +27,22 @@ const Login = () => {
   };
 
 
-  // const handleSubmit = async (e: any) => {
-  //   e.preventDefault();
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
 
-  //   const res = await userService.login(email, password);
-  //   try {
-  //     const { accessToken } = res.data;
+    const res = await userService.login(email, password);
+    try {
+      const { accessToken } = res.data;
 
-  //     const auth = useAuthStore.getState();
-  //     auth.setToken(accessToken);
+      const auth = useAuthStore.getState();
+      auth.setToken(accessToken);
 
-  //     sessionStorage.setItem('secteur', '');
-  //     history("/dashboard");
-  //   } catch {
-  //     console.error("Erreur de connexion");
-  //   }
-  // };
+      sessionStorage.setItem('secteur', '');
+      history("/dashboard");
+    } catch {
+      console.error("Erreur de connexion");
+    }
+  };
 
   return (
     <section className="flex flex-col md:flex-row">
@@ -117,7 +117,7 @@ const Login = () => {
           {/* Champs de connexion */}
           <NotificationProvider>
             <form 
-            // onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
             >
               <TextField
                 fullWidth
@@ -162,7 +162,7 @@ const Login = () => {
                 fullWidth
                 type="submit"
                 variant="contained"
-                // onSubmit={handleSubmit}
+                onSubmit={handleSubmit}
                 sx={{ backgroundColor: "#2A337B", mt: 2, textTransform: "none", borderRadius: "8px" }}
               >
                 {t('login.button')}

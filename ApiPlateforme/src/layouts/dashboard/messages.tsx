@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import MessagePanel from './../../pages/dashbordPage/messagePanel';
-import { Message, Project, ChatMessages, User } from '../../types';
-import { Plus } from 'lucide-react';
+import { Message, ChatMessages, User } from '../../types';
 
 // Utilisateurs du système
 const systemUsers: User[] = [
@@ -56,50 +55,9 @@ const initialMessages: Message[] = [
   }
 ];
 
-const initialProjects: Project[] = [
-  {
-    id: 1,
-    name: 'Immobilier Commercial Paris',
-    description: 'Investissement dans un immeuble de bureaux au centre de Paris',
-    investmentAmount: 500000,
-    expectedReturn: 8.5,
-    duration: '5 ans',
-    createdAt: new Date('2024-01-15'),
-    participants: [systemUsers[0], systemUsers[1]],
-    projectOwner: systemUsers[1],
-    chatId: 1
-  },
-  {
-    id: 2,
-    name: 'Start-up FinTech',
-    description: 'Participation dans une start-up spécialisée dans les paiements mobiles',
-    investmentAmount: 100000,
-    expectedReturn: 15.2,
-    duration: '3 ans',
-    createdAt: new Date('2024-02-01'),
-    participants: [systemUsers[0], systemUsers[1]],
-    projectOwner: systemUsers[2],
-    chatId: 2
-  },
-  {
-    id: 3,
-    name: 'Énergie Renouvelable',
-    description: 'Projet de parc éolien offshore',
-    investmentAmount: 2000000,
-    expectedReturn: 12.0,
-    duration: '10 ans',
-    createdAt: new Date('2024-02-20'),
-    participants: [systemUsers[0], systemUsers[1]],
-    projectOwner: systemUsers[1],
-    chatId: 3
-  }
-];
-
 const Messages: React.FC = () => {
   const [selectedChat, setSelectedChat] = useState<number | null>(null);
   const [messages, setMessages] = useState<Message[]>(initialMessages);
-  const [projects, setProjects] = useState<Project[]>(initialProjects);
-  const [showProjectForm, setShowProjectForm] = useState(false);
   const [chatMessages, setChatMessages] = useState<Record<number, ChatMessages[]>>({});
 
   // Messages de chat simulés pour chaque projet
@@ -181,14 +139,24 @@ const Messages: React.FC = () => {
   const handleSendMessage = (messageText: string) => {
     if (!selectedChat || !messageText.trim()) return;
 
+    let fileUrl: string | undefined = undefined;
+    let pureMessage = messageText;
+    if (messageText.startsWith('[file]')) {
+      const fileInfo = messageText.replace('[file]', '');
+      const [fileName, url] = fileInfo.split('|');
+      fileUrl = url;
+      pureMessage = `[file]${fileName}|${url}`;
+    }
+
     const newMessage: ChatMessages = {
       id: (chatMessages[selectedChat]?.length || 0) + 1,
       senderId: currentUser.id,
       senderName: currentUser.name,
       senderAvatar: currentUser.avatar,
-      message: messageText,
+      message: pureMessage,
       timestamp: new Date(),
-      isCurrentUser: true
+      isCurrentUser: true,
+      ...(fileUrl ? { fileUrl } : {})
     };
 
     setChatMessages({
@@ -196,17 +164,16 @@ const Messages: React.FC = () => {
       [selectedChat]: [...(chatMessages[selectedChat] || []), newMessage]
     });
 
-    // Mettre à jour le dernier message dans la liste
     setMessages(messages.map(msg => 
       msg.id === selectedChat 
-        ? { ...msg, lastMessage: messageText, lastMessageTime: 'Maintenant', unreadCount: 0 }
+        ? { ...msg, lastMessage: pureMessage, lastMessageTime: 'Maintenant', unreadCount: 0 }
         : msg
     ));
   };
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto h-[calc(100vh-6rem)]"> {/* Ajout de la hauteur ici */}
         <MessagePanel
           messages={messages}
           selectedChat={selectedChat}

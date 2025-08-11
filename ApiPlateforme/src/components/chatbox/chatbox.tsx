@@ -22,22 +22,23 @@ const Chatbox = () => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        // Créer une nouvelle session de chat
         chatService.createSession("Consultation d'investissement");
-        
-        // Charger les questions préchargées
         const preloadedQuestions = chatService.getPreloadedQuestions();
         setQuestions(preloadedQuestions);
-        
-        // Message de bienvenue
+
+        // Correction ici : toutes les propriétés du type ChatMessage
         const welcomeMessage: ChatMessage = {
           id: uuidv4(),
           sender: "bot",
+          senderName: "Assistant IA",
+          senderAvatar: "",
           text: "Bonjour ! Je suis votre assistant intelligent pour l'investissement au Cameroun. Je peux vous aider avec :\n\n• Les secteurs porteurs\n• Les procédures administratives\n• Les avantages fiscaux\n• Les options de financement\n• Les infrastructures disponibles\n\nComment puis-je vous aider aujourd'hui ?",
+          message: "Bonjour ! Je suis votre assistant intelligent pour l'investissement au Cameroun. Je peux vous aider avec :\n\n• Les secteurs porteurs\n• Les procédures administratives\n• Les avantages fiscaux\n• Les options de financement\n• Les infrastructures disponibles\n\nComment puis-je vous aider aujourd'hui ?",
           timestamp: new Date(),
+          isCurrentUser: false,
           relatedQuestions: preloadedQuestions.slice(0, 3)
         };
-        
+
         setMessages([welcomeMessage]);
         chatService.addMessage(welcomeMessage);
       } catch (err) {
@@ -71,23 +72,31 @@ const Chatbox = () => {
 
   const handleSendMessage = useCallback(async (messageText?: string) => {
     const text = messageText || inputValue.trim();
-    
     if (!text) return;
 
-    // Ajouter le message de l'utilisateur
+    // Correction ici : toutes les propriétés du type ChatMessage
     const userMessage: ChatMessage = {
       id: uuidv4(),
       sender: "user",
-      text: text,
-      timestamp: new Date()
+      senderName: "Vous",
+      senderAvatar: "",
+      text,
+      message: text,
+      timestamp: new Date(),
+      isCurrentUser: true
     };
-    
+
     addMessage(userMessage);
     setInputValue("");
 
-    // Générer la réponse du bot
     const botResponse = chatService.processMessage(text);
-    await simulateTyping(botResponse);
+    await simulateTyping({
+      ...botResponse,
+      senderName: "Assistant IA",
+      senderAvatar: "",
+      message: botResponse.text || "",
+      isCurrentUser: false
+    });
   }, [inputValue, addMessage, simulateTyping]);
 
   const handleQuestionClick = useCallback((question: string) => {
@@ -101,30 +110,39 @@ const Chatbox = () => {
   const handleReset = useCallback(() => {
     setMessages([]);
     chatService.clearCurrentSession();
-    
-    // Ajouter un nouveau message de bienvenue
+
+    // Correction ici : toutes les propriétés du type ChatMessage
     const welcomeMessage: ChatMessage = {
       id: uuidv4(),
       sender: "bot",
+      senderName: "Assistant IA",
+      senderAvatar: "",
       text: "Conversation réinitialisée. Comment puis-je vous aider avec vos projets d'investissement au Cameroun ?",
+      message: "Conversation réinitialisée. Comment puis-je vous aider avec vos projets d'investissement au Cameroun ?",
       timestamp: new Date(),
+      isCurrentUser: false,
       relatedQuestions: questions.slice(0, 3)
     };
-    
+
+    addMessage(welcomeMessage);
     setMessages([welcomeMessage]);
     chatService.addMessage(welcomeMessage);
-  }, [questions]);
+  }, [questions, addMessage]);
 
   const handleBack = useCallback(() => {
-    // Revenir au message de bienvenue avec les questions suggérées
+    // Correction ici : toutes les propriétés du type ChatMessage
     const welcomeMessage: ChatMessage = {
       id: uuidv4(),
       sender: "bot",
+      senderName: "Assistant IA",
+      senderAvatar: "",
       text: "Voici les questions les plus fréquentes. Cliquez sur une question pour obtenir des informations détaillées :",
+      message: "Voici les questions les plus fréquentes. Cliquez sur une question pour obtenir des informations détaillées :",
       timestamp: new Date(),
+      isCurrentUser: false,
       relatedQuestions: questions.slice(0, 5)
     };
-    
+
     addMessage(welcomeMessage);
   }, [questions, addMessage]);
 
