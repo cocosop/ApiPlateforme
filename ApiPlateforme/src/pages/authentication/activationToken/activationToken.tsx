@@ -13,11 +13,9 @@ import {
 } from '@mui/material';
 import { CheckCircleOutline, ErrorOutline } from '@mui/icons-material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import DialogComponent from '../../../components/dialogComponent/dialogComponent';
 import TokenInput from '../../../components/tokenInput/tokenInput';
-import { backendUrl } from '../../../constants/constants';
 import userService from '../../../services/userService';
 
 // Thème personnalisé
