@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Fab } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
-import ChatIcon from '@mui/icons-material/chat';
+import ChatIcon from '@mui/icons-material/Chat';
 
 import { Bot, User, Clock, HelpCircle } from 'lucide-react';
 import { ChatMessage } from '../../types';

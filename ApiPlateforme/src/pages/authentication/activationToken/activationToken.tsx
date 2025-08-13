@@ -18,6 +18,7 @@ import { useNavigate } from 'react-router-dom';
 import DialogComponent from '../../../components/dialogComponent/dialogComponent';
 import TokenInput from '../../../components/tokenInput/tokenInput';
 import { backendUrl } from '../../../constants/constants';
+import userService from '../../../services/userService';
 
 // Thème personnalisé
 const theme = createTheme({
@@ -52,36 +53,23 @@ const ActivationToken = () => {
     setStatus('loading');
 
     try {
-      axios.post(`${backendUrl}/api/v1/auth/activated-account?token=${token}`)
-        .then((res) => {
-          res.data.status === 202 ? setStatus('success') : setStatus('error');
-          if (res.request.status === 202) {
-            history("/singin");
-          } else {
-            setStatus('error');
-          }
-        })
+      const res = userService.verifyActivationToken(token);
+      if ((await res).status === 202) {
+        setStatus('success');
+        setTimeout(() => {
+          history('/signin');
+        }, 2000);
+      } else {
+        setStatus('error');
+        alert("Code invalide ou expiré. Veuillez réessayer.");
+      }
     } catch (error) {
       setStatus('error');
+      console.error("Erreur lors de la vérification du code d'activation", error);
+      alert("Erreur lors de la vérification du code d'activation");
     }
   };
 
-  axios.interceptors.response.use(
-    res => {
-      return res;
-    },
-    error => {
-      const statusHandlers: any = {
-        403: () => alert("Accès interdit"),
-        404: () => alert("L'adresse email est incorrecte"),
-        409: () => alert("Adresse email déjà utilisée"),
-        500: () => alert("Erreur serveur"),
-      };
-      const status = error.res?.status;
-      (statusHandlers[status] || (() => alert("Erreur inconnue")))();
-      return Promise.reject(error);
-    }
-  );
 
   return (
     <ThemeProvider theme={theme}>
