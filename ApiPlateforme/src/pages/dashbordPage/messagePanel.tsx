@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
-import { Send, Search, Paperclip } from 'lucide-react';
+import { Send, Search, Paperclip, Pen, Check } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import messageService from '../../services/messageService';
+import { useAuthStore } from '../../store/AuthStore';
+import { Close } from '@mui/icons-material';
 
 export interface Message {
   id: string;
   fileUrl?: string;
   content: string;
-  isRead: boolean;
-  isEdited: boolean;
+  read: boolean;
+  edited: boolean;
   timestamp: string;
   sender: {
     email: string;
@@ -40,14 +42,22 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
   const [file, setFile] = useState<File | null>(null);
   const [filePreview, setFilePreview] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [editingMsgId, setEditingMsgId] = useState<string | null>(null);
+  const [editedContent, setEditedContent] = useState('');
+  const [localChats, setLocalChats] = useState<Chat[]>(chats);
+
+  // Mettre à jour localChats si chats change
+  React.useEffect(() => {
+    setLocalChats(chats);
+  }, [chats]);
 
   // Filtrer les chats par projet.titre
-  const filteredChats = chats.filter(chat =>
+  const filteredChats = localChats.filter(chat =>
     chat.project.titre?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   // Récupérer le chat sélectionné
-  const selectedChat = chats.find(chat => chat.id === selectedChatId);
+  const selectedChat = localChats.find(chat => chat.id === selectedChatId);
 
   // Aperçu du fichier sélectionné
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -67,21 +77,42 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
   // Envoi du message au serveur
   const handleSendMessage = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!selectedChat) return;
+    setLoading(true);
 
     const payload = {
-      chatId: selectedChat?.id,
+      chatId: selectedChat.id,
       content: newMessage,
       fileUrl: ''
     };
 
     try {
-      // Correction : assurez-vous que messageService.sendMessage retourne une Promise
+      // Envoi du message
       const res = await messageService.sendMessage(payload);
       if (res && (res.status === 200 || res.status === 201)) {
+        // Création du nouveau message local
+        const newMsg: Message = {
+          id: res.data?.id || Math.random().toString(36), // fallback si pas d'id
+          content: newMessage,
+          fileUrl: '',
+          read: true,
+          edited: false,
+          timestamp: new Date().toISOString(),
+          sender: {
+            email: currentUserEmail || '',
+          }
+        };
+        // Mise à jour locale des messages
+        setLocalChats(prev =>
+          prev.map(chat =>
+            chat.id === selectedChat.id
+              ? { ...chat, messages: [...chat.messages, newMsg] }
+              : chat
+          )
+        );
         setNewMessage('');
         setFile(null);
         setFilePreview(null);
-        // Optionnel : refetch ou mise à jour locale des messages
       } else {
         alert("Échec de l'envoi du message");
       }
@@ -98,35 +129,57 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
     return chat.messages[chat.messages.length - 1];
   };
 
-  // Fonction pour extraire l'id utilisateur du token JWT
-  const getUserEmailFromToken = () => {
-    const token = localStorage.getItem('token');
-    if (!token) return null;
+  // Edition d'un message
+  const handleEditMessage = async (msgId: string, newContent: string) => {
+    if (!selectedChat) return;
+    const payload = {
+      content: newContent,
+      fileUrl: ''
+    };
     try {
-      const payload = JSON.parse(atob(token.split('.')[1]));
-      return payload.email || null;
-    } catch {
-      return null;
+      const res = await messageService.modifiedMessage(msgId, payload);
+      if (res.status == 202) {
+        // Mise à jour locale du message édité
+        setLocalChats(prev =>
+          prev.map(chat =>
+            chat.id === selectedChat.id
+              ? {
+                ...chat,
+                messages: chat.messages.map(msg =>
+                  msg.id === msgId
+                    ? { ...msg, content: newContent, isEdited: true }
+                    : msg
+                )
+              }
+              : chat
+          )
+        );
+        setEditingMsgId(null);
+        setEditedContent('');
+      } else {
+        alert("Échec de la modification du message");
+      }
+    } catch (err) {
+      alert("Erreur lors de la modification du message");
     }
   };
 
-  const currentUserEmail = getUserEmailFromToken();
+  const currentUserEmail = useAuthStore((state) => state.decoded)?.sub
 
   // Compter les messages non lus pour l'utilisateur connecté
   const getUnreadCount = (chat: Chat) => {
     if (!chat.messages || chat.messages.length === 0 || !currentUserEmail) return 0;
     // Un message est non lu si le sender n'est pas l'utilisateur courant ET isRead === false
-    return chat.messages.filter(msg => msg.sender.email !== currentUserEmail && !msg.isRead).length;
+    return chat.messages.filter(msg => msg.sender.email !== currentUserEmail && !msg.read).length;
   };
 
   // Marquer le message comme lu lors de l'affichage (pour les messages reçus non lus)
-  const handleReadMessage = async (msg: Message) => {
-    if (!msg.isRead && msg.sender.email !== currentUserEmail) {
+  const handleReadMessage = async (chat: Chat) => {
+    if (chat.messages.length !== 0) {
       try {
-        await messageService.readMessage(msg.id);
-        msg.isRead = true;
+        await messageService.readMessage(chat.id);
       } catch (err) {
-        // Gérer l'erreur si besoin
+        console.error('An error has been detected')
       }
     }
   };
@@ -155,7 +208,10 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
               return (
                 <div
                   key={chat.id}
-                  onClick={() => onSelectChat(chat.id)}
+                  onClick={() => {
+                    onSelectChat(chat.id);
+                    handleReadMessage(chat)
+                  }}
                   className={`flex items-center gap-3 p-4 border-b cursor-pointer hover:bg-blue-50 transition-colors ${selectedChatId === chat.id ? 'bg-blue-100' : ''}`}
                 >
                   <div className="relative">
@@ -191,34 +247,76 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
                 </div>
                 <div>
                   <h3 className="font-semibold text-gray-900">{selectedChat.project.titre}</h3>
-                  <p className="text-xs text-gray-500">Projet #{selectedChat.project.id}</p>
                 </div>
               </div>
               {/* Messages */}
               <div className="flex-1 overflow-y-auto px-6 py-4 flex flex-col gap-2 bg-white">
                 {selectedChat.messages && selectedChat.messages.length > 0 ? (
                   [...selectedChat.messages]
-                    .sort((a, b) => new Date(a.timestamp).getDate() - new Date(b.timestamp).getDate())
+                    .sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime())
                     .map((msg) => {
                       const isMine = msg.sender.email === currentUserEmail;
                       return (
                         <div
                           key={msg.id}
-                          className={`flex ${isMine ? 'justify-end' : 'justify-start'}`}
-                          onMouseEnter={() => !isMine && !msg.isRead && handleReadMessage(msg)}
-                        >
-                          <div
-                            className={`rounded-2xl px-5 py-3 max-w-[60%] shadow-sm
-                ${isMine
-                                ? 'bg-green-500 text-white'
-                                : 'bg-gray-100 text-gray-900'
-                              }`}
+                          className={`flex ${isMine ? 'justify-end' : 'justify-start'} group`}                        >
+                          {/* Icone d'édition visible uniquement au hover, si isMine et non édité */}
+                          {isMine && !msg.edited && (
+                            <button
+                              type="button"
+                              className={`mr-2 ${editingMsgId === msg.id ? '' : 'invisible group-hover:visible'}`}
+                              onClick={() => {
+                                setEditingMsgId(msg.id);
+                                setEditedContent(msg.content);
+                              }}
+                              aria-label="Modifier le message"
+                            >
+                              <Pen className="w-5 h-5 text-gray-400 hover:text-blue-600 transition-colors" />
+                            </button>
+                          )}
+                          <div className={`rounded-2xl px-5 py-3 max-w-[60%] shadow-sm
+                            ${isMine
+                              ? 'bg-green-500 text-white'
+                              : 'bg-gray-100 text-gray-900'
+                            }`}
                           >
                             <div className="flex items-center gap-2">
                               {msg.sender.url_image && !isMine && (
                                 <img src={msg.sender.url_image} alt="" className="w-7 h-7 rounded-full mr-2" />
                               )}
-                              <span className="text-sm">{msg.content}</span>
+                              {/* Edition inline si editingMsgId === msg.id */}
+                              {editingMsgId === msg.id ? (
+                                <form
+                                  className="flex-1 flex gap-2"
+                                  onSubmit={async (e) => {
+                                    e.preventDefault();
+                                    await handleEditMessage(msg.id, editedContent);
+                                  }}
+                                >
+                                  <input
+                                    type="text"
+                                    value={editedContent}
+                                    onChange={(e) => setEditedContent(e.target.value)}
+                                    className="text-sm px-2 py-1 rounded border focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
+                                    autoFocus
+                                  />
+                                  <button
+                                    type="submit"
+                                    className="text-xs px-2 py-1 rounded text-white"
+                                  >
+                                    <Check className="w-5 h-5" />
+                                  </button>
+                                  <button
+                                    type="button"
+                                    className="text-xs px-2 py-1 rounded text-red-600"
+                                    onClick={() => setEditingMsgId(null)}
+                                  >
+                                    <Close className="w-5 h-5" />
+                                  </button>
+                                </form>
+                              ) : (
+                                <span className="text-sm">{msg.content}</span>
+                              )}
                             </div>
                             <div className="flex items-center justify-between mt-2">
                               <span className={`text-xs ${isMine ? 'text-green-100' : 'text-gray-500'}`}>
@@ -233,6 +331,10 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
                                 >
                                   Fichier joint
                                 </a>
+                              )}
+                              {/* Affichage "modifié" si le message a été édité */}
+                              {msg.edited && (
+                                <span className={`text-xs ${isMine ? 'text-green-100' : 'text-gray-500'} ml-2`}>modifié</span>
                               )}
                             </div>
                           </div>
