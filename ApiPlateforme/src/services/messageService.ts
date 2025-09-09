@@ -2,18 +2,19 @@ import apiConfig from "./apiConfig";
 
 class MessageService {
 
+    // APIs for chat (seen and read)
     fetchAllChat() {
         return apiConfig.get(`/chat`);
     }
-    fetchAllMessages() {
-        return apiConfig.get(`/message`);
+    readMessage(id: string) {
+        return apiConfig.patch(`/chat/${id}/read`);
     }
+
+    // APIs for message (sending and editing)
     sendMessage(data: any) {
         return apiConfig.post(`/message/send`, data);
     }
-    readMessage(id: string) {
-        return apiConfig.patch(`/message/${id}/read`);
-    }
+
     modifiedMessage(id: string, data: any) {
         return apiConfig.put(`/message/${id}/modified`, data);
     }
