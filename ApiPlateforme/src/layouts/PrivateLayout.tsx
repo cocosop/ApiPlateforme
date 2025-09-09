@@ -7,8 +7,6 @@ import { useAuthStore } from "../store/AuthStore";
 
 const PrivateLayout = () => {
     const decoded = useAuthStore((state) => state.decoded);
-    console.log(`decoded`);
-    console.log(decoded);
 
     if (!decoded) {
         return <p>Utilisateur non connecté</p>;

@@ -1,96 +1,142 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { Send, Search, Users, TrendingUp, Crown, Shield, Paperclip } from 'lucide-react';
+import React, { useState } from 'react';
+import { Send, Search, Paperclip } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
-import { Message, ChatMessages, User } from '../../types';
+import messageService from '../../services/messageService';
 
-export interface MessagePanelProps {
-  messages: Message[];
-  selectedChat: number | null;
-  onSelectChat: (chatId: number) => void;
-  chatMessages: ChatMessages[];
-  onSendMessage: (messageText: string) => void;
-  currentUser: User;
+export interface Message {
+  id: string;
+  fileUrl?: string;
+  content: string;
+  isRead: boolean;
+  isEdited: boolean;
+  timestamp: string;
+  sender: {
+    email: string;
+    firstname?: string;
+    lastname?: string;
+    url_image?: string;
+  };
 }
-const MessagePanel: React.FC<MessagePanelProps> = ({ 
-  messages, 
-  selectedChat, 
-  onSelectChat, 
-  chatMessages,
-  onSendMessage,
-}) => {
+
+export interface Chat {
+  id: string;
+  project: {
+    id: string;
+    titre?: string;
+  };
+  messages: Message[];
+}
+
+interface MessagePanelProps {
+  chats: Chat[];
+  selectedChatId: string | null;
+  onSelectChat: (id: string) => void;
+}
+
+const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSelectChat }) => {
   const [newMessage, setNewMessage] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [file, setFile] = useState<File | null>(null);
+  const [filePreview, setFilePreview] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [chatMessages, selectedChat]);
-
-  const handleSendMessage = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (newMessage.trim()) {
-      onSendMessage(newMessage);
-      setNewMessage('');
-    }
-    if (selectedFile) {
-      handleSendFile(selectedFile);
-      setSelectedFile(null);
-      if (fileInputRef.current) fileInputRef.current.value = '';
-    }
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setSelectedFile(e.target.files[0]);
-    }
-  };
-
-  const handleSendFile = (file: File) => {
-    const url = URL.createObjectURL(file);
-    onSendMessage(`[file]${file.name}|${url}`);
-  };
-
-  const filteredMessages = messages.filter(message =>
-    message.projectName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    message.lastMessage.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    message.participants.some(p => p.name.toLowerCase().includes(searchTerm.toLowerCase()))
+  // Filtrer les chats par projet.titre
+  const filteredChats = chats.filter(chat =>
+    chat.project.titre?.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const selectedMessage = messages.find(m => m.id === selectedChat);
+  // Récupérer le chat sélectionné
+  const selectedChat = chats.find(chat => chat.id === selectedChatId);
 
-  const getRoleIcon = (role: string) => {
-    switch (role) {
-      case 'admin':
-        return <Shield className="h-4 w-4 text-red-500" />;
-      case 'project_owner':
-        return <Crown className="h-4 w-4 text-yellow-500" />;
-      default:
-        return null;
+  // Aperçu du fichier sélectionné
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selected = e.target.files?.[0] ?? null;
+    setFile(selected);
+    if (selected) {
+      if (selected.type.startsWith('image/')) {
+        setFilePreview(URL.createObjectURL(selected));
+      } else {
+        setFilePreview(null);
+      }
+    } else {
+      setFilePreview(null);
     }
   };
 
-  const getRoleLabel = (role: string) => {
-    switch (role) {
-      case 'admin':
-        return 'Admin';
-      case 'project_owner':
-        return 'Propriétaire';
-      default:
-        return '';
+  // Envoi du message au serveur
+  const handleSendMessage = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const payload = {
+      chatId: selectedChat?.id,
+      content: newMessage,
+      fileUrl: ''
+    };
+
+    try {
+      // Correction : assurez-vous que messageService.sendMessage retourne une Promise
+      const res = await messageService.sendMessage(payload);
+      if (res && (res.status === 200 || res.status === 201)) {
+        setNewMessage('');
+        setFile(null);
+        setFilePreview(null);
+        // Optionnel : refetch ou mise à jour locale des messages
+      } else {
+        alert("Échec de l'envoi du message");
+      }
+    } catch (err) {
+      alert("Erreur lors de l'envoi du message");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Récupérer le dernier message pour l'aperçu
+  const getLastMessage = (chat: Chat) => {
+    if (!chat.messages || chat.messages.length === 0) return null;
+    return chat.messages[chat.messages.length - 1];
+  };
+
+  // Fonction pour extraire l'id utilisateur du token JWT
+  const getUserEmailFromToken = () => {
+    const token = localStorage.getItem('token');
+    if (!token) return null;
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.email || null;
+    } catch {
+      return null;
+    }
+  };
+
+  const currentUserEmail = getUserEmailFromToken();
+
+  // Compter les messages non lus pour l'utilisateur connecté
+  const getUnreadCount = (chat: Chat) => {
+    if (!chat.messages || chat.messages.length === 0 || !currentUserEmail) return 0;
+    // Un message est non lu si le sender n'est pas l'utilisateur courant ET isRead === false
+    return chat.messages.filter(msg => msg.sender.email !== currentUserEmail && !msg.isRead).length;
+  };
+
+  // Marquer le message comme lu lors de l'affichage (pour les messages reçus non lus)
+  const handleReadMessage = async (msg: Message) => {
+    if (!msg.isRead && msg.sender.email !== currentUserEmail) {
+      try {
+        await messageService.readMessage(msg.id);
+        msg.isRead = true;
+      } catch (err) {
+        // Gérer l'erreur si besoin
+      }
     }
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-lg h-full overflow-hidden"> {/* h-full au lieu de h-[calc(100vh-12rem)] */}
-      <div className="grid grid-cols-3 h-full min-h-0"> {/* Ajout de min-h-0 */}
-        {/* Liste des Projets/Chats */}
-        <div className="col-span-1 border-r border-gray-200">
-          <div className="p-4 border-b border-gray-200 bg-gray-50">
+    <div className="bg-white rounded-lg shadow-md h-[calc(100vh-12rem)] flex flex-col">
+      <div className="flex flex-1">
+        {/* Liste des chats */}
+        <div className="w-1/3 border-r flex flex-col">
+          <div className="p-4 border-b bg-gray-50">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
               <input
@@ -98,191 +144,142 @@ const MessagePanel: React.FC<MessagePanelProps> = ({
                 placeholder="Rechercher un projet..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
               />
             </div>
           </div>
-          <div className="overflow-y-auto h-[calc(100%-5rem)]">
-            {filteredMessages.map((message) => (
-              <div
-                key={message.id}
-                onClick={() => onSelectChat(message.id)}
-                className={`p-4 border-b border-gray-100 cursor-pointer hover:bg-gray-50 transition-all duration-200 ${
-                  selectedChat === message.id ? 'bg-blue-50 border-l-4 border-l-blue-500' : ''
-                }`}
-              >
-                <div className="flex items-start space-x-3">
-                  <div className="relative flex-shrink-0">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                      <TrendingUp className="h-6 w-6 text-white" />
+          <div className="overflow-y-auto flex-1">
+            {filteredChats.map((chat) => {
+              const lastMsg = getLastMessage(chat);
+              const unreadCount = getUnreadCount(chat);
+              return (
+                <div
+                  key={chat.id}
+                  onClick={() => onSelectChat(chat.id)}
+                  className={`flex items-center gap-3 p-4 border-b cursor-pointer hover:bg-blue-50 transition-colors ${selectedChatId === chat.id ? 'bg-blue-100' : ''}`}
+                >
+                  <div className="relative">
+                    <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-700 text-lg">
+                      {chat.project.titre?.charAt(0) ?? "?"}
                     </div>
-                    {message.unreadCount > 0 && (
-                      <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs rounded-full flex items-center justify-center">
-                        {message.unreadCount}
+                    {unreadCount > 0 && (
+                      <div className="absolute -top-1 -right-1 bg-blue-600 text-white text-xs rounded-full px-2 py-0.5">
+                        {unreadCount}
                       </div>
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
-                    <div className="flex justify-between items-start mb-1">
-                      <h3 className="font-semibold text-gray-900 truncate text-sm">{message.projectName}</h3>
-                      <span className="text-xs text-gray-500 flex-shrink-0">{message.lastMessageTime}</span>
-                    </div>
-                    <div className="flex items-center space-x-2 mb-2">
-                      <div className="flex items-center space-x-1">
-                        {getRoleIcon(message.projectOwner.role)}
-                        <span className="text-xs text-gray-600">{message.projectOwner.name}</span>
-                      </div>
-                      <span className="text-xs text-gray-400">•</span>
-                      <div className="flex items-center space-x-1">
-                        <Users className="h-3 w-3 text-gray-400" />
-                        <span className="text-xs text-gray-500">{message.participants.length}</span>
-                      </div>
-                    </div>
-                    <p className="text-sm text-gray-600 truncate">{message.lastMessage}</p>
+                    <h3 className="font-semibold text-gray-900 truncate">{chat.project.titre}</h3>
+                    <p className="text-xs text-gray-500 truncate">
+                      {lastMsg ? lastMsg.content : ''}
+                    </p>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
-        {/* Zone de Chat */}
-        <div className="col-span-2 flex flex-col h-full min-h-0"> {/* Ajout de min-h-0 ici */}
+        {/* Zone de messages du chat sélectionné */}
+        <div className="w-2/3 flex flex-col">
           {selectedChat ? (
             <>
-              {/* En-tête du Chat */}
-              <div className="p-4 border-b border-gray-200 bg-white flex-shrink-0">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-                      <TrendingUp className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-gray-900 text-lg">
-                        {selectedMessage?.projectName}
-                      </h3>
-                      <div className="flex items-center space-x-2 mt-1">
-                        <div className="flex items-center space-x-1">
-                          {getRoleIcon(selectedMessage?.projectOwner.role || '')}
-                        </div>
-                      </div>
-                      <p className="text-sm text-green-500 flex items-center mt-1">
-                        <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                        {selectedMessage?.participants.length} participants actifs
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <div className="flex -space-x-2">
-                      {selectedMessage?.participants.slice(0, 4).map((participant) => (
-                        <div key={participant.id} className="relative">
-                          <img
-                            src={participant.avatar}
-                            alt={participant.name}
-                            className="w-8 h-8 rounded-full border-2 border-white object-cover"
-                            title={`${participant.name} (${getRoleLabel(participant.role)})`}
-                          />
-                        </div>
-                      ))}
-                      {(selectedMessage?.participants.length || 0) > 4 && (
-                        <div className="w-8 h-8 rounded-full bg-gray-200 border-2 border-white flex items-center justify-center">
-                          <span className="text-xs text-gray-600">+{(selectedMessage?.participants.length || 0) - 4}</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
+              {/* Header */}
+              <div className="p-4 border-b bg-gray-50 flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-700 text-lg">
+                  {selectedChat.project.titre?.charAt(0) ?? "?"}
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">{selectedChat.project.titre}</h3>
+                  <p className="text-xs text-gray-500">Projet #{selectedChat.project.id}</p>
                 </div>
               </div>
-
-              {/* Messages du Chat */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
-                {chatMessages.map((chat) => (
-                  <div
-                    key={chat.id}
-                    className={`flex ${chat.isCurrentUser ? 'justify-end' : 'justify-start'}`}
-                  >
-                    <div className={`max-w-[70%] ${chat.isCurrentUser ? 'order-2' : 'order-1'}`}>
-                      <div className={`rounded-xl p-4 shadow-sm ${
-                        chat.isCurrentUser
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-white text-gray-900 border border-gray-200'
-                      }`}>
-                        {!chat.isCurrentUser && (
-                          <div className="flex items-center space-x-2 mb-2">
-                            <img
-                              src={chat.senderAvatar}
-                              alt={chat.senderName}
-                              className="w-6 h-6 rounded-full object-cover"
-                            />
-                            <p className="text-xs font-medium text-blue-600">{chat.senderName}</p>
+              {/* Messages */}
+              <div className="flex-1 overflow-y-auto px-6 py-4 flex flex-col gap-2 bg-white">
+                {selectedChat.messages && selectedChat.messages.length > 0 ? (
+                  [...selectedChat.messages]
+                    .sort((a, b) => new Date(a.timestamp).getDate() - new Date(b.timestamp).getDate())
+                    .map((msg) => {
+                      const isMine = msg.sender.email === currentUserEmail;
+                      return (
+                        <div
+                          key={msg.id}
+                          className={`flex ${isMine ? 'justify-end' : 'justify-start'}`}
+                          onMouseEnter={() => !isMine && !msg.isRead && handleReadMessage(msg)}
+                        >
+                          <div
+                            className={`rounded-2xl px-5 py-3 max-w-[60%] shadow-sm
+                ${isMine
+                                ? 'bg-green-500 text-white'
+                                : 'bg-gray-100 text-gray-900'
+                              }`}
+                          >
+                            <div className="flex items-center gap-2">
+                              {msg.sender.url_image && !isMine && (
+                                <img src={msg.sender.url_image} alt="" className="w-7 h-7 rounded-full mr-2" />
+                              )}
+                              <span className="text-sm">{msg.content}</span>
+                            </div>
+                            <div className="flex items-center justify-between mt-2">
+                              <span className={`text-xs ${isMine ? 'text-green-100' : 'text-gray-500'}`}>
+                                {format(new Date(msg.timestamp), 'HH:mm', { locale: fr })}
+                              </span>
+                              {msg.fileUrl && (
+                                <a
+                                  href={msg.fileUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-xs text-blue-200 underline ml-2"
+                                >
+                                  Fichier joint
+                                </a>
+                              )}
+                            </div>
                           </div>
-                        )}
-                        {/* Affichage du message ou du fichier */}
-                        {chat.message.startsWith('[file]') ? (() => {
-                          const fileInfo = chat.message.replace('[file]', '');
-                          const [fileName, url] = fileInfo.split('|');
-                          return (
-                            <a
-                              href={url}
-                              download={fileName}
-                              className="flex items-center space-x-2 text-blue-500 underline"
-                            >
-                              <Paperclip className="h-4 w-4" />
-                              <span>Télécharger : {fileName}</span>
-                            </a>
-                          );
-                        })() : (
-                          <p className="text-sm leading-relaxed">{chat.message}</p>
-                        )}
-                        <p className={`text-xs mt-2 ${
-                          chat.isCurrentUser ? 'text-blue-100' : 'text-gray-500'
-                        }`}>
-                          {format(chat.timestamp, 'HH:mm', { locale: fr })}
-                        </p>
-                      </div>
-                    </div>
-                    {!chat.isCurrentUser && (
-                      <div className="order-1 mr-3 mt-1">
-                        <img
-                          src={chat.senderAvatar}
-                          alt={chat.senderName}
-                          className="w-8 h-8 rounded-full object-cover"
-                        />
-                      </div>
-                    )}
+                        </div>
+                      );
+                    })
+                ) : (
+                  <div className="text-gray-400 text-center py-8">
+                    Aucun message pour ce projet.
                   </div>
-                ))}
-                <div ref={messagesEndRef} />
+                )}
               </div>
-
-              {/* Saisie de Message */}
-              <div className="p-4 border-t border-gray-200 bg-white flex-shrink-0">
-                <form onSubmit={handleSendMessage} className="flex space-x-3">
-                  <button
-                    type="button"
-                    onClick={() => fileInputRef.current?.click()}
-                    className="px-3 py-3 bg-gray-100 rounded-xl hover:bg-gray-200 flex items-center"
-                    title="Envoyer un fichier"
-                  >
-                    <Paperclip className="h-5 w-5 text-gray-500" />
-                  </button>
-                  <input
-                    type="file"
-                    ref={fileInputRef}
-                    style={{ display: 'none' }}
-                    onChange={handleFileChange}
-                  />
-                  <input
-                    type="text"
-                    value={newMessage}
-                    onChange={(e) => setNewMessage(e.target.value)}
-                    placeholder="Écrivez votre message..."
-                    className="flex-1 px-4 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
+              {/* Input */}
+              <div className="p-4 border-t bg-gray-50">
+                {filePreview && (
+                  <div className="mb-2">
+                    <img src={filePreview} alt="Aperçu" className="max-h-24 rounded" />
+                  </div>
+                )}
+                {file && !filePreview && (
+                  <div className="mb-2 text-xs text-gray-500">
+                    Fichier sélectionné : {file.name}
+                  </div>
+                )}
+                <form onSubmit={handleSendMessage} className="flex items-center gap-2">
+                  <div className="relative flex-1">
+                    <input
+                      type="text"
+                      value={newMessage}
+                      onChange={(e) => setNewMessage(e.target.value)}
+                      placeholder="Écrivez votre message..."
+                      className="w-full pl-10 px-4 py-2 rounded-full border focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                    />
+                    <label htmlFor="file-upload" className="absolute left-2 top-1/2 -translate-y-1/2 cursor-pointer text-gray-400 hover:text-blue-600">
+                      <Paperclip className="w-5 h-5" />
+                    </label>
+                    <input
+                      type="file"
+                      onChange={handleFileChange}
+                      className="hidden"
+                      id="file-upload"
+                    />
+                  </div>
                   <button
                     type="submit"
-                    disabled={!newMessage.trim() && !selectedFile}
-                    className="px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center space-x-2"
+                    className="px-5 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors"
+                    disabled={loading || (!newMessage.trim() && !file)}
                   >
                     <Send className="h-5 w-5" />
                     <span className="hidden sm:inline">Envoyer</span>
@@ -297,14 +294,14 @@ const MessagePanel: React.FC<MessagePanelProps> = ({
               </div>
             </>
           ) : (
-            <div className="flex flex-col items-center justify-center h-full text-gray-500 bg-gray-50">
-              <div className="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center mb-6 opacity-50">
-                <TrendingUp className="h-16 w-16 text-white" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Sélectionnez un projet</h3>
-              <p className="text-sm text-center max-w-md">
-                Choisissez un projet dans la liste à gauche pour accéder à son chat et communiquer avec les participants
-              </p>
+            <div className="flex flex-col items-center justify-center h-full text-gray-500 bg-white">
+              <img
+                src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=200&h=200&fit=crop"
+                alt="Select a chat"
+                className="w-32 h-32 rounded-full mb-4 opacity-50"
+              />
+              <p className="text-lg font-medium">Sélectionnez un projet pour voir les messages</p>
+              <p className="text-sm">Choisissez un projet dans la liste à gauche</p>
             </div>
           )}
         </div>

@@ -23,10 +23,12 @@ const Chatbox = () => {
       setIsLoading(true);
       try {
         chatService.createSession("Consultation d'investissement");
+
+        // Charger les questions préchargées
         const preloadedQuestions = chatService.getPreloadedQuestions();
         setQuestions(preloadedQuestions);
 
-        // Correction ici : toutes les propriétés du type ChatMessage
+        // Message de bienvenue
         const welcomeMessage: ChatMessage = {
           id: uuidv4(),
           sender: "bot",
@@ -62,16 +64,17 @@ const Chatbox = () => {
 
   const simulateTyping = useCallback(async (response: ChatMessage) => {
     setIsTyping(true);
-    
+
     // Simuler le temps de réflexion (1-2 secondes)
     await new Promise(resolve => setTimeout(resolve, 1000 + Math.random() * 1000));
-    
+
     setIsTyping(false);
     addMessage(response);
   }, [addMessage]);
 
   const handleSendMessage = useCallback(async (messageText?: string) => {
     const text = messageText || inputValue.trim();
+    
     if (!text) return;
 
     // Correction ici : toutes les propriétés du type ChatMessage
@@ -111,7 +114,7 @@ const Chatbox = () => {
     setMessages([]);
     chatService.clearCurrentSession();
 
-    // Correction ici : toutes les propriétés du type ChatMessage
+    // Ajouter un nouveau message de bienvenue
     const welcomeMessage: ChatMessage = {
       id: uuidv4(),
       sender: "bot",
@@ -124,7 +127,6 @@ const Chatbox = () => {
       relatedQuestions: questions.slice(0, 3)
     };
 
-    addMessage(welcomeMessage);
     setMessages([welcomeMessage]);
     chatService.addMessage(welcomeMessage);
   }, [questions, addMessage]);
@@ -195,7 +197,7 @@ const Chatbox = () => {
 
   const MessageBubble = ({ message }: { message: ChatMessage }) => {
     const isUser = message.sender === 'user';
-    
+
     return (
       <motion.div
         initial={{ opacity: 0, y: 10 }}
@@ -205,21 +207,19 @@ const Chatbox = () => {
       >
         <div className={`max-w-xs lg:max-w-md ${isUser ? 'order-1' : 'order-2'}`}>
           <div className={`flex items-end space-x-2 ${isUser ? 'flex-row-reverse space-x-reverse' : ''}`}>
-            <div className={`p-3 rounded-2xl ${
-              isUser 
-                ? 'bg-blue-500 text-white rounded-br-md' 
-                : 'bg-gray-100 text-gray-800 rounded-bl-md'
-            }`}>
+            <div className={`p-3 rounded-2xl ${isUser
+              ? 'bg-blue-500 text-white rounded-br-md'
+              : 'bg-gray-100 text-gray-800 rounded-bl-md'
+              }`}>
               <p className="text-sm whitespace-pre-line">{message.text}</p>
             </div>
-            
-            <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
-              isUser ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-600'
-            }`}>
+
+            <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${isUser ? 'bg-blue-500 text-white' : 'bg-gray-300 text-gray-600'
+              }`}>
               {isUser ? <User size={14} /> : <Bot size={14} />}
             </div>
           </div>
-          
+
           <div className={`flex items-center mt-1 text-xs text-gray-500 ${isUser ? 'justify-end' : 'justify-start'}`}>
             <Clock size={10} className="mr-1" />
             {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
@@ -291,8 +291,8 @@ const Chatbox = () => {
                   </div>
                 </div>
               </div>
-              
-              <button 
+
+              <button
                 onClick={toggleChat}
                 className="p-2 rounded-full hover:bg-white/20 transition-colors"
               >
@@ -311,9 +311,9 @@ const Chatbox = () => {
                   {messages.map((message) => (
                     <MessageBubble key={message.id} message={message} />
                   ))}
-                  
+
                   {isTyping && <TypingIndicator />}
-                  
+
                   <div ref={messagesEndRef} />
                 </>
               )}
@@ -358,7 +358,7 @@ const Chatbox = () => {
                   </svg>
                   <span>Retour</span>
                 </button>
-                
+
                 <button
                   className="flex items-center space-x-1 text-xs text-orange-600 hover:text-orange-700 border border-orange-300 hover:border-orange-400 px-3 py-1 rounded-md transition-colors"
                   onClick={handleReset}
@@ -369,7 +369,7 @@ const Chatbox = () => {
                   <span>Réinitialiser</span>
                 </button>
               </div>
-              
+
               <button
                 className="flex items-center space-x-1 text-xs text-blue-600 hover:text-blue-700 border border-blue-300 hover:border-blue-400 px-3 py-1 rounded-md transition-colors"
                 onClick={handleExportConversation}
