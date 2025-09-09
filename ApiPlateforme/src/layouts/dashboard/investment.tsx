@@ -1,7 +1,7 @@
 // src/Investment.tsx
 import React, { useEffect, useState } from 'react';
 import { Plus } from 'lucide-react';
-import { ProjeTypes, CreateProjectType, Project } from '../../types';
+import { ProjeTypes, CreateProjectType } from '../../types';
 import NewDemandeProjectForm from '../../components/dashboardComponent/newDemandeProjectForm';
 import projectService from '../../services/projectService';
 import Projet from '../../assets/img/ampoule.jpg';
