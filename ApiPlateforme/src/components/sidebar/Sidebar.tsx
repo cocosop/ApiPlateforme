@@ -29,13 +29,13 @@ interface MenuItem {
 const roleMenus: Record<UserRole, MenuItem[]> = {
   ADMIN: [
     { icon: FolderKanban, label: 'Toutes les demandes', path: '/demandes' },
-    { icon: PiggyBank, label: 'Tous les projets', path: '/projets' },
+    { icon: PiggyBank, label: 'Projets en étude', path: '/projets' },
     { icon: BarChart, label: 'Analytique', path: '/analytics' },
     { icon: Settings, label: 'Paramètres', path: '/parametres' },
   ],
   PROJECT_OWNER: [
     { icon: LayoutDashboard, label: 'Tableau de bord', path: '/dashboard' },
-    { icon: FolderKanban, label: 'Projets', path: '/projets' },
+    { icon: FolderKanban, label: 'Mes projets', path: '/projets' },
     { icon: Settings, label: 'Paramètres', path: '/parametres' },
   ],
   INVESTOR: [

@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import projectService from '../../services/projectService';
 import stageService from '../../services/stageService';
 import docService from '../../services/docService';
+import { useAuthStore } from '../../store/AuthStore';
 
 type Stage = {
   id?: number;
@@ -81,6 +82,7 @@ const SuiviProjetDetail: React.FC = () => {
   });
   const [editProjet, setEditProjet] = useState<Projet>({ ...projet });
   const [image, setImage] = useState<string>(projet.url_image!);
+  const decodedUser = useAuthStore((state) => state.decoded);
 
   const getStatusClasses = (status: string) => {
     switch (status) {
@@ -124,6 +126,7 @@ const SuiviProjetDetail: React.FC = () => {
     setIsEditing(false);
     projectService.updateProject(editProjet.titre, editProjet)
       .then(() => {
+        alert("Mis à jour de l'état avec succès");
         // Optionnel : afficher un message de succès ou mettre à jour l'état
       })
       .catch(error => {
@@ -447,7 +450,7 @@ const SuiviProjetDetail: React.FC = () => {
         </div>
 
         <div className="ml-4">
-          {isEditing ? (
+          {isEditing && decodedUser?.role == 'ADMIN' ? (
             <div className="flex space-x-2">
               <button
                 onClick={handleSaveClick}
@@ -465,6 +468,7 @@ const SuiviProjetDetail: React.FC = () => {
               </button>
             </div>
           ) : (
+            decodedUser?.role === 'ADMIN' &&
             <button
               onClick={handleEditClick}
               className="p-2 bg-indigo-500 text-white rounded-full hover:bg-indigo-600 transition-colors"
@@ -551,7 +555,7 @@ const SuiviProjetDetail: React.FC = () => {
                 className="w-full px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
               />
             ) : (
-              <p className="font-bold text-lg text-green-900">{projet.montant.toLocaleString() ?? 0} XAF</p>
+              <p className="font-bold text-lg text-green-900">{projet.montant?.toLocaleString() ?? 0} XAF</p>
             )}
           </div>
           <div className="bg-purple-50 p-5 rounded-lg border border-purple-100 flex flex-col items-start justify-center">
@@ -590,8 +594,9 @@ const SuiviProjetDetail: React.FC = () => {
                 />
               </div>
             ) : (
-              <p className="font-bold text-lg text-yellow-900">
-                {projet.dateDebut ?? '...'} ➜ {projet.dateFin ?? '...'}
+              <p className="font-bold  text-yellow-900">
+                {projet.dateDebut?.split("T")[0].replace("-", "/") ?? '...'}
+                ➜ {projet.dateFin?.split("T")[0].replace("-", "/") ?? '...'}
               </p>
             )}
           </div>
@@ -604,7 +609,7 @@ const SuiviProjetDetail: React.FC = () => {
       <div className="mb-8">
         <div className="flex justify-between items-center mb-5">
           <h3 className="text-xl font-semibold text-gray-800">Jalons Clés du Projet</h3>
-          {!isAddingJalon ? (<button
+          {!isAddingJalon ? (decodedUser?.role === 'ADMIN' && <button
             onClick={handleAddJalonClick}
             className="px-3 py-1 bg-indigo-500 text-white rounded-md text-sm hover:bg-indigo-600"
           >
@@ -764,14 +769,14 @@ const SuiviProjetDetail: React.FC = () => {
                 )}
               </div>
               <div className="relative ml-4">
-                <button
+               { decodedUser?.role === 'ADMIN' &&  (<button
                   onClick={() => setMoreMenuIndex(moreMenuIndex === index ? null : index)}
                   className="p-2 rounded-full hover:bg-gray-200"
                   title="Plus d'options"
                 >
                   <FaEllipsisV />
-                </button>
-                {moreMenuIndex === index && (
+                </button>)}
+                {moreMenuIndex === index && decodedUser?.role === 'ADMIN' && (
                   <div className="absolute right-0 mt-2 w-36 bg-white border rounded shadow-lg z-10">
                     <button
                       onClick={() => {

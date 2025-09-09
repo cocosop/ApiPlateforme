@@ -1,11 +1,13 @@
 // src/Investment.tsx
 import React, { useEffect, useState } from 'react';
 import { Plus } from 'lucide-react';
-import { ProjeTypes, CreateProjectType } from '../../types';
+import { ProjeTypes, CreateProjectType, Project } from '../../types';
 import NewDemandeProjectForm from '../../components/dashboardComponent/newDemandeProjectForm';
 import projectService from '../../services/projectService';
 import Projet from '../../assets/img/ampoule.jpg';
-
+import { useAuthStore } from '../../store/AuthStore';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const defaultNewProject: CreateProjectType = {
   secteur: '',
@@ -33,6 +35,7 @@ const Investment: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newProject, setNewProject] = useState<CreateProjectType>(defaultNewProject);
   const [creating, setCreating] = useState(false);
+  const decodedUser = useAuthStore((state) => state.decoded);
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -57,56 +60,75 @@ const Investment: React.FC = () => {
     setNewProject(prev => ({ ...prev, [name]: Number(value) }));
   };
 
- const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setCreating(true); // Début chargement
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setCreating(true); // Début chargement
 
-  const projectDataToSend = {
-    ...newProject,
-    image: newProject.url_image || DEFAULT_IMAGE_URL,
+    const projectDataToSend = {
+      ...newProject,
+      image: newProject.url_image || DEFAULT_IMAGE_URL,
+    };
+
+    try {
+      const res = await projectService.addProject(projectDataToSend);
+      setProjects(res.data);
+      alert("Projet créé avec succès !");
+      setIsModalOpen(false);
+      setNewProject(defaultNewProject);
+    } catch (error) {
+      console.error("Erreur création projet :", error);
+      alert("Erreur lors de la création du projet.");
+    } finally {
+      setCreating(false); // Fin chargement
+    }
   };
 
-  try {
-    const res = await projectService.addProject(projectDataToSend);
-    setProjects(res.data);
-    alert("Projet créé avec succès !");
-    setIsModalOpen(false);
-    setNewProject(defaultNewProject);
-  } catch (error) {
-    console.error("Erreur création projet :", error);
-    alert("Erreur lors de la création du projet.");
-  } finally {
-    setCreating(false); // Fin chargement
+  const buildClassName = (project: ProjeTypes): string => {
+    return `w-full py-2 rounded-lg transition-colors text-white ${project.status === 'PENDING'
+      ? 'bg-yellow-500 hover:bg-yellow-600'
+      : project.status === 'ACCEPTED'
+        ? 'bg-green-600 hover:bg-green-700'
+        : project.status === 'REJECTED'
+          ? 'bg-red-600 hover:bg-red-700'
+          : project.status === 'STUDYING'
+            ? 'bg-blue-500 hover:bg-blue-600'
+            : 'bg-gray-900 hover:bg-gray-800'
+      }`
   }
-};
 
+  const displayProjectStatus = (decodedUser && decodedUser.role === 'PROJECT_OWNER');
+
+  const navigate = useNavigate();
 
   return (
     <div className="space-y-6 p-4">
-      <div className="flex items-center justify-between mb-6">
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-        >
-          <Plus className="h-5 w-5" />
-          Nouveau Projet
-        </button>
-      </div>
+      {decodedUser && decodedUser.role === 'PROJECT_OWNER' ? (
+        <div className="flex items-center justify-between mb-6">
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-900 transition-colors"
+          >
+            <Plus className="h-5 w-5" />
+            Nouvelle demande de projet
+          </button>
+        </div>
+      ) : null}
+
 
       <NewDemandeProjectForm
-  isOpen={isModalOpen}
-  onClose={() => setIsModalOpen(false)}
-  newProject={newProject}
-  handleInputChange={handleInputChange}
-  handleNumberInputChange={handleNumberInputChange}
-  handleSubmit={handleSubmit}
-  creating={creating}  // <-- Ici !
-/>
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        newProject={newProject}
+        handleInputChange={handleInputChange}
+        handleNumberInputChange={handleNumberInputChange}
+        handleSubmit={handleSubmit}
+        creating={creating}  // <-- Ici !
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
         {projects.length > 0 ? (
           projects.map((project, key) => (
-            <div key={key} className="bg-white rounded-xl shadow-sm overflow-hidden">
+            <div key={key} className="bg-white rounded-xl shadow-sm overflow-hidden border-2 border-solid border-opacity-15 border-blue-600">
               <div className="h-48 relative">
                 <img
                   src={project.url_image || DEFAULT_IMAGE_URL}
@@ -144,18 +166,43 @@ const Investment: React.FC = () => {
 
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="text-sm text-gray-500">Investissement</p>
-                      <p className="font-semibold">{project.montant} XAF</p>
+                      <p className="text-sm text-gray-500">Secteur d'activité</p>
+                      <p className="font-semibold">{project.secteur}</p>
                     </div>
                     <div className="text-right">
-                      <p className="text-sm text-gray-500">Retour prévu</p>
-                      <p className="font-semibold text-green-500">{project.ROI} par an</p>
+                      <p className="text-sm text-gray-500">Budget prévu</p>
+                      <p className="font-semibold text-green-500">{project.budget} XAF</p>
                     </div>
                   </div>
 
-                  <button className="w-full py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors">
-                    Investir
-                  </button>
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-gray-500">{project.region},{project.ville}-{project.quartier}</p>
+                    </div>
+                  </div>
+
+                  {displayProjectStatus && (
+                    <button
+                      className={buildClassName(project)}
+                    >
+                      {project.status}
+                    </button>
+                  )}
+                  {
+                    decodedUser && decodedUser.role === 'PROJECT_OWNER' && (
+                      <div className='text-center'>
+                        <Link className='text-center' to={`/projet/details/${project.titre}`}>Voir détails</Link>
+                      </div>
+                    )
+                  }
+                  {decodedUser && decodedUser.role === 'ADMIN' && (
+                    <button
+                      onClick={() => navigate(`/projet/details/${project.titre}`)}
+                      className="w-full py-2 rounded-lg transition-colors bg-indigo-600 hover:bg-indigo-700 text-white mt-2"
+                    >
+                      Configurer
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

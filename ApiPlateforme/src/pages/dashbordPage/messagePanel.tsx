@@ -387,12 +387,12 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
                     <span className="hidden sm:inline">Envoyer</span>
                   </button>
                 </form>
-                {selectedFile && (
+               {/* {selectedFile && (
                   <div className="mt-2 text-xs text-gray-600 flex items-center space-x-2">
                     <Paperclip className="h-4 w-4" />
                     <span>{selectedFile.name}</span>
                   </div>
-                )}
+                )}*/}
               </div>
             </>
           ) : (
