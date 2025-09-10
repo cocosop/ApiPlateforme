@@ -11,6 +11,7 @@ import {
   MessageSquare,
   UserCircle,
   LayoutDashboard,
+  User2Icon
 
 } from 'lucide-react';
 import logo from '../../assets/img/logo.png'
@@ -30,7 +31,7 @@ const roleMenus: Record<UserRole, MenuItem[]> = {
   ADMIN: [
     { icon: FolderKanban, label: 'Toutes les demandes', path: '/demandes' },
     { icon: PiggyBank, label: 'Projets en étude', path: '/projets' },
-    { icon: BarChart, label: 'Analytique', path: '/analytics' },
+    {icon: User2Icon, label: 'Utilisateurs', path: '/users' },
     { icon: Settings, label: 'Paramètres', path: '/parametres' },
   ],
   PROJECT_OWNER: [

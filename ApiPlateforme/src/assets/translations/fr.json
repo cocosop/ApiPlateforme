@@ -205,6 +205,7 @@
       "no_account_yet": "Pas encore de compte ?",
       "signup_link": "Inscrivez-vous",
       "alt_image": "Illustration de connexion",
+      "error_message":"Identifiants incorrects",
       "errors": {
         "forbidden": "Accès interdit",
         "not_found": "L'adresse email est incorrecte",

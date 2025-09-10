@@ -12,6 +12,7 @@ const Login = () => {
   const [email, setEmail] = React.useState(String);
   const [password, setPassword] = React.useState(String);
   const [showPassword, setShowPassword] = React.useState(false);
+  const [error, setError] = React.useState<string | null>(null);
 
   const history = useNavigate();
   const { t } = useTranslation();
@@ -30,16 +31,16 @@ const Login = () => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    const res = await userService.login(email, password);
     try {
+      const res = await userService.login(email, password);
       const { accessToken } = res.data;
-
       const auth = useAuthStore.getState();
       auth.setToken(accessToken);
-
       sessionStorage.setItem('secteur', '');
       history("/dashboard");
+      setError(null);
     } catch {
+      setError(t('login.error_message'));
       console.error("Erreur de connexion");
     }
   };
@@ -170,7 +171,7 @@ const Login = () => {
             </form>
           </NotificationProvider>
 
-          {/* Connexion Google & Apple */}
+          {/* Connexion Google & Apple
           <Box sx={{ mt: 4 }}>
             <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 }}>
               {t('login.social_login_text')}
@@ -189,7 +190,7 @@ const Login = () => {
                 <LinkedIn color="primary" />
               </a>
             </div>
-          </Box>
+          </Box> */}
 
           {/* Lien vers l'inscription */}
           <Typography
@@ -200,6 +201,15 @@ const Login = () => {
           </Typography>
         </Box>
       </Box>
+      {error && (
+        <NotificationProvider>
+          <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+            <div className="bg-red-500 text-white px-4 py-2 rounded shadow-lg">
+              {error}
+            </div>
+          </div>
+        </NotificationProvider>
+      )}
     </section>
   );
 };

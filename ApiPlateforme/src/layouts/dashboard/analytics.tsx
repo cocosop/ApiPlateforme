@@ -13,6 +13,7 @@ type Stage = {
   seq: number;
   status: 'IN_PROGRESS' | 'COMPLETED' | 'UPCOMING';
   date: string;
+  endDate: string;
   projectId: number;
 };
 
@@ -51,6 +52,7 @@ const SuiviProjetDetail: React.FC = () => {
     seq: 1,
     status: 'UPCOMING',
     date: new Date().toISOString().split('T')[0],
+    endDate: new Date().toISOString().split('T')[0],
     projectId: 0,
   });
   const [moreMenuIndex, setMoreMenuIndex] = useState<number | null>(null);
@@ -163,6 +165,7 @@ const SuiviProjetDetail: React.FC = () => {
       seq: (editProjet.stages?.length || 0) + 1,
       status: 'UPCOMING',
       date: new Date().toISOString().split('T')[0],
+      endDate: new Date().toISOString().split('T')[0],
       projectId: projet.id ?? 0,
     });
   };
@@ -648,6 +651,12 @@ const SuiviProjetDetail: React.FC = () => {
                   onChange={e => handleNewJalonChange('date', e.target.value)}
                   className="px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
                 />
+                <input
+                  type="date"
+                  value={newJalon.endDate}
+                  onChange={e => handleNewJalonChange('endDate', e.target.value)}
+                  className="px-2 py-1 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+                />
               </div>
               <div className="flex space-x-2">
                 <button
@@ -765,11 +774,15 @@ const SuiviProjetDetail: React.FC = () => {
                       <FaCalendarAlt className="mr-2 text-gray-400" />
                       Date prévue : {stage.date}
                     </p>
+                    <p className="text-sm text-gray-600 flex items-center mt-1">
+                      <FaCalendarAlt className="mr-2 text-gray-400" />
+                      Date fin prévue : {stage.endDate}
+                    </p>
                   </>
                 )}
               </div>
               <div className="relative ml-4">
-               { decodedUser?.role === 'ADMIN' &&  (<button
+                {decodedUser?.role === 'ADMIN' && (<button
                   onClick={() => setMoreMenuIndex(moreMenuIndex === index ? null : index)}
                   className="p-2 rounded-full hover:bg-gray-200"
                   title="Plus d'options"

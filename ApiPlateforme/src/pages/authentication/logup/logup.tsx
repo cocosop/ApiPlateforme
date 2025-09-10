@@ -41,6 +41,7 @@ const Logup = () => {
     };
 
     const [status, setStatus] = useState('');
+    const [error, setError] = useState<string | null>(null);
 
     const { showNotification } = AlertComponent();
 
@@ -53,17 +54,20 @@ const Logup = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         setStatus('loading');
-
-        const res = await userService.register(formData);
+        setError(null);
         try {
+            const res = await userService.register(formData);
             if (res.status === 201) {
                 showNotification(t('signup.success'), "success");
                 setStatus('success');
                 history("/activation-account");
             } else {
                 setStatus('error');
+                setError(t('signup.error_message'));
             }
         } catch {
+            setStatus('error');
+            setError(t('signup.error_message'));
             console.error("Erreur de connexion");
         }
     };
@@ -306,8 +310,17 @@ const Logup = () => {
                     </NotificationProvider>
 
                     {/* Message d'erreur */}
+                    {error && (
+                        <NotificationProvider>
+                            <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50">
+                                <div className="bg-red-500 text-white px-4 py-2 rounded shadow-lg">
+                                    {error}
+                                </div>
+                            </div>
+                        </NotificationProvider>
+                    )}
 
-                    {/* Connexion Google & Apple */}
+                    {/* Connexion Google & Apple
                     <Box sx={{ mt: 4 }}>
                         <Typography variant="body2" sx={{ color: "text.secondary", mb: 2 }}>
                             {t('signup.social_login_text')}
@@ -326,7 +339,7 @@ const Logup = () => {
                                 <LinkedIn color="primary" />
                             </a>
                         </div>
-                    </Box>
+                    </Box> */}
 
                     {/* Lien vers l'inscription */}
                     <Typography
