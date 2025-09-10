@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Button, TextField, Typography, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
 import { Plus } from 'lucide-react';
+import userService from '../services/userService';
 
 const initialFormData = {
   firstname: "",
@@ -15,10 +16,13 @@ const Users = () => {
   const [users, setUsers] = useState<typeof initialFormData[]>([]);
   const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
+  const [status, setStatus] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
   const handleOpen = () => {
     setFormData(initialFormData);
     setOpen(true);
+    setError(null);
   };
   const handleClose = () => setOpen(false);
 
@@ -26,10 +30,24 @@ const Users = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setUsers([...users, formData]);
-    setOpen(false);
+    setStatus('loading');
+    setError(null);
+    try {
+      const res = await userService.register(formData);
+      if (res.status === 201) {
+        setUsers([...users, formData]);
+        setStatus('success');
+        setOpen(false);
+      } else {
+        setStatus('error');
+        setError('Erreur lors de la création de l\'administrateur.');
+      }
+    } catch {
+      setStatus('error');
+      setError('Erreur lors de la création de l\'administrateur.');
+    }
   };
 
   return (
@@ -79,10 +97,17 @@ const Users = () => {
             <TextField margin="dense" label="Email" name="email" type="email" fullWidth required value={formData.email} onChange={handleChange} />
             <TextField margin="dense" label="Mot de passe" name="password" type="password" fullWidth required value={formData.password} onChange={handleChange} />
           </form>
+          {error && (
+            <div className="mt-2 bg-red-500 text-white px-4 py-2 rounded shadow-lg text-center">
+              {error}
+            </div>
+          )}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Annuler</Button>
-          <Button type="submit" form="admin-form" variant="contained" color="primary">Enregistrer</Button>
+          <Button type="submit" form="admin-form" variant="contained" color="primary" disabled={status === 'loading'}>
+            {status === 'loading' ? 'Enregistrement...' : 'Enregistrer'}
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
