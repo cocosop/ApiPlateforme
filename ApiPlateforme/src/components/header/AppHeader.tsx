@@ -1,6 +1,10 @@
 import { ChevronDown, Bell, Settings, LogOut } from 'lucide-react';
 import { Popover, PopoverButton, PopoverPanel } from '@headlessui/react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import userService from '../../services/userService';
+import projectService from '../../services/projectService';
+import messageService from '../../services/messageService';
 import { useAuthStore } from '../../store/AuthStore';
 
 const routeTitles: Record<string, string> = {
@@ -26,6 +30,63 @@ const HeaderDashboard = () => {
     history('/signin');
   };
   const decoded = useAuthStore((state) => state.decoded);
+  const [notifCount, setNotifCount] = useState(0);
+  const [user, setUser] = useState<any>(null);
+  const currentUserEmail = useAuthStore((state) => state.decoded)?.sub;
+
+  useEffect(() => {
+    userService.me().then(res => setUser(res.data));
+  }, []);
+
+  useEffect(() => {
+    if (!user) return;
+
+    const fetchNotifications = async () => {
+      let count = 0;
+
+      // Messages non lus pour l'utilisateur connecté
+      try {
+        const msgRes = await messageService.fetchAllChat();
+        if (msgRes.status === 200) {
+          msgRes.data.forEach((chat: any) => {
+            chat.messages.forEach((msg: any) => {
+              if (
+                msg.sender.email !== currentUserEmail && !msg.read
+              ) {
+                count++;
+              }
+            });
+          });
+        }
+      } catch (e) { }
+
+      // ADMIN : projets en attente
+      // INVESTOR : changement de statut de son projet
+      try {
+        const projRes = await projectService.fetchAllProjects();
+        if (projRes.status === 200) {
+          projRes.data.forEach((project: any) => {
+            if (user.role === 'ADMIN' && project.status === 'PENDING') {
+              count++;
+            }
+            if (
+              user.role !== 'ADMIN' &&
+              ((project.ownerId && project.ownerId === user.id) ||
+                (project.user && project.user.id === user.id))
+            ) {
+              if (project.statusUpdate && !project.statusRead) {
+                count++;
+              }
+            }
+          });
+        }
+      } catch (e) { }
+
+      setNotifCount(count);
+    };
+
+    fetchNotifications();
+  }, [user, currentUserEmail]);
 
   if (!decoded) {
     return <p>Utilisateur non connecté</p>;
@@ -55,12 +116,13 @@ const HeaderDashboard = () => {
       {/* Zone de droite */}
       <div className="flex items-center gap-4">
         {/* Notification */}
-
         <Link to="/notifications" className="relative p-2 rounded-full hover:bg-gray-100">
           <Bell className="w-5 h-5 text-gray-600" />
-          <span className="absolute top-1 right-1 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
-            3
-          </span>
+          {notifCount > 0 && (
+            <span className="absolute top-1 right-1 inline-flex items-center justify-center px-1.5 py-0.5 text-xs font-bold leading-none text-white bg-red-600 rounded-full">
+              {notifCount}
+            </span>
+          )}
         </Link>
 
         {/* Profil */}

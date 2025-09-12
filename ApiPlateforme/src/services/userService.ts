@@ -31,7 +31,7 @@ class UserService {
     }
 
     me() {
-        return apiConfig.get("/user/get");
+        return apiConfig.get("/user/me");
     }
 
     forgotPassword(email: string) {

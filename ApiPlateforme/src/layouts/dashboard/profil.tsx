@@ -1,7 +1,30 @@
-import React from 'react';
-import { User, Mail, Phone, MapPin, Briefcase, Calendar } from 'lucide-react';
-
+import React, { useEffect, useState } from 'react';
+import { User, Mail, Phone, Briefcase } from 'lucide-react';
+import userService from '../../services/userService';
+interface User {
+  email: string;
+  firstname: string;
+  lastname: string;
+  phone: string;
+  role: string;
+  url_image: string;
+}
 const UserProfile: React.FC = () => {
+  const [user, setUser] = useState<User>();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    userService.me()
+      .then((res) => {
+        setUser(res.data);
+      })
+      .finally(() => setLoading(false));
+  }, []);
+
+  if (loading) {
+    return <div>Chargement...</div>;
+  }
+
   return (
     <div className="space-y-6">
       {/* Profile Header */}
@@ -10,12 +33,12 @@ const UserProfile: React.FC = () => {
         <div className="px-6 pb-6">
           <div className="flex flex-col items-center -mt-16">
             <img
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=128&h=128&fit=crop"
+              src={user?.url_image || "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=128&h=128&fit=crop"}
               alt="Profile"
               className="w-32 h-32 rounded-full border-4 border-white"
             />
-            <h2 className="mt-4 text-2xl font-bold">Jean Dupont</h2>
-            <p className="text-gray-600">Administrateur</p>
+            <h2 className="mt-4 text-2xl font-bold">{user?.firstname && user?.lastname}</h2>
+            {user?.role === "ADMIN" ? <p className="text-gray-600">Administrateur</p> : <p className="text-gray-600">Investisseur</p>}
           </div>
         </div>
       </div>
@@ -29,28 +52,21 @@ const UserProfile: React.FC = () => {
               <User className="w-5 h-5 text-gray-400" />
               <div>
                 <p className="text-sm text-gray-500">Nom complet</p>
-                <p className="font-medium">Jean Dupont</p>
+                <p className="font-medium">{user?.firstname && user?.lastname}</p>
               </div>
             </div>
             <div className="flex items-center space-x-3">
               <Mail className="w-5 h-5 text-gray-400" />
               <div>
                 <p className="text-sm text-gray-500">Email</p>
-                <p className="font-medium">jean.dupont@example.com</p>
+                <p className="font-medium">{user?.email}</p>
               </div>
             </div>
             <div className="flex items-center space-x-3">
               <Phone className="w-5 h-5 text-gray-400" />
               <div>
                 <p className="text-sm text-gray-500">Téléphone</p>
-                <p className="font-medium">+225 01 23 45 67 89</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-3">
-              <MapPin className="w-5 h-5 text-gray-400" />
-              <div>
-                <p className="text-sm text-gray-500">Localisation</p>
-                <p className="font-medium">Abidjan, Côte d'Ivoire</p>
+                <p className="font-medium">{user?.phone}</p>
               </div>
             </div>
           </div>
@@ -63,14 +79,7 @@ const UserProfile: React.FC = () => {
               <Briefcase className="w-5 h-5 text-gray-400" />
               <div>
                 <p className="text-sm text-gray-500">Poste</p>
-                <p className="font-medium">Administrateur Principal</p>
-              </div>
-            </div>
-            <div className="flex items-center space-x-3">
-              <Calendar className="w-5 h-5 text-gray-400" />
-              <div>
-                <p className="text-sm text-gray-500">Date d'inscription</p>
-                <p className="font-medium">15 Janvier 2024</p>
+                {user?.role === "ADMIN" ? <p className="font-medium">Administrateur</p> : <p className="font-medium">Investisseur</p>}
               </div>
             </div>
           </div>
