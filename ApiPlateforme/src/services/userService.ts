@@ -37,6 +37,10 @@ class UserService {
     forgotPassword(email: string) {
         return apiConfig.post(`/auth/forgotPassword`, { email });
     }
+
+    getAllUsers() {
+        return apiConfig.get("/user");
+    }
 }
 
 

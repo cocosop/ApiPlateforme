@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Box, Button, TextField, Typography, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
 import { Plus } from 'lucide-react';
 import userService from '../services/userService';
@@ -29,6 +29,18 @@ const Users = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const res = await userService.getAllUsers();
+        setUsers(res.data);
+      } catch (error) {
+        console.error("Erreur chargement des utilisateurs :", error);
+      }
+    };
+    fetchUsers();
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
