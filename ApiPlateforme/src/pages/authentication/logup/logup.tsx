@@ -1,6 +1,6 @@
 import { Box, TextField, Button, Typography, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput, MenuItem, CircularProgress, FormHelperText } from "@mui/material";
 import LOGIN from "../../../assets/img/account_illustration.png";
-import { Google as GoogleIcon, Apple as AppleIcon, VisibilityOff, Visibility, LinkedIn } from "@mui/icons-material";
+import {  VisibilityOff, Visibility } from "@mui/icons-material";
 import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import AlertComponent, { NotificationProvider } from "../../../components/alert/AlertComponent";

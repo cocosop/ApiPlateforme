@@ -5,7 +5,6 @@ import {
   FolderKanban,
   PiggyBank,
   Settings,
-  BarChart,
   LucideIcon,
   Bell,
   MessageSquare,
