@@ -1,6 +1,5 @@
-const backendUrl = "http://localhost:8082";
+const backendUrl = "http://localhost:8080";
 
 export {
     backendUrl
 }
-
