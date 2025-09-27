@@ -1,4 +1,4 @@
-const backendUrl = "http://localhost:8080";
+const backendUrl = "http://investincameroun.com:8080";
 
 export {
     backendUrl
