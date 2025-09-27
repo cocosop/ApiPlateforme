@@ -1,4 +1,4 @@
-const backendUrl = "https://investincameroun.com:8080";
+const backendUrl = "https://investincameroun.com/backend";
 
 export {
     backendUrl
