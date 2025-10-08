@@ -29,6 +29,7 @@ import ActivationToken from '../../pages/authentication/activationToken/activati
 import ForgetPassword from '../../pages/authentication/forgetPassword/forgetPassword';
 import ResetPassword from '../../pages/authentication/resetPassword/resetPassword';
 import Potentiel from '../../pages/sectors/potentiel/potentiel';
+import PolitiqueCondition from '../../pages/politiqueCondition/politiqueCondition';
 
 const PublicContent = () => {
     return (
@@ -40,6 +41,7 @@ const PublicContent = () => {
             <Route path='/presentation-du-cameroun' element={<PresentationCameroun />} />
             <Route path='/cadre-juridique-et-fiscal' element={<CadreJuridiqueFiscal />} />
             <Route path='/aspects-juridiques' element={<AspectsJuridiques />} />
+
 
 
             {/* Routes guide de l'investisseur */}
@@ -68,7 +70,9 @@ const PublicContent = () => {
             {/* Routes a propos */}
             <Route path='/presentation-api' element={<PresentationApi />} />
             <Route path='/faq' element={<Faq />} />
+            <Route path='/Politique-Confidentialite&Condition-Utilisation' element={<PolitiqueCondition/>} />
 
+PolitiqueCondition
             {/* Routes autres pages */}
             <Route path='/forget-password' element={<ForgetPassword />} />
             <Route path='/reset-password' element={<ResetPassword />} />

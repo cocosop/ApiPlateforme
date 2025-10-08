@@ -330,7 +330,7 @@ const home = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="text-3xl font-bold text-center text-[#0F0B60]">
+          className="text-3xl font-bold text-center text-[#0F0B60] mb-9">
           {t('home.testimonials.title')}
         </motion.h2>
 
@@ -381,7 +381,7 @@ const home = () => {
         </div>
 
         <div className="flex justify-center mt-8">
-          <NavLink to="/projets" className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all">
+          <NavLink to="/potentiel" className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all">
             {t('home.projects.more')}
           </NavLink>
         </div>

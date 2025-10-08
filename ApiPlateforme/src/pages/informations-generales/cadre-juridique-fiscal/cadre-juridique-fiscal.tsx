@@ -67,7 +67,7 @@ const CadreJuridiqueFiscal: React.FC = () => {
             documents: [
                 {
                     name: t('information_general.cadre_juridique_fiscal.sections.legalFramework.documents.investmentCode'),
-                    url: "https://wipolex-resources-eu-central-1-358922420655.s3.amazonaws.com/edocs/lexdocs/laws/fr/cm/cm010fr.pdf"
+                    url: "https://www.cameroontradeportal.cm/tradeportal/templates/Tip_accueil/docs/Réformes%20nationales/code%20des%20investissements%20cameroun.pdf"
                 },
                 {
                     name: t('information_general.cadre_juridique_fiscal.sections.legalFramework.documents.laborCode'),
