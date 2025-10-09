@@ -29,12 +29,14 @@ import ActivationToken from '../../pages/authentication/activationToken/activati
 import ForgetPassword from '../../pages/authentication/forgetPassword/forgetPassword';
 import ResetPassword from '../../pages/authentication/resetPassword/resetPassword';
 import Potentiel from '../../pages/sectors/potentiel/potentiel';
+import Testimony from '../../pages/testimony/testimony';
 
 const PublicContent = () => {
     return (
         <Route element={<PublicLayout />}>
             {/* Routes principales */}
             <Route path='/' element={<Home />} />
+            <Route path='/temoignages' element={<Testimony />} />
 
             {/* Routes informations générales */}
             <Route path='/presentation-du-cameroun' element={<PresentationCameroun />} />

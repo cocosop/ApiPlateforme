@@ -18,7 +18,7 @@ import { useState } from 'react'
 import ProjectCard from '../../components/projetCard/projetCard'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
-import { Dialog, DialogContent, DialogTitle,  IconButton } from '@mui/material'
+import { Dialog, DialogContent, DialogTitle, IconButton } from '@mui/material'
 import CloseIcon from '@mui/icons-material/Close';
 
 //Data table for the list of advantages
@@ -354,7 +354,7 @@ const home = () => {
         </motion.div>
 
         <div className="mt-6 flex items-center">
-          <NavLink to="/#">
+          <NavLink to="/temoignages" className="mx-auto">
             <button className="more-btn text-sm/6 font-semibold">
               {t('home.testimonials.more')}
             </button>
