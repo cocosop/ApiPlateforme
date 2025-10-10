@@ -4,7 +4,10 @@ import './footer.css';
 import { useTranslation } from "react-i18next";
 
 // Composant Footer
-const Footer = () => {
+interface FooterProps {
+  activeSection?: string;
+}
+const Footer: React.FC<FooterProps> = ({ activeSection }) => {
   const { t } = useTranslation();
 
   return (
@@ -50,7 +53,11 @@ const Footer = () => {
         >
           {/* Section Menu de navigation */}
           <Box sx={{ flex: "1 1 200px", textAlign: { xs: "center", sm: "left" } }}>
-            <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
+            <Typography
+              variant="h6"
+              sx={{ fontWeight: "bold", mb: 2 }}
+              className={activeSection === 'infos' ? 'footer-title-underline' : ''}
+            >
               {t('footer.navigation.title')}
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
