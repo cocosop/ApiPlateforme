@@ -4,7 +4,10 @@ import './footer.css';
 import { useTranslation } from "react-i18next";
 
 // Composant Footer
-const Footer = () => {
+interface FooterProps {
+  activeSection?: string;
+}
+const Footer: React.FC<FooterProps> = ({ activeSection }) => {
   const { t } = useTranslation();
 
   // Define typography styles

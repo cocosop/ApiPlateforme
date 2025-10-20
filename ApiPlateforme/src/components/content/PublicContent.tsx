@@ -30,12 +30,14 @@ import ForgetPassword from '../../pages/authentication/forgetPassword/forgetPass
 import ResetPassword from '../../pages/authentication/resetPassword/resetPassword';
 import Potentiel from '../../pages/sectors/potentiel/potentiel';
 import PolitiqueCondition from '../../pages/politiqueCondition/politiqueCondition';
+import Testimony from '../../pages/testimony/testimony';
 
 const PublicContent = () => {
     return (
         <Route element={<PublicLayout />}>
             {/* Routes principales */}
             <Route path='/' element={<Home />} />
+            <Route path='/temoignages' element={<Testimony />} />
 
             {/* Routes informations générales */}
             <Route path='/presentation-du-cameroun' element={<PresentationCameroun />} />
