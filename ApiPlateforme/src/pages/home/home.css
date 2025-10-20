@@ -181,7 +181,7 @@
 }
 
 .fourth-content h2 {
-    width: 100vw;
+    /* width: 100vw; */
     color: #0F0B60;
     text-align: center;
 }
