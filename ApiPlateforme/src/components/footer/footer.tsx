@@ -27,6 +27,16 @@ const Footer: React.FC<FooterProps> = ({ activeSection }) => {
     fontWeight: "regular",
   };
 
+  const linkStyles = {
+    ...bodyStyles,
+    color: "#fff",
+    textDecoration: "none",
+    cursor: "pointer",
+    '&:hover': {
+      color: '#F5BA3A'
+    }
+  };
+
   return (
     <Box sx={{ backgroundColor: "#0F0B60", color: "#fff", py: 4 }}>
       <Container maxWidth="lg" className="footer-container">
@@ -75,19 +85,19 @@ const Footer: React.FC<FooterProps> = ({ activeSection }) => {
               {t('footer.navigation.title')}
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Link href="#" sx={{ ...bodyStyles, color: "#fff", mb: 1 }}>
+              <Link href="#" sx={{ ...linkStyles, mb: 1 }}>
                 {t('footer.navigation.home')}
               </Link>
-              <Link href="#" sx={{ ...bodyStyles, color: "#fff", mb: 1 }}>
+              <Link href="#" sx={{ ...linkStyles, mb: 1 }}>
                 {t('footer.navigation.general_info')}
               </Link>
-              <Link href="#" sx={{ ...bodyStyles, color: "#fff", mb: 1 }}>
+              <Link href="#" sx={{ ...linkStyles, mb: 1 }}>
                 {t('footer.navigation.investor_guide')}
               </Link>
-              <Link href="#" sx={{ ...bodyStyles, color: "#fff", mb: 1 }}>
+              <Link href="#" sx={{ ...linkStyles, mb: 1 }}>
                 {t('footer.navigation.opportunity_sectors')}
               </Link>
-              <Link href="#" sx={{ ...bodyStyles, color: "#fff" }}>
+              <Link href="#" sx={{ ...linkStyles }}>
                 {t('footer.navigation.about')}
               </Link>
             </Box>
@@ -134,7 +144,7 @@ const Footer: React.FC<FooterProps> = ({ activeSection }) => {
               </Typography>
               <Typography variant="body2" sx={{ ...bodyStyles, color: "#fff", mb: 1 }}>
                 {t('footer.contacts.email')} :{" "}
-                <Link href={`mailto:${t('footer.contacts.email_address')}`} sx={{ ...bodyStyles, color: "#F5BA3A" }}>
+                <Link href={`mailto:${t('footer.contacts.email_address')}`} sx={{ ...linkStyles, color: "#F5BA3A" }}>
                   {t('footer.contacts.email_address')}
                 </Link>
               </Typography>
@@ -160,7 +170,7 @@ const Footer: React.FC<FooterProps> = ({ activeSection }) => {
           </Typography>
           {/* Liens légaux */}
           <Box sx={{ mt: 2, display: "flex", justifyContent: "center", gap: 2 }}>
-            <Link href="/Politique-Confidentialite&Condition-Utilisation" sx={{ ...bodyStyles, color: "#fff" }}>
+            <Link href="/Politique-Confidentialite&Condition-Utilisation" sx={{ ...linkStyles }}>
               {t('footer.legal.terms')} & {t('footer.legal.privacy')}
             </Link>
           </Box>

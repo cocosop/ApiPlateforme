@@ -304,7 +304,7 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                 </div>
 
                 <div className="flex items-center justify-evenly px-4 py-2 border-t border-gray-100 bg-gray-50">
-                  <h3 className="text-sm font-semibold text-gray-500">Potentiel</h3>
+                  {/* <h3 className="text-sm font-semibold text-gray-500">Potentiel</h3> */}
                   <Link to={'/potentiel'} className="text-sm font-semibold text-indigo-600 hover:underline flex items-center gap-1">
                     <CloseButton>
                       Voir plus <span aria-hidden="true">→</span>
