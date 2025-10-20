@@ -3,6 +3,7 @@ import projectService from '../../services/projectService';
 import DefaultImage from '../../assets/img/default-image.webp';
 import { useNavigate } from 'react-router-dom';
 import { FaSearch, FaTimes } from 'react-icons/fa';
+import userService from '../../services/userService';
 
 type Project = {
   id: string;
@@ -28,6 +29,7 @@ const MyProject: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const [loadingId, setLoadingId] = useState<string | null>(null);
+  const [user, setUser] = useState<any>(null);
   const navigate = useNavigate();
 
   const fetchProjects = async () => {
@@ -114,6 +116,7 @@ const MyProject: React.FC = () => {
 
   useEffect(() => {
     fetchProjects();
+    userService.me().then(setUser).catch(() => setUser(null));
   }, []);
 
   return (
@@ -211,10 +214,10 @@ const MyProject: React.FC = () => {
                       <div className="flex justify-between items-center mb-2">
                         <span className="text-xs text-gray-400">
                           {project.soumissionDate
-                            ? `Soumis: ${new Date(project.soumissionDate).toISOString().slice(0, 10)
-                            }` : 'Date inconnue'}
+                            ? `Soumis: ${new Date(project.soumissionDate).toISOString().slice(0, 10)}`
+                            : 'Date inconnue'}
                         </span>
-                        {project.status.toLowerCase() === 'accepted' && (
+                        {project.status.toLowerCase() === 'accepted' && user?.role === 'ADMIN' && (
                           <button
                             className="px-3 py-1 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700"
                             onClick={(e) => {
@@ -225,10 +228,21 @@ const MyProject: React.FC = () => {
                             Configurer
                           </button>
                         )}
+                        {project.status.toLowerCase() === 'accepted' && user?.role !== 'ADMIN' && (
+                          <button
+                            className="px-3 py-1 bg-green-600 text-white text-sm rounded-md hover:bg-green-700"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              navigate("/messages", { state: { projectId: project.id } });
+                            }}
+                          >
+                            Chat
+                          </button>
+                        )}
                       </div>
                       {/* Actions */}
                       <div className="flex flex-wrap gap-2 mt-auto">
-                        {project.status.toLowerCase() === 'pending' && (
+                        {project.status.toLowerCase() === 'pending' && user?.role === 'ADMIN' && (
                           <>
                             <button
                               className="flex-1 px-2 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition text-xs"

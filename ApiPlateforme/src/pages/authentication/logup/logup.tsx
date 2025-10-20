@@ -292,7 +292,7 @@ const Logup = () => {
                                 </TextField>
                             </div>
                             <div className="">
-                                <p className="text-sm text-center"><NavLink className="text-blue-900 hover:underline" to={'#'}> {t('signup.terms_privacy_prefix')}</NavLink> {t('signup.terms_privacy_link')} .</p>
+                                <p className="text-sm text-center"><NavLink className="text-blue-900 hover:underline" to={'/Politique-Confidentialite&Condition-Utilisation'}> {t('signup.terms_privacy_prefix')}</NavLink> {t('signup.terms_privacy_link')} .</p>
                             </div>
                             <Button
                                 fullWidth

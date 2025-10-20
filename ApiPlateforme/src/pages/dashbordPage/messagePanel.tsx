@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Send, Search, Paperclip, Pen, Check } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -45,19 +45,25 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
   const [editingMsgId, setEditingMsgId] = useState<string | null>(null);
   const [editedContent, setEditedContent] = useState('');
   const [localChats, setLocalChats] = useState<Chat[]>(chats);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Mettre à jour localChats si chats change
   React.useEffect(() => {
     setLocalChats(chats);
   }, [chats]);
 
+  // Récupérer le chat sélectionné
+  const selectedChat = localChats.find(chat => chat.id === selectedChatId);
+
+  // Scroll auto vers le bas à chaque nouveau message
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [selectedChat, localChats]);
+
   // Filtrer les chats par projet.titre
   const filteredChats = localChats.filter(chat =>
     chat.project.titre?.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-  // Récupérer le chat sélectionné
-  const selectedChat = localChats.find(chat => chat.id === selectedChatId);
 
   // Aperçu du fichier sélectionné
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -87,29 +93,33 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
     };
 
     try {
-      // Envoi du message
       const res = await messageService.sendMessage(payload);
       if (res && (res.status === 200 || res.status === 201)) {
-        // Création du nouveau message local
-        const newMsg: Message = {
-          id: res.data?.id || Math.random().toString(36), // fallback si pas d'id
-          content: newMessage,
-          fileUrl: '',
-          read: true,
-          edited: false,
-          timestamp: new Date().toISOString(),
-          sender: {
-            email: currentUserEmail || '',
-          }
-        };
-        // Mise à jour locale des messages
-        setLocalChats(prev =>
-          prev.map(chat =>
-            chat.id === selectedChat.id
-              ? { ...chat, messages: [...chat.messages, newMsg] }
-              : chat
-          )
-        );
+        // Si le backend retourne un id, on l'utilise, sinon on refetch le chat
+        if (res.data?.id) {
+          const newMsg: Message = {
+            id: res.data.id,
+            content: newMessage,
+            fileUrl: '',
+            read: true,
+            edited: false,
+            timestamp: new Date().toISOString(),
+            sender: {
+              email: currentUserEmail || '',
+            }
+          };
+          setLocalChats(prev =>
+            prev.map(chat =>
+              chat.id === selectedChat.id
+                ? { ...chat, messages: [...chat.messages, newMsg] }
+                : chat
+            )
+          );
+        } else {
+          // Refetch le chat pour avoir les bons ids
+          const updated = await messageService.fetchAllChat();
+          if (updated.status === 200) setLocalChats(updated.data);
+        }
         setNewMessage('');
         setFile(null);
         setFilePreview(null);
@@ -186,9 +196,9 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
 
   return (
     <div className="bg-white rounded-lg shadow-md h-[calc(100vh-12rem)] flex flex-col">
-      <div className="flex flex-1">
+      <div className="flex flex-1 overflow-hidden">
         {/* Liste des chats */}
-        <div className="w-1/3 border-r flex flex-col">
+        <div className="w-1/3 border-r flex flex-col min-w-[260px] bg-gray-50">
           <div className="p-4 border-b bg-gray-50">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -201,7 +211,7 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
               />
             </div>
           </div>
-          <div className="overflow-y-auto flex-1">
+          <div className="overflow-y-auto flex-1 custom-scrollbar">
             {filteredChats.map((chat) => {
               const lastMsg = getLastMessage(chat);
               const unreadCount = getUnreadCount(chat);
@@ -237,11 +247,11 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
         </div>
 
         {/* Zone de messages du chat sélectionné */}
-        <div className="w-2/3 flex flex-col">
+        <div className="w-2/3 flex flex-col bg-gray-50">
           {selectedChat ? (
             <>
               {/* Header */}
-              <div className="p-4 border-b bg-gray-50 flex items-center gap-3">
+              <div className="p-4 border-b bg-white flex items-center gap-3 sticky top-0 z-10">
                 <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-700 text-lg">
                   {selectedChat.project.titre?.charAt(0) ?? "?"}
                 </div>
@@ -250,18 +260,22 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
                 </div>
               </div>
               {/* Messages */}
-              <div className="flex-1 overflow-y-auto px-6 py-4 flex flex-col gap-2 bg-white">
+              <div className="flex-1 overflow-y-auto px-6 py-4 flex flex-col gap-2 bg-gray-50 custom-scrollbar">
                 {selectedChat.messages && selectedChat.messages.length > 0 ? (
                   [...selectedChat.messages]
                     .sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime())
                     .map((msg) => {
                       const isMine = msg.sender.email === currentUserEmail;
+                      const now = new Date();
+                      const msgDate = new Date(msg.timestamp);
+                      const canEdit = isMine && !msg.edited && ((now.getTime() - msgDate.getTime()) < 10 * 60 * 1000);
                       return (
                         <div
                           key={msg.id}
-                          className={`flex ${isMine ? 'justify-end' : 'justify-start'} group`}                        >
-                          {/* Icone d'édition visible uniquement au hover, si isMine et non édité */}
-                          {isMine && !msg.edited && (
+                          className={`flex ${isMine ? 'justify-end' : 'justify-start'} group`}
+                        >
+                          {/* Icone d'édition visible uniquement au hover, si isMine, non édité et < 10min */}
+                          {canEdit && (
                             <button
                               type="button"
                               className={`mr-2 ${editingMsgId === msg.id ? '' : 'invisible group-hover:visible'}`}
@@ -274,10 +288,10 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
                               <Pen className="w-5 h-5 text-gray-400 hover:text-blue-600 transition-colors" />
                             </button>
                           )}
-                          <div className={`rounded-2xl px-5 py-3 max-w-[60%] shadow-sm
+                          <div className={`rounded-2xl px-5 py-3 max-w-[70%] shadow-sm
                             ${isMine
-                              ? 'bg-green-500 text-white'
-                              : 'bg-gray-100 text-gray-900'
+                              ? 'bg-blue-600 text-white'
+                              : 'bg-white text-gray-900 border'
                             }`}
                           >
                             <div className="flex items-center gap-2">
@@ -302,7 +316,7 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
                                   />
                                   <button
                                     type="submit"
-                                    className="text-xs px-2 py-1 rounded text-white"
+                                    className="text-xs px-2 py-1 rounded text-white bg-blue-600 hover:bg-blue-700"
                                   >
                                     <Check className="w-5 h-5" />
                                   </button>
@@ -315,11 +329,11 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
                                   </button>
                                 </form>
                               ) : (
-                                <span className="text-sm">{msg.content}</span>
+                                <span className="text-sm break-words">{msg.content}</span>
                               )}
                             </div>
                             <div className="flex items-center justify-between mt-2">
-                              <span className={`text-xs ${isMine ? 'text-green-100' : 'text-gray-500'}`}>
+                              <span className={`text-xs ${isMine ? 'text-blue-100' : 'text-gray-500'}`}>
                                 {format(new Date(msg.timestamp), 'HH:mm', { locale: fr })}
                               </span>
                               {msg.fileUrl && (
@@ -327,14 +341,14 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
                                   href={msg.fileUrl}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-xs text-blue-200 underline ml-2"
+                                  className="text-xs text-blue-600 underline ml-2"
                                 >
                                   Fichier joint
                                 </a>
                               )}
                               {/* Affichage "modifié" si le message a été édité */}
                               {msg.edited && (
-                                <span className={`text-xs ${isMine ? 'text-green-100' : 'text-gray-500'} ml-2`}>modifié</span>
+                                <span className={`text-xs ${isMine ? 'text-blue-100' : 'text-gray-500'} ml-2`}>modifié</span>
                               )}
                             </div>
                           </div>
@@ -346,9 +360,10 @@ const MessagePanel: React.FC<MessagePanelProps> = ({ chats, selectedChatId, onSe
                     Aucun message pour ce projet.
                   </div>
                 )}
+                <div ref={messagesEndRef} />
               </div>
               {/* Input */}
-              <div className="p-4 border-t bg-gray-50">
+              <div className="p-4 border-t bg-white">
                 {filePreview && (
                   <div className="mb-2">
                     <img src={filePreview} alt="Aperçu" className="max-h-24 rounded" />
