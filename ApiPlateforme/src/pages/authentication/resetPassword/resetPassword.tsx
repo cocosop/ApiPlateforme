@@ -49,7 +49,7 @@ const ResetPassword = () => {
         setError('');
 
         try {
-            await axios.post(`${backendUrl}/api/auth/reset-password?token=${token}neWPassword=${newPassword}`)
+            await axios.post(`${backendUrl}/reset-password?token=${token}neWPassword=${newPassword}`)
                 .then((res) => {
                     console.log(res.data);
                     if (res.data.status === 202) {

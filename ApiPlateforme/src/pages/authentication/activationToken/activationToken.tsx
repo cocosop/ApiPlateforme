@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Alert,
   Avatar,
@@ -34,6 +34,9 @@ const ActivationToken = () => {
   const [token, setToken] = useState('');
   const [status, setStatus] = useState('');
   const [openDialog, setOpenDialog] = useState(false);
+  const [countdown, setCountdown] = useState(15 * 60); // 15 minutes in seconds
+
+  const COUNTDOWN_KEY = 'activation_countdown_start';
 
   const handleOpenDialog = () => {
     setOpenDialog(true);
@@ -68,6 +71,38 @@ const ActivationToken = () => {
     }
   };
 
+  // On mount, set or get countdown start time
+  useEffect(() => {
+    let start = localStorage.getItem(COUNTDOWN_KEY);
+    if (!start) {
+      start = Date.now().toString();
+      localStorage.setItem(COUNTDOWN_KEY, start);
+    }
+    const elapsed = Math.floor((Date.now() - parseInt(start)) / 1000);
+    const remaining = 15 * 60 - elapsed;
+    setCountdown(remaining > 0 ? remaining : 0);
+  }, []);
+
+  // Countdown effect
+  useEffect(() => {
+    if (countdown <= 0) return;
+    const timer = setInterval(() => {
+      setCountdown((prev) => {
+        if (prev <= 1) {
+          localStorage.removeItem(COUNTDOWN_KEY);
+          return 0;
+        }
+        return prev - 1;
+      });
+    }, 1000);
+    return () => clearInterval(timer);
+  }, [countdown]);
+
+  const formatTime = (secs: number) => {
+    const m = Math.floor(secs / 60).toString().padStart(2, '0');
+    const s = (secs % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+  };
 
   return (
     <ThemeProvider theme={theme}>
@@ -87,7 +122,9 @@ const ActivationToken = () => {
           <Typography component="h1" variant="h5" sx={{ mb: 2 }}>
             Activation du compte
           </Typography>
-
+          <Typography sx={{ color: '#2A337B', fontWeight: 'bold', mb: 2, textAlign: 'center' }}>
+            Le code de confirmation a été envoyé par mail.
+          </Typography>
           {/* Affichage des statuts */}
           {status === 'success' && (
             <Alert
@@ -125,17 +162,35 @@ const ActivationToken = () => {
               {status === 'loading' ? 'Vérification...' : 'Activer mon compte'}
             </Button>
 
-            <Grid container justifyContent="flex-end">
+            <Grid container justifyContent="flex-center">
               <Grid item>
                 <Link
                   variant="body2"
                   onClick={handleOpenDialog}
-                  sx={{ cursor: 'pointer', mt: 3, mb: 2 }}
+                  sx={{ cursor: 'pointer', mt: 3, mb: 2,textAlign:"center" ,color:"#2b2f50"}}
                 >
                   Renvoyer le code
                 </Link>
               </Grid>
             </Grid>
+          </Box>
+
+
+          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mb: 3 }}>
+            <Box sx={{
+              background: 'linear-gradient(90deg, #2A337B 0%, #2b2f50 100%)',
+              color: '#fff',
+              fontWeight: 'bold',
+              fontSize: '1.5rem',
+              borderRadius: '12px',
+              px: 3,
+              py: 1,
+              boxShadow: 2,
+              letterSpacing: 2,
+              fontFamily: 'monospace',
+            }}>
+              {formatTime(countdown)}
+            </Box>
           </Box>
         </Box>
       </Container>

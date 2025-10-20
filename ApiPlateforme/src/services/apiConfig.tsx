@@ -1,11 +1,10 @@
 import axios from "axios";
 import { useAuthStore } from "../store/AuthStore";
 import userService from "./userService";
-
-const baseURL = "https://investincameroun.com/backend/api/v1";
+import { backendUrl } from "../constants/constants";
 
 const apiConfig = axios.create({
-    baseURL: baseURL,
+    baseURL: backendUrl,
 });
 
 apiConfig.interceptors.request.use(

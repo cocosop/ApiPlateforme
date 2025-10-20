@@ -41,7 +41,7 @@ const Login = () => {
       setError(null);
     } catch {
       //setError(t('login.error_message'));
-      setError(t('login.error_message'));
+      setError(t('login.errors.error_message'));
       console.error("Erreur de connexion");
     }
     };  

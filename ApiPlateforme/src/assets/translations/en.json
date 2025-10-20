@@ -147,70 +147,72 @@
     }
   },
   "footer": {
-      "agency": "Investment Promotion Agency (API) - Cameroon",
-      "website": "Website",
-      "website_url": "http://www.investincameroon.cm",
-      "navigation": {
-        "title": "Navigation Menu",
-        "home": "Home",
-        "general_info": "General Information",
-        "investor_guide": "Investor Guide",
-        "opportunity_sectors": "Opportunity Sectors",
-        "about": "About"
-      },
-      "institutions": {
-        "title": "Competent Institutions",
-        "ministry_employment": "Ministry of Employment and Vocational Training",
-        "ministry_labor": "Ministry of Labor and Social Security",
-        "ministry_mines": "Ministry of Mines, Industry and Technological Development",
-        "ministry_smes": "Ministry of Small and Medium Enterprises, Social Economy and Handicrafts",
-        "cnps": "National Social Insurance Fund (CNPS)"
-      },
-      "contacts": {
-        "title": "Contacts",
-        "agency_name": "Investment Promotion Agency (API)",
-        "phone1": "Tel.: (+237) 233 42 59 16",
-        "phone2": "Tel.: (+237) 233 43 30 08",
-        "email": "Email",
-        "email_address": "contact@api.cm",
-        "address": "P.O. Box 441, Yaoundé-Cameroon"
-      },
-      "subscribe": {
-        "title": "Subscribe",
-        "email_placeholder": "Your email address",
-        "button": "Subscribe",
-        "anti_spam": "NO SPAM ● UNSUBSCRIBE ANYTIME"
-      },
-      "copyright": "© 2025 API | All rights reserved.",
-      "legal": {
-        "privacy": "Privacy Policy",
-        "terms": "Terms and Conditions"
-      }
+    "agency": "Investment Promotion Agency (API) - Cameroon",
+    "website": "Website",
+    "website_url": "http://www.investincameroon.cm",
+    "navigation": {
+      "title": "Navigation Menu",
+      "home": "Home",
+      "general_info": "General Information",
+      "investor_guide": "Investor Guide",
+      "opportunity_sectors": "Opportunity Sectors",
+      "about": "About"
     },
-    "login": {
-      "title": "Welcome To the API Investors Portal",
-      "subtitle": "Sign In",
-      "email_label": "Email Address",
-      "password_label": "Password",
-      "password_show": "Show password",
-      "password_hide": "Hide password",
-      "forgot_password": "Forgot password?",
-      "button": "Sign In",
-      "social_login_text": "Or sign in with:",
-      "google_login": "Sign in with Google",
-      "apple_login": "Sign in with Apple",
-      "linkedin_login": "Sign in with LinkedIn",
-      "no_account_yet": "Don't have an account yet?",
-      "signup_link": "Sign up",
-      "alt_image": "Login Illustration",
-      "errors": {
-        "forbidden": "Access forbidden",
-        "not_found": "The email address is incorrect",
-        "server_error": "Server error",
-        "unknown": "Unknown error"
-      }
+    "institutions": {
+      "title": "Competent Institutions",
+      "ministry_employment": "Ministry of Employment and Vocational Training",
+      "ministry_labor": "Ministry of Labor and Social Security",
+      "ministry_mines": "Ministry of Mines, Industry and Technological Development",
+      "ministry_smes": "Ministry of Small and Medium Enterprises, Social Economy and Handicrafts",
+      "cnps": "National Social Insurance Fund (CNPS)"
     },
-    "signup": {
+    "contacts": {
+      "title": "Contacts",
+      "agency_name": "Investment Promotion Agency (API)",
+      "phone1": "Tel.: (+237) 233 42 59 16",
+      "phone2": "Tel.: (+237) 233 43 30 08",
+      "email": "Email",
+      "email_address": "contact@api.cm",
+      "address": "P.O. Box 441, Yaoundé-Cameroon"
+    },
+    "subscribe": {
+      "title": "Subscribe",
+      "email_placeholder": "Your email address",
+      "button": "Subscribe",
+      "anti_spam": "NO SPAM ● UNSUBSCRIBE ANYTIME"
+    },
+    "copyright": "© 2025 API | All rights reserved.",
+    "legal": {
+      "privacy": "Privacy Policy",
+      "terms": "Terms and Conditions"
+    }
+  },
+  "login": {
+    "title": "Welcome To the API Investors Portal",
+    "subtitle": "Sign In",
+    "email_label": "Email Address",
+    "password_label": "Password",
+    "password_show": "Show password",
+    "password_hide": "Hide password",
+    "forgot_password": "Forgot password?",
+    "button": "Sign In",
+    "social_login_text": "Or sign in with:",
+    "google_login": "Sign in with Google",
+    "apple_login": "Sign in with Apple",
+    "linkedin_login": "Sign in with LinkedIn",
+    "no_account_yet": "Don't have an account yet?",
+    "signup_link": "Sign up",
+    "alt_image": "Login Illustration",
+    "error_message": "Email, Phone or Username already used",
+    "errors": {
+      "error_message": "Bad credentials",
+      "forbidden": "Access forbidden",
+      "not_found": "The email address is incorrect",
+      "server_error": "Server error",
+      "unknown": "Unknown error"
+    }
+  },
+  "signup": {
     "title": "Welcome To the API Investors Portal",
     "subtitle": "Create your account",
     "firstname_label": "First Name",
@@ -1317,4 +1319,4 @@
       }
     }
   }
- }
+}

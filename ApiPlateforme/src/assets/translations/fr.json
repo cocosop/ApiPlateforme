@@ -66,12 +66,11 @@
       "investButton": "Investir Maintenant"
     },
     "whyInvest": {
-      
       "title": "Pourquoi Investir au Cameroun ?",
       "subtitle": "Le Cameroun est connu comme",
       "africaMiniature": "'L'Afrique en Miniature'",
       "description": "Avec une stabilité politique, une diversité économique et des opportunités inégalées, le Cameroun offre un environnement propice à l'investissement. Découvrez pourquoi choisir le Cameroun comme destination d'investissement est avantageux.",
-      "modalTitle":"Avantages",
+      "modalTitle": "Avantages",
       "reasons": {
         "politics": {
           "title": "Stabilité Politique",
@@ -189,31 +188,31 @@
       "terms": "Conditions Générales d'Utilisation"
     }
   },
-    "login": {
-      "title": "Bienvenue Au Portail Des Investisseurs de l’API",
-      "subtitle": "Connectez-Vous",
-      "email_label": "Adresse e-mail",
-      "password_label": "Mot de passe",
-      "password_show": "Afficher le mot de passe",
-      "password_hide": "Masquer le mot de passe",
-      "forgot_password": "Mot de passe oublié?",
-      "button": "Se connecter",
-      "social_login_text": "Ou connectez-vous avec :",
-      "google_login": "Se connecter avec Google",
-      "apple_login": "Se connecter avec Apple",
-      "linkedin_login": "Se connecter avec LinkedIn",
-      "no_account_yet": "Pas encore de compte ?",
-      "signup_link": "Inscrivez-vous",
-      "alt_image": "Illustration de connexion",
-      "error_message":"Identifiants incorrects",
-      "errors": {
-        "forbidden": "Accès interdit",
-        "not_found": "L'adresse email est incorrecte",
-        "server_error": "Erreur serveur",
-        "unknown": "Erreur inconnue"
-      }
-    },
-    "signup": {
+  "login": {
+    "title": "Bienvenue Au Portail Des Investisseurs de l’API",
+    "subtitle": "Connectez-Vous",
+    "email_label": "Adresse e-mail",
+    "password_label": "Mot de passe",
+    "password_show": "Afficher le mot de passe",
+    "password_hide": "Masquer le mot de passe",
+    "forgot_password": "Mot de passe oublié?",
+    "button": "Se connecter",
+    "social_login_text": "Ou connectez-vous avec :",
+    "google_login": "Se connecter avec Google",
+    "apple_login": "Se connecter avec Apple",
+    "linkedin_login": "Se connecter avec LinkedIn",
+    "no_account_yet": "Pas encore de compte ?",
+    "signup_link": "Inscrivez-vous",
+    "alt_image": "Illustration de connexion",
+    "errors": {
+      "error_message": "Identifiants incorrects",
+      "forbidden": "Accès interdit",
+      "not_found": "L'adresse email est incorrecte",
+      "server_error": "Erreur serveur",
+      "unknown": "Erreur inconnue"
+    }
+  },
+  "signup": {
     "title": "Bienvenue Au Portail Des Investisseurs de l’API",
     "subtitle": "Créer votre compte",
     "firstname_label": "Prenom",
@@ -244,6 +243,7 @@
     "login_link": "Connectez-vous",
     "success": "Enregistrement réussi",
     "alt_image": "Illustration d'inscription",
+    "error_message":"Email, numéro ou nom d'utilisateur déjà utilisé",
     "errors": {
       "forbidden": "Accès interdit",
       "not_found": "L'adresse email est incorrecte",
