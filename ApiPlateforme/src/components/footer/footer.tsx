@@ -109,21 +109,33 @@ const Footer: React.FC<FooterProps> = ({ activeSection }) => {
               {t('footer.institutions.title')}
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Typography variant="body2" sx={{ ...bodyStyles, color: "#fff", mb: 1 }}>
-                {t('footer.institutions.ministry_employment')}
-              </Typography>
-              <Typography variant="body2" sx={{ ...bodyStyles, color: "#fff", mb: 1 }}>
-                {t('footer.institutions.ministry_labor')}
-              </Typography>
-              <Typography variant="body2" sx={{ ...bodyStyles, color: "#fff", mb: 1 }}>
-                {t('footer.institutions.ministry_mines')}
-              </Typography>
-              <Typography variant="body2" sx={{ ...bodyStyles, color: "#fff", mb: 1 }}>
-                {t('footer.institutions.ministry_smes')}
-              </Typography>
-              <Typography variant="body2" sx={{ ...bodyStyles, color: "#fff" }}>
-                {t('footer.institutions.cnps')}
-              </Typography>
+              <Link href="https://www.minefop.cm/fr/" target="_blank" rel="noopener" sx={{ ...linkStyles, mb: 1 }}>
+                <Typography variant="body2" sx={{ ...bodyStyles, color: "inherit", mb: 1 }}>
+                  {t('footer.institutions.ministry_employment')}
+                </Typography>
+              </Link>
+              <Link href="https://www.mintss.cm/m/web/" target="_blank" rel="noopener" sx={{ ...linkStyles, mb: 1 }}>
+                <Typography variant="body2" sx={{ ...bodyStyles, color: "inherit", mb: 1 }}>
+                  {t('footer.institutions.ministry_labor')}
+                </Typography>
+              </Link>
+              <Link href="https://www.minmidt.cm/" target="_blank" rel="noopener" sx={{ ...linkStyles, mb: 1 }}>
+                <Typography variant="body2" sx={{ ...bodyStyles, color: "inherit", mb: 1 }}>
+                  {t('footer.institutions.ministry_mines')}
+                </Typography>
+              </Link>
+              <Link href="https://www.minpmeesa.cm/site/" target="_blank" rel="noopener" sx={{ ...linkStyles, mb: 1 }}>
+                <Typography variant="body2" sx={{ ...bodyStyles, color: "inherit", mb: 1 }}>
+                  {t('footer.institutions.ministry_smes')}
+                </Typography>
+              </Link>
+              <Link href="https://www.cnps.cm/fr/cnps/nous-contacter1.html" target="_blank" rel="noopener" sx={{ ...linkStyles, mb: 1 }}>
+                <Typography variant="body2" sx={{ ...bodyStyles, color: "inherit" }}>
+                  {t('footer.institutions.cnps')}
+                </Typography>
+              </Link>
+
+
             </Box>
           </Box>
 
