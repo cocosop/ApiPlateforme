@@ -1,6 +1,6 @@
 import { Box, TextField, Button, Typography, FormControl, IconButton, InputAdornment, InputLabel, OutlinedInput } from "@mui/material";
 import LOGIN from "../../../assets/img/account_illustration.png";
-import {  VisibilityOff, Visibility } from "@mui/icons-material";
+import { VisibilityOff, Visibility } from "@mui/icons-material";
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { NotificationProvider } from "../../../components/alert/AlertComponent";
@@ -40,10 +40,11 @@ const Login = () => {
       history("/dashboard");
       setError(null);
     } catch {
+      //setError(t('login.error_message'));
       setError(t('login.error_message'));
       console.error("Erreur de connexion");
     }
-  };
+    };  
 
   return (
     <section className="flex flex-col md:flex-row">
@@ -117,8 +118,8 @@ const Login = () => {
 
           {/* Champs de connexion */}
           <NotificationProvider>
-            <form 
-            onSubmit={handleSubmit}
+            <form
+              onSubmit={handleSubmit}
             >
               <TextField
                 fullWidth
