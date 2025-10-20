@@ -212,7 +212,7 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
             <NavLink
               to={"/"}
               className={({ isActive }: { isActive: boolean }) =>
-                `nav-item text-sm font-semibold ${isActive ? 'active text-indigo-600' : 'text-gray-900 hover:text-indigo-600'}`
+                `nav-item nav-underline text-sm font-semibold ${isActive ? 'active text-[#0F0B60]' : 'text-[#0F0B60] hover:text-blue-600'}`
               }
             >
               {t('navbar.accueil')}
@@ -221,11 +221,10 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
             {/* Informations (Popover) */}
             <Popover className="relative">
               <PopoverButton
-                className={`nav-item text-sm font-semibold flex items-center gap-x-1 ${isInfosActive ? 'active text-indigo-600' : 'text-gray-900 hover:text-indigo-600'
-                  }`}
+                className={`nav-item nav-underline text-sm font-semibold flex items-center gap-x-1 ${isInfosActive ? 'active text-[#0F0B60]' : 'text-[#0F0B60] hover:text-blue-600'}`}
               >
                 {t('navbar.informations')}
-                <ChevronDownIcon aria-hidden="true" className={`size-5 flex-none ${isInfosActive ? 'text-indigo-600' : 'text-gray-400'}`} />
+                <ChevronDownIcon aria-hidden="true" className={`size-5 flex-none ${isInfosActive ? 'text-[#0F0B60]' : 'text-gray-400'}`} />
               </PopoverButton>
 
               <PopoverPanel
@@ -236,7 +235,7 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                   {infos.map((item) => (
                     <div key={item.name} className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm hover:bg-gray-50">
                       <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
                       </div>
                       <div className="flex-auto">
                         <CloseButton
@@ -244,7 +243,7 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                           to={item.link ?? "#"}
                           onClick={() => onMenuClick && onMenuClick(item)}
                           className={({ isActive }: { isActive: boolean }) =>
-                            `block font-semibold text-gray-900 text-sm transition-colors ${isActive ? 'text-indigo-600' : 'hover:text-indigo-600'
+                            `block font-semibold text-gray-900 text-sm transition-colors ${isActive ? 'text-[#0F0B60]' : 'hover:text-[#0F0B60]'
                             }`
                           }
                         >
@@ -262,11 +261,10 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
             {/* Opportunites (Popover) */}
             <Popover className="relative">
               <PopoverButton
-                className={`nav-item text-sm font-semibold flex items-center gap-x-1 ${isOpportunitesActive ? 'active text-indigo-600' : 'text-gray-900 hover:text-indigo-600'
-                  }`}
+                className={`nav-item nav-underline text-sm font-semibold flex items-center gap-x-1 ${isOpportunitesActive ? 'active text-[#0F0B60]' : 'text-[#0F0B60] hover:text-blue-600'}`}
               >
                 {t('navbar.opportunites')}
-                <ChevronDownIcon aria-hidden="true" className={`size-5 flex-none ${isOpportunitesActive ? 'text-indigo-600' : 'text-gray-400'}`} />
+                <ChevronDownIcon aria-hidden="true" className={`size-5 flex-none ${isOpportunitesActive ? 'text-[#0F0B60]' : 'text-gray-400'}`} />
               </PopoverButton>
 
               <PopoverPanel
@@ -281,7 +279,7 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                       {category.secteurs.map((secteur) => (
                         <div key={secteur.name} className="group relative flex items-center gap-x-6 rounded-lg p-2 text-sm hover:bg-gray-50">
                           <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                            <secteur.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                            <secteur.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
                           </div>
                           <div className="flex-auto">
                             <CloseButton
@@ -289,7 +287,7 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                               to={secteur.link ?? "#"}
                               onClick={() => onMenuClick && onMenuClick(secteur)}
                               className={({ isActive }: { isActive: boolean }) =>
-                                `block font-semibold text-gray-900 text-sm transition-colors ${isActive ? 'text-indigo-600' : 'hover:text-indigo-600'
+                                `block font-semibold text-gray-900 text-sm transition-colors ${isActive ? 'text-[#0F0B60]' : 'hover:text-[#0F0B60]'
                                 }`
                               }
                             >
@@ -304,8 +302,8 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                 </div>
 
                 <div className="flex items-center justify-evenly px-4 py-2 border-t border-gray-100 bg-gray-50">
-                  {/* <h3 className="text-sm font-semibold text-gray-500">Potentiel</h3> */}
-                  <Link to={'/potentiel'} className="text-sm font-semibold text-indigo-600 hover:underline flex items-center gap-1">
+                  <h3 className="text-sm font-semibold text-gray-500">Potentiel</h3>
+                  <Link to={'/potentiel'} className="text-sm font-semibold text-[#0F0B60] hover:underline flex items-center gap-1">
                     <CloseButton>
                       Voir plus <span aria-hidden="true">→</span>
                     </CloseButton>
@@ -317,11 +315,10 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
             {/* Investir (Popover) */}
             <Popover className="relative">
               <PopoverButton
-                className={`nav-item text-sm font-semibold flex items-center gap-x-1 ${isInvestirActive ? 'active text-indigo-600' : 'text-gray-900 hover:text-indigo-600'
-                  }`}
+                className={`nav-item nav-underline text-sm font-semibold flex items-center gap-x-1 ${isInvestirActive ? 'active text-[#0F0B60]' : 'text-[#0F0B60] hover:text-blue-600'}`}
               >
                 {t('navbar.investir')}
-                <ChevronDownIcon aria-hidden="true" className={`size-5 flex-none ${isInvestirActive ? 'text-indigo-600' : 'text-gray-400'}`} />
+                <ChevronDownIcon aria-hidden="true" className={`size-5 flex-none ${isInvestirActive ? 'text-[#0F0B60]' : 'text-gray-400'}`} />
               </PopoverButton>
 
               <PopoverPanel
@@ -332,7 +329,7 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                   {investir.map((item) => (
                     <div key={item.name} className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm hover:bg-gray-50">
                       <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
                       </div>
                       <div className="flex-auto">
                         <CloseButton
@@ -340,7 +337,7 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                           to={item.link ?? "#"}
                           onClick={() => onMenuClick && onMenuClick(item)}
                           className={({ isActive }: { isActive: boolean }) =>
-                            `block font-semibold text-gray-900 text-sm transition-colors ${isActive ? 'text-indigo-600' : 'hover:text-indigo-600'
+                            `block font-semibold text-gray-900 text-sm transition-colors ${isActive ? 'text-[#0F0B60]' : 'hover:text-[#0F0B60]'
                             }`
                           }
                         >
@@ -358,11 +355,10 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
             {/* A propos (Popover) */}
             <Popover className="relative">
               <PopoverButton
-                className={`nav-item text-sm font-semibold flex items-center gap-x-1 ${isAProposActive ? 'active text-indigo-600' : 'text-gray-900 hover:text-indigo-600'
-                  }`}
+                className={`nav-item nav-underline text-sm font-semibold flex items-center gap-x-1 ${isAProposActive ? 'active text-[#0F0B60]' : 'text-[#14123f] hover:text-blue-600'}`}
               >
                 {t('navbar.apropos')}
-                <ChevronDownIcon aria-hidden="true" className={`size-5 flex-none ${isAProposActive ? 'text-indigo-600' : 'text-gray-400'}`} />
+                <ChevronDownIcon aria-hidden="true" className={`size-5 flex-none ${isAProposActive ? 'text-[#0F0B60]' : 'text-gray-400'}`} />
               </PopoverButton>
 
               <PopoverPanel
@@ -373,7 +369,7 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                   {aPropos.map((item) => (
                     <div key={item.name} className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm hover:bg-gray-50">
                       <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
                       </div>
                       <div className="flex-auto">
                         <CloseButton
@@ -381,7 +377,7 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                           to={item.link ?? "#"}
                           onClick={() => onMenuClick && onMenuClick(item)}
                           className={({ isActive }: { isActive: boolean }) =>
-                            `block font-semibold text-gray-900 text-sm transition-colors ${isActive ? 'text-indigo-600' : 'hover:text-indigo-600'
+                            `block font-semibold text-gray-900 text-sm transition-colors ${isActive ? 'text-[#0F0B60]' : 'hover:text-[#0F0B60]'
                             }`
                           }
                         >
@@ -450,7 +446,7 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                           className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
                         >
                           <div className='flex items-center gap-5'>
-                            <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                            <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
                             {item.name}
                           </div>
                         </CloseButton>
@@ -474,7 +470,7 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                           className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
                         >
                           <div className='flex items-center gap-5'>
-                            <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                            <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
                             {item.name}
                           </div>
                         </CloseButton>
@@ -504,9 +500,9 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                               >
                                 <div className="flex items-center gap-5">
                                   {item.icon ? (
-                                    <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                                    <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
                                   ) : (
-                                    <SparklesIcon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                                    <SparklesIcon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
                                   )}
                                   {item.name}
                                 </div>
@@ -517,7 +513,7 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                       ))}
                       <div className="flex flex-col px-4 py-2">
                         <h3 className="text-sm font-semibold text-gray-900">Potentiel</h3>
-                        <Link to={"/potentiel"} className="text-sm font-semibold text-indigo-600 hover:underline flex items-center gap-1">
+                        <Link to={"/potentiel"} className="text-sm font-semibold text-[#0F0B60] hover:underline flex items-center gap-1">
                           Voir plus <span aria-hidden="true">→</span>
                         </Link>
                       </div>
@@ -540,7 +536,7 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                           className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
                         >
                           <div className='flex items-center gap-5'>
-                            <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-indigo-600" />
+                            <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
                             {item.name}
                           </div>
                         </CloseButton>
