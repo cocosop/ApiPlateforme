@@ -81,7 +81,9 @@ const ForgetPassword = () => {
                     <Typography component="h1" variant="h5">
                         Réinitialisation du mot de passe
                     </Typography>
-
+                    <Typography sx={{ color: '#2A337B', fontWeight: 'bold', mb: 2, textAlign: 'center' }}>
+                        Le code de confirmation a été envoyé par mail.
+                    </Typography>
                     {success && (
                         <Alert severity="success" sx={{ width: '100%', mt: 2 }}>
                             Un email avec les instructions a été envoyé à {email}

@@ -30,7 +30,7 @@ const roleMenus: Record<UserRole, MenuItem[]> = {
   ADMIN: [
     { icon: FolderKanban, label: 'Toutes les demandes', path: '/demandes' },
     { icon: PiggyBank, label: 'Projets en étude', path: '/projets' },
-    {icon: User2Icon, label: 'Utilisateurs', path: '/users' },
+    { icon: User2Icon, label: 'Utilisateurs', path: '/users' },
     { icon: Settings, label: 'Paramètres', path: '/parametres' },
   ],
   PROJECT_OWNER: [
@@ -42,17 +42,22 @@ const roleMenus: Record<UserRole, MenuItem[]> = {
     { icon: LayoutDashboard, label: 'Tableau de bord', path: '/dashboard' },
     { icon: FolderKanban, label: 'Mes demandes', path: '/demandes' },
     { icon: PiggyBank, label: 'Mes Projets', path: '/investissements' },
-    { icon: Settings, label: 'Paramètres', path: '/parametres' },
+    // { icon: Settings, label: 'Paramètres', path: '/parametres' },
   ],
 };
 
 // Menus communs à tous les rôles
-const commonMenuItems: MenuItem[] = [
-  { icon: Bell, label: 'Notifications', path: '/notifications' },
-  { icon: MessageSquare, label: 'Messages', path: '/messages' },
-  { icon: UserCircle, label: 'Profil', path: '/profil' },
-];
+/*TODO: Restaurer les notifications une fois le système de notification implémenté */
 
+// const commonMenuItems: MenuItem[] = [
+//   { icon: Bell, label: 'Notifications', path: '/notifications' },
+//   { icon: MessageSquare, label: 'Messages', path: '/messages' },
+//   { icon: UserCircle, label: 'Profil', path: '/profil' },
+// ];
+
+const commonMenuItems: MenuItem[] = [
+  { icon: MessageSquare, label: 'Messages', path: '/messages' }
+];
 
 const Sidebar: React.FC = () => {
   const role = useAuthStore((state) => state.decoded?.role) as UserRole;

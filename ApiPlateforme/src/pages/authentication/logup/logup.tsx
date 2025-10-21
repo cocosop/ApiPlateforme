@@ -287,7 +287,7 @@ const Logup = () => {
                                     required
                                 >
                                     <MenuItem disabled>Sélectionnez un type</MenuItem>
-                                    <MenuItem value="PROJECT_OWNER">Porteur de projet</MenuItem>
+                                    {/* <MenuItem value="PROJECT_OWNER">Porteur de projet</MenuItem> */}
                                     <MenuItem value="INVESTOR">Investisseur</MenuItem>
                                 </TextField>
                             </div>
