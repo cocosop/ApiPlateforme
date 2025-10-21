@@ -8,7 +8,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import clsx from 'clsx';
 import { useAuthStore } from '../../store/AuthStore';
 import { AxiosResponse } from 'axios'; // Import AxiosResponse type
-import AlertComponent, { NotificationProvider } from '../../components/alert/AlertComponent';
+import AlertComponent from '../../components/alert/AlertComponent';
 
 // --- Default Values ---
 const defaultNewProject: CreateProjectType = {

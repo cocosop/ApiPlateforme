@@ -6,9 +6,7 @@ import {
   PiggyBank,
   Settings,
   LucideIcon,
-  Bell,
   MessageSquare,
-  UserCircle,
   LayoutDashboard,
   User2Icon
 

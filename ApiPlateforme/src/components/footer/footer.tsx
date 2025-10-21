@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 interface FooterProps {
   activeSection?: string;
 }
-const Footer: React.FC<FooterProps> = ({ activeSection }) => {
+const Footer: React.FC<FooterProps> = () => {
   const { t } = useTranslation();
 
   // Define typography styles
