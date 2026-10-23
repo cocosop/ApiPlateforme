@@ -9,6 +9,8 @@ interface DecodedToken {
 }
 
 interface AuthState {
+    // Access token court (15 min). Le refresh token, lui, reste dans un cookie HttpOnly
+    // inaccessible au JavaScript.
     accessToken: string | null;
     decoded: DecodedToken | null;
     ready: boolean;
@@ -17,14 +19,12 @@ interface AuthState {
     clearTokens: () => void;
     isExpired: () => boolean;
     isAuthenticated: () => boolean;
-    decodeAccessToken: () => void;
 }
 
 export const useAuthStore = create<AuthState>()(
     persist(
         (set, get) => ({
             accessToken: null,
-            refreshToken: null,
             decoded: null,
             ready: false,
 
@@ -42,31 +42,6 @@ export const useAuthStore = create<AuthState>()(
                 set({ accessToken: null, decoded: null, ready: true });
             },
 
-            decodeAccessToken: () => {
-                const token = get().accessToken;
-                const start = Date.now();
-
-                if (!token) {
-                    setTimeout(() => set({ decoded: null, ready: true }), 1000);
-                    return;
-                }
-                try {
-                    const decoded = jwtDecode<DecodedToken>(token);
-                    const elapsed = Date.now() - start;
-
-                    const minDelay = 1000;
-                    const remaining = minDelay - elapsed;
-
-                    if (decoded.exp && decoded.exp < Date.now() / 1000) {
-                        setTimeout(() => set({ accessToken: null, decoded: null, ready: true }), Math.max(remaining, 0));
-                    } else {
-                        setTimeout(() => set({ decoded, ready: true }), Math.max(remaining, 0));
-                    }
-                } catch (e) {
-                    console.error("Token decoding failed:", e);
-                    setTimeout(() => set({ accessToken: null, decoded: null, ready: true }), 500);
-                }
-            },
             isExpired: () => {
                 const { decoded } = get();
                 return !decoded || decoded.exp < Date.now() / 1000;

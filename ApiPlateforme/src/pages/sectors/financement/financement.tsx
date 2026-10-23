@@ -1,4 +1,5 @@
-import { ChartBarIcon, CurrencyDollarIcon, FingerPrintIcon, ShieldCheckIcon } from '@heroicons/react/20/solid'
+import { ChartBarIcon, CurrencyDollarIcon, FingerPrintIcon, ShieldCheckIcon } from '@heroicons/react/20/solid';
+import { BulbOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -176,54 +177,54 @@ const financement = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center relative z-0">
 
               {/* Carte Opportunités */}
-              <div className="bg-gradient-to-r from-blue-400 to-purple-500  p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
-                {/* Fond dégradé au survol */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 group w-full max-w-md relative overflow-hidden">
+                {/* Ligne d'accentuation en haut avec la couleur #0F0B60 */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-[#0F0B60]"></div>
 
                 {/* Contenu */}
                 <div className="relative z-10">
                   {/* En-tête de la carte */}
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
-                      <span className="text-blue-500 text-2xl">🚀</span>
+                  <div className="flex items-center mb-8">
+                    <div className="w-14 h-14 bg-[#0F0B60]/5 rounded-2xl flex items-center justify-center border border-[#0F0B60]/10 group-hover:bg-[#0F0B60] transition-colors duration-300">
+                      <BulbOutlined className="text-[#0F0B60] text-3xl group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
+                    <h2 className="text-2xl font-bold text-gray-800 ml-5 group-hover:text-[#0F0B60] transition-colors duration-300">
                       {t("pages_secteurs.financement.potentiel.opportunites.titre")}
                     </h2>
                   </div>
 
                   {/* Liste des points */}
-                  <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
-                          {t("pages_secteurs.financement.potentiel.opportunites.croissance")}
-                        </span>
+                  <ul className="space-y-5 text-gray-600">
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t("pages_secteurs.financement.potentiel.opportunites.croissance")}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
-                          {t("pages_secteurs.financement.potentiel.opportunites.financement")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t("pages_secteurs.financement.potentiel.opportunites.financement")}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
-                          {t("pages_secteurs.financement.potentiel.opportunites.partenariats")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t("pages_secteurs.financement.potentiel.opportunites.partenariats")}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
-                          {t("pages_secteurs.financement.potentiel.opportunites.innovation")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t("pages_secteurs.financement.potentiel.opportunites.innovation")}
                       </span>
                     </li>
                   </ul>
@@ -231,54 +232,54 @@ const financement = () => {
               </div>
 
               {/* Carte Défis */}
-              <div className="bg-gradient-to-r from-red-400 to-orange-500 p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
-                {/* Fond dégradé au survol */}
-                <div className="absolute inset-0 bg-gradient-to-r from-red-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 group w-full max-w-md relative overflow-hidden">
+                {/* Ligne d'accentuation en haut avec la couleur #0F0B60 */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-[#0F0B60]"></div>
 
                 {/* Contenu */}
                 <div className="relative z-10">
                   {/* En-tête de la carte */}
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
-                      <span className="text-red-500 text-2xl">⚠️</span>
+                  <div className="flex items-center mb-8">
+                    <div className="w-14 h-14 bg-[#0F0B60]/5 rounded-2xl flex items-center justify-center border border-[#0F0B60]/10 group-hover:bg-[#0F0B60] transition-colors duration-300">
+                      <ExclamationCircleOutlined className="text-[#0F0B60] text-3xl group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
+                    <h2 className="text-2xl font-bold text-gray-800 ml-5 group-hover:text-[#0F0B60] transition-colors duration-300">
                       {t("pages_secteurs.financement.potentiel.defis.titre")}
                     </h2>
                   </div>
 
                   {/* Liste des points */}
-                  <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">
-                          {t("pages_secteurs.financement.potentiel.defis.acces")}
-                        </span>
+                  <ul className="space-y-5 text-gray-600">
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t("pages_secteurs.financement.potentiel.defis.acces")}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">
-                          {t("pages_secteurs.financement.potentiel.defis.manque")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t("pages_secteurs.financement.potentiel.defis.manque")}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">
-                          {t("pages_secteurs.financement.potentiel.defis.inclusion")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t("pages_secteurs.financement.potentiel.defis.inclusion")}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">
-                          {t("pages_secteurs.financement.potentiel.defis.risque")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t("pages_secteurs.financement.potentiel.defis.risque")}
                       </span>
                     </li>
                   </ul>

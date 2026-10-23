@@ -6,6 +6,7 @@ import userService from '../../services/userService';
 import projectService from '../../services/projectService';
 import messageService from '../../services/messageService';
 import { useAuthStore } from '../../store/AuthStore';
+import { isAdminRole } from '../../utils/roles';
 
 const routeTitles: Record<string, string> = {
   '/dashboard': 'Tableau de bord',
@@ -25,7 +26,13 @@ const HeaderDashboard = () => {
   const pathname = location.pathname;
   const pageTitle = routeTitles[pathname];
   const history = useNavigate();
-  const handleLogout = () => {
+  const handleLogout = async () => {
+    try {
+      // Révoque la session côté serveur (cookie de refresh + access token en cours)
+      await userService.logout();
+    } catch {
+      // On déconnecte localement même si le serveur est injoignable
+    }
     useAuthStore.getState().clearTokens();
     history('/signin');
   };
@@ -66,11 +73,11 @@ const HeaderDashboard = () => {
         const projRes = await projectService.fetchAllProjects();
         if (projRes.status === 200) {
           projRes.data.forEach((project: any) => {
-            if (user.role === 'ADMIN' && project.status === 'PENDING') {
+            if (isAdminRole(user.role) && project.status === 'PENDING') {
               count++;
             }
             if (
-              user.role !== 'ADMIN' &&
+              !isAdminRole(user.role) &&
               ((project.ownerId && project.ownerId === user.id) ||
                 (project.user && project.user.id === user.id))
             ) {

@@ -5,6 +5,7 @@ import projectService from '../../services/projectService';
 import stageService from '../../services/stageService';
 import docService from '../../services/docService';
 import { useAuthStore } from '../../store/AuthStore';
+import { isAdminRole } from '../../utils/roles';
 
 type Stage = {
   id?: number;
@@ -453,7 +454,7 @@ const SuiviProjetDetail: React.FC = () => {
         </div>
 
         <div className="ml-4">
-          {isEditing && decodedUser?.role == 'ADMIN' ? (
+          {isEditing && isAdminRole(decodedUser?.role) ? (
             <div className="flex space-x-2">
               <button
                 onClick={handleSaveClick}
@@ -471,7 +472,7 @@ const SuiviProjetDetail: React.FC = () => {
               </button>
             </div>
           ) : (
-            decodedUser?.role === 'ADMIN' &&
+            isAdminRole(decodedUser?.role) &&
             <button
               onClick={handleEditClick}
               className="p-2 bg-indigo-500 text-white rounded-full hover:bg-indigo-600 transition-colors"
@@ -612,7 +613,7 @@ const SuiviProjetDetail: React.FC = () => {
       <div className="mb-8">
         <div className="flex justify-between items-center mb-5">
           <h3 className="text-xl font-semibold text-gray-800">Jalons Clés du Projet</h3>
-          {!isAddingJalon ? (decodedUser?.role === 'ADMIN' && <button
+          {!isAddingJalon ? (isAdminRole(decodedUser?.role) && <button
             onClick={handleAddJalonClick}
             className="px-3 py-1 bg-indigo-500 text-white rounded-md text-sm hover:bg-indigo-600"
           >
@@ -782,14 +783,14 @@ const SuiviProjetDetail: React.FC = () => {
                 )}
               </div>
               <div className="relative ml-4">
-                {decodedUser?.role === 'ADMIN' && (<button
+                {isAdminRole(decodedUser?.role) && (<button
                   onClick={() => setMoreMenuIndex(moreMenuIndex === index ? null : index)}
                   className="p-2 rounded-full hover:bg-gray-200"
                   title="Plus d'options"
                 >
                   <FaEllipsisV />
                 </button>)}
-                {moreMenuIndex === index && decodedUser?.role === 'ADMIN' && (
+                {moreMenuIndex === index && isAdminRole(decodedUser?.role) && (
                   <div className="absolute right-0 mt-2 w-36 bg-white border rounded shadow-lg z-10">
                     <button
                       onClick={() => {

@@ -1,247 +1,175 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { 
-  ShoppingCart, 
-  Truck, 
-  MapPin, 
-  Zap, 
-  Wifi, 
-  Users, 
-  Shield, 
+import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
+import {
+  ShoppingCart,
+  Truck,
+  MapPin,
+  Zap,
+  Wifi,
+  Users,
+  Shield,
   CreditCard,
+  ArrowUpRight,
   ChevronRight,
-  TrendingUp,
-  DollarSign
+  DollarSign,
+  type LucideIcon,
 } from 'lucide-react';
 import { Factor } from '../types';
 import FactorModal from './factorModal';
 
+const ICONS: Record<string, LucideIcon> = { ShoppingCart, Truck, MapPin, Zap, Wifi, Users, Shield, CreditCard };
+
+// 1re rangée : tons pêche + valeur verte ; 2e rangée : tons lavande + valeur violette (comme la maquette)
+const THEMES = {
+  warm: {
+    iconTile: 'bg-[#FFF1E8] text-[#F97316]',
+    box: 'bg-[#FFF4EC] border-[#FFE3D1]',
+    value: 'text-[#16A34A]',
+    arrow: 'text-[#16A34A]',
+    button: 'text-[#16A34A] hover:bg-[#EAFBF1]',
+  },
+  cool: {
+    iconTile: 'bg-[#EFEBFF] text-[#4F2BDF]',
+    box: 'bg-[#F1EEFE] border-[#E0D9FC]',
+    value: 'text-[#4F2BDF]',
+    arrow: 'text-[#4F2BDF]',
+    button: 'text-[#4F2BDF] hover:bg-[#F1EEFE]',
+  },
+};
+
 const FactorsGrid: React.FC = () => {
+  const { t } = useTranslation();
   const [selectedFactor, setSelectedFactor] = useState<Factor | null>(null);
+  const f = (key: string) => t(`pages_secteurs.facteurs_production.grid.factors.${key}`);
+  const g = (key: string) => t(`pages_secteurs.facteurs_production.grid.${key}`);
+
+  const factor = (id: string, icon: string, highlight: string, color: string): Factor => ({
+    name: f(`${id}.name`),
+    description: f(`${id}.desc`),
+    icon,
+    color,
+    preview: {
+      highlight,
+      label: f(`${id}.label`),
+      stats: [f(`${id}.stat1`), f(`${id}.stat2`), f(`${id}.stat3`)],
+    },
+  });
 
   const factors: Factor[] = [
-    {
-      name: "Intrants",
-      description: "Matières premières et équipements importés",
-      icon: "ShoppingCart",
-      color: "from-blue-500 to-blue-600",
-      preview: {
-        highlight: "0% à 81%",
-        label: "Tarif douanier",
-        stats: ["50k FCFA min", "940k FCFA max", "Frais transitaire"]
-      }
-    },
-    {
-      name: "Transport",
-      description: "Déplacement marchandises et personnel",
-      icon: "Truck",
-      color: "from-green-500 to-green-600",
-      preview: {
-        highlight: "40-2600 FCFA",
-        label: "Coût par unité",
-        stats: ["Ferroviaire: 40 FCFA/T", "Routier: 90 FCFA/T", "Aérien: 2600 FCFA/Kg"]
-      }
-    },
-    {
-      name: "Terrain",
-      description: "Acquisition ou location terrain industriel",
-      icon: "MapPin",
-      color: "from-yellow-500 to-yellow-600",
-      preview: {
-        highlight: "300-3000 FCFA",
-        label: "Par m²/an",
-        stats: ["Aménagés: 300 FCFA", "Bâtis: 1000-3000 FCFA", "Zone franche: 720 FCFA"]
-      }
-    },
-    {
-      name: "Énergie",
-      description: "Électricité, carburant et autres sources",
-      icon: "Zap",
-      color: "from-orange-500 to-orange-600",
-      preview: {
-        highlight: "50-99 FCFA",
-        label: "Par kWh",
-        stats: ["Gasoil: 828 FCFA/L", "Super: 840 FCFA/L", "Gaz 12kg: 6500 FCFA"]
-      }
-    },
-    {
-      name: "Télécommunication",
-      description: "Services téléphonie et internet",
-      icon: "Wifi",
-      color: "from-purple-500 to-purple-600",
-      preview: {
-        highlight: "20-90 FCFA",
-        label: "Par minute",
-        stats: ["ADSL: 20-30k FCFA/mois", "Haut débit: 12-300k FCFA", "SMS: 50 FCFA"]
-      }
-    },
-    {
-      name: "Personnel",
-      description: "Salaires et charges sociales",
-      icon: "Users",
-      color: "from-red-500 to-red-600",
-      preview: {
-        highlight: "36,270 FCFA",
-        label: "SMIG mensuel",
-        stats: ["Cadres: 267-457k FCFA", "Employés: 129-325k FCFA", "Cotisations: 17.15%"]
-      }
-    },
-    {
-      name: "Assurance",
-      description: "Couverture des risques d'activité",
-      icon: "Shield",
-      color: "from-indigo-500 to-indigo-600",
-      preview: {
-        highlight: "0.70‰",
-        label: "Taux de base",
-        stats: ["Bureaux: 0.70‰", "Habitations: 0.75‰", "Transport: 121-150k FCFA"]
-      }
-    },
-    {
-      name: "Frais Bancaires",
-      description: "Services bancaires et financement",
-      icon: "CreditCard",
-      color: "from-pink-500 to-pink-600",
-      preview: {
-        highlight: "7-17%",
-        label: "Taux d'intérêt",
-        stats: ["Long terme: 7-10%", "Moyen terme: 11-17%", "Dépôt: 3.5%"]
-      }
-    },
+    factor('intrants', 'ShoppingCart', '0% à 81%', 'from-blue-500 to-blue-600'),
+    factor('transport', 'Truck', '40-2600 FCFA', 'from-green-500 to-green-600'),
+    factor('terrain', 'MapPin', '300-3000 FCFA', 'from-yellow-500 to-yellow-600'),
+    factor('energie', 'Zap', '50-99 FCFA', 'from-orange-500 to-orange-600'),
+    factor('telecom', 'Wifi', '20-90 FCFA', 'from-purple-500 to-purple-600'),
+    factor('personnel', 'Users', '36 270 FCFA', 'from-red-500 to-red-600'),
+    factor('assurance', 'Shield', '0.70‰', 'from-indigo-500 to-indigo-600'),
+    factor('banque', 'CreditCard', '7-17%', 'from-pink-500 to-pink-600'),
   ];
 
-  const getIcon = (iconName: string) => {
-    const icons = {
-      ShoppingCart,
-      Truck,
-      MapPin,
-      Zap,
-      Wifi,
-      Users,
-      Shield,
-      CreditCard,
-    };
-    return icons[iconName as keyof typeof icons] || ShoppingCart;
-  };
+  const quickStats = [
+    { icon: DollarSign, value: '36k FCFA', label: g('salary') },
+    { icon: Truck, value: '40-90 FCFA', label: g('transport') },
+    { icon: Zap, value: '50-99 FCFA', label: g('elec') },
+    { icon: MapPin, value: '300-3k FCFA', label: g('land') },
+  ];
 
   return (
-    <section className="py-16">
-      <div className="text-center mb-12">
+    <>
+      {/* ── Grille des 8 facteurs ── */}
+      <div className="mx-auto max-w-6xl px-4">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 text-center"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Coûts de Production Essentiels
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-green-600 to-yellow-500 mx-auto mb-6 rounded-full"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Découvrez les principaux postes de dépenses en un coup d'œil
-          </p>
+          <h2 className="text-3xl font-extrabold text-[#2D1B8F] sm:text-4xl">{g('title')}</h2>
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-gray-500 sm:text-base">{g('subtitle')}</p>
         </motion.div>
-      </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {factors.map((factor, index) => {
-          const IconComponent = getIcon(factor.icon);
-          
-          return (
-            <motion.div
-              key={factor.name}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="group cursor-pointer"
-              onClick={() => setSelectedFactor(factor)}
-            >
-              <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 h-full relative overflow-hidden">
-                {/* Background gradient */}
-                <div className={`absolute top-0 right-0 w-20 h-20 bg-gradient-to-br ${factor.color} opacity-10 rounded-bl-full`}></div>
-                
-                {/* Icon */}
-                <div className={`w-16 h-16 rounded-xl bg-gradient-to-r ${factor.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                  <IconComponent className="h-8 w-8 text-white" />
-                </div>
-                
-                {/* Title */}
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-green-600 transition-colors duration-300">
-                  {factor.name}
-                </h3>
-                
-                {/* Description */}
-                <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                  {factor.description}
-                </p>
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {factors.map((item, index) => {
+            const Icon = ICONS[item.icon] ?? ShoppingCart;
+            const theme = index < 4 ? THEMES.warm : THEMES.cool;
+            return (
+              <motion.button
+                type="button"
+                key={item.icon}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: (index % 4) * 0.08 }}
+                whileHover={{ y: -6 }}
+                onClick={() => setSelectedFactor(item)}
+                className="group flex h-full flex-col rounded-2xl border border-gray-100 bg-white p-5 text-left shadow-[0_4px_20px_rgba(16,24,40,0.05)] transition-shadow hover:shadow-[0_12px_32px_rgba(16,24,40,0.10)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#4F2BDF]"
+              >
+                <span className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl ${theme.iconTile}`}>
+                  <Icon className="h-5 w-5" />
+                </span>
 
-                {/* Preview Stats */}
-                {factor.preview && (
-                  <div className="space-y-3 mb-4">
-                    <div className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                      <div>
-                        <div className="text-2xl font-bold text-green-600">{factor.preview.highlight}</div>
-                        <div className="text-xs text-gray-500">{factor.preview.label}</div>
-                      </div>
-                      <TrendingUp className="h-5 w-5 text-green-500" />
-                    </div>
+                <h3 className="text-base font-bold text-[#1A0C4F]">{item.name}</h3>
+                <p className="mt-1.5 flex-1 text-xs leading-relaxed text-gray-500">{item.description}</p>
+
+                <div className={`mt-4 flex items-center justify-between rounded-xl border px-3.5 py-3 ${theme.box}`}>
+                  <div className="min-w-0">
+                    <div className={`truncate text-lg font-extrabold ${theme.value}`}>{item.preview.highlight}</div>
+                    <div className="truncate text-[11px] text-gray-500">{item.preview.label}</div>
                   </div>
-                )}
-                
-                {/* CTA */}
-                <div className="flex items-center text-green-600 font-medium text-sm group-hover:text-green-700">
-                  <span>Voir détails</span>
-                  <ChevronRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform duration-300" />
+                  <ArrowUpRight className={`h-4 w-4 shrink-0 ${theme.arrow}`} />
                 </div>
-              </div>
-            </motion.div>
-          );
-        })}
+
+                <span className={`mt-3 inline-flex w-full items-center justify-center gap-1 rounded-full border border-gray-200 bg-white py-2 text-xs font-semibold transition-colors ${theme.button}`}>
+                  {g('see_details')}
+                  <ChevronRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" />
+                </span>
+              </motion.button>
+            );
+          })}
+        </div>
       </div>
 
-      {/* Quick Stats Summary */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.4 }}
-        className="mt-16 bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-8 text-white"
-      >
-        <div className="text-center mb-8">
-          <h3 className="text-2xl font-bold mb-2">Aperçu Rapide des Coûts</h3>
-          <p className="text-green-100">Les chiffres clés à retenir pour votre budget</p>
-        </div>
-        
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          <div className="text-center">
-            <DollarSign className="h-8 w-8 mx-auto mb-2 text-yellow-300" />
-            <div className="text-2xl font-bold">36k FCFA</div>
-            <div className="text-sm text-green-100">Salaire minimum</div>
-          </div>
-          <div className="text-center">
-            <Truck className="h-8 w-8 mx-auto mb-2 text-yellow-300" />
-            <div className="text-2xl font-bold">40-90 FCFA</div>
-            <div className="text-sm text-green-100">Transport/tonne</div>
-          </div>
-          <div className="text-center">
-            <Zap className="h-8 w-8 mx-auto mb-2 text-yellow-300" />
-            <div className="text-2xl font-bold">50-99 FCFA</div>
-            <div className="text-sm text-green-100">Électricité/kWh</div>
-          </div>
-          <div className="text-center">
-            <MapPin className="h-8 w-8 mx-auto mb-2 text-yellow-300" />
-            <div className="text-2xl font-bold">300-3k FCFA</div>
-            <div className="text-sm text-green-100">Terrain/m²/an</div>
-          </div>
-        </div>
-      </motion.div>
+      {/* ── Bandeau vert à vagues : aperçu rapide ── */}
+      <div className="relative mt-20">
+        <svg className="block h-16 w-full text-[#2BD67B] sm:h-24" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+          <path
+            fill="currentColor"
+            d="M0,64 C120,96 240,32 360,48 C480,64 600,112 720,96 C840,80 960,24 1080,32 C1200,40 1320,96 1440,72 L1440,120 L0,120 Z"
+          />
+        </svg>
+        <div className="bg-gradient-to-b from-[#2BD67B] to-[#16A34A] pb-16 pt-6">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="mx-auto max-w-6xl px-4"
+          >
+            <div className="mb-10 text-center text-white">
+              <h3 className="text-2xl font-extrabold sm:text-3xl">{g('quick_summary')}</h3>
+              <p className="mx-auto mt-2 max-w-2xl text-sm text-white/80">{g('quick_desc')}</p>
+            </div>
 
-      {selectedFactor && (
-        <FactorModal
-          factor={selectedFactor}
-          onClose={() => setSelectedFactor(null)}
-        />
-      )}
-    </section>
+            <div className="grid grid-cols-2 gap-y-10 md:grid-cols-4">
+              {quickStats.map(({ icon: Icon, value, label }, i) => (
+                <div key={label} className={`flex flex-col items-center text-center text-white ${i === 2 ? 'md:border-l md:border-white/40' : ''}`}>
+                  <span className="mb-3 flex h-16 w-16 items-center justify-center rounded-full border-2 border-white/60 bg-white/15 ring-8 ring-white/10">
+                    <Icon className="h-7 w-7" />
+                  </span>
+                  <div className="text-2xl font-extrabold sm:text-3xl">{value}</div>
+                  <div className="mt-1 max-w-[12rem] text-xs text-white/85">{label}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {selectedFactor && <FactorModal factor={selectedFactor} onClose={() => setSelectedFactor(null)} />}
+      </AnimatePresence>
+    </>
   );
 };
 

@@ -1,130 +1,147 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
-    Box,
-    Button,
-    Container,
-    CssBaseline,
-    Avatar,
-    Typography,
-    TextField,
-    Alert,
-    CircularProgress
-} from '@mui/material';
-import LockResetIcon from '@mui/icons-material/LockReset';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-import axios from 'axios';
-import { backendUrl } from '../../../constants/constants';
-
-const theme = createTheme();
+  Box,
+  Button,
+  Avatar,
+  Typography,
+  TextField,
+  Alert,
+  CircularProgress,
+} from "@mui/material";
+import LockResetIcon from "@mui/icons-material/LockReset";
+import TY_IMG from "../../../assets/img/ty.png";
+import userService from "../../../services/userService";
+import { getApiErrorMessage } from "../../../utils/apiError";
 
 const ForgetPassword = () => {
-    const [email, setEmail] = useState('');
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState(false);
-    const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const navigate = useNavigate();
 
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setLoading(true);
-        setError('');
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
 
-        try {
-            await axios.post(`${backendUrl}/auth/forgot-password?email=${email}`)
-                .then((res) => {
-                    console.log(res.data);
-                    if (res.data.status === 200) {
-                        setSuccess(true);
-                        navigate('/reset-password')
-                    }
-                })
-        } catch (err) {
-            setError('Une erreur est survenue. Veuillez réessayer.');
-        } finally {
-            setLoading(false);
-        }
-    };
+    try {
+      await userService.forgotPassword(email.trim());
+      setSuccess(true);
+      navigate(`/reset-password?email=${encodeURIComponent(email.trim())}`);
+    } catch (err) {
+      setError(getApiErrorMessage(err, "Une erreur est survenue. Veuillez réessayer."));
+    } finally {
+      setLoading(false);
+    }
+  };
 
-    axios.interceptors.response.use(
-        res => {
-            return res;
-        },
-        error => {
-            const statusHandlers: any = {
-                403: () => alert("Accès interdit"),
-                404: () => alert("L'adresse email est incorrecte"),
-                409: () => alert("Adresse email déjà utilisée"),
-                500: () => alert("Erreur serveur"),
-            };
-            const status = error.res?.status;
-            (statusHandlers[status] || (() => alert("Erreur inconnue")))();
-            return Promise.reject(error);
-        }
-    );
+  return (
+    <section className="min-h-screen flex flex-col md:flex-row bg-[#fafafc]">
+      {/* Left Column: 3D Cameroon Map (ty.png) filling completely */}
+      <div className="hidden md:block md:w-1/2 relative min-h-screen bg-[#0e1c2e]">
+        <img
+          src={TY_IMG}
+          alt="Cameroon 3D Investment Map"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
+      </div>
 
-    return (
-        <ThemeProvider theme={theme}>
-            <Container component="main" maxWidth="xs">
-                <CssBaseline />
-                <Box
-                    sx={{
-                        marginTop: 8,
-                        display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                    }}
+      {/* Right Column: Form */}
+      <div className="w-full md:w-1/2 flex flex-col justify-center px-4 sm:px-8 lg:px-12 py-8 md:py-12 overflow-y-auto">
+        <div className="max-w-[440px] w-full mx-auto">
+          {/* Back button */}
+          <button
+            type="button"
+            onClick={() => navigate(-1)}
+            className="inline-flex items-center text-xs font-semibold text-gray-500 hover:text-gray-900 transition mb-6"
+          >
+            <span className="mr-1.5 text-sm leading-none">&larr;</span> Retour
+          </button>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              mb: 3,
+            }}
+          >
+            <Avatar sx={{ m: 1, bgcolor: "#1a0c4f" }}>
+              <LockResetIcon />
+            </Avatar>
+            <Typography
+              component="h1"
+              variant="h5"
+              sx={{ color: "#1a0c4f", fontWeight: "bold" }}
+            >
+              Mot de passe oublié
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{ color: "text.secondary", textAlign: "center", mt: 1 }}
+            >
+              Entrez votre adresse email pour recevoir les instructions de
+              réinitialisation.
+            </Typography>
+          </Box>
+
+          {/* Card container */}
+          <div className="bg-white border border-gray-200/80 rounded-xl p-6 sm:p-8 shadow-[0_2px_12px_rgba(0,0,0,0.03)]">
+            {success && (
+              <Alert severity="success" sx={{ width: "100%", mb: 2 }}>
+                Un email avec les instructions a été envoyé à {email}
+              </Alert>
+            )}
+
+            {error && (
+              <Alert severity="error" sx={{ width: "100%", mb: 2 }}>
+                {error}
+              </Alert>
+            )}
+
+            {!success && (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  id="email"
+                  label="Adresse Email"
+                  name="email"
+                  autoComplete="email"
+                  autoFocus
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  disabled={loading || !email.includes("@")}
+                  sx={{
+                    backgroundColor: "#140638",
+                    "&:hover": { backgroundColor: "#250d61" },
+                    mt: 2,
+                    py: 1.5,
+                    textTransform: "none",
+                    borderRadius: "8px",
+                  }}
                 >
-                    <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-                        <LockResetIcon />
-                    </Avatar>
-                    <Typography component="h1" variant="h5">
-                        Réinitialisation du mot de passe
-                    </Typography>
-                    <Typography sx={{ color: '#2A337B', fontWeight: 'bold', mb: 2, textAlign: 'center' }}>
-                        Le code de confirmation a été envoyé par mail.
-                    </Typography>
-                    {success && (
-                        <Alert severity="success" sx={{ width: '100%', mt: 2 }}>
-                            Un email avec les instructions a été envoyé à {email}
-                        </Alert>
-                    )}
-
-                    {error && (
-                        <Alert severity="error" sx={{ width: '100%', mt: 2 }}>
-                            {error}
-                        </Alert>
-                    )}
-
-                    {!success && (
-                        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
-                            <TextField
-                                margin="normal"
-                                required
-                                fullWidth
-                                id="email"
-                                label="Adresse Email"
-                                name="email"
-                                autoComplete="email"
-                                autoFocus
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                disabled={loading || !email.includes('@')}
-                                sx={{ backgroundColor: "#2A337B", mt: 2, mb: 4, textTransform: "none", borderRadius: "8px" }}
-                            >
-                                {loading ? <CircularProgress size={24} /> : 'Envoyer les instructions'}
-                            </Button>
-                        </Box>
-                    )}
-                </Box>
-            </Container>
-        </ThemeProvider>
-    );
-}
+                  {loading ? (
+                    <CircularProgress size={24} sx={{ color: "white" }} />
+                  ) : (
+                    "Envoyer les instructions"
+                  )}
+                </Button>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
 export default ForgetPassword;

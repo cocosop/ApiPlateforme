@@ -1,45 +1,79 @@
 import apiConfig from "./apiConfig";
 
+export type TwoFactorMethod = "NONE" | "EMAIL" | "TOTP";
+
+export interface LoginResponse {
+    accessToken?: string;
+    expiresIn?: number;
+    mfaRequired: boolean;
+    mfaToken?: string;
+    mfaMethod?: TwoFactorMethod;
+}
+
 class UserService {
-    refreshToken(accessToken: string) {
-        return apiConfig.post(`/auth/refresh-token`, accessToken);
+    // ---- Connexion
+    login(email: string, password: string) {
+        return apiConfig.post<LoginResponse>(`/auth/login`, { email, password });
     }
 
-    verifyActivationToken(token: string) {
-        return apiConfig.post(`/auth/activation-account`, { token });
+    verifyTwoFactor(mfaToken: string, code: string) {
+        return apiConfig.post<LoginResponse>(`/auth/login/verify-2fa`, { mfaToken, code });
+    }
+
+    resendTwoFactor(mfaToken: string) {
+        return apiConfig.post(`/auth/login/resend-2fa`, { mfaToken });
+    }
+
+    logout() {
+        return apiConfig.post(`/auth/logout`);
+    }
+
+    // ---- Inscription et activation
+    register(data: { firstname: string; lastname: string; phone: string; email: string; password: string }) {
+        return apiConfig.post(`/auth/register`, data);
+    }
+
+    verifyActivationToken(email: string, token: string) {
+        return apiConfig.post(`/auth/activation-account`, { email, token });
     }
 
     resandVerifyActivationToken(email: string) {
         return apiConfig.post(`/auth/resend-activation-token`, { email });
     }
 
-    login(email: string, password: string) {
-        return apiConfig.post(`/auth/login`, { email, password });
+    // ---- Mot de passe oublié / invitation
+    forgotPassword(email: string) {
+        return apiConfig.post(`/auth/forget-password`, { email });
     }
 
-    logout(username: string) {
-
-        return apiConfig.post(`/auth/logout/${username}`);
+    resetPassword(email: string, token: string, newPassword: string) {
+        return apiConfig.post(`/auth/reset-password`, { email, token, newPassword });
     }
 
-    register(data: any) {
-        return apiConfig.post(`/auth/register`, data);
+    acceptInvitation(email: string, token: string, newPassword: string) {
+        return apiConfig.post(`/auth/accept-invitation`, { email, token, newPassword });
     }
 
-    updateProfile(username: string, data: any) {
-        return apiConfig.put(`/user/edit/${username}`, data);
-    }
-
+    // ---- Profil
     me() {
         return apiConfig.get("/user/me");
     }
 
-    forgotPassword(email: string) {
-        return apiConfig.post(`/auth/forgotPassword`, { email });
+    updateProfile(data: { firstname: string; lastname: string; phone: string; url_image?: string }) {
+        return apiConfig.put(`/user/me`, data);
     }
 
+    // ---- Administration
     getAllUsers() {
         return apiConfig.get("/user");
+    }
+
+    disableUser(email: string) {
+        return apiConfig.patch(`/user/${encodeURIComponent(email)}/disable`);
+    }
+
+    enableUser(email: string) {
+        return apiConfig.patch(`/user/${encodeURIComponent(email)}/enable`);
     }
 }
 

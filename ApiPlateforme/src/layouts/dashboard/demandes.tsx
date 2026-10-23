@@ -9,6 +9,7 @@ import clsx from 'clsx';
 import { useAuthStore } from '../../store/AuthStore';
 import { AxiosResponse } from 'axios'; // Import AxiosResponse type
 import AlertComponent from '../../components/alert/AlertComponent';
+import { isAdminRole } from '../../utils/roles';
 
 // --- Default Values ---
 const defaultNewProject: CreateProjectType = {
@@ -36,7 +37,7 @@ const DEFAULT_IMAGE_URL = Projet;
 const Demandes: React.FC = () => {
     // --- State Management ---
     const { decoded } = useAuthStore();
-    const isAdmin = decoded?.role === 'ADMIN';
+    const isAdmin = isAdminRole(decoded?.role);
 
     const [projects, setProjects] = useState<ProjeTypes[]>([]);
     const [isModalOpen, setIsModalOpen] = useState(false);

@@ -1,34 +1,28 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { TextField } from '@mui/material';
 import userService from '../../services/userService';
+import { getApiErrorMessage } from '../../utils/apiError';
 
-const DialogComponent: React.FC<{ open: boolean; onClose: () => void }> = ({ open, onClose }) => {
-    const [email, setEmail] = useState('');
+const DialogComponent: React.FC<{ open: boolean; onClose: () => void; defaultEmail?: string }> = ({ open, onClose, defaultEmail = '' }) => {
+    const [email, setEmail] = useState(defaultEmail);
     const [status, setStatus] = useState('');
 
-
+    useEffect(() => {
+        if (open) setEmail(defaultEmail);
+    }, [open, defaultEmail]);
 
     const handleSubmit = async () => {
+        setStatus('loading');
         try {
-            const res = await userService.resandVerifyActivationToken(email);
+            await userService.resandVerifyActivationToken(email.trim());
             setStatus('success');
-            if(res.status === 202) {
-                alert("Un nouveau code d'activation a été envoyé à votre adresse e-mail.");
-            } else {
-                setStatus('error');
-                alert("Erreur lors de l'envoi du code d'activation. Veuillez réessayer.");
-            }
+            // Message volontairement neutre : le backend ne révèle pas si le compte existe
+            alert("Si un compte non activé correspond à cette adresse, un nouveau code vient d'être envoyé.");
             onClose();
         } catch (error) {
-            if (axios.isAxiosError(error)) {
-                if (error.response) {
-                    setStatus('error')
-                }
-                onClose();
-            }
+            setStatus('error');
+            alert(getApiErrorMessage(error, "Erreur lors de l'envoi du code d'activation. Veuillez réessayer."));
         }
-        setEmail('');
     };
 
     return (

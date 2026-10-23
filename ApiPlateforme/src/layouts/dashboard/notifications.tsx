@@ -4,6 +4,7 @@ import userService from '../../services/userService';
 import projectService from '../../services/projectService';
 import messageService from '../../services/messageService';
 import { useAuthStore } from '../../store/AuthStore';
+import { isAdminRole } from '../../utils/roles';
 type User = {
   id: number;
   email: string;
@@ -72,7 +73,7 @@ const Notifications = () => {
         if (projRes.status === 200) {
           projRes.data.forEach((project: any) => {
             // ADMIN : notification pour chaque projet en pending
-            if (user.role === 'ADMIN' && project.status === 'PENDING') {
+            if (isAdminRole(user.role) && project.status === 'PENDING') {
               notifList.push({
                 id: `PENDING-${project.id}`,
                 type: 'warning',
@@ -88,7 +89,7 @@ const Notifications = () => {
             // INVESTOR : notification à chaque changement de statut de son projet
             // On suppose que project.user.id ou project.ownerId correspond à l'investor
             if (
-              user.role !== 'ADMIN' &&
+              !isAdminRole(user.role) &&
               ((project.ownerId && project.ownerId === user.id) ||
                 (project.user && project.user.id === user.id))
             ) {

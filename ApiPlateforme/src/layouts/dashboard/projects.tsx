@@ -4,6 +4,7 @@ import DefaultImage from '../../assets/img/default-image.webp';
 import { useNavigate } from 'react-router-dom';
 import { FaSearch, FaTimes } from 'react-icons/fa';
 import userService from '../../services/userService';
+import { isAdminRole } from '../../utils/roles';
 
 type Project = {
   id: string;
@@ -116,7 +117,7 @@ const MyProject: React.FC = () => {
 
   useEffect(() => {
     fetchProjects();
-    userService.me().then(setUser).catch(() => setUser(null));
+    userService.me().then((res) => setUser(res.data)).catch(() => setUser(null));
   }, []);
 
   return (
@@ -217,7 +218,7 @@ const MyProject: React.FC = () => {
                             ? `Soumis: ${new Date(project.soumissionDate).toISOString().slice(0, 10)}`
                             : 'Date inconnue'}
                         </span>
-                        {project.status.toLowerCase() === 'accepted' && user?.role === 'ADMIN' && (
+                        {project.status.toLowerCase() === 'accepted' && isAdminRole(user?.role) && (
                           <button
                             className="px-3 py-1 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700"
                             onClick={(e) => {
@@ -228,7 +229,7 @@ const MyProject: React.FC = () => {
                             Configurer
                           </button>
                         )}
-                        {project.status.toLowerCase() === 'accepted' && user?.role !== 'ADMIN' && (
+                        {project.status.toLowerCase() === 'accepted' && !isAdminRole(user?.role) && (
                           <button
                             className="px-3 py-1 bg-green-600 text-white text-sm rounded-md hover:bg-green-700"
                             onClick={(e) => {
@@ -242,7 +243,7 @@ const MyProject: React.FC = () => {
                       </div>
                       {/* Actions */}
                       <div className="flex flex-wrap gap-2 mt-auto">
-                        {project.status.toLowerCase() === 'pending' && user?.role === 'ADMIN' && (
+                        {project.status.toLowerCase() === 'pending' && isAdminRole(user?.role) && (
                           <>
                             <button
                               className="flex-1 px-2 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition text-xs"

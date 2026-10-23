@@ -1,17 +1,48 @@
-import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
+import ActionButtonComponent from "../../../components/actionButtonComponent/actionButtonComponent";
 import { CubeIcon } from "@heroicons/react/20/solid";
 import { ClipboardIcon, CogIcon, ShieldCheckIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
+import { BulbOutlined, ExclamationCircleOutlined } from "@ant-design/icons";
 
 const TextileConfectionCuir = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   const statistiques = [
-    { id: 1, name: t("pages_secteurs.textile_confection_cuir.stats.coton_transforme.titre"), value: t("pages_secteurs.textile_confection_cuir.stats.coton_transforme.valeur"), icon: CubeIcon },
-    { id: 2, name: t("pages_secteurs.textile_confection_cuir.stats.filatures.titre"), value: t("pages_secteurs.textile_confection_cuir.stats.filatures.valeur"), icon: CogIcon },
-    { id: 3, name: t("pages_secteurs.textile_confection_cuir.stats.contrebande.titre"), value: t("pages_secteurs.textile_confection_cuir.stats.contrebande.valeur"), icon: ShieldCheckIcon },
-    { id: 4, name: t("pages_secteurs.textile_confection_cuir.stats.commande_publique.titre"), value: t("pages_secteurs.textile_confection_cuir.stats.commande_publique.valeur"), icon: ClipboardIcon }
-  ]
+    {
+      id: 1,
+      name: t(
+        "pages_secteurs.textile_confection_cuir.stats.coton_transforme.titre",
+      ),
+      value: t(
+        "pages_secteurs.textile_confection_cuir.stats.coton_transforme.valeur",
+      ),
+      icon: CubeIcon,
+    },
+    {
+      id: 2,
+      name: t("pages_secteurs.textile_confection_cuir.stats.filatures.titre"),
+      value: t("pages_secteurs.textile_confection_cuir.stats.filatures.valeur"),
+      icon: CogIcon,
+    },
+    {
+      id: 3,
+      name: t("pages_secteurs.textile_confection_cuir.stats.contrebande.titre"),
+      value: t(
+        "pages_secteurs.textile_confection_cuir.stats.contrebande.valeur",
+      ),
+      icon: ShieldCheckIcon,
+    },
+    {
+      id: 4,
+      name: t(
+        "pages_secteurs.textile_confection_cuir.stats.commande_publique.titre",
+      ),
+      value: t(
+        "pages_secteurs.textile_confection_cuir.stats.commande_publique.valeur",
+      ),
+      icon: ClipboardIcon,
+    },
+  ];
 
   return (
     <div>
@@ -26,8 +57,11 @@ const TextileConfectionCuir = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="relative z-10 text-start text-white px-6 lg:px-24">
-          <h1 className="text-4xl font-bold">{t("pages_secteurs.textile_confection_cuir.hero.titre")}</h1>
+          className="relative z-10 text-start text-white px-6 lg:px-24"
+        >
+          <h1 className="text-4xl font-bold">
+            {t("pages_secteurs.textile_confection_cuir.hero.titre")}
+          </h1>
           <p className="mt-4 text-lg max-w-2xl">
             {t("pages_secteurs.textile_confection_cuir.hero.description")}
           </p>
@@ -47,8 +81,11 @@ const TextileConfectionCuir = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-8">{t("pages_secteurs.textile_confection_cuir.objectif.titre")}</h2>
+          className="mx-auto max-w-7xl px-6 lg:px-8"
+        >
+          <h2 className="text-3xl font-bold text-center mb-8">
+            {t("pages_secteurs.textile_confection_cuir.objectif.titre")}
+          </h2>
           <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
             {t("pages_secteurs.textile_confection_cuir.objectif.texte")}
           </p>
@@ -61,15 +98,18 @@ const TextileConfectionCuir = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-3xl font-bold text-center mb-8">{t("pages_secteurs.textile_confection_cuir.actions.titre")}</motion.h2>
+            className="text-3xl font-bold text-center mb-8"
+          >
+            {t("pages_secteurs.textile_confection_cuir.actions.titre")}
+          </motion.h2>
 
           {/* Cartes Thématiques */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-
+            className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8"
+          >
             {/* Renforcement Industriel */}
             <div className="group relative">
               <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
@@ -80,12 +120,32 @@ const TextileConfectionCuir = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.textile_confection_cuir.actions.renforcement_industriel.titre")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {t(
+                    "pages_secteurs.textile_confection_cuir.actions.renforcement_industriel.titre",
+                  )}
+                </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.renforcement_industriel.fusion")}</li>
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.renforcement_industriel.capacites")}</li>
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.renforcement_industriel.nouvelles_filatures")}</li>
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.renforcement_industriel.transformation_coton")}</li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.renforcement_industriel.fusion",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.renforcement_industriel.capacites",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.renforcement_industriel.nouvelles_filatures",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.renforcement_industriel.transformation_coton",
+                    )}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -100,11 +160,27 @@ const TextileConfectionCuir = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.textile_confection_cuir.actions.innovation_formation.titre")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {t(
+                    "pages_secteurs.textile_confection_cuir.actions.innovation_formation.titre",
+                  )}
+                </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.innovation_formation.centre_technique")}</li>
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.innovation_formation.encadrement_coton")}</li>
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.innovation_formation.formation_cuir")}</li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.innovation_formation.centre_technique",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.innovation_formation.encadrement_coton",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.innovation_formation.formation_cuir",
+                    )}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -119,11 +195,27 @@ const TextileConfectionCuir = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.textile_confection_cuir.actions.securisation_regulation.titre")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {t(
+                    "pages_secteurs.textile_confection_cuir.actions.securisation_regulation.titre",
+                  )}
+                </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.securisation_regulation.reduction_contrebande")}</li>
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.securisation_regulation.commande_publique")}</li>
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.securisation_regulation.clauses_sauvegarde")}</li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.securisation_regulation.reduction_contrebande",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.securisation_regulation.commande_publique",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.securisation_regulation.clauses_sauvegarde",
+                    )}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -138,12 +230,32 @@ const TextileConfectionCuir = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.textile_confection_cuir.actions.industrie_cuir.titre")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {t(
+                    "pages_secteurs.textile_confection_cuir.actions.industrie_cuir.titre",
+                  )}
+                </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.industrie_cuir.centre_tri")}</li>
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.industrie_cuir.tanneries")}</li>
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.industrie_cuir.nouvelles_unites")}</li>
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.industrie_cuir.redeploiement")}</li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.industrie_cuir.centre_tri",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.industrie_cuir.tanneries",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.industrie_cuir.nouvelles_unites",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.industrie_cuir.redeploiement",
+                    )}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -158,15 +270,30 @@ const TextileConfectionCuir = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.textile_confection_cuir.actions.champions_regionaux.titre")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {t(
+                    "pages_secteurs.textile_confection_cuir.actions.champions_regionaux.titre",
+                  )}
+                </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.champions_regionaux.creation_champions")}</li>
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.champions_regionaux.securisation_matiere")}</li>
-                  <li>{t("pages_secteurs.textile_confection_cuir.actions.champions_regionaux.recherche_cuir")}</li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.champions_regionaux.creation_champions",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.champions_regionaux.securisation_matiere",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.textile_confection_cuir.actions.champions_regionaux.recherche_cuir",
+                    )}
+                  </li>
                 </ul>
               </div>
             </div>
-
           </motion.div>
         </div>
       </div>
@@ -178,7 +305,10 @@ const TextileConfectionCuir = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-3xl font-bold text-center mb-8">{t("pages_secteurs.textile_confection_cuir.stats.titre")}</motion.h2>
+            className="text-3xl font-bold text-center mb-8"
+          >
+            {t("pages_secteurs.textile_confection_cuir.stats.titre")}
+          </motion.h2>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {statistiques.map((stat, index) => (
               <motion.div
@@ -186,11 +316,14 @@ const TextileConfectionCuir = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow"
+              >
                 <div className="flex justify-center">
                   <stat.icon className="h-12 w-12 text-[#000000]" />
                 </div>
-                <p className="mt-4 text-3xl font-bold text-gray-900">{stat.value}</p>
+                <p className="mt-4 text-3xl font-bold text-gray-900">
+                  {stat.value}
+                </p>
                 <p className="mt-2 text-lg text-gray-600">{stat.name}</p>
               </motion.div>
             ))}
@@ -209,61 +342,70 @@ const TextileConfectionCuir = () => {
 
             {/* Description (en arrière-plan) */}
             <p className="text-center leading-relaxed mb-6 relative z-0">
-              {t("pages_secteurs.textile_confection_cuir.potentiel.description")}
+              {t(
+                "pages_secteurs.textile_confection_cuir.potentiel.description",
+              )}
             </p>
 
             {/* Grille des rubriques (en arrière-plan) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center relative z-0">
-
               {/* Carte Opportunités */}
-              <div className="bg-gradient-to-r from-blue-400 to-purple-500  p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
-                {/* Fond dégradé au survol */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
-
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 group w-full max-w-md relative overflow-hidden">
+                {/* Ligne d'accentuation #0F0B60 */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-[#0F0B60]"></div>
                 {/* Contenu */}
                 <div className="relative z-10">
                   {/* En-tête de la carte */}
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
-                      <span className="text-blue-500 text-2xl">🚀</span>
+                  <div className="flex items-center mb-8">
+                    <div className="w-14 h-14 bg-[#0F0B60]/5 rounded-2xl flex items-center justify-center border border-[#0F0B60]/10 group-hover:bg-[#0F0B60] transition-colors duration-300">
+                      <BulbOutlined className="text-[#0F0B60] text-3xl group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
-                      {t("pages_secteurs.textile_confection_cuir.potentiel.opportunites.titre")}
+                    <h2 className="text-2xl font-bold text-gray-800 ml-5 group-hover:text-[#0F0B60] transition-colors duration-300">
+                      {t(
+                        "pages_secteurs.textile_confection_cuir.potentiel.opportunites.titre",
+                      )}
                     </h2>
                   </div>
-
                   {/* Liste des points */}
-                  <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
-                          {t("pages_secteurs.textile_confection_cuir.potentiel.opportunites.matieres_premieres")}
-                        </span>
+                  <ul className="space-y-5 text-gray-600">
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.textile_confection_cuir.potentiel.opportunites.matieres_premieres",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
-                          {t("pages_secteurs.textile_confection_cuir.potentiel.opportunites.marche")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.textile_confection_cuir.potentiel.opportunites.marche",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
-                          {t("pages_secteurs.textile_confection_cuir.potentiel.opportunites.mode_africaine")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.textile_confection_cuir.potentiel.opportunites.mode_africaine",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
-                          {t("pages_secteurs.textile_confection_cuir.potentiel.opportunites.exportation")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.textile_confection_cuir.potentiel.opportunites.exportation",
+                        )}
                       </span>
                     </li>
                   </ul>
@@ -271,54 +413,62 @@ const TextileConfectionCuir = () => {
               </div>
 
               {/* Carte Défis */}
-              <div className="bg-gradient-to-r from-red-400 to-orange-500 p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
-                {/* Fond dégradé au survol */}
-                <div className="absolute inset-0 bg-gradient-to-r from-red-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
-
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 group w-full max-w-md relative overflow-hidden">
+                {/* Ligne d'accentuation #0F0B60 */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-[#0F0B60]"></div>
                 {/* Contenu */}
                 <div className="relative z-10">
                   {/* En-tête de la carte */}
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
-                      <span className="text-red-500 text-2xl">⚠️</span>
+                  <div className="flex items-center mb-8">
+                    <div className="w-14 h-14 bg-[#0F0B60]/5 rounded-2xl flex items-center justify-center border border-[#0F0B60]/10 group-hover:bg-[#0F0B60] transition-colors duration-300">
+                      <ExclamationCircleOutlined className="text-[#0F0B60] text-3xl group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
-                      {t("pages_secteurs.textile_confection_cuir.potentiel.defis.titre")}
+                    <h2 className="text-2xl font-bold text-gray-800 ml-5 group-hover:text-[#0F0B60] transition-colors duration-300">
+                      {t(
+                        "pages_secteurs.textile_confection_cuir.potentiel.defis.titre",
+                      )}
                     </h2>
                   </div>
-
                   {/* Liste des points */}
-                  <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">
-                          {t("pages_secteurs.textile_confection_cuir.potentiel.defis.infrastructures")}
-                        </span>
+                  <ul className="space-y-5 text-gray-600">
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.textile_confection_cuir.potentiel.defis.infrastructures",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">
-                          {t("pages_secteurs.textile_confection_cuir.potentiel.defis.concurrence")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.textile_confection_cuir.potentiel.defis.concurrence",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">
-                          {t("pages_secteurs.textile_confection_cuir.potentiel.defis.formation")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.textile_confection_cuir.potentiel.defis.formation",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">
-                          {t("pages_secteurs.textile_confection_cuir.potentiel.defis.financement")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.textile_confection_cuir.potentiel.defis.financement",
+                        )}
                       </span>
                     </li>
                   </ul>

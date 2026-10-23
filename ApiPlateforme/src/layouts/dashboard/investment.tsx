@@ -8,6 +8,7 @@ import Projet from '../../assets/img/ampoule.jpg';
 import { useAuthStore } from '../../store/AuthStore';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { isAdminRole } from '../../utils/roles';
 
 const defaultNewProject: CreateProjectType = {
   secteur: '',
@@ -195,7 +196,7 @@ const Investment: React.FC = () => {
                       </div>
                     )
                   }
-                  {decodedUser && decodedUser.role === 'ADMIN' && (
+                  {decodedUser && isAdminRole(decodedUser.role) && (
                     <button
                       onClick={() => navigate(`/projet/details/${project.titre}`)}
                       className="w-full py-2 rounded-lg transition-colors bg-indigo-600 hover:bg-indigo-700 text-white mt-2"

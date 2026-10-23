@@ -12,9 +12,8 @@ import {
 
 } from 'lucide-react';
 import logo from '../../assets/img/logo.png'
+import { UserRole } from '../../utils/roles';
 
-// Type pour les rôles utilisateur
-type UserRole = 'ADMIN' | 'PROJECT_OWNER' | 'INVESTOR';
 
 // Type pour un élément du menu
 interface MenuItem {
@@ -25,6 +24,12 @@ interface MenuItem {
 
 // Menus spécifiques selon le rôle
 const roleMenus: Record<UserRole, MenuItem[]> = {
+  SUPER_ADMIN: [
+    { icon: User2Icon, label: 'Utilisateurs & admins', path: '/users' },
+    { icon: FolderKanban, label: 'Toutes les demandes', path: '/demandes' },
+    { icon: PiggyBank, label: 'Projets en étude', path: '/projets' },
+    { icon: Settings, label: 'Paramètres', path: '/parametres' },
+  ],
   ADMIN: [
     { icon: FolderKanban, label: 'Toutes les demandes', path: '/demandes' },
     { icon: PiggyBank, label: 'Projets en étude', path: '/projets' },
@@ -40,7 +45,7 @@ const roleMenus: Record<UserRole, MenuItem[]> = {
     { icon: LayoutDashboard, label: 'Tableau de bord', path: '/dashboard' },
     { icon: FolderKanban, label: 'Mes demandes', path: '/demandes' },
     { icon: PiggyBank, label: 'Mes Projets', path: '/investissements' },
-    // { icon: Settings, label: 'Paramètres', path: '/parametres' },
+    { icon: Settings, label: 'Paramètres', path: '/parametres' },
   ],
 };
 

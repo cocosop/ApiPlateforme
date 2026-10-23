@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { User, Mail, Phone, Briefcase } from 'lucide-react';
 import userService from '../../services/userService';
+import { roleLabel } from '../../utils/roles';
 interface User {
   email: string;
   firstname: string;
@@ -38,7 +39,7 @@ const UserProfile: React.FC = () => {
               className="w-32 h-32 rounded-full border-4 border-white"
             />
             <h2 className="mt-4 text-2xl font-bold">{user?.firstname && user?.lastname}</h2>
-            {user?.role === "ADMIN" ? <p className="text-gray-600">Administrateur</p> : <p className="text-gray-600">Investisseur</p>}
+            <p className="text-gray-600">{roleLabel(user?.role)}</p>
           </div>
         </div>
       </div>
@@ -79,7 +80,7 @@ const UserProfile: React.FC = () => {
               <Briefcase className="w-5 h-5 text-gray-400" />
               <div>
                 <p className="text-sm text-gray-500">Poste</p>
-                {user?.role === "ADMIN" ? <p className="font-medium">Administrateur</p> : <p className="font-medium">Investisseur</p>}
+                <p className="font-medium">{roleLabel(user?.role)}</p>
               </div>
             </div>
           </div>

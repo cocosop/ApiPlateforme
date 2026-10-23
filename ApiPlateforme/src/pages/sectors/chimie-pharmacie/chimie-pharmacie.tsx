@@ -1,18 +1,52 @@
-import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
+import ActionButtonComponent from "../../../components/actionButtonComponent/actionButtonComponent";
 import { BuildingOfficeIcon } from "@heroicons/react/20/solid";
 import { LinkIcon, BeakerIcon, CogIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import { useTranslation } from 'react-i18next';
-
+import { useTranslation } from "react-i18next";
+import { BulbOutlined, ExclamationCircleOutlined } from "@ant-design/icons";
 
 const ChimiePharmacie = () => {
   const { t } = useTranslation();
   const statistiques = [
-    { id: 1, name: t("pages_secteurs.chimie_pharmacie.stats.poles_competitivite.titre"), value: t("pages_secteurs.chimie_pharmacie.stats.poles_competitivite.valeur"), icon: BuildingOfficeIcon },
-    { id: 2, name: t("pages_secteurs.chimie_pharmacie.stats.filieres_integrees.titre"), value: t("pages_secteurs.chimie_pharmacie.stats.filieres_integrees.valeur"), icon: LinkIcon },
-    { id: 3, name: t("pages_secteurs.chimie_pharmacie.stats.medicaments_generiques.titre"), value: t("pages_secteurs.chimie_pharmacie.stats.medicaments_generiques.valeur"), icon: BeakerIcon },
-    { id: 4, name: t("pages_secteurs.chimie_pharmacie.stats.entreprises_modernisees.titre"), value: t("pages_secteurs.chimie_pharmacie.stats.entreprises_modernisees.valeur"), icon: CogIcon }
-  ]
+    {
+      id: 1,
+      name: t(
+        "pages_secteurs.chimie_pharmacie.stats.poles_competitivite.titre",
+      ),
+      value: t(
+        "pages_secteurs.chimie_pharmacie.stats.poles_competitivite.valeur",
+      ),
+      icon: BuildingOfficeIcon,
+    },
+    {
+      id: 2,
+      name: t("pages_secteurs.chimie_pharmacie.stats.filieres_integrees.titre"),
+      value: t(
+        "pages_secteurs.chimie_pharmacie.stats.filieres_integrees.valeur",
+      ),
+      icon: LinkIcon,
+    },
+    {
+      id: 3,
+      name: t(
+        "pages_secteurs.chimie_pharmacie.stats.medicaments_generiques.titre",
+      ),
+      value: t(
+        "pages_secteurs.chimie_pharmacie.stats.medicaments_generiques.valeur",
+      ),
+      icon: BeakerIcon,
+    },
+    {
+      id: 4,
+      name: t(
+        "pages_secteurs.chimie_pharmacie.stats.entreprises_modernisees.titre",
+      ),
+      value: t(
+        "pages_secteurs.chimie_pharmacie.stats.entreprises_modernisees.valeur",
+      ),
+      icon: CogIcon,
+    },
+  ];
 
   return (
     <div>
@@ -27,8 +61,11 @@ const ChimiePharmacie = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="relative z-10 text-start text-white px-6 lg:px-24">
-          <h1 className="text-4xl font-bold">{t("pages_secteurs.chimie_pharmacie.hero.titre")}</h1>
+          className="relative z-10 text-start text-white px-6 lg:px-24"
+        >
+          <h1 className="text-4xl font-bold">
+            {t("pages_secteurs.chimie_pharmacie.hero.titre")}
+          </h1>
           <p className="mt-4 text-lg max-w-2xl">
             {t("pages_secteurs.chimie_pharmacie.hero.description")}
           </p>
@@ -48,8 +85,11 @@ const ChimiePharmacie = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-8">{t("pages_secteurs.chimie_pharmacie.objectif.titre")}</h2>
+          className="mx-auto max-w-7xl px-6 lg:px-8"
+        >
+          <h2 className="text-3xl font-bold text-center mb-8">
+            {t("pages_secteurs.chimie_pharmacie.objectif.titre")}
+          </h2>
           <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
             {t("pages_secteurs.chimie_pharmacie.objectif.texte")}
           </p>
@@ -62,15 +102,18 @@ const ChimiePharmacie = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-3xl font-bold text-center mb-8">{t("pages_secteurs.chimie_pharmacie.actions.titre")}s</motion.h2>
+            className="text-3xl font-bold text-center mb-8"
+          >
+            {t("pages_secteurs.chimie_pharmacie.actions.titre")}s
+          </motion.h2>
 
           {/* Cartes Thématiques */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-
+            className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8"
+          >
             {/* Compétitivité et Innovation */}
             <div className="group relative">
               <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
@@ -81,11 +124,27 @@ const ChimiePharmacie = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.chimie_pharmacie.actions.competitivite_innovation.titre")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {t(
+                    "pages_secteurs.chimie_pharmacie.actions.competitivite_innovation.titre",
+                  )}
+                </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>{t("pages_secteurs.chimie_pharmacie.actions.competitivite_innovation.amelioration_couts")}</li>
-                  <li>{t("pages_secteurs.chimie_pharmacie.actions.competitivite_innovation.groupements_filieres")}</li>
-                  <li>{t("pages_secteurs.chimie_pharmacie.actions.competitivite_innovation.poles_competitivite")}</li>
+                  <li>
+                    {t(
+                      "pages_secteurs.chimie_pharmacie.actions.competitivite_innovation.amelioration_couts",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.chimie_pharmacie.actions.competitivite_innovation.groupements_filieres",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.chimie_pharmacie.actions.competitivite_innovation.poles_competitivite",
+                    )}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -100,11 +159,27 @@ const ChimiePharmacie = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.chimie_pharmacie.actions.modernisation_entreprises.titre")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {t(
+                    "pages_secteurs.chimie_pharmacie.actions.modernisation_entreprises.titre",
+                  )}
+                </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>{t("pages_secteurs.chimie_pharmacie.actions.modernisation_entreprises.mise_niveau_qhse")}</li>
-                  <li>{t("pages_secteurs.chimie_pharmacie.actions.modernisation_entreprises.innovation_production")}</li>
-                  <li>{t("pages_secteurs.chimie_pharmacie.actions.modernisation_entreprises.maitrise_industrielle")}</li>
+                  <li>
+                    {t(
+                      "pages_secteurs.chimie_pharmacie.actions.modernisation_entreprises.mise_niveau_qhse",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.chimie_pharmacie.actions.modernisation_entreprises.innovation_production",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.chimie_pharmacie.actions.modernisation_entreprises.maitrise_industrielle",
+                    )}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -119,11 +194,27 @@ const ChimiePharmacie = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.chimie_pharmacie.actions.etat_pro_business.titre")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {t(
+                    "pages_secteurs.chimie_pharmacie.actions.etat_pro_business.titre",
+                  )}
+                </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>{t("pages_secteurs.chimie_pharmacie.actions.etat_pro_business.logistique")}</li>
-                  <li>{t("pages_secteurs.chimie_pharmacie.actions.etat_pro_business.infrastructures")}</li>
-                  <li>{t("pages_secteurs.chimie_pharmacie.actions.etat_pro_business.environnement_favorable")}</li>
+                  <li>
+                    {t(
+                      "pages_secteurs.chimie_pharmacie.actions.etat_pro_business.logistique",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.chimie_pharmacie.actions.etat_pro_business.infrastructures",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.chimie_pharmacie.actions.etat_pro_business.environnement_favorable",
+                    )}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -138,10 +229,22 @@ const ChimiePharmacie = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.chimie_pharmacie.actions.filieres_integrees.titre")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {t(
+                    "pages_secteurs.chimie_pharmacie.actions.filieres_integrees.titre",
+                  )}
+                </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>{t("pages_secteurs.chimie_pharmacie.actions.filieres_integrees.petrochimie_plasturgie")}</li>
-                  <li>{t("pages_secteurs.chimie_pharmacie.actions.filieres_integrees.oleochimie_verte")}</li>
+                  <li>
+                    {t(
+                      "pages_secteurs.chimie_pharmacie.actions.filieres_integrees.petrochimie_plasturgie",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.chimie_pharmacie.actions.filieres_integrees.oleochimie_verte",
+                    )}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -156,15 +259,30 @@ const ChimiePharmacie = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.chimie_pharmacie.actions.industrie_pharmaceutique.titre")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {t(
+                    "pages_secteurs.chimie_pharmacie.actions.industrie_pharmaceutique.titre",
+                  )}
+                </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>{t("pages_secteurs.chimie_pharmacie.actions.industrie_pharmaceutique.medicaments_generiques")}</li>
-                  <li>{t("pages_secteurs.chimie_pharmacie.actions.industrie_pharmaceutique.medicaments_traditionnels")}</li>
-                  <li>{t("pages_secteurs.chimie_pharmacie.actions.industrie_pharmaceutique.industrie_locale")}</li>
+                  <li>
+                    {t(
+                      "pages_secteurs.chimie_pharmacie.actions.industrie_pharmaceutique.medicaments_generiques",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.chimie_pharmacie.actions.industrie_pharmaceutique.medicaments_traditionnels",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.chimie_pharmacie.actions.industrie_pharmaceutique.industrie_locale",
+                    )}
+                  </li>
                 </ul>
               </div>
             </div>
-
           </motion.div>
         </div>
       </div>
@@ -176,7 +294,10 @@ const ChimiePharmacie = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-3xl font-bold text-center mb-8">{t("pages_secteurs.chimie_pharmacie.stats.titre")}</motion.h2>
+            className="text-3xl font-bold text-center mb-8"
+          >
+            {t("pages_secteurs.chimie_pharmacie.stats.titre")}
+          </motion.h2>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {statistiques.map((stat, index) => (
               <motion.div
@@ -184,11 +305,14 @@ const ChimiePharmacie = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow"
+              >
                 <div className="flex justify-center">
                   <stat.icon className="h-12 w-12 text-[#A020F0]" />
                 </div>
-                <p className="mt-4 text-3xl font-bold text-gray-900">{stat.value}</p>
+                <p className="mt-4 text-3xl font-bold text-gray-900">
+                  {stat.value}
+                </p>
                 <p className="mt-2 text-lg text-gray-600">{stat.name}</p>
               </motion.div>
             ))}
@@ -212,56 +336,63 @@ const ChimiePharmacie = () => {
 
             {/* Grille des rubriques (en arrière-plan) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center relative z-0">
-
               {/* Carte Opportunités */}
-              <div className="bg-gradient-to-r from-blue-400 to-purple-500  p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
-                {/* Fond dégradé au survol */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
-
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 group w-full max-w-md relative overflow-hidden">
+                {/* Ligne d'accentuation #0F0B60 */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-[#0F0B60]"></div>
                 {/* Contenu */}
                 <div className="relative z-10">
                   {/* En-tête de la carte */}
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
-                      <span className="text-blue-500 text-2xl">🚀</span>
+                  <div className="flex items-center mb-8">
+                    <div className="w-14 h-14 bg-[#0F0B60]/5 rounded-2xl flex items-center justify-center border border-[#0F0B60]/10 group-hover:bg-[#0F0B60] transition-colors duration-300">
+                      <BulbOutlined className="text-[#0F0B60] text-3xl group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
-                      {t("pages_secteurs.chimie_pharmacie.potentiel.opportunites.titre")}
+                    <h2 className="text-2xl font-bold text-gray-800 ml-5 group-hover:text-[#0F0B60] transition-colors duration-300">
+                      {t(
+                        "pages_secteurs.chimie_pharmacie.potentiel.opportunites.titre",
+                      )}
                     </h2>
                   </div>
-
                   {/* Liste des points */}
-                  <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
-                          {t("pages_secteurs.chimie_pharmacie.potentiel.opportunites.marche_croissance")}
-                        </span>
+                  <ul className="space-y-5 text-gray-600">
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.chimie_pharmacie.potentiel.opportunites.marche_croissance",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
-                          {t("pages_secteurs.chimie_pharmacie.potentiel.opportunites.production_generiques")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.chimie_pharmacie.potentiel.opportunites.production_generiques",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
-                          {t("pages_secteurs.chimie_pharmacie.potentiel.opportunites.ressources_naturelles")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.chimie_pharmacie.potentiel.opportunites.ressources_naturelles",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">
-                          {t("pages_secteurs.chimie_pharmacie.potentiel.opportunites.exportation_regionale")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.chimie_pharmacie.potentiel.opportunites.exportation_regionale",
+                        )}
                       </span>
                     </li>
                   </ul>
@@ -269,54 +400,62 @@ const ChimiePharmacie = () => {
               </div>
 
               {/* Carte Défis */}
-              <div className="bg-gradient-to-r from-red-400 to-orange-500 p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
-                {/* Fond dégradé au survol */}
-                <div className="absolute inset-0 bg-gradient-to-r from-red-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
-
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 group w-full max-w-md relative overflow-hidden">
+                {/* Ligne d'accentuation #0F0B60 */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-[#0F0B60]"></div>
                 {/* Contenu */}
                 <div className="relative z-10">
                   {/* En-tête de la carte */}
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
-                      <span className="text-red-500 text-2xl">⚠️</span>
+                  <div className="flex items-center mb-8">
+                    <div className="w-14 h-14 bg-[#0F0B60]/5 rounded-2xl flex items-center justify-center border border-[#0F0B60]/10 group-hover:bg-[#0F0B60] transition-colors duration-300">
+                      <ExclamationCircleOutlined className="text-[#0F0B60] text-3xl group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
-                      {t("pages_secteurs.chimie_pharmacie.potentiel.defis.titre")}
+                    <h2 className="text-2xl font-bold text-gray-800 ml-5 group-hover:text-[#0F0B60] transition-colors duration-300">
+                      {t(
+                        "pages_secteurs.chimie_pharmacie.potentiel.defis.titre",
+                      )}
                     </h2>
                   </div>
-
                   {/* Liste des points */}
-                  <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">
-                          {t("pages_secteurs.chimie_pharmacie.potentiel.defis.importations")}
-                        </span>
+                  <ul className="space-y-5 text-gray-600">
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.chimie_pharmacie.potentiel.defis.importations",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">
-                          {t("pages_secteurs.chimie_pharmacie.potentiel.defis.recherche_developpement")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.chimie_pharmacie.potentiel.defis.recherche_developpement",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">
-                          {t("pages_secteurs.chimie_pharmacie.potentiel.defis.normes_qualite")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.chimie_pharmacie.potentiel.defis.normes_qualite",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">
-                          {t("pages_secteurs.chimie_pharmacie.potentiel.defis.acces_financement")}
-                        </span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.chimie_pharmacie.potentiel.defis.acces_financement",
+                        )}
                       </span>
                     </li>
                   </ul>

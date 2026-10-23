@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from "react";
 import {
   CloseButton,
   Dialog,
@@ -10,7 +10,7 @@ import {
   PopoverButton,
   PopoverGroup,
   PopoverPanel,
-} from '@headlessui/react'
+} from "@headlessui/react";
 import {
   Bars3Icon,
   BuildingOfficeIcon,
@@ -18,7 +18,7 @@ import {
   GiftIcon,
   LightBulbIcon,
   XMarkIcon,
-} from '@heroicons/react/24/outline'
+} from "@heroicons/react/24/outline";
 
 import {
   BeakerIcon,
@@ -32,14 +32,14 @@ import {
   ScaleIcon,
   ScissorsIcon,
   ShieldCheckIcon,
-  SparklesIcon
-} from '@heroicons/react/20/solid'
-import Logo from '../../assets/img/logo.png'
-import { Link, NavLink, useLocation } from 'react-router-dom'
-import './navbar.css'
-import { LeafyGreenIcon, PickaxeIcon, TreesIcon } from 'lucide-react'
-import BoutonLangue from '../boutonLangues/boutonLangue'
-import { useTranslation } from 'react-i18next'
+  SparklesIcon,
+} from "@heroicons/react/20/solid";
+import Logo from "../../assets/img/logo.png";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import "./navbar.css";
+import { Beef, LeafyGreenIcon, PickaxeIcon, TreesIcon } from "lucide-react";
+import BoutonLangue from "../boutonLangues/boutonLangue";
+import { useTranslation } from "react-i18next";
 
 interface NavbartProps {
   onMenuClick: any | null;
@@ -59,7 +59,8 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 
     const handleScroll = () => {
       if (firstNavRef.current) {
-        const firstNavBottom = firstNavRef.current.getBoundingClientRect().bottom;
+        const firstNavBottom =
+          firstNavRef.current.getBoundingClientRect().bottom;
         setIsSticky(firstNavBottom <= 0);
       }
     };
@@ -73,106 +74,177 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 
   const infos = [
     {
-      name: t('navbar.menu_items.presentation_cameroun'),
-      description: t('navbar.descriptions.presentation_cameroun'),
+      name: t("navbar.menu_items.presentation_cameroun"),
+      description: t("navbar.descriptions.presentation_cameroun"),
       link: "/presentation-du-cameroun",
-      icon: LightBulbIcon
+      icon: LightBulbIcon,
     },
     {
-      name: t('navbar.menu_items.cadre_juridique'),
-      description: t('navbar.descriptions.cadre_juridique'),
+      name: t("navbar.menu_items.cadre_juridique"),
+      description: t("navbar.descriptions.cadre_juridique"),
       link: "/cadre-juridique-et-fiscal",
-      icon: ScaleIcon
+      icon: ScaleIcon,
     },
   ];
   const investir = [
     {
-      name: t('navbar.menu_items.creation_entreprise'),
-      description: t('navbar.descriptions.creation_entreprise'),
+      name: t("navbar.menu_items.creation_entreprise"),
+      description: t("navbar.descriptions.creation_entreprise"),
       link: "/creation-dentreprise",
-      icon: BriefcaseIcon
+      icon: BriefcaseIcon,
     },
     {
-      name: t('navbar.menu_items.droit_investisseurs'),
-      description: t('navbar.descriptions.droit_investisseurs'),
+      name: t("navbar.menu_items.droit_investisseurs"),
+      description: t("navbar.descriptions.droit_investisseurs"),
       link: "/droits-des-investisseurs",
-      icon: ShieldCheckIcon
+      icon: ShieldCheckIcon,
     },
     {
-      name: t('navbar.menu_items.facteurs_production'),
-      description: t('navbar.descriptions.facteurs_production'),
+      name: t("navbar.menu_items.facteurs_production"),
+      description: t("navbar.descriptions.facteurs_production"),
       link: "/facteurs-de-production",
-      icon: CogIcon
+      icon: CogIcon,
     },
     {
-      name: t('navbar.menu_items.incitation'),
-      description: t('navbar.descriptions.incitation'),
+      name: t("navbar.menu_items.incitation"),
+      description: t("navbar.descriptions.incitation"),
       link: "/incitation",
-      icon: GiftIcon
-    }
+      icon: GiftIcon,
+    },
   ];
   const categories = [
     {
-      name: t('navbar.menu_items.sanctuaires'),
-      description: t('navbar.descriptions.sanctuaires'),
+      name: t("navbar.menu_items.sanctuaires"),
+      description: t("navbar.descriptions.sanctuaires"),
       secteurs: [
-        { name: t('navbar.menu_items.agro_industrie'), link: "/sanctuaire-agro-industrie", icon: LeafyGreenIcon },
-        { name: t('navbar.menu_items.energie'), link: "/sanctuaire-energie", icon: LightBulbIcon },
-        { name: t('navbar.menu_items.numerique'), link: "/sanctuaire-numerique", icon: ComputerDesktopIcon },
+        {
+          name: t("navbar.menu_items.agro_industrie"),
+          link: "/sanctuaire-agro-industrie",
+          icon: LeafyGreenIcon,
+        },
+        {
+          name: t("navbar.menu_items.elevage"),
+          link: "/sanctuaire-elevage",
+          icon: Beef,
+        },
+        {
+          name: t("navbar.menu_items.energie"),
+          link: "/sanctuaire-energie",
+          icon: LightBulbIcon,
+        },
+        {
+          name: t("navbar.menu_items.numerique"),
+          link: "/sanctuaire-numerique",
+          icon: ComputerDesktopIcon,
+        },
       ],
     },
     {
-      name: t('navbar.menu_items.piliers'),
-      description: t('navbar.descriptions.piliers'),
+      name: t("navbar.menu_items.piliers"),
+      description: t("navbar.descriptions.piliers"),
       secteurs: [
-        { name: t('navbar.menu_items.bois_forets'), link: "/pilier-bois-forets", icon: TreesIcon },
-        { name: t('navbar.menu_items.textile_confection_cuir'), link: "/pilier-textile-confection-cuir", icon: ScissorsIcon },
-        { name: t('navbar.menu_items.hydrocarbures_raffinage'), icon: FireIcon, link: "/pilier-hydrocarbures-raffinage" },
-        { name: t('navbar.menu_items.chimie_pharmacie'), icon: BeakerIcon, link: "/pilier-chimie-pharmacie" },
-        { name: t('navbar.menu_items.mines_metallurgie_siderurgie'), icon: PickaxeIcon, link: "/pilier-mines-metallurgie-siderurgie" },
+        {
+          name: t("navbar.menu_items.bois_forets"),
+          link: "/pilier-bois-forets",
+          icon: TreesIcon,
+        },
+        {
+          name: t("navbar.menu_items.textile_confection_cuir"),
+          link: "/pilier-textile-confection-cuir",
+          icon: ScissorsIcon,
+        },
+        {
+          name: t("navbar.menu_items.hydrocarbures_raffinage"),
+          icon: FireIcon,
+          link: "/pilier-hydrocarbures-raffinage",
+        },
+        {
+          name: t("navbar.menu_items.chimie_pharmacie"),
+          icon: BeakerIcon,
+          link: "/pilier-chimie-pharmacie",
+        },
+        {
+          name: t("navbar.menu_items.mines_metallurgie_siderurgie"),
+          icon: PickaxeIcon,
+          link: "/pilier-mines-metallurgie-siderurgie",
+        },
       ],
     },
     {
-      name: t('navbar.menu_items.socles'),
-      description: t('navbar.descriptions.socles'),
+      name: t("navbar.menu_items.socles"),
+      description: t("navbar.descriptions.socles"),
       secteurs: [
-        { name: t('navbar.menu_items.financement'), link: "/socle-financement", icon: CurrencyDollarIcon },
-        { name: t('navbar.menu_items.infrastructure'), link: "/socle-infrastructure", icon: BuildingOfficeIcon },
+        {
+          name: t("navbar.menu_items.financement"),
+          link: "/socle-financement",
+          icon: CurrencyDollarIcon,
+        },
+        {
+          name: t("navbar.menu_items.infrastructure"),
+          link: "/socle-infrastructure",
+          icon: BuildingOfficeIcon,
+        },
       ],
     },
   ];
   const aPropos = [
-    { name: t('navbar.menu_items.presentation_api'), description: t('navbar.menu_items.presentation_api'), link: "/presentation-api", icon: BuildingOfficeIcon },
-    { name: t('navbar.menu_items.faq'), description: t('navbar.menu_items.faq'), link: "/FAQ", icon: QuestionMarkCircleIcon },
-    { name: t('navbar.menu_items.conseil_en_ligne'), description: t('navbar.menu_items.conseil_en_ligne'), link: "/conseil-en-ligne", icon: ChatBubbleBottomCenterTextIcon },
-  ]
+    {
+      name: t("navbar.menu_items.presentation_api"),
+      description: t("navbar.menu_items.presentation_api"),
+      link: "/presentation-api",
+      icon: BuildingOfficeIcon,
+    },
+    {
+      name: t("navbar.menu_items.faq"),
+      description: t("navbar.menu_items.faq"),
+      link: "/FAQ",
+      icon: QuestionMarkCircleIcon,
+    },
+    {
+      name: t("navbar.menu_items.conseil_en_ligne"),
+      description: t("navbar.menu_items.conseil_en_ligne"),
+      link: "/Politique-Confidentialite&Condition-Utilisation",
+      icon: ChatBubbleBottomCenterTextIcon,
+    },
+  ];
 
   // Helpers to determine if a parent should be considered active.
   const pathStartsWith = (link?: string) => {
-    if (!link || link === '#') return false;
+    if (!link || link === "#") return false;
     // Use startsWith to handle nested routes like /pilier-...
-    return location.pathname === link || location.pathname.startsWith(link + '/') || location.pathname.startsWith(link);
+    return (
+      location.pathname === link ||
+      location.pathname.startsWith(link + "/") ||
+      location.pathname.startsWith(link)
+    );
   };
 
-  const isInfosActive = infos.some(i => pathStartsWith(i.link));
-  const isInvestirActive = investir.some(i => pathStartsWith(i.link));
+  const isInfosActive = infos.some((i) => pathStartsWith(i.link));
+  const isInvestirActive = investir.some((i) => pathStartsWith(i.link));
   // For categories, flatten sectors links
-  const categoryLinks = categories.flatMap(cat => cat.secteurs.map(s => s.link));
-  const isOpportunitesActive = categoryLinks.some(link => pathStartsWith(link));
-  const isAProposActive = aPropos.some(i => pathStartsWith(i.link));
+  const categoryLinks = categories.flatMap((cat) =>
+    cat.secteurs.map((s) => s.link),
+  );
+  const isOpportunitesActive = categoryLinks.some((link) =>
+    pathStartsWith(link),
+  );
+  const isAProposActive = aPropos.some((i) => pathStartsWith(i.link));
 
   return (
-    <header className='bg-white'>
-      <div className='bg-gray-100 flex items-center justify-between p-3 px-10' ref={firstNavRef}>
-        <div className='flex items-center gap-2'>
+    <header className="bg-white">
+      <div
+        className="bg-gray-100 flex items-center justify-between p-3 px-10"
+        ref={firstNavRef}
+      >
+        <div className="flex items-center gap-2">
           <img
             className="h-6 w-auto"
             src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg"
-            alt='Cameroon-Flag'
+            alt="Cameroon-Flag"
           />
-          <span className='flex flex-col *:items-center'>
-            <p className='text-xs'>{t('navbar.pays-cm')}</p>
-            <small className="text-[10px]">{t('navbar.devise-cm')}</small>
+          <span className="flex flex-col *:items-center">
+            <p className="text-xs">{t("navbar.pays-cm")}</p>
+            <small className="text-[10px]">{t("navbar.devise-cm")}</small>
           </span>
         </div>
         <span>
@@ -185,11 +257,14 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
       <div style={{ height: isSticky ? secondNavHeight : 0 }}></div>
 
       <div
-        className='sticky top-0 z-20 shadow-lg bg-white w-full'
+        className="sticky top-0 z-20 shadow-lg bg-white w-full"
         style={{ position: isSticky ? "fixed" : "relative" }}
         ref={secondNavRef}
       >
-        <nav aria-label="Global" className="mx-auto flex items-center justify-between p-6 lg:px-8">
+        <nav
+          aria-label="Global"
+          className="mx-auto flex items-center justify-between p-6 lg:px-8"
+        >
           <div className="flex lg:flex-1">
             <Link to="/" className="-m-1.5 p-1.5">
               <img alt="Api-logo" src={Logo} className="h-12 w-auto" />
@@ -212,19 +287,22 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
             <NavLink
               to={"/"}
               className={({ isActive }: { isActive: boolean }) =>
-                `nav-item nav-underline text-sm font-semibold ${isActive ? 'active text-[#0F0B60]' : 'text-[#0F0B60] hover:text-blue-600'}`
+                `nav-item nav-underline text-sm font-semibold ${isActive ? "active text-[#0F0B60]" : "text-[#0F0B60] hover:text-blue-600"}`
               }
             >
-              {t('navbar.accueil')}
+              {t("navbar.accueil")}
             </NavLink>
 
             {/* Informations (Popover) */}
             <Popover className="relative">
               <PopoverButton
-                className={`nav-item nav-underline text-sm font-semibold flex items-center gap-x-1 ${isInfosActive ? 'active text-[#0F0B60]' : 'text-[#0F0B60] hover:text-blue-600'}`}
+                className={`nav-item nav-underline text-sm font-semibold flex items-center gap-x-1 ${isInfosActive ? "active text-[#0F0B60]" : "text-[#0F0B60] hover:text-blue-600"}`}
               >
-                {t('navbar.informations')}
-                <ChevronDownIcon aria-hidden="true" className={`size-5 flex-none ${isInfosActive ? 'text-[#0F0B60]' : 'text-gray-400'}`} />
+                {t("navbar.informations")}
+                <ChevronDownIcon
+                  aria-hidden="true"
+                  className={`size-5 flex-none ${isInfosActive ? "text-[#0F0B60]" : "text-gray-400"}`}
+                />
               </PopoverButton>
 
               <PopoverPanel
@@ -233,9 +311,15 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
               >
                 <div className="w-screen max-w-md p-4 rounded-3xl bg-white text-sm shadow-lg ring-1 ring-gray-900/5">
                   {infos.map((item) => (
-                    <div key={item.name} className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm hover:bg-gray-50">
+                    <div
+                      key={item.name}
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm hover:bg-gray-50"
+                    >
                       <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
+                        <item.icon
+                          aria-hidden="true"
+                          className="size-6 text-gray-600 group-hover:text-[#0F0B60]"
+                        />
                       </div>
                       <div className="flex-auto">
                         <CloseButton
@@ -243,14 +327,19 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                           to={item.link ?? "#"}
                           onClick={() => onMenuClick && onMenuClick(item)}
                           className={({ isActive }: { isActive: boolean }) =>
-                            `block font-semibold text-gray-900 text-sm transition-colors ${isActive ? 'text-[#0F0B60]' : 'hover:text-[#0F0B60]'
+                            `block font-semibold text-gray-900 text-sm transition-colors ${
+                              isActive
+                                ? "text-[#0F0B60]"
+                                : "hover:text-[#0F0B60]"
                             }`
                           }
                         >
                           {item.name}
                           <span className="absolute inset-0" />
                         </CloseButton>
-                        <small className="mt-1 text-gray-600">{item.description}</small>
+                        <small className="mt-1 text-gray-600">
+                          {item.description}
+                        </small>
                       </div>
                     </div>
                   ))}
@@ -261,10 +350,13 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
             {/* Opportunites (Popover) */}
             <Popover className="relative">
               <PopoverButton
-                className={`nav-item nav-underline text-sm font-semibold flex items-center gap-x-1 ${isOpportunitesActive ? 'active text-[#0F0B60]' : 'text-[#0F0B60] hover:text-blue-600'}`}
+                className={`nav-item nav-underline text-sm font-semibold flex items-center gap-x-1 ${isOpportunitesActive ? "active text-[#0F0B60]" : "text-[#0F0B60] hover:text-blue-600"}`}
               >
-                {t('navbar.opportunites')}
-                <ChevronDownIcon aria-hidden="true" className={`size-5 flex-none ${isOpportunitesActive ? 'text-[#0F0B60]' : 'text-gray-400'}`} />
+                {t("navbar.opportunites")}
+                <ChevronDownIcon
+                  aria-hidden="true"
+                  className={`size-5 flex-none ${isOpportunitesActive ? "text-[#0F0B60]" : "text-gray-400"}`}
+                />
               </PopoverButton>
 
               <PopoverPanel
@@ -273,21 +365,43 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
               >
                 <div className="grid grid-cols-3 gap-4 p-4 text-sm bg-white shadow-lg ring-1 ring-gray-900/5">
                   {categories.map((category, index) => (
-                    <div key={category.name} className={`p-4 ${index < categories.length - 1 ? "border-r-2 border-gray-200" : ""}`}>
-                      <h3 className="mb-2 text-sm font-semibold text-gray-900">{category.name}</h3>
-                      <small className="mb-6 text-gray-600">{category.description}</small>
+                    <div
+                      key={category.name}
+                      className={`p-4 ${index < categories.length - 1 ? "border-r-2 border-gray-200" : ""}`}
+                    >
+                      <h3 className="mb-2 text-sm font-semibold text-gray-900">
+                        {category.name}
+                      </h3>
+                      <small className="mb-6 text-gray-600">
+                        {category.description}
+                      </small>
                       {category.secteurs.map((secteur) => (
-                        <div key={secteur.name} className="group relative flex items-center gap-x-6 rounded-lg p-2 text-sm hover:bg-gray-50">
+                        <div
+                          key={secteur.name}
+                          className="group relative flex items-center gap-x-6 rounded-lg p-2 text-sm hover:bg-gray-50"
+                        >
                           <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                            <secteur.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
+                            <secteur.icon
+                              aria-hidden="true"
+                              className="size-6 text-gray-600 group-hover:text-[#0F0B60]"
+                            />
                           </div>
                           <div className="flex-auto">
                             <CloseButton
                               as={NavLink}
                               to={secteur.link ?? "#"}
-                              onClick={() => onMenuClick && onMenuClick(secteur)}
-                              className={({ isActive }: { isActive: boolean }) =>
-                                `block font-semibold text-gray-900 text-sm transition-colors ${isActive ? 'text-[#0F0B60]' : 'hover:text-[#0F0B60]'
+                              onClick={() =>
+                                onMenuClick && onMenuClick(secteur)
+                              }
+                              className={({
+                                isActive,
+                              }: {
+                                isActive: boolean;
+                              }) =>
+                                `block font-semibold text-gray-900 text-sm transition-colors ${
+                                  isActive
+                                    ? "text-[#0F0B60]"
+                                    : "hover:text-[#0F0B60]"
                                 }`
                               }
                             >
@@ -303,9 +417,12 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
 
                 <div className="flex items-center justify-evenly px-4 py-2 border-t border-gray-100 bg-gray-50">
                   {/* <h3 className="text-sm font-semibold text-gray-500">Potentiel</h3> */}
-                  <Link to={'/potentiel'} className="text-sm font-semibold text-[#0F0B60] hover:underline flex items-center gap-1">
+                  <Link
+                    to={"/potentiel"}
+                    className="text-sm font-semibold text-[#0F0B60] hover:underline flex items-center gap-1"
+                  >
                     <CloseButton>
-                      Voir plus <span aria-hidden="true">→</span>
+                      {t("navbar.voir_plus")} <span aria-hidden="true">→</span>
                     </CloseButton>
                   </Link>
                 </div>
@@ -315,10 +432,13 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
             {/* Investir (Popover) */}
             <Popover className="relative">
               <PopoverButton
-                className={`nav-item nav-underline text-sm font-semibold flex items-center gap-x-1 ${isInvestirActive ? 'active text-[#0F0B60]' : 'text-[#0F0B60] hover:text-blue-600'}`}
+                className={`nav-item nav-underline text-sm font-semibold flex items-center gap-x-1 ${isInvestirActive ? "active text-[#0F0B60]" : "text-[#0F0B60] hover:text-blue-600"}`}
               >
-                {t('navbar.investir')}
-                <ChevronDownIcon aria-hidden="true" className={`size-5 flex-none ${isInvestirActive ? 'text-[#0F0B60]' : 'text-gray-400'}`} />
+                {t("navbar.investir")}
+                <ChevronDownIcon
+                  aria-hidden="true"
+                  className={`size-5 flex-none ${isInvestirActive ? "text-[#0F0B60]" : "text-gray-400"}`}
+                />
               </PopoverButton>
 
               <PopoverPanel
@@ -327,9 +447,15 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
               >
                 <div className="grid grid-cols-2 gap-4 p-4 text-sm bg-white rounded-3xl shadow-lg ring-1 ring-gray-900/5">
                   {investir.map((item) => (
-                    <div key={item.name} className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm hover:bg-gray-50">
+                    <div
+                      key={item.name}
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm hover:bg-gray-50"
+                    >
                       <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
+                        <item.icon
+                          aria-hidden="true"
+                          className="size-6 text-gray-600 group-hover:text-[#0F0B60]"
+                        />
                       </div>
                       <div className="flex-auto">
                         <CloseButton
@@ -337,14 +463,19 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                           to={item.link ?? "#"}
                           onClick={() => onMenuClick && onMenuClick(item)}
                           className={({ isActive }: { isActive: boolean }) =>
-                            `block font-semibold text-gray-900 text-sm transition-colors ${isActive ? 'text-[#0F0B60]' : 'hover:text-[#0F0B60]'
+                            `block font-semibold text-gray-900 text-sm transition-colors ${
+                              isActive
+                                ? "text-[#0F0B60]"
+                                : "hover:text-[#0F0B60]"
                             }`
                           }
                         >
                           {item.name}
                           <span className="absolute inset-0" />
                         </CloseButton>
-                        <small className="mt-1 text-gray-600">{item.description}</small>
+                        <small className="mt-1 text-gray-600">
+                          {item.description}
+                        </small>
                       </div>
                     </div>
                   ))}
@@ -355,10 +486,13 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
             {/* A propos (Popover) */}
             <Popover className="relative">
               <PopoverButton
-                className={`nav-item nav-underline text-sm font-semibold flex items-center gap-x-1 ${isAProposActive ? 'active text-[#0F0B60]' : 'text-[#14123f] hover:text-blue-600'}`}
+                className={`nav-item nav-underline text-sm font-semibold flex items-center gap-x-1 ${isAProposActive ? "active text-[#0F0B60]" : "text-[#14123f] hover:text-blue-600"}`}
               >
-                {t('navbar.apropos')}
-                <ChevronDownIcon aria-hidden="true" className={`size-5 flex-none ${isAProposActive ? 'text-[#0F0B60]' : 'text-gray-400'}`} />
+                {t("navbar.apropos")}
+                <ChevronDownIcon
+                  aria-hidden="true"
+                  className={`size-5 flex-none ${isAProposActive ? "text-[#0F0B60]" : "text-gray-400"}`}
+                />
               </PopoverButton>
 
               <PopoverPanel
@@ -367,9 +501,15 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
               >
                 <div className="w-screen max-w-md p-4 rounded-3xl text-sm shadow-lg ring-1 ring-gray-900/5">
                   {aPropos.map((item) => (
-                    <div key={item.name} className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm hover:bg-gray-50">
+                    <div
+                      key={item.name}
+                      className="group relative flex items-center gap-x-6 rounded-lg p-4 text-sm hover:bg-gray-50"
+                    >
                       <div className="flex size-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                        <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
+                        <item.icon
+                          aria-hidden="true"
+                          className="size-6 text-gray-600 group-hover:text-[#0F0B60]"
+                        />
                       </div>
                       <div className="flex-auto">
                         <CloseButton
@@ -377,14 +517,19 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                           to={item.link ?? "#"}
                           onClick={() => onMenuClick && onMenuClick(item)}
                           className={({ isActive }: { isActive: boolean }) =>
-                            `block font-semibold text-gray-900 text-sm transition-colors ${isActive ? 'text-[#0F0B60]' : 'hover:text-[#0F0B60]'
+                            `block font-semibold text-gray-900 text-sm transition-colors ${
+                              isActive
+                                ? "text-[#0F0B60]"
+                                : "hover:text-[#0F0B60]"
                             }`
                           }
                         >
                           {item.name}
                           <span className="absolute inset-0" />
                         </CloseButton>
-                        <small className="mt-1 text-gray-600">{item.description}</small>
+                        <small className="mt-1 text-gray-600">
+                          {item.description}
+                        </small>
                       </div>
                     </div>
                   ))}
@@ -395,14 +540,18 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
             {/* Espace privé button */}
             <NavLink to="/signin">
               <button className="ps-btn text-sm/6 font-semibold">
-                {t('navbar.espace_prive')}
+                {t("navbar.espace_prive")}
               </button>
             </NavLink>
           </PopoverGroup>
         </nav>
 
         {/* Mobile dialog (unchanged behaviour, but keep parent active style for Disclosures) */}
-        <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+        <Dialog
+          open={mobileMenuOpen}
+          onClose={setMobileMenuOpen}
+          className="lg:hidden"
+        >
           <div className="fixed inset-0 z-10" />
           <DialogPanel className="fixed inset-y-0 right-0 z-30 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
@@ -424,17 +573,20 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                 <div className="space-y-2 py-6">
                   <CloseButton
                     as={NavLink}
-                    to={'/'}
+                    to={"/"}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
-                    {t('navbar.accueil')}
+                    {t("navbar.accueil")}
                   </CloseButton>
 
                   {/* informations (mobile) */}
                   <Disclosure as="div" className="-mx-3">
                     <DisclosureButton className="-mx-3 group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                      {t('navbar.informations')}
-                      <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-[open]:rotate-180" />
+                      {t("navbar.informations")}
+                      <ChevronDownIcon
+                        aria-hidden="true"
+                        className="size-5 flex-none group-data-[open]:rotate-180"
+                      />
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 ">
                       {[...infos].map((item) => (
@@ -445,8 +597,11 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                           onClick={() => setMobileMenuOpen(false)}
                           className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
                         >
-                          <div className='flex items-center gap-5'>
-                            <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
+                          <div className="flex items-center gap-5">
+                            <item.icon
+                              aria-hidden="true"
+                              className="size-6 text-gray-600 group-hover:text-[#0F0B60]"
+                            />
                             {item.name}
                           </div>
                         </CloseButton>
@@ -457,8 +612,11 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                   {/* investir (mobile) */}
                   <Disclosure as="div" className="-mx-3">
                     <DisclosureButton className="-mx-3 group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                      {t('navbar.investir')}
-                      <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-[open]:rotate-180" />
+                      {t("navbar.investir")}
+                      <ChevronDownIcon
+                        aria-hidden="true"
+                        className="size-5 flex-none group-data-[open]:rotate-180"
+                      />
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 ">
                       {[...investir].map((item) => (
@@ -469,8 +627,11 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                           onClick={() => setMobileMenuOpen(false)}
                           className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
                         >
-                          <div className='flex items-center gap-5'>
-                            <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
+                          <div className="flex items-center gap-5">
+                            <item.icon
+                              aria-hidden="true"
+                              className="size-6 text-gray-600 group-hover:text-[#0F0B60]"
+                            />
                             {item.name}
                           </div>
                         </CloseButton>
@@ -481,14 +642,24 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                   {/* opportunites (mobile) */}
                   <Disclosure as="div" className="-mx-3">
                     <DisclosureButton className="-mx-3 group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                      {t('navbar.opportunites')}
-                      <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-[open]:rotate-180" />
+                      {t("navbar.opportunites")}
+                      <ChevronDownIcon
+                        aria-hidden="true"
+                        className="size-5 flex-none group-data-[open]:rotate-180"
+                      />
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 space-y-4">
                       {categories.map((group) => (
-                        <div key={group.name} className="border-b border-gray-200 p-4">
-                          <h3 className="text-sm font-semibold text-gray-900">{group.name}</h3>
-                          <small className="text-xs text-gray-600">{group.description}</small>
+                        <div
+                          key={group.name}
+                          className="border-b border-gray-200 p-4"
+                        >
+                          <h3 className="text-sm font-semibold text-gray-900">
+                            {group.name}
+                          </h3>
+                          <small className="text-xs text-gray-600">
+                            {group.description}
+                          </small>
                           <div className="mt-2 space-y-1">
                             {group.secteurs.map((item) => (
                               <CloseButton
@@ -500,9 +671,15 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                               >
                                 <div className="flex items-center gap-5">
                                   {item.icon ? (
-                                    <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
+                                    <item.icon
+                                      aria-hidden="true"
+                                      className="size-6 text-gray-600 group-hover:text-[#0F0B60]"
+                                    />
                                   ) : (
-                                    <SparklesIcon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
+                                    <SparklesIcon
+                                      aria-hidden="true"
+                                      className="size-6 text-gray-600 group-hover:text-[#0F0B60]"
+                                    />
                                   )}
                                   {item.name}
                                 </div>
@@ -513,8 +690,12 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                       ))}
                       <div className="flex flex-col px-4 py-2">
                         {/* <h3 className="text-sm font-semibold text-gray-900">Potentiel</h3> */}
-                        <Link to={"/potentiel"} className="text-sm font-semibold text-[#0F0B60] hover:underline flex items-center gap-1">
-                          Voir plus <span aria-hidden="true">→</span>
+                        <Link
+                          to={"/potentiel"}
+                          className="text-sm font-semibold text-[#0F0B60] hover:underline flex items-center gap-1"
+                        >
+                          {t("navbar.voir_plus")}{" "}
+                          <span aria-hidden="true">→</span>
                         </Link>
                       </div>
                     </DisclosurePanel>
@@ -523,8 +704,11 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                   {/* aPropos (mobile) */}
                   <Disclosure as="div" className="-mx-3">
                     <DisclosureButton className="-mx-3 group flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">
-                      {t('navbar.apropos')}
-                      <ChevronDownIcon aria-hidden="true" className="size-5 flex-none group-data-[open]:rotate-180" />
+                      {t("navbar.apropos")}
+                      <ChevronDownIcon
+                        aria-hidden="true"
+                        className="size-5 flex-none group-data-[open]:rotate-180"
+                      />
                     </DisclosureButton>
                     <DisclosurePanel className="mt-2 ">
                       {[...aPropos].map((item) => (
@@ -535,8 +719,11 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                           onClick={() => setMobileMenuOpen(false)}
                           className="block rounded-lg py-2 pl-6 pr-3 text-sm/7 font-semibold text-gray-900 hover:bg-gray-50"
                         >
-                          <div className='flex items-center gap-5'>
-                            <item.icon aria-hidden="true" className="size-6 text-gray-600 group-hover:text-[#0F0B60]" />
+                          <div className="flex items-center gap-5">
+                            <item.icon
+                              aria-hidden="true"
+                              className="size-6 text-gray-600 group-hover:text-[#0F0B60]"
+                            />
                             {item.name}
                           </div>
                         </CloseButton>
@@ -548,10 +735,10 @@ const Navbar: React.FC<NavbartProps> = ({ onMenuClick }) => {
                 <div className="py-6">
                   <CloseButton
                     as={NavLink}
-                    to={'/signin'}
+                    to={"/signin"}
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
-                    {t('navbar.espace_prive')}
+                    {t("navbar.espace_prive")}
                   </CloseButton>
                 </div>
               </div>

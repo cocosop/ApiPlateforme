@@ -1,6 +1,6 @@
-import { Box, Typography, Link, Container } from "@mui/material";
+import { Box, Typography, Link } from "@mui/material";
 import LOGO3 from "../../assets/img/logo3.png"; // Importation du logo
-import './footer.css';
+import "./footer.css";
 import { useTranslation } from "react-i18next";
 
 // Composant Footer
@@ -32,42 +32,42 @@ const Footer: React.FC<FooterProps> = () => {
     color: "#fff",
     textDecoration: "none",
     cursor: "pointer",
-    '&:hover': {
-      color: '#F5BA3A'
-    }
+    "&:hover": {
+      color: "#F5BA3A",
+    },
   };
 
   return (
-    <Box sx={{ backgroundColor: "#0F0B60", color: "#fff", py: 4 }}>
-      <Container maxWidth="lg" className="footer-container">
-        {/* Logo et description */}
+    <Box sx={{ backgroundColor: "#0F0B60", color: "#fff", py: 6 }}>
+      {/* On reprend le même conteneur (container mx-auto p-6) que le reste
+          de la home page pour que le footer soit aligné à gauche et à
+          droite avec les autres sections du site */}
+      <div className="footer-container container mx-auto p-6">
+        {/* Logo et description - empilés verticalement, alignés à gauche */}
         <Box
           sx={{
             display: "flex",
-            flexDirection: { xs: "column", sm: "row" },
-            justifyContent: "space-between",
-            alignItems: "center",
-            mb: 4,
+            flexDirection: "column",
+            alignItems: { xs: "center", sm: "flex-start" },
             textAlign: { xs: "center", sm: "left" },
+            mb: 6,
           }}
         >
           {/* Logo */}
-          <Box>
-            <img src={LOGO3} alt={t('footer.agency')} style={{ width: "150px", marginBottom: "16px" }} />
+          <Box
+            sx={{ backgroundColor: "#0F0B60", borderRadius: 1, p: 1, mb: 3 }}
+          >
+            <img
+              src={LOGO3}
+              alt={t("footer.agency")}
+              style={{ width: "150px", display: "block" }}
+            />
           </Box>
 
           {/* Description */}
-          <Box>
-            <Typography variant="body2" sx={{ ...bodyStyles, color: "#fff" }}>
-              {t('footer.agency')}
-            </Typography>
-            <Typography variant="body2" sx={{ ...bodyStyles, color: "#fff", mt: 1 }}>
-              {t('footer.website')} :{" "}
-              <Link href={t('footer.website_url')} sx={{ ...bodyStyles, color: "#F5BA3A" }} target="_blank" rel="noopener">
-                {t('footer.website_url')}
-              </Link>
-            </Typography>
-          </Box>
+          <Typography variant="body2" sx={{ ...bodyStyles, color: "#fff" }}>
+            {t("footer.agency")}
+          </Typography>
         </Box>
 
         {/* Section principale du footer */}
@@ -75,93 +75,138 @@ const Footer: React.FC<FooterProps> = () => {
           sx={{
             display: "flex",
             flexWrap: "wrap",
-            gap: 3,
+            columnGap: 8,
+            rowGap: 5,
             justifyContent: { xs: "center", md: "space-between" },
+            mb: 5,
           }}
         >
           {/* Section Menu de navigation */}
-          <Box sx={{ flex: "1 1 200px", textAlign: { xs: "center", sm: "left" } }}>
-            <Typography variant="h6" sx={{ ...headingStyles, mb: 2, color: "#fff" }}>
-              {t('footer.navigation.title')}
+          <Box
+            sx={{ flex: "1 1 200px", textAlign: { xs: "center", sm: "left" } }}
+          >
+            <Typography
+              variant="h6"
+              sx={{ ...headingStyles, mb: 3, color: "#fff" }}
+            >
+              {t("footer.navigation.title")}
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Link href="#" sx={{ ...linkStyles, mb: 1 }}>
-                {t('footer.navigation.home')}
+              <Link href="#" sx={{ ...linkStyles, mb: 2 }}>
+                {t("footer.navigation.home")}
               </Link>
-              <Link href="#" sx={{ ...linkStyles, mb: 1 }}>
-                {t('footer.navigation.general_info')}
+              <Link href="#" sx={{ ...linkStyles, mb: 2 }}>
+                {t("footer.navigation.general_info")}
               </Link>
-              <Link href="#" sx={{ ...linkStyles, mb: 1 }}>
-                {t('footer.navigation.investor_guide')}
+              <Link href="#" sx={{ ...linkStyles, mb: 2 }}>
+                {t("footer.navigation.investor_guide")}
               </Link>
-              <Link href="#" sx={{ ...linkStyles, mb: 1 }}>
-                {t('footer.navigation.opportunity_sectors')}
+              <Link href="#" sx={{ ...linkStyles, mb: 2 }}>
+                {t("footer.navigation.opportunity_sectors")}
               </Link>
               <Link href="#" sx={{ ...linkStyles }}>
-                {t('footer.navigation.about')}
+                {t("footer.navigation.about")}
               </Link>
             </Box>
           </Box>
 
           {/* Section Institutions compétentes */}
-          <Box sx={{ flex: "1 1 200px", textAlign: { xs: "center", sm: "left" } }}>
-            <Typography variant="h6" sx={{ ...headingStyles, mb: 2, color: "#fff" }}>
-              {t('footer.institutions.title')}
+          <Box
+            sx={{ flex: "1 1 250px", textAlign: { xs: "center", sm: "left" } }}
+          >
+            <Typography
+              variant="h6"
+              sx={{ ...headingStyles, mb: 3, color: "#fff" }}
+            >
+              {t("footer.institutions.title")}
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Link href="https://www.minefop.cm/fr/" target="_blank" rel="noopener" sx={{ ...linkStyles, mb: 1 }}>
-                <Typography variant="body2" sx={{ ...bodyStyles, color: "inherit", mb: 1 }}>
-                  {t('footer.institutions.ministry_employment')}
-                </Typography>
+              <Link
+                href="https://www.minefop.cm/fr/"
+                target="_blank"
+                rel="noopener"
+                sx={{ ...linkStyles, mb: 2.5 }}
+              >
+                {t("footer.institutions.ministry_employment")}
               </Link>
-              <Link href="https://www.mintss.cm/m/web/" target="_blank" rel="noopener" sx={{ ...linkStyles, mb: 1 }}>
-                <Typography variant="body2" sx={{ ...bodyStyles, color: "inherit", mb: 1 }}>
-                  {t('footer.institutions.ministry_labor')}
-                </Typography>
+              <Link
+                href="https://www.mintss.cm/m/web/"
+                target="_blank"
+                rel="noopener"
+                sx={{ ...linkStyles, mb: 2.5 }}
+              >
+                {t("footer.institutions.ministry_labor")}
               </Link>
-              <Link href="https://www.minmidt.cm/" target="_blank" rel="noopener" sx={{ ...linkStyles, mb: 1 }}>
-                <Typography variant="body2" sx={{ ...bodyStyles, color: "inherit", mb: 1 }}>
-                  {t('footer.institutions.ministry_mines')}
-                </Typography>
+              <Link
+                href="https://www.minmidt.cm/"
+                target="_blank"
+                rel="noopener"
+                sx={{ ...linkStyles, mb: 2.5 }}
+              >
+                {t("footer.institutions.ministry_mines")}
               </Link>
-              <Link href="https://www.minpmeesa.cm/site/" target="_blank" rel="noopener" sx={{ ...linkStyles, mb: 1 }}>
-                <Typography variant="body2" sx={{ ...bodyStyles, color: "inherit", mb: 1 }}>
-                  {t('footer.institutions.ministry_smes')}
-                </Typography>
+              <Link
+                href="https://www.minpmeesa.cm/site/"
+                target="_blank"
+                rel="noopener"
+                sx={{ ...linkStyles, mb: 2.5 }}
+              >
+                {t("footer.institutions.ministry_smes")}
               </Link>
-              <Link href="https://www.cnps.cm/fr/cnps/nous-contacter1.html" target="_blank" rel="noopener" sx={{ ...linkStyles, mb: 1 }}>
-                <Typography variant="body2" sx={{ ...bodyStyles, color: "inherit" }}>
-                  {t('footer.institutions.cnps')}
-                </Typography>
+              <Link
+                href="https://www.cnps.cm/fr/cnps/nous-contacter1.html"
+                target="_blank"
+                rel="noopener"
+                sx={{ ...linkStyles }}
+              >
+                {t("footer.institutions.cnps")}
               </Link>
-
-
             </Box>
           </Box>
 
           {/* Section Contacts */}
-          <Box sx={{ flex: "1 1 200px", textAlign: { xs: "center", sm: "left" } }}>
-            <Typography variant="h6" sx={{ ...headingStyles, mb: 2, color: "#fff" }}>
-              {t('footer.contacts.title')}
+          <Box
+            sx={{ flex: "1 1 220px", textAlign: { xs: "center", sm: "left" } }}
+          >
+            <Typography
+              variant="h6"
+              sx={{ ...headingStyles, mb: 3, color: "#fff" }}
+            >
+              {t("footer.contacts.title")}
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Typography variant="body2" sx={{ ...bodyStyles, color: "#fff", mb: 1 }}>
-                {t('footer.contacts.agency_name')}
+              <Typography
+                variant="body2"
+                sx={{ ...bodyStyles, color: "#fff", mb: 2 }}
+              >
+                {t("footer.contacts.agency_name")}
               </Typography>
-              <Typography variant="body2" sx={{ ...bodyStyles, color: "#fff", mb: 1 }}>
-                {t('footer.contacts.phone1')}
+              <Typography
+                variant="body2"
+                sx={{ ...bodyStyles, color: "#fff", mb: 2 }}
+              >
+                {t("footer.contacts.phone1")}
               </Typography>
-              <Typography variant="body2" sx={{ ...bodyStyles, color: "#fff", mb: 1 }}>
-                {t('footer.contacts.phone2')}
+              <Typography
+                variant="body2"
+                sx={{ ...bodyStyles, color: "#fff", mb: 2 }}
+              >
+                {t("footer.contacts.phone2")}
               </Typography>
-              <Typography variant="body2" sx={{ ...bodyStyles, color: "#fff", mb: 1 }}>
-                {t('footer.contacts.email')} :{" "}
-                <Link href={`mailto:${t('footer.contacts.email_address')}`} sx={{ ...linkStyles, color: "#F5BA3A" }}>
-                  {t('footer.contacts.email_address')}
+              <Typography
+                variant="body2"
+                sx={{ ...bodyStyles, color: "#fff", mb: 2 }}
+              >
+                {t("footer.contacts.email")} :{" "}
+                <Link
+                  href={`mailto:${t("footer.contacts.email_address")}`}
+                  sx={{ ...linkStyles, color: "#F5BA3A", display: "inline" }}
+                >
+                  {t("footer.contacts.email_address")}
                 </Link>
               </Typography>
               <Typography variant="body2" sx={{ ...bodyStyles, color: "#fff" }}>
-                {t('footer.contacts.address')}
+                {t("footer.contacts.address")}
               </Typography>
             </Box>
           </Box>
@@ -170,24 +215,30 @@ const Footer: React.FC<FooterProps> = () => {
         {/* Section bas du footer */}
         <Box
           sx={{
-            mt: 4,
-            textAlign: "center",
-            borderTop: "1px solid #fff",
-            pt: 2,
+            mt: 5,
+            pt: 3,
+            borderTop: "1px solid rgba(255,255,255,0.3)",
+            display: "flex",
+            flexDirection: { xs: "column", sm: "row" },
+            justifyContent: "space-between",
+            alignItems: "center",
+            gap: 2,
+            textAlign: { xs: "center", sm: "left" },
           }}
         >
           {/* Droits réservés */}
           <Typography variant="body2" sx={{ ...bodyStyles, color: "#fff" }}>
-            {t('footer.copyright')}
+            {t("footer.copyright")}
           </Typography>
           {/* Liens légaux */}
-          <Box sx={{ mt: 2, display: "flex", justifyContent: "center", gap: 2 }}>
-            <Link href="/Politique-Confidentialite&Condition-Utilisation" sx={{ ...linkStyles }}>
-              {t('footer.legal.terms')} & {t('footer.legal.privacy')}
-            </Link>
-          </Box>
+          <Link
+            href="/Politique-Confidentialite&Condition-Utilisation"
+            sx={{ ...linkStyles }}
+          >
+            {t("footer.legal.terms")} & {t("footer.legal.privacy")}
+          </Link>
         </Box>
-      </Container>
+      </div>
     </Box>
   );
 };

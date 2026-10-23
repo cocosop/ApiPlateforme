@@ -1,19 +1,48 @@
-import ActionButtonComponent from '../../../components/actionButtonComponent/actionButtonComponent';
+import ActionButtonComponent from "../../../components/actionButtonComponent/actionButtonComponent";
 import { AcademicCapIcon } from "@heroicons/react/20/solid";
 import { MapIcon, MapPinIcon, TruckIcon } from "lucide-react";
 import { motion } from "framer-motion";
-import { useTranslation } from 'react-i18next';
-
+import { useTranslation } from "react-i18next";
+import { BulbOutlined, ExclamationCircleOutlined } from "@ant-design/icons";
 
 const MinesMetallurgieSiderurgie = () => {
-
   const { t } = useTranslation();
   const statistiques = [
-    { id: 1, name: t("pages_secteurs.mines_metallurgie.stats.projets_miniers.titre"), value: t("pages_secteurs.mines_metallurgie.stats.projets_miniers.valeur"), icon: MapIcon },
-    { id: 2, name: t("pages_secteurs.mines_metallurgie.stats.sites_desenclaves.titre"), value: t("pages_secteurs.mines_metallurgie.stats.sites_desenclaves.valeur"), icon: TruckIcon },
-    { id: 3, name: t("pages_secteurs.mines_metallurgie.stats.cartes_geologiques.titre"), value: t("pages_secteurs.mines_metallurgie.stats.cartes_geologiques.valeur"), icon: MapPinIcon },
-    { id: 4, name: t("pages_secteurs.mines_metallurgie.stats.formations_ciblees.titre"), value: t("pages_secteurs.mines_metallurgie.stats.formations_ciblees.valeur"), icon: AcademicCapIcon }
-  ]
+    {
+      id: 1,
+      name: t("pages_secteurs.mines_metallurgie.stats.projets_miniers.titre"),
+      value: t("pages_secteurs.mines_metallurgie.stats.projets_miniers.valeur"),
+      icon: MapIcon,
+    },
+    {
+      id: 2,
+      name: t("pages_secteurs.mines_metallurgie.stats.sites_desenclaves.titre"),
+      value: t(
+        "pages_secteurs.mines_metallurgie.stats.sites_desenclaves.valeur",
+      ),
+      icon: TruckIcon,
+    },
+    {
+      id: 3,
+      name: t(
+        "pages_secteurs.mines_metallurgie.stats.cartes_geologiques.titre",
+      ),
+      value: t(
+        "pages_secteurs.mines_metallurgie.stats.cartes_geologiques.valeur",
+      ),
+      icon: MapPinIcon,
+    },
+    {
+      id: 4,
+      name: t(
+        "pages_secteurs.mines_metallurgie.stats.formations_ciblees.titre",
+      ),
+      value: t(
+        "pages_secteurs.mines_metallurgie.stats.formations_ciblees.valeur",
+      ),
+      icon: AcademicCapIcon,
+    },
+  ];
 
   return (
     <div>
@@ -28,8 +57,11 @@ const MinesMetallurgieSiderurgie = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="relative z-10 text-start text-white px-6 lg:px-24">
-          <h1 className="text-4xl font-bold">{t("pages_secteurs.mines_metallurgie.hero.titre")}</h1>
+          className="relative z-10 text-start text-white px-6 lg:px-24"
+        >
+          <h1 className="text-4xl font-bold">
+            {t("pages_secteurs.mines_metallurgie.hero.titre")}
+          </h1>
           <p className="mt-4 text-lg max-w-2xl">
             {t("pages_secteurs.mines_metallurgie.hero.description")}
           </p>
@@ -49,8 +81,11 @@ const MinesMetallurgieSiderurgie = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
-          className="mx-auto max-w-7xl px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center mb-8">{t("pages_secteurs.mines_metallurgie.objectif.titre")}</h2>
+          className="mx-auto max-w-7xl px-6 lg:px-8"
+        >
+          <h2 className="text-3xl font-bold text-center mb-8">
+            {t("pages_secteurs.mines_metallurgie.objectif.titre")}
+          </h2>
           <p className="text-lg text-gray-600 text-center max-w-2xl mx-auto">
             {t("pages_secteurs.mines_metallurgie.objectif.texte")}
           </p>
@@ -63,15 +98,18 @@ const MinesMetallurgieSiderurgie = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-3xl font-bold text-center mb-8">{t("pages_secteurs.mines_metallurgie.actions.titre")}</motion.h2>
+            className="text-3xl font-bold text-center mb-8"
+          >
+            {t("pages_secteurs.mines_metallurgie.actions.titre")}
+          </motion.h2>
 
           {/* Cartes Thématiques */}
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
-
+            className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8"
+          >
             {/* Projets Phares */}
             <div className="group relative">
               <div className="aspect-video w-full overflow-hidden rounded-xl bg-gray-200">
@@ -82,14 +120,42 @@ const MinesMetallurgieSiderurgie = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.mines_metallurgie.actions.projets_phare.titre")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {t(
+                    "pages_secteurs.mines_metallurgie.actions.projets_phare.titre",
+                  )}
+                </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.projets_phare.extension_alucam")}</li>
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.projets_phare.aluminerie_kribi")}</li>
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.projets_phare.fer_mbalam")}</li>
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.projets_phare.nickel_lomie")}</li>
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.projets_phare.rutile_akonolinga")}</li>
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.projets_phare.calcaire_mintom")}</li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.projets_phare.extension_alucam",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.projets_phare.aluminerie_kribi",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.projets_phare.fer_mbalam",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.projets_phare.nickel_lomie",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.projets_phare.rutile_akonolinga",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.projets_phare.calcaire_mintom",
+                    )}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -104,11 +170,27 @@ const MinesMetallurgieSiderurgie = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.mines_metallurgie.actions.exploitation_valorisation.titre")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {t(
+                    "pages_secteurs.mines_metallurgie.actions.exploitation_valorisation.titre",
+                  )}
+                </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.exploitation_valorisation.valorisation_or_diamant")}</li>
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.exploitation_valorisation.laboratoire_national")}</li>
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.exploitation_valorisation.partenariats_strategiques")}</li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.exploitation_valorisation.valorisation_or_diamant",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.exploitation_valorisation.laboratoire_national",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.exploitation_valorisation.partenariats_strategiques",
+                    )}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -123,11 +205,27 @@ const MinesMetallurgieSiderurgie = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.mines_metallurgie.actions.infrastructures_logistique.titre")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {t(
+                    "pages_secteurs.mines_metallurgie.actions.infrastructures_logistique.titre",
+                  )}
+                </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.infrastructures_logistique.desenclavement_sites")}</li>
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.infrastructures_logistique.moyens_production")}</li>
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.infrastructures_logistique.cartes_geologiques")}</li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.infrastructures_logistique.desenclavement_sites",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.infrastructures_logistique.moyens_production",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.infrastructures_logistique.cartes_geologiques",
+                    )}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -142,11 +240,27 @@ const MinesMetallurgieSiderurgie = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.mines_metallurgie.actions.formation_expertise.titre")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {t(
+                    "pages_secteurs.mines_metallurgie.actions.formation_expertise.titre",
+                  )}
+                </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.formation_expertise.moyens_techniques")}</li>
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.formation_expertise.plans_formation")}</li>
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.formation_expertise.promotion_expertise")}</li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.formation_expertise.moyens_techniques",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.formation_expertise.plans_formation",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.formation_expertise.promotion_expertise",
+                    )}
+                  </li>
                 </ul>
               </div>
             </div>
@@ -161,15 +275,30 @@ const MinesMetallurgieSiderurgie = () => {
                 />
               </div>
               <div className="mt-4 text-center">
-                <h3 className="text-lg font-semibold text-gray-900">{t("pages_secteurs.mines_metallurgie.actions.innovation_politiques.titre")}</h3>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {t(
+                    "pages_secteurs.mines_metallurgie.actions.innovation_politiques.titre",
+                  )}
+                </h3>
                 <ul className="mt-2 text-sm text-gray-600 px-4 list-disc text-left">
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.innovation_politiques.developpement_creativite")}</li>
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.innovation_politiques.harmonisation_politiques")}</li>
-                  <li>{t("pages_secteurs.mines_metallurgie.actions.innovation_politiques.reduction_barrieres")}</li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.innovation_politiques.developpement_creativite",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.innovation_politiques.harmonisation_politiques",
+                    )}
+                  </li>
+                  <li>
+                    {t(
+                      "pages_secteurs.mines_metallurgie.actions.innovation_politiques.reduction_barrieres",
+                    )}
+                  </li>
                 </ul>
               </div>
             </div>
-
           </motion.div>
         </div>
       </div>
@@ -181,7 +310,10 @@ const MinesMetallurgieSiderurgie = () => {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-3xl font-bold text-center mb-8">{t("pages_secteurs.mines_metallurgie.stats.titre")}</motion.h2>
+            className="text-3xl font-bold text-center mb-8"
+          >
+            {t("pages_secteurs.mines_metallurgie.stats.titre")}
+          </motion.h2>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {statistiques.map((stat, index) => (
               <motion.div
@@ -189,11 +321,14 @@ const MinesMetallurgieSiderurgie = () => {
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
+                className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow"
+              >
                 <div className="flex justify-center">
                   <stat.icon className="h-12 w-12 text-[#AAA9AD]" />
                 </div>
-                <p className="mt-4 text-3xl font-bold text-gray-900">{stat.value}</p>
+                <p className="mt-4 text-3xl font-bold text-gray-900">
+                  {stat.value}
+                </p>
                 <p className="mt-2 text-lg text-gray-600">{stat.name}</p>
               </motion.div>
             ))}
@@ -217,48 +352,63 @@ const MinesMetallurgieSiderurgie = () => {
 
             {/* Grille des rubriques (en arrière-plan) */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center relative z-0">
-
               {/* Carte Opportunités */}
-              <div className="bg-gradient-to-r from-blue-400 to-purple-500  p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
-                {/* Fond dégradé au survol */}
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
-
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 group w-full max-w-md relative overflow-hidden">
+                {/* Ligne d'accentuation #0F0B60 */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-[#0F0B60]"></div>
                 {/* Contenu */}
                 <div className="relative z-10">
                   {/* En-tête de la carte */}
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center">
-                      <span className="text-blue-500 text-2xl">🚀</span>
+                  <div className="flex items-center mb-8">
+                    <div className="w-14 h-14 bg-[#0F0B60]/5 rounded-2xl flex items-center justify-center border border-[#0F0B60]/10 group-hover:bg-[#0F0B60] transition-colors duration-300">
+                      <BulbOutlined className="text-[#0F0B60] text-3xl group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
-                      {t("pages_secteurs.mines_metallurgie.potentiel.opportunites.titre")}
+                    <h2 className="text-2xl font-bold text-gray-800 ml-5 group-hover:text-[#0F0B60] transition-colors duration-300">
+                      {t(
+                        "pages_secteurs.mines_metallurgie.potentiel.opportunites.titre",
+                      )}
                     </h2>
                   </div>
-
                   {/* Liste des points */}
-                  <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">{t("pages_secteurs.mines_metallurgie.potentiel.opportunites.ressources_abondantes")}</span>
+                  <ul className="space-y-5 text-gray-600">
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.mines_metallurgie.potentiel.opportunites.ressources_abondantes",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">{t("pages_secteurs.mines_metallurgie.potentiel.opportunites.projets_structurants")}</span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.mines_metallurgie.potentiel.opportunites.projets_structurants",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">{t("pages_secteurs.mines_metallurgie.potentiel.opportunites.transformation_locale")}</span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.mines_metallurgie.potentiel.opportunites.transformation_locale",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-blue-600 group-hover:text-blue-200">{t("pages_secteurs.mines_metallurgie.potentiel.opportunites.exportation")}</span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.mines_metallurgie.potentiel.opportunites.exportation",
+                        )}
                       </span>
                     </li>
                   </ul>
@@ -266,46 +416,62 @@ const MinesMetallurgieSiderurgie = () => {
               </div>
 
               {/* Carte Défis */}
-              <div className="bg-gradient-to-r from-red-400 to-orange-500 p-8 rounded-2xl border border-gray-100 hover:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl group relative overflow-hidden w-full max-w-md z-0">
-                {/* Fond dégradé au survol */}
-                <div className="absolute inset-0 bg-gradient-to-r from-red-400 to-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"></div>
-
+              <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 group w-full max-w-md relative overflow-hidden">
+                {/* Ligne d'accentuation #0F0B60 */}
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-[#0F0B60]"></div>
                 {/* Contenu */}
                 <div className="relative z-10">
                   {/* En-tête de la carte */}
-                  <div className="flex items-center mb-6">
-                    <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center">
-                      <span className="text-red-500 text-2xl">⚠️</span>
+                  <div className="flex items-center mb-8">
+                    <div className="w-14 h-14 bg-[#0F0B60]/5 rounded-2xl flex items-center justify-center border border-[#0F0B60]/10 group-hover:bg-[#0F0B60] transition-colors duration-300">
+                      <ExclamationCircleOutlined className="text-[#0F0B60] text-3xl group-hover:text-white transition-colors duration-300" />
                     </div>
-                    <h2 className="text-2xl font-bold text-gray-800 ml-4 group-hover:text-white transition-colors duration-300">
-                      {t("pages_secteurs.mines_metallurgie.potentiel.defis.titre")}
+                    <h2 className="text-2xl font-bold text-gray-800 ml-5 group-hover:text-[#0F0B60] transition-colors duration-300">
+                      {t(
+                        "pages_secteurs.mines_metallurgie.potentiel.defis.titre",
+                      )}
                     </h2>
                   </div>
-
                   {/* Liste des points */}
-                  <ul className="space-y-4 text-gray-600 group-hover:text-gray-100 transition-colors duration-300">
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">{t("pages_secteurs.mines_metallurgie.potentiel.defis.manque_infrastructures")}</span>
+                  <ul className="space-y-5 text-gray-600">
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.mines_metallurgie.potentiel.defis.manque_infrastructures",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">{t("pages_secteurs.mines_metallurgie.potentiel.defis.cadre_legal")}</span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.mines_metallurgie.potentiel.defis.cadre_legal",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">{t("pages_secteurs.mines_metallurgie.potentiel.defis.impact_environnemental")}</span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.mines_metallurgie.potentiel.defis.impact_environnemental",
+                        )}
                       </span>
                     </li>
-                    <li className="flex items-start">
-                      <span className="w-2 h-2 bg-red-500 rounded-full mt-2 mr-3"></span>
-                      <span>
-                        <span className="font-medium text-red-600 group-hover:text-red-200">{t("pages_secteurs.mines_metallurgie.potentiel.defis.concurrence_internationale")}</span>
+                    <li className="flex items-start group/item">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-gray-50 flex items-center justify-center mt-0.5 mr-4 group-hover/item:bg-[#0F0B60]/10 transition-colors duration-300">
+                        <span className="w-2 h-2 bg-[#0F0B60] rounded-full"></span>
+                      </div>
+                      <span className="font-medium group-hover/item:text-[#0F0B60] transition-colors duration-300 leading-relaxed">
+                        {t(
+                          "pages_secteurs.mines_metallurgie.potentiel.defis.concurrence_internationale",
+                        )}
                       </span>
                     </li>
                   </ul>

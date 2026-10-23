@@ -13,6 +13,7 @@
       "cadre_juridique": "Marco Legal",
       "sanctuaires": "Santuarios",
       "agro_industrie": "Agroindustria",
+      "elevage": "Ganadería",
       "energie": "Energía",
       "numerique": "Digital",
       "piliers": "Pilares",
@@ -55,13 +56,14 @@
       "presentation_api": "Conozca el papel de la API en el apoyo a los proyectos de inversión.",
       "faq": "Encuentre respuestas rápidas y claras a las preguntas comunes sobre inversión.",
       "conseil_en_ligne": "Obtenga soporte personalizado y respuestas rápidas a todas sus preguntas sobre oportunidades de inversión."
-    }
+    },
+    "voir_plus": "Ver más"
   },
   "home": {
     "hero": {
       "title": "Portal de Inversión de Camerún",
       "cameroon": "",
-      "description": "Descubra oportunidades de inversión en Camerún a través de nuestro portal de inversión profesional, un recurso vital para los inversores. Acceda a información clave de la industria, regulaciones, puntos de inversión geográfica y conéctese con las partes interesadas clave. Además, reciba asesoramiento sobre los procedimientos de creación de empresas para tener éxito en este mercado dinámico.",
+      "description": "Acceda a oportunidades de inversión en Camerún: información clave, regulaciones, zonas geográficas y orientación experta para crear su empresa en este mercado dinámico.",
       "guideButton": "Guía del Inversor",
       "investButton": "Invertir Ahora"
     },
@@ -143,7 +145,25 @@
     "projects": {
       "title": "¡Aproveche Oportunidades Únicas!",
       "description": "Invierta hoy en proyectos innovadores y rentables para construir el futuro de la economía de Camerún.",
-      "more": "sectores de inversiones"
+      "more": "sectores de inversiones",
+      "details": "Más detalles...",
+      "items": [
+        {
+          "secteur": "Agroindustria",
+          "titre": "Explotación de plantación de cacao",
+          "description": "Establecimiento de una plantación moderna de cacao con una producción anual de 50 toneladas."
+        },
+        {
+          "secteur": "Energía",
+          "titre": "Parque solar de 20 MW",
+          "description": "Construcción de un parque solar para proporcionar energía limpia a la región del Norte."
+        },
+        {
+          "secteur": "Digital",
+          "titre": "Plataforma de pago móvil",
+          "description": "Desarrollo de una aplicación de pago móvil destinada a facilitar las transacciones financieras locales."
+        }
+      ]
     }
   },
   "footer": {
@@ -210,12 +230,12 @@
       "unknown": "Error desconocido"
     }
   },
-"signup": {
+  "signup": {
     "title": "Bienvenido al Portal de Inversores de la API",
     "subtitle": "Cree su cuenta",
     "firstname_label": "Nombre",
-    "lastname_label": "Apellido",
-    "email_label": "Dirección de correo electrónico profesional",
+    "lastname_label": "Apellidos",
+    "email_label": "Dirección de correo electrónico",
     "phone_label": "Número de teléfono",
     "phone_placeholder": "(+237) 6XX XXX XXX",
     "password_label": "Contraseña",
@@ -247,7 +267,23 @@
       "conflict": "La dirección de correo electrónico ya está en uso",
       "server_error": "Error del servidor",
       "unknown": "Error desconocido"
-    }
+    },
+    "banner_title": "Construya su próxima oportunidad en Camerún.",
+    "banner_alt": "Construya su próxima oportunidad en Camerún",
+    "back": "Volver",
+    "get_started": "EMPEZAR",
+    "create_investor_account": "Cree su cuenta de inversor",
+    "account_desc": "Su cuenta le ofrece un lugar seguro para gestionar su perfil de inversor y sus proyectos.",
+    "surname_label": "Nombre",
+    "surname_placeholder": "introduzca su nombre",
+    "lastname_placeholder": "introduzca su(s) apellido(s)",
+    "email_placeholder": "ejemplo@gmail.com",
+    "password_hint": "La contraseña debe contener al menos 8 caracteres, una letra mayúscula, un número y un carácter especial.",
+    "terms_agreement": "Acepto los términos de uso y declaro que la información proporcionada es exacta.",
+    "button_create_account": "Crear cuenta",
+    "already_registered": "¿Ya está registrado?",
+    "sign_in_link": "Iniciar sesión",
+    "error_message": "El correo electrónico, teléfono o nombre de usuario ya está en uso"
   },
   "legalAspects": {
     "sections": {
@@ -429,7 +465,9 @@
           }
         }
       },
-      "conclusionFinal": "Camerún dispone de un marco jurídico y fiscal robusto que aúna modernidad y tradición. Sus leyes e instituciones tienen como objetivo crear un entorno favorable para las inversiones y el desarrollo económico, garantizando al mismo tiempo una cierta estabilidad. Sin embargo, aún son necesarios esfuerzos para simplificar los trámites administrativos, reforzar la transparencia y promover aún más el atractivo del país."
+      "conclusionFinal": "Camerún dispone de un marco jurídico y fiscal robusto que aúna modernidad y tradición. Sus leyes e instituciones tienen como objetivo crear un entorno favorable para las inversiones y el desarrollo económico, garantizando al mismo tiempo una cierta estabilidad. Sin embargo, aún son necesarios esfuerzos para simplificar los trámites administrativos, reforzar la transparencia y promover aún más el atractivo del país.",
+      "conclusionTitle": "Conclusión",
+      "downloadDocument": "Descargar documento"
     }
   },
   "pages_secteurs": {
@@ -1315,6 +1353,3228 @@
           "concurrence_internationale": "Competencia internacional: Dificultad para competir con los grandes productores mundiales."
         }
       }
+    },
+    "potentiel": {
+      "titre": "Potencial de Inversión de Camerún",
+      "description": "Explore los sectores estratégicos que ofrecen las mejores oportunidades de inversión en Camerún. Haga clic en un sector para descubrir sus detalles.",
+      "filtres": {
+        "tous": "Todos los Sectores",
+        "piliers": "Pilares Prioritarios",
+        "domaines": "Áreas Clave",
+        "socles": "Cimientos Fundamentales"
+      },
+      "categories": {
+        "pilier": "Pilar",
+        "domaine": "Dominio",
+        "socle": "Cimiento",
+        "secteur_pilier": "Sector Pilar",
+        "domaine_cle": "Dominio Clave",
+        "secteur_socle": "Sector Cimiento"
+      },
+      "titres_categories": {
+        "pilier": "Pilares - Sectores Prioritarios",
+        "domaine": "Dominios Clave - Crecimiento Económico",
+        "socle": "Cimientos - Fundamentos del Desarrollo",
+        "all": "Todos los Sectores de Inversión"
+      },
+      "instructions": "Haga clic en un sector para explorar sus oportunidades de inversión",
+      "explorer": "Explorar este sector",
+      "modal": {
+        "opportunites_investissement": "Oportunidades de inversión",
+        "onglets": {
+          "apercu": "Visión general",
+          "opportunites": "Oportunidades",
+          "defis": "Desafíos",
+          "soutien": "Apoyo Gubernamental"
+        },
+        "apercu_titre": "Visión general del sector",
+        "opportunites_titre": "Oportunidades de Inversión",
+        "defis_titre": "Desafíos a Superar",
+        "soutien_titre": "Apoyo Gubernamental",
+        "garanties_titre": "Garantías de la Carta de Inversiones:",
+        "garanties": [
+          "Seguridad jurídica OHADA",
+          "Libertad de empresa garantizada",
+          "Exenciones fiscales y aduaneras",
+          "Acuerdos bilaterales de protección",
+          "Ventanilla única API Camerún"
+        ]
+      },
+      "secteurs": {
+        "agro": {
+          "nom": "Agricultura y Agroindustria",
+          "description": "Sector prioritario que representa una parte importante del PIB. Camerún cuenta con tierras cultivables fértiles y un clima favorable para diversos cultivos de exportación y la transformación agroalimentaria.",
+          "opportunites": [
+            "Transformación agroalimentaria (prioridad gubernamental)",
+            "Producción y transformación de aceite de palma",
+            "Desarrollo de avicultura moderna",
+            "Cultivos de exportación (cacao, café, banano)",
+            "Cadenas de valor integradas y agronegocios"
+          ],
+          "defis": [
+            "Infraestructura rural por modernizar",
+            "Acceso al financiamiento agrícola",
+            "Complejidad de la tenencia de la tierra"
+          ],
+          "soutien": "Regímenes específicos de incentivos fiscales para la agricultura según la Carta de Inversiones"
+        },
+        "industry": {
+          "nom": "Industria Extractiva",
+          "description": "Sector clave que incluye petróleo, gas y minería. Importantes recursos de gas en alta mar y potencial minero con proyectos de explotación en desarrollo.",
+          "opportunites": [
+            "Explotación minera (bauxita, hierro, oro)",
+            "Recursos de gas en alta mar en desarrollo",
+            "Refinación y procesamiento de petróleo",
+            "Servicios petroleros y de gas",
+            "Geología y exploración minera"
+          ],
+          "defis": [
+            "Se requieren fuertes inversiones",
+            "Regulación ambiental",
+            "Infraestructura de transporte"
+          ],
+          "soutien": "Código minero atractivo y facilidades para la industria extractiva"
+        },
+        "digital": {
+          "nom": "Digital y Fintech",
+          "description": "Sector en rápida expansión con el desarrollo de telecomunicaciones (4G, fibra óptica) y digitalización de servicios. Importantes oportunidades en fintech.",
+          "opportunites": [
+            "Digitalización de servicios (prioridad nacional)",
+            "Desarrollo de fintech",
+            "Soluciones de pago móvil",
+            "Comercio electrónico y plataformas digitales",
+            "Servicios digitales para empresas"
+          ],
+          "defis": [
+            "Infraestructura de conectividad en áreas rurales",
+            "Habilidades digitales",
+            "Regulación fintech"
+          ],
+          "soutien": "Estrategia nacional de digitalización e incentivos para el sector digital"
+        },
+        "energy": {
+          "nom": "Energías Renovables",
+          "description": "Producción de energía dominada por la hidroelectricidad con un fuerte potencial solar sin explotar. Proyectos de energía solar e hidroeléctrica identificados como oportunidades principales.",
+          "opportunites": [
+            "Proyectos de energía solar (alto potencial)",
+            "Desarrollo hidroeléctrico",
+            "Minirredes para electrificación rural",
+            "Eficiencia energética industrial",
+            "Almacenamiento y distribución de energía"
+          ],
+          "defis": [
+            "Financiamiento de proyectos energéticos",
+            "Red de distribución",
+            "Mantenimiento técnico"
+          ],
+          "soutien": "Regímenes de incentivos específicos para la energía según la Carta"
+        },
+        "housing": {
+          "nom": "Vivienda Social",
+          "description": "Desarrollo de viviendas sociales identificado como una oportunidad clave con una tasa de urbanización superior al 58% y una demanda creciente.",
+          "opportunites": [
+            "Desarrollo de viviendas sociales (prioridad)",
+            "Construcción de viviendas asequibles",
+            "Materiales de construcción locales",
+            "Desarrollo urbano y fraccionamientos",
+            "Financiamiento inmobiliario innovador"
+          ],
+          "defis": [
+            "Acceso a suelo urbano",
+            "Financiamiento de los hogares",
+            "Normas de construcción"
+          ],
+          "soutien": "Regímenes específicos para viviendas sociales con incentivos fiscales"
+        },
+        "forest": {
+          "nom": "Madera y Bosques",
+          "description": "Importante cobertura forestal con potencial para procesamiento local y explotación sostenible.",
+          "opportunites": [
+            "Procesamiento local de madera",
+            "Certificación forestal sostenible",
+            "Productos derivados (muebles, construcción)",
+            "Ecoturismo forestal",
+            "Proyectos de carbono y conservación"
+          ],
+          "defis": [
+            "Tala ilegal",
+            "Trazabilidad de productos",
+            "Infraestructura forestal"
+          ],
+          "soutien": "Ley forestal que favorece el procesamiento local"
+        },
+        "textile": {
+          "nom": "Textil y Confección",
+          "description": "Industria con potencial de reactivación gracias a los acuerdos comerciales internacionales.",
+          "opportunites": [
+            "Confección para exportación",
+            "Cadena de algodón integrada",
+            "Textiles técnicos",
+            "Moda y diseño africano",
+            "Artículos de cuero"
+          ],
+          "defis": [
+            "Competencia internacional",
+            "Costos de energía",
+            "Formación técnica"
+          ],
+          "soutien": "Zonas económicas especiales para textiles"
+        },
+        "oil": {
+          "nom": "Hidrocarburos",
+          "description": "Sector maduro con oportunidades en refinación y servicios petroleros.",
+          "opportunites": [
+            "Refinación y productos petrolíferos",
+            "Servicios petroleros en alta mar",
+            "Almacenamiento y distribución",
+            "Mantenimiento industrial",
+            "Logística petrolera"
+          ],
+          "defis": [
+            "Volatilidad de precios",
+            "Regulación ambiental",
+            "Fuertes inversiones"
+          ],
+          "soutien": "Código petrolero atractivo para inversores"
+        },
+        "chemical": {
+          "nom": "Química y Farmacia",
+          "description": "Sector estratégico para la salud pública y la industria química.",
+          "opportunites": [
+            "Producción de medicamentos genéricos",
+            "Fitofarmacia tradicional",
+            "Fertilizantes agrícolas",
+            "Cosméticos naturales",
+            "Química verde"
+          ],
+          "defis": [
+            "Regulación de salud",
+            "Cualificación del personal",
+            "Competencia de importaciones"
+          ],
+          "soutien": "Política farmacéutica nacional"
+        },
+        "construction": {
+          "nom": "Construcción y Obras Públicas",
+          "description": "Sector en crecimiento con proyectos de infraestructura y vivienda.",
+          "opportunites": [
+            "Construcción de infraestructura pública",
+            "Vivienda y bienes raíces",
+            "Carreteras y puentes",
+            "Edificios industriales",
+            "Obras portuarias"
+          ],
+          "defis": [
+            "Acceso a materiales",
+            "Financiamiento de proyectos",
+            "Habilidades técnicas"
+          ],
+          "soutien": "Plan maestro vial y programas de infraestructura"
+        },
+        "transport": {
+          "nom": "Transporte y Logística",
+          "description": "Infraestructura vital para el comercio exterior. Posición estratégica como hub de África Central con el 80% del tráfico a través del Puerto de Douala.",
+          "opportunites": [
+            "Modernización del Puerto de Douala (80% del tráfico)",
+            "Desarrollo del Puerto de aguas profundas de Kribi",
+            "Corredores Douala-N'Djamena y Douala-Bangui",
+            "Logística digital y Ventanilla Única",
+            "Transporte ferroviario modernizado"
+          ],
+          "defis": [
+            "Congestión portuaria en Douala",
+            "Altos tiempos de tránsito",
+            "Altos costos logísticos"
+          ],
+          "soutien": "Ventanilla Única para Operaciones de Comercio Exterior (GUCE)"
+        },
+        "finance": {
+          "nom": "Servicios Financieros",
+          "description": "Sistema financiero en desarrollo con la moneda Franco CFA vinculada al euro, ofreciendo estabilidad monetaria.",
+          "opportunites": [
+            "Servicios bancarios digitales",
+            "Microfinanzas e inclusión financiera",
+            "Seguros agrícolas y climáticos",
+            "Financiamiento de pymes",
+            "Mercado de capitales CEMAC"
+          ],
+          "defis": [
+            "Acceso a crédito",
+            "Altas tasas de interés",
+            "Garantías bancarias"
+          ],
+          "soutien": "Reformas del sistema financiero CEMAC y estabilidad del Franco CFA"
+        },
+        "infrastructure": {
+          "nom": "Infraestructura Básica",
+          "description": "Desarrollo de infraestructuras: red vial (Plan maestro), modernización ferroviaria, telecomunicaciones (4G, fibra óptica).",
+          "opportunites": [
+            "Red vial (Plan maestro vial)",
+            "Modernización ferroviaria Yaundé-Douala-Ngaoundéré",
+            "Infraestructura de telecomunicaciones (4G, fibra)",
+            "Suministro de agua y saneamiento",
+            "Infraestructura aeroportuaria"
+          ],
+          "defis": [
+            "Financiamiento de proyectos",
+            "Mantenimiento de infraestructura",
+            "Normas técnicas"
+          ],
+          "soutien": "Plan maestro vial y programas de inversión pública"
+        }
+      }
+    },
+    "elevage_page": {
+      "hero": {
+        "title": "Ganadería",
+        "subtitle": "Un sector en crecimiento que ofrece oportunidades de inversión en producción animal, procesamiento, alimentación, salud y cadenas de valor ganaderas en Camerún.",
+        "button": "Explorar oportunidades"
+      },
+      "objective": {
+        "title": "Objetivo Estratégico",
+        "text": "Modernizar la producción ganadera, fortalecer las cadenas de valor y aumentar el procesamiento local para mejorar la seguridad alimentaria, reducir las importaciones y crear oportunidades de inversión sostenibles."
+      },
+      "sector": {
+        "header_title": "Sector Ganadero",
+        "cattle_dairy": {
+          "title": "Ganado Bovino y Lácteo",
+          "item1": "Producción bovina moderna",
+          "item2": "Producción y recolección de leche",
+          "item3": "Procesamiento de lácteos",
+          "item4": "Sistemas de cría mejorados"
+        },
+        "poultry": {
+          "title": "Avicultura",
+          "item1": "Cría de pollos de engorde y ponedoras",
+          "item2": "Incubadoras",
+          "item3": "Producción de huevos",
+          "item4": "Procesamiento de carne de ave"
+        },
+        "pigs_ruminants": {
+          "title": "Cerdos y Pequeños Rumiantes",
+          "item1": "Cría de cerdos moderna",
+          "item2": "Producción ovina y caprina",
+          "item3": "Centros de cría",
+          "item4": "Producción de carne"
+        },
+        "feed_inputs": {
+          "title": "Alimentación e Insumos",
+          "item1": "Producción de alimentos para animales",
+          "item2": "Desarrollo de forraje",
+          "item3": "Instalaciones de procesamiento de alimentos",
+          "item4": "Equipos e insumos ganaderos"
+        },
+        "processing_distrib": {
+          "title": "Procesamiento y Distribución",
+          "item1": "Procesamiento de carne",
+          "item2": "Procesamiento de lácteos",
+          "item3": "Instalaciones de cadena de frío",
+          "item4": "Envasado y distribución"
+        }
+      },
+      "investment_areas": {
+        "header_title": "Áreas de Inversión",
+        "production": {
+          "title": "Producción",
+          "desc": "Bovinos • Aves • Cerdos • Pescado • Ovino y Caprino"
+        },
+        "inputs": {
+          "title": "Insumos y Servicios",
+          "desc": "Alimentación • Genética • Servicios veterinarios • Equipos"
+        },
+        "processing": {
+          "title": "Procesamiento",
+          "desc": "Carne • Leche • Huevos • Pescado • Pollo • Envasado"
+        },
+        "infrastructure": {
+          "title": "Infraestructura",
+          "desc": "Cadena de frío • Almacenamiento • Logística • Distribución"
+        }
+      },
+      "key_figures": {
+        "header_title": "Cifras Clave",
+        "demand": {
+          "title": "Demanda Creciente",
+          "subtitle": "Carne, leche y huevos"
+        },
+        "production": {
+          "title": "Producción Diversa",
+          "subtitle": "Bovinos, aves, cerdos y pequeños rumiantes"
+        },
+        "value": {
+          "title": "Valor Agregado",
+          "subtitle": "Procesamiento y envasado"
+        },
+        "potential": {
+          "title": "Potencial Regional",
+          "subtitle": "Mercados nacionales y regionales"
+        }
+      },
+      "potential_sec": {
+        "title": "Potencial Ganadero en Camerún",
+        "subtitle": "Camerún tiene un fuerte potencial para el desarrollo ganadero, impulsado por diversas zonas de producción, recursos disponibles y una creciente demanda de productos de origen animal. El sector ofrece oportunidades desde la producción primaria hasta el procesamiento y la distribución.",
+        "opportunities": {
+          "title": "Oportunidades"
+        },
+        "challenges": {
+          "item1": {
+            "title": "Baja productividad:",
+            "desc": "Acceso limitado a razas mejoradas, alimentos y tecnologías modernas."
+          },
+          "item2": {
+            "title": "Brechas de infraestructura:",
+            "desc": "Instalaciones insuficientes de procesamiento, almacenamiento y cadena de frío."
+          },
+          "item3": {
+            "title": "Acceso a financiamiento:",
+            "desc": "Financiamiento limitado para modernización y expansión."
+          },
+          "item4": {
+            "title": "Salud animal:",
+            "desc": "Riesgos de enfermedades y brechas en la cobertura veterinaria."
+          },
+          "item5": {
+            "title": "Cadenas de valor fragmentadas:",
+            "desc": "Vínculos débiles entre productores, procesadores y mercados."
+          }
+        },
+        "opps": {
+          "item1": {
+            "title": "Producción moderna:",
+            "desc": "Desarrollo de granjas ganaderas y avícolas comerciales."
+          },
+          "item2": {
+            "title": "Valor agregado:",
+            "desc": "Procesamiento y envasado de carne, leche y huevos."
+          },
+          "item3": {
+            "title": "Industria de alimentos:",
+            "desc": "Producción de alimentos para animales y forraje."
+          },
+          "item4": {
+            "title": "Salud animal:",
+            "desc": "Servicios veterinarios, cría y mejora genética."
+          },
+          "item5": {
+            "title": "Desarrollo del mercado:",
+            "desc": "Crecientes oportunidades en mercados nacionales y regionales."
+          }
+        }
+      }
+    },
+    "creation_entreprise": {
+      "hero": {
+        "badge": "Creación de empresa simplificada",
+        "title": "Su empresa en",
+        "title_highlight": "Camerún en 1 semana",
+        "subtitle": "Benefíciese de un marco jurídico OHADA modernizado y de un proceso acelerado gracias a los Centros de Formalidades de Creación de Empresas (CFCE) presentes en todas las regiones.",
+        "button": "Descubrir la guía completa"
+      },
+      "nav": {
+        "cfce": "CFCE",
+        "types": "Tipos de empresas",
+        "processus": "Proceso",
+        "documents": "Documentos",
+        "couts": "Costes",
+        "ressources": "Recursos",
+        "structures": "Estructuras"
+      },
+      "cfce": {
+        "title": "El CFCE: Su Ventanilla Única",
+        "subtitle": "Todas las administraciones involucradas en la creación de su empresa están reunidas en un solo lugar para ahorrarle tiempo.",
+        "guichet_title": "Ventanilla Única",
+        "guichet_desc": "Todos sus trámites centralizados en una sola oficina.",
+        "delai_title": "Plazo Rápido",
+        "delai_desc": "Reciba sus documentos oficiales en un promedio de 1 semana.",
+        "couverture_title": "Cobertura Nacional",
+        "couverture_desc": "Presente en las 10 regiones de Camerún para mayor proximidad.",
+        "villes_label": "Ciudades con CFCE:",
+        "card1_title": "Centralizado",
+        "card1_desc": "Todos los trámites administrativos en un solo lugar para simplificar sus formalidades.",
+        "card2_title": "01 semana",
+        "card2_desc": "Plazo medio para obtener sus documentos de creación de empresa.",
+        "card3_title": "Acompañamiento",
+        "card3_desc": "Asesores dedicados para guiarle en cada etapa del proceso.",
+        "presence_title": "Presencia nacional",
+        "presence_desc": "CFCE en todas las regiones de Camerún",
+        "simple_title": "Proceso simplificado",
+        "simple_s1": "Prepare sus documentos",
+        "simple_s2": "Preséntelos en el CFCE",
+        "simple_s3": "Tramitación multiservicio",
+        "simple_s4": "Recoja sus documentos (1 semana)",
+        "simple_s5": "Registro fiscal"
+      },
+      "types": {
+        "title": "Tipos de Empresas en Camerún",
+        "physique_title": "Persona Física",
+        "physique_tag": "Establecimiento (ETS)",
+        "physique_item1": "Ideal para un emprendedor individual",
+        "physique_item2": "Sin capital social requerido",
+        "physique_item3": "Sin estatutos que redactar",
+        "physique_item4": "Creación muy rápida y menos costosa",
+        "physique_note": "El patrimonio personal y profesional se confunden en caso de deudas.",
+        "morale_title": "Persona Jurídica",
+        "morale_tag": "Sociedad (SARL, SA, etc.)",
+        "morale_item1": "Ideal para un proyecto con socios",
+        "morale_item2": "Capital social claramente definido",
+        "morale_item3": "Estatutos obligatorios (notariales según el capital)",
+        "morale_item4": "Protección del patrimonio personal",
+        "caracteristiques": "Características",
+        "avantages": "Ventajas",
+        "physique_c1": "Empresario individual sin socios",
+        "physique_c2": "No se exige capital social",
+        "physique_c3": "No se necesitan estatutos",
+        "physique_c4": "Patrimonio personal y profesional confundidos",
+        "physique_a1": "Creación rápida y sencilla",
+        "physique_a2": "Costes reducidos",
+        "physique_a3": "Gestión simplificada",
+        "morale_c1": "Uno o varios socios (personas físicas o jurídicas)",
+        "morale_c2": "Capital social definido",
+        "morale_c3": "Estatutos obligatorios",
+        "morale_c4": "Patrimonio distinto del de los socios",
+        "morale_a1": "Protección del patrimonio personal",
+        "morale_a2": "Mayor credibilidad",
+        "morale_a3": "Posibilidad de crecimiento"
+      },
+      "processus": {
+        "title": "El Proceso de Creación",
+        "step1_title": "Preparación del expediente",
+        "step1_desc": "Reúna todos los documentos requeridos (ver sección Documentos). Para las SARL con más de 1 millón de FCFA, pase primero por un notario para redactar los estatutos.",
+        "step2_title": "Presentación en el CFCE",
+        "step2_desc": "Presente su expediente físico completo en la Ventanilla Única de su región. Se le entregará un recibo.",
+        "step3_title": "Tramitación (1 Semana)",
+        "step3_desc": "El CFCE se encarga de todos los trámites con las diferentes administraciones (Tribunal, Impuestos, etc.).",
+        "step4_title": "Retiro e Inscripción Fiscal",
+        "step4_desc": "Recoja su RCCM (Registro de Comercio). El Certificado de Inscripción Fiscal se descarga directamente en línea en impots.cm."
+      },
+      "documents": {
+        "title": "Documentos Requeridos por Tipo",
+        "tab_ets": "Establecimiento (Física)",
+        "tab_sarl": "SARL documento privado",
+        "ets_item1": "Fotocopia del DNI del promotor",
+        "ets_item2": "Fotocopia del permiso de residencia o pasaporte (extranjeros)",
+        "ets_item3": "Copia del acta de matrimonio (si aplica)",
+        "ets_item4": "Extracto de antecedentes penales (o declaración jurada)",
+        "ets_item5": "Plano de ubicación de la empresa",
+        "ets_item6": "Gastos de RCCM (Registro de Comercio)",
+        "sarl_item1": "05 ejemplares timbrados de los estatutos",
+        "sarl_item2": "Fotocopias de los DNI de los socios",
+        "sarl_item3": "Extracto de antecedentes penales de los directivos",
+        "sarl_item4": "Plano de ubicación con contacto",
+        "sarl_item5": "Gastos de RCCM",
+        "sarl_item6": "Gastos de anuncio legal (Cameroun Tribune)",
+        "delays_title": "Plazos de tramitación",
+        "delay_ets": "Establecimiento",
+        "delay_sarl_small": "SARL (< 1M)",
+        "delay_sarl_big": "SARL (≥ 1M)",
+        "one_week": "1 semana",
+        "variable": "Variable",
+        "depends_notary": "Depende del notario"
+      },
+      "couts": {
+        "title": "Costes y Gastos de Creación",
+        "cfce_card_title": "Tarifas CFCE",
+        "fiscalite_card_title": "Fiscalidad Inicial",
+        "budget_card_title": "Presupuesto Total Estimado",
+        "cnps": "Certificado CNPS",
+        "non_emploi": "Certificado de No Empleo",
+        "rccm_physique": "RCCM (Persona Física)",
+        "rccm_morale": "RCCM (Persona Jurídica)",
+        "patente_label": "Patente",
+        "patente_value": "Exenta el 1er año",
+        "carte_label": "Tarjeta de Contribuyente",
+        "carte_value": "Gratuita",
+        "bail_label": "Registro del Contrato de Arrendamiento",
+        "bail_unit": "del alquiler anual",
+        "ets_budget_label": "Establecimiento (ETS)",
+        "sarl_budget_label": "SARL (< 1M Capital)",
+        "hors_bail": "Sin incluir gastos de arrendamiento",
+        "cnps_note": "Recibo de 5 000 FCFA + 2 timbres de 1 500 FCFA",
+        "non_emploi_note": "Recibo de 1 500 FCFA + 1 timbre de 1 000 FCFA",
+        "patente_note": "Gratuita durante el primer año de actividad",
+        "carte_note": "Expedida sin coste",
+        "bail_value": "10 % del alquiler anual / 0,11 % del valor del inmueble",
+        "bail_note": "Según condición de arrendatario/propietario",
+        "rccm_label": "Registro Mercantil",
+        "rccm_value": "53 000 XAF (física) / 41 500 XAF (jurídica)",
+        "rccm_note": "Inscripción legal en el RCCM",
+        "total_title": "Estimación Total de los Costes",
+        "total_ets": "Establecimiento",
+        "total_sarl": "SARL (< 1M)",
+        "total_impots": "Registro fiscal",
+        "hors_impots": "FCFA (sin registro fiscal)",
+        "selon_bail": "FCFA (según arrendamiento)"
+      },
+      "ressources": {
+        "title": "Marco Jurídico y Enlaces Útiles",
+        "docs_title": "Documentos para descargar",
+        "links_title": "Instituciones Útiles",
+        "ohada_title": "Tratado OHADA",
+        "ohada_desc": "Derecho comercial general en África.",
+        "loi_title": "Ley 2016/014",
+        "loi_desc": "Modernización del marco jurídico.",
+        "decret_title": "Decreto 2017/0877",
+        "decret_desc": "Modalidades de autenticación para SARL.",
+        "api_title": "API Camerún",
+        "api_desc": "Agencia de Promoción de Inversiones",
+        "apme_title": "APME",
+        "apme_desc": "Agencia de Promoción de PYME",
+        "impots_title": "Impots.cm",
+        "impots_desc": "Dirección General de Impuestos"
+      },
+      "structures": {
+        "title": "Estructuras Jurídicas Disponibles",
+        "eurl_desc": "Socio único, capital flexible",
+        "sarl_desc": "2 socios o más, responsabilidad limitada",
+        "sa_desc": "Sociedad por acciones, accionariado",
+        "sas_desc": "Organización flexible y moderna",
+        "minimum": "Mínimo",
+        "capital_free": "Capital libre"
+      },
+      "detail": {
+        "title": "Proceso de Creación Detallado",
+        "ets_title": "Creación de un Establecimiento (Persona Física)",
+        "step_prep": "Preparación",
+        "step_depot": "Presentación en el CFCE",
+        "step_recup": "Recogida",
+        "depot_desc": "Presente todos los documentos en el Centro de Formalidades de Creación de Empresas de su región.",
+        "traitement_badge": "Tramitación: 1 semana",
+        "recup_1": "RCCM (Registro Mercantil)",
+        "recup_2": "Certificado de inscripción (en línea en impots.cm)",
+        "recup_note": "El certificado de inscripción sustituye a la antigua tarjeta de contribuyente.",
+        "sarl_title": "Creación de una SARL",
+        "sarl_capital": "Capital entre 100 000 y 999 999 FCFA (documento privado)",
+        "sarl_s1_t": "1. Estatutos",
+        "sarl_s1_d": "Redacción y validación por el jefe del centro, 5 ejemplares timbrados.",
+        "sarl_s2_t": "2. Expediente",
+        "sarl_s2_d": "Presentación completa en el CFCE con todos los documentos requeridos.",
+        "sarl_s3_t": "3. Tramitación",
+        "sarl_s3_d": "Plazo medio: 1 semana.",
+        "sarl_s4_t": "4. Recogida",
+        "sarl_s4_d": "RCCM y estatutos validados.",
+        "notaire_badge": "Capital ≥ 1 000 000 FCFA",
+        "notaire_title": "Paso obligatorio por el notario",
+        "notaire_1": "Redacción de los estatutos",
+        "notaire_2": "Preparación del RCCM",
+        "notaire_3": "Todos los documentos necesarios",
+        "avantage_title": "Ventaja",
+        "avantage_desc": "Ya no es necesario pasar por el CFCE después del notario: el certificado de inscripción se obtiene directamente en impots.cm."
+      },
+      "impots": {
+        "title": "Registro en el Centro de Impuestos",
+        "docs_title": "Documentos requeridos",
+        "d1": "El Registro Mercantil",
+        "d2": "Los estatutos",
+        "d3": "El certificado de inscripción",
+        "d4": "El plano de ubicación",
+        "d5": "El contrato de arrendamiento",
+        "costs_title": "Costes estimados",
+        "amount": "≈ 200 000 FCFA",
+        "bail": "Incluye el registro del arrendamiento: 10 % del alquiler anual",
+        "example": "Ejemplo: alquiler de 100 000 FCFA/mes → 120 000 FCFA de registro",
+        "note": "Tras el registro, las declaraciones y pagos mensuales son obligatorios."
+      },
+      "faq": {
+        "contexte": "Contexto Jurídico",
+        "contexte_desc": "La creación de empresas en Camerún se rige por el derecho OHADA y por textos nacionales que han simplificado los trámites.",
+        "avantages": "Ventajas Fiscales",
+        "av1": "Patente exenta el primer año de actividad",
+        "av2": "Certificado de inscripción expedido gratuitamente",
+        "av3": "Regímenes de incentivos de la Carta de Inversiones para los proyectos elegibles",
+        "institutions": "Instituciones",
+        "processus": "Proceso Detallado",
+        "couts_delais": "Costes y Plazos",
+        "cd1": "Establecimiento: unos 75 000 FCFA, 1 semana",
+        "cd2": "SARL (< 1 M): unos 85 000 FCFA, 1 semana",
+        "cd3": "SARL (≥ 1 M): más honorarios del notario, plazo variable",
+        "cd4": "Registro fiscal: unos 200 000 FCFA según el arrendamiento"
+      }
+    },
+    "facteurs_production": {
+      "hero": {
+        "badge": "Invertir en Camerún",
+        "title": "Factores de",
+        "title_highlight": "Producción",
+        "subtitle": "Maximice la eficiencia de sus inversiones con recursos competitivos, impuestos ventajosos e infraestructura adecuada.",
+        "button": "Explorar oportunidades"
+      },
+      "nav": {
+        "main_oeuvre": "Mano de obra",
+        "foncier": "Suelo",
+        "fiscalite": "Fiscalidad",
+        "couts_secteur": "Costes Sectoriales",
+        "facteurs": "Factores de Producción"
+      },
+      "main_oeuvre": {
+        "title": "Mano de Obra en Camerún",
+        "subtitle": "Benefíciese de una mano de obra abundante, joven y cualificada, con una tasa de alfabetización del 71,2 % y costes salariales muy competitivos en África Central.",
+        "t1": "Calificación",
+        "t1_l1": "Alfabetización",
+        "t1_l2": "Primaria (Tasa Neta)",
+        "t1_l3": "Distribución por nivel educativo",
+        "t1_l4": "Nivel primario",
+        "t1_l5": "Nivel secundario",
+        "t1_l6": "Nivel superior",
+        "t2": "Salarios y Condiciones",
+        "t2_l1": "Salario Mínimo (SMIG)",
+        "t2_l2": "~ 55,3 € / mes",
+        "t2_l3": "Ejecutivos",
+        "t2_l4": "Empleados",
+        "t2_l5": "Obreros",
+        "t2_l6": "48h / semana",
+        "t2_l7": "Descanso: 24h/sem",
+        "t2_l8": "30 días vac./año",
+        "t2_l9": "Edad legal: 16 años",
+        "t3": "Contribuciones Sociales",
+        "t3_l1": "Beneficios Familiares",
+        "t3_l2": "100% Empleador",
+        "t3_l3": "Pensión de Vejez",
+        "t3_l4": "4.2% Empleador / 4.2% Empleado",
+        "t3_l5": "Límite mensual: 750,000 FCFA",
+        "t4": "Tipos de Contratos",
+        "t4_l1": "Contrato de Duración Determinada (CDD)",
+        "t4_l2": "Máximo 12 meses, renovable solo una vez.",
+        "t4_l3": "Contrato Indefinido (CDI)",
+        "t4_l4": "Tiempo completo o parcial, regido por el Código Laboral.",
+        "t4_l5": "Expatriados",
+        "t4_l6": "Sin cuota fija, prioridad a las habilidades no disponibles localmente.",
+        "item1": "Mano de obra joven y dinámica (el 60 % de la población tiene menos de 25 años)",
+        "item2": "Tasa de alfabetización: 71,2 %",
+        "item3": "Costes laborales entre los más competitivos de África Central",
+        "button": "Ver detalles",
+        "stat1_value": "27M+",
+        "stat1_label": "Población activa",
+        "stat2_value": "36 270",
+        "stat2_label": "Salario mínimo mensual (FCFA)",
+        "stat3_value": "71.2%",
+        "stat3_label": "Tasa de alfabetización",
+        "stat4_value": "48h",
+        "stat4_label": "Horas legales/semana"
+      },
+      "foncier": {
+        "title": "Terrenos en Camerún",
+        "t1": "Terrenos Urbanizados",
+        "t1_d": "por m² / año",
+        "t1_l1": "Duala-Bonabéri",
+        "t1_l2": "Bassa",
+        "t2": "Terrenos Edificados",
+        "t2_d": "por m² / año",
+        "t2_l1": "Zona franca",
+        "t2_l2": "Estándar",
+        "t3": "Título de Propiedad Garantizado",
+        "t3_d": "Un procedimiento seguro con certificación estatal. Camerún ha modernizado sus procedimientos para garantizar los derechos de los inversores.",
+        "t3_l1": "Certificado de autenticidad digital",
+        "t3_l2": "Geolocalización precisa",
+        "t3_l3": "Protección contra el fraude",
+        "t4": "Reformas de 2005",
+        "t4_l1": "Aceleración de procedimientos administrativos",
+        "t4_l2": "Descentralización de decisiones regionales",
+        "t4_l3": "Sistema de publicación transparente",
+        "t4_l4": "Mecanismo de resolución de conflictos",
+        "t5": "Arrendamiento Comercial Seguro",
+        "t5_d": "Contratos de arrendamiento modernizados con claros beneficios para las empresas.",
+        "t5_l1_k": "Duración máxima: ",
+        "t5_l1_v": "15 años (renovable)",
+        "t5_l2_k": "Indexación: ",
+        "t5_l2_v": "Regulado según el índice local",
+        "t6": "Textos Legales",
+        "l1_s": "Régimen de tierras",
+        "l2_s": "Gestión de la propiedad estatal",
+        "l3_s": "Expropiación",
+        "l4_s": "Modificaciones",
+        "subtitle": "El acceso a la tierra se facilita mediante procedimientos simplificados y costes atractivos. Aproveche las zonas acondicionadas para un despliegue rápido.",
+        "item1": "Zonas industriales habilitadas en Douala y Yaundé",
+        "item2": "Título de propiedad seguro y garantizado por el Estado",
+        "item3": "Procedimientos de registro modernizados desde 2005",
+        "button": "Ver detalles",
+        "stat1_value": "800-2500",
+        "stat1_label": "FCFA / m² / año (terreno habilitado)",
+        "stat2_value": "475 M km²",
+        "stat2_label": "Superficie total disponible",
+        "stat3_value": "15 años",
+        "stat3_label": "Duración máx. del arrendamiento comercial"
+      },
+      "fiscalite": {
+        "title": "Fiscalidad Camerunesa",
+        "subtitle": "Un marco fiscal moderno que ofrece numerosas exenciones aduaneras y deducciones específicas para dinamizar sus proyectos de inversión.",
+        "sys_fiscal": "Sistema Fiscal Integral",
+        "impot_societe": "Impuesto de Sociedades",
+        "tva_standard": "IVA Estándar",
+        "patente": "Impuesto Comercial Local",
+        "regimes": "Regímenes Fiscales",
+        "regime_liberatoire": {
+          "title": "Impuesto Liberatorio",
+          "l1": "Volumen anual < 10M FCFA",
+          "l2": "Pago trimestral",
+          "l3": "Exento de IVA e Impuesto Comercial"
+        },
+        "regime_simplifie": {
+          "title": "Régimen Simplificado (RSI)",
+          "l1": "Volumen: 10M - 50M FCFA",
+          "l2": "Contabilidad OHADA simplificada",
+          "l3": "No recauda IVA"
+        },
+        "regime_reel": {
+          "title": "Régimen Real",
+          "l1": "Volumen > 50M FCFA",
+          "l2": "Contabilidad OHADA normal",
+          "l3": "Recauda y deduce IVA"
+        },
+        "tva_droits": "IVA y Derechos Especiales",
+        "exo_tva": {
+          "title": "Exenciones de IVA",
+          "l1": "Exportaciones",
+          "l2": "Zonas francas industriales",
+          "l3": "Servicios educativos y médicos"
+        },
+        "droits_accise": {
+          "title": "Impuestos Especiales",
+          "l1_k": "Bebidas alcohólicas",
+          "l1_v": "35% (+ bonificación)",
+          "l2_k": "Tabaco",
+          "l2_v": "42.5% (+ bonificación)"
+        },
+        "fisc_locale": "Fiscalidad Local y de Propiedad",
+        "patente_licences": {
+          "title": "Patentes y Licencias",
+          "l1": "1% del volumen anual",
+          "l2": "Alcohólicas (4x patente), No alcohólicas (2x patente)"
+        },
+        "taxe_fonciere": {
+          "title": "Impuesto a la Propiedad (0.11%)",
+          "l1": "0.11% sobre terrenos y edificios",
+          "l2": "5-10% del alquiler anual (retención)"
+        },
+        "tarifs_douaniers": "Aranceles Aduaneros CEMAC",
+        "table": {
+          "col1": "Categoría",
+          "col2": "Tasa",
+          "col3": "Base imponible",
+          "col4": "Ejemplos"
+        },
+        "data": {
+          "d1": {
+            "cat": "Bienes de primera necesidad",
+            "base": "Valor en aduana",
+            "ex": "Medicamentos, productos básicos"
+          },
+          "d2": {
+            "cat": "Materias primas",
+            "base": "Valor EXW",
+            "ex": "Acero, productos agrícolas crudos"
+          },
+          "d3": {
+            "cat": "Bienes intermedios",
+            "base": "Valor CIF",
+            "ex": "Repuestos, componentes"
+          },
+          "d4": {
+            "cat": "Bienes de consumo",
+            "base": "Valor total",
+            "ex": "Electrónica, vehículos"
+          }
+        },
+        "item1": "Impuesto sobre sociedades: 33 %",
+        "item2": "IVA estándar: 19,25 %",
+        "item3": "Exenciones en zonas francas industriales",
+        "button": "Ver detalles",
+        "stat1_value": "33%",
+        "stat1_label": "Impuesto sobre sociedades",
+        "stat2_value": "19.25%",
+        "stat2_label": "IVA estándar",
+        "stat3_value": "0%",
+        "stat3_label": "IS en Zona Franca"
+      },
+      "couts_secteur": {
+        "title": "Costes por Sector de Actividad",
+        "desc": "Analice en detalle los costes de producción, equipamiento e infraestructura en los sectores estratégicos clave del país.",
+        "tag1": "Agroindustria",
+        "tag2": "Energía",
+        "tag3": "Construcción",
+        "tag4": "Servicios",
+        "tag5": "Minería",
+        "button": "Consultar costes sectoriales",
+        "subtitle": "Analice en detalle los costes de producción, equipamiento e infraestructura distribuidos en los principales sectores estratégicos del país."
+      },
+      "grid": {
+        "title": "Costes Básicos de Producción",
+        "subtitle": "Resumen de los principales costes para invertir en Camerún.",
+        "factors": {
+          "intrants": {
+            "name": "Insumos",
+            "desc": "Materias primas, equipos y componentes importados con aranceles aduaneros CEMAC.",
+            "label": "Arancel aduanero CEMAC",
+            "stat1": "0% – Bienes de primera necesidad",
+            "stat2": "5% – Materias primas",
+            "stat3": "30% – Bienes de consumo"
+          },
+          "transport": {
+            "name": "Transporte",
+            "desc": "Costes de transporte por carretera, ferroviario, marítimo y aéreo en Camerún.",
+            "label": "Carretera / tonelada",
+            "stat1": "40-80 FCFA/t (carretera)",
+            "stat2": "Yaundé–Douala 240 km",
+            "stat3": "Puerto activo de Douala"
+          },
+          "terrain": {
+            "name": "Terreno",
+            "desc": "Costes de adquisición y alquiler de terrenos industriales habilitados o edificados.",
+            "label": "por m² / año",
+            "stat1": "Zonas habilitadas disponibles",
+            "stat2": "Título de propiedad seguro",
+            "stat3": "Douala-Bonabéri: 800 FCFA"
+          },
+          "energie": {
+            "name": "Energía",
+            "desc": "Tarifación de electricidad, combustibles, gas y agua para empresas industriales.",
+            "label": "Electricidad / kWh",
+            "stat1": "Baja tensión: 50-99 FCFA",
+            "stat2": "Gasóleo: 575 FCFA/L",
+            "stat3": "Gas 12kg: 6.500 FCFA"
+          },
+          "telecom": {
+            "name": "Telecomunicaciones",
+            "desc": "Tarifas de telefonía, internet y datos para empresas en Camerún.",
+            "label": "Móvil / min",
+            "stat1": "Operadores: MTN, Orange",
+            "stat2": "ADSL: 25k–150k FCFA/mes",
+            "stat3": "Cobertura 4G nacional"
+          },
+          "personnel": {
+            "name": "Personal",
+            "desc": "Salarios, cotizaciones sociales y condiciones de trabajo reguladas por el Código Laboral.",
+            "label": "Salario mínimo mensual",
+            "stat1": "Directivos: 300k–1,5M FCFA",
+            "stat2": "Empleados: 100k–300k FCFA",
+            "stat3": "Obreros: 36k–100k FCFA"
+          },
+          "assurance": {
+            "name": "Seguro",
+            "desc": "Tasas de seguro de incendios, transporte y accidentes laborales para empresas.",
+            "label": "Incendio de edificios",
+            "stat1": "Oficinas: 0,70‰",
+            "stat2": "Viviendas: 1,50‰",
+            "stat3": "Accidentes laborales incluidos"
+          },
+          "banque": {
+            "name": "Banca y Crédito",
+            "desc": "Tipos de interés y comisiones bancarias de las entidades financieras en Camerún.",
+            "label": "Intereses bancarios",
+            "stat1": "Largo plazo: 7–10%",
+            "stat2": "Medio plazo: 10–14%",
+            "stat3": "Créditos: 14–17%"
+          }
+        },
+        "see_details": "Ver detalles",
+        "quick_summary": "Ventajas Competitivas de Camerún",
+        "quick_desc": "Indicadores clave que hacen a Camerún atractivo para los inversores.",
+        "salary": "Salario mínimo mensual",
+        "transport": "Coste transporte / tonelada",
+        "elec": "Electricidad / kWh",
+        "land": "Terreno / m² / año"
+      },
+      "costs_sector": {
+        "title": "Costos por Sector de Actividad",
+        "subtitle": "Análisis comparativo de los costos de producción por sector clave, basado en datos oficiales de 2023.",
+        "total_cost": "Costo Total Estimado",
+        "source": "Fuente",
+        "sectors": {
+          "agro": {
+            "name": "Agroindustria",
+            "f1": "Mano de obra",
+            "f2": "Semillas",
+            "f3": "Maquinaria"
+          },
+          "energie": {
+            "name": "Energía",
+            "f1": "Mano de obra",
+            "f2": "Mantenimiento",
+            "f3": "Combustible"
+          },
+          "numerique": {
+            "name": "Digital",
+            "f1": "Mano de obra",
+            "f2": "Infraestructura",
+            "f3": "Software"
+          },
+          "bois": {
+            "name": "Madera-Silvicultura",
+            "f1": "Explotación",
+            "f2": "Transporte",
+            "f3": "Procesamiento"
+          },
+          "textile": {
+            "name": "Textil/Confección",
+            "f1": "Materiales",
+            "f2": "Maquinaria",
+            "f3": "Energía"
+          },
+          "hydro": {
+            "name": "Hidrocarburos",
+            "f1": "Exploración",
+            "f2": "Refinación",
+            "f3": "Transporte"
+          },
+          "pharma": {
+            "name": "Farmacia",
+            "f1": "Materiales",
+            "f2": "Equipos",
+            "f3": "I+D"
+          },
+          "mines": {
+            "name": "Minería/Metalurgia",
+            "f1": "Explotación",
+            "f2": "Procesamiento",
+            "f3": "Transporte"
+          }
+        }
+      },
+      "factor_modal": {
+        "intrants": {
+          "def": "Definición de Insumos",
+          "desc": "Los « insumos » incluyen materias primas, consumibles, accesorios, herramientas y maquinaria importada. Los productos comprados localmente en Camerún no tienen costos adicionales de compra.",
+          "tarif": "Arancel Aduanero",
+          "tarif_desc": "El arancel aduanero sobre los productos importados varía del",
+          "transitaire": "Gastos de Envío",
+          "financiers": "Costos Financieros",
+          "financiers_desc": "Los costos financieros relacionados con las compras varían entre"
+        },
+        "transport": {
+          "t1": "Transporte de mercancías",
+          "t1_desc": "Costo promedio por tonelada",
+          "t2": "Transporte de líquidos",
+          "t2_desc": "Costo promedio por litro",
+          "t3": "Transporte aéreo",
+          "t3_desc": "Costo promedio por kilogramo",
+          "t4": "Transporte de personal",
+          "t4_desc": "Costo mensual promedio"
+        },
+        "terrain": {
+          "title": "Precios de Terrenos",
+          "t1": "Terrenos Urbanizados",
+          "t2": "Terrenos Edificados",
+          "desc": "Costo anual"
+        },
+        "energie": {
+          "title": "Precios de Energía",
+          "carburants": "Combustibles",
+          "carb_l1": "Combustible Súper",
+          "carb_l2": "Diésel",
+          "carb_l3": "Petróleo",
+          "elec": "Electricidad - Baja Tensión",
+          "gaz": "Gas Distribuido",
+          "gaz_l1": "Cilindro de 12 kg",
+          "gaz_l2": "Cilindro de 6 kg",
+          "eau": "Agua",
+          "eau_l1": "Agua potable",
+          "eau_l2": "Agua industrial"
+        },
+        "telecom": {
+          "title": "Telecomunicaciones en Camerún",
+          "t1": "Telefonía Fija (CAMTEL)",
+          "t1_l1": "Fijo a fijo",
+          "t1_l2": "Intra-provincial",
+          "t1_l3": "Nacional",
+          "t1_l4": "Fijo a móvil",
+          "t2": "Telefonía Móvil",
+          "t2_l1": "Nacional",
+          "t2_l2": "SMS nacional",
+          "t2_l3": "SMS internacional",
+          "t2_l4": "Llamadas internacionales",
+          "t3": "Internet y Proveedores",
+          "t3_l1": "Baja velocidad",
+          "t3_l2": "ADSL",
+          "t3_l3": "Alta velocidad",
+          "t3_desc": "Proveedores: CAMTEL, MTN, Orange, Nexttel"
+        },
+        "personnel": {
+          "title": "Costos de Personal",
+          "t1": "Salario Mínimo",
+          "t1_desc": "Sin cambios desde 2014",
+          "t2": "Salarios por Categoría",
+          "t2_l1": "Ejecutivos",
+          "t2_l2": "Empleados",
+          "t2_l3": "Obreros",
+          "t3": "Cotizaciones Sociales",
+          "t3_l1": "Familiar",
+          "t3_l2": "Riesgos",
+          "t3_l3": "Pensión",
+          "t4": "Zonas Geográficas",
+          "t4_l1": "Zona 1: Duala, Yaundé",
+          "t4_l2": "Zona 2: Otras ciudades"
+        },
+        "assurance": {
+          "title": "Costos de Seguro",
+          "t1": "Incendio de Edificios",
+          "t1_l1": "Oficinas",
+          "t1_l2": "Vivienda mixta",
+          "t2": "Accidente de Trabajo",
+          "t2_desc": "Incluido en cargas sociales",
+          "t3": "Transporte",
+          "t3_desc": "Vehículos utilitarios:"
+        },
+        "banque": {
+          "title": "Gastos Bancarios",
+          "t1": "Intereses Bancarios",
+          "t1_l1": "Largo plazo",
+          "t1_l2": "Medio plazo",
+          "t1_l3": "Créditos",
+          "t2": "Cargos por Servicio",
+          "t2_desc1": "hasta",
+          "t2_title2": "Depósitos a Plazo",
+          "t2_taux": "Tasa:"
+        },
+        "no_data": "Información detallada próximamente para este factor."
+      }
+    }
+  },
+  "investir": {
+    "creerEntreprise": {
+      "hidden": "hidden (ES)",
+      "show": "show (ES)",
+      "mb_8_flex_items_center_justify": "mb-8 flex items-center justify-center gap-3 text-3xl font-bold text-[#0F0B60] (ES)",
+      "flex_h_11_w_11_items_center_ju": "flex h-11 w-11 items-center justify-center rounded-full bg-[#EEECFA] text-xl text-[#0F0B60] (ES)",
+      "relative_mx_auto_h_300px_w_300": "relative mx-auto h-[300px] w-[300px] (ES)",
+      "absolute_inset_0_flex_items_ce": "absolute inset-0 flex items-center justify-center (ES)",
+      "z_10_flex_h_24_w_24_flex_col_i": "z-10 flex h-24 w-24 flex-col items-center justify-center rounded-full bg-[#0F0B60] text-center text-white shadow-lg (ES)",
+      "text_lg": "text-lg (ES)",
+      "mt_1_text_sm_font_bold": "mt-1 text-sm font-bold (ES)",
+      "text_10px_text_white_70": "text-[10px] text-white/70 (ES)",
+      "villes": "villes (ES)",
+      "absolute_inset_0": "absolute inset-0 (ES)",
+      "absolute_left_1_2_top_1_2": "absolute left-1/2 top-1/2 (ES)",
+      "block_cursor_default_whitespac": "block cursor-default whitespace-nowrap rounded-full border border-[#D9D5F2] bg-white px-3 py-1.5 text-xs font-medium text-[#0F0B60] shadow-sm (ES)",
+      "absolute_left_0_top_0_flex_h_8": "absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-[#0F0B60] text-sm font-semibold text-white (ES)",
+      "absolute_left_4_top_8_h_calc_1": "absolute left-4 top-8 h-[calc(100%-0.5rem)] w-px bg-[#D9D5F2] (ES)",
+      "mb_1_5_font_semibold_text_0f0b": "mb-1.5 font-semibold text-[#0F0B60] (ES)",
+      "text_sm_leading_relaxed_text_g": "text-sm leading-relaxed text-gray-700 (ES)",
+      "inline_flex_rounded_full_borde": "inline-flex rounded-full border border-[#D9D5F2] bg-[#F7F6FC] p-1 (ES)",
+      "grid_gap_4_md_grid_cols_3": "grid gap-4 md:grid-cols-3 (ES)",
+      "blank": "_blank (ES)",
+      "noopener_noreferrer": "noopener noreferrer (ES)",
+      "flex_flex_col_items_center_rou": "flex flex-col items-center rounded-xl bg-[#EEECFA] p-4 text-center transition hover:bg-[#D9D5F2] (ES)",
+      "mb_2_font_bold_text_0f0b60": "mb-2 font-bold text-[#0F0B60] (ES)",
+      "text_xs_text_gray_600": "text-xs text-gray-600 (ES)",
+      "rounded_lg_bg_eeecfa_p_4_text": "rounded-lg bg-[#EEECFA] p-4 text-center (ES)",
+      "font_semibold_text_0f0b60": "font-semibold text-[#0F0B60] (ES)",
+      "grid_gap_4_md_grid_cols_2": "grid gap-4 md:grid-cols-2 (ES)",
+      "flex_items_center_gap_3_rounde": "flex items-center gap-3 rounded-xl bg-[#EEECFA] p-4 transition hover:bg-[#D9D5F2] (ES)",
+      "shrink_0_text_lg_text_0f0b60": "shrink-0 text-lg text-[#0F0B60] (ES)",
+      "block_font_semibold_text_0f0b6": "block font-semibold text-[#0F0B60] (ES)",
+      "text_xs_text_gray_500": "text-xs text-gray-500 (ES)",
+      "space_y_4": "space-y-4 (ES)",
+      "rounded_xl_bg_eeecfa_p_6": "rounded-xl bg-[#EEECFA] p-6 (ES)",
+      "mb_3_font_semibold_text_0f0b60": "mb-3 font-semibold text-[#0F0B60] (ES)",
+      "points_cl_s_retenir": "Points clés à retenir (ES)",
+      "space_y_2_text_sm_text_gray_70": "space-y-2 text-sm text-gray-700 (ES)",
+      "l_attestation_d_immatriculati": "• L'attestation d'immatriculation a remplacé la carte de\n                contribuable depuis 2020 (ES)",
+      "elle_s_obtient_en_ligne_sur_i": "• Elle s'obtient en ligne sur impots.cm (ES)",
+      "pour_les_sarl_1_m_fcfa_passag": "• Pour les SARL ≥ 1 M FCFA, passage obligatoire chez le notaire (ES)",
+      "d_lai_moyen_de_traitement_au": "• Délai moyen de traitement au CFCE : 1 semaine (ES)",
+      "enregistrement_aux_imp_ts_obl": "• Enregistrement aux impôts obligatoire après création (ES)",
+      "rounded_xl_bg_0f0b60_p_6": "rounded-xl bg-[#0F0B60] p-6 (ES)",
+      "mb_3_font_semibold_text_white": "mb-3 font-semibold text-white (ES)",
+      "obligations_post_cr_ation": "Obligations post-création (ES)",
+      "space_y_2_text_sm_text_white_8": "space-y-2 text-sm text-white/80 (ES)",
+      "enregistrement_au_centre_des": "• Enregistrement au centre des impôts de votre zone (ES)",
+      "d_clarations_mensuelles_oblig": "• Déclarations mensuelles obligatoires (ES)",
+      "paiement_des_imp_ts_selon_le": "• Paiement des impôts selon le régime fiscal (ES)",
+      "tenue_d_une_comptabilit_r_gul": "• Tenue d'une comptabilité régulière (ES)",
+      "d_lais_standards": "Délais standards (ES)",
+      "tablissement_1_semaine_au_cfc": "• Établissement : 1 semaine au CFCE (ES)",
+      "sarl_sous_seing_priv_1_semain": "• SARL sous seing privé : 1 semaine au CFCE (ES)",
+      "sarl_1_m_variable_d_pend_du_n": "• SARL ≥ 1 M : variable (dépend du notaire) (ES)",
+      "enregistrement_imp_ts_1_2_jou": "• Enregistrement impôts : 1 à 2 jours (ES)",
+      "budget_total_estim": "Budget total estimé (ES)",
+      "tablissement_275_000_fcfa_tou": "• Établissement : 275 000 FCFA (tout compris) (ES)",
+      "sarl_1_m_285_000_fcfa_tout_co": "• SARL < 1 M : 285 000 FCFA (tout compris) (ES)",
+      "sarl_1_m_variable_frais_notai": "• SARL ≥ 1 M : variable + frais notaire (ES)",
+      "enregistrement_imp_ts_200_000": "• Enregistrement impôts : ≈ 200 000 FCFA (ES)",
+      "min_h_screen_bg_gray_50": "min-h-screen bg-gray-50 (ES)",
+      "fixed_left_0_right_0_top_0_z_6": "fixed left-0 right-0 top-0 z-[60] h-1 origin-left bg-[#F5BA3A] (ES)",
+      "relative_flex_h_65vh_min_h_400": "relative flex h-[65vh] min-h-[400px] max-h-[700px] items-center justify-center bg-[#0A0840] (ES)",
+      "absolute_inset_0_z_0_h_full_w": "absolute inset-0 z-0 h-full w-full object-cover opacity-300 (ES)",
+      "absolute_inset_0_bg_gradient_t": "absolute inset-0 bg-gradient-to-t from-[#0A0840] via-[#0A0840]/70 to-[#0A0840]/30 (ES)",
+      "relative_z_10_mx_auto_max_w_3x": "relative z-10 mx-auto max-w-3xl px-4 text-center (ES)",
+      "mb_6_inline_flex_rounded_full": "mb-6 inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 ring-1 ring-white/20 (ES)",
+      "cr_ation_d_entreprise_simplifi": "Création d'entreprise simplifiée (ES)",
+      "mb_4_text_4xl_font_bold_tracki": "mb-4 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl (ES)",
+      "votre_entreprise_au_cameroun_e": "Votre entreprise au Cameroun en (ES)",
+      "text_f5ba3a": "text-[#F5BA3A] (ES)",
+      "1_semaine": "1 semaine (ES)",
+      "mx_auto_mt_6_max_w_2xl_text_lg": "mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-200 md:text-xl (ES)",
+      "b_n_ficiez_d_un_cadre_juridiqu": "Bénéficiez d'un cadre juridique OHADA modernisé et d'un processus\n            accéléré grâce aux Centres de Formalités de Création d'Entreprises\n            (CFCE) présents dans toutes les régions. (ES)",
+      "contenu": "contenu (ES)",
+      "mt_8_inline_flex_items_center": "mt-8 inline-flex items-center rounded-full bg-[#F5BA3A] px-6 py-3 font-medium text-[#0A0840] transition-colors hover:bg-[#f3ad13] (ES)",
+      "d_couvrir_le_guide_complet": "Découvrir le guide complet (ES)",
+      "ml_2_inline_flex": "ml-2 inline-flex (ES)",
+      "mx_auto_max_w_7xl_px_4_sm_px_6": "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 (ES)",
+      "scrollbar_hide_flex_items_cent": "scrollbar-hide flex items-center justify-center gap-3 overflow-x-auto pb-1 (ES)",
+      "flex_items_center_gap_2_whites": "flex items-center gap-2 whitespace-nowrap rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#F5BA3A] hover:text-[#0A0840] (ES)",
+      "mx_auto_max_w_7xl_px_4_py_12": "mx-auto max-w-7xl px-4 py-12 (ES)",
+      "cfce": "cfce (ES)",
+      "mb_16": "mb-16 (ES)",
+      "le_cfce_votre_guichet_unique": "Le CFCE : votre guichet unique (ES)",
+      "mx_auto_mb_10_max_w_2xl_text_c": "mx-auto mb-10 max-w-2xl text-center text-gray-600 (ES)",
+      "le_centre_de_formalit_s_de_cr": "Le Centre de Formalités de Création d'Entreprises regroupe, en un\n            seul lieu, toutes les administrations impliquées dans la création\n            d'une entreprise — plus besoin de faire la navette entre plusieurs\n            guichets. (ES)",
+      "mb_10_grid_divide_y_divide_d9d": "mb-10 grid divide-y divide-[#D9D5F2] overflow-hidden rounded-2xl border border-[#D9D5F2] bg-white sm:grid-cols-3 sm:divide-x sm:divide-y-0 (ES)",
+      "flex_flex_col_items_center_gap": "flex flex-col items-center gap-2 p-6 text-center (ES)",
+      "text_2xl_text_0f0b60": "text-2xl text-[#0F0B60] (ES)",
+      "text_lg_font_bold_text_0f0b60": "text-lg font-bold text-[#0F0B60] (ES)",
+      "text_sm_text_gray_600": "text-sm text-gray-600 (ES)",
+      "grid_gap_6_md_grid_cols_2": "grid gap-6 md:grid-cols-2 (ES)",
+      "flex_flex_col_items_center": "flex flex-col items-center (ES)",
+      "mb_5_flex_w_full_items_center": "mb-5 flex w-full items-center gap-2 (ES)",
+      "text_lg_text_0f0b60": "text-lg text-[#0F0B60] (ES)",
+      "couverture_nationale": "Couverture nationale (ES)",
+      "mb_5_flex_items_center_gap_2": "mb-5 flex items-center gap-2 (ES)",
+      "comment_se_d_roule_votre_deman": "Comment se déroule votre demande (ES)",
+      "types": "types (ES)",
+      "types_d_entreprises_au_camerou": "Types d'entreprises au Cameroun (ES)",
+      "deux_statuts_juridiques_sont_p": "Deux statuts juridiques sont possibles, selon que vous entreprenez\n            seul ou avec des associés. (ES)",
+      "rounded_2xl_border_border_d9d5": "rounded-2xl border border-[#D9D5F2] bg-white p-8 (ES)",
+      "mb_3_flex_items_center_gap_3": "mb-3 flex items-center gap-3 (ES)",
+      "flex_h_10_w_10_shrink_0_items": "flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EEECFA] text-lg text-[#0F0B60] (ES)",
+      "text_xl_font_bold_text_0f0b60": "text-xl font-bold text-[#0F0B60] (ES)",
+      "mb_6_inline_block_rounded_full": "mb-6 inline-block rounded-full bg-[#EEECFA] px-3 py-1 text-xs font-medium text-[#0F0B60] (ES)",
+      "grid_gap_6_sm_grid_cols_2": "grid gap-6 sm:grid-cols-2 (ES)",
+      "mb_3_text_sm_font_semibold_tex": "mb-3 text-sm font-semibold text-[#0F0B60] (ES)",
+      "caract_ristiques": "Caractéristiques (ES)",
+      "space_y_2": "space-y-2 (ES)",
+      "flex_items_start_gap_2_text_sm": "flex items-start gap-2 text-sm text-gray-700 (ES)",
+      "mt_7px_h_1_5_w_1_5_shrink_0_ro": "mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#0F0B60] (ES)",
+      "avantages": "Avantages (ES)",
+      "mt_0_5_shrink_0_text_0f0b60": "mt-0.5 shrink-0 text-[#0F0B60] (ES)",
+      "structures": "structures (ES)",
+      "structures_juridiques_disponib": "Structures juridiques disponibles (ES)",
+      "grid_gap_6_md_grid_cols_2_lg_g": "grid gap-6 md:grid-cols-2 lg:grid-cols-3 (ES)",
+      "border_t_4_border_f5ba3a_text": "border-t-4 border-[#F5BA3A] text-center (ES)",
+      "mb_2_text_xl_font_bold_text_0f": "mb-2 text-xl font-bold text-[#0F0B60] (ES)",
+      "mb_3_text_sm_text_gray_600": "mb-3 text-sm text-gray-600 (ES)",
+      "rounded_lg_bg_eeecfa_p_2": "rounded-lg bg-[#EEECFA] p-2 (ES)",
+      "text_xs_text_0f0b60": "text-xs text-[#0F0B60] (ES)",
+      "processus": "processus (ES)",
+      "processus_de_cr_ation_d_taill": "Processus de création détaillé (ES)",
+      "mb_6_rounded_2xl_border_border": "mb-6 rounded-2xl border border-[#D9D5F2] bg-white p-8 (ES)",
+      "mb_8_flex_items_center_gap_3_t": "mb-8 flex items-center gap-3 text-xl font-bold text-[#0F0B60] (ES)",
+      "cr_ation_d_un_tablissement_per": "Création d'un établissement (personne physique) (ES)",
+      "pr_parez_votre_dossier": "Préparez votre dossier (ES)",
+      "space_y_1_5": "space-y-1.5 (ES)",
+      "flex_items_start_gap_2": "flex items-start gap-2 (ES)",
+      "d_posez_le_dossier_au_cfce": "Déposez le dossier au CFCE (ES)",
+      "d_posez_tous_les_documents_au": "Déposez tous les documents au Centre de Formalités de Création\n                d'Entreprises de votre région. Délai de traitement moyen : 1\n                semaine. (ES)",
+      "r_cup_rez_vos_documents": "Récupérez vos documents (ES)",
+      "mb_1_5": "mb-1.5 (ES)",
+      "vous_r_cup_rez_le_rccm_registr": "Vous récupérez le RCCM (registre de commerce) et l'attestation\n                  d'immatriculation, disponible en ligne sur impots.cm. (ES)",
+      "l_attestation_d_immatriculatio": "L'attestation d'immatriculation remplace l'ancienne carte de\n                  contribuable depuis 2020. (ES)",
+      "mb_2_flex_items_center_gap_3_t": "mb-2 flex items-center gap-3 text-xl font-bold text-[#0F0B60] (ES)",
+      "cr_ation_d_une_sarl": "Création d'une SARL (ES)",
+      "mb_8_text_sm_font_medium_text": "mb-8 text-sm font-medium text-[#0F0B60]/70 (ES)",
+      "capital_entre_100_000_et_999_9": "Capital entre 100 000 et 999 999 FCFA — sous seing privé (ES)",
+      "mb_8": "mb-8 (ES)",
+      "r_daction_des_statuts": "Rédaction des statuts (ES)",
+      "r_daction_et_validation_par_le": "Rédaction et validation par le chef de centre, en 5 exemplaires\n                timbrés. (ES)",
+      "d_p_t_du_dossier": "Dépôt du dossier (ES)",
+      "d_p_t_complet_au_cfce_avec_tou": "Dépôt complet au CFCE avec tous les documents requis. (ES)",
+      "traitement": "Traitement (ES)",
+      "d_lai_moyen_1_semaine": "Délai moyen : 1 semaine. (ES)",
+      "r_cup_ration": "Récupération (ES)",
+      "rccm_et_statuts_valid_s_remis": "RCCM et statuts validés remis au promoteur. (ES)",
+      "rounded_xl_bg_0f0b60_p_6_text": "rounded-xl bg-[#0F0B60] p-6 text-white (ES)",
+      "mb_4_text_sm_font_semibold_tex": "mb-4 text-sm font-semibold text-[#F5BA3A] (ES)",
+      "cas_particulier_capital_1_000": "Cas particulier — capital ≥ 1 000 000 FCFA (ES)",
+      "mb_2_font_semibold": "mb-2 font-semibold (ES)",
+      "passage_obligatoire_chez_le_no": "Passage obligatoire chez le notaire (ES)",
+      "space_y_1_text_sm_text_white_8": "space-y-1 text-sm text-white/80 (ES)",
+      "tablissement_des_statuts": "Établissement des statuts (ES)",
+      "pr_paration_du_rccm": "Préparation du RCCM (ES)",
+      "tous_documents_n_cessaires": "Tous documents nécessaires (ES)",
+      "avantage": "Avantage (ES)",
+      "text_sm_text_white_80": "text-sm text-white/80 (ES)",
+      "plus_besoin_de_passer_par_le_c": "Plus besoin de passer par le CFCE après le notaire :\n                    l'attestation d'immatriculation s'obtient directement sur\n                    impots.cm. (ES)",
+      "enregistrement_au_centre_des_i": "Enregistrement au centre des impôts (ES)",
+      "grid_gap_8_md_grid_cols_2": "grid gap-8 md:grid-cols-2 (ES)",
+      "mb_4_font_semibold_text_0f0b60": "mb-4 font-semibold text-[#0F0B60] (ES)",
+      "documents_requis": "Documents requis (ES)",
+      "flex_items_center_gap_2_text_s": "flex items-center gap-2 text-sm text-gray-700 (ES)",
+      "text_0f0b60": "text-[#0F0B60] (ES)",
+      "co_ts_estim_s": "Coûts estimés (ES)",
+      "rounded_xl_bg_eeecfa_p_4": "rounded-xl bg-[#EEECFA] p-4 (ES)",
+      "mb_2_text_2xl_font_bold_text_0": "mb-2 text-2xl font-bold text-[#0F0B60] (ES)",
+      "200_000_fcfa": "≈ 200 000 FCFA (ES)",
+      "mb_2_text_sm_text_gray_600": "mb-2 text-sm text-gray-600 (ES)",
+      "dont_enregistrement_du_bail_25": "Dont enregistrement du bail : 25 % du loyer annuel (ES)",
+      "exemple_150_000_fcfa_pour_un_l": "Exemple : 150 000 FCFA pour un loyer de 50 000 FCFA / mois (ES)",
+      "mt_4_rounded_lg_border_border": "mt-4 rounded-lg border border-[#D9D5F2] p-3 text-xs text-gray-700 (ES)",
+      "apr_s_enregistrement_d_clarati": "Après enregistrement, déclarations et paiements mensuels\n                  obligatoires. (ES)",
+      "documents": "documents (ES)",
+      "documents_requis_par_type": "Documents requis par type (ES)",
+      "grid_gap_6_md_grid_cols_1_4fr": "grid gap-6 md:grid-cols-[1.4fr_1fr] (ES)",
+      "mb_6": "mb-6 (ES)",
+      "space_y_1": "space-y-1 (ES)",
+      "flex_items_start_gap_3_rounded": "flex items-start gap-3 rounded-lg p-3 transition-colors hover:bg-[#EEECFA] (ES)",
+      "flex_h_6_w_6_shrink_0_items_ce": "flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#EEECFA] text-xs font-semibold text-[#0F0B60] (ES)",
+      "text_sm_text_gray_700": "text-sm text-gray-700 (ES)",
+      "d_lais_de_traitement": "Délais de traitement (ES)",
+      "divide_y_divide_d9d5f2": "divide-y divide-[#D9D5F2] (ES)",
+      "flex_items_center_justify_betw": "flex items-center justify-between py-3 (ES)",
+      "text_xs_text_gray_400": "text-xs text-gray-400 (ES)",
+      "couts": "couts (ES)",
+      "co_ts_et_frais_de_cr_ation": "Coûts et frais de création (ES)",
+      "border_l_4_border_f5ba3a": "border-l-4 border-[#F5BA3A] (ES)",
+      "mt_8_rounded_2xl_bg_0f0b60_p_8": "mt-8 rounded-2xl bg-[#0F0B60] p-8 (ES)",
+      "mb_6_text_center_text_2xl_font": "mb-6 text-center text-2xl font-bold text-white (ES)",
+      "estimation_totale_des_co_ts": "Estimation totale des coûts (ES)",
+      "grid_gap_6_md_grid_cols_3": "grid gap-6 md:grid-cols-3 (ES)",
+      "rounded_xl_bg_white_p_6_text_c": "rounded-xl bg-white p-6 text-center (ES)",
+      "mb_2_font_semibold_text_0f0b60": "mb-2 font-semibold text-[#0F0B60] (ES)",
+      "text_3xl_font_bold_text_f5ba3a": "text-3xl font-bold text-[#F5BA3A] (ES)",
+      "mb_16_space_y_4": "mb-16 space-y-4 (ES)",
+      "overflow_hidden_rounded_xl_bor": "overflow-hidden rounded-xl border border-[#D9D5F2] bg-white (ES)",
+      "flex_w_full_items_center_justi": "flex w-full items-center justify-between bg-gray-50 p-6 text-left transition-colors hover:bg-gray-100 (ES)",
+      "text_lg_font_semibold_text_0f0": "text-lg font-semibold text-[#0F0B60] (ES)",
+      "space_y_4_p_6": "space-y-4 p-6 (ES)"
+    },
+    "facteursProduction": {
+      "1": "1% (ES)",
+      "33": "33% (ES)",
+      "300": "300 (ES)",
+      "2005": "2005 (ES)",
+      "min_h_screen_bg_gray_50": "min-h-screen bg-gray-50 (ES)",
+      "bg_gray_50": "bg-gray-50 (ES)",
+      "relative_h_65vh_min_h_500px_ma": "relative h-[65vh] min-h-[500px] max-h-[800px] bg-gray-900 (ES)",
+      "absolute_inset_0_overflow_hidd": "absolute inset-0 overflow-hidden (ES)",
+      "illustration_des_facteurs_de_p": "Illustration des Facteurs de Production (ES)",
+      "w_full_h_full_object_cover_obj": "w-full h-full object-cover object-center opacity-70 (ES)",
+      "absolute_inset_0_bg_gradient_t": "absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent (ES)",
+      "absolute_inset_0_bg_gray_900_3": "absolute inset-0 bg-gray-900/30 (ES)",
+      "relative_h_full_flex_flex_col": "relative h-full flex flex-col (ES)",
+      "flex_grow_flex_items_center_ju": "flex-grow flex items-center justify-center px-6 text-center z-10 (ES)",
+      "max_w_4xl": "max-w-4xl (ES)",
+      "mb_6_inline_flex_rounded_full": "mb-6 inline-flex rounded-full bg-white/10 px-6 py-2 text-sm font-medium text-white/90 ring-1 ring-white/20 backdrop-blur-sm hover:bg-white/20 transition-colors duration-300 (ES)",
+      "optimisation_des_ressources": "Optimisation des ressources (ES)",
+      "text_4xl_sm_text_5xl_md_text_6": "text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 (ES)",
+      "facteurs_de_production": "Facteurs de production (ES)",
+      "mt_6_text_lg_md_text_xl_text_g": "mt-6 text-lg md:text-xl text-gray-200 font-normal max-w-2xl mx-auto leading-relaxed (ES)",
+      "maximisez_l_efficacit_de_vos_i": "Maximisez l'efficacité de vos investissements et optimisez vos\n                  ressources productives. (ES)",
+      "mt_10": "mt-10 (ES)",
+      "main_oeuvre": "main_oeuvre (ES)",
+      "mt_8_inline_flex_items_center": "mt-8 inline-flex items-center rounded-full bg-[#F5BA3A] px-6 py-3 font-medium text-[#0A0840] transition-colors hover:bg-[#f3ad13] (ES)",
+      "d_couvrir_les_solutions": "Découvrir les solutions (ES)",
+      "ml_3_group_hover_translate_y_1": "ml-3 group-hover:translate-y-1 transition-transform duration-300 (ES)",
+      "mx_auto_max_w_7xl_px_4_sm_px_6": "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 (ES)",
+      "scrollbar_hide_flex_items_cent": "scrollbar-hide flex items-center justify-center gap-3 overflow-x-auto pb-1 (ES)",
+      "flex_items_center_gap_2_whites": "flex items-center gap-2 whitespace-nowrap rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#F5BA3A] hover:text-[#0A0840] (ES)",
+      "container_mx_auto_px_4_py_16_m": "container mx-auto px-4 py-16 max-w-7xl (ES)",
+      "space_y_20": "space-y-20 (ES)",
+      "bg_white_border_border_gray_10": "bg-white border border-gray-100 rounded-[2rem] p-10 md:p-14 text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(15,11,96,0.08)] transition-all duration-500 relative overflow-hidden group (ES)",
+      "absolute_top_0_left_0_w_full_h": "absolute top-0 left-0 w-full h-1 bg-[#0F0B60] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out (ES)",
+      "inline_flex_items_center_justi": "inline-flex items-center justify-center w-20 h-20 bg-[#0F0B60]/5 rounded-2xl mb-8 group-hover:bg-[#0F0B60]/10 transition-colors duration-300 (ES)",
+      "text_2_5rem_text_0f0b60": "text-[2.5rem] text-[#0F0B60] (ES)",
+      "text_4xl_font_bold_text_gray_9": "text-4xl font-bold text-gray-900 mb-4 (ES)",
+      "main_d_uvre_camerounaise": "Main d'Œuvre Camerounaise (ES)",
+      "text_xl_text_gray_600_max_w_3x": "text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed (ES)",
+      "d_couvrez_une_main_d_uvre_qual": "Découvrez une main d'œuvre qualifiée avec (ES)",
+      "font_bold_text_0f0b60": "font-bold text-[#0F0B60] (ES)",
+      "71_2_d_alphab_tisation": "71,2% d'alphabétisation (ES)",
+      "des_salaires_comp_titifs_part": ", des salaires compétitifs à partir de (ES)",
+      "36_270_fcfa": "36 270 FCFA (ES)",
+      "et_un_syst_me_de_protection_so": "et\n                un système de protection sociale structuré. (ES)",
+      "grid_md_grid_cols_3_gap_6_mb_1": "grid md:grid-cols-3 gap-6 mb-12 (ES)",
+      "bg_gray_50_80_border_border_gr": "bg-gray-50/80 border border-gray-100 p-6 rounded-2xl hover:bg-white hover:shadow-md transition-all duration-300 (ES)",
+      "text_4xl_font_extrabold_text_0": "text-4xl font-extrabold text-[#0F0B60] mb-3 (ES)",
+      "71_2": "71.2% (ES)",
+      "text_gray_600_font_medium": "text-gray-600 font-medium (ES)",
+      "taux_d_alphab_tisation": "Taux d'alphabétisation (ES)",
+      "36k": "36k (ES)",
+      "text_lg_font_bold": "text-lg font-bold (ES)",
+      "fcfa": "FCFA (ES)",
+      "salaire_minimum": "Salaire minimum (ES)",
+      "17_15": "17.15% (ES)",
+      "cotisations_sociales": "Cotisations sociales (ES)",
+      "inline_flex_items_center_px_8": "inline-flex items-center px-8 py-4 bg-[#0F0B60] text-white font-semibold rounded-full shadow-lg hover:bg-blue-900 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 (ES)",
+      "text_lg_mr_3": "text-lg mr-3 (ES)",
+      "d_couvrir_les_d_tails_complets": "Découvrir les Détails Complets (ES)",
+      "text_sm_ml_3": "text-sm ml-3 (ES)",
+      "foncier": "foncier (ES)",
+      "foncier_au_cameroun": "Foncier au Cameroun (ES)",
+      "explorez_les_opportunit_s_fonc": "Explorez les opportunités foncières avec des (ES)",
+      "terrains_am_nag_s_300_fcfa_m_a": "terrains aménagés à 300 FCFA/m²/an (ES)",
+      "des": ", des (ES)",
+      "proc_dures_simplifi_es": "procédures simplifiées (ES)",
+      "et_un_cadre_juridique_modernis": "et un cadre juridique modernisé depuis 2005. (ES)",
+      "text_3xl_text_0f0b60_mb_4": "text-3xl text-[#0F0B60] mb-4 (ES)",
+      "text_3xl_font_extrabold_text_0": "text-3xl font-extrabold text-[#0F0B60] mb-2 (ES)",
+      "terrains_am_nag_s_m_an": "Terrains aménagés/m²/an (ES)",
+      "1k_3k": "1k-3k (ES)",
+      "terrains_b_tis_m_an": "Terrains bâtis /m²/an (ES)",
+      "r_formes_modernis_es": "Réformes modernisées (ES)",
+      "explorer_les_opportunit_s_fonc": "Explorer les Opportunités Foncières (ES)",
+      "fiscalite": "fiscalite (ES)",
+      "fiscalit_camerounaise": "Fiscalité Camerounaise (ES)",
+      "ma_trisez_le_syst_me_fiscal_av": "Maîtrisez le système fiscal avec un (ES)",
+      "imp_t_sur_les_soci_t_s_33": "impôt sur les sociétés à 33% (ES)",
+      "une": ", une (ES)",
+      "tva_19_25": "TVA à 19,25% (ES)",
+      "et_des_r_gimes_adapt_s_selon_v": "et des régimes adaptés selon votre chiffre d'affaires. (ES)",
+      "imp_t_sur_les_soci_t_s": "Impôt sur les sociétés (ES)",
+      "19_25": "19.25% (ES)",
+      "tva_standard": "TVA standard (ES)",
+      "patente_locale": "Patente locale (ES)",
+      "explorer_le_syst_me_fiscal": "Explorer le Système Fiscal (ES)",
+      "couts_secteur": "couts_secteur (ES)",
+      "co_ts_par_secteur_d_activit": "Coûts par Secteur d'Activité (ES)",
+      "analysez_les_co_ts_de_producti": "Analysez les coûts de production dans (ES)",
+      "10_secteurs_cl_s": "10 secteurs clés (ES)",
+      "de_l": ": de l' (ES)",
+      "agro_industrie": "Agro-industrie (ES)",
+      "au": "au (ES)",
+      "num_rique": "Numérique (ES)",
+      "avec_des_donn_es_officielles": ",\n                avec des données officielles actualisées. (ES)",
+      "grid_md_grid_cols_4_gap_4_mb_1": "grid md:grid-cols-4 gap-4 mb-12 (ES)",
+      "text_xl_font_extrabold_text_0f": "text-xl font-extrabold text-[#0F0B60] mb-2 (ES)",
+      "text_sm_text_gray_600_font_med": "text-sm text-gray-600 font-medium (ES)",
+      "1m_fcfa_ha": "1M FCFA/ha (ES)",
+      "nergie": "Énergie (ES)",
+      "150_fcfa_kwh": "150 FCFA/kWh (ES)",
+      "20m_fcfa_projet": "20M FCFA/projet (ES)",
+      "10_secteurs": "10 Secteurs (ES)",
+      "analys_s_en_d_tail": "Analysés en détail (ES)",
+      "analyser_les_co_ts_sectoriels": "Analyser les Coûts Sectoriels (ES)"
+    },
+    "droitInvestisseur": {
+      "flex_items_center_gap_2_hover": "flex items-center gap-2 hover:underline (ES)",
+      "space_y_6": "space-y-6 (ES)",
+      "mb_2_mt_4_text_lg_font_semibol": "mb-2 mt-4 text-lg font-semibold (ES)",
+      "italic_font_medium": "italic font-medium (ES)",
+      "ressources_utiles": "📚 Ressources Utiles (ES)",
+      "space_y_2_text_sm": "space-y-2 text-sm (ES)",
+      "rounded_3xl_p_8_text_center_sm": "rounded-3xl p-8 text-center sm:p-12 (ES)",
+      "mb_6_inline_flex_h_20_w_20_ite": "mb-6 inline-flex h-20 w-20 items-center justify-center rounded-full text-white (ES)",
+      "mb_4_text_3xl_font_bold_sm_tex": "mb-4 text-3xl font-bold sm:text-4xl (ES)",
+      "mx_auto_mb_8_max_w_3xl_text_lg": "mx-auto mb-8 max-w-3xl text-lg (ES)",
+      "mb_8_grid_gap_6_md_grid_cols_3": "mb-8 grid gap-6 md:grid-cols-3 (ES)",
+      "rounded_xl_bg_white_p_6_shadow": "rounded-xl bg-white p-6 shadow-sm (ES)",
+      "mb_2_text_3xl_font_bold": "mb-2 text-3xl font-bold (ES)",
+      "inline_flex_items_center_round": "inline-flex items-center rounded-full px-8 py-4 font-semibold shadow-lg transition-transform duration-300 hover:scale-105 (ES)",
+      "mr_2": "mr-2 (ES)",
+      "ml_2": "ml-2 (ES)",
+      "min_h_screen_bg_white": "min-h-screen bg-white (ES)",
+      "relative_flex_h_65vh_min_h_500": "relative flex h-[65vh] min-h-[500px] max-h-[800px] items-center justify-center bg-[#0A0840] (ES)",
+      "illustration_des_droits_des_in": "Illustration des Droits des Investisseurs (ES)",
+      "absolute_inset_0_z_0_h_full_w": "absolute inset-0 z-0 h-full w-full object-cover (ES)",
+      "absolute_inset_0_z_1_bg_gradie": "absolute inset-0 z-[1] bg-gradient-to-t from-[#0A0840] via-[#0A0840]/70 to-[#0A0840]/30 (ES)",
+      "relative_z_10_mx_auto_max_w_3x": "relative z-10 mx-auto max-w-3xl px-4 text-center (ES)",
+      "mb_6_inline_flex_rounded_full": "mb-6 inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 ring-1 ring-white/20 (ES)",
+      "s_curit_juridique": "Sécurité Juridique (ES)",
+      "mb_4_text_4xl_font_bold_tracki": "mb-4 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl (ES)",
+      "droit_des_investisseurs_au_cam": "Droit des Investisseurs au Cameroun (ES)",
+      "mx_auto_mt_6_max_w_2xl_text_lg": "mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-200 md:text-xl (ES)",
+      "un_cadre_l_gal_robuste_pour_pr": "Un cadre légal robuste pour protéger et faciliter vos\n            investissements. (ES)",
+      "contenu": "contenu (ES)",
+      "mt_8_inline_flex_items_center": "mt-8 inline-flex items-center rounded-full bg-[#F5BA3A] px-6 py-3 font-medium text-[#0A0840] transition-colors hover:bg-[#f3ad13] (ES)",
+      "d_couvrir_les_droits": "Découvrir les droits (ES)",
+      "ml_2_inline_flex": "ml-2 inline-flex (ES)",
+      "mx_auto_max_w_7xl_px_4_py_12": "mx-auto max-w-7xl px-4 py-12 (ES)",
+      "space_y_16": "space-y-16 (ES)",
+      "fixed_inset_0_z_50_flex_items": "fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 (ES)",
+      "relative_max_h_90vh_w_full_max": "relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-xl bg-white p-8 shadow-xl (ES)",
+      "absolute_right_4_top_4_rounded": "absolute right-4 top-4 rounded-full p-2 transition-colors hover:bg-gray-100 (ES)",
+      "fermer": "Fermer (ES)",
+      "mb_6_text_3xl_font_bold": "mb-6 text-3xl font-bold (ES)"
+    },
+    "SectionNav": {
+      "h_0_5_w_full_bg_white_10": "h-0.5 w-full bg-white/10 (ES)",
+      "h_full_transition_all_duration": "h-full transition-all duration-300 (ES)",
+      "mx_auto_flex_max_w_7xl_items_c": "mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8 (ES)",
+      "rounded_full_p_2_text_white_70": "rounded-full p-2 text-white/70 transition-colors hover:bg-white/10 hover:text-white (ES)",
+      "section_pr_c_dente": "Section précédente (ES)",
+      "flex_flex_1_items_center_justi": "flex flex-1 items-center justify-center gap-3 rounded-full px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/10 (ES)",
+      "text_xs": "text-xs (ES)",
+      "truncate": "truncate (ES)",
+      "ml_1_text_white_50": "ml-1 text-white/50 (ES)",
+      "section_suivante": "Section suivante (ES)",
+      "fixed_inset_0_z_30": "fixed inset-0 z-30 (ES)",
+      "relative_z_40_border_t_border": "relative z-40 border-t border-white/10 bg-white shadow-xl (ES)",
+      "mx_auto_max_w_7xl_px_4_py_4_sm": "mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 (ES)",
+      "mb_2_flex_items_center_justify": "mb-2 flex items-center justify-between (ES)",
+      "text_sm_font_semibold": "text-sm font-semibold (ES)",
+      "aller_une_section": "Aller à une section (ES)",
+      "fermer": "Fermer (ES)",
+      "grid_grid_cols_1_gap_1_sm_grid": "grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-3 (ES)",
+      "flex_items_center_gap_3_rounde": "flex items-center gap-3 rounded-lg px-3 py-2 text-left text-sm transition-colors (ES)"
+    },
+    "incitation": {
+      "min_h_screen_bg_white": "min-h-screen bg-white (ES)",
+      "relative_h_65vh_min_h_500px_ma": "relative h-[65vh] min-h-[500px] max-h-[800px] bg-[#0A0840] (ES)",
+      "illustration_des_incitations_f": "Illustration des incitations fiscales (ES)",
+      "absolute_inset_0_h_full_w_full": "absolute inset-0 h-full w-full object-cover object-center opacity-50 (ES)",
+      "absolute_inset_0": "absolute inset-0 (ES)",
+      "relative_flex_h_full_items_cen": "relative flex h-full items-center justify-center px-6 text-center (ES)",
+      "max_w_3xl": "max-w-3xl (ES)",
+      "mb_6_inline_flex_rounded_full": "mb-6 inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 ring-1 ring-white/20 (ES)",
+      "soutien_de_l_tat_aux_investiss": "Soutien de l'État aux investisseurs (ES)",
+      "text_4xl_font_bold_tracking_ti": "text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl (ES)",
+      "incitations_fiscales": "Incitations Fiscales (ES)",
+      "mx_auto_mt_6_max_w_2xl_text_lg": "mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80 md:text-xl (ES)",
+      "b_n_ficiez_des_avantages_fisca": "Bénéficiez des avantages fiscaux conçus pour soutenir votre\n              investissement au Cameroun. (ES)",
+      "mt_8": "mt-8 (ES)",
+      "phases": "phases (ES)",
+      "group_inline_flex_items_center": "group inline-flex items-center rounded-full px-6 py-3 font-medium text-white transition-colors duration-300 (ES)",
+      "d_couvrir_les_avantages": "Découvrir les avantages (ES)",
+      "ml_2_transition_transform_dura": "ml-2 transition-transform duration-300 group-hover:translate-y-1 (ES)",
+      "sticky_top_0_z_50_w_full_borde": "sticky top-0 z-50 w-full border-t py-4 shadow-lg (ES)",
+      "mx_auto_max_w_7xl_px_4_sm_px_6": "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 (ES)",
+      "flex_items_center_justify_cent": "flex items-center justify-center gap-3 overflow-x-auto pb-1 (ES)",
+      "flex_items_center_gap_2_whites": "flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 (ES)",
+      "mx_auto_max_w_7xl_px_4_py_12": "mx-auto max-w-7xl px-4 py-12 (ES)",
+      "space_y_16": "space-y-16 (ES)",
+      "overview": "overview (ES)",
+      "grid_grid_cols_2_gap_6_md_grid": "grid grid-cols-2 gap-6 md:grid-cols-4 (ES)",
+      "rounded_xl_border_p_6_text_cen": "rounded-xl border p-6 text-center shadow-sm (ES)",
+      "text_3xl_font_bold": "text-3xl font-bold (ES)",
+      "mt_2_text_sm": "mt-2 text-sm (ES)",
+      "relative_overflow_hidden_round": "relative overflow-hidden rounded-3xl p-8 sm:p-12 (ES)",
+      "relative_z_10_text_center": "relative z-10 text-center (ES)",
+      "mb_6_inline_flex_h_16_w_16_ite": "mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full text-white shadow-md sm:h-20 sm:w-20 (ES)",
+      "mb_3_text_3xl_font_bold_sm_tex": "mb-3 text-3xl font-bold sm:text-4xl (ES)",
+      "phases_cl_s": "Phases clés (ES)",
+      "mx_auto_mb_8_max_w_2xl_text_lg": "mx-auto mb-8 max-w-2xl text-lg (ES)",
+      "profitez_d_avantages_fiscaux_a": "Profitez d'avantages fiscaux adaptés à chaque étape de votre\n                  projet (ES)",
+      "grid_gap_6_md_grid_cols_2": "grid gap-6 md:grid-cols-2 (ES)",
+      "cursor_pointer_overflow_hidden": "cursor-pointer overflow-hidden rounded-xl border bg-white shadow-sm hover:shadow-md (ES)",
+      "flex_items_center_gap_3_p_4": "flex items-center gap-3 p-4 (ES)",
+      "rounded_lg_bg_white_15_p_2_tex": "rounded-lg bg-white/15 p-2 text-white (ES)",
+      "text_lg_font_semibold_text_whi": "text-lg font-semibold text-white (ES)",
+      "p_6": "p-6 (ES)",
+      "mb_3_flex_justify_center": "mb-3 flex justify-center (ES)",
+      "rounded_full_px_3_py_1_text_sm": "rounded-full px-3 py-1 text-sm font-bold (ES)",
+      "mt_4_flex_w_full_items_center": "mt-4 flex w-full items-center justify-center rounded-lg py-2.5 text-sm font-medium transition-colors (ES)",
+      "ml_1": "ml-1 (ES)",
+      "sectors": "sectors (ES)",
+      "rounded_3xl_p_12_text_center": "rounded-3xl p-12 text-center (ES)",
+      "mb_6_inline_flex_h_20_w_20_ite": "mb-6 inline-flex h-20 w-20 items-center justify-center rounded-full text-white (ES)",
+      "mb_4_text_4xl_font_bold": "mb-4 text-4xl font-bold (ES)",
+      "secteurs_prioritaires": "Secteurs Prioritaires (ES)",
+      "mt_8_grid_gap_6_md_grid_cols_3": "mt-8 grid gap-6 md:grid-cols-3 (ES)",
+      "rounded_xl_border_bg_white_p_6": "rounded-xl border bg-white p-6 shadow-sm (ES)",
+      "mb_4_flex_items_center_gap_3": "mb-4 flex items-center gap-3 (ES)",
+      "text_lg_font_semibold": "text-lg font-semibold (ES)",
+      "space_y_2_text_sm": "space-y-2 text-sm (ES)",
+      "flex_items_center_gap_2": "flex items-center gap-2 (ES)",
+      "fixed_inset_0_z_50_flex_items": "fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm (ES)",
+      "relative_w_full_max_w_xl_round": "relative w-full max-w-xl rounded-xl bg-white p-6 shadow-xl (ES)",
+      "absolute_right_4_top_4_text_lg": "absolute right-4 top-4 text-lg (ES)",
+      "fermer": "Fermer (ES)",
+      "mb_4_text_center_text_xl_font": "mb-4 text-center text-xl font-bold (ES)",
+      "mb_4": "mb-4 (ES)",
+      "mb_1_flex_items_center_gap_2_f": "mb-1 flex items-center gap-2 font-semibold (ES)",
+      "list_inside_list_disc_text_sm": "list-inside list-disc text-sm (ES)"
+    },
+    "factorGrid": {
+      "py_16": "py-16 (ES)",
+      "text_center_mb_12": "text-center mb-12 (ES)",
+      "text_4xl_font_bold_text_gray_9": "text-4xl font-bold text-gray-900 mb-4 (ES)",
+      "co_ts_de_production_essentiels": "Coûts de Production Essentiels (ES)",
+      "w_24_h_1_bg_0f0b60_mx_auto_mb": "w-24 h-1 bg-[#0F0B60] mx-auto mb-6 rounded-full (ES)",
+      "text_xl_text_gray_600_max_w_3x": "text-xl text-gray-600 max-w-3xl mx-auto (ES)",
+      "d_couvrez_les_principaux_poste": "Découvrez les principaux postes de dépenses en un coup d'œil (ES)",
+      "grid_grid_cols_1_md_grid_cols": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 (ES)",
+      "group_cursor_pointer": "group cursor-pointer (ES)",
+      "bg_white_rounded_2xl_p_6_shado": "bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 h-full relative overflow-hidden (ES)",
+      "h_8_w_8_text_white": "h-8 w-8 text-white (ES)",
+      "text_xl_font_bold_text_gray_90": "text-xl font-bold text-gray-900 mb-2 group-hover:text-[#0F0B60] transition-colors duration-300 (ES)",
+      "text_gray_600_text_sm_leading": "text-gray-600 text-sm leading-relaxed mb-4 (ES)",
+      "space_y_3_mb_4": "space-y-3 mb-4 (ES)",
+      "flex_items_center_justify_betw": "flex items-center justify-between p-3 bg-gray-50 rounded-lg (ES)",
+      "text_2xl_font_bold_text_0f0b60": "text-2xl font-bold text-[#0F0B60] (ES)",
+      "text_xs_text_gray_500": "text-xs text-gray-500 (ES)",
+      "h_5_w_5_text_0f0b60": "h-5 w-5 text-[#0F0B60] (ES)",
+      "flex_items_center_text_0f0b60": "flex items-center text-[#0F0B60] font-medium text-sm group-hover:text-[#0F0B60] (ES)",
+      "voir_d_tails": "Voir détails (ES)",
+      "h_4_w_4_ml_1_group_hover_trans": "h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform duration-300 (ES)",
+      "mt_16_bg_0f0b60_rounded_2xl_p": "mt-16 bg-[#0F0B60] rounded-2xl p-8 text-white (ES)",
+      "text_center_mb_8": "text-center mb-8 (ES)",
+      "text_2xl_font_bold_mb_2": "text-2xl font-bold mb-2 (ES)",
+      "aper_u_rapide_des_co_ts": "Aperçu Rapide des Coûts (ES)",
+      "text_gray_100": "text-gray-100 (ES)",
+      "les_chiffres_cl_s_retenir_pour": "Les chiffres clés à retenir pour votre budget (ES)",
+      "grid_grid_cols_2_md_grid_cols": "grid grid-cols-2 md:grid-cols-4 gap-6 (ES)",
+      "text_center": "text-center (ES)",
+      "h_8_w_8_mx_auto_mb_2_text_whit": "h-8 w-8 mx-auto mb-2 text-white (ES)",
+      "text_2xl_font_bold": "text-2xl font-bold (ES)",
+      "36k_fcfa": "36k FCFA (ES)",
+      "text_sm_text_gray_100": "text-sm text-gray-100 (ES)",
+      "salaire_minimum": "Salaire minimum (ES)",
+      "40_90_fcfa": "40-90 FCFA (ES)",
+      "transport_tonne": "Transport/tonne (ES)",
+      "50_99_fcfa": "50-99 FCFA (ES)",
+      "lectricit_kwh": "Électricité/kWh (ES)",
+      "300_3k_fcfa": "300-3k FCFA (ES)",
+      "terrain_m_an": "Terrain/m²/an (ES)"
+    },
+    "factorModal": {
+      "7": "7% (ES)",
+      "space_y_6": "space-y-6 (ES)",
+      "from_indigo_50_to_purple_50_p": "from-indigo-50 to-purple-50 p-6 rounded-xl border border-[#0F0B60]/20 (ES)",
+      "flex_items_center_gap_3_mb_4": "flex items-center gap-3 mb-4 (ES)",
+      "p_2_bg_0f0b60_10_rounded_lg": "p-2 bg-[#0F0B60]/10 rounded-lg (ES)",
+      "h_6_w_6_text_0f0b60": "h-6 w-6 text-[#0F0B60] (ES)",
+      "text_xl_font_semibold_text_ind": "text-xl font-semibold text-indigo-800 (ES)",
+      "d_finition_des_intrants": "Définition des Intrants (ES)",
+      "text_gray_700_leading_relaxed": "text-gray-700 leading-relaxed (ES)",
+      "les_intrants_comprennent_les_m": "Les « intrants » comprennent les matières premières, consommables,\n              accessoires, outillages et machines importés. Les produits achetés\n              localement au Cameroun sont considérés comme sans frais d'achat\n              supplémentaires. (ES)",
+      "grid_grid_cols_1_md_grid_cols": "grid grid-cols-1 md:grid-cols-2 gap-6 (ES)",
+      "bg_white_p_6_rounded_xl_border": "bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 (ES)",
+      "flex_items_center_gap_3_mb_3": "flex items-center gap-3 mb-3 (ES)",
+      "h_5_w_5_text_0f0b60": "h-5 w-5 text-[#0F0B60] (ES)",
+      "font_semibold_text_gray_800": "font-semibold text-gray-800 (ES)",
+      "tarif_douanier": "Tarif Douanier (ES)",
+      "text_gray_600_text_sm": "text-gray-600 text-sm (ES)",
+      "le_tarif_douanier_sur_les_prod": "Le tarif douanier sur les produits importés varie de (ES)",
+      "font_semibold_text_0f0b60": "font-semibold text-[#0F0B60] (ES)",
+      "0_81": "0% à 81% (ES)",
+      "frais_de_transitaire": "Frais de Transitaire (ES)",
+      "50_000_fcfa": "50 000 FCFA (ES)",
+      "76_22_max": "(76,22 €), max (ES)",
+      "940_000_fcfa": "940 000 FCFA (ES)",
+      "1_433": "(1 433 €) (ES)",
+      "frais_financiers": "Frais Financiers (ES)",
+      "les_frais_financiers_relatifs": "Les frais financiers relatifs aux achats varient entre (ES)",
+      "29_000_fcfa_2_35": "29 000 FCFA + 2,35% (ES)",
+      "et": "et (ES)",
+      "39_000_fcfa_4_85": "39 000 FCFA + 4,85% (ES)",
+      "from_green_50_to_emerald_50_p": "from-green-50 to-emerald-50 p-6 rounded-xl border border-[#0F0B60]/20 (ES)",
+      "font_semibold_text_lg_text_0f0": "font-semibold text-lg text-[#0F0B60] (ES)",
+      "transport_de_marchandises": "Transport de marchandises (ES)",
+      "text_2xl_font_bold_text_0f0b60": "text-2xl font-bold text-[#0F0B60] mb-2 (ES)",
+      "40_90_fcfa_t": "40 - 90 FCFA/T (ES)",
+      "text_sm_text_0f0b60": "text-sm text-[#0F0B60] (ES)",
+      "co_t_moyen_par_tonne": "Coût moyen par tonne (ES)",
+      "from_blue_50_to_cyan_50_p_6_ro": "from-blue-50 to-cyan-50 p-6 rounded-xl border border-[#0F0B60]/20 shadow-sm hover:shadow-md transition-all duration-200 (ES)",
+      "font_semibold_text_lg_text_blu": "font-semibold text-lg text-blue-800 (ES)",
+      "transport_de_liquides": "Transport de liquides (ES)",
+      "135_fcfa_l": "135 FCFA/L (ES)",
+      "co_t_moyen_par_litre": "Coût moyen par litre (ES)",
+      "from_amber_50_to_orange_50_p_6": "from-amber-50 to-orange-50 p-6 rounded-xl border border-[#0F0B60]/20 (ES)",
+      "transport_a_rien": "Transport aérien (ES)",
+      "2_600_fcfa_kg": "2 600 FCFA/Kg (ES)",
+      "co_t_moyen_par_kilogramme": "Coût moyen par kilogramme (ES)",
+      "from_red_50_to_rose_50_p_6_rou": "from-red-50 to-rose-50 p-6 rounded-xl border border-[#0F0B60]/20 shadow-sm hover:shadow-md transition-all duration-200 (ES)",
+      "transport_du_personnel": "Transport du personnel (ES)",
+      "5_000_10_000_fcfa": "5 000 - 10 000 FCFA (ES)",
+      "co_t_mensuel_moyen": "Coût mensuel moyen (ES)",
+      "text_xl_font_semibold_text_0f0": "text-xl font-semibold text-[#0F0B60] (ES)",
+      "tarification_des_terrains": "Tarification des Terrains (ES)",
+      "bg_0f0b60_p_8_rounded_xl_text": "bg-[#0F0B60] p-8 rounded-xl text-white shadow-lg hover:shadow-xl transition-all duration-200 (ES)",
+      "p_2_bg_white_bg_opacity_20_rou": "p-2 bg-white bg-opacity-20 rounded-lg (ES)",
+      "h_6_w_6_text_white": "h-6 w-6 text-white (ES)",
+      "text_xl_font_semibold": "text-xl font-semibold (ES)",
+      "terrains_am_nag_s": "Terrains Aménagés (ES)",
+      "text_3xl_font_bold_mb_2": "text-3xl font-bold mb-2 (ES)",
+      "300_fcfa_m": "300 FCFA/m² (ES)",
+      "text_gray_100": "text-gray-100 (ES)",
+      "co_t_annuel": "Coût annuel (ES)",
+      "terrains_b_tis": "Terrains Bâtis (ES)",
+      "1000_3000_fcfa_m": "1000 - 3000 FCFA/m² (ES)",
+      "tarification_nerg_tique": "Tarification Énergétique (ES)",
+      "grid_grid_cols_1_lg_grid_cols": "grid grid-cols-1 lg:grid-cols-2 gap-6 (ES)",
+      "text_lg_font_semibold_text_gra": "text-lg font-semibold text-gray-800 (ES)",
+      "carburants": "Carburants (ES)",
+      "space_y_3": "space-y-3 (ES)",
+      "flex_justify_between_items_cen": "flex justify-between items-center p-3 bg-gray-50 rounded-lg (ES)",
+      "text_sm_text_gray_600": "text-sm text-gray-600 (ES)",
+      "super_carburant": "Super Carburant (ES)",
+      "840_fcfa_l": "840 FCFA/L (ES)",
+      "gasoil": "Gasoil (ES)",
+      "828_fcfa_l": "828 FCFA/L (ES)",
+      "p_trole": "Pétrole (ES)",
+      "336_99_fcfa_l": "336,99 FCFA/L (ES)",
+      "lectricit_basse_tension": "Électricité - Basse Tension (ES)",
+      "110_kwh": "≤ 110 kWh (ES)",
+      "50_fcfa_kwh": "50 FCFA/kWh (ES)",
+      "111_400_kwh": "111-400 kWh (ES)",
+      "79_fcfa_kwh": "79 FCFA/kWh (ES)",
+      "401_800_kwh": "401-800 kWh (ES)",
+      "94_fcfa_kwh": "94 FCFA/kWh (ES)",
+      "801_2000_kwh": "801-2000 kWh (ES)",
+      "99_fcfa_kwh": "99 FCFA/kWh (ES)",
+      "gaz_distribu": "Gaz Distribué (ES)",
+      "bouteille_12_kg": "Bouteille 12 kg (ES)",
+      "6_500_fcfa": "6 500 FCFA (ES)",
+      "bouteille_6_kg": "Bouteille 6 kg (ES)",
+      "3_200_fcfa": "3 200 FCFA (ES)",
+      "eau": "Eau (ES)",
+      "eau_potable": "Eau potable (ES)",
+      "364_fcfa_m": "364 FCFA/m³ (ES)",
+      "eau_industrielle": "Eau industrielle (ES)",
+      "182_fcfa_m": "182 FCFA/m³ (ES)",
+      "from_blue_50_to_indigo_50_p_6": "from-blue-50 to-indigo-50 p-6 rounded-xl border border-[#0F0B60]/20 (ES)",
+      "text_xl_font_semibold_text_blu": "text-xl font-semibold text-blue-800 (ES)",
+      "t_l_communications_au_cameroun": "Télécommunications au Cameroun (ES)",
+      "t_l_phonie_fixe_camtel": "Téléphonie Fixe (CAMTEL) (ES)",
+      "fixe_fixe": "Fixe à fixe (ES)",
+      "20_60_fcfa_min": "20-60 FCFA/min (ES)",
+      "intra_provincial": "Intra-provincial (ES)",
+      "20_fcfa_min": "20 FCFA/min (ES)",
+      "national": "National (ES)",
+      "82_fcfa_min": "82 FCFA/min (ES)",
+      "fixe_mobile": "Fixe à mobile (ES)",
+      "85_fcfa_min": "85 FCFA/min (ES)",
+      "t_l_phonie_mobile": "Téléphonie Mobile (ES)",
+      "30_90_fcfa_min": "30-90 FCFA/min (ES)",
+      "sms_national": "SMS national (ES)",
+      "50_fcfa": "50 FCFA (ES)",
+      "sms_international": "SMS international (ES)",
+      "125_200_fcfa": "125-200 FCFA (ES)",
+      "appels_internationaux": "Appels internationaux (ES)",
+      "90_100_fcfa_min": "90-100 FCFA/min (ES)",
+      "internet_fournisseurs": "Internet & Fournisseurs (ES)",
+      "faible_d_bit": "Faible débit (ES)",
+      "6_000_25_000_fcfa": "6.000 + 25.000 FCFA (ES)",
+      "adsl": "ADSL (ES)",
+      "20_000_30_000_fcfa_mois": "20.000-30.000 FCFA/mois (ES)",
+      "haut_d_bit": "Haut débit (ES)",
+      "12_000_300_000_fcfa_mois": "12.000-300.000 FCFA/mois (ES)",
+      "flex_justify_center": "flex justify-center (ES)",
+      "bg_gray_50_p_4_rounded_lg": "bg-gray-50 p-4 rounded-lg (ES)",
+      "text_sm_text_gray_600_text_cen": "text-sm text-gray-600 text-center (ES)",
+      "fournisseurs_camtel_mtn_orange": "Fournisseurs: CAMTEL, MTN, Orange, Nexttel (ES)",
+      "from_purple_50_to_pink_50_p_6": "from-purple-50 to-pink-50 p-6 rounded-xl border border-[#0F0B60]/20 (ES)",
+      "co_ts_du_personnel": "Coûts du Personnel (ES)",
+      "salaire_minimum": "Salaire Minimum (ES)",
+      "36_270_fcfa_mois": "36 270 FCFA/mois (ES)",
+      "inchang_depuis_2014": "Inchangé depuis 2014 (ES)",
+      "salaires_par_cat_gorie": "Salaires par Catégorie (ES)",
+      "cadres": "Cadres (ES)",
+      "267_000_457_000_fcfa": "267 000 - 457 000 FCFA (ES)",
+      "employ_s": "Employés (ES)",
+      "129_000_325_000_fcfa": "129 000 - 325 000 FCFA (ES)",
+      "ouvriers": "Ouvriers (ES)",
+      "40_000_134_000_fcfa": "40 000 - 134 000 FCFA (ES)",
+      "cotisations_sociales": "Cotisations Sociales (ES)",
+      "familiale": "Familiale (ES)",
+      "risques": "Risques (ES)",
+      "1_75_5": "1.75% à 5% (ES)",
+      "pension": "Pension (ES)",
+      "8_4": "8.4% (ES)",
+      "zones_g_ographiques": "Zones Géographiques (ES)",
+      "p_3_bg_gray_50_rounded_lg": "p-3 bg-gray-50 rounded-lg (ES)",
+      "zone_1_douala_yaound": "Zone 1: Douala, Yaoundé (ES)",
+      "zone_2_autres_villes": "Zone 2: Autres villes (ES)",
+      "co_ts_d_assurance": "Coûts d'Assurance (ES)",
+      "incendie_immeubles": "Incendie Immeubles (ES)",
+      "bureaux": "Bureaux (ES)",
+      "0_70_pour_mille": "0,70 pour mille (ES)",
+      "habitations_mixtes": "Habitations mixtes (ES)",
+      "0_75_pour_mille": "0,75 pour mille (ES)",
+      "accident_de_travail": "Accident de Travail (ES)",
+      "inclus_dans_charges_sociales": "Inclus dans charges sociales (ES)",
+      "1_5_5": "(1,5% à 5%) (ES)",
+      "transport": "Transport (ES)",
+      "v_hicules_utilitaires": "Véhicules utilitaires: (ES)",
+      "121_212_fcfa_150_086_fcfa": "121 212 FCFA à 150 086 FCFA (ES)",
+      "frais_bancaires": "Frais Bancaires (ES)",
+      "int_r_ts_bancaires": "Intérêts Bancaires (ES)",
+      "long_terme": "Long terme (ES)",
+      "7_10": "7% - 10% (ES)",
+      "moyen_terme": "Moyen terme (ES)",
+      "11_17": "11% - 17% (ES)",
+      "cr_dits": "Crédits (ES)",
+      "5_15": "5% - 15% (ES)",
+      "frais_de_service": "Frais de Service (ES)",
+      "text_gray_600_text_sm_mb_4": "text-gray-600 text-sm mb-4 (ES)",
+      "jusqu": "jusqu'à (ES)",
+      "border_t_pt_4": "border-t pt-4 (ES)",
+      "font_semibold_text_gray_800_mb": "font-semibold text-gray-800 mb-2 (ES)",
+      "d_p_ts_terme": "Dépôts à Terme (ES)",
+      "taux": "Taux: (ES)",
+      "3_5": "3,5% (ES)",
+      "text_center_py_12": "text-center py-12 (ES)",
+      "p_4_bg_gray_50_rounded_lg_inli": "p-4 bg-gray-50 rounded-lg inline-block (ES)",
+      "text_gray_600": "text-gray-600 (ES)",
+      "informations_d_taill_es_venir": "Informations détaillées à venir pour ce facteur. (ES)",
+      "fixed_inset_0_bg_black_bg_opac": "fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4 (ES)",
+      "bg_white_rounded_2xl_max_w_6xl": "bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden shadow-2xl (ES)",
+      "sticky_top_0_bg_white_border_b": "sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center rounded-t-2xl backdrop-blur-sm bg-white/95 (ES)",
+      "flex_items_center_gap_3": "flex items-center gap-3 (ES)",
+      "text_2xl_font_bold_text_gray_9": "text-2xl font-bold text-gray-900 (ES)",
+      "p_2_hover_bg_gray_100_rounded": "p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 (ES)",
+      "h_6_w_6_text_gray_400": "h-6 w-6 text-gray-400 (ES)",
+      "p_6_overflow_y_auto_max_h_calc": "p-6 overflow-y-auto max-h-[calc(90vh-88px)] (ES)"
+    },
+    "foncierModal": {
+      "fixed_inset_0_bg_black_bg_opac": "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 (ES)",
+      "bg_white_rounded_2xl_max_w_6xl": "bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto (ES)",
+      "sticky_top_0_bg_white_border_b": "sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center rounded-t-2xl (ES)",
+      "flex_items_center": "flex items-center (ES)",
+      "h_8_w_8_text_0f0b60_mr_3": "h-8 w-8 text-[#0F0B60] mr-3 (ES)",
+      "text_2xl_font_bold_text_gray_9": "text-2xl font-bold text-gray-900 (ES)",
+      "foncier_au_cameroun": "Foncier au Cameroun (ES)",
+      "p_2_hover_bg_gray_100_rounded": "p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 (ES)",
+      "h_6_w_6_text_gray_400": "h-6 w-6 text-gray-400 (ES)",
+      "p_6_space_y_8": "p-6 space-y-8 (ES)",
+      "grid_md_grid_cols_2_gap_6": "grid md:grid-cols-2 gap-6 (ES)",
+      "from_green_50_to_green_100_p_6": "from-green-50 to-green-100 p-6 rounded-xl (ES)",
+      "flex_items_center_mb_4": "flex items-center mb-4 (ES)",
+      "text_xl_font_bold_text_0f0b60": "text-xl font-bold text-[#0F0B60] (ES)",
+      "terrains_am_nag_s": "Terrains Aménagés (ES)",
+      "text_center_p_4_bg_white_round": "text-center p-4 bg-white rounded-lg mb-4 (ES)",
+      "text_3xl_font_bold_text_0f0b60": "text-3xl font-bold text-[#0F0B60] (ES)",
+      "300_fcfa": "300 FCFA (ES)",
+      "text_0f0b60": "text-[#0F0B60] (ES)",
+      "par_m_an": "par m²/an (ES)",
+      "space_y_2": "space-y-2 (ES)",
+      "flex_justify_between": "flex justify-between (ES)",
+      "text_gray_700": "text-gray-700 (ES)",
+      "douala_bonab_ri": "Douala - Bonabéri (ES)",
+      "font_semibold_text_0f0b60": "font-semibold text-[#0F0B60] (ES)",
+      "680_fcfa_m": "680 FCFA/m² (ES)",
+      "bassa": "Bassa (ES)",
+      "480_fcfa_m": "480 FCFA/m² (ES)",
+      "from_blue_50_to_blue_100_p_6_r": "from-blue-50 to-blue-100 p-6 rounded-xl (ES)",
+      "text_xl_font_bold_text_blue_80": "text-xl font-bold text-blue-800 (ES)",
+      "terrains_b_tis": "Terrains Bâtis (ES)",
+      "1000_3000_fcfa": "1000 - 3000 FCFA (ES)",
+      "zone_franche": "Zone Franche (ES)",
+      "720_fcfa_m": "720 FCFA/m² (ES)",
+      "standard": "Standard (ES)",
+      "1000_fcfa_m": "1000 FCFA/m² (ES)",
+      "m_thodes_d_acquisition": "Méthodes d'Acquisition (ES)",
+      "bg_white_p_6_rounded_xl_shadow": "bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:border-[#0F0B60] transition-colors (ES)",
+      "flex_items_start_gap_4": "flex items-start gap-4 (ES)",
+      "text_2xl": "text-2xl (ES)",
+      "text_xl_font_semibold_text_gra": "text-xl font-semibold text-gray-900 mb-2 (ES)",
+      "text_gray_600": "text-gray-600 (ES)",
+      "from_green_50_to_blue_50_p_8_r": "from-green-50 to-blue-50 p-8 rounded-2xl (ES)",
+      "mb_6": "mb-6 (ES)",
+      "bg_0f0b60_text_white_px_4_py_2": "bg-[#0F0B60] text-white px-4 py-2 rounded-full text-sm font-semibold (ES)",
+      "nouveaut_2005": "Nouveauté 2005 (ES)",
+      "text_3xl_font_bold_text_gray_9": "text-3xl font-bold text-gray-900 mb-6 (ES)",
+      "r_volution_des_r_formes_fonci": "Révolution des Réformes Foncières (ES)",
+      "grid_md_grid_cols_2_gap_4": "grid md:grid-cols-2 gap-4 (ES)",
+      "flex_items_start_gap_3_p_4_bg": "flex items-start gap-3 p-4 bg-white rounded-lg (ES)",
+      "w_2_h_2_bg_0f0b60_rounded_full": "w-2 h-2 bg-[#0F0B60] rounded-full mt-2 (ES)",
+      "text_gray_700_font_medium": "text-gray-700 font-medium (ES)",
+      "bg_0f0b60_10_p_6_rounded_xl": "bg-[#0F0B60]/10 p-6 rounded-xl (ES)",
+      "titre_foncier_garanti": "Titre Foncier Garanti (ES)",
+      "text_gray_700_mb_4": "text-gray-700 mb-4 (ES)",
+      "une_proc_dure_s_curis_e_avec_a": "Une procédure sécurisée avec authentification biométrique et\n                vérification cadastrale numérique. (ES)",
+      "grid_md_grid_cols_3_gap_4": "grid md:grid-cols-3 gap-4 (ES)",
+      "bg_white_p_4_rounded_lg_text_c": "bg-white p-4 rounded-lg text-center (ES)",
+      "text_0f0b60_font_semibold": "text-[#0F0B60] font-semibold (ES)",
+      "certificat_d_authenticit_num_r": "Certificat d'authenticité numérique (ES)",
+      "g_olocalisation_pr_cise": "Géolocalisation précise (ES)",
+      "protection_contre_les_fraudes": "Protection contre les fraudes (ES)",
+      "bail_commercial_s_curis": "Bail Commercial Sécurisé (ES)",
+      "contrats_de_bail_modernis_s_av": "Contrats de bail modernisés avec protection des deux parties et\n                réévaluation encadrée. (ES)",
+      "bg_0f0b60_10_p_4_rounded_lg": "bg-[#0F0B60]/10 p-4 rounded-lg (ES)",
+      "text_gray_800": "text-gray-800 (ES)",
+      "dur_e_maximale": "Durée maximale : (ES)",
+      "15_ans_renouvelable": "15 ans renouvelable (ES)",
+      "indexation": "Indexation : (ES)",
+      "r_glement_e_sur_l_indice_insee": "réglementée sur l'indice INSEE (ES)",
+      "flex_items_center_mb_6": "flex items-center mb-6 (ES)",
+      "code_foncier": "Code Foncier (ES)",
+      "blank": "_blank (ES)",
+      "noopener_noreferrer": "noopener noreferrer (ES)",
+      "p_4_bg_white_rounded_lg_border": "p-4 bg-white rounded-lg border border-gray-200 hover:border-[#0F0B60] transition-colors group (ES)",
+      "flex_items_start_gap_3": "flex items-start gap-3 (ES)",
+      "text_0f0b60_font_mono_text_sm": "text-[#0F0B60] font-mono text-sm bg-[#0F0B60]/10 px-2 py-1 rounded (ES)",
+      "font_medium_text_gray_900_grou": "font-medium text-gray-900 group-hover:text-[#0F0B60] (ES)",
+      "text_sm_text_gray_500": "text-sm text-gray-500 (ES)"
+    },
+    "mainOeuvreModal": {
+      "fixed_inset_0_bg_black_bg_opac": "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 (ES)",
+      "bg_white_rounded_2xl_max_w_6xl": "bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto (ES)",
+      "sticky_top_0_bg_white_border_b": "sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center rounded-t-2xl (ES)",
+      "flex_items_center": "flex items-center (ES)",
+      "h_8_w_8_text_0f0b60_mr_3": "h-8 w-8 text-[#0F0B60] mr-3 (ES)",
+      "text_2xl_font_bold_text_gray_9": "text-2xl font-bold text-gray-900 (ES)",
+      "foncier_au_cameroun": "Foncier au Cameroun (ES)",
+      "p_2_hover_bg_gray_100_rounded": "p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 (ES)",
+      "h_6_w_6_text_gray_400": "h-6 w-6 text-gray-400 (ES)",
+      "p_6_space_y_8": "p-6 space-y-8 (ES)",
+      "grid_md_grid_cols_2_gap_6": "grid md:grid-cols-2 gap-6 (ES)",
+      "from_green_50_to_green_100_p_6": "from-green-50 to-green-100 p-6 rounded-xl (ES)",
+      "flex_items_center_mb_4": "flex items-center mb-4 (ES)",
+      "text_xl_font_bold_text_0f0b60": "text-xl font-bold text-[#0F0B60] (ES)",
+      "terrains_am_nag_s": "Terrains Aménagés (ES)",
+      "text_center_p_4_bg_white_round": "text-center p-4 bg-white rounded-lg mb-4 (ES)",
+      "text_3xl_font_bold_text_0f0b60": "text-3xl font-bold text-[#0F0B60] (ES)",
+      "300_fcfa": "300 FCFA (ES)",
+      "text_0f0b60": "text-[#0F0B60] (ES)",
+      "par_m_an": "par m²/an (ES)",
+      "space_y_2": "space-y-2 (ES)",
+      "flex_justify_between": "flex justify-between (ES)",
+      "text_gray_700": "text-gray-700 (ES)",
+      "douala_bonab_ri": "Douala - Bonabéri (ES)",
+      "font_semibold_text_0f0b60": "font-semibold text-[#0F0B60] (ES)",
+      "680_fcfa_m": "680 FCFA/m² (ES)",
+      "bassa": "Bassa (ES)",
+      "480_fcfa_m": "480 FCFA/m² (ES)",
+      "from_blue_50_to_blue_100_p_6_r": "from-blue-50 to-blue-100 p-6 rounded-xl (ES)",
+      "text_xl_font_bold_text_blue_80": "text-xl font-bold text-blue-800 (ES)",
+      "terrains_b_tis": "Terrains Bâtis (ES)",
+      "1000_3000_fcfa": "1000 - 3000 FCFA (ES)",
+      "zone_franche": "Zone Franche (ES)",
+      "720_fcfa_m": "720 FCFA/m² (ES)",
+      "standard": "Standard (ES)",
+      "1000_fcfa_m": "1000 FCFA/m² (ES)",
+      "m_thodes_d_acquisition": "Méthodes d'Acquisition (ES)",
+      "bg_white_p_6_rounded_xl_shadow": "bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:border-[#0F0B60] transition-colors (ES)",
+      "flex_items_start_gap_4": "flex items-start gap-4 (ES)",
+      "text_2xl": "text-2xl (ES)",
+      "text_xl_font_semibold_text_gra": "text-xl font-semibold text-gray-900 mb-2 (ES)",
+      "text_gray_600": "text-gray-600 (ES)",
+      "from_green_50_to_blue_50_p_8_r": "from-green-50 to-blue-50 p-8 rounded-2xl (ES)",
+      "mb_6": "mb-6 (ES)",
+      "bg_0f0b60_text_white_px_4_py_2": "bg-[#0F0B60] text-white px-4 py-2 rounded-full text-sm font-semibold (ES)",
+      "nouveaut_2005": "Nouveauté 2005 (ES)",
+      "text_3xl_font_bold_text_gray_9": "text-3xl font-bold text-gray-900 mb-6 (ES)",
+      "r_volution_des_r_formes_fonci": "Révolution des Réformes Foncières (ES)",
+      "grid_md_grid_cols_2_gap_4": "grid md:grid-cols-2 gap-4 (ES)",
+      "flex_items_start_gap_3_p_4_bg": "flex items-start gap-3 p-4 bg-white rounded-lg (ES)",
+      "w_2_h_2_bg_0f0b60_rounded_full": "w-2 h-2 bg-[#0F0B60] rounded-full mt-2 (ES)",
+      "text_gray_700_font_medium": "text-gray-700 font-medium (ES)",
+      "bg_0f0b60_10_p_6_rounded_xl": "bg-[#0F0B60]/10 p-6 rounded-xl (ES)",
+      "titre_foncier_garanti": "Titre Foncier Garanti (ES)",
+      "text_gray_700_mb_4": "text-gray-700 mb-4 (ES)",
+      "une_proc_dure_s_curis_e_avec_a": "Une procédure sécurisée avec authentification biométrique et\n                vérification cadastrale numérique. (ES)",
+      "grid_md_grid_cols_3_gap_4": "grid md:grid-cols-3 gap-4 (ES)",
+      "bg_white_p_4_rounded_lg_text_c": "bg-white p-4 rounded-lg text-center (ES)",
+      "text_0f0b60_font_semibold": "text-[#0F0B60] font-semibold (ES)",
+      "certificat_d_authenticit_num_r": "Certificat d'authenticité numérique (ES)",
+      "g_olocalisation_pr_cise": "Géolocalisation précise (ES)",
+      "protection_contre_les_fraudes": "Protection contre les fraudes (ES)",
+      "bail_commercial_s_curis": "Bail Commercial Sécurisé (ES)",
+      "contrats_de_bail_modernis_s_av": "Contrats de bail modernisés avec protection des deux parties et\n                réévaluation encadrée. (ES)",
+      "bg_0f0b60_10_p_4_rounded_lg": "bg-[#0F0B60]/10 p-4 rounded-lg (ES)",
+      "text_gray_800": "text-gray-800 (ES)",
+      "dur_e_maximale": "Durée maximale : (ES)",
+      "15_ans_renouvelable": "15 ans renouvelable (ES)",
+      "indexation": "Indexation : (ES)",
+      "r_glement_e_sur_l_indice_insee": "réglementée sur l'indice INSEE (ES)",
+      "flex_items_center_mb_6": "flex items-center mb-6 (ES)",
+      "code_foncier": "Code Foncier (ES)",
+      "blank": "_blank (ES)",
+      "noopener_noreferrer": "noopener noreferrer (ES)",
+      "p_4_bg_white_rounded_lg_border": "p-4 bg-white rounded-lg border border-gray-200 hover:border-[#0F0B60] transition-colors group (ES)",
+      "flex_items_start_gap_3": "flex items-start gap-3 (ES)",
+      "text_0f0b60_font_mono_text_sm": "text-[#0F0B60] font-mono text-sm bg-[#0F0B60]/10 px-2 py-1 rounded (ES)",
+      "font_medium_text_gray_900_grou": "font-medium text-gray-900 group-hover:text-[#0F0B60] (ES)",
+      "text_sm_text_gray_500": "text-sm text-gray-500 (ES)"
+    },
+    "costsBySectorModal": {
+      "fixed_inset_0_bg_black_bg_opac": "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 (ES)",
+      "bg_white_rounded_2xl_max_w_7xl": "bg-white rounded-2xl max-w-7xl w-full max-h-[90vh] overflow-y-auto (ES)",
+      "sticky_top_0_bg_white_border_b": "sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center rounded-t-2xl (ES)",
+      "flex_items_center": "flex items-center (ES)",
+      "h_8_w_8_text_0f0b60_mr_3": "h-8 w-8 text-[#0F0B60] mr-3 (ES)",
+      "text_2xl_font_bold_text_gray_9": "text-2xl font-bold text-gray-900 mb-6 text-center (ES)",
+      "co_ts_des_facteurs_de_producti": "Coûts des Facteurs de Production par Secteur (ES)",
+      "p_2_hover_bg_gray_100_rounded": "p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 (ES)",
+      "h_6_w_6_text_gray_400": "h-6 w-6 text-gray-400 (ES)",
+      "p_6": "p-6 (ES)",
+      "mb_8_text_center": "mb-8 text-center (ES)",
+      "inline_flex_items_center_justi": "inline-flex items-center justify-center w-16 h-16 bg-[#0F0B60]/10 rounded-full mb-4 (ES)",
+      "h_8_w_8_text_0f0b60": "h-8 w-8 text-[#0F0B60] (ES)",
+      "analyse_comparative_des_secteu": "Analyse Comparative des Secteurs (ES)",
+      "text_gray_600_max_w_3xl_mx_aut": "text-gray-600 max-w-3xl mx-auto (ES)",
+      "donn_es_officielles_2023_des_c": "Données officielles 2023 des coûts de production dans les 10 secteurs stratégiques du Cameroun (ES)",
+      "grid_grid_cols_1_md_grid_cols": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 (ES)",
+      "bg_white_rounded_xl_shadow_lg": "bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group (ES)",
+      "relative_h_32_overflow_hidden": "relative h-32 overflow-hidden (ES)",
+      "w_full_h_full_object_cover_gro": "w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 (ES)",
+      "absolute_inset_0_from_black_60": "absolute inset-0 from-black/60 to-transparent (ES)",
+      "absolute_bottom_2_left_2": "absolute bottom-2 left-2 (ES)",
+      "bg_white_90_text_gray_900_px_3": "bg-white/90 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold (ES)",
+      "p_4": "p-4 (ES)",
+      "space_y_2_mb_4": "space-y-2 mb-4 (ES)",
+      "flex_justify_between_items_cen": "flex justify-between items-center text-sm (ES)",
+      "text_gray_600": "text-gray-600 (ES)",
+      "font_medium_text_gray_900": "font-medium text-gray-900 (ES)",
+      "text_sm_opacity_90": "text-sm opacity-90 (ES)",
+      "co_t_total": "Coût total (ES)",
+      "font_bold": "font-bold (ES)",
+      "text_xs_text_gray_500_text_cen": "text-xs text-gray-500 text-center (ES)",
+      "source": "Source: (ES)",
+      "italic": "italic (ES)",
+      "mt_12_from_orange_50_to_red_50": "mt-12 from-orange-50 to-red-50 rounded-2xl p-8 (ES)",
+      "synth_se_des_co_ts": "Synthèse des Coûts (ES)",
+      "grid_md_grid_cols_4_gap_6": "grid md:grid-cols-4 gap-6 (ES)",
+      "text_center": "text-center (ES)",
+      "text_3xl_font_bold_text_0f0b60": "text-3xl font-bold text-[#0F0B60] (ES)",
+      "1m_fcfa": "1M FCFA (ES)",
+      "text_sm_text_gray_600": "text-sm text-gray-600 (ES)",
+      "agro_industrie_ha": "Agro-industrie/ha (ES)",
+      "150_fcfa": "150 FCFA (ES)",
+      "nergie_kwh": "Énergie/kWh (ES)",
+      "20m_fcfa": "20M FCFA (ES)",
+      "num_rique_projet": "Numérique/projet (ES)",
+      "10_secteurs": "10 Secteurs (ES)",
+      "analys_s": "Analysés (ES)"
+    },
+    "fiscaliteModal": {
+      "1": "1% (ES)",
+      "33": "33% (ES)",
+      "bg_white_rounded_xl_shadow_lg": "bg-white rounded-xl shadow-lg overflow-hidden (ES)",
+      "flex_justify_between_items_cen": "flex justify-between items-center (ES)",
+      "text_lg_font_bold_text_gray_90": "text-lg font-bold text-gray-900 (ES)",
+      "h_5_w_5_text_gray_500": "h-5 w-5 text-gray-500 (ES)",
+      "border_t_border_gray_200": "border-t border-gray-200 (ES)",
+      "p_6": "p-6 (ES)",
+      "fixed_inset_0_bg_black_bg_opac": "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 (ES)",
+      "bg_white_rounded_2xl_max_w_7xl": "bg-white rounded-2xl max-w-7xl w-full max-h-[90vh] overflow-y-auto (ES)",
+      "sticky_top_0_bg_white_border_b": "sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center rounded-t-2xl (ES)",
+      "flex_items_center": "flex items-center (ES)",
+      "h_8_w_8_text_0f0b60_mr_3": "h-8 w-8 text-[#0F0B60] mr-3 (ES)",
+      "text_2xl_font_bold_text_gray_9": "text-2xl font-bold text-gray-900 mb-6 (ES)",
+      "fiscalit_camerounaise": "Fiscalité Camerounaise (ES)",
+      "p_2_hover_bg_gray_100_rounded": "p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 (ES)",
+      "h_6_w_6_text_gray_400": "h-6 w-6 text-gray-400 (ES)",
+      "text_center_from_purple_50_to": "text-center from-purple-50 to-indigo-100 p-8 rounded-2xl mb-8 (ES)",
+      "text_3xl_font_bold_text_gray_9": "text-3xl font-bold text-gray-900 mb-4 (ES)",
+      "syst_me_fiscal_complet": "Système Fiscal Complet (ES)",
+      "text_xl_text_gray_600_max_w_3x": "text-xl text-gray-600 max-w-3xl mx-auto mb-6 (ES)",
+      "aper_u_complet_des_obligations": "Aperçu complet des obligations fiscales pour les entreprises au Cameroun (ES)",
+      "grid_md_grid_cols_3_gap_6": "grid md:grid-cols-3 gap-6 (ES)",
+      "bg_white_p_4_rounded_xl": "bg-white p-4 rounded-xl (ES)",
+      "text_3xl_font_bold_text_0f0b60": "text-3xl font-bold text-[#0F0B60] mb-2 (ES)",
+      "text_gray_600": "text-gray-600 (ES)",
+      "imp_t_sur_les_soci_t_s": "Impôt sur les Sociétés (ES)",
+      "19_25": "19.25% (ES)",
+      "tva_standard": "TVA standard (ES)",
+      "patente_locale": "Patente locale (ES)",
+      "space_y_6": "space-y-6 (ES)",
+      "r_gimes_d_imposition": "Régimes d'Imposition (ES)",
+      "p_4_bg_0f0b60_10_rounded_lg_bo": "p-4 bg-[#0F0B60]/10 rounded-lg border border-[#0F0B60]/20 (ES)",
+      "font_bold_text_0f0b60_mb_3": "font-bold text-[#0F0B60] mb-3 (ES)",
+      "imp_t_lib_ratoire": "Impôt Libératoire (ES)",
+      "text_sm_text_0f0b60_space_y_2": "text-sm text-[#0F0B60] space-y-2 (ES)",
+      "ca_annuel_10_m_fcfa": "• CA annuel < 10 M FCFA (ES)",
+      "paiement_trimestriel": "• Paiement trimestriel (ES)",
+      "dispense_de_tva_et_patente": "• Dispense de TVA et patente (ES)",
+      "baby_foot_10_machines": "• Baby-foot (<10 machines) (ES)",
+      "font_bold_text_blue_800_mb_3": "font-bold text-blue-800 mb-3 (ES)",
+      "r_gime_simplifi_rsi": "Régime Simplifié (RSI) (ES)",
+      "ca_10_m_50_m_fcfa": "• CA : 10 M à 50 M FCFA (ES)",
+      "comptabilit_all_g_e_ohada": "• Comptabilité allégée OHADA (ES)",
+      "option_r_gime_r_el_d_s_30_m": "• Option régime réel dès 30 M (ES)",
+      "ne_collectent_pas_la_tva": "• Ne collectent pas la TVA (ES)",
+      "font_bold_text_purple_800_mb_3": "font-bold text-purple-800 mb-3 (ES)",
+      "r_gime_r_el": "Régime Réel (ES)",
+      "ca_50_m_fcfa": "• CA ≥ 50 M FCFA (ES)",
+      "obligatoire_professions_lib_r": "• Obligatoire professions libérales (ES)",
+      "comptabilit_normale_ohada": "• Comptabilité normale OHADA (ES)",
+      "collecte_d_duction_tva": "• Collecte/déduction TVA (ES)",
+      "fiscalit_locale": "Fiscalité Locale (ES)",
+      "p_4_bg_0f0b60_10_rounded_lg": "p-4 bg-[#0F0B60]/10 rounded-lg (ES)",
+      "patente": "Patente (ES)",
+      "text_sm_text_0f0b60_space_y_1": "text-sm text-[#0F0B60] space-y-1 (ES)",
+      "1_du_chiffre_d_affaires": "• 1% du chiffre d'affaires (ES)",
+      "d_claration_sous_2_mois": "• Déclaration sous 2 mois (ES)",
+      "paiement_annuel": "• Paiement annuel (ES)",
+      "font_bold_text_yellow_800_mb_3": "font-bold text-yellow-800 mb-3 (ES)",
+      "licence": "Licence (ES)",
+      "alcoolis_es_4x_patente": "• Alcoolisées : 4x patente (ES)",
+      "non_alcoolis_es_2x_patente": "• Non-alcoolisées : 2x patente (ES)",
+      "calcul_personnalis": "• Calcul personnalisé (ES)",
+      "taxe_b_tail": "Taxe Bétail (ES)",
+      "200_fcfa_t_te_bovin": "• 200 FCFA/tête bovin (ES)",
+      "exemptions_animaux_labour": "• Exemptions animaux labour (ES)",
+      "recensement_annuel": "• Recensement annuel (ES)",
+      "tva_droits_sp_ciaux": "TVA & Droits Spéciaux (ES)",
+      "text_center_p_6_from_yellow_40": "text-center p-6 from-yellow-400 to-[#1a1599] rounded-xl text-white (ES)",
+      "text_4xl_font_bold": "text-4xl font-bold (ES)",
+      "text_gray_100": "text-gray-100 (ES)",
+      "taux_normal_tva": "Taux Normal TVA (ES)",
+      "text_sm_text_gray_100_mt_2": "text-sm text-gray-100 mt-2 (ES)",
+      "17_5_tva_1_75_cac": "(17.5% TVA + 1.75% CAC) (ES)",
+      "grid_md_grid_cols_2_gap_6": "grid md:grid-cols-2 gap-6 (ES)",
+      "font_bold_text_gray_800_mb_3": "font-bold text-gray-800 mb-3 (ES)",
+      "exon_rations": "Exonérations (ES)",
+      "text_sm_text_gray_600_space_y": "text-sm text-gray-600 space-y-1 (ES)",
+      "exportations": "• Exportations (ES)",
+      "zones_franches_industrielles": "• Zones Franches Industrielles (ES)",
+      "services_ducatifs": "• Services éducatifs (ES)",
+      "services_m_dicaux": "• Services médicaux (ES)",
+      "droit_d_accise": "Droit d'Accise (ES)",
+      "space_y_2": "space-y-2 (ES)",
+      "flex_justify_between_p_2_bg_gr": "flex justify-between p-2 bg-gray-50 rounded (ES)",
+      "boissons_alcoolis_es": "Boissons alcoolisées (ES)",
+      "font_medium": "font-medium (ES)",
+      "35_abattement": "35% abattement (ES)",
+      "tabacs": "Tabacs (ES)",
+      "42_5_abattement": "42.5% abattement (ES)",
+      "text_center_p_6_bg_0f0b60_roun": "text-center p-6 bg-[#0F0B60] rounded-xl text-white (ES)",
+      "taux_normal": "Taux Normal (ES)",
+      "30_is_3_cac": "(30% IS + 3% CAC) (ES)",
+      "acomptes_r_gime_r_el": "Acomptes Régime Réel (ES)",
+      "text_2xl_font_bold_text_0f0b60": "text-2xl font-bold text-[#0F0B60] (ES)",
+      "2_2": "2.2% (ES)",
+      "text_sm_text_0f0b60": "text-sm text-[#0F0B60] (ES)",
+      "du_chiffre_d_affaires": "du chiffre d'affaires (ES)",
+      "acomptes_rsi": "Acomptes RSI (ES)",
+      "5_5": "5.5% (ES)",
+      "taxe_fonci_re": "Taxe Foncière (ES)",
+      "propri_taire": "Propriétaire (ES)",
+      "text_xl_font_bold_text_0f0b60": "text-xl font-bold text-[#0F0B60] (ES)",
+      "0_11": "0.11% (ES)",
+      "terrain_b_timents": "× (terrain + bâtiments) (ES)",
+      "locataire": "Locataire (ES)",
+      "5_10_loyer_annuel": "5-10% loyer annuel (ES)",
+      "50_pr_compte": "+ 50% précompte (ES)",
+      "mt_4_p_4_bg_0f0b60_10_rounded": "mt-4 p-4 bg-[#0F0B60]/10 rounded-lg (ES)",
+      "font_bold_text_0f0b60_mb_2": "font-bold text-[#0F0B60] mb-2 (ES)",
+      "ch_ances_importantes": "Échéances importantes (ES)",
+      "date_limite_de_paiement_15_ma": "• Date limite de paiement : 15 mars (ES)",
+      "sanctions_pour_retard_applica": "• Sanctions pour retard applicables (ES)",
+      "exon_rations_partielles_possi": "• Exonérations partielles possibles (ES)",
+      "mt_12_bg_white_rounded_2xl_p_8": "mt-12 bg-white rounded-2xl p-8 shadow-lg (ES)",
+      "tarifs_douaniers_cemac": "Tarifs Douaniers CEMAC (ES)",
+      "overflow_x_auto": "overflow-x-auto (ES)",
+      "w_full": "w-full (ES)",
+      "border_b_2_border_0f0b60": "border-b-2 border-[#0F0B60] (ES)",
+      "text_left_py_3_px_4_font_bold": "text-left py-3 px-4 font-bold text-gray-900 (ES)",
+      "cat_gorie": "Catégorie (ES)",
+      "taux": "Taux (ES)",
+      "base_de_calcul": "Base de calcul (ES)",
+      "exemples": "Exemples (ES)",
+      "border_b_border_gray_200_hover": "border-b border-gray-200 hover:bg-gray-50 (ES)",
+      "py_3_px_4_font_medium_text_gra": "py-3 px-4 font-medium text-gray-900 (ES)",
+      "py_3_px_4_font_bold_text_0f0b6": "py-3 px-4 font-bold text-[#0F0B60] (ES)",
+      "py_3_px_4_text_gray_600": "py-3 px-4 text-gray-600 (ES)",
+      "grid_md_grid_cols_3_gap_6_mt_8": "grid md:grid-cols-3 gap-6 mt-8 (ES)",
+      "text_center_p_6_bg_white_round": "text-center p-6 bg-white rounded-2xl shadow-lg (ES)",
+      "inline_flex_items_center_justi": "inline-flex items-center justify-center w-16 h-16 bg-[#0F0B60]/10 rounded-full mb-4 (ES)",
+      "h_8_w_8_text_0f0b60": "h-8 w-8 text-[#0F0B60] (ES)",
+      "text_xl_font_bold_text_gray_90": "text-xl font-bold text-gray-900 mb-2 (ES)",
+      "taux_standard_pour_les_entrepr": "Taux standard pour les entreprises (ES)",
+      "tva": "TVA (ES)",
+      "taux_de_tva_applicable": "Taux de TVA applicable (ES)",
+      "du_chiffre_d_affaires_annuel": "Du chiffre d'affaires annuel (ES)"
+    }
+  },
+  "creerEntreprise_creerEntreprise_str0": ";\n\n\n// Two-option segmented control, used instead of two loose pill buttons.\nconst Segmented = (ES)",
+  "creerEntreprise_creerEntreprise_str1": "(\"physique\");\n  const [openSection, setOpenSection] = useState (ES)",
+  "creerEntreprise_creerEntreprise_str2": "(null);\n\n  // Sticky nav logic\n  const navRef = useRef (ES)",
+  "droitInvestisseur_droitInvestisseur_str0": "part.startsWith(\"**\") && part.endsWith(\"**\") ? (ES)",
+  "droitInvestisseur_droitInvestisseur_str1": ": (ES)",
+  "droitInvestisseur_droitInvestisseur_str2": ";\n\n\nconst DialogBody: React.FC (ES)",
+  "droitInvestisseur_droitInvestisseur_str3": ";\n\n\nconst SectionBlock: React.FC (ES)",
+  "droitInvestisseur_droitInvestisseur_str4": "(null);\n  const navRef = useRef (ES)",
+  "droitInvestisseur_droitInvestisseur_str5": "(null);\n  const heroRef = useRef (ES)",
+  "droitInvestisseur_droitInvestisseur_str6": "openDialog(section.title, (ES)",
+  "facteursProduction_facteursProduction_str0": "( (ES)",
+  "fiscalite_fiscalite_str0": "Fiscalité au Cameroun (ES)",
+  "fiscalite_fiscalite_str1": "Panorama complet des régimes fiscaux, taxes douanières et obligations légales pour les investisseurs (ES)",
+  "fiscalite_fiscalite_str2": "( (ES)",
+  "fiscalite_fiscalite_str3": "Régimes d'imposition (ES)",
+  "fiscalite_fiscalite_str4": "▼ (ES)",
+  "fiscalite_fiscalite_str5": "Impôt Libératoire (ES)",
+  "fiscalite_fiscalite_str6": "CA annuel &lt; 10M FCFA (ES)",
+  "fiscalite_fiscalite_str7": "Secteurs : baby-foot (&lt;10 machines), flippers/jeux vidéo (&lt;5) (ES)",
+  "fiscalite_fiscalite_str8": "Paiement trimestriel (ES)",
+  "fiscalite_fiscalite_str9": "Dispense de TVA et patente (ES)",
+  "fiscalite_fiscalite_str10": "Régime Simplifié (RSI) (ES)",
+  "fiscalite_fiscalite_str11": "CA annuel : 10M à 50M FCFA (ES)",
+  "fiscalite_fiscalite_str12": "Comptabilité allégée OHADA (ES)",
+  "fiscalite_fiscalite_str13": "Option possible pour le régime réel à partir de 30M FCFA (ES)",
+  "fiscalite_fiscalite_str14": "Ne collectent pas la TVA (ES)",
+  "fiscalite_fiscalite_str15": "Régime Réel (ES)",
+  "fiscalite_fiscalite_str16": "CA annuel ≥ 50M FCFA (ES)",
+  "fiscalite_fiscalite_str17": "Obligatoire pour professions libérales (ES)",
+  "fiscalite_fiscalite_str18": "Comptabilité normale OHADA (ES)",
+  "fiscalite_fiscalite_str19": "Seuls à collecter/déduire la TVA (ES)",
+  "fiscalite_fiscalite_str20": "Fiscalité Locale (ES)",
+  "fiscalite_fiscalite_str21": "Patente (ES)",
+  "fiscalite_fiscalite_str22": "1% du chiffre d'affaires (ES)",
+  "fiscalite_fiscalite_str23": "Déclaration sous 2 mois du démarrage (ES)",
+  "fiscalite_fiscalite_str24": "Paiement annuel (sauf transporteurs : trimestriel) (ES)",
+  "fiscalite_fiscalite_str25": "Licence (ES)",
+  "fiscalite_fiscalite_str26": "Boissons alcoolisées : 4x patente (ES)",
+  "fiscalite_fiscalite_str27": "Boissons non-alcoolisées : 2x patente (ES)",
+  "fiscalite_fiscalite_str28": "Calcul annuel personnalisé (ES)",
+  "fiscalite_fiscalite_str29": "Taxe sur le Bétail (ES)",
+  "fiscalite_fiscalite_str30": "200 FCFA/tête de bovin (ES)",
+  "fiscalite_fiscalite_str31": "Exemptions : animaux de labour (ES)",
+  "fiscalite_fiscalite_str32": "Recensement annuel obligatoire (ES)",
+  "fiscalite_fiscalite_str33": "TVA & Droits Spéciaux (ES)",
+  "fiscalite_fiscalite_str34": "Taux Normal (ES)",
+  "fiscalite_fiscalite_str35": "19.25% (ES)",
+  "fiscalite_fiscalite_str36": "(17.5% TVA + 1.75% CAC) (ES)",
+  "fiscalite_fiscalite_str37": "Exonérations (ES)",
+  "fiscalite_fiscalite_str38": "Exportations (ES)",
+  "fiscalite_fiscalite_str39": "Zones Franches Industrielles (ES)",
+  "fiscalite_fiscalite_str40": "Services éducatifs (ES)",
+  "fiscalite_fiscalite_str41": "Droit d'Accise (ES)",
+  "fiscalite_fiscalite_str42": "Boissons alcoolisées (ES)",
+  "fiscalite_fiscalite_str43": "Abattement : 35% (ES)",
+  "fiscalite_fiscalite_str44": "Tabacs (ES)",
+  "fiscalite_fiscalite_str45": "Abattement : 42.5% (ES)",
+  "fiscalite_fiscalite_str46": "Régimes Douaniers (ES)",
+  "fiscalite_fiscalite_str47": "Tarif Extérieur Commun (ES)",
+  "fiscalite_fiscalite_str48": "Biens essentiels (ES)",
+  "fiscalite_fiscalite_str49": "Taux : (ES)",
+  "fiscalite_fiscalite_str50": "5% (ES)",
+  "fiscalite_fiscalite_str51": "Biens consommation (ES)",
+  "fiscalite_fiscalite_str52": "30% (ES)",
+  "fiscalite_fiscalite_str53": "Procédures (ES)",
+  "fiscalite_fiscalite_str54": "Déclaration sous 24h après arrivée (ES)",
+  "fiscalite_fiscalite_str55": "Manifeste de cargaison obligatoire (ES)",
+  "fiscalite_fiscalite_str56": "Contrôle physique des marchandises (ES)",
+  "fiscalite_fiscalite_str57": "Impôt sur les Sociétés (ES)",
+  "fiscalite_fiscalite_str58": "33% (ES)",
+  "fiscalite_fiscalite_str59": "(30% IS + 3% CAC) (ES)",
+  "fiscalite_fiscalite_str60": "Acomptes (ES)",
+  "fiscalite_fiscalite_str61": "Régime réel (ES)",
+  "fiscalite_fiscalite_str62": "2.2% CA (ES)",
+  "fiscalite_fiscalite_str63": "RSI (ES)",
+  "fiscalite_fiscalite_str64": "5.5% CA (ES)",
+  "fiscalite_fiscalite_str65": "Taxe Foncière (ES)",
+  "fiscalite_fiscalite_str66": "Calcul (ES)",
+  "fiscalite_fiscalite_str67": "Propriétaire (ES)",
+  "fiscalite_fiscalite_str68": "0.11% × (terrain + bâtiments) (ES)",
+  "fiscalite_fiscalite_str69": "Locataire (ES)",
+  "fiscalite_fiscalite_str70": "5-10% loyer annuel + 50% précompte (ES)",
+  "fiscalite_fiscalite_str71": "Paiement (ES)",
+  "fiscalite_fiscalite_str72": "Date limite : 15 mars (ES)",
+  "fiscalite_fiscalite_str73": "Sanctions pour retard (ES)",
+  "fiscalite_fiscalite_str74": "Exonérations partielles possibles (ES)",
+  "fiscalite_fiscalite_str75": "Tarifs Douaniers CEMAC (ES)",
+  "fiscalite_fiscalite_str76": "Catégorie (ES)",
+  "fiscalite_fiscalite_str77": "Taux (ES)",
+  "fiscalite_fiscalite_str78": "Base de calcul (ES)",
+  "fiscalite_fiscalite_str79": "Exemples (ES)",
+  "fiscalite_fiscalite_str80": "Biens de première nécessité (ES)",
+  "fiscalite_fiscalite_str81": "Valeur en douane (ES)",
+  "fiscalite_fiscalite_str82": "Médicaments, produits de base (ES)",
+  "fiscalite_fiscalite_str83": "Matières premières (ES)",
+  "fiscalite_fiscalite_str84": "10% (ES)",
+  "fiscalite_fiscalite_str85": "Valeur EXW (ES)",
+  "fiscalite_fiscalite_str86": "Acier, produits agricoles bruts (ES)",
+  "fiscalite_fiscalite_str87": "Biens intermédiaires (ES)",
+  "fiscalite_fiscalite_str88": "20% (ES)",
+  "fiscalite_fiscalite_str89": "Valeur CAF (ES)",
+  "fiscalite_fiscalite_str90": "Pièces automobiles, composants (ES)",
+  "fiscalite_fiscalite_str91": "Biens de consommation (ES)",
+  "fiscalite_fiscalite_str92": "Valeur totale (ES)",
+  "fiscalite_fiscalite_str93": "Électronique, véhicules (ES)",
+  "fiscalite_fiscalite_str94": "Saisissez des Opportunités Uniques ! (ES)",
+  "fiscalite_fiscalite_str95": "Investissez dès aujourd’hui dans des projets innovants et rentables pour bâtir l’avenir de l’économie camerounaise. (ES)",
+  "fiscalite_fiscalite_str96": "Voir plus de projets (ES)",
+  "fiscalite_fiscalite_str97": "Breadcrumbs (ES)",
+  "foncier_foncier_str0": "( (ES)",
+  "foncier_foncier_str1": "Système Foncier au Cameroun (ES)",
+  "foncier_foncier_str2": "Le système foncier camerounais allie tradition et modernité, structuré autour\n              des domaines public et privé de l'État. Explorez les mécanismes juridiques\n              encadrant la propriété immobilière. (ES)",
+  "foncier_foncier_str3": "Nouveauté 2005 (ES)",
+  "foncier_foncier_str4": "Révolution des Réformes Foncières (ES)",
+  "foncier_foncier_str5": "Une procédure sécurisée avec authentification biométrique\n                    et vérification cadastrale numérique. (ES)",
+  "foncier_foncier_str6": "Certificat d'authenticité numérique (ES)",
+  "foncier_foncier_str7": "Géolocalisation précise (ES)",
+  "foncier_foncier_str8": "Protection contre les fraudes (ES)",
+  "foncier_foncier_str9": "Contrats de bail modernisés avec protection des deux parties\n                    et réévaluation encadrée. (ES)",
+  "foncier_foncier_str10": "Durée maximale : 15 ans renouvelable (ES)",
+  "foncier_foncier_str11": "Indexation réglementée sur l'indice INSEE (ES)",
+  "foncier_foncier_str12": "📚 Code Foncier (ES)",
+  "foncier_foncier_str13": "Saisissez des Opportunités Uniques ! (ES)",
+  "foncier_foncier_str14": "Investissez dès aujourd’hui dans des projets innovants et rentables pour bâtir l’avenir de l’économie camerounaise. (ES)",
+  "foncier_foncier_str15": "Voir plus de projets (ES)",
+  "foncier_foncier_str16": "Breadcrumbs (ES)",
+  "foncier_foncier_str17": "📜 Titre Foncier Garanti (ES)",
+  "foncier_foncier_str18": "🏢 Bail Commercial Sécurisé (ES)",
+  "presentation_cameroun": {
+    "cities": {
+      "CMSU": {
+        "name": "Sur",
+        "description": "La región del Sur es conocida por su área forestal, rica en recursos naturales y biodiversidad.",
+        "population": "1.5M",
+        "attractions": "Reserva de Campo Ma'an, Bosque ecuatorial",
+        "cheflieu": "Ngaoundéré",
+        "departements": "5",
+        "langues": "Fulfulde, Francés, Inglés"
+      },
+      "CMEN": {
+        "name": "Extremo Norte",
+        "description": "El Extremo Norte es una región árida y culturalmente rica, influenciada por tradiciones fulani y árabes.",
+        "population": "3.9M",
+        "attractions": "Parque Nacional de Waza, Montes Mandara",
+        "cheflieu": "Maroua",
+        "departements": "6",
+        "langues": "Fulfulde, Francés, Árabe"
+      },
+      "CMNO": {
+        "name": "Norte",
+        "description": "El Norte es una región de sabana, conocida por sus tradiciones fulani y su agricultura.",
+        "population": "2.8M",
+        "attractions": "Parque Nacional de la Bénoué, Lamidato de Garoua",
+        "cheflieu": "Garoua",
+        "departements": "4",
+        "langues": "Fulfulde, Francés, Hausa"
+      },
+      "CMAD": {
+        "name": "Adamawa",
+        "description": "Adamawa es una región montañosa y verde, conocida por sus paisajes naturales y ganadería.",
+        "population": "1.2M",
+        "attractions": "Parque Nacional de la Bénoué, Cataratas del Vina",
+        "cheflieu": "Ngaoundéré",
+        "departements": "6",
+        "langues": "Fulfulde, Francés, Inglés"
+      },
+      "CMNW": {
+        "name": "Noroeste",
+        "description": "El Noroeste es una región montañosa y culturalmente diversa, con fuerte influencia anglófona.",
+        "population": "2.5M",
+        "attractions": "Monte Oku, Lago Nyos, Mercado artesanal de Bamenda",
+        "cheflieu": "Bamenda",
+        "departements": "4",
+        "langues": "Inglés, Pidgin, Bafut"
+      },
+      "CMSW": {
+        "name": "Suroeste",
+        "description": "El Suroeste es una región montañosa y verde, con fuerte influencia anglófona y paisajes espectaculares.",
+        "population": "1.8M",
+        "attractions": "Monte Camerún, Playas de Limbe, Parque Nacional de Korup",
+        "cheflieu": "Buea",
+        "departements": "6",
+        "langues": "Inglés, Pidgin, Bakweri"
+      },
+      "CMES": {
+        "name": "Este",
+        "description": "La región del Este está cubierta principalmente por bosques tropicales y alberga una rica biodiversidad.",
+        "population": "1.2M",
+        "attractions": "Parque Nacional de Lobéké, Bosque denso",
+        "cheflieu": "Bertoua",
+        "departements": "4",
+        "langues": "Francés, Gbaya, Baka"
+      },
+      "CMLT": {
+        "name": "Litoral",
+        "description": "El Litoral es la región económica de Camerún, albergando el mayor puerto del país.",
+        "population": "3.5M",
+        "attractions": "Puerto de Douala, Playas de Limbe, Monte Camerún",
+        "cheflieu": "Douala",
+        "departements": "4",
+        "langues": "Francés, Duala, Pidgin"
+      },
+      "CMOU": {
+        "name": "Oeste",
+        "description": "El Oeste es una región fértil y densamente poblada, conocida por sus cultivos alimentarios y jefaturas tradicionales.",
+        "population": "2.3M",
+        "attractions": "Cataratas de Métché, Monte Bamboutos",
+        "cheflieu": "Bafoussam",
+        "departements": "8",
+        "langues": "Francés, Bamileke"
+      },
+      "CMCE": {
+        "name": "Centro",
+        "description": "Yaundé, la capital de Camerún, es el centro político y administrativo del país.",
+        "population": "4.5M",
+        "attractions": "Palacio de Congresos, Museo Nacional, Monte Fébé",
+        "cheflieu": "Yaundé",
+        "departements": "10",
+        "langues": "Francés, Ewondo, Bassa"
+      }
+    },
+    "hero": {
+      "title": "Descubra Camerún",
+      "subtitle": "Un país de oportunidades y diversidad"
+    },
+    "welcome": {
+      "title1": "Bienvenido a Camerún ",
+      "title2": "El destino ideal para sus inversiones",
+      "p1": "Camerún, verdadera locomotora económica de África Central, se distingue por una economía diversificada y resiliente, que ofrece un entorno favorable para la inversión. Con un PIB nominal estimado en USD 45 mil millones y una tasa de crecimiento económico sostenida de entre el 4 y el 5% anual, el país se posiciona como un centro estratégico para los negocios en África.",
+      "h4": "Una economía diversificada con sectores dinámicos",
+      "li1": "Camerún es líder mundial en la producción de cacao y café, además de una variada oferta que incluye plátano, algodón, aceite de palma y té.",
+      "li2": "Una sólida base industrial impulsada por el procesamiento de alimentos, textiles, madera, cemento y productos derivados del petróleo.",
+      "li3": "Sectores en auge como telecomunicaciones, finanzas, transporte y turismo, respaldados por una demanda creciente.",
+      "p2": "Camerún también se beneficia de una posición geográfica estratégica, que conecta África central y occidental con un mercado potencial de más de 200 millones de consumidores a través de CEMAC.",
+      "p3": "Con una mano de obra joven y dinámica, abundantes recursos naturales y una economía liberal abierta a los inversores extranjeros, Camerún ofrece oportunidades únicas en sectores clave como la agricultura, la energía, la infraestructura y las nuevas tecnologías.",
+      "agriculture": "Agricultura (20% del PIB)",
+      "industrie": "Industria (30% del PIB)",
+      "services": "Servicios (50% del PIB)"
+    },
+    "map": {
+      "attractions": "Atracciones:",
+      "population": "Población:",
+      "cheflieu": "Capital:",
+      "departements": "Departamentos:",
+      "langues": "Idiomas:"
+    },
+    "infos": {
+      "capitale": {
+        "title": "Capital",
+        "value": "Yaundé"
+      },
+      "superficie": {
+        "title": "Área",
+        "value": "475.442 km²"
+      },
+      "population": {
+        "title": "Población",
+        "value": "26.545.863 hab."
+      },
+      "langues": {
+        "title": "Idiomas oficiales",
+        "value": "Francés, Inglés"
+      },
+      "monnaie": {
+        "title": "Moneda",
+        "value": "Franco CFA (XAF)"
+      },
+      "fuseau": {
+        "title": "Zona horaria",
+        "value": "UTC+1"
+      }
+    },
+    "stats": {
+      "s1": {
+        "name": "Agricultura, industria, servicios",
+        "value": "Sectores"
+      },
+      "s2": {
+        "name": "petróleo, gas, minerales, bosques",
+        "value": "Recursos"
+      },
+      "s3": {
+        "name": "Consumidores del mercado regional",
+        "value": "300 millones"
+      }
+    },
+    "aspectsFiscal": "Aspectos Fiscales",
+    "priorities": {
+      "title": "Prioridades del gobierno",
+      "p1": "La visión a largo plazo de Camerún como un país emergente, democrático y unido para 2035 ha llevado a una reflexión global y a la adopción de las orientaciones contenidas en el Documento de Estrategia para el Crecimiento y el Empleo (DSCE). El DSCE, como documento de orientación de referencia válido por un período de diez años (2010-2020), identifica los objetivos que Camerún se ha fijado durante este período, que se pueden resumir de la siguiente manera:",
+      "li1": "elevar el crecimiento a un nivel medio del 5,5% anual para 2020;",
+      "li2": "reducir el subempleo del 75,8% al 50% en 2020;",
+      "li3": "reducir la tasa de pobreza a alrededor del 28% en 2020.",
+      "p2": "Para alcanzar estos 3 objetivos principales, se han definido tres estrategias, a saber:",
+      "li4": "la estrategia de crecimiento;",
+      "li5": "la estrategia de empleo;",
+      "li6": "la estrategia de gobernanza."
+    }
+  },
+  "pages_investir": {
+    "incitation": {
+      "hero": {
+        "badge": "Guía del Inversor",
+        "title": "Incentivos",
+        "title_highlight": "Fiscales",
+        "subtitle": "Descubra un marco fiscal atractivo, diseñado para asegurar y dinamizar su inversión en el corazón de África.",
+        "button": "Descubrir las ventajas"
+      },
+      "nav": {
+        "chiffres": "Cifras Clave",
+        "installation": "Instalación",
+        "exploitation": "Explotación",
+        "secteurs": "Sectores",
+        "apercu": "Resumen",
+        "phases": "Fases",
+        "aria": "Secciones de la página"
+      },
+      "key_figures": {
+        "title": "Cifras Clave a Recordar",
+        "subtitle": "Los pilares del atractivo fiscal de Camerún.",
+        "f1_label": "Reducción IS (primeros 5 años)",
+        "f2_label": "Duración máxima de los beneficios",
+        "f3_label": "IVA sobre las exportaciones",
+        "f4_label": "Aranceles aduaneros sectores prioritarios",
+        "f2_value": "10 años"
+      },
+      "installation": {
+        "title": "Fase de Instalación",
+        "period": "(0-5 años)",
+        "desc": "Durante los primeros años, el Estado le acompaña con exenciones totales para facilitar su inicio y reducir su riesgo financiero inicial.",
+        "badge": "EXENCIONES TOTALES",
+        "exo_title": "Exenciones Totales",
+        "exo1": "Derechos de registro",
+        "exo2": "IVA a la importación",
+        "exo3": "Licencia comercial (toda la duración)",
+        "exo4": "Derechos de transmisión",
+        "douane_title": "Ventajas Aduaneras",
+        "douane1": "Levante directo",
+        "douane2": "Exención aduanera",
+        "douane3": "Admisión temporal"
+      },
+      "exploitation": {
+        "title": "Fase de Explotación",
+        "period": "(5-10 años)",
+        "desc": "Tras la instalación, reducciones progresivas apoyan su crecimiento y preservan su competitividad a largo plazo.",
+        "badge": "REDUCCIONES HASTA EL 75%",
+        "reduc_title": "Reducciones Fiscales",
+        "reduc1": "75% del IS (primeros 5 años)",
+        "reduc2": "50% de reducción (años 6-10)",
+        "reduc3": "Exención de derechos sobre préstamos",
+        "autres_title": "Otras Ventajas",
+        "autres1": "Compensación de pérdidas (5 años)",
+        "autres2": "IVA cero en exportaciones",
+        "autres3": "Créditos fiscales por I+D"
+      },
+      "secteurs": {
+        "title": "Sectores Prioritarios",
+        "subtitle": "Ventajas específicas para los motores de la economía.",
+        "agro": {
+          "name": "Agroindustria",
+          "b1": "Exención de IVA sobre insumos agrícolas",
+          "b2": "Aranceles aduaneros reducidos al 5%",
+          "b3": "Exención de licencia comercial durante 5 años"
+        },
+        "energie": {
+          "name": "Energía",
+          "b1": "Crédito fiscal del 30% sobre equipos",
+          "b2": "Exención del impuesto sobre bienes inmuebles",
+          "b3": "Admisión temporal especial"
+        },
+        "tech": {
+          "name": "Tecnología",
+          "b1": "IVA al 0% en servicios digitales",
+          "b2": "Subvenciones para I+D",
+          "b3": "Exención de derechos de registro"
+        }
+      },
+      "cta": {
+        "title": "¿Listo para Invertir en Camerún?",
+        "subtitle": "Estos incentivos fiscales, combinados con una ventanilla única y una mano de obra cualificada, hacen de Camerún el destino de elección para su crecimiento.",
+        "btn1": "Crear mi empresa",
+        "btn2": "Ver factores de producción"
+      },
+      "phases": {
+        "eyebrow": "Recorrido fiscal",
+        "title": "Fases clave",
+        "subtitle": "Ventajas fiscales adaptadas a cada etapa de su proyecto, desde la instalación hasta la explotación.",
+        "horizon": "Horizonte de las ventajas: hasta 10 años",
+        "phase": "Fase",
+        "year": "Año {{n}}",
+        "key_benefit": "Ventaja principal",
+        "benefits_count": "{{count}} ventajas incluidas en esta fase",
+        "note": "Información indicativa. La elegibilidad y la duración exacta de las ventajas las fija la ley de incentivos a la inversión privada y las precisa la API al aprobar su proyecto."
+      }
+    },
+    "droits_investisseurs": {
+      "hero": {
+        "badge": "Seguridad Jurídica",
+        "title": "Derechos de los Inversores",
+        "title_highlight": "en Camerún",
+        "subtitle": "Un marco legal sólido para proteger y facilitar sus inversiones.",
+        "button": "Descubrir los derechos"
+      },
+      "see_details": "Ver detalles",
+      "resources_title": "Recursos Útiles",
+      "cta": {
+        "title": "Asegure su inversión",
+        "subtitle": "Estos derechos y garantías le ofrecen un sólido marco jurídico para desarrollar su proyecto en Camerún con serenidad y confianza.",
+        "btn1": "Crear mi empresa",
+        "btn2": "Ver incentivos"
+      },
+      "sections": {
+        "protection": {
+          "title": "Protección de las Inversiones",
+          "description": "Camerún ofrece una protección sólida de las inversiones a través de su **Código de Inversiones de 2013**, convenios internacionales y la adhesión a **la OHADA**.",
+          "tag": "Fundamental",
+          "dialogIntro": "Camerún cuenta con un sólido arsenal jurídico para garantizar la seguridad de las inversiones, tanto nacionales como extranjeras.",
+          "facts": {
+            "f1_label": "Textos Fundamentales",
+            "f1_value": "OHADA, CIMA",
+            "f2_label": "Garantías",
+            "f2_value": "No expropiación",
+            "f3_label": "Estabilidad Fiscal",
+            "f3_value": "10 años"
+          },
+          "blocks": {
+            "b1_heading": "Textos Fundamentales",
+            "b1_i1": "**Código de Inversiones (Ley n.° 2013/004)**: libertad de inversión, derecho de propiedad y no expropiación sin indemnización.",
+            "b1_i2": "**Derecho OHADA**: derecho mercantil unificado y moderno que garantiza todas las transacciones comerciales.",
+            "b1_i3": "**Convenios CIPRES y CIMA**: marco estable para la gestión de riesgos y seguros.",
+            "b2_heading": "Garantías Principales",
+            "b2_i1": "**Protección contra la expropiación**: únicamente por causa de utilidad pública y mediante justa indemnización.",
+            "b2_i2": "**Estabilidad fiscal**: períodos de exención de hasta 10 años para ciertos sectores prioritarios.",
+            "b2_i3": "**Libertad de transferencia de capitales**: repatriación libre de beneficios, dividendos y productos de liquidación.",
+            "b2_i4": "**Trato no discriminatorio**: igualdad entre inversores nacionales y extranjeros (Trato Nacional + Cláusula NMF)."
+          },
+          "resources": {
+            "r1": "Código de Inversiones (API)",
+            "r2": "Actos Uniformes de la OHADA",
+            "r3": "Constitución de Camerún (PDF)"
+          },
+          "button": "Ver las Garantías"
+        },
+        "traitement": {
+          "title": "Trato Nacional y Cláusula NMF",
+          "description": "Los inversores se benefician del **mismo trato** que los nacionales y de las ventajas concedidas a otros países (**cláusula NMF**).",
+          "tag": "No discriminación",
+          "dialogIntro": "La legislación camerunesa garantiza un trato justo y no discriminatorio a los inversores extranjeros.",
+          "facts": {
+            "f1_label": "Principio",
+            "f1_value": "No discriminación",
+            "f2_label": "Acceso Mercados",
+            "f2_value": "Igualdad",
+            "f3_label": "Excepto",
+            "f3_value": "Sectores estratégicos"
+          },
+          "blocks": {
+            "b1_heading": "Principio de Trato Nacional (TN)",
+            "b1_i1": "Los inversores extranjeros disfrutan de los **mismos derechos y obligaciones** que los inversores nacionales.",
+            "b1_i2": "Aplicable en todas las etapas: establecimiento, explotación, adquisición de bienes y contratación pública.",
+            "b1_i3": "Objetivo: **eliminar toda discriminación** basada en la nacionalidad o el origen del capital.",
+            "b2_heading": "Cláusula de la Nación Más Favorecida (NMF)",
+            "b2_i1": "Toda ventaja concedida a otro país se **extiende automáticamente** a los inversores cubiertos por la cláusula NMF.",
+            "b2_i2": "Garantiza igualdad de trato entre todos los socios internacionales.",
+            "b3_heading": "Excepciones y Reservas",
+            "b3_i1": "Ciertos **sectores estratégicos** (defensa, recursos naturales críticos) pueden tener regímenes específicos.",
+            "b3_i2": "Se pueden aplicar **medidas de salvaguardia** en situaciones excepcionales."
+          },
+          "resources": {
+            "r1": "Código de Inversiones de Camerún (API)",
+            "r2": "Más información sobre la cláusula NMF (OMC)",
+            "r3": "Guía del Inversor en Camerún (PDF)"
+          },
+          "button": "Detalles sobre el Trato"
+        },
+        "cadre_legal": {
+          "title": "Marco Legal e Instituciones",
+          "description": "Camerún dispone de un **marco jurídico moderno** e instituciones dedicadas para acompañar a los inversores.",
+          "tag": "Instituciones",
+          "dialogIntro": "Camerún se apoya en un marco legislativo e institucional sólido para encuadrar y apoyar las inversiones.",
+          "facts": {
+            "f1_label": "Instituciones Clave",
+            "f1_value": "API, MINEPAT",
+            "f2_label": "Derecho Aplicado",
+            "f2_value": "OHADA",
+            "f3_label": "Simplificación",
+            "f3_value": "CRI"
+          },
+          "blocks": {
+            "b1_heading": "Instituciones Clave de Inversión",
+            "b1_i1": "**API** (Agencia de Promoción de Inversiones): ventanilla única, acompañamiento y facilitación de trámites.",
+            "b1_i2": "**MINEPAT**: responsable de la política económica y la supervisión de grandes proyectos.",
+            "b1_i3": "**Centros de Formalidades (CFE)**: simplifican la creación de empresas agrupando todas las administraciones.",
+            "b1_i4": "**ORD OHADA**: mecanismos de arbitraje y mediación reconocidos internacionalmente.",
+            "b2_heading": "Marco Jurídico Principal",
+            "b2_i1": "**Derecho OHADA**: 10 Actos Uniformes que cubren todos los ámbitos del derecho mercantil.",
+            "b2_i2": "**Código de Inversiones (Ley n.° 2013/004)**: principios, regímenes de incentivos y garantías.",
+            "b2_i3": "**Código General de Impuestos**: fiscalidad de empresas y personas físicas.",
+            "b2_i4": "**Código Laboral**: relaciones empleador-empleados, condiciones de empleo y despido.",
+            "b2_i5": "**Código de Contratación Pública**: transparencia y competencia en la contratación pública."
+          },
+          "resources": {
+            "r1": "Sitio Oficial de la API",
+            "r2": "Sitio Oficial de la OHADA",
+            "r3": "Código General de Impuestos (PDF)",
+            "r4": "Código Laboral (PDF)"
+          },
+          "button": "Explorar el Marco Legal"
+        },
+        "droit_propriete": {
+          "title": "Derecho a la Propiedad",
+          "description": "La **propiedad privada está garantizada** por la Constitución, con regímenes de tenencia de tierras claros para asegurar sus adquisiciones.",
+          "tag": "Constitucional",
+          "dialogIntro": "El derecho a la propiedad es fundamental y está firmemente anclado en la legislación camerunesa.",
+          "facts": {
+            "f1_label": "Garantía Legal",
+            "f1_value": "Constitución",
+            "f2_label": "Duración Título",
+            "f2_value": "25 años+",
+            "f3_label": "Seguridad",
+            "f3_value": "Registro"
+          },
+          "blocks": {
+            "b1_heading": "Régimen de Tenencia de Tierras",
+            "b1_i1": "**Título de Propiedad**: prueba irrefutable del derecho de propiedad, emitido por MINDCAF. Vigencia de 25 años renovables.",
+            "b1_i2": "**Arrendamiento Enfitéutico**: larga duración (18 a 99 años) con derechos reales sobre el terreno, utilizable como garantía bancaria.",
+            "b1_i3": "**Certificado de Propiedad**: documento provisional que certifica una solicitud en curso.",
+            "b1_i4": "**Tierras del Estado**: el Estado es el propietario inicial; adquisición mediante concesiones convertibles en títulos de propiedad.",
+            "b2_heading": "Procedimientos de Segurización de la Propiedad",
+            "b2_i1": "**Registro Catastral**: obligatorio con delimitación física y plano topográfico.",
+            "b2_i2": "**Publicación en el Boletín Oficial**: garantiza la transparencia para terceros.",
+            "b2_i3": "**Certificado de No Retrodicción**: garantiza que el terreno no ha sido devuelto.",
+            "b2_i4": "**Consulta del Registro de la Propiedad**: verificar el historial antes de cualquier adquisición."
+          },
+          "resources": {
+            "r1": "Sitio Oficial del MINDCAF",
+            "r2": "Ley de Régimen de Tenencia de Tierras (PDF)",
+            "r3": "Guía Práctica de Adquisición de Terrenos (PDF)"
+          },
+          "button": "Comprender el Derecho de Propiedad"
+        },
+        "procedure_terrain": {
+          "title": "Procedimientos de Obtención de Terrenos",
+          "description": "**Procedimientos simplificados** facilitan la adquisición de terrenos para proyectos de inversión, con plazos conocidos.",
+          "tag": "5 pasos",
+          "dialogIntro": "La adquisición de terrenos está regulada por procedimientos claros, diseñados para facilitar los trámites de los inversores.",
+          "facts": {
+            "f1_label": "Pasos Clave",
+            "f1_value": "5 pasos",
+            "f2_label": "Plazo Medio",
+            "f2_value": "6 a 9 meses",
+            "f3_label": "Gastos de Registro",
+            "f3_value": "2 - 5%"
+          },
+          "blocks": {
+            "b1_heading": "Proceso General (5 Pasos Esenciales)",
+            "b1_i1": "**Presentación de la Solicitud**: ante MINDCAF o la API, con descripción detallada del proyecto.",
+            "b1_i2": "**Estudio de Impacto Ambiental (EIA)**: obligatorio para proyectos de envergadura.",
+            "b1_i3": "**Aprobación del Plan de Ocupación**: conformidad con los planes urbanísticos y normativas locales.",
+            "b1_i4": "**Pago de Derechos de Tierra**: gastos de registro, impuestos sobre terrenos y posibles tasas.",
+            "b1_i5": "**Expedición del Título de Propiedad**: título definitivo o contrato de concesión firmado.",
+            "b2_heading": "Plazos y Costos Estimados",
+            "b2_i1": "**Plazo medio**: 6 a 9 meses para un título de propiedad.",
+            "b2_i2": "**Gastos de registro**: 2% a 5% del valor de mercado del terreno.",
+            "b2_i3": "**Impuesto Anual sobre Bienes Inmuebles**: aproximadamente el 0,1% del valor catastral.",
+            "b2_i4": "**Costos adicionales**: delimitación, notario, urbanización si el terreno no está habilitado."
+          },
+          "advice": "Consejo importante: se recomienda encarecidamente contar con el apoyo de expertos locales calificados (topógrafos, abogados de tierras) para navegar estos procedimientos.",
+          "resources": {
+            "r1": "Procedimientos de Inversión (API)",
+            "r2": "Régimen de Tenencia de Tierras (MINDCAF)",
+            "r3": "Guía de Procedimientos de Terrenos (PDF)"
+          },
+          "button": "Ver los Procedimientos Completos"
+        },
+        "fiscalite_incitations": {
+          "title": "Fiscalidad e Incentivos",
+          "description": "Benefíciese de **regímenes fiscales de incentivos** y exenciones para sus inversiones prioritarias.",
+          "tag": "Incentivo",
+          "dialogIntro": "Camerún ha implementado una política fiscal atractiva con incentivos significativos para atraer inversiones.",
+          "facts": {
+            "f1_label": "Exención Pionera",
+            "f1_value": "Hasta 5 años",
+            "f2_label": "IVA ZEE",
+            "f2_value": "0%",
+            "f3_label": "IS PYME",
+            "f3_value": "25%"
+          },
+          "blocks": {
+            "b1_heading": "Regímenes Fiscales Especiales",
+            "b1_i1": "**Empresa Pionera**: exenciones de hasta 10 años (5 años de instalación + 5 años de explotación).",
+            "b1_i2": "**Zonas Económicas Especiales (ZEE)**: IVA al 0%, reducciones del IS, facilidades administrativas.",
+            "b1_i3": "**Régimen PYME**: tipo reducido del IS al 25% en lugar del tipo estándar.",
+            "b1_i4": "**Ventajas de Exportación**: exenciones de IVA y facilidades aduaneras en los insumos.",
+            "b1_i5": "**Créditos I+D**: incentivos fiscales para empresas que invierten en investigación.",
+            "b2_heading": "Escala Fiscal Estándar",
+            "b2_i1": "**IS (Impuesto sobre Sociedades)**: tipo estándar del 33%.",
+            "b2_i2": "**IVA**: tipo estándar del 19,25%, con exenciones para bienes de primera necesidad.",
+            "b2_i3": "**Aranceles Aduaneros**: del 5% al 30% según la categoría del producto.",
+            "b2_i4": "**Licencia Comercial**: aproximadamente el 1% de la facturación."
+          },
+          "resources": {
+            "r1": "Código General de Impuestos (DGI)",
+            "r2": "Ventajas Fiscales del Código de Inversiones (API)",
+            "r3": "Guía de Fiscalidad Empresarial (PDF)"
+          },
+          "button": "Explorar los Incentivos Fiscales"
+        },
+        "resolution_conflits": {
+          "title": "Resolución de Conflictos",
+          "description": "Camerún ofrece **mecanismos eficaces** de resolución de litigios, incluido el arbitraje internacional.",
+          "tag": "Arbitraje",
+          "dialogIntro": "Para garantizar un clima empresarial sereno, Camerún ofrece diversos mecanismos que van desde las vías amistosas hasta el arbitraje internacional.",
+          "facts": {
+            "f1_label": "Vías de Recurso",
+            "f1_value": "Mediación, Arbitraje",
+            "f2_label": "Arbitraje OHADA",
+            "f2_value": "Sí (CCJA)",
+            "f3_label": "CIADI",
+            "f3_value": "Miembro desde 2016"
+          },
+          "blocks": {
+            "b1_heading": "Vías de Recurso Internas",
+            "b1_i1": "**Mediación y Conciliación**: cámaras de mediación (CCIMA) para soluciones amistosas y confidenciales.",
+            "b1_i2": "**Arbitraje OHADA (CCJA)**: laudos directamente ejecutables en todos los países miembros, sin exequatur.",
+            "b1_i3": "**Tribunales Nacionales**: competentes para litigios comerciales, con procedimientos en modernización.",
+            "b2_heading": "Arbitraje Internacional",
+            "b2_i1": "**CIADI**: miembro desde 2016, que permite a los inversores extranjeros someter sus diferencias al Banco Mundial.",
+            "b2_i2": "**Convenio de Nueva York (1958)**: ratificado, facilita el reconocimiento de laudos arbitrales extranjeros.",
+            "b2_i3": "**Acuerdos Bilaterales de Inversión (ABI)**: cláusulas específicas de arbitraje internacional en varios ABI."
+          },
+          "resources": {
+            "r1": "Arbitraje OHADA (CCJA)",
+            "r2": "Estados miembros del CIADI",
+            "r3": "Guía de Resolución de Litigios (PDF)"
+          },
+          "button": "Más sobre la Resolución"
+        },
+        "liberte_entreprise": {
+          "title": "Libertad de Empresa",
+          "tag": "Clima de negocios",
+          "description": "El país apuesta por una **mejora continua** del entorno empresarial, con procedimientos de creación simplificados.",
+          "facts": {
+            "f1_label": "Doing Business",
+            "f1_value": "+32 puestos",
+            "f2_label": "Creación de Empresa",
+            "f2_value": "3 días",
+            "f3_label": "Capital Mínimo",
+            "f3_value": "1 XAF"
+          },
+          "dialogIntro": "Toda persona, nacional o extranjera, es **libre de emprender** una actividad lícita en Camerún. Los trámites de creación se han agrupado y simplificado.",
+          "blocks": {
+            "b1_heading": "Crear su empresa rápidamente",
+            "b1_i1": "**Ventanilla única**: los Centros de Formalidades de Creación de Empresas (CFCE) reúnen todos los trámites.",
+            "b1_i2": "Creación de empresa posible en **3 días** con el expediente completo.",
+            "b1_i3": "Capital social de la SARL **fijado libremente** por los socios.",
+            "b1_i4": "Estatuto de **emprendedor** OHADA para empezar con trámites simplificados.",
+            "b2_heading": "Una libertad regulada",
+            "b2_i1": "Libertad de establecimiento y de ejercicio de toda **actividad lícita**.",
+            "b2_i2": "Algunas actividades reguladas requieren una **autorización** o licencia previa.",
+            "b2_i3": "Igualdad de trato entre inversores nacionales y extranjeros."
+          },
+          "resources": {
+            "r1": "Crear su empresa (API)",
+            "r2": "Derecho de sociedades OHADA"
+          },
+          "button": "Descubrir la Libertad de Empresa"
+        },
+        "rse": {
+          "title": "RSC y Desarrollo Sostenible",
+          "tag": "Impacto",
+          "description": "Integre la **Responsabilidad Social Corporativa** y benefíciese de ventajas para un impacto positivo.",
+          "facts": {
+            "f1_label": "Obligación RSC",
+            "f1_value": "1% de la facturación",
+            "f2_label": "Normas A&S",
+            "f2_value": "Respetadas",
+            "f3_label": "Créditos Fiscales",
+            "f3_value": "Hasta 30%"
+          },
+          "dialogIntro": "Camerún fomenta las inversiones **responsables**, respetuosas con el medio ambiente y beneficiosas para las comunidades locales.",
+          "blocks": {
+            "b1_heading": "Obligaciones ambientales y sociales",
+            "b1_i1": "Respeto de la **ley marco sobre la gestión del medio ambiente** (1996).",
+            "b1_i2": "**Estudio de impacto ambiental y social** (EIAS) obligatorio para los proyectos afectados.",
+            "b1_i3": "Respeto del Código del Trabajo y de las normas de salud y seguridad.",
+            "b1_i4": "Contribución al **desarrollo local** de las zonas de implantación.",
+            "b2_heading": "Ventajas para el inversor",
+            "b2_i1": "Acceso facilitado a la **financiación verde** y a socios internacionales.",
+            "b2_i2": "Ventajas para los proyectos que crean empleo y respetan el medio ambiente.",
+            "b2_i3": "Mejor aceptación del proyecto y reducción de riesgos."
+          },
+          "advice": "Anticipe el estudio de impacto ambiental y social desde el diseño del proyecto: a menudo condiciona las autorizaciones.",
+          "resources": {
+            "r1": "Ministerio de Medio Ambiente (MINEPDED)",
+            "r2": "Acompañamiento de inversores (API)"
+          },
+          "button": "Más sobre la RSC"
+        },
+        "liberte_capitaux": {
+          "title": "Circulación de Capitales",
+          "description": "La **libre circulación de capitales** está garantizada, facilitando las transferencias y repatriaciones de fondos.",
+          "tag": "Garantizado",
+          "dialogIntro": "Camerún garantiza la libre circulación de capitales, un activo importante para los inversores internacionales.",
+          "facts": {
+            "f1_label": "Transferencias",
+            "f1_value": "Dividendos, Royalties",
+            "f2_label": "Límite Mensual",
+            "f2_value": "20M XAF",
+            "f3_label": "Justificantes",
+            "f3_value": "Obligatorios"
+          },
+          "blocks": {
+            "b1_heading": "Transferencias Autorizadas",
+            "b1_i1": "**Beneficios y Dividendos**: transferencia libre tras el pago de impuestos locales.",
+            "b1_i2": "**Regalías y Licencias**: patentes, marcas, tecnologías y pagos de servicios técnicos.",
+            "b1_i3": "**Reembolso de Préstamos**: repatriación conforme a los términos de los acuerdos registrados.",
+            "b1_i4": "**Productos de Liquidación**: el producto neto puede transferirse libremente.",
+            "b1_i5": "**Salarios de Expatriados**: toda o parte de los ingresos transferibles al país de origen.",
+            "b2_heading": "Regulación de Divisas",
+            "b2_i1": "**Regulación BEAC**: todas las transferencias importantes deben cumplir con la normativa del BEAC.",
+            "b2_i2": "**Justificantes Obligatorios**: contratos, facturas, actas de asamblea, estados financieros auditados.",
+            "b2_i3": "**Límite Mensual**: 20 millones XAF sin documentación detallada; más allá, justificantes estrictos.",
+            "b2_i4": "**Declaración de IED**: las inversiones extranjeras directas deben declararse ante el BEAC y la API."
+          },
+          "resources": {
+            "r1": "Regulación de Divisas del BEAC",
+            "r2": "Código de Inversiones — Garantías (API)",
+            "r3": "Guía de Procedimientos de Transferencia (PDF)"
+          },
+          "button": "Detalles sobre la Circulación de Capitales"
+        }
+      }
+    }
+  },
+  "pages_a_propos": {
+    "presentation_api": {
+      "hero": {
+        "title": "Agencia de Promoción de Inversiones",
+        "subtitle": "Invertir en Camerún significa invertir en un país estable, abierto y dinámico en el corazón de África Central."
+      },
+      "breadcrumbs": {
+        "home": "Inicio",
+        "about": "Acerca de",
+        "presentation": "Presentación API"
+      },
+      "objectifs": {
+        "title": "Nuestros Objetivos",
+        "items": [
+          {
+            "title": "Promover la imagen de Camerún",
+            "desc": "Destacamos los activos económicos y las oportunidades de inversión en Camerún."
+          },
+          {
+            "title": "Mejorar el entorno empresarial",
+            "desc": "Proponemos medidas para facilitar las inversiones y simplificar los procedimientos administrativos."
+          },
+          {
+            "title": "Guiar a los inversores",
+            "desc": "Acompañamos a los inversores en cada etapa de su proyecto, desde la idea hasta la realización."
+          },
+          {
+            "title": "Crear una base de datos",
+            "desc": "Identificamos y difundimos oportunidades de inversión a través de una plataforma dedicada."
+          }
+        ]
+      },
+      "fonctions": {
+        "title": "Nuestras Funciones",
+        "items": [
+          {
+            "title": "Recepción de solicitudes de licencia",
+            "desc": "Procesamos solicitudes de licencia en el marco de la Carta de Inversiones."
+          },
+          {
+            "title": "Acceso a servicios públicos",
+            "desc": "Facilitamos el acceso a los servicios públicos para las empresas aprobadas."
+          },
+          {
+            "title": "Seguimiento de compromisos",
+            "desc": "Velamos por el cumplimiento de los compromisos adquiridos por los inversores."
+          },
+          {
+            "title": "Simplificación de procedimientos",
+            "desc": "Colaboramos con los servicios técnicos para simplificar los trámites administrativos."
+          }
+        ]
+      },
+      "gouvernance": {
+        "title": "Gobernanza",
+        "tab_consultatif": "Consejo Asesor",
+        "tab_direction": "Equipo de Dirección",
+        "roles": {
+          "dg": "Director General interino",
+          "pca": "Presidenta del Consejo de Administración",
+          "sg_prc": "Secretaría General de la Presidencia de la República de Camerún",
+          "minepat": "Ministro de Economía y Finanzas de Camerún"
+        }
+      },
+      "stats": {
+        "title": "En Cifras",
+        "items": [
+          {
+            "name": "Oficinas",
+            "desc": "Yaundé y Duala"
+          },
+          {
+            "name": "Inversores Apoyados",
+            "desc": "Nacionales e internacionales"
+          },
+          {
+            "name": "Proyectos Registrados",
+            "desc": "En diversos sectores"
+          },
+          {
+            "name": "Años de Experiencia",
+            "desc": "Al servicio de los inversores"
+          }
+        ]
+      },
+      "map_section": {
+        "title": "Mapa",
+        "loading": "Cargando mapa...",
+        "opportunities_title": "¡Aproveche Oportunidades Únicas!",
+        "opportunities_desc": "Invierta hoy en proyectos innovadores y rentables para construir el futuro de la economía camerunesa.",
+        "see_more": "Ver más proyectos"
+      },
+      "projects": [
+        {
+          "secteur": "Agroindustria",
+          "titre": "Explotación de plantación de cacao",
+          "description": "Establecimiento de una moderna plantación de cacao con una producción anual de 50 toneladas."
+        },
+        {
+          "secteur": "Energía",
+          "titre": "Parque solar de 20 MW",
+          "description": "Construcción de un parque solar para proporcionar energía limpia a la región del Norte."
+        },
+        {
+          "secteur": "Digital",
+          "titre": "Plataforma de pago móvil",
+          "description": "Desarrollo de una aplicación de pago móvil con el objetivo de facilitar las transacciones financieras locales."
+        }
+      ]
+    },
+    "faq": {
+      "groups": [
+        {
+          "title": "Acceso a tierras para inversión",
+          "accordions": [
+            {
+              "id": "panel1",
+              "summaryTitle": "¿Cómo identificar y acceder a terrenos destinados a inversión en Camerún?",
+              "details": "Para identificar y acceder a terrenos para inversión en Camerún, puede consultar los servicios de tierras locales, agencias inmobiliarias o plataformas en línea especializadas. También se recomienda contactar a las autoridades locales para obtener información sobre tierras disponibles y procedimientos de adquisición."
+            },
+            {
+              "id": "panel2",
+              "summaryTitle": "¿Qué tipos de terrenos están disponibles para proyectos industriales, comerciales o turísticos?",
+              "details": "Los tipos de terrenos disponibles incluyen terrenos industriales, zonas comerciales, terrenos agrícolas y zonas turísticas. Cada tipo tiene características específicas y regulaciones particulares."
+            },
+            {
+              "id": "panel3",
+              "summaryTitle": "¿Existe una base de datos nacional de terrenos disponibles para inversores?",
+              "details": "Sí, existe una base de datos nacional de terrenos disponibles para inversores gestionada generalmente por las autoridades de tierras, accesible en línea o en las oficinas locales de tierras."
+            },
+            {
+              "id": "panel4",
+              "summaryTitle": "¿Cuáles son las condiciones para obtener un título de propiedad o concesión en Camerún?",
+              "details": "Debe seguir un procedimiento administrativo que incluye la presentación de una solicitud, verificación de documentos, evaluación del terreno y aprobación de las autoridades competentes. Las condiciones varían según el tipo de terreno y el uso previsto."
+            },
+            {
+              "id": "panel5",
+              "summaryTitle": "¿Cuáles son los plazos medios para obtener terrenos para uso económico?",
+              "details": "Los plazos pueden variar según la complejidad del expediente y los procedimientos administrativos. En general, puede tardar desde unos pocos meses hasta un año."
+            },
+            {
+              "id": "panel6",
+              "summaryTitle": "¿Cómo resolver una disputa de tierras relacionada con un proyecto de inversión?",
+              "details": "Se recomienda consultar a un abogado especializado en derecho de tierras y seguir los procedimientos legales vigentes. Las autoridades locales también pueden ofrecer servicios de mediación."
+            }
+          ]
+        },
+        {
+          "title": "Creación de empresas en Camerún",
+          "accordions": [
+            {
+              "id": "panel7",
+              "summaryTitle": "¿Cuáles son los pasos para registrar una empresa en Camerún?",
+              "details": "Debe seguir varios pasos, incluida la redacción de los estatutos, el registro en el registro mercantil y de sociedades, la obtención de un número de identificación fiscal y el registro en la seguridad social."
+            },
+            {
+              "id": "panel8",
+              "summaryTitle": "¿Qué tipos de empresas están reconocidas por la ley camerunesa?",
+              "details": "Los tipos reconocidos incluyen sociedades de responsabilidad limitada (SARL), sociedades anónimas (SA), sociedades en nombre colectivo (SNC) y sociedades en comandita simple (SCS)."
+            },
+            {
+              "id": "panel9",
+              "summaryTitle": "¿Qué trámites deben cumplirse para contratar trabajadores extranjeros?",
+              "details": "Debe obtener un permiso de trabajo para cada empleado extranjero. Esto incluye presentar una solicitud, proporcionar documentos de respaldo y cumplir con las regulaciones de inmigración y trabajo."
+            },
+            {
+              "id": "panel10",
+              "summaryTitle": "¿Cómo formalizar una asociación con inversores locales?",
+              "details": "Se recomienda redactar un acuerdo de asociación que detalle los términos y condiciones. Este acuerdo debe ser firmado por todas las partes y puede requerir validación notarial."
+            },
+            {
+              "id": "panel11",
+              "summaryTitle": "¿Cuáles son los plazos y costos estimados para crear una empresa en Camerún?",
+              "details": "Pueden variar según el tipo de empresa. En general, puede llevar de unas semanas a unos meses, y los costos incluyen tarifas de registro, honorarios de abogados e impuestos administrativos."
+            },
+            {
+              "id": "panel12",
+              "summaryTitle": "¿Cuáles son las mejores prácticas para desarrollar un proyecto empresarial en Camerún?",
+              "details": "Incluyen realizar un estudio de mercado, desarrollar un plan de negocios sólido, buscar socios locales, cumplir con las regulaciones locales y colaborar con las comunidades locales."
+            }
+          ]
+        },
+        {
+          "title": "Facilitación e incentivos para inversores",
+          "accordions": [
+            {
+              "id": "panel13",
+              "summaryTitle": "¿Cuáles son las ventajas fiscales para las nuevas inversiones?",
+              "details": "Pueden incluir exenciones fiscales, reducciones de impuestos e incentivos financieros para proyectos en sectores prioritarios. Estos beneficios están definidos por las leyes fiscales y políticas de inversión."
+            },
+            {
+              "id": "panel14",
+              "summaryTitle": "¿Existen zonas económicas especiales (ZEE) o zonas francas en Camerún?",
+              "details": "Sí, existen zonas económicas especiales (ZEE) y zonas francas que ofrecen incentivos fiscales y aduaneros para atraer inversiones y fomentar el desarrollo."
+            },
+            {
+              "id": "panel15",
+              "summaryTitle": "¿Qué actividades económicas se benefician de incentivos específicos?",
+              "details": "Sectores como agricultura, manufactura, turismo, tecnologías de la información y energías renovables se benefician de incentivos como ventajas fiscales, subsidios y apoyo técnico."
+            },
+            {
+              "id": "panel16",
+              "summaryTitle": "¿Es posible beneficiarse de exenciones fiscales o aduaneras para proyectos innovadores?",
+              "details": "Sí, particularmente para aquellos que contribuyen al desarrollo económico y tecnológico del país, otorgadas por las autoridades fiscales y aduaneras según criterios específicos."
+            },
+            {
+              "id": "panel17",
+              "summaryTitle": "¿Cómo acceder a programas de apoyo para pequeñas y medianas empresas?",
+              "details": "Puede contactar a agencias gubernamentales, cámaras de comercio y organizaciones de apoyo. Estos programas ofrecen subvenciones, préstamos a bajo interés, capacitación y consultoría."
+            },
+            {
+              "id": "panel18",
+              "summaryTitle": "¿Los equipos importados para proyectos están exentos de derechos de aduana?",
+              "details": "Pueden estar exentos bajo ciertas condiciones, generalmente para proyectos en sectores prioritarios o equipos no disponibles localmente."
+            }
+          ]
+        },
+        {
+          "title": "Protección y garantías de inversión",
+          "accordions": [
+            {
+              "id": "panel19",
+              "summaryTitle": "¿Cuáles son los derechos y deberes de los inversores en Camerún?",
+              "details": "Incluyen el cumplimiento de las leyes locales, protección del medio ambiente, pago de impuestos y contribución al desarrollo socioeconómico. A cambio, tienen derecho a la protección de sus inversiones y trato justo."
+            },
+            {
+              "id": "panel20",
+              "summaryTitle": "¿Están garantizadas las transferencias de beneficios al extranjero?",
+              "details": "Sí, están garantizadas sujeto al cumplimiento de las regulaciones fiscales y de divisas. Los inversores pueden repatriar beneficios tras el pago de los impuestos aplicables."
+            },
+            {
+              "id": "panel21",
+              "summaryTitle": "¿Cuáles son los mecanismos de protección para inversores extranjeros?",
+              "details": "Incluyen tratados bilaterales de inversión, garantías contra expropiación, derecho a trato justo y no discriminatorio, y acceso a mecanismos de resolución de disputas."
+            },
+            {
+              "id": "panel22",
+              "summaryTitle": "¿Cómo gestionar una disputa comercial o fiscal como inversor?",
+              "details": "Se recomienda consultar a un abogado especializado. Los mecanismos de resolución incluyen mediación, arbitraje y tribunales competentes."
+            },
+            {
+              "id": "panel23",
+              "summaryTitle": "¿Qué acuerdos internacionales protegen las inversiones en Camerún?",
+              "details": "Los acuerdos incluyen tratados bilaterales de inversión, convenios fiscales y tratados de protección de inversiones que ofrecen garantías y resolución de disputas."
+            },
+            {
+              "id": "panel24",
+              "summaryTitle": "¿Cómo se apoya a los inversores para asegurar sus proyectos?",
+              "details": "Son apoyados por agencias gubernamentales, cámaras de comercio y organizaciones de apoyo empresarial que ofrecen servicios de consultoría, información y apoyo administrativo."
+            }
+          ]
+        },
+        {
+          "title": "Oportunidades y recursos disponibles",
+          "accordions": [
+            {
+              "id": "panel25",
+              "summaryTitle": "¿Cuáles son las oportunidades de inversión actuales en Camerún?",
+              "details": "Incluyen los sectores de agricultura, energía, infraestructura, tecnologías de la información y turismo. Estos sectores ofrecen potencial de crecimiento e incentivos."
+            },
+            {
+              "id": "panel26",
+              "summaryTitle": "¿Dónde encontrar estadísticas y estudios de mercado sobre sectores prometedores?",
+              "details": "Puede consultar agencias gubernamentales, cámaras de comercio, organizaciones internacionales y plataformas especializadas que proporcionan datos y análisis."
+            },
+            {
+              "id": "panel27",
+              "summaryTitle": "¿Qué servicios se ofrecen a los inversores para facilitar sus trámites?",
+              "details": "Incluyen asistencia administrativa, asesoramiento legal y fiscal, servicios de mediación, capacitación y programas de apoyo financiero ofrecidos por diversas agencias."
+            }
+          ]
+        }
+      ]
+    },
+    "politique_conditions": {
+      "page_title": "Aviso Legal",
+      "download_btn": "Descargar",
+      "politique": {
+        "title": "Política de Privacidad",
+        "subtitle": "Protección y procesamiento de sus datos personales",
+        "filename": "Politica_de_Privacidad.txt",
+        "sections": [
+          {
+            "title": "Introducción",
+            "content": "Invest in Camerún se compromete a proteger la privacidad y seguridad de su información personal. Esta política explica cómo recopilamos, usamos, compartimos y protegemos su información."
+          },
+          {
+            "title": "Información Recopilada",
+            "content": "Recopilamos: información de identificación, información profesional, datos de navegación, e información proporcionada voluntariamente a través de nuestros formularios."
+          },
+          {
+            "title": "Uso de la Información",
+            "content": "Su información se utiliza para proporcionar y mejorar nuestros servicios, comunicarnos con usted, personalizar su experiencia y cumplir con nuestras obligaciones legales."
+          },
+          {
+            "title": "Compartición de Información",
+            "content": "No vendemos su información. Podemos compartir sus datos con socios institucionales (con su consentimiento), proveedores de servicios y autoridades legales (si lo exige la ley)."
+          },
+          {
+            "title": "Seguridad de Datos",
+            "content": "Implementamos medidas de seguridad adecuadas para proteger su información contra acceso no autorizado, modificación, divulgación o destrucción."
+          },
+          {
+            "title": "Sus Derechos",
+            "content": "Tiene derecho a acceder a su información, corregir sus datos, eliminar su información, oponerse al procesamiento y retirar su consentimiento."
+          },
+          {
+            "title": "Cookies",
+            "content": "Nuestro sitio utiliza cookies para mejorar su experiencia. Puede administrar sus preferencias de cookies en la configuración de su navegador."
+          },
+          {
+            "title": "Contacto",
+            "content": "Para cualquier duda sobre esta política, contáctenos en contact@investincameroun.com."
+          },
+          {
+            "title": "Modificaciones",
+            "content": "Esta política puede ser actualizada. La fecha de última modificación se indica en la parte superior."
+          }
+        ]
+      },
+      "conditions": {
+        "title": "Términos y Condiciones Generales",
+        "subtitle": "Reglas y modalidades de uso de la plataforma",
+        "filename": "Terminos_y_Condiciones.txt",
+        "sections": [
+          {
+            "title": "Aceptación de los Términos",
+            "content": "Al usar el sitio, acepta estar sujeto a estos términos. Si no acepta, por favor no use nuestro sitio."
+          },
+          {
+            "title": "Descripción del Servicio",
+            "content": "Invest in Camerún es una plataforma de información dedicada a la promoción de oportunidades de inversión, gestionada por la Agencia de Promoción de Inversiones (API)."
+          },
+          {
+            "title": "Uso del Sitio",
+            "content": "Se compromete a usar el sitio de manera legal y apropiada, no comprometer su seguridad, y respetar los derechos de propiedad intelectual."
+          },
+          {
+            "title": "Propiedad Intelectual",
+            "content": "Todos los contenidos son propiedad de Invest in Camerún o sus socios. No puede reproducir el contenido sin autorización escrita."
+          },
+          {
+            "title": "Limitación de Responsabilidad",
+            "content": "Invest in Camerún no se hace responsable de la exactitud de la información, pérdidas o daños derivados del uso del sitio."
+          },
+          {
+            "title": "Información Proporcionada",
+            "content": "La información es para fines informativos y no constituye asesoramiento financiero o legal."
+          },
+          {
+            "title": "Enlaces Externos",
+            "content": "No somos responsables del contenido o prácticas de sitios externos vinculados."
+          },
+          {
+            "title": "Modificación de Términos",
+            "content": "Nos reservamos el derecho de modificar estos términos. Los cambios entran en vigor tras su publicación."
+          },
+          {
+            "title": "Terminación",
+            "content": "Podemos suspender o cancelar su acceso en caso de violación de estos términos."
+          },
+          {
+            "title": "Ley Aplicable",
+            "content": "Estos términos se rigen por las leyes de Camerún. Cualquier disputa estará sujeta a los tribunales cameruneses."
+          },
+          {
+            "title": "Divisibilidad",
+            "content": "Si una disposición se considera inválida, las demás permanecerán vigentes."
+          },
+          {
+            "title": "Contacto",
+            "content": "Para consultas, contáctenos en contact@investincameroun.com."
+          },
+          {
+            "title": "Acuerdo Completo",
+            "content": "Estos términos constituyen el acuerdo completo entre usted y Invest in Camerún."
+          }
+        ]
+      },
+      "contact_section": {
+        "title": "Preguntas",
+        "desc": "Para cualquier pregunta sobre estos documentos, contáctenos en la siguiente dirección."
+      },
+      "footer": "© {{year}} Invest in Camerún. Todos los derechos reservados."
     }
   }
 }

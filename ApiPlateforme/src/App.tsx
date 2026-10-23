@@ -1,22 +1,16 @@
 import './index.css'
 import './App.css'
-import { BrowserRouter, Routes } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 import Chatbox from './components/chatbox/chatbox'
-import PublicContent from './components/content/PublicContent'
-import PrivateContent from './components/content/PrivateContent'
+import AppRoutes from './components/content/AppRoutes'
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <Routes>
-          {PublicContent()}
-          {PrivateContent()}
-        </Routes>
-        <Chatbox />
-      </BrowserRouter >
-    </>
-  )
+    <BrowserRouter>
+      <AppRoutes />
+      <Chatbox />
+    </BrowserRouter>
+  );
 }
 
 export default App

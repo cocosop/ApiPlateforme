@@ -3,12 +3,27 @@ import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Building, Globe, Users, Briefcase, ArrowRight, CheckCircle, Shield, Handshake, Target, Database, Clipboard, Settings } from 'lucide-react';
 import { MapContainer, Marker, TileLayer } from 'react-leaflet';
+import { useTranslation } from 'react-i18next';
 import ProjectCard from '../../../components/projetCard/projetCard';
 import CACAO from "../../../assets/img/cacao4.png"
 import ENERGIE from "../../../assets/img/energie.jpg"
 import BreadcrumbsComponent from '../../../components/breadcrumbsComponent/breadcrumbsComponent';
+import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
+import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
+import markerIcon from 'leaflet/dist/images/marker-icon.png';
+import markerShadow from 'leaflet/dist/images/marker-shadow.png';
+
+// Fix Leaflet's default icon path issues with bundlers
+delete (L.Icon.Default.prototype as any)._getIconUrl;
+L.Icon.Default.mergeOptions({
+    iconUrl: markerIcon,
+    iconRetinaUrl: markerIcon2x,
+    shadowUrl: markerShadow,
+});
 
 const PresentationApi: React.FC = () => {
+    const { t } = useTranslation();
     const [activeTab, setActiveTab] = useState<'direction' | 'consultatif'>('direction');
     const [coords, setCoords] = useState<{ lat: number; lon: number } | null>(null);
 
@@ -21,56 +36,56 @@ const PresentationApi: React.FC = () => {
 
     // Données pour les statistiques
     const stats = [
-        { name: 'Bureaux', value: '2', icon: Building, description: 'Yaoundé et Douala' },
-        { name: 'Investisseurs accompagnés', value: '500+', icon: Users, description: 'Nationaux et internationaux' },
-        { name: 'Projets enregistrés', value: '200+', icon: Briefcase, description: 'Dans divers secteurs' },
-        { name: 'Années d\'expérience', value: '10+', icon: Globe, description: 'Au service des investisseurs' },
+        { name: t("pages_a_propos.presentation_api.stats.items.0.name"), value: '2', icon: Building, description: t("pages_a_propos.presentation_api.stats.items.0.desc") },
+        { name: t("pages_a_propos.presentation_api.stats.items.1.name"), value: '500+', icon: Users, description: t("pages_a_propos.presentation_api.stats.items.1.desc") },
+        { name: t("pages_a_propos.presentation_api.stats.items.2.name"), value: '200+', icon: Briefcase, description: t("pages_a_propos.presentation_api.stats.items.2.desc") },
+        { name: t("pages_a_propos.presentation_api.stats.items.3.name"), value: '10+', icon: Globe, description: t("pages_a_propos.presentation_api.stats.items.3.desc") },
     ];
 
     // Données pour les objectifs et fonctions
     const objectives = [
         {
-            title: 'Promouvoir l’image du Cameroun',
+            title: t("pages_a_propos.presentation_api.objectifs.items.0.title"),
             icon: Target,
-            description: 'Nous mettons en avant les atouts économiques et les opportunités d\'investissement au Cameroun.',
+            description: t("pages_a_propos.presentation_api.objectifs.items.0.desc"),
         },
         {
-            title: 'Améliorer l’environnement des affaires',
+            title: t("pages_a_propos.presentation_api.objectifs.items.1.title"),
             icon: Shield,
-            description: 'Nous proposons des mesures pour faciliter les investissements et simplifier les procédures administratives.',
+            description: t("pages_a_propos.presentation_api.objectifs.items.1.desc"),
         },
         {
-            title: 'Guider les investisseurs',
+            title: t("pages_a_propos.presentation_api.objectifs.items.2.title"),
             icon: Handshake,
-            description: 'Nous accompagnons les investisseurs à chaque étape de leur projet, de l\'idée à la réalisation.',
+            description: t("pages_a_propos.presentation_api.objectifs.items.2.desc"),
         },
         {
-            title: 'Créer une base de données',
+            title: t("pages_a_propos.presentation_api.objectifs.items.3.title"),
             icon: Database,
-            description: 'Nous recensons et diffusons les opportunités d\'investissement à travers une plateforme dédiée.',
+            description: t("pages_a_propos.presentation_api.objectifs.items.3.desc"),
         },
     ];
 
     const fonctions = [
         {
-            title: 'Réception des demandes de licence',
+            title: t("pages_a_propos.presentation_api.fonctions.items.0.title"),
             icon: Clipboard,
-            description: 'Nous traitons les demandes de licence dans le cadre de la Charte des investissements.',
+            description: t("pages_a_propos.presentation_api.fonctions.items.0.desc"),
         },
         {
-            title: 'Accès aux services publics',
+            title: t("pages_a_propos.presentation_api.fonctions.items.1.title"),
             icon: Settings,
-            description: 'Nous facilitons l\'accès aux services publics pour les entreprises agréées.',
+            description: t("pages_a_propos.presentation_api.fonctions.items.1.desc"),
         },
         {
-            title: 'Suivi des engagements',
+            title: t("pages_a_propos.presentation_api.fonctions.items.2.title"),
             icon: CheckCircle,
-            description: 'Nous veillons au respect des engagements pris par les investisseurs.',
+            description: t("pages_a_propos.presentation_api.fonctions.items.2.desc"),
         },
         {
-            title: 'Simplification des procédures',
+            title: t("pages_a_propos.presentation_api.fonctions.items.3.title"),
             icon: ArrowRight,
-            description: 'Nous collaborons avec les services techniques pour simplifier les démarches administratives.',
+            description: t("pages_a_propos.presentation_api.fonctions.items.3.desc"),
         },
     ];
 
@@ -78,12 +93,12 @@ const PresentationApi: React.FC = () => {
     const directionTeams = [
         {
             name: 'Mr. Shinwinsoh Boma Donatus',
-            role: 'Directeur Général par intérim',
+            role: t("pages_a_propos.presentation_api.gouvernance.roles.dg"),
             image: 'https://api.kankogroup.com/img/equipe/dg-adjoint-equipe.png',
         },
         {
             name: 'Dr. Diana Acha-Morfaw',
-            role: 'Présidente du Conseil d’Administration',
+            role: t("pages_a_propos.presentation_api.gouvernance.roles.pca"),
             image: 'https://api.kankogroup.com/img/equipe/pca-equipe.png',
         },
     ];
@@ -92,52 +107,51 @@ const PresentationApi: React.FC = () => {
     const consultatifTeams = [
         {
             name: 'SE Mr. Ferdinand Ngoh Ngoh',
-            role: 'Secrétariat Général de la Présidence de la République du Cameroun',
+            role: t("pages_a_propos.presentation_api.gouvernance.roles.sg_prc"),
             image: 'https://media.licdn.com/dms/image/v2/C4E03AQFzznCej69Yqw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1618553689792?e=2147483647&v=beta&t=Iam35xNyqIBsdauknghFJslrJh1oCj4_AIwKj7A1yXc',
         },
         {
             name: 'SE Mr. Louis-Paul Motaze',
-            role: "Ministre de l'Economie et des Finances du Cameroun",
+            role: t("pages_a_propos.presentation_api.gouvernance.roles.minepat"),
             image: 'https://s7d1.scene7.com/is/image/wbcollab/louis_paul_motaze-2:220x220?qlt=90&fmt=webp&resMode=sharp2',
         },
     ];
 
-    const [projects] = useState([
+    const projects = [
         {
             id: 1,
-            secteur: "Agro-industrie",
-            titre: "Exploitation de plantation de cacao",
+            secteur: t("pages_a_propos.presentation_api.projects.0.secteur"),
+            titre: t("pages_a_propos.presentation_api.projects.0.titre"),
             ville: "Douala",
             quartier: "Bonaberi",
-            description: "Mise en place d'une plantation moderne de cacao avec une production annuelle de 50 tonnes.",
+            description: t("pages_a_propos.presentation_api.projects.0.description"),
             image: CACAO,
-            latitude: 4.0511, // Ajoutez cette propriété
-            longitude: 9.7679, // Ajoutez cette propriété
+            latitude: 4.0511,
+            longitude: 9.7679,
         },
         {
             id: 2,
-            secteur: "Énergie",
-            titre: "Parc solaire de 20 MW",
+            secteur: t("pages_a_propos.presentation_api.projects.1.secteur"),
+            titre: t("pages_a_propos.presentation_api.projects.1.titre"),
             ville: "Garoua",
             quartier: "Ngaoundere route",
-            description: "Construction d'un parc solaire pour fournir de l'énergie propre à la région du Nord.",
+            description: t("pages_a_propos.presentation_api.projects.1.description"),
             image: ENERGIE,
-            latitude: 4.0511, // Ajoutez cette propriété
-            longitude: 9.7679, // Ajoutez cette propriété
+            latitude: 4.0511,
+            longitude: 9.7679,
         },
         {
             id: 3,
-            secteur: "Numérique",
-            titre: "Plateforme de paiement mobile",
+            secteur: t("pages_a_propos.presentation_api.projects.2.secteur"),
+            titre: t("pages_a_propos.presentation_api.projects.2.titre"),
             ville: "Yaoundé",
             quartier: "Bastos",
-            description: "Développement d'une application de paiement mobile visant à faciliter les transactions financières locales.",
+            description: t("pages_a_propos.presentation_api.projects.2.description"),
             image: "https://img.freepik.com/free-photo/high-angle-friends-reading-menu-restaurant_23-2150384825.jpg?t=st=1738099850~exp=1738103450~hmac=263dee2608a764be0cc905367387bf817f98c3b6a3df41a0103a348fa8777175&w=996",
-            latitude: 4.0511, // Ajoutez cette propriété
-            longitude: 9.7679, // Ajoutez cette propriété
+            latitude: 4.0511,
+            longitude: 9.7679,
         }
-        // Ajoutez plus de projets ici...
-    ]);
+    ];
 
 
     return (
@@ -156,10 +170,10 @@ const PresentationApi: React.FC = () => {
                     className="relative z-10 text-center"
                 >
                     <h1 className="text-5xl font-bold text-white">
-                        Agence de Promotion des Investissements
+                        {t("pages_a_propos.presentation_api.hero.title")}
                     </h1>
                     <p className="mt-4 text-lg text-gray-300">
-                        Investir au Cameroun, c'est investir dans un pays stable, ouvert et dynamique, au cœur de l'Afrique centrale.
+                        {t("pages_a_propos.presentation_api.hero.subtitle")}
                     </p>
                 </motion.div>
             </div>
@@ -168,9 +182,9 @@ const PresentationApi: React.FC = () => {
             <div aria-label="Breadcrumbs" className="bg-gray-50 sticky top-24 z-10 flex align-center space-x-2 text-sm font-semibold p-4 lg:p-6 border-spacing-1 overflow-scroll">
                 <BreadcrumbsComponent
                     breadcrumbs={[
-                        { name: 'Accueil', path: '/' },
-                        { name: "A propos", path: '#' },
-                        { name: "Présentation de l'API", path: '#' }
+                        { name: t("pages_a_propos.presentation_api.breadcrumbs.home"), path: '/' },
+                        { name: t("pages_a_propos.presentation_api.breadcrumbs.about"), path: '#' },
+                        { name: t("pages_a_propos.presentation_api.breadcrumbs.presentation"), path: '#' }
                     ]}
                 />
             </div>
@@ -184,7 +198,7 @@ const PresentationApi: React.FC = () => {
                         transition={{ duration: 1 }}
                         className="text-3xl font-bold text-center text-gray-900 mb-8"
                     >
-                        Nos Objectifs
+                        {t("pages_a_propos.presentation_api.objectifs.title")}
                     </motion.h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {objectives.map((obj, index) => (
@@ -215,7 +229,7 @@ const PresentationApi: React.FC = () => {
                         transition={{ duration: 1 }}
                         className="text-3xl font-bold text-center text-gray-900 mb-8"
                     >
-                        Nos Fonctions
+                        {t("pages_a_propos.presentation_api.fonctions.title")}
                     </motion.h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {fonctions.map((func, index) => (
@@ -246,7 +260,7 @@ const PresentationApi: React.FC = () => {
                         transition={{ duration: 1 }}
                         className="text-3xl font-bold text-center text-gray-900 mb-8"
                     >
-                        Gouvernance
+                        {t("pages_a_propos.presentation_api.gouvernance.title")}
                     </motion.h2>
 
                     <div className="overflow-hidden">
@@ -255,19 +269,21 @@ const PresentationApi: React.FC = () => {
                                 onClick={() => setActiveTab('consultatif')}
                                 className={`flex-1 p-4 font-medium ${activeTab === 'consultatif' ? 'bg-[#0F0B60] text-white' : 'text-gray-600'}`}
                             >
-                                Conseil consultatif
+                                {t("pages_a_propos.presentation_api.gouvernance.tab_consultatif")}
                             </button>
                             <button
                                 onClick={() => setActiveTab('direction')}
                                 className={`flex-1 p-4 font-medium ${activeTab === 'direction' ? 'bg-[#0F0B60] text-white' : 'text-gray-600'}`}
                             >
-                                Equipe de direction
+                                {t("pages_a_propos.presentation_api.gouvernance.tab_direction")}
                             </button>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-                            <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-indigo-100),white)] opacity-20"></div>
-                            <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-white ring-1 shadow-xl shadow-indigo-600/10 ring-indigo-50 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center"></div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 relative">
+                            {/* Décoration de fond originale restaurée avec une touche de couleur (dégradé subtil) */}
+                            <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-indigo-100),white)] opacity-40"></div>
+                            <div className="absolute inset-y-0 right-1/2 -z-10 mr-16 w-[200%] origin-bottom-left skew-x-[-30deg] bg-gradient-to-r from-indigo-50/80 via-white to-[#0F0B60]/5 ring-1 shadow-2xl shadow-[#0F0B60]/10 ring-[#0F0B60]/10 sm:mr-28 lg:mr-0 xl:mr-16 xl:origin-center backdrop-blur-sm"></div>
+
                             {(activeTab === 'direction' ? directionTeams : consultatifTeams).map((member, index) => (
                                 <motion.div
                                     key={index}
@@ -291,7 +307,7 @@ const PresentationApi: React.FC = () => {
             </section>
 
             {/* Section Statistiques */}
-            <section className="relative isolate overflow-hidden bg-white py-20 sm:py-24">
+            <section className="relative isolate overflow-hidden bg-gray-200 py-20 sm:py-24">
                 <div className="mx-auto max-w-7xl px-6 lg:px-8">
                     <motion.h2
                         initial={{ opacity: 0, y: 50 }}
@@ -299,7 +315,7 @@ const PresentationApi: React.FC = () => {
                         transition={{ duration: 1 }}
                         className="text-3xl font-bold text-center text-gray-900 mb-8"
                     >
-                        En Chiffres
+                        {t("pages_a_propos.presentation_api.stats.title")}
                     </motion.h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                         {stats.map((stat, index) => (
@@ -331,7 +347,7 @@ const PresentationApi: React.FC = () => {
                         transition={{ duration: 1 }}
                         className="text-3xl font-bold text-center text-gray-900 mb-8"
                     >
-                        Carte
+                        {t("pages_a_propos.presentation_api.map_section.title")}
                     </motion.h2>
                     {coords ? (
                         <MapContainer center={[coords.lat, coords.lon]} zoom={13} className="w-full h-96 rounded-lg" style={{ zIndex: 1 }}>
@@ -342,19 +358,19 @@ const PresentationApi: React.FC = () => {
                             </Marker>
                         </MapContainer>
                     ) : (
-                        <p className="text-center text-gray-500">Chargement de la carte...</p>
+                        <p className="text-center text-gray-500">{t("pages_a_propos.presentation_api.map_section.loading")}</p>
                     )}
                 </div>
 
                 <div className="container mx-auto p-6">
                     {/* Titre avec style attractif */}
-                    <h2 className="text-3xl font-bold text-center text-gray-900 mb-8">
-                        Saisissez des Opportunités Uniques !
+                    <h2 className="text-3xl font-bold text-center text-gray-900 mb-8 mt-12">
+                        {t("pages_a_propos.presentation_api.map_section.opportunities_title")}
                     </h2>
 
                     {/* Message d'encouragement */}
                     <p className="text-center text-gray-700 mb-6">
-                        Investissez dès aujourd’hui dans des projets innovants et rentables pour bâtir l’avenir de l’économie camerounaise.
+                        {t("pages_a_propos.presentation_api.map_section.opportunities_desc")}
                     </p>
 
                     {/* Liste des projets */}
@@ -370,7 +386,7 @@ const PresentationApi: React.FC = () => {
                             to="/projets"
                             className="px-6 py-3 bg-green-600 text-white rounded-lg font-semibold shadow-md hover:bg-green-700 transition-all"
                         >
-                            Voir plus de projets
+                            {t("pages_a_propos.presentation_api.map_section.see_more")}
                         </NavLink>
                     </div>
                 </div>

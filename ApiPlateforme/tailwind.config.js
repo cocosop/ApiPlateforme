@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  // Mode sombre piloté par la classe "dark" (utilisée uniquement par le portail investisseur)
+  darkMode: 'class',
   content: [
     './src/**/*.{html,tsx}',
   ],

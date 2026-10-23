@@ -13,6 +13,7 @@
       "cadre_juridique": "法律框架",
       "sanctuaires": "保护区",
       "agro_industrie": "农产工业",
+      "elevage": "畜牧业",
       "energie": "能源",
       "numerique": "数字",
       "piliers": "支柱",
@@ -55,13 +56,14 @@
       "presentation_api": "了解投资促进署在支持投资项目中的作用。",
       "faq": "查找常见投资问题的快速清晰解答。",
       "conseil_en_ligne": "获得个性化支持和关于所有投资机会问题的快速解答。"
-    }
+    },
+    "voir_plus": "查看更多"
   },
   "home": {
     "hero": {
       "title": "喀麦隆投资门户",
       "cameroon": "",
-      "description": "通过我们的专业投资门户网站，探索喀麦隆的投资机会，这是投资者重要的资源。获取关键行业信息、法规、地理投资点，并与主要利益相关者联系。此外，还可以获得关于企业创建程序的建议，以便在这个充满活力的市场中取得成功。",
+      "description": "探索喀麦隆投资机会：行业关键信息、法规、地理区域及专业建议，助您在这一充满活力的市场中创业成功。",
       "guideButton": "投资者指南",
       "investButton": "立即投资"
     },
@@ -143,7 +145,25 @@
     "projects": {
       "title": "抓住独特机遇！",
       "description": "立即投资创新且盈利的项目，共创喀麦隆经济的未来。",
-      "more": "投資領域"
+      "more": "投資領域",
+      "details": "更多详情...",
+      "items": [
+        {
+          "secteur": "农业工业",
+          "titre": "可可种植园运营",
+          "description": "建立年产50吨的现代可可种植园。"
+        },
+        {
+          "secteur": "能源",
+          "titre": "20兆瓦太阳能公园",
+          "description": "建设太阳能公园，为北部地区提供清洁能源。"
+        },
+        {
+          "secteur": "数字技术",
+          "titre": "移动支付平台",
+          "description": "开发移动支付应用程序，旨在促进当地的金融交易。"
+        }
+      ]
     }
   },
   "footer": {
@@ -187,7 +207,7 @@
       "terms": "条款和条件"
     }
   },
-"login": {
+  "login": {
     "title": "欢迎来到投资促进署投资者门户",
     "subtitle": "登录",
     "email_label": "电子邮件地址",
@@ -215,7 +235,7 @@
     "subtitle": "创建您的账户",
     "firstname_label": "名字",
     "lastname_label": "姓氏",
-    "email_label": "专业邮箱地址",
+    "email_label": "电子邮箱",
     "phone_label": "电话号码",
     "phone_placeholder": "(+237) 6XX XXX XXX",
     "password_label": "密码",
@@ -232,7 +252,7 @@
     "terms_privacy_prefix": "点击“创建账户”按钮，即表示您同意使用条款和",
     "terms_privacy_link": "喀麦隆投资门户网站的隐私政策",
     "button_register": "创建账户",
-    "button_loading": "正在加载...",
+    "button_loading": "加载中...",
     "social_login_text": "或通过以下方式连接：",
     "google_login": "通过 Google 连接",
     "apple_login": "通过 Apple 连接",
@@ -247,7 +267,23 @@
       "conflict": "电子邮件地址已被使用",
       "server_error": "服务器错误",
       "unknown": "未知错误"
-    }
+    },
+    "banner_title": "在喀麦隆打造您的下一个机遇。",
+    "banner_alt": "在喀麦隆打造您的下一个机遇",
+    "back": "返回",
+    "get_started": "立即开始",
+    "create_investor_account": "创建您的投资者账户",
+    "account_desc": "您的账户为您提供了一个管理投资者档案和项目的安全空间。",
+    "surname_label": "名",
+    "surname_placeholder": "请输入名字",
+    "lastname_placeholder": "请输入姓氏",
+    "email_placeholder": "example@gmail.com",
+    "password_hint": "密码必须包含至少8个字符，其中包含一个大写字母、一个数字和一个特殊字符。",
+    "terms_agreement": "我同意使用条款，并声明所提供的信息真实准确。",
+    "button_create_account": "创建账户",
+    "already_registered": "已经注册了？",
+    "sign_in_link": "登录",
+    "error_message": "邮箱、电话或用户名已被使用"
   },
   "legalAspects": {
     "sections": {
@@ -429,7 +465,9 @@
           }
         }
       },
-      "conclusionFinal": "喀麦隆拥有一个结合了现代与传统的健全的法律和财政框架。其法律和机构旨在为投资和经济发展创造有利的环境，同时确保一定的稳定性。然而，仍需努力简化行政程序，加强透明度，并进一步提升该国的吸引力。"
+      "conclusionFinal": "喀麦隆拥有一个结合了现代与传统的健全的法律和财政框架。其法律和机构旨在为投资和经济发展创造有利的环境，同时确保一定的稳定性。然而，仍需努力简化行政程序，加强透明度，并进一步提升该国的吸引力。",
+      "conclusionTitle": "结论",
+      "downloadDocument": "下载文件"
     }
   },
   "pages_secteurs": {
@@ -1315,6 +1353,3228 @@
           "concurrence_internationale": "國際競爭：難以與大型國際生產商競爭。"
         }
       }
+    },
+    "potentiel": {
+      "titre": "喀麦隆投资潜力",
+      "description": "探索喀麦隆提供最佳投资机会的战略领域。点击一个领域以了解详情。",
+      "filtres": {
+        "tous": "所有领域",
+        "piliers": "优先支柱",
+        "domaines": "关键领域",
+        "socles": "基本基础"
+      },
+      "categories": {
+        "pilier": "支柱",
+        "domaine": "领域",
+        "socle": "基础",
+        "secteur_pilier": "支柱领域",
+        "domaine_cle": "关键领域",
+        "secteur_socle": "基础领域"
+      },
+      "titres_categories": {
+        "pilier": "支柱 - 优先领域",
+        "domaine": "关键领域 - 经济增长",
+        "socle": "基础 - 发展的基础",
+        "all": "所有投资领域"
+      },
+      "instructions": "点击一个领域以探索其投资机会",
+      "explorer": "探索此领域",
+      "modal": {
+        "opportunites_investissement": "投资机会",
+        "onglets": {
+          "apercu": "概览",
+          "opportunites": "机会",
+          "defis": "挑战",
+          "soutien": "政府支持"
+        },
+        "apercu_titre": "领域概览",
+        "opportunites_titre": "投资机会",
+        "defis_titre": "需要克服的挑战",
+        "soutien_titre": "政府支持",
+        "garanties_titre": "投资宪章的保证：",
+        "garanties": [
+          "OHADA的法律保障",
+          "保证企业自由",
+          "免税和免关税",
+          "双边保护协议",
+          "喀麦隆投资促进局单一窗口"
+        ]
+      },
+      "secteurs": {
+        "agro": {
+          "nom": "农业与农业加工业",
+          "description": "占GDP很大一部分的优先领域。喀麦隆拥有肥沃的耕地和有利于各种出口作物和农业食品加工的气候。",
+          "opportunites": [
+            "农业食品加工（政府优先事项）",
+            "棕榈油的生产和加工",
+            "现代家禽养殖业的发展",
+            "出口作物（可可、咖啡、香蕉）",
+            "综合价值链和农业综合企业"
+          ],
+          "defis": [
+            "需要现代化的农村基础设施",
+            "获取农业融资",
+            "土地所有权的复杂性"
+          ],
+          "soutien": "根据投资宪章，为农业提供特定的税收优惠制度"
+        },
+        "industry": {
+          "nom": "采掘业",
+          "description": "包括石油、天然气和采矿在内的关键领域。重要的海上天然气资源和采矿潜力，开发项目正在进行中。",
+          "opportunites": [
+            "采矿开发（铝土矿、铁、金）",
+            "正在开发的海上天然气资源",
+            "石油炼制和加工",
+            "石油和天然气服务",
+            "地质学和采矿勘探"
+          ],
+          "defis": [
+            "需要大量投资",
+            "环境法规",
+            "交通基础设施"
+          ],
+          "soutien": "对采掘业具有吸引力的采矿法和便利措施"
+        },
+        "digital": {
+          "nom": "数字与金融科技",
+          "description": "随着电信（4G、光纤）和服务数字化的发展，该领域正在迅速扩张。金融科技领域有重要机会。",
+          "opportunites": [
+            "服务数字化（国家优先事项）",
+            "金融科技的发展",
+            "移动支付解决方案",
+            "电子商务和数字平台",
+            "企业数字服务"
+          ],
+          "defis": [
+            "农村地区的连接基础设施",
+            "数字技能",
+            "金融科技监管"
+          ],
+          "soutien": "国家数字化战略和对数字领域的激励措施"
+        },
+        "energy": {
+          "nom": "可再生能源",
+          "description": "能源生产以水力发电为主，拥有大量未开发的太阳能潜力。太阳能和水力发电项目被视为主要机会。",
+          "opportunites": [
+            "太阳能项目（高潜力）",
+            "水力发电发展",
+            "用于农村电气化的微型电网",
+            "工业能源效率",
+            "能源存储和分配"
+          ],
+          "defis": [
+            "能源项目融资",
+            "分配网络",
+            "技术维护"
+          ],
+          "soutien": "根据宪章对能源提供特定激励制度"
+        },
+        "housing": {
+          "nom": "社会住房",
+          "description": "随着城市化率超过58%且需求不断增长，社会住房开发被确定为关键机会。",
+          "opportunites": [
+            "社会住房开发（优先事项）",
+            "经济适用房建设",
+            "本地建筑材料",
+            "城市开发和细分",
+            "创新的房地产融资"
+          ],
+          "defis": [
+            "获取城市土地",
+            "家庭融资",
+            "建筑标准"
+          ],
+          "soutien": "具有税收激励的社会住房特定制度"
+        },
+        "forest": {
+          "nom": "木材和森林",
+          "description": "重要的森林覆盖率，具有当地加工和可持续开发的潜力。",
+          "opportunites": [
+            "木材的本地加工",
+            "可持续森林认证",
+            "衍生产品（家具、建筑）",
+            "森林生态旅游",
+            "碳和保护项目"
+          ],
+          "defis": [
+            "非法采伐",
+            "产品可追溯性",
+            "森林基础设施"
+          ],
+          "soutien": "有利于本地加工的森林法"
+        },
+        "textile": {
+          "nom": "纺织与服装",
+          "description": "由于国际贸易协定，该行业具有复苏潜力。",
+          "opportunites": [
+            "出口服装",
+            "综合棉花产业链",
+            "技术纺织品",
+            "非洲时尚和设计",
+            "皮革制品"
+          ],
+          "defis": [
+            "国际竞争",
+            "能源成本",
+            "技术培训"
+          ],
+          "soutien": "纺织品经济特区"
+        },
+        "oil": {
+          "nom": "碳氢化合物",
+          "description": "成熟行业，在炼油和石油服务方面拥有机会。",
+          "opportunites": [
+            "炼油和石油产品",
+            "海上石油服务",
+            "存储和分配",
+            "工业维护",
+            "石油物流"
+          ],
+          "defis": [
+            "价格波动",
+            "环境法规",
+            "大量投资"
+          ],
+          "soutien": "对投资者具有吸引力的石油法"
+        },
+        "chemical": {
+          "nom": "化学与制药",
+          "description": "公共卫生和化学工业的战略领域。",
+          "opportunites": [
+            "仿制药生产",
+            "传统植物药",
+            "农业肥料",
+            "天然化妆品",
+            "绿色化学"
+          ],
+          "defis": [
+            "卫生监管",
+            "人员资质",
+            "进口竞争"
+          ],
+          "soutien": "国家制药政策"
+        },
+        "construction": {
+          "nom": "建筑与公共工程",
+          "description": "随着基础设施和住房项目的增加，该领域不断增长。",
+          "opportunites": [
+            "公共基础设施建设",
+            "住房和房地产",
+            "道路和桥梁",
+            "工业建筑",
+            "港口工程"
+          ],
+          "defis": [
+            "获取材料",
+            "项目融资",
+            "技术技能"
+          ],
+          "soutien": "道路总体规划和基础设施计划"
+        },
+        "transport": {
+          "nom": "交通与物流",
+          "description": "对外贸易的重要基础设施。作为中非枢纽的战略地位，80%的交通量通过杜阿拉港口。",
+          "opportunites": [
+            "杜阿拉港口现代化（80%交通量）",
+            "克里比深水港开发",
+            "杜阿拉-恩贾梅纳和杜阿拉-班吉走廊",
+            "数字物流和单一窗口",
+            "现代化铁路运输"
+          ],
+          "defis": [
+            "杜阿拉港口拥堵",
+            "高运输时间",
+            "高物流成本"
+          ],
+          "soutien": "对外贸易操作单一窗口（GUCE）"
+        },
+        "finance": {
+          "nom": "金融服务",
+          "description": "不断发展的金融体系，非洲法郎与欧元挂钩，提供货币稳定性。",
+          "opportunites": [
+            "数字银行服务",
+            "小额信贷和普惠金融",
+            "农业和气候保险",
+            "中小企业融资",
+            "CEMAC资本市场"
+          ],
+          "defis": [
+            "获取信贷",
+            "高利率",
+            "银行担保"
+          ],
+          "soutien": "CEMAC金融体系改革和非洲法郎的稳定性"
+        },
+        "infrastructure": {
+          "nom": "基础基础设施",
+          "description": "基础设施发展：公路网（总体规划）、铁路现代化、电信（4G、光纤）。",
+          "opportunites": [
+            "公路网（公路总体规划）",
+            "雅温得-杜阿拉-恩冈代雷铁路现代化",
+            "电信基础设施（4G、光纤）",
+            "供水和卫生",
+            "机场基础设施"
+          ],
+          "defis": [
+            "项目融资",
+            "基础设施维护",
+            "技术标准"
+          ],
+          "soutien": "公路总体规划和公共投资计划"
+        }
+      }
+    },
+    "elevage_page": {
+      "hero": {
+        "title": "畜牧业",
+        "subtitle": "一个不断发展的行业，在喀麦隆的动物生产、加工、饲料、卫生和畜牧业价值链中提供投资机会。",
+        "button": "探索机会"
+      },
+      "objective": {
+        "title": "战略目标",
+        "text": "现代化畜牧生产，加强价值链，增加本地加工，以提高粮食安全，减少进口并创造可持续的投资机会。"
+      },
+      "sector": {
+        "header_title": "畜牧业部门",
+        "cattle_dairy": {
+          "title": "牛和乳制品",
+          "item1": "现代化的养牛生产",
+          "item2": "牛奶生产和收集",
+          "item3": "乳制品加工",
+          "item4": "改良的育种系统"
+        },
+        "poultry": {
+          "title": "家禽",
+          "item1": "肉鸡和蛋鸡养殖",
+          "item2": "孵化场",
+          "item3": "鸡蛋生产",
+          "item4": "禽肉加工"
+        },
+        "pigs_ruminants": {
+          "title": "猪和小型反刍动物",
+          "item1": "现代养猪",
+          "item2": "绵羊和山羊生产",
+          "item3": "繁育中心",
+          "item4": "肉类生产"
+        },
+        "feed_inputs": {
+          "title": "饲料和投入品",
+          "item1": "动物饲料生产",
+          "item2": "牧草开发",
+          "item3": "饲料加工设施",
+          "item4": "畜牧设备和投入品"
+        },
+        "processing_distrib": {
+          "title": "加工与分配",
+          "item1": "肉类加工",
+          "item2": "乳制品加工",
+          "item3": "冷链设施",
+          "item4": "包装与分销"
+        }
+      },
+      "investment_areas": {
+        "header_title": "投资领域",
+        "production": {
+          "title": "生产",
+          "desc": "牛 • 家禽 • 猪 • 鱼 • 绵羊和山羊"
+        },
+        "inputs": {
+          "title": "投入与服务",
+          "desc": "饲料 • 遗传学 • 兽医服务 • 设备"
+        },
+        "processing": {
+          "title": "加工",
+          "desc": "肉类 • 牛奶 • 鸡蛋 • 鱼 • 鸡肉 • 包装"
+        },
+        "infrastructure": {
+          "title": "基础设施",
+          "desc": "冷链 • 存储 • 物流 • 分销"
+        }
+      },
+      "key_figures": {
+        "header_title": "关键数字",
+        "demand": {
+          "title": "不断增长的需求",
+          "subtitle": "肉类、牛奶和鸡蛋"
+        },
+        "production": {
+          "title": "多样化生产",
+          "subtitle": "牛、家禽、猪和小型反刍动物"
+        },
+        "value": {
+          "title": "附加值",
+          "subtitle": "加工与包装"
+        },
+        "potential": {
+          "title": "区域潜力",
+          "subtitle": "国内及区域市场"
+        }
+      },
+      "potential_sec": {
+        "title": "喀麦隆的畜牧业潜力",
+        "subtitle": "喀麦隆拥有强大的畜牧业发展潜力，这得益于多样化的生产区域、可用的资源以及对动物产品不断增长的需求。该行业提供从初级生产到加工和分销的各种机会。",
+        "opportunities": {
+          "title": "机遇"
+        },
+        "challenges": {
+          "item1": {
+            "title": "生产力低：",
+            "desc": "获取改良品种、饲料和现代技术的途径有限。"
+          },
+          "item2": {
+            "title": "基础设施差距：",
+            "desc": "加工、储存和冷链设施不足。"
+          },
+          "item3": {
+            "title": "融资渠道：",
+            "desc": "现代化和扩张的融资有限。"
+          },
+          "item4": {
+            "title": "动物健康：",
+            "desc": "疾病风险和兽医覆盖范围的差距。"
+          },
+          "item5": {
+            "title": "碎片化的价值链：",
+            "desc": "生产者、加工者和市场之间的联系薄弱。"
+          }
+        },
+        "opps": {
+          "item1": {
+            "title": "现代化生产：",
+            "desc": "商业化畜牧和家禽养殖场的发展。"
+          },
+          "item2": {
+            "title": "附加值：",
+            "desc": "肉类、牛奶和鸡蛋的加工与包装。"
+          },
+          "item3": {
+            "title": "饲料工业：",
+            "desc": "动物饲料和牧草的生产。"
+          },
+          "item4": {
+            "title": "动物健康：",
+            "desc": "兽医服务、繁育和遗传改良。"
+          },
+          "item5": {
+            "title": "市场开发：",
+            "desc": "国内和区域市场不断增长的机遇。"
+          }
+        }
+      }
+    },
+    "creation_entreprise": {
+      "hero": {
+        "badge": "简化企业设立",
+        "title": "在喀麦隆",
+        "title_highlight": "1周内创办企业",
+        "subtitle": "依托现代化的OHADA法律框架，以及遍布各大区的企业设立手续中心（CFCE）提供的加速流程。",
+        "button": "查看完整指南"
+      },
+      "nav": {
+        "cfce": "CFCE",
+        "types": "企业类型",
+        "processus": "流程",
+        "documents": "材料",
+        "couts": "费用",
+        "ressources": "资源",
+        "structures": "法律形式"
+      },
+      "cfce": {
+        "title": "CFCE：您的一站式服务中心",
+        "subtitle": "所有涉及企业注册的行政机构集中在同一地点，为您节省宝贵时间。",
+        "guichet_title": "一站式服务",
+        "guichet_desc": "所有手续集中在一个办公室办理。",
+        "delai_title": "快速办理",
+        "delai_desc": "平均一周内即可获得正式文件。",
+        "couverture_title": "全国覆盖",
+        "couverture_desc": "覆盖喀麦隆全部10个大区，服务更贴近您。",
+        "villes_label": "设有CFCE的城市：",
+        "card1_title": "集中办理",
+        "card1_desc": "所有行政手续一处办理，简化您的流程。",
+        "card2_title": "1周",
+        "card2_desc": "领取企业设立文件的平均时间。",
+        "card3_title": "全程陪同",
+        "card3_desc": "专属顾问在每个环节为您提供指导。",
+        "presence_title": "全国覆盖",
+        "presence_desc": "CFCE覆盖喀麦隆所有大区",
+        "simple_title": "简化流程",
+        "simple_s1": "准备材料",
+        "simple_s2": "向CFCE提交",
+        "simple_s3": "多部门联合办理",
+        "simple_s4": "领取文件（1周）",
+        "simple_s5": "税务登记"
+      },
+      "types": {
+        "title": "喀麦隆的企业类型",
+        "physique_title": "自然人",
+        "physique_tag": "个体商号 (ETS)",
+        "physique_item1": "适合个人创业者",
+        "physique_item2": "无需注册资本",
+        "physique_item3": "无需起草章程",
+        "physique_item4": "注册快捷，成本较低",
+        "physique_note": "个人财产与商业财产在负债情况下合并。",
+        "morale_title": "法人实体",
+        "morale_tag": "公司 (SARL、SA 等)",
+        "morale_item1": "适合与合伙人共同创业",
+        "morale_item2": "注册资本明确界定",
+        "morale_item3": "必须有章程（根据资本额决定是否公证）",
+        "morale_item4": "个人资产受法律保护",
+        "caracteristiques": "特点",
+        "avantages": "优势",
+        "physique_c1": "无合伙人的个体经营者",
+        "physique_c2": "无需注册资本",
+        "physique_c3": "无需公司章程",
+        "physique_c4": "个人财产与经营财产不分",
+        "physique_a1": "设立快速简单",
+        "physique_a2": "成本较低",
+        "physique_a3": "管理简便",
+        "morale_c1": "一名或多名股东（自然人或法人）",
+        "morale_c2": "明确的注册资本",
+        "morale_c3": "必须制定公司章程",
+        "morale_c4": "公司财产与股东财产分离",
+        "morale_a1": "保护个人财产",
+        "morale_a2": "信誉更高",
+        "morale_a3": "便于发展壮大"
+      },
+      "processus": {
+        "title": "企业注册流程",
+        "step1_title": "准备材料",
+        "step1_desc": "收集所有所需文件（见文件部分）。注册资本超过100万非洲法郎的有限责任公司，须先到公证处起草章程。",
+        "step2_title": "向CFCE提交申请",
+        "step2_desc": "将完整的纸质材料提交至所在地区的一站式服务中心，将收到受理回执。",
+        "step3_title": "审核处理（一周）",
+        "step3_desc": "CFCE负责与各行政机关（法院、税务局等）完成全部手续。",
+        "step4_title": "领取证件及税务登记",
+        "step4_desc": "领取商业注册证书（RCCM）。税务登记证书随后可在impots.cm官网直接在线下载。"
+      },
+      "documents": {
+        "title": "按类型所需材料",
+        "tab_ets": "个体企业（自然人）",
+        "tab_sarl": "SARL（私署文书）",
+        "ets_item1": "创办人国家身份证复印件",
+        "ets_item2": "居留证或护照复印件（外国人）",
+        "ets_item3": "结婚证复印件（如适用）",
+        "ets_item4": "无犯罪记录证明（或书面声明）",
+        "ets_item5": "企业选址平面图",
+        "ets_item6": "商业注册费（RCCM）",
+        "sarl_item1": "05份加盖印花的章程副本",
+        "sarl_item2": "股东身份证复印件",
+        "sarl_item3": "管理人员无犯罪记录证明",
+        "sarl_item4": "含联系方式的选址平面图",
+        "sarl_item5": "商业注册费",
+        "sarl_item6": "法律公告费（Cameroun Tribune）",
+        "delays_title": "办理时间",
+        "delay_ets": "个体企业",
+        "delay_sarl_small": "SARL（< 1M）",
+        "delay_sarl_big": "SARL（≥ 1M）",
+        "one_week": "1周",
+        "variable": "不定",
+        "depends_notary": "取决于公证人"
+      },
+      "couts": {
+        "title": "设立费用",
+        "cfce_card_title": "CFCE收费",
+        "fiscalite_card_title": "初始税务",
+        "budget_card_title": "总预算估算",
+        "cnps": "社保证明",
+        "non_emploi": "无业证明",
+        "rccm_physique": "商业注册（自然人）",
+        "rccm_morale": "商业注册（法人）",
+        "patente_label": "营业执照税",
+        "patente_value": "第一年免税",
+        "carte_label": "纳税人证件",
+        "carte_value": "免费",
+        "bail_label": "租约登记",
+        "bail_unit": "年租金的比例",
+        "ets_budget_label": "个体商号 (ETS)",
+        "sarl_budget_label": "有限责任公司（< 100万法郎）",
+        "hors_bail": "不含租约费用",
+        "cnps_note": "5,000 FCFA收据 + 2张1,500 FCFA印花",
+        "non_emploi_note": "1,500 FCFA收据 + 1张1,000 FCFA印花",
+        "patente_note": "经营第一年免费",
+        "carte_note": "免费发放",
+        "bail_value": "年租金的10% / 房产价值的0.11%",
+        "bail_note": "视承租人/业主身份而定",
+        "rccm_label": "商业登记",
+        "rccm_value": "53,000 XAF（自然人）/ 41,500 XAF（法人）",
+        "rccm_note": "在RCCM依法登记",
+        "total_title": "费用总估算",
+        "total_ets": "个体企业",
+        "total_sarl": "SARL（< 1M）",
+        "total_impots": "税务登记",
+        "hors_impots": "FCFA（不含税务登记）",
+        "selon_bail": "FCFA（视租约而定）"
+      },
+      "ressources": {
+        "title": "法律框架与实用链接",
+        "docs_title": "可下载文件",
+        "links_title": "实用机构",
+        "ohada_title": "OHADA条约",
+        "ohada_desc": "非洲通用商业法律。",
+        "loi_title": "第2016/014号法律",
+        "loi_desc": "法律框架现代化。",
+        "decret_title": "第2017/0877号法令",
+        "decret_desc": "有限责任公司私下认证程序。",
+        "api_title": "喀麦隆投资促进署",
+        "api_desc": "投资促进机构",
+        "apme_title": "APME",
+        "apme_desc": "中小企业促进机构",
+        "impots_title": "Impots.cm",
+        "impots_desc": "税务总局"
+      },
+      "structures": {
+        "title": "可选的法律形式",
+        "eurl_desc": "单一股东，资本灵活",
+        "sarl_desc": "2名及以上股东，有限责任",
+        "sa_desc": "股份有限公司，股东持股",
+        "sas_desc": "组织灵活现代",
+        "minimum": "最低",
+        "capital_free": "资本自由确定"
+      },
+      "detail": {
+        "title": "详细设立流程",
+        "ets_title": "设立个体企业（自然人）",
+        "step_prep": "准备",
+        "step_depot": "向CFCE提交",
+        "step_recup": "领取",
+        "depot_desc": "向所在大区的企业设立手续中心提交全部材料。",
+        "traitement_badge": "办理时间：1周",
+        "recup_1": "RCCM（商业登记）",
+        "recup_2": "注册证明（在impots.cm在线获取）",
+        "recup_note": "注册证明取代了原纳税人卡。",
+        "sarl_title": "设立有限责任公司（SARL）",
+        "sarl_capital": "资本在100,000至999,999 FCFA之间（私署文书）",
+        "sarl_s1_t": "1. 章程",
+        "sarl_s1_d": "由中心负责人起草并确认，5份贴花副本。",
+        "sarl_s2_t": "2. 材料",
+        "sarl_s2_d": "向CFCE提交全部所需材料。",
+        "sarl_s3_t": "3. 办理",
+        "sarl_s3_d": "平均时间：1周。",
+        "sarl_s4_t": "4. 领取",
+        "sarl_s4_d": "RCCM及经确认的章程。",
+        "notaire_badge": "资本 ≥ 1,000,000 FCFA",
+        "notaire_title": "必须经公证人办理",
+        "notaire_1": "起草章程",
+        "notaire_2": "准备RCCM",
+        "notaire_3": "全部所需材料",
+        "avantage_title": "优势",
+        "avantage_desc": "公证后无需再经CFCE：可直接在impots.cm获取注册证明。"
+      },
+      "impots": {
+        "title": "税务中心登记",
+        "docs_title": "所需材料",
+        "d1": "商业登记证",
+        "d2": "公司章程",
+        "d3": "注册证明",
+        "d4": "位置图",
+        "d5": "租赁合同",
+        "costs_title": "预估费用",
+        "amount": "≈ 200,000 FCFA",
+        "bail": "其中租约登记费：年租金的10%",
+        "example": "示例：月租100,000 FCFA → 登记费120,000 FCFA",
+        "note": "登记后须按月申报并缴税。"
+      },
+      "faq": {
+        "contexte": "法律背景",
+        "contexte_desc": "喀麦隆的企业设立受OHADA法律及简化手续的国内法规管辖。",
+        "avantages": "税收优惠",
+        "av1": "经营第一年免缴营业税",
+        "av2": "免费发放注册证明",
+        "av3": "符合条件的项目可享受《投资宪章》激励制度",
+        "institutions": "相关机构",
+        "processus": "详细流程",
+        "couts_delais": "费用与时限",
+        "cd1": "个体企业：约75,000 FCFA，1周",
+        "cd2": "SARL（< 1M）：约85,000 FCFA，1周",
+        "cd3": "SARL（≥ 1M）：另加公证费，时间不定",
+        "cd4": "税务登记：约200,000 FCFA，视租约而定"
+      }
+    },
+    "facteurs_production": {
+      "hero": {
+        "badge": "投资喀麦隆",
+        "title": "生产",
+        "title_highlight": "要素",
+        "subtitle": "利用极具竞争力的资源、有利的税收政策和合适的基础设施，最大化您的投资效益。",
+        "button": "探索投资机会"
+      },
+      "nav": {
+        "main_oeuvre": "劳动力",
+        "foncier": "土地",
+        "fiscalite": "税收政策",
+        "couts_secteur": "各行业成本",
+        "facteurs": "生产要素"
+      },
+      "main_oeuvre": {
+        "title": "喀麦隆的劳动力",
+        "subtitle": "受益于充裕、年轻且合格的劳动力，识字率为71.2%，在中非的劳动力成本极具竞争力。",
+        "t1": "资质",
+        "t1_l1": "识字率",
+        "t1_l2": "小学（净入学率）",
+        "t1_l3": "按教育水平分布",
+        "t1_l4": "小学水平",
+        "t1_l5": "中学水平",
+        "t1_l6": "高等教育水平",
+        "t2": "工资与条件",
+        "t2_l1": "最低工资 (SMIG)",
+        "t2_l2": "约 55.3 欧元 / 月",
+        "t2_l3": "高管",
+        "t2_l4": "员工",
+        "t2_l5": "工人",
+        "t2_l6": "48小时 / 周",
+        "t2_l7": "休息: 24小时/周",
+        "t2_l8": "每年30天休假",
+        "t2_l9": "法定年龄: 16岁",
+        "t3": "社会保障缴款",
+        "t3_l1": "家庭津贴",
+        "t3_l2": "雇主承担100%",
+        "t3_l3": "养老金",
+        "t3_l4": "雇主4.2% / 员工4.2%",
+        "t3_l5": "月度上限：750,000中非法郎",
+        "t4": "合同类型",
+        "t4_l1": "固定期限合同 (CDD)",
+        "t4_l2": "最长12个月，仅可续签一次。",
+        "t4_l3": "无限期合同 (CDI)",
+        "t4_l4": "全职或兼职，受劳动法管辖。",
+        "t4_l5": "外籍员工",
+        "t4_l6": "没有固定配额，优先考虑当地无法获得的技能。",
+        "item1": "年轻有活力的劳动力（60%人口年龄在25岁以下）",
+        "item2": "识字率：71.2%",
+        "item3": "劳动力成本是中非地区最具竞争力之一",
+        "button": "查看详情",
+        "stat1_value": "2700万+",
+        "stat1_label": "活跃人口",
+        "stat2_value": "36,270",
+        "stat2_label": "月最低工资（非郎）",
+        "stat3_value": "71.2%",
+        "stat3_label": "识字率",
+        "stat4_value": "48小时",
+        "stat4_label": "法定工作时间/周"
+      },
+      "foncier": {
+        "title": "喀麦隆的土地",
+        "t1": "已开发土地",
+        "t1_d": "每平方米 / 年",
+        "t1_l1": "杜阿拉-博纳贝里 (Douala-Bonabéri)",
+        "t1_l2": "巴萨 (Bassa)",
+        "t2": "已建土地",
+        "t2_d": "每平方米 / 年",
+        "t2_l1": "免税区",
+        "t2_l2": "标准",
+        "t3": "有保障的土地所有权",
+        "t3_d": "带有国家证明的安全程序。喀麦隆已使程序现代化，以保障投资者的权利。",
+        "t3_l1": "数字真伪证书",
+        "t3_l2": "精确的地理定位",
+        "t3_l3": "防欺诈保护",
+        "t4": "2005年改革",
+        "t4_l1": "加快行政程序",
+        "t4_l2": "区域决策权力下放",
+        "t4_l3": "透明的公布系统",
+        "t4_l4": "争议解决机制",
+        "t5": "安全的商业租赁",
+        "t5_d": "现代化的租赁合同，为企业带来明显利益。",
+        "t5_l1_k": "最长期限: ",
+        "t5_l1_v": "15年 (可续期)",
+        "t5_l2_k": "指数化: ",
+        "t5_l2_v": "受当地指数监管",
+        "t6": "法律文本",
+        "l1_s": "土地制度",
+        "l2_s": "国家财产管理",
+        "l3_s": "征用",
+        "l4_s": "修正案",
+        "subtitle": "通过简化程序和有吸引力的成本，促进土地获取。利用已开发区域快速部署。",
+        "item1": "杜阿拉和雅温得的工业开发区",
+        "item2": "国家保障的安全土地证书",
+        "item3": "2005年以来现代化的登记程序",
+        "button": "查看详情",
+        "stat1_value": "800-2500",
+        "stat1_label": "非郎/平方米/年（配套土地）",
+        "stat2_value": "4.75亿平方公里",
+        "stat2_label": "可用总面积",
+        "stat3_value": "15 年",
+        "stat3_label": "商业租约最长期限"
+      },
+      "fiscalite": {
+        "title": "喀麦隆税收",
+        "subtitle": "现代税收框架，提供众多海关豁免和特定扣除，以推动您的投资项目。",
+        "sys_fiscal": "综合税收体系",
+        "impot_societe": "企业所得税",
+        "tva_standard": "标准增值税",
+        "patente": "地方营业税",
+        "regimes": "税收制度",
+        "regime_liberatoire": {
+          "title": "免税",
+          "l1": "年营业额 < 10M FCFA",
+          "l2": "按季付款",
+          "l3": "免征增值税和营业税"
+        },
+        "regime_simplifie": {
+          "title": "简易制度",
+          "l1": "营业额: 10M - 50M FCFA",
+          "l2": "简化的OHADA会计",
+          "l3": "不征收增值税"
+        },
+        "regime_reel": {
+          "title": "实际制度",
+          "l1": "营业额 > 50M FCFA",
+          "l2": "标准OHADA会计",
+          "l3": "征收和扣除增值税"
+        },
+        "tva_droits": "增值税和特别关税",
+        "exo_tva": {
+          "title": "增值税豁免",
+          "l1": "出口",
+          "l2": "工业自由区",
+          "l3": "教育和医疗服务"
+        },
+        "droits_accise": {
+          "title": "消费税",
+          "l1_k": "酒精饮料",
+          "l1_v": "35% (+ 免税额)",
+          "l2_k": "烟草",
+          "l2_v": "42.5% (+ 免税额)"
+        },
+        "fisc_locale": "地方及财产税",
+        "patente_licences": {
+          "title": "营业税和许可证",
+          "l1": "年营业额的1%",
+          "l2": "含酒精 (4倍税), 不含酒精 (2倍税)"
+        },
+        "taxe_fonciere": {
+          "title": "财产税 (0.11%)",
+          "l1": "土地和建筑物0.11%",
+          "l2": "年租金的5-10% (预扣)"
+        },
+        "tarifs_douaniers": "CEMAC海关关税",
+        "table": {
+          "col1": "类别",
+          "col2": "税率",
+          "col3": "计税基础",
+          "col4": "示例"
+        },
+        "data": {
+          "d1": {
+            "cat": "基本必需品",
+            "base": "海关价值",
+            "ex": "药品、基本商品"
+          },
+          "d2": {
+            "cat": "原材料",
+            "base": "EXW价值",
+            "ex": "钢铁、未加工农产品"
+          },
+          "d3": {
+            "cat": "中间产品",
+            "base": "CIF价值",
+            "ex": "汽车零部件"
+          },
+          "d4": {
+            "cat": "消费品",
+            "base": "总价值",
+            "ex": "电子产品、车辆"
+          }
+        },
+        "item1": "企业所得税：33%",
+        "item2": "标准增值税：19.25%",
+        "item3": "工业自由贸易区豁免",
+        "button": "查看详情",
+        "stat1_value": "33%",
+        "stat1_label": "企业所得税",
+        "stat2_value": "19.25%",
+        "stat2_label": "标准增值税",
+        "stat3_value": "0%",
+        "stat3_label": "自由贸易区企业税"
+      },
+      "couts_secteur": {
+        "title": "各行业成本",
+        "desc": "详细分析分布在国家关键战略领域的生产、设备和基础设施成本。",
+        "tag1": "农业工业",
+        "tag2": "能源",
+        "tag3": "建筑",
+        "tag4": "服务",
+        "tag5": "采矿",
+        "button": "查看行业成本",
+        "subtitle": "详细分析分布在国家主要战略部门的生产、设备和基础设施成本。"
+      },
+      "grid": {
+        "title": "基本生产成本",
+        "subtitle": "在喀麦隆投资的主要成本项目概览。",
+        "factors": {
+          "intrants": {
+            "name": "投入品",
+            "desc": "受CEMAC关税约束的进口原材料、设备和零部件。",
+            "label": "CEMAC关税",
+            "stat1": "0% – 基本商品",
+            "stat2": "5% – 原材料",
+            "stat3": "30% – 消费品"
+          },
+          "transport": {
+            "name": "运输",
+            "desc": "喀麦隆的公路、铁路、海运和空运运输成本。",
+            "label": "公路/吨",
+            "stat1": "40-80非郎/吨（公路）",
+            "stat2": "雅温得–杜阿拉240公里",
+            "stat3": "杜阿拉港活跃"
+          },
+          "terrain": {
+            "name": "土地",
+            "desc": "工业配套或已建土地的购置和租赁成本。",
+            "label": "每平方米/年",
+            "stat1": "可用配套区域",
+            "stat2": "安全土地证书",
+            "stat3": "杜阿拉-博纳贝里：800非郎"
+          },
+          "energie": {
+            "name": "能源",
+            "desc": "工业企业的电力、燃料、天然气和水价格。",
+            "label": "电力/千瓦时",
+            "stat1": "低压：50-99非郎",
+            "stat2": "柴油：575非郎/升",
+            "stat3": "12公斤气：6500非郎"
+          },
+          "telecom": {
+            "name": "电信",
+            "desc": "喀麦隆企业的电话、互联网和数据费率。",
+            "label": "移动/分钟",
+            "stat1": "运营商：MTN、Orange",
+            "stat2": "ADSL：25k–150k非郎/月",
+            "stat3": "全国4G覆盖"
+          },
+          "personnel": {
+            "name": "人员",
+            "desc": "劳动法规定的工资、社会缴款和工作条件。",
+            "label": "月最低工资",
+            "stat1": "管理人员：30万–150万非郎",
+            "stat2": "员工：10万–30万非郎",
+            "stat3": "工人：3.6万–10万非郎"
+          },
+          "assurance": {
+            "name": "保险",
+            "desc": "企业的火灾、运输和工伤保险费率。",
+            "label": "建筑火灾保险",
+            "stat1": "办公室：0.70‰",
+            "stat2": "住宅：1.50‰",
+            "stat3": "含工伤事故"
+          },
+          "banque": {
+            "name": "银行与信贷",
+            "desc": "喀麦隆金融机构的利率和银行手续费。",
+            "label": "银行利率",
+            "stat1": "长期：7–10%",
+            "stat2": "中期：10–14%",
+            "stat3": "信贷：14–17%"
+          }
+        },
+        "see_details": "查看详情",
+        "quick_summary": "喀麦隆的竞争优势",
+        "quick_desc": "使喀麦隆对投资者具有吸引力的关键指标。",
+        "salary": "月最低工资",
+        "transport": "运输成本/吨",
+        "elec": "电力/千瓦时",
+        "land": "土地/平方米/年"
+      },
+      "costs_sector": {
+        "title": "各行业成本",
+        "subtitle": "基于2023年官方数据的各主要行业生产成本比较分析。",
+        "total_cost": "预估总成本",
+        "source": "来源",
+        "sectors": {
+          "agro": {
+            "name": "农用工业",
+            "f1": "劳动力",
+            "f2": "种子",
+            "f3": "机械"
+          },
+          "energie": {
+            "name": "能源",
+            "f1": "劳动力",
+            "f2": "维护",
+            "f3": "燃料"
+          },
+          "numerique": {
+            "name": "数字产业",
+            "f1": "劳动力",
+            "f2": "基础设施",
+            "f3": "软件"
+          },
+          "bois": {
+            "name": "木材-林业",
+            "f1": "开采",
+            "f2": "运输",
+            "f3": "加工"
+          },
+          "textile": {
+            "name": "纺织/服装",
+            "f1": "材料",
+            "f2": "机械",
+            "f3": "能源"
+          },
+          "hydro": {
+            "name": "碳氢化合物",
+            "f1": "勘探",
+            "f2": "炼油",
+            "f3": "运输"
+          },
+          "pharma": {
+            "name": "药业",
+            "f1": "材料",
+            "f2": "设备",
+            "f3": "研发"
+          },
+          "mines": {
+            "name": "采矿/冶金",
+            "f1": "开采",
+            "f2": "加工",
+            "f3": "运输"
+          }
+        }
+      },
+      "factor_modal": {
+        "intrants": {
+          "def": "投入品的定义",
+          "desc": "“投入品”包括进口原材料、消耗品、配件、工具和机械。在喀麦隆本地购买的产品不计算额外费用。",
+          "tarif": "海关关税",
+          "tarif_desc": "进口产品的海关关税从",
+          "transitaire": "货运代理费",
+          "financiers": "财务成本",
+          "financiers_desc": "与购买相关的财务成本介于"
+        },
+        "transport": {
+          "t1": "货物运输",
+          "t1_desc": "每吨平均成本",
+          "t2": "液体运输",
+          "t2_desc": "每升平均成本",
+          "t3": "航空运输",
+          "t3_desc": "每公斤平均成本",
+          "t4": "人员运输",
+          "t4_desc": "平均月成本"
+        },
+        "terrain": {
+          "title": "土地定价",
+          "t1": "已开发土地",
+          "t2": "已建土地",
+          "desc": "年度成本"
+        },
+        "energie": {
+          "title": "能源定价",
+          "carburants": "燃料",
+          "carb_l1": "优质燃料",
+          "carb_l2": "柴油",
+          "carb_l3": "煤油",
+          "elec": "电力 - 低压",
+          "gaz": "分布式燃气",
+          "gaz_l1": "12公斤气瓶",
+          "gaz_l2": "6公斤气瓶",
+          "eau": "水",
+          "eau_l1": "饮用水",
+          "eau_l2": "工业用水"
+        },
+        "telecom": {
+          "title": "喀麦隆电信",
+          "t1": "固定电话 (CAMTEL)",
+          "t1_l1": "固话对固话",
+          "t1_l2": "省内",
+          "t1_l3": "全国",
+          "t1_l4": "固话对手机",
+          "t2": "移动电话",
+          "t2_l1": "全国",
+          "t2_l2": "国内短信",
+          "t2_l3": "国际短信",
+          "t2_l4": "国际长途",
+          "t3": "互联网与供应商",
+          "t3_l1": "低速",
+          "t3_l2": "ADSL",
+          "t3_l3": "高速",
+          "t3_desc": "供应商: CAMTEL, MTN, Orange, Nexttel"
+        },
+        "personnel": {
+          "title": "人员成本",
+          "t1": "最低工资",
+          "t1_desc": "自2014年起未变",
+          "t2": "按类别划分的工资",
+          "t2_l1": "高管",
+          "t2_l2": "员工",
+          "t2_l3": "工人",
+          "t3": "社会保障",
+          "t3_l1": "家庭",
+          "t3_l2": "风险",
+          "t3_l3": "养老金",
+          "t4": "地理区域",
+          "t4_l1": "1区: 杜阿拉，雅温得",
+          "t4_l2": "2区: 其他城市"
+        },
+        "assurance": {
+          "title": "保险成本",
+          "t1": "建筑火灾",
+          "t1_l1": "办公室",
+          "t1_l2": "混合住宅",
+          "t2": "工伤事故",
+          "t2_desc": "包含在社会费用中",
+          "t3": "运输",
+          "t3_desc": "商用车:"
+        },
+        "banque": {
+          "title": "银行费用",
+          "t1": "银行利息",
+          "t1_l1": "长期",
+          "t1_l2": "中期",
+          "t1_l3": "信用贷",
+          "t2": "服务费",
+          "t2_desc1": "高达",
+          "t2_title2": "定期存款",
+          "t2_taux": "利率:"
+        },
+        "no_data": "此因素的详细信息即将推出。"
+      }
+    }
+  },
+  "investir": {
+    "creerEntreprise": {
+      "hidden": "hidden (ZH)",
+      "show": "show (ZH)",
+      "mb_8_flex_items_center_justify": "mb-8 flex items-center justify-center gap-3 text-3xl font-bold text-[#0F0B60] (ZH)",
+      "flex_h_11_w_11_items_center_ju": "flex h-11 w-11 items-center justify-center rounded-full bg-[#EEECFA] text-xl text-[#0F0B60] (ZH)",
+      "relative_mx_auto_h_300px_w_300": "relative mx-auto h-[300px] w-[300px] (ZH)",
+      "absolute_inset_0_flex_items_ce": "absolute inset-0 flex items-center justify-center (ZH)",
+      "z_10_flex_h_24_w_24_flex_col_i": "z-10 flex h-24 w-24 flex-col items-center justify-center rounded-full bg-[#0F0B60] text-center text-white shadow-lg (ZH)",
+      "text_lg": "text-lg (ZH)",
+      "mt_1_text_sm_font_bold": "mt-1 text-sm font-bold (ZH)",
+      "text_10px_text_white_70": "text-[10px] text-white/70 (ZH)",
+      "villes": "villes (ZH)",
+      "absolute_inset_0": "absolute inset-0 (ZH)",
+      "absolute_left_1_2_top_1_2": "absolute left-1/2 top-1/2 (ZH)",
+      "block_cursor_default_whitespac": "block cursor-default whitespace-nowrap rounded-full border border-[#D9D5F2] bg-white px-3 py-1.5 text-xs font-medium text-[#0F0B60] shadow-sm (ZH)",
+      "absolute_left_0_top_0_flex_h_8": "absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full bg-[#0F0B60] text-sm font-semibold text-white (ZH)",
+      "absolute_left_4_top_8_h_calc_1": "absolute left-4 top-8 h-[calc(100%-0.5rem)] w-px bg-[#D9D5F2] (ZH)",
+      "mb_1_5_font_semibold_text_0f0b": "mb-1.5 font-semibold text-[#0F0B60] (ZH)",
+      "text_sm_leading_relaxed_text_g": "text-sm leading-relaxed text-gray-700 (ZH)",
+      "inline_flex_rounded_full_borde": "inline-flex rounded-full border border-[#D9D5F2] bg-[#F7F6FC] p-1 (ZH)",
+      "grid_gap_4_md_grid_cols_3": "grid gap-4 md:grid-cols-3 (ZH)",
+      "blank": "_blank (ZH)",
+      "noopener_noreferrer": "noopener noreferrer (ZH)",
+      "flex_flex_col_items_center_rou": "flex flex-col items-center rounded-xl bg-[#EEECFA] p-4 text-center transition hover:bg-[#D9D5F2] (ZH)",
+      "mb_2_font_bold_text_0f0b60": "mb-2 font-bold text-[#0F0B60] (ZH)",
+      "text_xs_text_gray_600": "text-xs text-gray-600 (ZH)",
+      "rounded_lg_bg_eeecfa_p_4_text": "rounded-lg bg-[#EEECFA] p-4 text-center (ZH)",
+      "font_semibold_text_0f0b60": "font-semibold text-[#0F0B60] (ZH)",
+      "grid_gap_4_md_grid_cols_2": "grid gap-4 md:grid-cols-2 (ZH)",
+      "flex_items_center_gap_3_rounde": "flex items-center gap-3 rounded-xl bg-[#EEECFA] p-4 transition hover:bg-[#D9D5F2] (ZH)",
+      "shrink_0_text_lg_text_0f0b60": "shrink-0 text-lg text-[#0F0B60] (ZH)",
+      "block_font_semibold_text_0f0b6": "block font-semibold text-[#0F0B60] (ZH)",
+      "text_xs_text_gray_500": "text-xs text-gray-500 (ZH)",
+      "space_y_4": "space-y-4 (ZH)",
+      "rounded_xl_bg_eeecfa_p_6": "rounded-xl bg-[#EEECFA] p-6 (ZH)",
+      "mb_3_font_semibold_text_0f0b60": "mb-3 font-semibold text-[#0F0B60] (ZH)",
+      "points_cl_s_retenir": "Points clés à retenir (ZH)",
+      "space_y_2_text_sm_text_gray_70": "space-y-2 text-sm text-gray-700 (ZH)",
+      "l_attestation_d_immatriculati": "• L'attestation d'immatriculation a remplacé la carte de\n                contribuable depuis 2020 (ZH)",
+      "elle_s_obtient_en_ligne_sur_i": "• Elle s'obtient en ligne sur impots.cm (ZH)",
+      "pour_les_sarl_1_m_fcfa_passag": "• Pour les SARL ≥ 1 M FCFA, passage obligatoire chez le notaire (ZH)",
+      "d_lai_moyen_de_traitement_au": "• Délai moyen de traitement au CFCE : 1 semaine (ZH)",
+      "enregistrement_aux_imp_ts_obl": "• Enregistrement aux impôts obligatoire après création (ZH)",
+      "rounded_xl_bg_0f0b60_p_6": "rounded-xl bg-[#0F0B60] p-6 (ZH)",
+      "mb_3_font_semibold_text_white": "mb-3 font-semibold text-white (ZH)",
+      "obligations_post_cr_ation": "Obligations post-création (ZH)",
+      "space_y_2_text_sm_text_white_8": "space-y-2 text-sm text-white/80 (ZH)",
+      "enregistrement_au_centre_des": "• Enregistrement au centre des impôts de votre zone (ZH)",
+      "d_clarations_mensuelles_oblig": "• Déclarations mensuelles obligatoires (ZH)",
+      "paiement_des_imp_ts_selon_le": "• Paiement des impôts selon le régime fiscal (ZH)",
+      "tenue_d_une_comptabilit_r_gul": "• Tenue d'une comptabilité régulière (ZH)",
+      "d_lais_standards": "Délais standards (ZH)",
+      "tablissement_1_semaine_au_cfc": "• Établissement : 1 semaine au CFCE (ZH)",
+      "sarl_sous_seing_priv_1_semain": "• SARL sous seing privé : 1 semaine au CFCE (ZH)",
+      "sarl_1_m_variable_d_pend_du_n": "• SARL ≥ 1 M : variable (dépend du notaire) (ZH)",
+      "enregistrement_imp_ts_1_2_jou": "• Enregistrement impôts : 1 à 2 jours (ZH)",
+      "budget_total_estim": "Budget total estimé (ZH)",
+      "tablissement_275_000_fcfa_tou": "• Établissement : 275 000 FCFA (tout compris) (ZH)",
+      "sarl_1_m_285_000_fcfa_tout_co": "• SARL < 1 M : 285 000 FCFA (tout compris) (ZH)",
+      "sarl_1_m_variable_frais_notai": "• SARL ≥ 1 M : variable + frais notaire (ZH)",
+      "enregistrement_imp_ts_200_000": "• Enregistrement impôts : ≈ 200 000 FCFA (ZH)",
+      "min_h_screen_bg_gray_50": "min-h-screen bg-gray-50 (ZH)",
+      "fixed_left_0_right_0_top_0_z_6": "fixed left-0 right-0 top-0 z-[60] h-1 origin-left bg-[#F5BA3A] (ZH)",
+      "relative_flex_h_65vh_min_h_400": "relative flex h-[65vh] min-h-[400px] max-h-[700px] items-center justify-center bg-[#0A0840] (ZH)",
+      "absolute_inset_0_z_0_h_full_w": "absolute inset-0 z-0 h-full w-full object-cover opacity-300 (ZH)",
+      "absolute_inset_0_bg_gradient_t": "absolute inset-0 bg-gradient-to-t from-[#0A0840] via-[#0A0840]/70 to-[#0A0840]/30 (ZH)",
+      "relative_z_10_mx_auto_max_w_3x": "relative z-10 mx-auto max-w-3xl px-4 text-center (ZH)",
+      "mb_6_inline_flex_rounded_full": "mb-6 inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 ring-1 ring-white/20 (ZH)",
+      "cr_ation_d_entreprise_simplifi": "Création d'entreprise simplifiée (ZH)",
+      "mb_4_text_4xl_font_bold_tracki": "mb-4 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl (ZH)",
+      "votre_entreprise_au_cameroun_e": "Votre entreprise au Cameroun en (ZH)",
+      "text_f5ba3a": "text-[#F5BA3A] (ZH)",
+      "1_semaine": "1 semaine (ZH)",
+      "mx_auto_mt_6_max_w_2xl_text_lg": "mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-200 md:text-xl (ZH)",
+      "b_n_ficiez_d_un_cadre_juridiqu": "Bénéficiez d'un cadre juridique OHADA modernisé et d'un processus\n            accéléré grâce aux Centres de Formalités de Création d'Entreprises\n            (CFCE) présents dans toutes les régions. (ZH)",
+      "contenu": "contenu (ZH)",
+      "mt_8_inline_flex_items_center": "mt-8 inline-flex items-center rounded-full bg-[#F5BA3A] px-6 py-3 font-medium text-[#0A0840] transition-colors hover:bg-[#f3ad13] (ZH)",
+      "d_couvrir_le_guide_complet": "Découvrir le guide complet (ZH)",
+      "ml_2_inline_flex": "ml-2 inline-flex (ZH)",
+      "mx_auto_max_w_7xl_px_4_sm_px_6": "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 (ZH)",
+      "scrollbar_hide_flex_items_cent": "scrollbar-hide flex items-center justify-center gap-3 overflow-x-auto pb-1 (ZH)",
+      "flex_items_center_gap_2_whites": "flex items-center gap-2 whitespace-nowrap rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#F5BA3A] hover:text-[#0A0840] (ZH)",
+      "mx_auto_max_w_7xl_px_4_py_12": "mx-auto max-w-7xl px-4 py-12 (ZH)",
+      "cfce": "cfce (ZH)",
+      "mb_16": "mb-16 (ZH)",
+      "le_cfce_votre_guichet_unique": "Le CFCE : votre guichet unique (ZH)",
+      "mx_auto_mb_10_max_w_2xl_text_c": "mx-auto mb-10 max-w-2xl text-center text-gray-600 (ZH)",
+      "le_centre_de_formalit_s_de_cr": "Le Centre de Formalités de Création d'Entreprises regroupe, en un\n            seul lieu, toutes les administrations impliquées dans la création\n            d'une entreprise — plus besoin de faire la navette entre plusieurs\n            guichets. (ZH)",
+      "mb_10_grid_divide_y_divide_d9d": "mb-10 grid divide-y divide-[#D9D5F2] overflow-hidden rounded-2xl border border-[#D9D5F2] bg-white sm:grid-cols-3 sm:divide-x sm:divide-y-0 (ZH)",
+      "flex_flex_col_items_center_gap": "flex flex-col items-center gap-2 p-6 text-center (ZH)",
+      "text_2xl_text_0f0b60": "text-2xl text-[#0F0B60] (ZH)",
+      "text_lg_font_bold_text_0f0b60": "text-lg font-bold text-[#0F0B60] (ZH)",
+      "text_sm_text_gray_600": "text-sm text-gray-600 (ZH)",
+      "grid_gap_6_md_grid_cols_2": "grid gap-6 md:grid-cols-2 (ZH)",
+      "flex_flex_col_items_center": "flex flex-col items-center (ZH)",
+      "mb_5_flex_w_full_items_center": "mb-5 flex w-full items-center gap-2 (ZH)",
+      "text_lg_text_0f0b60": "text-lg text-[#0F0B60] (ZH)",
+      "couverture_nationale": "Couverture nationale (ZH)",
+      "mb_5_flex_items_center_gap_2": "mb-5 flex items-center gap-2 (ZH)",
+      "comment_se_d_roule_votre_deman": "Comment se déroule votre demande (ZH)",
+      "types": "types (ZH)",
+      "types_d_entreprises_au_camerou": "Types d'entreprises au Cameroun (ZH)",
+      "deux_statuts_juridiques_sont_p": "Deux statuts juridiques sont possibles, selon que vous entreprenez\n            seul ou avec des associés. (ZH)",
+      "rounded_2xl_border_border_d9d5": "rounded-2xl border border-[#D9D5F2] bg-white p-8 (ZH)",
+      "mb_3_flex_items_center_gap_3": "mb-3 flex items-center gap-3 (ZH)",
+      "flex_h_10_w_10_shrink_0_items": "flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EEECFA] text-lg text-[#0F0B60] (ZH)",
+      "text_xl_font_bold_text_0f0b60": "text-xl font-bold text-[#0F0B60] (ZH)",
+      "mb_6_inline_block_rounded_full": "mb-6 inline-block rounded-full bg-[#EEECFA] px-3 py-1 text-xs font-medium text-[#0F0B60] (ZH)",
+      "grid_gap_6_sm_grid_cols_2": "grid gap-6 sm:grid-cols-2 (ZH)",
+      "mb_3_text_sm_font_semibold_tex": "mb-3 text-sm font-semibold text-[#0F0B60] (ZH)",
+      "caract_ristiques": "Caractéristiques (ZH)",
+      "space_y_2": "space-y-2 (ZH)",
+      "flex_items_start_gap_2_text_sm": "flex items-start gap-2 text-sm text-gray-700 (ZH)",
+      "mt_7px_h_1_5_w_1_5_shrink_0_ro": "mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#0F0B60] (ZH)",
+      "avantages": "Avantages (ZH)",
+      "mt_0_5_shrink_0_text_0f0b60": "mt-0.5 shrink-0 text-[#0F0B60] (ZH)",
+      "structures": "structures (ZH)",
+      "structures_juridiques_disponib": "Structures juridiques disponibles (ZH)",
+      "grid_gap_6_md_grid_cols_2_lg_g": "grid gap-6 md:grid-cols-2 lg:grid-cols-3 (ZH)",
+      "border_t_4_border_f5ba3a_text": "border-t-4 border-[#F5BA3A] text-center (ZH)",
+      "mb_2_text_xl_font_bold_text_0f": "mb-2 text-xl font-bold text-[#0F0B60] (ZH)",
+      "mb_3_text_sm_text_gray_600": "mb-3 text-sm text-gray-600 (ZH)",
+      "rounded_lg_bg_eeecfa_p_2": "rounded-lg bg-[#EEECFA] p-2 (ZH)",
+      "text_xs_text_0f0b60": "text-xs text-[#0F0B60] (ZH)",
+      "processus": "processus (ZH)",
+      "processus_de_cr_ation_d_taill": "Processus de création détaillé (ZH)",
+      "mb_6_rounded_2xl_border_border": "mb-6 rounded-2xl border border-[#D9D5F2] bg-white p-8 (ZH)",
+      "mb_8_flex_items_center_gap_3_t": "mb-8 flex items-center gap-3 text-xl font-bold text-[#0F0B60] (ZH)",
+      "cr_ation_d_un_tablissement_per": "Création d'un établissement (personne physique) (ZH)",
+      "pr_parez_votre_dossier": "Préparez votre dossier (ZH)",
+      "space_y_1_5": "space-y-1.5 (ZH)",
+      "flex_items_start_gap_2": "flex items-start gap-2 (ZH)",
+      "d_posez_le_dossier_au_cfce": "Déposez le dossier au CFCE (ZH)",
+      "d_posez_tous_les_documents_au": "Déposez tous les documents au Centre de Formalités de Création\n                d'Entreprises de votre région. Délai de traitement moyen : 1\n                semaine. (ZH)",
+      "r_cup_rez_vos_documents": "Récupérez vos documents (ZH)",
+      "mb_1_5": "mb-1.5 (ZH)",
+      "vous_r_cup_rez_le_rccm_registr": "Vous récupérez le RCCM (registre de commerce) et l'attestation\n                  d'immatriculation, disponible en ligne sur impots.cm. (ZH)",
+      "l_attestation_d_immatriculatio": "L'attestation d'immatriculation remplace l'ancienne carte de\n                  contribuable depuis 2020. (ZH)",
+      "mb_2_flex_items_center_gap_3_t": "mb-2 flex items-center gap-3 text-xl font-bold text-[#0F0B60] (ZH)",
+      "cr_ation_d_une_sarl": "Création d'une SARL (ZH)",
+      "mb_8_text_sm_font_medium_text": "mb-8 text-sm font-medium text-[#0F0B60]/70 (ZH)",
+      "capital_entre_100_000_et_999_9": "Capital entre 100 000 et 999 999 FCFA — sous seing privé (ZH)",
+      "mb_8": "mb-8 (ZH)",
+      "r_daction_des_statuts": "Rédaction des statuts (ZH)",
+      "r_daction_et_validation_par_le": "Rédaction et validation par le chef de centre, en 5 exemplaires\n                timbrés. (ZH)",
+      "d_p_t_du_dossier": "Dépôt du dossier (ZH)",
+      "d_p_t_complet_au_cfce_avec_tou": "Dépôt complet au CFCE avec tous les documents requis. (ZH)",
+      "traitement": "Traitement (ZH)",
+      "d_lai_moyen_1_semaine": "Délai moyen : 1 semaine. (ZH)",
+      "r_cup_ration": "Récupération (ZH)",
+      "rccm_et_statuts_valid_s_remis": "RCCM et statuts validés remis au promoteur. (ZH)",
+      "rounded_xl_bg_0f0b60_p_6_text": "rounded-xl bg-[#0F0B60] p-6 text-white (ZH)",
+      "mb_4_text_sm_font_semibold_tex": "mb-4 text-sm font-semibold text-[#F5BA3A] (ZH)",
+      "cas_particulier_capital_1_000": "Cas particulier — capital ≥ 1 000 000 FCFA (ZH)",
+      "mb_2_font_semibold": "mb-2 font-semibold (ZH)",
+      "passage_obligatoire_chez_le_no": "Passage obligatoire chez le notaire (ZH)",
+      "space_y_1_text_sm_text_white_8": "space-y-1 text-sm text-white/80 (ZH)",
+      "tablissement_des_statuts": "Établissement des statuts (ZH)",
+      "pr_paration_du_rccm": "Préparation du RCCM (ZH)",
+      "tous_documents_n_cessaires": "Tous documents nécessaires (ZH)",
+      "avantage": "Avantage (ZH)",
+      "text_sm_text_white_80": "text-sm text-white/80 (ZH)",
+      "plus_besoin_de_passer_par_le_c": "Plus besoin de passer par le CFCE après le notaire :\n                    l'attestation d'immatriculation s'obtient directement sur\n                    impots.cm. (ZH)",
+      "enregistrement_au_centre_des_i": "Enregistrement au centre des impôts (ZH)",
+      "grid_gap_8_md_grid_cols_2": "grid gap-8 md:grid-cols-2 (ZH)",
+      "mb_4_font_semibold_text_0f0b60": "mb-4 font-semibold text-[#0F0B60] (ZH)",
+      "documents_requis": "Documents requis (ZH)",
+      "flex_items_center_gap_2_text_s": "flex items-center gap-2 text-sm text-gray-700 (ZH)",
+      "text_0f0b60": "text-[#0F0B60] (ZH)",
+      "co_ts_estim_s": "Coûts estimés (ZH)",
+      "rounded_xl_bg_eeecfa_p_4": "rounded-xl bg-[#EEECFA] p-4 (ZH)",
+      "mb_2_text_2xl_font_bold_text_0": "mb-2 text-2xl font-bold text-[#0F0B60] (ZH)",
+      "200_000_fcfa": "≈ 200 000 FCFA (ZH)",
+      "mb_2_text_sm_text_gray_600": "mb-2 text-sm text-gray-600 (ZH)",
+      "dont_enregistrement_du_bail_25": "Dont enregistrement du bail : 25 % du loyer annuel (ZH)",
+      "exemple_150_000_fcfa_pour_un_l": "Exemple : 150 000 FCFA pour un loyer de 50 000 FCFA / mois (ZH)",
+      "mt_4_rounded_lg_border_border": "mt-4 rounded-lg border border-[#D9D5F2] p-3 text-xs text-gray-700 (ZH)",
+      "apr_s_enregistrement_d_clarati": "Après enregistrement, déclarations et paiements mensuels\n                  obligatoires. (ZH)",
+      "documents": "documents (ZH)",
+      "documents_requis_par_type": "Documents requis par type (ZH)",
+      "grid_gap_6_md_grid_cols_1_4fr": "grid gap-6 md:grid-cols-[1.4fr_1fr] (ZH)",
+      "mb_6": "mb-6 (ZH)",
+      "space_y_1": "space-y-1 (ZH)",
+      "flex_items_start_gap_3_rounded": "flex items-start gap-3 rounded-lg p-3 transition-colors hover:bg-[#EEECFA] (ZH)",
+      "flex_h_6_w_6_shrink_0_items_ce": "flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#EEECFA] text-xs font-semibold text-[#0F0B60] (ZH)",
+      "text_sm_text_gray_700": "text-sm text-gray-700 (ZH)",
+      "d_lais_de_traitement": "Délais de traitement (ZH)",
+      "divide_y_divide_d9d5f2": "divide-y divide-[#D9D5F2] (ZH)",
+      "flex_items_center_justify_betw": "flex items-center justify-between py-3 (ZH)",
+      "text_xs_text_gray_400": "text-xs text-gray-400 (ZH)",
+      "couts": "couts (ZH)",
+      "co_ts_et_frais_de_cr_ation": "Coûts et frais de création (ZH)",
+      "border_l_4_border_f5ba3a": "border-l-4 border-[#F5BA3A] (ZH)",
+      "mt_8_rounded_2xl_bg_0f0b60_p_8": "mt-8 rounded-2xl bg-[#0F0B60] p-8 (ZH)",
+      "mb_6_text_center_text_2xl_font": "mb-6 text-center text-2xl font-bold text-white (ZH)",
+      "estimation_totale_des_co_ts": "Estimation totale des coûts (ZH)",
+      "grid_gap_6_md_grid_cols_3": "grid gap-6 md:grid-cols-3 (ZH)",
+      "rounded_xl_bg_white_p_6_text_c": "rounded-xl bg-white p-6 text-center (ZH)",
+      "mb_2_font_semibold_text_0f0b60": "mb-2 font-semibold text-[#0F0B60] (ZH)",
+      "text_3xl_font_bold_text_f5ba3a": "text-3xl font-bold text-[#F5BA3A] (ZH)",
+      "mb_16_space_y_4": "mb-16 space-y-4 (ZH)",
+      "overflow_hidden_rounded_xl_bor": "overflow-hidden rounded-xl border border-[#D9D5F2] bg-white (ZH)",
+      "flex_w_full_items_center_justi": "flex w-full items-center justify-between bg-gray-50 p-6 text-left transition-colors hover:bg-gray-100 (ZH)",
+      "text_lg_font_semibold_text_0f0": "text-lg font-semibold text-[#0F0B60] (ZH)",
+      "space_y_4_p_6": "space-y-4 p-6 (ZH)"
+    },
+    "facteursProduction": {
+      "1": "1% (ZH)",
+      "33": "33% (ZH)",
+      "300": "300 (ZH)",
+      "2005": "2005 (ZH)",
+      "min_h_screen_bg_gray_50": "min-h-screen bg-gray-50 (ZH)",
+      "bg_gray_50": "bg-gray-50 (ZH)",
+      "relative_h_65vh_min_h_500px_ma": "relative h-[65vh] min-h-[500px] max-h-[800px] bg-gray-900 (ZH)",
+      "absolute_inset_0_overflow_hidd": "absolute inset-0 overflow-hidden (ZH)",
+      "illustration_des_facteurs_de_p": "Illustration des Facteurs de Production (ZH)",
+      "w_full_h_full_object_cover_obj": "w-full h-full object-cover object-center opacity-70 (ZH)",
+      "absolute_inset_0_bg_gradient_t": "absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent (ZH)",
+      "absolute_inset_0_bg_gray_900_3": "absolute inset-0 bg-gray-900/30 (ZH)",
+      "relative_h_full_flex_flex_col": "relative h-full flex flex-col (ZH)",
+      "flex_grow_flex_items_center_ju": "flex-grow flex items-center justify-center px-6 text-center z-10 (ZH)",
+      "max_w_4xl": "max-w-4xl (ZH)",
+      "mb_6_inline_flex_rounded_full": "mb-6 inline-flex rounded-full bg-white/10 px-6 py-2 text-sm font-medium text-white/90 ring-1 ring-white/20 backdrop-blur-sm hover:bg-white/20 transition-colors duration-300 (ZH)",
+      "optimisation_des_ressources": "Optimisation des ressources (ZH)",
+      "text_4xl_sm_text_5xl_md_text_6": "text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-white mb-6 (ZH)",
+      "facteurs_de_production": "Facteurs de production (ZH)",
+      "mt_6_text_lg_md_text_xl_text_g": "mt-6 text-lg md:text-xl text-gray-200 font-normal max-w-2xl mx-auto leading-relaxed (ZH)",
+      "maximisez_l_efficacit_de_vos_i": "Maximisez l'efficacité de vos investissements et optimisez vos\n                  ressources productives. (ZH)",
+      "mt_10": "mt-10 (ZH)",
+      "main_oeuvre": "main_oeuvre (ZH)",
+      "mt_8_inline_flex_items_center": "mt-8 inline-flex items-center rounded-full bg-[#F5BA3A] px-6 py-3 font-medium text-[#0A0840] transition-colors hover:bg-[#f3ad13] (ZH)",
+      "d_couvrir_les_solutions": "Découvrir les solutions (ZH)",
+      "ml_3_group_hover_translate_y_1": "ml-3 group-hover:translate-y-1 transition-transform duration-300 (ZH)",
+      "mx_auto_max_w_7xl_px_4_sm_px_6": "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 (ZH)",
+      "scrollbar_hide_flex_items_cent": "scrollbar-hide flex items-center justify-center gap-3 overflow-x-auto pb-1 (ZH)",
+      "flex_items_center_gap_2_whites": "flex items-center gap-2 whitespace-nowrap rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-[#F5BA3A] hover:text-[#0A0840] (ZH)",
+      "container_mx_auto_px_4_py_16_m": "container mx-auto px-4 py-16 max-w-7xl (ZH)",
+      "space_y_20": "space-y-20 (ZH)",
+      "bg_white_border_border_gray_10": "bg-white border border-gray-100 rounded-[2rem] p-10 md:p-14 text-center shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgba(15,11,96,0.08)] transition-all duration-500 relative overflow-hidden group (ZH)",
+      "absolute_top_0_left_0_w_full_h": "absolute top-0 left-0 w-full h-1 bg-[#0F0B60] transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out (ZH)",
+      "inline_flex_items_center_justi": "inline-flex items-center justify-center w-20 h-20 bg-[#0F0B60]/5 rounded-2xl mb-8 group-hover:bg-[#0F0B60]/10 transition-colors duration-300 (ZH)",
+      "text_2_5rem_text_0f0b60": "text-[2.5rem] text-[#0F0B60] (ZH)",
+      "text_4xl_font_bold_text_gray_9": "text-4xl font-bold text-gray-900 mb-4 (ZH)",
+      "main_d_uvre_camerounaise": "Main d'Œuvre Camerounaise (ZH)",
+      "text_xl_text_gray_600_max_w_3x": "text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed (ZH)",
+      "d_couvrez_une_main_d_uvre_qual": "Découvrez une main d'œuvre qualifiée avec (ZH)",
+      "font_bold_text_0f0b60": "font-bold text-[#0F0B60] (ZH)",
+      "71_2_d_alphab_tisation": "71,2% d'alphabétisation (ZH)",
+      "des_salaires_comp_titifs_part": ", des salaires compétitifs à partir de (ZH)",
+      "36_270_fcfa": "36 270 FCFA (ZH)",
+      "et_un_syst_me_de_protection_so": "et\n                un système de protection sociale structuré. (ZH)",
+      "grid_md_grid_cols_3_gap_6_mb_1": "grid md:grid-cols-3 gap-6 mb-12 (ZH)",
+      "bg_gray_50_80_border_border_gr": "bg-gray-50/80 border border-gray-100 p-6 rounded-2xl hover:bg-white hover:shadow-md transition-all duration-300 (ZH)",
+      "text_4xl_font_extrabold_text_0": "text-4xl font-extrabold text-[#0F0B60] mb-3 (ZH)",
+      "71_2": "71.2% (ZH)",
+      "text_gray_600_font_medium": "text-gray-600 font-medium (ZH)",
+      "taux_d_alphab_tisation": "Taux d'alphabétisation (ZH)",
+      "36k": "36k (ZH)",
+      "text_lg_font_bold": "text-lg font-bold (ZH)",
+      "fcfa": "FCFA (ZH)",
+      "salaire_minimum": "Salaire minimum (ZH)",
+      "17_15": "17.15% (ZH)",
+      "cotisations_sociales": "Cotisations sociales (ZH)",
+      "inline_flex_items_center_px_8": "inline-flex items-center px-8 py-4 bg-[#0F0B60] text-white font-semibold rounded-full shadow-lg hover:bg-blue-900 hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 (ZH)",
+      "text_lg_mr_3": "text-lg mr-3 (ZH)",
+      "d_couvrir_les_d_tails_complets": "Découvrir les Détails Complets (ZH)",
+      "text_sm_ml_3": "text-sm ml-3 (ZH)",
+      "foncier": "foncier (ZH)",
+      "foncier_au_cameroun": "Foncier au Cameroun (ZH)",
+      "explorez_les_opportunit_s_fonc": "Explorez les opportunités foncières avec des (ZH)",
+      "terrains_am_nag_s_300_fcfa_m_a": "terrains aménagés à 300 FCFA/m²/an (ZH)",
+      "des": ", des (ZH)",
+      "proc_dures_simplifi_es": "procédures simplifiées (ZH)",
+      "et_un_cadre_juridique_modernis": "et un cadre juridique modernisé depuis 2005. (ZH)",
+      "text_3xl_text_0f0b60_mb_4": "text-3xl text-[#0F0B60] mb-4 (ZH)",
+      "text_3xl_font_extrabold_text_0": "text-3xl font-extrabold text-[#0F0B60] mb-2 (ZH)",
+      "terrains_am_nag_s_m_an": "Terrains aménagés/m²/an (ZH)",
+      "1k_3k": "1k-3k (ZH)",
+      "terrains_b_tis_m_an": "Terrains bâtis /m²/an (ZH)",
+      "r_formes_modernis_es": "Réformes modernisées (ZH)",
+      "explorer_les_opportunit_s_fonc": "Explorer les Opportunités Foncières (ZH)",
+      "fiscalite": "fiscalite (ZH)",
+      "fiscalit_camerounaise": "Fiscalité Camerounaise (ZH)",
+      "ma_trisez_le_syst_me_fiscal_av": "Maîtrisez le système fiscal avec un (ZH)",
+      "imp_t_sur_les_soci_t_s_33": "impôt sur les sociétés à 33% (ZH)",
+      "une": ", une (ZH)",
+      "tva_19_25": "TVA à 19,25% (ZH)",
+      "et_des_r_gimes_adapt_s_selon_v": "et des régimes adaptés selon votre chiffre d'affaires. (ZH)",
+      "imp_t_sur_les_soci_t_s": "Impôt sur les sociétés (ZH)",
+      "19_25": "19.25% (ZH)",
+      "tva_standard": "TVA standard (ZH)",
+      "patente_locale": "Patente locale (ZH)",
+      "explorer_le_syst_me_fiscal": "Explorer le Système Fiscal (ZH)",
+      "couts_secteur": "couts_secteur (ZH)",
+      "co_ts_par_secteur_d_activit": "Coûts par Secteur d'Activité (ZH)",
+      "analysez_les_co_ts_de_producti": "Analysez les coûts de production dans (ZH)",
+      "10_secteurs_cl_s": "10 secteurs clés (ZH)",
+      "de_l": ": de l' (ZH)",
+      "agro_industrie": "Agro-industrie (ZH)",
+      "au": "au (ZH)",
+      "num_rique": "Numérique (ZH)",
+      "avec_des_donn_es_officielles": ",\n                avec des données officielles actualisées. (ZH)",
+      "grid_md_grid_cols_4_gap_4_mb_1": "grid md:grid-cols-4 gap-4 mb-12 (ZH)",
+      "text_xl_font_extrabold_text_0f": "text-xl font-extrabold text-[#0F0B60] mb-2 (ZH)",
+      "text_sm_text_gray_600_font_med": "text-sm text-gray-600 font-medium (ZH)",
+      "1m_fcfa_ha": "1M FCFA/ha (ZH)",
+      "nergie": "Énergie (ZH)",
+      "150_fcfa_kwh": "150 FCFA/kWh (ZH)",
+      "20m_fcfa_projet": "20M FCFA/projet (ZH)",
+      "10_secteurs": "10 Secteurs (ZH)",
+      "analys_s_en_d_tail": "Analysés en détail (ZH)",
+      "analyser_les_co_ts_sectoriels": "Analyser les Coûts Sectoriels (ZH)"
+    },
+    "droitInvestisseur": {
+      "flex_items_center_gap_2_hover": "flex items-center gap-2 hover:underline (ZH)",
+      "space_y_6": "space-y-6 (ZH)",
+      "mb_2_mt_4_text_lg_font_semibol": "mb-2 mt-4 text-lg font-semibold (ZH)",
+      "italic_font_medium": "italic font-medium (ZH)",
+      "ressources_utiles": "📚 Ressources Utiles (ZH)",
+      "space_y_2_text_sm": "space-y-2 text-sm (ZH)",
+      "rounded_3xl_p_8_text_center_sm": "rounded-3xl p-8 text-center sm:p-12 (ZH)",
+      "mb_6_inline_flex_h_20_w_20_ite": "mb-6 inline-flex h-20 w-20 items-center justify-center rounded-full text-white (ZH)",
+      "mb_4_text_3xl_font_bold_sm_tex": "mb-4 text-3xl font-bold sm:text-4xl (ZH)",
+      "mx_auto_mb_8_max_w_3xl_text_lg": "mx-auto mb-8 max-w-3xl text-lg (ZH)",
+      "mb_8_grid_gap_6_md_grid_cols_3": "mb-8 grid gap-6 md:grid-cols-3 (ZH)",
+      "rounded_xl_bg_white_p_6_shadow": "rounded-xl bg-white p-6 shadow-sm (ZH)",
+      "mb_2_text_3xl_font_bold": "mb-2 text-3xl font-bold (ZH)",
+      "inline_flex_items_center_round": "inline-flex items-center rounded-full px-8 py-4 font-semibold shadow-lg transition-transform duration-300 hover:scale-105 (ZH)",
+      "mr_2": "mr-2 (ZH)",
+      "ml_2": "ml-2 (ZH)",
+      "min_h_screen_bg_white": "min-h-screen bg-white (ZH)",
+      "relative_flex_h_65vh_min_h_500": "relative flex h-[65vh] min-h-[500px] max-h-[800px] items-center justify-center bg-[#0A0840] (ZH)",
+      "illustration_des_droits_des_in": "Illustration des Droits des Investisseurs (ZH)",
+      "absolute_inset_0_z_0_h_full_w": "absolute inset-0 z-0 h-full w-full object-cover (ZH)",
+      "absolute_inset_0_z_1_bg_gradie": "absolute inset-0 z-[1] bg-gradient-to-t from-[#0A0840] via-[#0A0840]/70 to-[#0A0840]/30 (ZH)",
+      "relative_z_10_mx_auto_max_w_3x": "relative z-10 mx-auto max-w-3xl px-4 text-center (ZH)",
+      "mb_6_inline_flex_rounded_full": "mb-6 inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 ring-1 ring-white/20 (ZH)",
+      "s_curit_juridique": "Sécurité Juridique (ZH)",
+      "mb_4_text_4xl_font_bold_tracki": "mb-4 text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl (ZH)",
+      "droit_des_investisseurs_au_cam": "Droit des Investisseurs au Cameroun (ZH)",
+      "mx_auto_mt_6_max_w_2xl_text_lg": "mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-gray-200 md:text-xl (ZH)",
+      "un_cadre_l_gal_robuste_pour_pr": "Un cadre légal robuste pour protéger et faciliter vos\n            investissements. (ZH)",
+      "contenu": "contenu (ZH)",
+      "mt_8_inline_flex_items_center": "mt-8 inline-flex items-center rounded-full bg-[#F5BA3A] px-6 py-3 font-medium text-[#0A0840] transition-colors hover:bg-[#f3ad13] (ZH)",
+      "d_couvrir_les_droits": "Découvrir les droits (ZH)",
+      "ml_2_inline_flex": "ml-2 inline-flex (ZH)",
+      "mx_auto_max_w_7xl_px_4_py_12": "mx-auto max-w-7xl px-4 py-12 (ZH)",
+      "space_y_16": "space-y-16 (ZH)",
+      "fixed_inset_0_z_50_flex_items": "fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4 (ZH)",
+      "relative_max_h_90vh_w_full_max": "relative max-h-[90vh] w-full max-w-4xl overflow-y-auto rounded-xl bg-white p-8 shadow-xl (ZH)",
+      "absolute_right_4_top_4_rounded": "absolute right-4 top-4 rounded-full p-2 transition-colors hover:bg-gray-100 (ZH)",
+      "fermer": "Fermer (ZH)",
+      "mb_6_text_3xl_font_bold": "mb-6 text-3xl font-bold (ZH)"
+    },
+    "SectionNav": {
+      "h_0_5_w_full_bg_white_10": "h-0.5 w-full bg-white/10 (ZH)",
+      "h_full_transition_all_duration": "h-full transition-all duration-300 (ZH)",
+      "mx_auto_flex_max_w_7xl_items_c": "mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8 (ZH)",
+      "rounded_full_p_2_text_white_70": "rounded-full p-2 text-white/70 transition-colors hover:bg-white/10 hover:text-white (ZH)",
+      "section_pr_c_dente": "Section précédente (ZH)",
+      "flex_flex_1_items_center_justi": "flex flex-1 items-center justify-center gap-3 rounded-full px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-white/10 (ZH)",
+      "text_xs": "text-xs (ZH)",
+      "truncate": "truncate (ZH)",
+      "ml_1_text_white_50": "ml-1 text-white/50 (ZH)",
+      "section_suivante": "Section suivante (ZH)",
+      "fixed_inset_0_z_30": "fixed inset-0 z-30 (ZH)",
+      "relative_z_40_border_t_border": "relative z-40 border-t border-white/10 bg-white shadow-xl (ZH)",
+      "mx_auto_max_w_7xl_px_4_py_4_sm": "mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 (ZH)",
+      "mb_2_flex_items_center_justify": "mb-2 flex items-center justify-between (ZH)",
+      "text_sm_font_semibold": "text-sm font-semibold (ZH)",
+      "aller_une_section": "Aller à une section (ZH)",
+      "fermer": "Fermer (ZH)",
+      "grid_grid_cols_1_gap_1_sm_grid": "grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-3 (ZH)",
+      "flex_items_center_gap_3_rounde": "flex items-center gap-3 rounded-lg px-3 py-2 text-left text-sm transition-colors (ZH)"
+    },
+    "incitation": {
+      "min_h_screen_bg_white": "min-h-screen bg-white (ZH)",
+      "relative_h_65vh_min_h_500px_ma": "relative h-[65vh] min-h-[500px] max-h-[800px] bg-[#0A0840] (ZH)",
+      "illustration_des_incitations_f": "Illustration des incitations fiscales (ZH)",
+      "absolute_inset_0_h_full_w_full": "absolute inset-0 h-full w-full object-cover object-center opacity-50 (ZH)",
+      "absolute_inset_0": "absolute inset-0 (ZH)",
+      "relative_flex_h_full_items_cen": "relative flex h-full items-center justify-center px-6 text-center (ZH)",
+      "max_w_3xl": "max-w-3xl (ZH)",
+      "mb_6_inline_flex_rounded_full": "mb-6 inline-flex rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white/80 ring-1 ring-white/20 (ZH)",
+      "soutien_de_l_tat_aux_investiss": "Soutien de l'État aux investisseurs (ZH)",
+      "text_4xl_font_bold_tracking_ti": "text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl (ZH)",
+      "incitations_fiscales": "Incitations Fiscales (ZH)",
+      "mx_auto_mt_6_max_w_2xl_text_lg": "mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/80 md:text-xl (ZH)",
+      "b_n_ficiez_des_avantages_fisca": "Bénéficiez des avantages fiscaux conçus pour soutenir votre\n              investissement au Cameroun. (ZH)",
+      "mt_8": "mt-8 (ZH)",
+      "phases": "phases (ZH)",
+      "group_inline_flex_items_center": "group inline-flex items-center rounded-full px-6 py-3 font-medium text-white transition-colors duration-300 (ZH)",
+      "d_couvrir_les_avantages": "Découvrir les avantages (ZH)",
+      "ml_2_transition_transform_dura": "ml-2 transition-transform duration-300 group-hover:translate-y-1 (ZH)",
+      "sticky_top_0_z_50_w_full_borde": "sticky top-0 z-50 w-full border-t py-4 shadow-lg (ZH)",
+      "mx_auto_max_w_7xl_px_4_sm_px_6": "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 (ZH)",
+      "flex_items_center_justify_cent": "flex items-center justify-center gap-3 overflow-x-auto pb-1 (ZH)",
+      "flex_items_center_gap_2_whites": "flex items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 text-sm font-medium transition-colors duration-200 (ZH)",
+      "mx_auto_max_w_7xl_px_4_py_12": "mx-auto max-w-7xl px-4 py-12 (ZH)",
+      "space_y_16": "space-y-16 (ZH)",
+      "overview": "overview (ZH)",
+      "grid_grid_cols_2_gap_6_md_grid": "grid grid-cols-2 gap-6 md:grid-cols-4 (ZH)",
+      "rounded_xl_border_p_6_text_cen": "rounded-xl border p-6 text-center shadow-sm (ZH)",
+      "text_3xl_font_bold": "text-3xl font-bold (ZH)",
+      "mt_2_text_sm": "mt-2 text-sm (ZH)",
+      "relative_overflow_hidden_round": "relative overflow-hidden rounded-3xl p-8 sm:p-12 (ZH)",
+      "relative_z_10_text_center": "relative z-10 text-center (ZH)",
+      "mb_6_inline_flex_h_16_w_16_ite": "mb-6 inline-flex h-16 w-16 items-center justify-center rounded-full text-white shadow-md sm:h-20 sm:w-20 (ZH)",
+      "mb_3_text_3xl_font_bold_sm_tex": "mb-3 text-3xl font-bold sm:text-4xl (ZH)",
+      "phases_cl_s": "Phases clés (ZH)",
+      "mx_auto_mb_8_max_w_2xl_text_lg": "mx-auto mb-8 max-w-2xl text-lg (ZH)",
+      "profitez_d_avantages_fiscaux_a": "Profitez d'avantages fiscaux adaptés à chaque étape de votre\n                  projet (ZH)",
+      "grid_gap_6_md_grid_cols_2": "grid gap-6 md:grid-cols-2 (ZH)",
+      "cursor_pointer_overflow_hidden": "cursor-pointer overflow-hidden rounded-xl border bg-white shadow-sm hover:shadow-md (ZH)",
+      "flex_items_center_gap_3_p_4": "flex items-center gap-3 p-4 (ZH)",
+      "rounded_lg_bg_white_15_p_2_tex": "rounded-lg bg-white/15 p-2 text-white (ZH)",
+      "text_lg_font_semibold_text_whi": "text-lg font-semibold text-white (ZH)",
+      "p_6": "p-6 (ZH)",
+      "mb_3_flex_justify_center": "mb-3 flex justify-center (ZH)",
+      "rounded_full_px_3_py_1_text_sm": "rounded-full px-3 py-1 text-sm font-bold (ZH)",
+      "mt_4_flex_w_full_items_center": "mt-4 flex w-full items-center justify-center rounded-lg py-2.5 text-sm font-medium transition-colors (ZH)",
+      "ml_1": "ml-1 (ZH)",
+      "sectors": "sectors (ZH)",
+      "rounded_3xl_p_12_text_center": "rounded-3xl p-12 text-center (ZH)",
+      "mb_6_inline_flex_h_20_w_20_ite": "mb-6 inline-flex h-20 w-20 items-center justify-center rounded-full text-white (ZH)",
+      "mb_4_text_4xl_font_bold": "mb-4 text-4xl font-bold (ZH)",
+      "secteurs_prioritaires": "Secteurs Prioritaires (ZH)",
+      "mt_8_grid_gap_6_md_grid_cols_3": "mt-8 grid gap-6 md:grid-cols-3 (ZH)",
+      "rounded_xl_border_bg_white_p_6": "rounded-xl border bg-white p-6 shadow-sm (ZH)",
+      "mb_4_flex_items_center_gap_3": "mb-4 flex items-center gap-3 (ZH)",
+      "text_lg_font_semibold": "text-lg font-semibold (ZH)",
+      "space_y_2_text_sm": "space-y-2 text-sm (ZH)",
+      "flex_items_center_gap_2": "flex items-center gap-2 (ZH)",
+      "fixed_inset_0_z_50_flex_items": "fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm (ZH)",
+      "relative_w_full_max_w_xl_round": "relative w-full max-w-xl rounded-xl bg-white p-6 shadow-xl (ZH)",
+      "absolute_right_4_top_4_text_lg": "absolute right-4 top-4 text-lg (ZH)",
+      "fermer": "Fermer (ZH)",
+      "mb_4_text_center_text_xl_font": "mb-4 text-center text-xl font-bold (ZH)",
+      "mb_4": "mb-4 (ZH)",
+      "mb_1_flex_items_center_gap_2_f": "mb-1 flex items-center gap-2 font-semibold (ZH)",
+      "list_inside_list_disc_text_sm": "list-inside list-disc text-sm (ZH)"
+    },
+    "factorGrid": {
+      "py_16": "py-16 (ZH)",
+      "text_center_mb_12": "text-center mb-12 (ZH)",
+      "text_4xl_font_bold_text_gray_9": "text-4xl font-bold text-gray-900 mb-4 (ZH)",
+      "co_ts_de_production_essentiels": "Coûts de Production Essentiels (ZH)",
+      "w_24_h_1_bg_0f0b60_mx_auto_mb": "w-24 h-1 bg-[#0F0B60] mx-auto mb-6 rounded-full (ZH)",
+      "text_xl_text_gray_600_max_w_3x": "text-xl text-gray-600 max-w-3xl mx-auto (ZH)",
+      "d_couvrez_les_principaux_poste": "Découvrez les principaux postes de dépenses en un coup d'œil (ZH)",
+      "grid_grid_cols_1_md_grid_cols": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 (ZH)",
+      "group_cursor_pointer": "group cursor-pointer (ZH)",
+      "bg_white_rounded_2xl_p_6_shado": "bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 h-full relative overflow-hidden (ZH)",
+      "h_8_w_8_text_white": "h-8 w-8 text-white (ZH)",
+      "text_xl_font_bold_text_gray_90": "text-xl font-bold text-gray-900 mb-2 group-hover:text-[#0F0B60] transition-colors duration-300 (ZH)",
+      "text_gray_600_text_sm_leading": "text-gray-600 text-sm leading-relaxed mb-4 (ZH)",
+      "space_y_3_mb_4": "space-y-3 mb-4 (ZH)",
+      "flex_items_center_justify_betw": "flex items-center justify-between p-3 bg-gray-50 rounded-lg (ZH)",
+      "text_2xl_font_bold_text_0f0b60": "text-2xl font-bold text-[#0F0B60] (ZH)",
+      "text_xs_text_gray_500": "text-xs text-gray-500 (ZH)",
+      "h_5_w_5_text_0f0b60": "h-5 w-5 text-[#0F0B60] (ZH)",
+      "flex_items_center_text_0f0b60": "flex items-center text-[#0F0B60] font-medium text-sm group-hover:text-[#0F0B60] (ZH)",
+      "voir_d_tails": "Voir détails (ZH)",
+      "h_4_w_4_ml_1_group_hover_trans": "h-4 w-4 ml-1 group-hover:translate-x-1 transition-transform duration-300 (ZH)",
+      "mt_16_bg_0f0b60_rounded_2xl_p": "mt-16 bg-[#0F0B60] rounded-2xl p-8 text-white (ZH)",
+      "text_center_mb_8": "text-center mb-8 (ZH)",
+      "text_2xl_font_bold_mb_2": "text-2xl font-bold mb-2 (ZH)",
+      "aper_u_rapide_des_co_ts": "Aperçu Rapide des Coûts (ZH)",
+      "text_gray_100": "text-gray-100 (ZH)",
+      "les_chiffres_cl_s_retenir_pour": "Les chiffres clés à retenir pour votre budget (ZH)",
+      "grid_grid_cols_2_md_grid_cols": "grid grid-cols-2 md:grid-cols-4 gap-6 (ZH)",
+      "text_center": "text-center (ZH)",
+      "h_8_w_8_mx_auto_mb_2_text_whit": "h-8 w-8 mx-auto mb-2 text-white (ZH)",
+      "text_2xl_font_bold": "text-2xl font-bold (ZH)",
+      "36k_fcfa": "36k FCFA (ZH)",
+      "text_sm_text_gray_100": "text-sm text-gray-100 (ZH)",
+      "salaire_minimum": "Salaire minimum (ZH)",
+      "40_90_fcfa": "40-90 FCFA (ZH)",
+      "transport_tonne": "Transport/tonne (ZH)",
+      "50_99_fcfa": "50-99 FCFA (ZH)",
+      "lectricit_kwh": "Électricité/kWh (ZH)",
+      "300_3k_fcfa": "300-3k FCFA (ZH)",
+      "terrain_m_an": "Terrain/m²/an (ZH)"
+    },
+    "factorModal": {
+      "7": "7% (ZH)",
+      "space_y_6": "space-y-6 (ZH)",
+      "from_indigo_50_to_purple_50_p": "from-indigo-50 to-purple-50 p-6 rounded-xl border border-[#0F0B60]/20 (ZH)",
+      "flex_items_center_gap_3_mb_4": "flex items-center gap-3 mb-4 (ZH)",
+      "p_2_bg_0f0b60_10_rounded_lg": "p-2 bg-[#0F0B60]/10 rounded-lg (ZH)",
+      "h_6_w_6_text_0f0b60": "h-6 w-6 text-[#0F0B60] (ZH)",
+      "text_xl_font_semibold_text_ind": "text-xl font-semibold text-indigo-800 (ZH)",
+      "d_finition_des_intrants": "Définition des Intrants (ZH)",
+      "text_gray_700_leading_relaxed": "text-gray-700 leading-relaxed (ZH)",
+      "les_intrants_comprennent_les_m": "Les « intrants » comprennent les matières premières, consommables,\n              accessoires, outillages et machines importés. Les produits achetés\n              localement au Cameroun sont considérés comme sans frais d'achat\n              supplémentaires. (ZH)",
+      "grid_grid_cols_1_md_grid_cols": "grid grid-cols-1 md:grid-cols-2 gap-6 (ZH)",
+      "bg_white_p_6_rounded_xl_border": "bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md transition-all duration-200 (ZH)",
+      "flex_items_center_gap_3_mb_3": "flex items-center gap-3 mb-3 (ZH)",
+      "h_5_w_5_text_0f0b60": "h-5 w-5 text-[#0F0B60] (ZH)",
+      "font_semibold_text_gray_800": "font-semibold text-gray-800 (ZH)",
+      "tarif_douanier": "Tarif Douanier (ZH)",
+      "text_gray_600_text_sm": "text-gray-600 text-sm (ZH)",
+      "le_tarif_douanier_sur_les_prod": "Le tarif douanier sur les produits importés varie de (ZH)",
+      "font_semibold_text_0f0b60": "font-semibold text-[#0F0B60] (ZH)",
+      "0_81": "0% à 81% (ZH)",
+      "frais_de_transitaire": "Frais de Transitaire (ZH)",
+      "50_000_fcfa": "50 000 FCFA (ZH)",
+      "76_22_max": "(76,22 €), max (ZH)",
+      "940_000_fcfa": "940 000 FCFA (ZH)",
+      "1_433": "(1 433 €) (ZH)",
+      "frais_financiers": "Frais Financiers (ZH)",
+      "les_frais_financiers_relatifs": "Les frais financiers relatifs aux achats varient entre (ZH)",
+      "29_000_fcfa_2_35": "29 000 FCFA + 2,35% (ZH)",
+      "et": "et (ZH)",
+      "39_000_fcfa_4_85": "39 000 FCFA + 4,85% (ZH)",
+      "from_green_50_to_emerald_50_p": "from-green-50 to-emerald-50 p-6 rounded-xl border border-[#0F0B60]/20 (ZH)",
+      "font_semibold_text_lg_text_0f0": "font-semibold text-lg text-[#0F0B60] (ZH)",
+      "transport_de_marchandises": "Transport de marchandises (ZH)",
+      "text_2xl_font_bold_text_0f0b60": "text-2xl font-bold text-[#0F0B60] mb-2 (ZH)",
+      "40_90_fcfa_t": "40 - 90 FCFA/T (ZH)",
+      "text_sm_text_0f0b60": "text-sm text-[#0F0B60] (ZH)",
+      "co_t_moyen_par_tonne": "Coût moyen par tonne (ZH)",
+      "from_blue_50_to_cyan_50_p_6_ro": "from-blue-50 to-cyan-50 p-6 rounded-xl border border-[#0F0B60]/20 shadow-sm hover:shadow-md transition-all duration-200 (ZH)",
+      "font_semibold_text_lg_text_blu": "font-semibold text-lg text-blue-800 (ZH)",
+      "transport_de_liquides": "Transport de liquides (ZH)",
+      "135_fcfa_l": "135 FCFA/L (ZH)",
+      "co_t_moyen_par_litre": "Coût moyen par litre (ZH)",
+      "from_amber_50_to_orange_50_p_6": "from-amber-50 to-orange-50 p-6 rounded-xl border border-[#0F0B60]/20 (ZH)",
+      "transport_a_rien": "Transport aérien (ZH)",
+      "2_600_fcfa_kg": "2 600 FCFA/Kg (ZH)",
+      "co_t_moyen_par_kilogramme": "Coût moyen par kilogramme (ZH)",
+      "from_red_50_to_rose_50_p_6_rou": "from-red-50 to-rose-50 p-6 rounded-xl border border-[#0F0B60]/20 shadow-sm hover:shadow-md transition-all duration-200 (ZH)",
+      "transport_du_personnel": "Transport du personnel (ZH)",
+      "5_000_10_000_fcfa": "5 000 - 10 000 FCFA (ZH)",
+      "co_t_mensuel_moyen": "Coût mensuel moyen (ZH)",
+      "text_xl_font_semibold_text_0f0": "text-xl font-semibold text-[#0F0B60] (ZH)",
+      "tarification_des_terrains": "Tarification des Terrains (ZH)",
+      "bg_0f0b60_p_8_rounded_xl_text": "bg-[#0F0B60] p-8 rounded-xl text-white shadow-lg hover:shadow-xl transition-all duration-200 (ZH)",
+      "p_2_bg_white_bg_opacity_20_rou": "p-2 bg-white bg-opacity-20 rounded-lg (ZH)",
+      "h_6_w_6_text_white": "h-6 w-6 text-white (ZH)",
+      "text_xl_font_semibold": "text-xl font-semibold (ZH)",
+      "terrains_am_nag_s": "Terrains Aménagés (ZH)",
+      "text_3xl_font_bold_mb_2": "text-3xl font-bold mb-2 (ZH)",
+      "300_fcfa_m": "300 FCFA/m² (ZH)",
+      "text_gray_100": "text-gray-100 (ZH)",
+      "co_t_annuel": "Coût annuel (ZH)",
+      "terrains_b_tis": "Terrains Bâtis (ZH)",
+      "1000_3000_fcfa_m": "1000 - 3000 FCFA/m² (ZH)",
+      "tarification_nerg_tique": "Tarification Énergétique (ZH)",
+      "grid_grid_cols_1_lg_grid_cols": "grid grid-cols-1 lg:grid-cols-2 gap-6 (ZH)",
+      "text_lg_font_semibold_text_gra": "text-lg font-semibold text-gray-800 (ZH)",
+      "carburants": "Carburants (ZH)",
+      "space_y_3": "space-y-3 (ZH)",
+      "flex_justify_between_items_cen": "flex justify-between items-center p-3 bg-gray-50 rounded-lg (ZH)",
+      "text_sm_text_gray_600": "text-sm text-gray-600 (ZH)",
+      "super_carburant": "Super Carburant (ZH)",
+      "840_fcfa_l": "840 FCFA/L (ZH)",
+      "gasoil": "Gasoil (ZH)",
+      "828_fcfa_l": "828 FCFA/L (ZH)",
+      "p_trole": "Pétrole (ZH)",
+      "336_99_fcfa_l": "336,99 FCFA/L (ZH)",
+      "lectricit_basse_tension": "Électricité - Basse Tension (ZH)",
+      "110_kwh": "≤ 110 kWh (ZH)",
+      "50_fcfa_kwh": "50 FCFA/kWh (ZH)",
+      "111_400_kwh": "111-400 kWh (ZH)",
+      "79_fcfa_kwh": "79 FCFA/kWh (ZH)",
+      "401_800_kwh": "401-800 kWh (ZH)",
+      "94_fcfa_kwh": "94 FCFA/kWh (ZH)",
+      "801_2000_kwh": "801-2000 kWh (ZH)",
+      "99_fcfa_kwh": "99 FCFA/kWh (ZH)",
+      "gaz_distribu": "Gaz Distribué (ZH)",
+      "bouteille_12_kg": "Bouteille 12 kg (ZH)",
+      "6_500_fcfa": "6 500 FCFA (ZH)",
+      "bouteille_6_kg": "Bouteille 6 kg (ZH)",
+      "3_200_fcfa": "3 200 FCFA (ZH)",
+      "eau": "Eau (ZH)",
+      "eau_potable": "Eau potable (ZH)",
+      "364_fcfa_m": "364 FCFA/m³ (ZH)",
+      "eau_industrielle": "Eau industrielle (ZH)",
+      "182_fcfa_m": "182 FCFA/m³ (ZH)",
+      "from_blue_50_to_indigo_50_p_6": "from-blue-50 to-indigo-50 p-6 rounded-xl border border-[#0F0B60]/20 (ZH)",
+      "text_xl_font_semibold_text_blu": "text-xl font-semibold text-blue-800 (ZH)",
+      "t_l_communications_au_cameroun": "Télécommunications au Cameroun (ZH)",
+      "t_l_phonie_fixe_camtel": "Téléphonie Fixe (CAMTEL) (ZH)",
+      "fixe_fixe": "Fixe à fixe (ZH)",
+      "20_60_fcfa_min": "20-60 FCFA/min (ZH)",
+      "intra_provincial": "Intra-provincial (ZH)",
+      "20_fcfa_min": "20 FCFA/min (ZH)",
+      "national": "National (ZH)",
+      "82_fcfa_min": "82 FCFA/min (ZH)",
+      "fixe_mobile": "Fixe à mobile (ZH)",
+      "85_fcfa_min": "85 FCFA/min (ZH)",
+      "t_l_phonie_mobile": "Téléphonie Mobile (ZH)",
+      "30_90_fcfa_min": "30-90 FCFA/min (ZH)",
+      "sms_national": "SMS national (ZH)",
+      "50_fcfa": "50 FCFA (ZH)",
+      "sms_international": "SMS international (ZH)",
+      "125_200_fcfa": "125-200 FCFA (ZH)",
+      "appels_internationaux": "Appels internationaux (ZH)",
+      "90_100_fcfa_min": "90-100 FCFA/min (ZH)",
+      "internet_fournisseurs": "Internet & Fournisseurs (ZH)",
+      "faible_d_bit": "Faible débit (ZH)",
+      "6_000_25_000_fcfa": "6.000 + 25.000 FCFA (ZH)",
+      "adsl": "ADSL (ZH)",
+      "20_000_30_000_fcfa_mois": "20.000-30.000 FCFA/mois (ZH)",
+      "haut_d_bit": "Haut débit (ZH)",
+      "12_000_300_000_fcfa_mois": "12.000-300.000 FCFA/mois (ZH)",
+      "flex_justify_center": "flex justify-center (ZH)",
+      "bg_gray_50_p_4_rounded_lg": "bg-gray-50 p-4 rounded-lg (ZH)",
+      "text_sm_text_gray_600_text_cen": "text-sm text-gray-600 text-center (ZH)",
+      "fournisseurs_camtel_mtn_orange": "Fournisseurs: CAMTEL, MTN, Orange, Nexttel (ZH)",
+      "from_purple_50_to_pink_50_p_6": "from-purple-50 to-pink-50 p-6 rounded-xl border border-[#0F0B60]/20 (ZH)",
+      "co_ts_du_personnel": "Coûts du Personnel (ZH)",
+      "salaire_minimum": "Salaire Minimum (ZH)",
+      "36_270_fcfa_mois": "36 270 FCFA/mois (ZH)",
+      "inchang_depuis_2014": "Inchangé depuis 2014 (ZH)",
+      "salaires_par_cat_gorie": "Salaires par Catégorie (ZH)",
+      "cadres": "Cadres (ZH)",
+      "267_000_457_000_fcfa": "267 000 - 457 000 FCFA (ZH)",
+      "employ_s": "Employés (ZH)",
+      "129_000_325_000_fcfa": "129 000 - 325 000 FCFA (ZH)",
+      "ouvriers": "Ouvriers (ZH)",
+      "40_000_134_000_fcfa": "40 000 - 134 000 FCFA (ZH)",
+      "cotisations_sociales": "Cotisations Sociales (ZH)",
+      "familiale": "Familiale (ZH)",
+      "risques": "Risques (ZH)",
+      "1_75_5": "1.75% à 5% (ZH)",
+      "pension": "Pension (ZH)",
+      "8_4": "8.4% (ZH)",
+      "zones_g_ographiques": "Zones Géographiques (ZH)",
+      "p_3_bg_gray_50_rounded_lg": "p-3 bg-gray-50 rounded-lg (ZH)",
+      "zone_1_douala_yaound": "Zone 1: Douala, Yaoundé (ZH)",
+      "zone_2_autres_villes": "Zone 2: Autres villes (ZH)",
+      "co_ts_d_assurance": "Coûts d'Assurance (ZH)",
+      "incendie_immeubles": "Incendie Immeubles (ZH)",
+      "bureaux": "Bureaux (ZH)",
+      "0_70_pour_mille": "0,70 pour mille (ZH)",
+      "habitations_mixtes": "Habitations mixtes (ZH)",
+      "0_75_pour_mille": "0,75 pour mille (ZH)",
+      "accident_de_travail": "Accident de Travail (ZH)",
+      "inclus_dans_charges_sociales": "Inclus dans charges sociales (ZH)",
+      "1_5_5": "(1,5% à 5%) (ZH)",
+      "transport": "Transport (ZH)",
+      "v_hicules_utilitaires": "Véhicules utilitaires: (ZH)",
+      "121_212_fcfa_150_086_fcfa": "121 212 FCFA à 150 086 FCFA (ZH)",
+      "frais_bancaires": "Frais Bancaires (ZH)",
+      "int_r_ts_bancaires": "Intérêts Bancaires (ZH)",
+      "long_terme": "Long terme (ZH)",
+      "7_10": "7% - 10% (ZH)",
+      "moyen_terme": "Moyen terme (ZH)",
+      "11_17": "11% - 17% (ZH)",
+      "cr_dits": "Crédits (ZH)",
+      "5_15": "5% - 15% (ZH)",
+      "frais_de_service": "Frais de Service (ZH)",
+      "text_gray_600_text_sm_mb_4": "text-gray-600 text-sm mb-4 (ZH)",
+      "jusqu": "jusqu'à (ZH)",
+      "border_t_pt_4": "border-t pt-4 (ZH)",
+      "font_semibold_text_gray_800_mb": "font-semibold text-gray-800 mb-2 (ZH)",
+      "d_p_ts_terme": "Dépôts à Terme (ZH)",
+      "taux": "Taux: (ZH)",
+      "3_5": "3,5% (ZH)",
+      "text_center_py_12": "text-center py-12 (ZH)",
+      "p_4_bg_gray_50_rounded_lg_inli": "p-4 bg-gray-50 rounded-lg inline-block (ZH)",
+      "text_gray_600": "text-gray-600 (ZH)",
+      "informations_d_taill_es_venir": "Informations détaillées à venir pour ce facteur. (ZH)",
+      "fixed_inset_0_bg_black_bg_opac": "fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4 (ZH)",
+      "bg_white_rounded_2xl_max_w_6xl": "bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden shadow-2xl (ZH)",
+      "sticky_top_0_bg_white_border_b": "sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center rounded-t-2xl backdrop-blur-sm bg-white/95 (ZH)",
+      "flex_items_center_gap_3": "flex items-center gap-3 (ZH)",
+      "text_2xl_font_bold_text_gray_9": "text-2xl font-bold text-gray-900 (ZH)",
+      "p_2_hover_bg_gray_100_rounded": "p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 (ZH)",
+      "h_6_w_6_text_gray_400": "h-6 w-6 text-gray-400 (ZH)",
+      "p_6_overflow_y_auto_max_h_calc": "p-6 overflow-y-auto max-h-[calc(90vh-88px)] (ZH)"
+    },
+    "foncierModal": {
+      "fixed_inset_0_bg_black_bg_opac": "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 (ZH)",
+      "bg_white_rounded_2xl_max_w_6xl": "bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto (ZH)",
+      "sticky_top_0_bg_white_border_b": "sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center rounded-t-2xl (ZH)",
+      "flex_items_center": "flex items-center (ZH)",
+      "h_8_w_8_text_0f0b60_mr_3": "h-8 w-8 text-[#0F0B60] mr-3 (ZH)",
+      "text_2xl_font_bold_text_gray_9": "text-2xl font-bold text-gray-900 (ZH)",
+      "foncier_au_cameroun": "Foncier au Cameroun (ZH)",
+      "p_2_hover_bg_gray_100_rounded": "p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 (ZH)",
+      "h_6_w_6_text_gray_400": "h-6 w-6 text-gray-400 (ZH)",
+      "p_6_space_y_8": "p-6 space-y-8 (ZH)",
+      "grid_md_grid_cols_2_gap_6": "grid md:grid-cols-2 gap-6 (ZH)",
+      "from_green_50_to_green_100_p_6": "from-green-50 to-green-100 p-6 rounded-xl (ZH)",
+      "flex_items_center_mb_4": "flex items-center mb-4 (ZH)",
+      "text_xl_font_bold_text_0f0b60": "text-xl font-bold text-[#0F0B60] (ZH)",
+      "terrains_am_nag_s": "Terrains Aménagés (ZH)",
+      "text_center_p_4_bg_white_round": "text-center p-4 bg-white rounded-lg mb-4 (ZH)",
+      "text_3xl_font_bold_text_0f0b60": "text-3xl font-bold text-[#0F0B60] (ZH)",
+      "300_fcfa": "300 FCFA (ZH)",
+      "text_0f0b60": "text-[#0F0B60] (ZH)",
+      "par_m_an": "par m²/an (ZH)",
+      "space_y_2": "space-y-2 (ZH)",
+      "flex_justify_between": "flex justify-between (ZH)",
+      "text_gray_700": "text-gray-700 (ZH)",
+      "douala_bonab_ri": "Douala - Bonabéri (ZH)",
+      "font_semibold_text_0f0b60": "font-semibold text-[#0F0B60] (ZH)",
+      "680_fcfa_m": "680 FCFA/m² (ZH)",
+      "bassa": "Bassa (ZH)",
+      "480_fcfa_m": "480 FCFA/m² (ZH)",
+      "from_blue_50_to_blue_100_p_6_r": "from-blue-50 to-blue-100 p-6 rounded-xl (ZH)",
+      "text_xl_font_bold_text_blue_80": "text-xl font-bold text-blue-800 (ZH)",
+      "terrains_b_tis": "Terrains Bâtis (ZH)",
+      "1000_3000_fcfa": "1000 - 3000 FCFA (ZH)",
+      "zone_franche": "Zone Franche (ZH)",
+      "720_fcfa_m": "720 FCFA/m² (ZH)",
+      "standard": "Standard (ZH)",
+      "1000_fcfa_m": "1000 FCFA/m² (ZH)",
+      "m_thodes_d_acquisition": "Méthodes d'Acquisition (ZH)",
+      "bg_white_p_6_rounded_xl_shadow": "bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:border-[#0F0B60] transition-colors (ZH)",
+      "flex_items_start_gap_4": "flex items-start gap-4 (ZH)",
+      "text_2xl": "text-2xl (ZH)",
+      "text_xl_font_semibold_text_gra": "text-xl font-semibold text-gray-900 mb-2 (ZH)",
+      "text_gray_600": "text-gray-600 (ZH)",
+      "from_green_50_to_blue_50_p_8_r": "from-green-50 to-blue-50 p-8 rounded-2xl (ZH)",
+      "mb_6": "mb-6 (ZH)",
+      "bg_0f0b60_text_white_px_4_py_2": "bg-[#0F0B60] text-white px-4 py-2 rounded-full text-sm font-semibold (ZH)",
+      "nouveaut_2005": "Nouveauté 2005 (ZH)",
+      "text_3xl_font_bold_text_gray_9": "text-3xl font-bold text-gray-900 mb-6 (ZH)",
+      "r_volution_des_r_formes_fonci": "Révolution des Réformes Foncières (ZH)",
+      "grid_md_grid_cols_2_gap_4": "grid md:grid-cols-2 gap-4 (ZH)",
+      "flex_items_start_gap_3_p_4_bg": "flex items-start gap-3 p-4 bg-white rounded-lg (ZH)",
+      "w_2_h_2_bg_0f0b60_rounded_full": "w-2 h-2 bg-[#0F0B60] rounded-full mt-2 (ZH)",
+      "text_gray_700_font_medium": "text-gray-700 font-medium (ZH)",
+      "bg_0f0b60_10_p_6_rounded_xl": "bg-[#0F0B60]/10 p-6 rounded-xl (ZH)",
+      "titre_foncier_garanti": "Titre Foncier Garanti (ZH)",
+      "text_gray_700_mb_4": "text-gray-700 mb-4 (ZH)",
+      "une_proc_dure_s_curis_e_avec_a": "Une procédure sécurisée avec authentification biométrique et\n                vérification cadastrale numérique. (ZH)",
+      "grid_md_grid_cols_3_gap_4": "grid md:grid-cols-3 gap-4 (ZH)",
+      "bg_white_p_4_rounded_lg_text_c": "bg-white p-4 rounded-lg text-center (ZH)",
+      "text_0f0b60_font_semibold": "text-[#0F0B60] font-semibold (ZH)",
+      "certificat_d_authenticit_num_r": "Certificat d'authenticité numérique (ZH)",
+      "g_olocalisation_pr_cise": "Géolocalisation précise (ZH)",
+      "protection_contre_les_fraudes": "Protection contre les fraudes (ZH)",
+      "bail_commercial_s_curis": "Bail Commercial Sécurisé (ZH)",
+      "contrats_de_bail_modernis_s_av": "Contrats de bail modernisés avec protection des deux parties et\n                réévaluation encadrée. (ZH)",
+      "bg_0f0b60_10_p_4_rounded_lg": "bg-[#0F0B60]/10 p-4 rounded-lg (ZH)",
+      "text_gray_800": "text-gray-800 (ZH)",
+      "dur_e_maximale": "Durée maximale : (ZH)",
+      "15_ans_renouvelable": "15 ans renouvelable (ZH)",
+      "indexation": "Indexation : (ZH)",
+      "r_glement_e_sur_l_indice_insee": "réglementée sur l'indice INSEE (ZH)",
+      "flex_items_center_mb_6": "flex items-center mb-6 (ZH)",
+      "code_foncier": "Code Foncier (ZH)",
+      "blank": "_blank (ZH)",
+      "noopener_noreferrer": "noopener noreferrer (ZH)",
+      "p_4_bg_white_rounded_lg_border": "p-4 bg-white rounded-lg border border-gray-200 hover:border-[#0F0B60] transition-colors group (ZH)",
+      "flex_items_start_gap_3": "flex items-start gap-3 (ZH)",
+      "text_0f0b60_font_mono_text_sm": "text-[#0F0B60] font-mono text-sm bg-[#0F0B60]/10 px-2 py-1 rounded (ZH)",
+      "font_medium_text_gray_900_grou": "font-medium text-gray-900 group-hover:text-[#0F0B60] (ZH)",
+      "text_sm_text_gray_500": "text-sm text-gray-500 (ZH)"
+    },
+    "mainOeuvreModal": {
+      "fixed_inset_0_bg_black_bg_opac": "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 (ZH)",
+      "bg_white_rounded_2xl_max_w_6xl": "bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto (ZH)",
+      "sticky_top_0_bg_white_border_b": "sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center rounded-t-2xl (ZH)",
+      "flex_items_center": "flex items-center (ZH)",
+      "h_8_w_8_text_0f0b60_mr_3": "h-8 w-8 text-[#0F0B60] mr-3 (ZH)",
+      "text_2xl_font_bold_text_gray_9": "text-2xl font-bold text-gray-900 (ZH)",
+      "foncier_au_cameroun": "Foncier au Cameroun (ZH)",
+      "p_2_hover_bg_gray_100_rounded": "p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 (ZH)",
+      "h_6_w_6_text_gray_400": "h-6 w-6 text-gray-400 (ZH)",
+      "p_6_space_y_8": "p-6 space-y-8 (ZH)",
+      "grid_md_grid_cols_2_gap_6": "grid md:grid-cols-2 gap-6 (ZH)",
+      "from_green_50_to_green_100_p_6": "from-green-50 to-green-100 p-6 rounded-xl (ZH)",
+      "flex_items_center_mb_4": "flex items-center mb-4 (ZH)",
+      "text_xl_font_bold_text_0f0b60": "text-xl font-bold text-[#0F0B60] (ZH)",
+      "terrains_am_nag_s": "Terrains Aménagés (ZH)",
+      "text_center_p_4_bg_white_round": "text-center p-4 bg-white rounded-lg mb-4 (ZH)",
+      "text_3xl_font_bold_text_0f0b60": "text-3xl font-bold text-[#0F0B60] (ZH)",
+      "300_fcfa": "300 FCFA (ZH)",
+      "text_0f0b60": "text-[#0F0B60] (ZH)",
+      "par_m_an": "par m²/an (ZH)",
+      "space_y_2": "space-y-2 (ZH)",
+      "flex_justify_between": "flex justify-between (ZH)",
+      "text_gray_700": "text-gray-700 (ZH)",
+      "douala_bonab_ri": "Douala - Bonabéri (ZH)",
+      "font_semibold_text_0f0b60": "font-semibold text-[#0F0B60] (ZH)",
+      "680_fcfa_m": "680 FCFA/m² (ZH)",
+      "bassa": "Bassa (ZH)",
+      "480_fcfa_m": "480 FCFA/m² (ZH)",
+      "from_blue_50_to_blue_100_p_6_r": "from-blue-50 to-blue-100 p-6 rounded-xl (ZH)",
+      "text_xl_font_bold_text_blue_80": "text-xl font-bold text-blue-800 (ZH)",
+      "terrains_b_tis": "Terrains Bâtis (ZH)",
+      "1000_3000_fcfa": "1000 - 3000 FCFA (ZH)",
+      "zone_franche": "Zone Franche (ZH)",
+      "720_fcfa_m": "720 FCFA/m² (ZH)",
+      "standard": "Standard (ZH)",
+      "1000_fcfa_m": "1000 FCFA/m² (ZH)",
+      "m_thodes_d_acquisition": "Méthodes d'Acquisition (ZH)",
+      "bg_white_p_6_rounded_xl_shadow": "bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:border-[#0F0B60] transition-colors (ZH)",
+      "flex_items_start_gap_4": "flex items-start gap-4 (ZH)",
+      "text_2xl": "text-2xl (ZH)",
+      "text_xl_font_semibold_text_gra": "text-xl font-semibold text-gray-900 mb-2 (ZH)",
+      "text_gray_600": "text-gray-600 (ZH)",
+      "from_green_50_to_blue_50_p_8_r": "from-green-50 to-blue-50 p-8 rounded-2xl (ZH)",
+      "mb_6": "mb-6 (ZH)",
+      "bg_0f0b60_text_white_px_4_py_2": "bg-[#0F0B60] text-white px-4 py-2 rounded-full text-sm font-semibold (ZH)",
+      "nouveaut_2005": "Nouveauté 2005 (ZH)",
+      "text_3xl_font_bold_text_gray_9": "text-3xl font-bold text-gray-900 mb-6 (ZH)",
+      "r_volution_des_r_formes_fonci": "Révolution des Réformes Foncières (ZH)",
+      "grid_md_grid_cols_2_gap_4": "grid md:grid-cols-2 gap-4 (ZH)",
+      "flex_items_start_gap_3_p_4_bg": "flex items-start gap-3 p-4 bg-white rounded-lg (ZH)",
+      "w_2_h_2_bg_0f0b60_rounded_full": "w-2 h-2 bg-[#0F0B60] rounded-full mt-2 (ZH)",
+      "text_gray_700_font_medium": "text-gray-700 font-medium (ZH)",
+      "bg_0f0b60_10_p_6_rounded_xl": "bg-[#0F0B60]/10 p-6 rounded-xl (ZH)",
+      "titre_foncier_garanti": "Titre Foncier Garanti (ZH)",
+      "text_gray_700_mb_4": "text-gray-700 mb-4 (ZH)",
+      "une_proc_dure_s_curis_e_avec_a": "Une procédure sécurisée avec authentification biométrique et\n                vérification cadastrale numérique. (ZH)",
+      "grid_md_grid_cols_3_gap_4": "grid md:grid-cols-3 gap-4 (ZH)",
+      "bg_white_p_4_rounded_lg_text_c": "bg-white p-4 rounded-lg text-center (ZH)",
+      "text_0f0b60_font_semibold": "text-[#0F0B60] font-semibold (ZH)",
+      "certificat_d_authenticit_num_r": "Certificat d'authenticité numérique (ZH)",
+      "g_olocalisation_pr_cise": "Géolocalisation précise (ZH)",
+      "protection_contre_les_fraudes": "Protection contre les fraudes (ZH)",
+      "bail_commercial_s_curis": "Bail Commercial Sécurisé (ZH)",
+      "contrats_de_bail_modernis_s_av": "Contrats de bail modernisés avec protection des deux parties et\n                réévaluation encadrée. (ZH)",
+      "bg_0f0b60_10_p_4_rounded_lg": "bg-[#0F0B60]/10 p-4 rounded-lg (ZH)",
+      "text_gray_800": "text-gray-800 (ZH)",
+      "dur_e_maximale": "Durée maximale : (ZH)",
+      "15_ans_renouvelable": "15 ans renouvelable (ZH)",
+      "indexation": "Indexation : (ZH)",
+      "r_glement_e_sur_l_indice_insee": "réglementée sur l'indice INSEE (ZH)",
+      "flex_items_center_mb_6": "flex items-center mb-6 (ZH)",
+      "code_foncier": "Code Foncier (ZH)",
+      "blank": "_blank (ZH)",
+      "noopener_noreferrer": "noopener noreferrer (ZH)",
+      "p_4_bg_white_rounded_lg_border": "p-4 bg-white rounded-lg border border-gray-200 hover:border-[#0F0B60] transition-colors group (ZH)",
+      "flex_items_start_gap_3": "flex items-start gap-3 (ZH)",
+      "text_0f0b60_font_mono_text_sm": "text-[#0F0B60] font-mono text-sm bg-[#0F0B60]/10 px-2 py-1 rounded (ZH)",
+      "font_medium_text_gray_900_grou": "font-medium text-gray-900 group-hover:text-[#0F0B60] (ZH)",
+      "text_sm_text_gray_500": "text-sm text-gray-500 (ZH)"
+    },
+    "costsBySectorModal": {
+      "fixed_inset_0_bg_black_bg_opac": "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 (ZH)",
+      "bg_white_rounded_2xl_max_w_7xl": "bg-white rounded-2xl max-w-7xl w-full max-h-[90vh] overflow-y-auto (ZH)",
+      "sticky_top_0_bg_white_border_b": "sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center rounded-t-2xl (ZH)",
+      "flex_items_center": "flex items-center (ZH)",
+      "h_8_w_8_text_0f0b60_mr_3": "h-8 w-8 text-[#0F0B60] mr-3 (ZH)",
+      "text_2xl_font_bold_text_gray_9": "text-2xl font-bold text-gray-900 mb-6 text-center (ZH)",
+      "co_ts_des_facteurs_de_producti": "Coûts des Facteurs de Production par Secteur (ZH)",
+      "p_2_hover_bg_gray_100_rounded": "p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 (ZH)",
+      "h_6_w_6_text_gray_400": "h-6 w-6 text-gray-400 (ZH)",
+      "p_6": "p-6 (ZH)",
+      "mb_8_text_center": "mb-8 text-center (ZH)",
+      "inline_flex_items_center_justi": "inline-flex items-center justify-center w-16 h-16 bg-[#0F0B60]/10 rounded-full mb-4 (ZH)",
+      "h_8_w_8_text_0f0b60": "h-8 w-8 text-[#0F0B60] (ZH)",
+      "analyse_comparative_des_secteu": "Analyse Comparative des Secteurs (ZH)",
+      "text_gray_600_max_w_3xl_mx_aut": "text-gray-600 max-w-3xl mx-auto (ZH)",
+      "donn_es_officielles_2023_des_c": "Données officielles 2023 des coûts de production dans les 10 secteurs stratégiques du Cameroun (ZH)",
+      "grid_grid_cols_1_md_grid_cols": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 (ZH)",
+      "bg_white_rounded_xl_shadow_lg": "bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden group (ZH)",
+      "relative_h_32_overflow_hidden": "relative h-32 overflow-hidden (ZH)",
+      "w_full_h_full_object_cover_gro": "w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 (ZH)",
+      "absolute_inset_0_from_black_60": "absolute inset-0 from-black/60 to-transparent (ZH)",
+      "absolute_bottom_2_left_2": "absolute bottom-2 left-2 (ZH)",
+      "bg_white_90_text_gray_900_px_3": "bg-white/90 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold (ZH)",
+      "p_4": "p-4 (ZH)",
+      "space_y_2_mb_4": "space-y-2 mb-4 (ZH)",
+      "flex_justify_between_items_cen": "flex justify-between items-center text-sm (ZH)",
+      "text_gray_600": "text-gray-600 (ZH)",
+      "font_medium_text_gray_900": "font-medium text-gray-900 (ZH)",
+      "text_sm_opacity_90": "text-sm opacity-90 (ZH)",
+      "co_t_total": "Coût total (ZH)",
+      "font_bold": "font-bold (ZH)",
+      "text_xs_text_gray_500_text_cen": "text-xs text-gray-500 text-center (ZH)",
+      "source": "Source: (ZH)",
+      "italic": "italic (ZH)",
+      "mt_12_from_orange_50_to_red_50": "mt-12 from-orange-50 to-red-50 rounded-2xl p-8 (ZH)",
+      "synth_se_des_co_ts": "Synthèse des Coûts (ZH)",
+      "grid_md_grid_cols_4_gap_6": "grid md:grid-cols-4 gap-6 (ZH)",
+      "text_center": "text-center (ZH)",
+      "text_3xl_font_bold_text_0f0b60": "text-3xl font-bold text-[#0F0B60] (ZH)",
+      "1m_fcfa": "1M FCFA (ZH)",
+      "text_sm_text_gray_600": "text-sm text-gray-600 (ZH)",
+      "agro_industrie_ha": "Agro-industrie/ha (ZH)",
+      "150_fcfa": "150 FCFA (ZH)",
+      "nergie_kwh": "Énergie/kWh (ZH)",
+      "20m_fcfa": "20M FCFA (ZH)",
+      "num_rique_projet": "Numérique/projet (ZH)",
+      "10_secteurs": "10 Secteurs (ZH)",
+      "analys_s": "Analysés (ZH)"
+    },
+    "fiscaliteModal": {
+      "1": "1% (ZH)",
+      "33": "33% (ZH)",
+      "bg_white_rounded_xl_shadow_lg": "bg-white rounded-xl shadow-lg overflow-hidden (ZH)",
+      "flex_justify_between_items_cen": "flex justify-between items-center (ZH)",
+      "text_lg_font_bold_text_gray_90": "text-lg font-bold text-gray-900 (ZH)",
+      "h_5_w_5_text_gray_500": "h-5 w-5 text-gray-500 (ZH)",
+      "border_t_border_gray_200": "border-t border-gray-200 (ZH)",
+      "p_6": "p-6 (ZH)",
+      "fixed_inset_0_bg_black_bg_opac": "fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4 (ZH)",
+      "bg_white_rounded_2xl_max_w_7xl": "bg-white rounded-2xl max-w-7xl w-full max-h-[90vh] overflow-y-auto (ZH)",
+      "sticky_top_0_bg_white_border_b": "sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center rounded-t-2xl (ZH)",
+      "flex_items_center": "flex items-center (ZH)",
+      "h_8_w_8_text_0f0b60_mr_3": "h-8 w-8 text-[#0F0B60] mr-3 (ZH)",
+      "text_2xl_font_bold_text_gray_9": "text-2xl font-bold text-gray-900 mb-6 (ZH)",
+      "fiscalit_camerounaise": "Fiscalité Camerounaise (ZH)",
+      "p_2_hover_bg_gray_100_rounded": "p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 (ZH)",
+      "h_6_w_6_text_gray_400": "h-6 w-6 text-gray-400 (ZH)",
+      "text_center_from_purple_50_to": "text-center from-purple-50 to-indigo-100 p-8 rounded-2xl mb-8 (ZH)",
+      "text_3xl_font_bold_text_gray_9": "text-3xl font-bold text-gray-900 mb-4 (ZH)",
+      "syst_me_fiscal_complet": "Système Fiscal Complet (ZH)",
+      "text_xl_text_gray_600_max_w_3x": "text-xl text-gray-600 max-w-3xl mx-auto mb-6 (ZH)",
+      "aper_u_complet_des_obligations": "Aperçu complet des obligations fiscales pour les entreprises au Cameroun (ZH)",
+      "grid_md_grid_cols_3_gap_6": "grid md:grid-cols-3 gap-6 (ZH)",
+      "bg_white_p_4_rounded_xl": "bg-white p-4 rounded-xl (ZH)",
+      "text_3xl_font_bold_text_0f0b60": "text-3xl font-bold text-[#0F0B60] mb-2 (ZH)",
+      "text_gray_600": "text-gray-600 (ZH)",
+      "imp_t_sur_les_soci_t_s": "Impôt sur les Sociétés (ZH)",
+      "19_25": "19.25% (ZH)",
+      "tva_standard": "TVA standard (ZH)",
+      "patente_locale": "Patente locale (ZH)",
+      "space_y_6": "space-y-6 (ZH)",
+      "r_gimes_d_imposition": "Régimes d'Imposition (ZH)",
+      "p_4_bg_0f0b60_10_rounded_lg_bo": "p-4 bg-[#0F0B60]/10 rounded-lg border border-[#0F0B60]/20 (ZH)",
+      "font_bold_text_0f0b60_mb_3": "font-bold text-[#0F0B60] mb-3 (ZH)",
+      "imp_t_lib_ratoire": "Impôt Libératoire (ZH)",
+      "text_sm_text_0f0b60_space_y_2": "text-sm text-[#0F0B60] space-y-2 (ZH)",
+      "ca_annuel_10_m_fcfa": "• CA annuel < 10 M FCFA (ZH)",
+      "paiement_trimestriel": "• Paiement trimestriel (ZH)",
+      "dispense_de_tva_et_patente": "• Dispense de TVA et patente (ZH)",
+      "baby_foot_10_machines": "• Baby-foot (<10 machines) (ZH)",
+      "font_bold_text_blue_800_mb_3": "font-bold text-blue-800 mb-3 (ZH)",
+      "r_gime_simplifi_rsi": "Régime Simplifié (RSI) (ZH)",
+      "ca_10_m_50_m_fcfa": "• CA : 10 M à 50 M FCFA (ZH)",
+      "comptabilit_all_g_e_ohada": "• Comptabilité allégée OHADA (ZH)",
+      "option_r_gime_r_el_d_s_30_m": "• Option régime réel dès 30 M (ZH)",
+      "ne_collectent_pas_la_tva": "• Ne collectent pas la TVA (ZH)",
+      "font_bold_text_purple_800_mb_3": "font-bold text-purple-800 mb-3 (ZH)",
+      "r_gime_r_el": "Régime Réel (ZH)",
+      "ca_50_m_fcfa": "• CA ≥ 50 M FCFA (ZH)",
+      "obligatoire_professions_lib_r": "• Obligatoire professions libérales (ZH)",
+      "comptabilit_normale_ohada": "• Comptabilité normale OHADA (ZH)",
+      "collecte_d_duction_tva": "• Collecte/déduction TVA (ZH)",
+      "fiscalit_locale": "Fiscalité Locale (ZH)",
+      "p_4_bg_0f0b60_10_rounded_lg": "p-4 bg-[#0F0B60]/10 rounded-lg (ZH)",
+      "patente": "Patente (ZH)",
+      "text_sm_text_0f0b60_space_y_1": "text-sm text-[#0F0B60] space-y-1 (ZH)",
+      "1_du_chiffre_d_affaires": "• 1% du chiffre d'affaires (ZH)",
+      "d_claration_sous_2_mois": "• Déclaration sous 2 mois (ZH)",
+      "paiement_annuel": "• Paiement annuel (ZH)",
+      "font_bold_text_yellow_800_mb_3": "font-bold text-yellow-800 mb-3 (ZH)",
+      "licence": "Licence (ZH)",
+      "alcoolis_es_4x_patente": "• Alcoolisées : 4x patente (ZH)",
+      "non_alcoolis_es_2x_patente": "• Non-alcoolisées : 2x patente (ZH)",
+      "calcul_personnalis": "• Calcul personnalisé (ZH)",
+      "taxe_b_tail": "Taxe Bétail (ZH)",
+      "200_fcfa_t_te_bovin": "• 200 FCFA/tête bovin (ZH)",
+      "exemptions_animaux_labour": "• Exemptions animaux labour (ZH)",
+      "recensement_annuel": "• Recensement annuel (ZH)",
+      "tva_droits_sp_ciaux": "TVA & Droits Spéciaux (ZH)",
+      "text_center_p_6_from_yellow_40": "text-center p-6 from-yellow-400 to-[#1a1599] rounded-xl text-white (ZH)",
+      "text_4xl_font_bold": "text-4xl font-bold (ZH)",
+      "text_gray_100": "text-gray-100 (ZH)",
+      "taux_normal_tva": "Taux Normal TVA (ZH)",
+      "text_sm_text_gray_100_mt_2": "text-sm text-gray-100 mt-2 (ZH)",
+      "17_5_tva_1_75_cac": "(17.5% TVA + 1.75% CAC) (ZH)",
+      "grid_md_grid_cols_2_gap_6": "grid md:grid-cols-2 gap-6 (ZH)",
+      "font_bold_text_gray_800_mb_3": "font-bold text-gray-800 mb-3 (ZH)",
+      "exon_rations": "Exonérations (ZH)",
+      "text_sm_text_gray_600_space_y": "text-sm text-gray-600 space-y-1 (ZH)",
+      "exportations": "• Exportations (ZH)",
+      "zones_franches_industrielles": "• Zones Franches Industrielles (ZH)",
+      "services_ducatifs": "• Services éducatifs (ZH)",
+      "services_m_dicaux": "• Services médicaux (ZH)",
+      "droit_d_accise": "Droit d'Accise (ZH)",
+      "space_y_2": "space-y-2 (ZH)",
+      "flex_justify_between_p_2_bg_gr": "flex justify-between p-2 bg-gray-50 rounded (ZH)",
+      "boissons_alcoolis_es": "Boissons alcoolisées (ZH)",
+      "font_medium": "font-medium (ZH)",
+      "35_abattement": "35% abattement (ZH)",
+      "tabacs": "Tabacs (ZH)",
+      "42_5_abattement": "42.5% abattement (ZH)",
+      "text_center_p_6_bg_0f0b60_roun": "text-center p-6 bg-[#0F0B60] rounded-xl text-white (ZH)",
+      "taux_normal": "Taux Normal (ZH)",
+      "30_is_3_cac": "(30% IS + 3% CAC) (ZH)",
+      "acomptes_r_gime_r_el": "Acomptes Régime Réel (ZH)",
+      "text_2xl_font_bold_text_0f0b60": "text-2xl font-bold text-[#0F0B60] (ZH)",
+      "2_2": "2.2% (ZH)",
+      "text_sm_text_0f0b60": "text-sm text-[#0F0B60] (ZH)",
+      "du_chiffre_d_affaires": "du chiffre d'affaires (ZH)",
+      "acomptes_rsi": "Acomptes RSI (ZH)",
+      "5_5": "5.5% (ZH)",
+      "taxe_fonci_re": "Taxe Foncière (ZH)",
+      "propri_taire": "Propriétaire (ZH)",
+      "text_xl_font_bold_text_0f0b60": "text-xl font-bold text-[#0F0B60] (ZH)",
+      "0_11": "0.11% (ZH)",
+      "terrain_b_timents": "× (terrain + bâtiments) (ZH)",
+      "locataire": "Locataire (ZH)",
+      "5_10_loyer_annuel": "5-10% loyer annuel (ZH)",
+      "50_pr_compte": "+ 50% précompte (ZH)",
+      "mt_4_p_4_bg_0f0b60_10_rounded": "mt-4 p-4 bg-[#0F0B60]/10 rounded-lg (ZH)",
+      "font_bold_text_0f0b60_mb_2": "font-bold text-[#0F0B60] mb-2 (ZH)",
+      "ch_ances_importantes": "Échéances importantes (ZH)",
+      "date_limite_de_paiement_15_ma": "• Date limite de paiement : 15 mars (ZH)",
+      "sanctions_pour_retard_applica": "• Sanctions pour retard applicables (ZH)",
+      "exon_rations_partielles_possi": "• Exonérations partielles possibles (ZH)",
+      "mt_12_bg_white_rounded_2xl_p_8": "mt-12 bg-white rounded-2xl p-8 shadow-lg (ZH)",
+      "tarifs_douaniers_cemac": "Tarifs Douaniers CEMAC (ZH)",
+      "overflow_x_auto": "overflow-x-auto (ZH)",
+      "w_full": "w-full (ZH)",
+      "border_b_2_border_0f0b60": "border-b-2 border-[#0F0B60] (ZH)",
+      "text_left_py_3_px_4_font_bold": "text-left py-3 px-4 font-bold text-gray-900 (ZH)",
+      "cat_gorie": "Catégorie (ZH)",
+      "taux": "Taux (ZH)",
+      "base_de_calcul": "Base de calcul (ZH)",
+      "exemples": "Exemples (ZH)",
+      "border_b_border_gray_200_hover": "border-b border-gray-200 hover:bg-gray-50 (ZH)",
+      "py_3_px_4_font_medium_text_gra": "py-3 px-4 font-medium text-gray-900 (ZH)",
+      "py_3_px_4_font_bold_text_0f0b6": "py-3 px-4 font-bold text-[#0F0B60] (ZH)",
+      "py_3_px_4_text_gray_600": "py-3 px-4 text-gray-600 (ZH)",
+      "grid_md_grid_cols_3_gap_6_mt_8": "grid md:grid-cols-3 gap-6 mt-8 (ZH)",
+      "text_center_p_6_bg_white_round": "text-center p-6 bg-white rounded-2xl shadow-lg (ZH)",
+      "inline_flex_items_center_justi": "inline-flex items-center justify-center w-16 h-16 bg-[#0F0B60]/10 rounded-full mb-4 (ZH)",
+      "h_8_w_8_text_0f0b60": "h-8 w-8 text-[#0F0B60] (ZH)",
+      "text_xl_font_bold_text_gray_90": "text-xl font-bold text-gray-900 mb-2 (ZH)",
+      "taux_standard_pour_les_entrepr": "Taux standard pour les entreprises (ZH)",
+      "tva": "TVA (ZH)",
+      "taux_de_tva_applicable": "Taux de TVA applicable (ZH)",
+      "du_chiffre_d_affaires_annuel": "Du chiffre d'affaires annuel (ZH)"
+    }
+  },
+  "creerEntreprise_creerEntreprise_str0": ";\n\n\n// Two-option segmented control, used instead of two loose pill buttons.\nconst Segmented = (ZH)",
+  "creerEntreprise_creerEntreprise_str1": "(\"physique\");\n  const [openSection, setOpenSection] = useState (ZH)",
+  "creerEntreprise_creerEntreprise_str2": "(null);\n\n  // Sticky nav logic\n  const navRef = useRef (ZH)",
+  "droitInvestisseur_droitInvestisseur_str0": "part.startsWith(\"**\") && part.endsWith(\"**\") ? (ZH)",
+  "droitInvestisseur_droitInvestisseur_str1": ": (ZH)",
+  "droitInvestisseur_droitInvestisseur_str2": ";\n\n\nconst DialogBody: React.FC (ZH)",
+  "droitInvestisseur_droitInvestisseur_str3": ";\n\n\nconst SectionBlock: React.FC (ZH)",
+  "droitInvestisseur_droitInvestisseur_str4": "(null);\n  const navRef = useRef (ZH)",
+  "droitInvestisseur_droitInvestisseur_str5": "(null);\n  const heroRef = useRef (ZH)",
+  "droitInvestisseur_droitInvestisseur_str6": "openDialog(section.title, (ZH)",
+  "facteursProduction_facteursProduction_str0": "( (ZH)",
+  "fiscalite_fiscalite_str0": "Fiscalité au Cameroun (ZH)",
+  "fiscalite_fiscalite_str1": "Panorama complet des régimes fiscaux, taxes douanières et obligations légales pour les investisseurs (ZH)",
+  "fiscalite_fiscalite_str2": "( (ZH)",
+  "fiscalite_fiscalite_str3": "Régimes d'imposition (ZH)",
+  "fiscalite_fiscalite_str4": "▼ (ZH)",
+  "fiscalite_fiscalite_str5": "Impôt Libératoire (ZH)",
+  "fiscalite_fiscalite_str6": "CA annuel &lt; 10M FCFA (ZH)",
+  "fiscalite_fiscalite_str7": "Secteurs : baby-foot (&lt;10 machines), flippers/jeux vidéo (&lt;5) (ZH)",
+  "fiscalite_fiscalite_str8": "Paiement trimestriel (ZH)",
+  "fiscalite_fiscalite_str9": "Dispense de TVA et patente (ZH)",
+  "fiscalite_fiscalite_str10": "Régime Simplifié (RSI) (ZH)",
+  "fiscalite_fiscalite_str11": "CA annuel : 10M à 50M FCFA (ZH)",
+  "fiscalite_fiscalite_str12": "Comptabilité allégée OHADA (ZH)",
+  "fiscalite_fiscalite_str13": "Option possible pour le régime réel à partir de 30M FCFA (ZH)",
+  "fiscalite_fiscalite_str14": "Ne collectent pas la TVA (ZH)",
+  "fiscalite_fiscalite_str15": "Régime Réel (ZH)",
+  "fiscalite_fiscalite_str16": "CA annuel ≥ 50M FCFA (ZH)",
+  "fiscalite_fiscalite_str17": "Obligatoire pour professions libérales (ZH)",
+  "fiscalite_fiscalite_str18": "Comptabilité normale OHADA (ZH)",
+  "fiscalite_fiscalite_str19": "Seuls à collecter/déduire la TVA (ZH)",
+  "fiscalite_fiscalite_str20": "Fiscalité Locale (ZH)",
+  "fiscalite_fiscalite_str21": "Patente (ZH)",
+  "fiscalite_fiscalite_str22": "1% du chiffre d'affaires (ZH)",
+  "fiscalite_fiscalite_str23": "Déclaration sous 2 mois du démarrage (ZH)",
+  "fiscalite_fiscalite_str24": "Paiement annuel (sauf transporteurs : trimestriel) (ZH)",
+  "fiscalite_fiscalite_str25": "Licence (ZH)",
+  "fiscalite_fiscalite_str26": "Boissons alcoolisées : 4x patente (ZH)",
+  "fiscalite_fiscalite_str27": "Boissons non-alcoolisées : 2x patente (ZH)",
+  "fiscalite_fiscalite_str28": "Calcul annuel personnalisé (ZH)",
+  "fiscalite_fiscalite_str29": "Taxe sur le Bétail (ZH)",
+  "fiscalite_fiscalite_str30": "200 FCFA/tête de bovin (ZH)",
+  "fiscalite_fiscalite_str31": "Exemptions : animaux de labour (ZH)",
+  "fiscalite_fiscalite_str32": "Recensement annuel obligatoire (ZH)",
+  "fiscalite_fiscalite_str33": "TVA & Droits Spéciaux (ZH)",
+  "fiscalite_fiscalite_str34": "Taux Normal (ZH)",
+  "fiscalite_fiscalite_str35": "19.25% (ZH)",
+  "fiscalite_fiscalite_str36": "(17.5% TVA + 1.75% CAC) (ZH)",
+  "fiscalite_fiscalite_str37": "Exonérations (ZH)",
+  "fiscalite_fiscalite_str38": "Exportations (ZH)",
+  "fiscalite_fiscalite_str39": "Zones Franches Industrielles (ZH)",
+  "fiscalite_fiscalite_str40": "Services éducatifs (ZH)",
+  "fiscalite_fiscalite_str41": "Droit d'Accise (ZH)",
+  "fiscalite_fiscalite_str42": "Boissons alcoolisées (ZH)",
+  "fiscalite_fiscalite_str43": "Abattement : 35% (ZH)",
+  "fiscalite_fiscalite_str44": "Tabacs (ZH)",
+  "fiscalite_fiscalite_str45": "Abattement : 42.5% (ZH)",
+  "fiscalite_fiscalite_str46": "Régimes Douaniers (ZH)",
+  "fiscalite_fiscalite_str47": "Tarif Extérieur Commun (ZH)",
+  "fiscalite_fiscalite_str48": "Biens essentiels (ZH)",
+  "fiscalite_fiscalite_str49": "Taux : (ZH)",
+  "fiscalite_fiscalite_str50": "5% (ZH)",
+  "fiscalite_fiscalite_str51": "Biens consommation (ZH)",
+  "fiscalite_fiscalite_str52": "30% (ZH)",
+  "fiscalite_fiscalite_str53": "Procédures (ZH)",
+  "fiscalite_fiscalite_str54": "Déclaration sous 24h après arrivée (ZH)",
+  "fiscalite_fiscalite_str55": "Manifeste de cargaison obligatoire (ZH)",
+  "fiscalite_fiscalite_str56": "Contrôle physique des marchandises (ZH)",
+  "fiscalite_fiscalite_str57": "Impôt sur les Sociétés (ZH)",
+  "fiscalite_fiscalite_str58": "33% (ZH)",
+  "fiscalite_fiscalite_str59": "(30% IS + 3% CAC) (ZH)",
+  "fiscalite_fiscalite_str60": "Acomptes (ZH)",
+  "fiscalite_fiscalite_str61": "Régime réel (ZH)",
+  "fiscalite_fiscalite_str62": "2.2% CA (ZH)",
+  "fiscalite_fiscalite_str63": "RSI (ZH)",
+  "fiscalite_fiscalite_str64": "5.5% CA (ZH)",
+  "fiscalite_fiscalite_str65": "Taxe Foncière (ZH)",
+  "fiscalite_fiscalite_str66": "Calcul (ZH)",
+  "fiscalite_fiscalite_str67": "Propriétaire (ZH)",
+  "fiscalite_fiscalite_str68": "0.11% × (terrain + bâtiments) (ZH)",
+  "fiscalite_fiscalite_str69": "Locataire (ZH)",
+  "fiscalite_fiscalite_str70": "5-10% loyer annuel + 50% précompte (ZH)",
+  "fiscalite_fiscalite_str71": "Paiement (ZH)",
+  "fiscalite_fiscalite_str72": "Date limite : 15 mars (ZH)",
+  "fiscalite_fiscalite_str73": "Sanctions pour retard (ZH)",
+  "fiscalite_fiscalite_str74": "Exonérations partielles possibles (ZH)",
+  "fiscalite_fiscalite_str75": "Tarifs Douaniers CEMAC (ZH)",
+  "fiscalite_fiscalite_str76": "Catégorie (ZH)",
+  "fiscalite_fiscalite_str77": "Taux (ZH)",
+  "fiscalite_fiscalite_str78": "Base de calcul (ZH)",
+  "fiscalite_fiscalite_str79": "Exemples (ZH)",
+  "fiscalite_fiscalite_str80": "Biens de première nécessité (ZH)",
+  "fiscalite_fiscalite_str81": "Valeur en douane (ZH)",
+  "fiscalite_fiscalite_str82": "Médicaments, produits de base (ZH)",
+  "fiscalite_fiscalite_str83": "Matières premières (ZH)",
+  "fiscalite_fiscalite_str84": "10% (ZH)",
+  "fiscalite_fiscalite_str85": "Valeur EXW (ZH)",
+  "fiscalite_fiscalite_str86": "Acier, produits agricoles bruts (ZH)",
+  "fiscalite_fiscalite_str87": "Biens intermédiaires (ZH)",
+  "fiscalite_fiscalite_str88": "20% (ZH)",
+  "fiscalite_fiscalite_str89": "Valeur CAF (ZH)",
+  "fiscalite_fiscalite_str90": "Pièces automobiles, composants (ZH)",
+  "fiscalite_fiscalite_str91": "Biens de consommation (ZH)",
+  "fiscalite_fiscalite_str92": "Valeur totale (ZH)",
+  "fiscalite_fiscalite_str93": "Électronique, véhicules (ZH)",
+  "fiscalite_fiscalite_str94": "Saisissez des Opportunités Uniques ! (ZH)",
+  "fiscalite_fiscalite_str95": "Investissez dès aujourd’hui dans des projets innovants et rentables pour bâtir l’avenir de l’économie camerounaise. (ZH)",
+  "fiscalite_fiscalite_str96": "Voir plus de projets (ZH)",
+  "fiscalite_fiscalite_str97": "Breadcrumbs (ZH)",
+  "foncier_foncier_str0": "( (ZH)",
+  "foncier_foncier_str1": "Système Foncier au Cameroun (ZH)",
+  "foncier_foncier_str2": "Le système foncier camerounais allie tradition et modernité, structuré autour\n              des domaines public et privé de l'État. Explorez les mécanismes juridiques\n              encadrant la propriété immobilière. (ZH)",
+  "foncier_foncier_str3": "Nouveauté 2005 (ZH)",
+  "foncier_foncier_str4": "Révolution des Réformes Foncières (ZH)",
+  "foncier_foncier_str5": "Une procédure sécurisée avec authentification biométrique\n                    et vérification cadastrale numérique. (ZH)",
+  "foncier_foncier_str6": "Certificat d'authenticité numérique (ZH)",
+  "foncier_foncier_str7": "Géolocalisation précise (ZH)",
+  "foncier_foncier_str8": "Protection contre les fraudes (ZH)",
+  "foncier_foncier_str9": "Contrats de bail modernisés avec protection des deux parties\n                    et réévaluation encadrée. (ZH)",
+  "foncier_foncier_str10": "Durée maximale : 15 ans renouvelable (ZH)",
+  "foncier_foncier_str11": "Indexation réglementée sur l'indice INSEE (ZH)",
+  "foncier_foncier_str12": "📚 Code Foncier (ZH)",
+  "foncier_foncier_str13": "Saisissez des Opportunités Uniques ! (ZH)",
+  "foncier_foncier_str14": "Investissez dès aujourd’hui dans des projets innovants et rentables pour bâtir l’avenir de l’économie camerounaise. (ZH)",
+  "foncier_foncier_str15": "Voir plus de projets (ZH)",
+  "foncier_foncier_str16": "Breadcrumbs (ZH)",
+  "foncier_foncier_str17": "📜 Titre Foncier Garanti (ZH)",
+  "foncier_foncier_str18": "🏢 Bail Commercial Sécurisé (ZH)",
+  "presentation_cameroun": {
+    "cities": {
+      "CMSU": {
+        "name": "南部",
+        "description": "南部地区以其森林面积而闻名，拥有丰富的自然资源和生物多样性。",
+        "population": "1.5M",
+        "attractions": "坎波马安保护区、赤道森林",
+        "cheflieu": "恩冈代雷",
+        "departements": "5",
+        "langues": "富尔富尔德语、法语、英语"
+      },
+      "CMEN": {
+        "name": "极北",
+        "description": "极北地区是一个干旱且文化丰富的地区，受富拉尼和阿拉伯传统的影响。",
+        "population": "3.9M",
+        "attractions": "瓦扎国家公园、曼达拉山脉",
+        "cheflieu": "马鲁阿",
+        "departements": "6",
+        "langues": "富尔富尔德语、法语、阿拉伯语"
+      },
+      "CMNO": {
+        "name": "北部",
+        "description": "北部是稀树草原地区，以富拉尼传统和农业而闻名。",
+        "population": "2.8M",
+        "attractions": "贝努埃国家公园、加鲁阿酋长国",
+        "cheflieu": "加鲁阿",
+        "departements": "4",
+        "langues": "富尔富尔德语、法语、豪萨语"
+      },
+      "CMAD": {
+        "name": "阿达马瓦",
+        "description": "阿达马瓦是一个多山且绿意盎然的地区，以自然景观和畜牧业而闻名。",
+        "population": "1.2M",
+        "attractions": "贝努埃国家公园、维纳瀑布",
+        "cheflieu": "恩冈代雷",
+        "departements": "6",
+        "langues": "富尔富尔德语、法语、英语"
+      },
+      "CMNW": {
+        "name": "西北部",
+        "description": "西北部是一个多山且文化多样化的地区，具有强烈的英语区影响。",
+        "population": "2.5M",
+        "attractions": "奥库山、尼奥斯湖、巴门达手工艺品市场",
+        "cheflieu": "巴门达",
+        "departements": "4",
+        "langues": "英语、皮钦语、巴福特语"
+      },
+      "CMSW": {
+        "name": "西南部",
+        "description": "西南部是一个多山且绿意盎然的地区，拥有强烈的英语区影响和壮丽的景观。",
+        "population": "1.8M",
+        "attractions": "喀麦隆火山、林贝海滩、科鲁普国家公园",
+        "cheflieu": "布埃亚",
+        "departements": "6",
+        "langues": "英语、皮钦语、巴克韦里语"
+      },
+      "CMES": {
+        "name": "东部",
+        "description": "东部地区主要被热带森林覆盖，拥有丰富的生物多样性。",
+        "population": "1.2M",
+        "attractions": "洛贝克国家公园、茂密森林",
+        "cheflieu": "贝尔图阿",
+        "departements": "4",
+        "langues": "法语、巴亚语、巴卡语"
+      },
+      "CMLT": {
+        "name": "滨海",
+        "description": "滨海区是喀麦隆的经济区，拥有该国最大的港口。",
+        "population": "3.5M",
+        "attractions": "杜阿拉港、林贝海滩、喀麦隆火山",
+        "cheflieu": "杜阿拉",
+        "departements": "4",
+        "langues": "法语、杜阿拉语、皮钦语"
+      },
+      "CMOU": {
+        "name": "西部",
+        "description": "西部是一个肥沃且人口稠密的地区，以粮食作物和传统酋长国而闻名。",
+        "population": "2.3M",
+        "attractions": "梅切瀑布、班布托山脉",
+        "cheflieu": "巴富萨姆",
+        "departements": "8",
+        "langues": "法语、巴米累克语"
+      },
+      "CMCE": {
+        "name": "中部",
+        "description": "雅温得，喀麦隆首都，是该国的政治和行政中心。",
+        "population": "4.5M",
+        "attractions": "会议宫、国家博物馆、菲贝山",
+        "cheflieu": "雅温得",
+        "departements": "10",
+        "langues": "法语、埃翁多语、巴萨语"
+      }
+    },
+    "hero": {
+      "title": "发现喀麦隆",
+      "subtitle": "一个充满机遇和多样性的国家"
+    },
+    "welcome": {
+      "title1": "欢迎来到喀麦隆 ",
+      "title2": "您投资的理想目的地",
+      "p1": "喀麦隆作为中非真正的经济火车头，以其多元化和富有韧性的经济而脱颖而出，为投资提供了有利的环境。名义GDP估计为450亿美元，经济增长率保持在每年4%至5%之间，该国正将自己定位为非洲商业的战略枢纽。",
+      "h4": "多元化经济与充满活力的产业",
+      "li1": "喀麦隆是全球可可和咖啡生产的领导者，此外还提供多种产品，包括香蕉、棉花、棕榈油和茶。",
+      "li2": "由食品加工、纺织、木材、水泥和石油产品驱动的强大工业基础。",
+      "li3": "电信、金融、交通和旅游等蓬勃发展的行业，受到不断增长的需求的支撑。",
+      "p2": "喀麦隆还受益于战略地理位置，通过CEMAC将中非和西非连接到拥有超过2亿消费者的潜在市场。",
+      "p3": "凭借年轻而充满活力的劳动力、丰富的自然资源和对外国投资者开放的自由经济，喀麦隆在农业、能源、基础设施和新技术等关键领域提供独特的机遇。",
+      "agriculture": "农业 (占GDP 20%)",
+      "industrie": "工业 (占GDP 30%)",
+      "services": "服务业 (占GDP 50%)"
+    },
+    "map": {
+      "attractions": "景点：",
+      "population": "人口：",
+      "cheflieu": "首府：",
+      "departements": "部门：",
+      "langues": "语言："
+    },
+    "infos": {
+      "capitale": {
+        "title": "首都",
+        "value": "雅温得"
+      },
+      "superficie": {
+        "title": "面积",
+        "value": "475,442 平方公里"
+      },
+      "population": {
+        "title": "人口",
+        "value": "26,545,863 人"
+      },
+      "langues": {
+        "title": "官方语言",
+        "value": "法语、英语"
+      },
+      "monnaie": {
+        "title": "货币",
+        "value": "中非法郎 (XAF)"
+      },
+      "fuseau": {
+        "title": "时区",
+        "value": "UTC+1"
+      }
+    },
+    "stats": {
+      "s1": {
+        "name": "农业、工业、服务业",
+        "value": "产业"
+      },
+      "s2": {
+        "name": "石油、天然气、矿产、森林",
+        "value": "资源"
+      },
+      "s3": {
+        "name": "区域市场消费者",
+        "value": "3亿"
+      }
+    },
+    "aspectsFiscal": "财政方面",
+    "priorities": {
+      "title": "政府的优先事项",
+      "p1": "喀麦隆到2035年成为一个新兴、民主和统一国家的长期愿景，引发了全球反思并采纳了《增长与就业战略文件》(GESP) 中包含的方向。GESP作为有效期为十年 (2010-2020) 的参考指导文件，确定了喀麦隆在此期间为自己设定的目标，可总结如下：",
+      "li1": "到2020年，将增长率提高到年均5.5%；",
+      "li2": "2020年将就业不足率从75.8%降低到50%；",
+      "li3": "2020年将贫困率降低到28%左右。",
+      "p2": "为了实现这3个主要目标，定义了三项战略，即：",
+      "li4": "增长战略；",
+      "li5": "就业战略；",
+      "li6": "治理战略。"
+    }
+  },
+  "pages_investir": {
+    "incitation": {
+      "hero": {
+        "badge": "投资者指南",
+        "title": "税收",
+        "title_highlight": "激励措施",
+        "subtitle": "探索极具吸引力的税收框架，旨在保障并提振您在非洲中心的投资。",
+        "button": "了解优惠政策"
+      },
+      "nav": {
+        "chiffres": "关键数字",
+        "installation": "设立阶段",
+        "exploitation": "运营阶段",
+        "secteurs": "行业",
+        "apercu": "概览",
+        "phases": "阶段",
+        "aria": "页面章节"
+      },
+      "key_figures": {
+        "title": "关键数字速览",
+        "subtitle": "喀麦隆财税吸引力的支柱。",
+        "f1_label": "企业所得税减免（前5年）",
+        "f2_label": "优惠最长期限",
+        "f3_label": "出口增值税",
+        "f4_label": "优先行业关税",
+        "f2_value": "10 年"
+      },
+      "installation": {
+        "title": "设立阶段",
+        "period": "（0-5年）",
+        "desc": "在最初几年，政府通过全额豁免支持您，帮助您顺利起步并降低初始财务风险。",
+        "badge": "全额豁免",
+        "exo_title": "全额豁免",
+        "exo1": "注册费",
+        "exo2": "进口增值税",
+        "exo3": "营业执照（全程豁免）",
+        "exo4": "过户税",
+        "douane_title": "海关优惠",
+        "douane1": "直接提货",
+        "douane2": "关税豁免",
+        "douane3": "临时进口"
+      },
+      "exploitation": {
+        "title": "运营阶段",
+        "period": "（5-10年）",
+        "desc": "设立后，逐步减免支持您的发展壮大，并长期维护您的竞争力。",
+        "badge": "减免高达75%",
+        "reduc_title": "税收减免",
+        "reduc1": "企业所得税75%减免（前5年）",
+        "reduc2": "50%减免（第6-10年）",
+        "reduc3": "贷款税费豁免",
+        "autres_title": "其他优惠",
+        "autres1": "亏损结转（5年）",
+        "autres2": "出口零增值税",
+        "autres3": "研发税收抵免"
+      },
+      "secteurs": {
+        "title": "优先行业",
+        "subtitle": "为经济引擎提供专项优惠。",
+        "agro": {
+          "name": "农业工业",
+          "b1": "农业投入品增值税豁免",
+          "b2": "关税降至5%",
+          "b3": "营业执照5年豁免"
+        },
+        "energie": {
+          "name": "能源",
+          "b1": "设备30%税收抵免",
+          "b2": "房产税豁免",
+          "b3": "特殊临时进口"
+        },
+        "tech": {
+          "name": "科技",
+          "b1": "数字服务0%增值税",
+          "b2": "研发补贴",
+          "b3": "注册费豁免"
+        }
+      },
+      "cta": {
+        "title": "准备好在喀麦隆投资了吗？",
+        "subtitle": "这些税收优惠政策结合一站式服务和专业劳动力，使喀麦隆成为您发展的首选目的地。",
+        "btn1": "注册我的公司",
+        "btn2": "查看生产要素"
+      },
+      "phases": {
+        "eyebrow": "税收历程",
+        "title": "关键阶段",
+        "subtitle": "从设立到运营，为项目每个阶段量身定制的税收优惠。",
+        "horizon": "优惠期限：最长 10 年",
+        "phase": "阶段",
+        "year": "第 {{n}} 年",
+        "key_benefit": "核心优惠",
+        "benefits_count": "本阶段包含 {{count}} 项优惠",
+        "note": "以上信息仅供参考。优惠资格及确切期限由《私人投资激励法》规定，并由投资促进局（API）在项目审批时确认。"
+      }
+    },
+    "droits_investisseurs": {
+      "hero": {
+        "badge": "法律保障",
+        "title": "喀麦隆",
+        "title_highlight": "投资者权利",
+        "subtitle": "健全的法律框架，保护并便利您的投资。",
+        "button": "了解您的权利"
+      },
+      "see_details": "查看详情",
+      "resources_title": "有用资源",
+      "cta": {
+        "title": "保障您的投资",
+        "subtitle": "这些权利和保障为您在喀麦隆开展项目提供了坚实的法律框架，让您安心自信地发展。",
+        "btn1": "注册我的公司",
+        "btn2": "查看激励政策"
+      },
+      "sections": {
+        "protection": {
+          "title": "投资保护",
+          "description": "喀麦隆通过其**2013年投资法典**、国际公约及加入**OHADA组织**，为投资提供强有力的保护。",
+          "tag": "基本",
+          "dialogIntro": "喀麦隆建立了坚实的法律体系，保障国内外投资的安全。",
+          "facts": {
+            "f1_label": "基本法律文本",
+            "f1_value": "OHADA、CIMA",
+            "f2_label": "保证",
+            "f2_value": "不征用",
+            "f3_label": "税收稳定性",
+            "f3_value": "10年"
+          },
+          "blocks": {
+            "b1_heading": "基本法律文本",
+            "b1_i1": "**投资法典（第2013/004号法律）**：投资自由、财产权及未补偿不征用。",
+            "b1_i2": "**OHADA法律**：统一的现代商业法，保障所有商业交易安全。",
+            "b1_i3": "**CIPRES和CIMA公约**：风险管理和保险的稳定框架。",
+            "b2_heading": "主要保证",
+            "b2_i1": "**防止征用保护**：仅因公共利益需要且须给予公平补偿。",
+            "b2_i2": "**税收稳定性**：某些优先行业可享受长达10年的豁免期。",
+            "b2_i3": "**资本自由转移**：可自由汇回利润、股息和清算所得。",
+            "b2_i4": "**非歧视性待遇**：国内外投资者平等（国民待遇+最惠国条款）。"
+          },
+          "resources": {
+            "r1": "投资法典（API）",
+            "r2": "OHADA统一法规",
+            "r3": "喀麦隆宪法（PDF）"
+          },
+          "button": "查看保障措施"
+        },
+        "traitement": {
+          "title": "国民待遇与最惠国条款",
+          "description": "投资者享有与本国公民**相同的待遇**以及向其他国家授予的优惠（**最惠国条款**）。",
+          "tag": "非歧视",
+          "dialogIntro": "喀麦隆法律保障对外国投资者的公平和非歧视性待遇。",
+          "facts": {
+            "f1_label": "原则",
+            "f1_value": "非歧视",
+            "f2_label": "市场准入",
+            "f2_value": "平等",
+            "f3_label": "除外",
+            "f3_value": "战略行业"
+          },
+          "blocks": {
+            "b1_heading": "国民待遇原则",
+            "b1_i1": "外国投资者享有与国内投资者**相同的权利和义务**。",
+            "b1_i2": "适用于所有阶段：设立、运营、资产收购和公共采购。",
+            "b1_i3": "目标：**消除基于国籍或资本来源的任何歧视**。",
+            "b2_heading": "最惠国（MFN）条款",
+            "b2_i1": "授予任何其他国家的优惠**自动延伸**至受最惠国条款保护的投资者。",
+            "b2_i2": "保障所有国际合作伙伴之间的平等待遇。",
+            "b3_heading": "例外和保留",
+            "b3_i1": "某些**战略行业**（国防、关键自然资源）可能有特定制度。",
+            "b3_i2": "在特殊情况下可采取**保障措施**。"
+          },
+          "resources": {
+            "r1": "喀麦隆投资法典（API）",
+            "r2": "了解最惠国条款（WTO）",
+            "r3": "喀麦隆投资者指南（PDF）"
+          },
+          "button": "待遇详情"
+        },
+        "cadre_legal": {
+          "title": "法律框架与机构",
+          "description": "喀麦隆拥有**现代法律框架**和专门机构，为投资者提供支持。",
+          "tag": "机构",
+          "dialogIntro": "喀麦隆依托强大的立法和机构框架来规范和支持投资。",
+          "facts": {
+            "f1_label": "关键机构",
+            "f1_value": "API、MINEPAT",
+            "f2_label": "适用法律",
+            "f2_value": "OHADA",
+            "f3_label": "简化",
+            "f3_value": "CRI"
+          },
+          "blocks": {
+            "b1_heading": "主要投资机构",
+            "b1_i1": "**API**（投资促进局）：一站式服务、陪同和程序便利化。",
+            "b1_i2": "**MINEPAT**：负责经济政策和重大项目监督。",
+            "b1_i3": "**业务手续中心（CFE）**：将所有行政机构集中，简化公司注册。",
+            "b1_i4": "**OHADA ORD**：国际公认的仲裁和调解机制。",
+            "b2_heading": "主要法律框架",
+            "b2_i1": "**OHADA法律**：10项统一法规，涵盖商业法的所有领域。",
+            "b2_i2": "**投资法典（第2013/004号法律）**：原则、激励制度和保证。",
+            "b2_i3": "**税法总则**：企业和个人所得税。",
+            "b2_i4": "**劳动法**：雇主与雇员关系、就业和解雇条件。",
+            "b2_i5": "**政府采购法**：公共合同中的透明度和竞争。"
+          },
+          "resources": {
+            "r1": "API官方网站",
+            "r2": "OHADA官方网站",
+            "r3": "税法总则（PDF）",
+            "r4": "劳动法（PDF）"
+          },
+          "button": "了解法律框架"
+        },
+        "droit_propriete": {
+          "title": "财产权",
+          "description": "**私有财产受宪法保护**，清晰的土地制度保障您的收购安全。",
+          "tag": "宪法性",
+          "dialogIntro": "财产权是喀麦隆法律中的基本权利，有坚实的法律保障。",
+          "facts": {
+            "f1_label": "法律保障",
+            "f1_value": "宪法",
+            "f2_label": "证书有效期",
+            "f2_value": "25年以上",
+            "f3_label": "安全性",
+            "f3_value": "不动产登记"
+          },
+          "blocks": {
+            "b1_heading": "喀麦隆土地制度",
+            "b1_i1": "**土地证书**：MINDCAF颁发的不可辩驳的所有权证明，有效期25年，可续期。",
+            "b1_i2": "**永久地役权租约**：长期（18至99年），对土地享有实际权利，可作银行抵押。",
+            "b1_i3": "**财产证书**：证明待处理申请的临时文件。",
+            "b1_i4": "**国有土地**：国家是最初所有者；通过可转为土地证书的特许权收购。",
+            "b2_heading": "财产安全保障程序",
+            "b2_i1": "**地籍登记**：强制性，需进行实物界定和地形测量。",
+            "b2_i2": "**官方公报公示**：确保对第三方的透明度。",
+            "b2_i3": "**非归还证明**：保证土地未被归还。",
+            "b2_i4": "**土地登记查询**：收购前核查历史记录。"
+          },
+          "resources": {
+            "r1": "MINDCAF官方网站",
+            "r2": "土地制度法律（PDF）",
+            "r3": "土地收购实用指南（PDF）"
+          },
+          "button": "了解财产权"
+        },
+        "procedure_terrain": {
+          "title": "土地获取程序",
+          "description": "**简化程序**便利投资项目的土地收购，时间线明确。",
+          "tag": "5步骤",
+          "dialogIntro": "土地收购受明确程序监管，旨在便利投资者操作。",
+          "facts": {
+            "f1_label": "关键步骤",
+            "f1_value": "5步骤",
+            "f2_label": "平均时限",
+            "f2_value": "6至9个月",
+            "f3_label": "登记费",
+            "f3_value": "2 - 5%"
+          },
+          "blocks": {
+            "b1_heading": "一般流程（5个基本步骤）",
+            "b1_i1": "**提交申请**：向MINDCAF或API提交，附详细项目说明。",
+            "b1_i2": "**环境影响评估（EIA）**：大型项目强制要求。",
+            "b1_i3": "**土地使用规划审批**：符合城市规划和地方法规。",
+            "b1_i4": "**缴纳土地权利费**：登记费、土地税及可能的特许权费。",
+            "b1_i5": "**颁发土地证书**：最终证书或已签署的特许权合同。",
+            "b2_heading": "预计时限和费用",
+            "b2_i1": "**平均时限**：获得土地证书需6至9个月。",
+            "b2_i2": "**登记费**：土地市场价值的2%至5%。",
+            "b2_i3": "**年度土地税**：约为地籍价值的0.1%。",
+            "b2_i4": "**额外费用**：界定、公证人、未开发土地的配套设施。"
+          },
+          "advice": "重要提示：强烈建议聘请合格的本地专家（测量师、土地律师）协助处理这些程序。",
+          "resources": {
+            "r1": "投资程序（API）",
+            "r2": "土地制度（MINDCAF）",
+            "r3": "土地程序指南（PDF）"
+          },
+          "button": "查看完整程序"
+        },
+        "fiscalite_incitations": {
+          "title": "税收与激励",
+          "description": "受益于**激励性税收制度**和对优先投资的豁免。",
+          "tag": "激励",
+          "dialogIntro": "喀麦隆实施了具有吸引力的税收政策，并提供重大激励措施以吸引投资。",
+          "facts": {
+            "f1_label": "先锋企业豁免",
+            "f1_value": "最多5年",
+            "f2_label": "经济特区增值税",
+            "f2_value": "0%",
+            "f3_label": "中小企业企业税",
+            "f3_value": "25%"
+          },
+          "blocks": {
+            "b1_heading": "特殊税收制度",
+            "b1_i1": "**先锋企业**：豁免最长10年（5年设立期+5年运营期）。",
+            "b1_i2": "**经济特区（SEZ）**：0%增值税、企业税减免、行政便利。",
+            "b1_i3": "**中小企业制度**：企业税率降至25%（低于标准税率）。",
+            "b1_i4": "**出口优惠**：投入品增值税豁免和海关便利。",
+            "b1_i5": "**研发税收抵免**：对研究投资企业的税收激励。",
+            "b2_heading": "标准税率表",
+            "b2_i1": "**企业所得税（CIT）**：标准税率33%。",
+            "b2_i2": "**增值税**：标准税率19.25%，基本生活必需品享有豁免。",
+            "b2_i3": "**关税**：按产品类别5%至30%不等。",
+            "b2_i4": "**营业执照**：约为营业额的1%。"
+          },
+          "resources": {
+            "r1": "税法总则（DGI）",
+            "r2": "投资法典的税收优惠（API）",
+            "r3": "企业税务指南（PDF）"
+          },
+          "button": "了解税收激励"
+        },
+        "resolution_conflits": {
+          "title": "争议解决",
+          "description": "喀麦隆提供**有效的**争议解决机制，包括国际仲裁。",
+          "tag": "仲裁",
+          "dialogIntro": "为确保良好的营商环境，喀麦隆提供从友好协商到国际仲裁的多种机制。",
+          "facts": {
+            "f1_label": "救济途径",
+            "f1_value": "调解、仲裁",
+            "f2_label": "OHADA仲裁",
+            "f2_value": "是（CCJA）",
+            "f3_label": "ICSID",
+            "f3_value": "2016年起会员"
+          },
+          "blocks": {
+            "b1_heading": "国内救济途径",
+            "b1_i1": "**调解与和解**：调解机构（CCIMA）提供友好、保密的解决方案。",
+            "b1_i2": "**OHADA仲裁（CCJA）**：裁决在所有成员国直接可执行，无需执行令。",
+            "b1_i3": "**国内法院**：管辖商业争议，程序正在现代化。",
+            "b2_heading": "国际仲裁",
+            "b2_i1": "**ICSID**：2016年起成员，允许外国投资者向世界银行提交争议。",
+            "b2_i2": "**《纽约公约》（1958年）**：已批准，便利外国仲裁裁决的承认。",
+            "b2_i3": "**双边投资协定（BIA）**：多个双边投资协定中的具体国际仲裁条款。"
+          },
+          "resources": {
+            "r1": "OHADA仲裁（CCJA）",
+            "r2": "ICSID成员国",
+            "r3": "争议解决指南（PDF）"
+          },
+          "button": "了解争议解决"
+        },
+        "liberte_entreprise": {
+          "title": "企业自由",
+          "tag": "营商环境",
+          "description": "喀麦隆致力于**持续改善**营商环境，简化企业设立程序。",
+          "facts": {
+            "f1_label": "营商环境排名",
+            "f1_value": "提升32位",
+            "f2_label": "企业设立",
+            "f2_value": "3天",
+            "f3_label": "最低资本",
+            "f3_value": "1 XAF"
+          },
+          "dialogIntro": "任何本国或外国人士均可在喀麦隆**自由从事**合法经营活动。企业设立手续已集中办理并简化。",
+          "blocks": {
+            "b1_heading": "快速设立企业",
+            "b1_i1": "**一站式服务**：企业设立手续中心（CFCE）集中办理所有手续。",
+            "b1_i2": "材料齐全后最快**3天**即可设立企业。",
+            "b1_i3": "有限责任公司（SARL）的注册资本由股东**自由确定**。",
+            "b1_i4": "OHADA**个体经营者**身份，手续更简便。",
+            "b2_heading": "有规范的自由",
+            "b2_i1": "享有设立机构和从事任何**合法活动**的自由。",
+            "b2_i2": "部分受监管行业需事先取得**许可**或执照。",
+            "b2_i3": "本国与外国投资者享有平等待遇。"
+          },
+          "resources": {
+            "r1": "设立企业（API）",
+            "r2": "OHADA公司法"
+          },
+          "button": "了解企业自由"
+        },
+        "rse": {
+          "title": "企业社会责任与可持续发展",
+          "tag": "影响力",
+          "description": "践行**企业社会责任**，享受带来积极影响的优惠。",
+          "facts": {
+            "f1_label": "社会责任义务",
+            "f1_value": "营业额1%",
+            "f2_label": "环境与社会标准",
+            "f2_value": "严格遵守",
+            "f3_label": "税收抵免",
+            "f3_value": "最高30%"
+          },
+          "dialogIntro": "喀麦隆鼓励**负责任**的投资：尊重环境并惠及当地社区。",
+          "blocks": {
+            "b1_heading": "环境与社会义务",
+            "b1_i1": "遵守**环境管理框架法**（1996年）。",
+            "b1_i2": "相关项目须开展**环境与社会影响评估**（EIES）。",
+            "b1_i3": "遵守《劳动法》及健康安全标准。",
+            "b1_i4": "为项目所在地的**地方发展**作出贡献。",
+            "b2_heading": "投资者的优势",
+            "b2_i1": "更便捷地获得**绿色融资**和国际合作伙伴。",
+            "b2_i2": "创造就业且环保的项目可享受优惠。",
+            "b2_i3": "提高项目认可度并降低风险。"
+          },
+          "advice": "请在项目设计阶段就规划环境与社会影响评估：审批往往取决于此。",
+          "resources": {
+            "r1": "环境部（MINEPDED）",
+            "r2": "投资者服务（API）"
+          },
+          "button": "了解企业社会责任"
+        },
+        "liberte_capitaux": {
+          "title": "资本自由流动",
+          "description": "**资本自由流动受到保障**，便利资金转移和汇回。",
+          "tag": "保障",
+          "dialogIntro": "喀麦隆保障资本自由流动，这是国际投资者的主要优势。",
+          "facts": {
+            "f1_label": "转账",
+            "f1_value": "股息、版税",
+            "f2_label": "月度上限",
+            "f2_value": "2000万XAF",
+            "f3_label": "证明文件",
+            "f3_value": "必须提供"
+          },
+          "blocks": {
+            "b1_heading": "授权转账",
+            "b1_i1": "**利润和股息**：缴纳当地税款后可自由转账。",
+            "b1_i2": "**版税和许可证**：专利、商标、技术和技术服务款项。",
+            "b1_i3": "**贷款偿还**：按已登记协议条款汇回。",
+            "b1_i4": "**清算所得**：净所得可自由转让。",
+            "b1_i5": "**外籍人员薪资**：全部或部分收入可转至原籍国。",
+            "b2_heading": "外汇管制",
+            "b2_i1": "**BEAC法规**：所有重大转账必须符合BEAC法规。",
+            "b2_i2": "**强制证明文件**：合同、发票、股东会议记录、经审计的财务报表。",
+            "b2_i3": "**月度上限**：2000万XAF无需详细文件；超出则需严格文件。",
+            "b2_i4": "**外商直接投资申报**：外商直接投资必须向BEAC和API申报。"
+          },
+          "resources": {
+            "r1": "BEAC外汇管制法规",
+            "r2": "投资法典——保证（API）",
+            "r3": "资本转移程序指南（PDF）"
+          },
+          "button": "资本流动详情"
+        }
+      }
+    }
+  },
+  "pages_a_propos": {
+    "presentation_api": {
+      "hero": {
+        "title": "投资促进局",
+        "subtitle": "投资喀麦隆意味着投资于中非中心一个稳定、开放和充满活力的国家。"
+      },
+      "breadcrumbs": {
+        "home": "首页",
+        "about": "关于",
+        "presentation": "API介绍"
+      },
+      "objectifs": {
+        "title": "我们的目标",
+        "items": [
+          {
+            "title": "提升喀麦隆的形象",
+            "desc": "我们强调喀麦隆的经济资产和投资机会。"
+          },
+          {
+            "title": "改善商业环境",
+            "desc": "我们提出便利投资和简化行政程序的措施。"
+          },
+          {
+            "title": "指导投资者",
+            "desc": "我们在项目从构思到实施的每个阶段为投资者提供陪伴支持。"
+          },
+          {
+            "title": "建立数据库",
+            "desc": "我们通过专门平台确定和传播投资机会。"
+          }
+        ]
+      },
+      "fonctions": {
+        "title": "我们的职能",
+        "items": [
+          {
+            "title": "接收许可证申请",
+            "desc": "我们在投资宪章的框架内处理许可证申请。"
+          },
+          {
+            "title": "获取公共服务",
+            "desc": "我们为获得批准的企业获取公共服务提供便利。"
+          },
+          {
+            "title": "监督承诺履行",
+            "desc": "我们确保投资者履行其所作承诺。"
+          },
+          {
+            "title": "简化程序",
+            "desc": "我们与技术部门合作，简化行政手续。"
+          }
+        ]
+      },
+      "gouvernance": {
+        "title": "治理结构",
+        "tab_consultatif": "咨询委员会",
+        "tab_direction": "管理团队",
+        "roles": {
+          "dg": "代理总经理",
+          "pca": "董事会主席",
+          "sg_prc": "喀麦隆共和国总统府秘书处",
+          "minepat": "喀麦隆经济与财政部长"
+        }
+      },
+      "stats": {
+        "title": "数据纵览",
+        "items": [
+          {
+            "name": "办事处",
+            "desc": "雅温得和杜阿拉"
+          },
+          {
+            "name": "支持的投资者",
+            "desc": "国内和国际"
+          },
+          {
+            "name": "注册项目",
+            "desc": "跨越多个行业"
+          },
+          {
+            "name": "多年经验",
+            "desc": "致力于服务投资者"
+          }
+        ]
+      },
+      "map_section": {
+        "title": "地图",
+        "loading": "地图加载中...",
+        "opportunities_title": "把握独特机遇！",
+        "opportunities_desc": "立即投资创新和盈利项目，共建喀麦隆经济的未来。",
+        "see_more": "查看更多项目"
+      },
+      "projects": [
+        {
+          "secteur": "农业工业",
+          "titre": "可可种植园运营",
+          "description": "建立一个现代化的可可种植园，年产50吨。"
+        },
+        {
+          "secteur": "能源",
+          "titre": "20兆瓦太阳能公园",
+          "description": "建设太阳能公园，为北部地区提供清洁能源。"
+        },
+        {
+          "secteur": "数字技术",
+          "titre": "移动支付平台",
+          "description": "开发移动支付应用程序，旨在促进本地金融交易。"
+        }
+      ]
+    },
+    "faq": {
+      "groups": [
+        {
+          "title": "获取投资用地",
+          "accordions": [
+            {
+              "id": "panel1",
+              "summaryTitle": "如何在喀麦隆识别和获取投资用地？",
+              "details": "您可以咨询当地土地服务机构、房地产机构或专业的在线平台。同时也建议联系地方当局获取可用土地及获取程序的详细信息。"
+            },
+            {
+              "id": "panel2",
+              "summaryTitle": "有哪些类型的土地可用于工业、商业或旅游项目？",
+              "details": "可用土地类型包括工业用地、商业区、农业用地和旅游区。每种类型的土地都有具体的特征和法规。"
+            },
+            {
+              "id": "panel3",
+              "summaryTitle": "是否有投资者可用土地的国家数据库？",
+              "details": "是的，有一个投资者可用土地的国家数据库。该数据库通常由土地管理部门管理，可以在线访问或亲自前往当地土地办公室查询。"
+            },
+            {
+              "id": "panel4",
+              "summaryTitle": "在喀麦隆获得土地所有权或特许权的条件是什么？",
+              "details": "您必须遵循行政程序，包括提交申请、核实文件、评估土地和获得主管部门的批准。具体条件可能因土地类型和预期用途而异。"
+            },
+            {
+              "id": "panel5",
+              "summaryTitle": "获取经济用地平均需要多长时间？",
+              "details": "平均时间可能因文件复杂性和行政程序而异。一般而言，可能需要几个月到一年时间。"
+            },
+            {
+              "id": "panel6",
+              "summaryTitle": "如何解决与投资项目相关的土地纠纷？",
+              "details": "建议咨询专门从事土地法的律师，并遵循现行的法律程序。地方当局也可以提供调解服务以帮助解决冲突。"
+            }
+          ]
+        },
+        {
+          "title": "在喀麦隆创办企业",
+          "accordions": [
+            {
+              "id": "panel7",
+              "summaryTitle": "在喀麦隆注册公司的步骤是什么？",
+              "details": "您必须遵循几个步骤，包括起草公司章程、在贸易和公司登记处注册、获取税务识别号和注册社会保障。"
+            },
+            {
+              "id": "panel8",
+              "summaryTitle": "喀麦隆法律认可哪些类型的公司？",
+              "details": "认可的公司类型包括有限责任公司（SARL）、公共有限公司（SA）、普通合伙企业（SNC）和有限合伙企业（SCS）。"
+            },
+            {
+              "id": "panel9",
+              "summaryTitle": "雇用外籍员工必须遵守哪些手续？",
+              "details": "必须为每位外籍员工申请工作许可证。这包括向主管部门提交申请、提供证明文件以及遵守移民和劳动法规。"
+            },
+            {
+              "id": "panel10",
+              "summaryTitle": "如何与当地投资者建立正式合作伙伴关系？",
+              "details": "建议起草一份详细说明合作条款和条件的合作协议。该协议必须由所有相关方签署，可能需要公证验证。"
+            },
+            {
+              "id": "panel11",
+              "summaryTitle": "在喀麦隆设立公司的预计时间线和成本是多少？",
+              "details": "根据公司类型和程序的复杂程度，时间可能从几周到几个月不等。成本可能包括注册费、律师费和行政税。"
+            },
+            {
+              "id": "panel12",
+              "summaryTitle": "在喀麦隆开展业务项目的最佳实践有哪些？",
+              "details": "最佳实践包括进行市场研究、制定可靠的商业计划、寻找当地合作伙伴、遵守当地法规以及与当地社区合作。"
+            }
+          ]
+        },
+        {
+          "title": "投资者的便利化和激励措施",
+          "accordions": [
+            {
+              "id": "panel13",
+              "summaryTitle": "新投资有哪些税收优惠？",
+              "details": "喀麦隆对新投资的税收优惠可包括针对优先行业项目的免税、减税和财政激励。这些好处通常由国家税法和投资政策界定。"
+            },
+            {
+              "id": "panel14",
+              "summaryTitle": "喀麦隆是否有经济特区（SEZ）或自由贸易区？",
+              "details": "是的，喀麦隆有经济特区和自由贸易区。这些区域提供税收和海关激励措施，以吸引投资并促进经济发展。"
+            },
+            {
+              "id": "panel15",
+              "summaryTitle": "哪些经济活动可获得特定激励措施？",
+              "details": "受益于特定激励措施的经济活动包括农业、制造业、旅游业、信息和通信技术以及可再生能源部门。"
+            },
+            {
+              "id": "panel16",
+              "summaryTitle": "创新项目是否有可能享受税收或海关豁免？",
+              "details": "是的，特别是对国家经济和技术发展有贡献的创新项目，通常由税务和海关当局根据特定标准给予豁免。"
+            },
+            {
+              "id": "panel17",
+              "summaryTitle": "如何获取对中小型企业的支持计划？",
+              "details": "您可以联系政府机构、商会和企业支持组织。这些计划可以提供补贴、低息贷款、培训和咨询服务。"
+            },
+            {
+              "id": "panel18",
+              "summaryTitle": "项目进口设备是否免征关税？",
+              "details": "在特定条件下，项目进口设备可能免征关税。这些豁免通常授予优先行业的项目或当地无法获得的设备。"
+            }
+          ]
+        },
+        {
+          "title": "投资保护与担保",
+          "accordions": [
+            {
+              "id": "panel19",
+              "summaryTitle": "投资者在喀麦隆的权利和义务是什么？",
+              "details": "义务包括遵守当地法律法规、环境保护、缴税以及为国家的经济社会发展做出贡献。作为回报，投资者有权获得投资保护和公平待遇。"
+            },
+            {
+              "id": "panel20",
+              "summaryTitle": "向国外转移利润是否得到保证？",
+              "details": "是的，在遵守税务法规和外汇程序的前提下，利润转移到国外是有保证的。投资者可在缴纳相关税费后汇回利润。"
+            },
+            {
+              "id": "panel21",
+              "summaryTitle": "外国投资者的保护机制是什么？",
+              "details": "保护机制包括双边投资条约、反征用保证、公平和非歧视性待遇的权利以及使用争议解决机制。"
+            },
+            {
+              "id": "panel22",
+              "summaryTitle": "作为投资者，如何处理商业或税务纠纷？",
+              "details": "建议咨询专业律师。争议解决机制包括调解、仲裁和主管法院。"
+            },
+            {
+              "id": "panel23",
+              "summaryTitle": "哪些国际协议保护喀麦隆的投资？",
+              "details": "保护喀麦隆投资的国际协议包括双边投资条约、税收协定和投资保护条约，为外国投资者提供保障。"
+            },
+            {
+              "id": "panel24",
+              "summaryTitle": "如何支持投资者确保其项目的安全？",
+              "details": "政府机构、商会和企业支持组织为投资者提供支持以确保其项目的安全，提供咨询服务、信息和行政支持。"
+            }
+          ]
+        },
+        {
+          "title": "可用机会与资源",
+          "accordions": [
+            {
+              "id": "panel25",
+              "summaryTitle": "目前喀麦隆有哪些投资机会？",
+              "details": "当前的投资机会包括农业、能源、基础设施、信息和通信技术以及旅游业。这些部门为投资者提供了增长潜力和激励措施。"
+            },
+            {
+              "id": "panel26",
+              "summaryTitle": "在哪里可以找到喀麦隆有前景行业的统计数据和市场研究报告？",
+              "details": "您可以咨询政府机构、商会、国际组织和专业的在线平台，这些资源提供有关市场趋势和投资机会的数据和分析。"
+            },
+            {
+              "id": "panel27",
+              "summaryTitle": "为投资者提供哪些服务以便利其办理手续？",
+              "details": "提供给投资者的服务包括行政协助、法律和税务咨询、调解服务、培训和财政支持计划。"
+            }
+          ]
+        }
+      ]
+    },
+    "politique_conditions": {
+      "page_title": "法律声明",
+      "download_btn": "下载",
+      "politique": {
+        "title": "隐私政策",
+        "subtitle": "您的个人数据的保护和处理",
+        "filename": "Privacy_Policy.txt",
+        "sections": [
+          {
+            "title": "简介",
+            "content": "投资喀麦隆致力于保护您的个人信息的隐私和安全。本政策说明我们如何收集、使用和保护您的信息。"
+          },
+          {
+            "title": "收集的信息",
+            "content": "我们收集身份信息、专业信息、浏览数据以及您自愿提供的信息。"
+          },
+          {
+            "title": "信息使用",
+            "content": "您的信息用于提供和改善我们的服务，个性化您的体验等。"
+          },
+          {
+            "title": "信息共享",
+            "content": "我们不会出售您的信息。我们可能在获得同意后或法律要求时分享您的数据。"
+          },
+          {
+            "title": "数据安全",
+            "content": "我们采取适当的安全措施以防止未经授权的访问。"
+          },
+          {
+            "title": "您的权利",
+            "content": "您有权访问、更正、删除您的信息，或撤回同意。"
+          },
+          {
+            "title": "Cookie",
+            "content": "我们的网站使用cookie以改善您的体验。"
+          },
+          {
+            "title": "联系方式",
+            "content": "如有任何问题，请联系 contact@investincameroun.com。"
+          },
+          {
+            "title": "修改",
+            "content": "本政策可能会更新。"
+          }
+        ]
+      },
+      "conditions": {
+        "title": "一般使用条款",
+        "subtitle": "平台使用的规则和条件",
+        "filename": "Terms_of_Use.txt",
+        "sections": [
+          {
+            "title": "接受条款",
+            "content": "通过使用本网站，即表示您同意受这些条款的约束。"
+          },
+          {
+            "title": "服务描述",
+            "content": "投资喀麦隆是一个致力于推广投资机会的信息平台。"
+          },
+          {
+            "title": "网站使用",
+            "content": "您同意合法、适当地使用本网站，不损害其安全性。"
+          },
+          {
+            "title": "知识产权",
+            "content": "所有内容受知识产权法保护。未经授权不得复制。"
+          },
+          {
+            "title": "责任限制",
+            "content": "我们对因使用本网站而导致的损失不承担责任。"
+          },
+          {
+            "title": "提供的信息",
+            "content": "信息仅供参考，不构成财务或法律建议。"
+          },
+          {
+            "title": "外部链接",
+            "content": "我们对链接的外部网站的内容概不负责。"
+          },
+          {
+            "title": "修改条款",
+            "content": "我们保留随时修改这些条款的权利。"
+          },
+          {
+            "title": "终止",
+            "content": "如果您违反条款，我们可能会终止您的访问权限。"
+          },
+          {
+            "title": "适用法律",
+            "content": "这些条款受喀麦隆法律管辖。"
+          },
+          {
+            "title": "可分割性",
+            "content": "如果某一条款无效，其他条款仍然有效。"
+          },
+          {
+            "title": "联系方式",
+            "content": "如有疑问，请联系我们。"
+          },
+          {
+            "title": "完整协议",
+            "content": "这些条款构成您与网站之间的完整协议。"
+          }
+        ]
+      },
+      "contact_section": {
+        "title": "问题",
+        "desc": "如有任何关于这些文件的问题，请联系我们。"
+      },
+      "footer": "© {{year}} 投资喀麦隆。保留所有权利。"
     }
   }
 }

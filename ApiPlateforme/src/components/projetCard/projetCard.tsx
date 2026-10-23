@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
 
 interface ProjectCardProps {
@@ -10,22 +11,19 @@ interface ProjectCardProps {
   quartier: string;
   description: string;
   image: string;
-  latitude: number,
-    longitude: number
+  latitude: number;
+  longitude: number;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
-  id,
   titre,
   description,
   image,
 }) => {
+  const { t } = useTranslation();
   return (
-    <a  className="block">
-      <motion.div
-       
-        className="relative bg-gray-200 shadow-md overflow-hidden"
-      >
+    <div className="block">
+      <motion.div className="relative bg-gray-200 shadow-md overflow-hidden rounded-xl">
         <motion.div className="relative" whileHover={{ x: 2 }}>
           <img
             src={image}
@@ -39,20 +37,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             whileHover={{ opacity: 1 }}
           >
             <p className="text-white p-4">{description}</p>
-            <NavLink 
-  to={`/projets/detailsProjets/${id}`} 
-  className="mt-4 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
->
-  Plus de détails...
-</NavLink>
-
+            <NavLink
+              to="/potentiel"
+              className="mt-4 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+            >
+              {t("home.projects.details")}
+            </NavLink>
           </motion.div>
         </motion.div>
-        <div className="p-4 min-h-[100px]"> {/* Ajout de min-h-[150px] pour fixer une hauteur minimale */}
+        <div className="p-4 min-h-[100px]">
+          {" "}
+          {/* Ajout de min-h-[150px] pour fixer une hauteur minimale */}
           <h3 className="text-lg font-semibold text-gray-800 mb-2">{titre}</h3>
         </div>
       </motion.div>
-    </a>
+    </div>
   );
 };
 
