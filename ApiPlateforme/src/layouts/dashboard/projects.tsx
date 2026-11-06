@@ -1,418 +1,1236 @@
-import React, { useEffect, useState } from 'react';
-import projectService from '../../services/projectService';
-import DefaultImage from '../../assets/img/default-image.webp';
+import React, { useState, useEffect, useMemo } from 'react';
+import {
+  Table,
+  Button,
+  Input,
+  Select,
+  Space,
+  Tooltip,
+  Popconfirm,
+  message,
+  Typography,
+  Spin,
+  Radio,
+  Card,
+  Row,
+  Col,
+  Empty,
+  Tag,
+  Progress,
+  Statistic,
+  Badge,
+  Divider,
+  Popover,
+} from 'antd';
+import type { ColumnsType } from 'antd/es/table';
+import {
+  SearchOutlined,
+  FilterOutlined,
+  EditOutlined,
+  EyeOutlined,
+  DeleteOutlined,
+  AppstoreAddOutlined,
+  UnorderedListOutlined,
+  AppstoreOutlined,
+  EnvironmentOutlined,
+  CalendarOutlined,
+  DollarOutlined,
+  CheckCircleOutlined,
+  ClockCircleOutlined,
+  CloseCircleOutlined,
+  FileTextOutlined,
+  MessageOutlined,
+  ArrowUpOutlined,
+  RiseOutlined,
+  FundProjectionScreenOutlined,
+} from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
-import { FaSearch, FaTimes } from 'react-icons/fa';
-import userService from '../../services/userService';
-import { isAdminRole } from '../../utils/roles';
+import StatusTag, { ProjectStatus } from '../../pages/investmentApplication/components/StatusTag';
+import projectService, { BackendProject, ProjectStageModel, ProjectDocModel } from '../../services/projectService';
 
-type Project = {
-  id: string;
-  titre: string;
-  secteur: string;
-  status: string;
-  image: string;
-  investor: any;
-  stages: Array<{
-    titre: string;
-    date: string;
-    status: string;
-  }>;
-  soumissionDate?: Date;
-  description?: string;
-  budget?: number;
+const { Title, Text, Paragraph } = Typography;
+const { Option } = Select;
+
+// ── Types ───────────────────────────────────────────────────────────────────
+interface ProjectRow {
+  key: string;
+  id: number;
+  reference: string;
+  name: string;
+  sector: string;
+  region: string;
+  city: string;
+  quartier?: string;
+  description: string;
+  submissionDate: string;
+  rawDate: string;
+  dateDebut?: string;
+  dateFin?: string;
+  amount: string;
+  rawAmount: number;
+  budget: string;
+  rawBudget: number;
+  roi: number;
+  status: ProjectStatus;
+  rawStatus: string;
+  progressPercent: number;
+  stages: ProjectStageModel[];
+  documents: ProjectDocModel[];
+  hasChat: boolean;
 }
 
-const MyProject: React.FC = () => {
-  const defaultImage = DefaultImage;
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [searchTerm, setSearchTerm] = useState('');
-  const [statusFilter, setStatusFilter] = useState('all');
-  const [loadingId, setLoadingId] = useState<string | null>(null);
-  const [user, setUser] = useState<any>(null);
+const PRIMARY = '#0F0B60';
+
+const SECTORS = [
+  'All Sectors',
+  'Agriculture',
+  'Energy',
+  'Mining',
+  'Manufacturing',
+  'Technology',
+  'Digital',
+  'Logistics',
+  'Services',
+  'Finance',
+];
+
+const REGIONS = [
+  'All Regions',
+  'Adamaoua',
+  'Centre',
+  'Est',
+  'Extrême-Nord',
+  'Littoral',
+  'Nord',
+  'Nord-Ouest',
+  'Ouest',
+  'Sud',
+  'Sud-Ouest',
+];
+
+const STATUSES = ['All Statuses', 'active', 'under review', 'Rejected', 'Submitted'];
+const SORTS = [
+  'Newest Update',
+  'Oldest Update',
+  'Budget (High to Low)',
+  'Budget (Low to High)',
+  'ROI (High to Low)',
+];
+
+const SECTOR_TAG_COLORS: Record<string, string> = {
+  Agriculture: 'green',
+  Energy: 'orange',
+  Mining: 'purple',
+  Manufacturing: 'geekblue',
+  Technology: 'cyan',
+  Digital: 'blue',
+  Logistics: 'volcano',
+  Services: 'magenta',
+  Finance: 'gold',
+};
+
+const mapBackendStatus = (backendStatus?: string): ProjectStatus => {
+  switch (backendStatus) {
+    case 'ACCEPTED':
+      return 'active';
+    case 'STUDYING':
+      return 'under review';
+    case 'REJECTED':
+      return 'Rejected';
+    case 'PENDING':
+    default:
+      return 'Submitted';
+  }
+};
+
+const calculateProgress = (backendStatus?: string, stages?: ProjectStageModel[]): number => {
+  if (stages && stages.length > 0) {
+    const completed = stages.filter((s) => s.status === 'COMPLETED').length;
+    return Math.round((completed / stages.length) * 100);
+  }
+  switch (backendStatus) {
+    case 'ACCEPTED':
+      return 100;
+    case 'STUDYING':
+      return 65;
+    case 'REJECTED':
+      return 100;
+    case 'PENDING':
+    default:
+      return 25;
+  }
+};
+
+const formatDate = (dateStr?: string) => {
+  if (!dateStr) return 'N/A';
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return dateStr;
+  return d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+};
+
+const isEditable = (status: ProjectStatus) =>
+  status === 'active' || status === 'Submitted' || status === 'Pending';
+
+//  Main Component 
+const ProjectsAchievements: React.FC = () => {
   const navigate = useNavigate();
+  const [search, setSearch] = useState('');
+  const [status, setStatus] = useState('All Statuses');
+  const [sector, setSector] = useState('All Sectors');
+  const [region, setRegion] = useState('All Regions');
+  const [sort, setSort] = useState('Newest Update');
+  const [viewMode, setViewMode] = useState<'table' | 'cards'>('table');
+  const [loading, setLoading] = useState(false);
+  const [data, setData] = useState<ProjectRow[]>([]);
+  const [filterOpen, setFilterOpen] = useState(false);
+
+  const activeFilterCount = useMemo(() => {
+    let count = 0;
+    if (status !== 'All Statuses') count++;
+    if (sector !== 'All Sectors') count++;
+    if (region !== 'All Regions') count++;
+    if (sort !== 'Newest Update') count++;
+    return count;
+  }, [status, sector, region, sort]);
+
+  const handleResetFilters = () => {
+    setStatus('All Statuses');
+    setSector('All Sectors');
+    setRegion('All Regions');
+    setSort('Newest Update');
+    setSearch('');
+  };
 
   const fetchProjects = async () => {
+    setLoading(true);
     try {
       const res = await projectService.fetchAllProjects();
-      setProjects(res.data);
-    } catch (error) {
-      console.error("Une erreur est survenue lors de l'affichage des projets", error);
-    }
-  };
+      const list: BackendProject[] = Array.isArray(res.data) ? res.data : [];
+      const mapped: ProjectRow[] = list.map((p, idx) => {
+        const dateObj = p.soumissionDate ? new Date(p.soumissionDate) : (p.createdAt ? new Date(p.createdAt) : new Date());
+        const year = dateObj.getFullYear();
+        const refNumber = String(p.id || idx + 1).padStart(3, '0');
+        const budgetNum = p.budget || p.montant || 0;
+        const personalNum = p.montant || 0;
 
-  const handleAction = async (project: Project, action: 'studying' | 'accepted' | 'rejected') => {
-    setLoadingId(project.id);
-    try {
-      if (action === 'studying') await projectService.studyingProject(project.titre);
-      if (action === 'accepted') await projectService.approveProject(project.titre);
-      if (action === 'rejected') await projectService.rejectedProject(project.titre);
-      await fetchProjects();
-    } catch (e) {
-      // Optionally: show error
-    }
-    setLoadingId(null);
-  };
-
-  const filteredProjects = projects.filter(project => {
-    const matchesSearch = project.titre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      project.secteur.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesStatus = statusFilter === 'all' || project.status.toLowerCase() === statusFilter;
-    return matchesSearch && matchesStatus;
-  });
-
-  const handleProjectClick = (project: Project) => {
-    setSelectedProject(project);
-  };
-
-  const closeModal = () => {
-    setSelectedProject(null);
-  };
-
-  const handleProgressionProject = (project: Project) => {
-    if (!project.stages || project.stages.length === 0) return 0;
-    const completedStages = project.stages.reduce((acc, stage) => {
-      if (stage.status.toLowerCase() === 'completed') {
-        return acc + 1;
-      }
-      return acc;
-    }, 0);
-    return Math.round((completedStages / project.stages.length) * 100);
-  };
-
-  const handleProjectStatus = (status: string) => {
-    switch (status.toLowerCase()) {
-      case 'pending':
-        return 'En attente';
-      case 'rejected':
-        return 'Rejeté';
-      case 'studying':
-        return 'En étude';
-      case 'accepted':
-        return 'Accepté';
-      case 'in_progress':
-        return 'En cours';
-      default:
-        return status;
-    }
-  };
-
-  const getStatusClasses = (status: string) => {
-    switch (status.toLowerCase()) {
-      case 'pending':
-        return 'bg-yellow-100 text-yellow-800';
-      case 'studying':
-        return 'bg-blue-100 text-blue-800';
-      case 'accepted':
-        return 'bg-green-100 text-green-800';
-      case 'rejected':
-        return 'bg-red-100 text-red-800';
-      case 'in_progress':
-        return 'bg-purple-100 text-purple-800';
-      default:
-        return 'bg-gray-100 text-gray-800';
+        return {
+          key: String(p.id || p.titre),
+          id: p.id || idx + 1,
+          reference: `#API-${year}-${refNumber}`,
+          name: p.titre,
+          sector: p.secteur || 'General',
+          region: p.region || 'Centre',
+          city: p.ville || 'Yaoundé',
+          quartier: p.quartier || '',
+          description: p.description || 'No description provided.',
+          submissionDate: formatDate(p.soumissionDate || p.createdAt),
+          rawDate: p.soumissionDate || p.createdAt || '',
+          dateDebut: formatDate(p.dateDebut),
+          dateFin: formatDate(p.dateFin),
+          amount: personalNum > 0 ? `${personalNum.toLocaleString('en-US')} FCFA` : 'N/A',
+          rawAmount: personalNum,
+          budget: budgetNum > 0 ? `${budgetNum.toLocaleString('en-US')} FCFA` : 'N/A',
+          rawBudget: budgetNum,
+          roi: p.ROI || 0,
+          status: mapBackendStatus(p.status),
+          rawStatus: p.status || 'PENDING',
+          progressPercent: calculateProgress(p.status, p.stages),
+          stages: p.stages || [],
+          documents: p.documents || [],
+          hasChat: Boolean(p.hasChat),
+        };
+      });
+      setData(mapped);
+    } catch (err) {
+      console.error('Failed to load projects from backend', err);
+      message.error('Unable to fetch your projects from the server.');
+    } finally {
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchProjects();
-    userService.me().then((res) => setUser(res.data)).catch(() => setUser(null));
   }, []);
 
-  return (
-    <div>
-      {/* Filter Bar */}
-      <div className="fixed top-16 left-64 w-[calc(100vw-16rem)] z-20 bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-4 sm:space-y-0">
-            <div className="flex flex-wrap gap-2 max-w-full">
-              <button
-                onClick={() => setStatusFilter('all')}
-                className={`px-4 py-2 text-sm font-medium rounded-md ${statusFilter === 'all' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-300'}`}
-              >
-                Tous
-              </button>
-              <button
-                onClick={() => setStatusFilter('pending')}
-                className={`px-4 py-2 text-sm font-medium rounded-md ${statusFilter === 'pending' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-300'}`}
-              >
-                En attente
-              </button>
-              <button
-                onClick={() => setStatusFilter('studying')}
-                className={`px-4 py-2 text-sm font-medium rounded-md ${statusFilter === 'studying' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-300'}`}
-              >
-                En étude
-              </button>
-              <button
-                onClick={() => setStatusFilter('accepted')}
-                className={`px-4 py-2 text-sm font-medium rounded-md ${statusFilter === 'accepted' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-300'}`}
-              >
-                Acceptés
-              </button>
-              <button
-                onClick={() => setStatusFilter('rejected')}
-                className={`px-4 py-2 text-sm font-medium rounded-md ${statusFilter === 'rejected' ? 'bg-blue-600 text-white' : 'bg-white text-gray-700 border border-gray-300'}`}
-              >
-                Rejetés
-              </button>
+  // Filter & sort logic
+  const filtered = useMemo(() => {
+    return data
+      .filter((r) => {
+        const query = search.toLowerCase();
+        const matchSearch =
+          r.name.toLowerCase().includes(query) ||
+          r.reference.toLowerCase().includes(query) ||
+          r.city.toLowerCase().includes(query) ||
+          r.region.toLowerCase().includes(query) ||
+          r.description.toLowerCase().includes(query);
+
+        const matchStatus = status === 'All Statuses' || r.status === status;
+        const matchSector = sector === 'All Sectors' || r.sector.toLowerCase() === sector.toLowerCase();
+        const matchRegion = region === 'All Regions' || r.region.toLowerCase() === region.toLowerCase();
+
+        return matchSearch && matchStatus && matchSector && matchRegion;
+      })
+      .sort((a, b) => {
+        if (sort === 'Budget (High to Low)') return b.rawBudget - a.rawBudget;
+        if (sort === 'Budget (Low to High)') return a.rawBudget - b.rawBudget;
+        if (sort === 'ROI (High to Low)') return b.roi - a.roi;
+        if (sort === 'Oldest Update') return a.rawDate.localeCompare(b.rawDate);
+        return b.rawDate.localeCompare(a.rawDate);
+      });
+  }, [data, search, status, sector, region, sort]);
+
+  // Statistics calculation
+  const stats = useMemo(() => {
+    const total = data.length;
+    const active = data.filter((p) => p.status === 'active').length;
+    const underReview = data.filter((p) => p.status === 'under review').length;
+    const totalCapital = data.reduce((acc, p) => acc + (p.rawBudget || p.rawAmount || 0), 0);
+    return { total, active, underReview, totalCapital };
+  }, [data]);
+
+  const handleDelete = async (titre: string) => {
+    try {
+      await projectService.disableProject(titre);
+      message.success('Project disabled successfully.');
+      fetchProjects();
+    } catch (err) {
+      message.error('Failed to disable project.');
+    }
+  };
+
+  // ── Table columns with Rich Data 
+  const columns: ColumnsType<ProjectRow> = [
+    {
+      title: <span style={colHeader}>REFERENCE</span>,
+      dataIndex: 'reference',
+      key: 'reference',
+      width: 140,
+      render: (v: string) => (
+        <Tag
+          style={{
+            fontFamily: 'monospace',
+            fontWeight: 700,
+            fontSize: 12,
+            color: PRIMARY,
+            background: '#ECEAF8',
+            border: '1px solid #C6C2EB',
+            borderRadius: 6,
+            padding: '2px 8px',
+          }}
+        >
+          {v}
+        </Tag>
+      ),
+    },
+    {
+      title: <span style={colHeader}>PROJECT & OVERVIEW</span>,
+      dataIndex: 'name',
+      key: 'name',
+      render: (name: string, record) => (
+        <div style={{ maxWidth: 280 }}>
+          <div
+            onClick={() => navigate(`/investor-portal/projects/${encodeURIComponent(name)}`)}
+            style={{
+              fontWeight: 700,
+              fontSize: 14,
+              color: '#111827',
+              cursor: 'pointer',
+              lineHeight: 1.3,
+            }}
+            className="hover:underline hover:text-[#0F0B60]"
+          >
+            {name}
+          </div>
+          <p
+            style={{
+              fontSize: 12,
+              color: '#6B7280',
+              margin: '3px 0 0',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+              whiteSpace: 'nowrap',
+            }}
+          >
+            {record.description}
+          </p>
+          <div style={{ display: 'flex', gap: 6, marginTop: 4 }}>
+            {record.hasChat && (
+              <Tag color="purple" style={{ fontSize: 10, padding: '0 6px', borderRadius: 4 }}>
+                <MessageOutlined style={{ marginRight: 3 }} /> Chat Open
+              </Tag>
+            )}
+            {record.documents.length > 0 && (
+              <Tag color="default" style={{ fontSize: 10, padding: '0 6px', borderRadius: 4 }}>
+                <FileTextOutlined style={{ marginRight: 3 }} /> {record.documents.length} doc{record.documents.length > 1 ? 's' : ''}
+              </Tag>
+            )}
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: <span style={colHeader}>SECTOR</span>,
+      dataIndex: 'sector',
+      key: 'sector',
+      width: 130,
+      render: (sec: string) => {
+        const color = SECTOR_TAG_COLORS[sec] || 'default';
+        return (
+          <Tag color={color} style={{ fontWeight: 600, fontSize: 12, borderRadius: 6, padding: '2px 8px' }}>
+            {sec}
+          </Tag>
+        );
+      },
+    },
+    {
+      title: <span style={colHeader}>LOCATION</span>,
+      key: 'location',
+      width: 160,
+      render: (_, r) => (
+        <div>
+          <div style={{ fontWeight: 600, fontSize: 13, color: '#111827', display: 'flex', alignItems: 'center', gap: 4 }}>
+            <EnvironmentOutlined style={{ color: PRIMARY, fontSize: 12 }} />
+            <span>{r.city}</span>
+          </div>
+          <div style={{ fontSize: 11, color: '#6B7280', paddingLeft: 16 }}>
+            {r.region}{r.quartier ? ` · ${r.quartier}` : ''}
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: <span style={colHeader}>FINANCING / BUDGET</span>,
+      dataIndex: 'budget',
+      key: 'budget',
+      width: 170,
+      render: (budget: string, r) => (
+        <div>
+          <div style={{ fontWeight: 700, fontSize: 13, color: PRIMARY }}>
+            {budget}
+          </div>
+          {r.rawAmount > 0 && r.amount !== budget && (
+            <div style={{ fontSize: 11, color: '#6B7280' }}>
+              Equity: {r.amount}
             </div>
-            <div className="relative w-full sm:w-64">
-              <input
+          )}
+          {r.roi > 0 && (
+            <Tag color="cyan" style={{ fontSize: 10, marginTop: 2, padding: '0 4px', borderRadius: 4 }}>
+              <RiseOutlined /> {r.roi}% ROI
+            </Tag>
+          )}
+        </div>
+      ),
+    },
+    {
+      title: <span style={colHeader}>REVIEW PROGRESS</span>,
+      dataIndex: 'progressPercent',
+      key: 'progressPercent',
+      width: 150,
+      render: (pct: number, r) => {
+        let stroke = PRIMARY;
+        if (r.rawStatus === 'ACCEPTED') stroke = '#16A34A';
+        else if (r.rawStatus === 'REJECTED') stroke = '#DC2626';
+        else if (r.rawStatus === 'STUDYING') stroke = '#D97706';
+
+        return (
+          <div>
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 2 }}>
+              <span style={{ color: '#6B7280' }}>Stage</span>
+              <span style={{ fontWeight: 700, color: stroke }}>{pct}%</span>
+            </div>
+            <Progress percent={pct} showInfo={false} strokeColor={stroke} size="small" />
+          </div>
+        );
+      },
+    },
+    {
+      title: <span style={colHeader}>DATE</span>,
+      dataIndex: 'submissionDate',
+      key: 'submissionDate',
+      width: 120,
+      render: (date: string) => (
+        <span style={{ color: '#4B5563', fontSize: 12, fontWeight: 500 }}>
+          {date}
+        </span>
+      ),
+    },
+    {
+      title: <span style={colHeader}>STATUS</span>,
+      dataIndex: 'status',
+      key: 'status',
+      width: 130,
+      render: (v: ProjectStatus) => <StatusTag status={v} />,
+    },
+    {
+      title: <span style={colHeader}>ACTIONS</span>,
+      key: 'action',
+      width: 140,
+      align: 'right',
+      render: (_, record) => (
+        <Space size={4}>
+          <Tooltip title="View Project Details">
+            <Button
+              type="text"
+              icon={<EyeOutlined style={{ color: '#4B5563', fontSize: 15 }} />}
+              onClick={() => navigate(`/investor-portal/projects/${encodeURIComponent(record.name)}`)}
+              style={{ width: 32, height: 32 }}
+            />
+          </Tooltip>
+          {isEditable(record.status) && (
+            <Tooltip title="Edit Application">
+              <Button
                 type="text"
-                placeholder="Rechercher un projet..."
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                icon={<EditOutlined style={{ color: PRIMARY, fontSize: 15 }} />}
+                onClick={() => navigate(`/investor-portal/project-application/edit/${encodeURIComponent(record.name)}`)}
+                style={{ width: 32, height: 32 }}
               />
-              <div className="absolute left-3 top-2.5 text-gray-400">
-                <FaSearch />
-              </div>
-            </div>
-          </div>
+            </Tooltip>
+          )}
+          {record.hasChat && (
+            <Tooltip title="Open Project Chat">
+              <Button
+                type="text"
+                icon={<MessageOutlined style={{ color: '#7C3AED', fontSize: 15 }} />}
+                onClick={() => navigate(`/investor-portal/messages?chat=${encodeURIComponent(record.name)}`)}
+                style={{ width: 32, height: 32 }}
+              />
+            </Tooltip>
+          )}
+          {isEditable(record.status) && (
+            <Tooltip title="Disable Project">
+              <Popconfirm
+                title="Disable this project?"
+                description="This project will be archived and hidden from active review."
+                onConfirm={() => handleDelete(record.name)}
+                okText="Yes, disable"
+                cancelText="Cancel"
+                okButtonProps={{ danger: true }}
+              >
+                <Button
+                  type="text"
+                  icon={<DeleteOutlined style={{ color: '#EF4444', fontSize: 15 }} />}
+                  style={{ width: 32, height: 32 }}
+                />
+              </Popconfirm>
+            </Tooltip>
+          )}
+        </Space>
+      ),
+    },
+  ];
+
+  return (
+    <div style={{ maxWidth: 1300, margin: '0 auto', padding: '0 0 50px', fontFamily: "'Poppins','Inter',sans-serif" }}>
+      {/* Top Banner & Header */}
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: 24,
+          flexWrap: 'wrap',
+          gap: 16,
+        }}
+      >
+        <div>
+          <h1 style={{ fontSize: 24, fontWeight: 800, color: '#111827', margin: 0, letterSpacing: '-0.02em' }}>
+            Investment Projects Directory
+          </h1>
+          <p style={{ fontSize: 13, color: '#6B7280', margin: '4px 0 0' }}>
+            Comprehensive overview, tracking, and management of all your investment applications.
+          </p>
         </div>
+
+        <Button
+          type="primary"
+          icon={<AppstoreAddOutlined />}
+          onClick={() => navigate('/investor-portal/project-application')}
+          style={{
+            height: 44,
+            borderRadius: 10,
+            fontWeight: 700,
+            background: PRIMARY,
+            border: 'none',
+            fontSize: 14,
+            paddingLeft: 22,
+            paddingRight: 22,
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+            boxShadow: '0 2px 8px rgba(15, 11, 96, 0.2)',
+          }}
+        >
+          Create New Project
+        </Button>
       </div>
-      <div className="bg-gray-50 min-h-screen pt-16">
-        {/* Content */}
-        <div className="max-w-7xl mx-auto px-4 py-6 sm:px-6 lg:px-8 flex flex-col">
-          <div className="flex-1 min-h-0 overflow-y-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProjects.map((project) => {
-                const progress = handleProgressionProject(project);
-                return (
-                  <div
-                    key={project.id}
-                    className="bg-white rounded-lg shadow-md overflow-hidden flex flex-col transition duration-300 ease-in-out hover:transform hover:-translate-y-1 hover:shadow-lg cursor-pointer"
-                    onClick={() => handleProjectClick(project)}
-                  >
-                    {/* Image centrée avec padding */}
-                    <div className="relative h-40 flex justify-center items-center bg-gray-100 p-4">
-                      <img
-                        src={project.image || defaultImage}
-                        alt={project.titre}
-                        className="object-contain h-full max-h-32 w-auto mx-auto rounded-md"
-                      />
-                      <div className={`absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-medium ${getStatusClasses(project.status)}`}>
-                        {handleProjectStatus(project.status)}
-                      </div>
-                    </div>
-                    <div className="p-4 flex-1 flex flex-col">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-1">{project.titre}</h3>
-                      <p className="text-sm text-gray-500 mb-3">Secteur: {project.secteur}</p>
-                      <div className="mb-3">
-                        <div className="flex justify-between text-sm text-gray-600 mb-1">
-                          <span>Progression</span>
-                          <span>{progress}%</span>
-                        </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div
-                            className="h-full rounded-full bg-blue-600 transition-all duration-300"
-                            style={{ width: `${progress}%` }}
-                          ></div>
-                        </div>
-                      </div>
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-xs text-gray-400">
-                          {project.soumissionDate
-                            ? `Soumis: ${new Date(project.soumissionDate).toISOString().slice(0, 10)}`
-                            : 'Date inconnue'}
-                        </span>
-                        {project.status.toLowerCase() === 'accepted' && isAdminRole(user?.role) && (
-                          <button
-                            className="px-3 py-1 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              navigate(`/projet/details/${project.titre}`);
-                            }}
-                          >
-                            Configurer
-                          </button>
-                        )}
-                        {project.status.toLowerCase() === 'accepted' && !isAdminRole(user?.role) && (
-                          <button
-                            className="px-3 py-1 bg-green-600 text-white text-sm rounded-md hover:bg-green-700"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              navigate("/messages", { state: { projectId: project.id } });
-                            }}
-                          >
-                            Chat
-                          </button>
-                        )}
-                      </div>
-                      {/* Actions */}
-                      <div className="flex flex-wrap gap-2 mt-auto">
-                        {project.status.toLowerCase() === 'pending' && isAdminRole(user?.role) && (
-                          <>
-                            <button
-                              className="flex-1 px-2 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition text-xs"
-                              disabled={loadingId === project.id}
-                              onClick={e => {
-                                e.stopPropagation();
-                                handleAction(project, 'studying');
-                              }}
-                            >
-                              {loadingId === project.id ? '...' : 'Étudier'}
-                            </button>
-                            <button
-                              className="flex-1 px-2 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200 transition text-xs"
-                              disabled={loadingId === project.id}
-                              onClick={e => {
-                                e.stopPropagation();
-                                handleAction(project, 'accepted');
-                              }}
-                            >
-                              {loadingId === project.id ? '...' : 'Approuver'}
-                            </button>
-                            <button
-                              className="flex-1 px-2 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition text-xs"
-                              disabled={loadingId === project.id}
-                              onClick={e => {
-                                e.stopPropagation();
-                                handleAction(project, 'rejected');
-                              }}
-                            >
-                              {loadingId === project.id ? '...' : 'Rejeter'}
-                            </button>
-                          </>
-                        )}
-                        {project.status === 'studying' && (
-                          <>
-                            <button
-                              className="flex-1 px-2 py-1 bg-green-100 text-green-700 rounded hover:bg-green-200 transition text-xs"
-                              disabled={loadingId === project.id}
-                              onClick={e => {
-                                e.stopPropagation();
-                                handleAction(project, 'accepted');
-                              }}
-                            >
-                              {loadingId === project.id ? '...' : 'Approuver'}
-                            </button>
-                            <button
-                              className="flex-1 px-2 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200 transition text-xs"
-                              disabled={loadingId === project.id}
-                              onClick={e => {
-                                e.stopPropagation();
-                                handleAction(project, 'rejected');
-                              }}
-                            >
-                              {loadingId === project.id ? '...' : 'Rejeter'}
-                            </button>
-                          </>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
 
-        {/* Project Details Modal */}
-        {selectedProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300">
-            <div className="bg-white rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
-              <div className="p-6">
-                <div className="flex justify-between items-start mb-4">
-                  <h2 className="text-2xl font-bold text-gray-900">{selectedProject.titre}</h2>
-                  <button onClick={closeModal} className="text-gray-400 hover:text-gray-500">
-                    <FaTimes className="text-xl" />
-                  </button>
-                </div>
-
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                  <div className="lg:col-span-2">
-                    {/* Image centrée et paddée dans la modale */}
-                    <div className="flex justify-center items-center bg-gray-100 p-6 mb-6 rounded-lg">
-                      <img
-                        src={selectedProject.image || defaultImage}
-                        alt={selectedProject.titre}
-                        className="object-contain h-64 max-h-64 w-auto mx-auto rounded-md"
-                      />
-                    </div>
-
-                    <div className="mb-6">
-                      <h3 className="text-lg font-semibold text-gray-900 mb-2">Description</h3>
-                      <p className="text-gray-600">
-                        {selectedProject.description || "Aucune description disponible."}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="lg:col-span-1">
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <div className="space-y-4">
-                        <div>
-                          <h3 className="text-sm font-medium text-gray-500">Secteur</h3>
-                          <p className="text-sm text-gray-900 mt-1">{selectedProject.secteur}</p>
-                        </div>
-
-                        <div>
-                          <h3 className="text-sm font-medium text-gray-500">Statut</h3>
-                          <p className="text-sm mt-1">
-                            <span className={`px-2 py-1 rounded-full text-xs font-medium ${getStatusClasses(selectedProject.status)}`}>
-                              {handleProjectStatus(selectedProject.status)}
-                            </span>
-                          </p>
-                        </div>
-
-                        <div>
-                          <h3 className="text-sm font-medium text-gray-500">Progression</h3>
-                          <div className="mt-1">
-                            <div className="flex justify-between text-sm text-gray-600 mb-1">
-                              <span>{handleProgressionProject(selectedProject)}%</span>
-                            </div>
-                            <div className="w-full bg-gray-200 rounded-full h-2">
-                              <div
-                                className="h-full rounded-full bg-blue-600"
-                                style={{ width: `${handleProgressionProject(selectedProject)}%` }}
-                              ></div>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div>
-                          <h3 className="text-sm font-medium text-gray-500">Budget</h3>
-                          <p className="text-sm text-gray-900 mt-1">
-                            {selectedProject.budget
-                              ? `${selectedProject.budget.toLocaleString()} XAF`
-                              : 'Non spécifié'}
-                          </p>
-                        </div>
-
-                        <div>
-                          <h3 className="text-sm font-medium text-gray-500">Date de soumission</h3>
-                          <p className="text-sm text-gray-900 mt-1">
-                            {selectedProject.soumissionDate
-                              ? new Date(selectedProject.soumissionDate).toISOString().slice(0, 10)
-                              : 'Date inconnue'}
-                          </p>
-                        </div>
-
-                        <div className="pt-4">
-                          <button
-                            className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700"
-                            onClick={() => {
-                              navigate(`/projet/details/${selectedProject.titre}`);
-                              closeModal();
-                            }}
-                          >
-                            Voir les détails complets
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+      {/* KPI Overview Metric Cards */}
+      <Row gutter={[16, 16]} style={{ marginBottom: 24 }}>
+        <Col xs={12} sm={6}>
+          <Card
+            bordered={false}
+            style={{
+              borderRadius: 12,
+              background: '#fff',
+              border: '1px solid #ECEAF5',
+              boxShadow: '0 1px 3px rgba(15, 11, 96, 0.04)',
+            }}
+            bodyStyle={{ padding: '16px 20px' }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div>
+                <span style={{ fontSize: 12, color: '#6B7280', fontWeight: 600 }}>TOTAL APPLICATIONS</span>
+                <div style={{ fontSize: 24, fontWeight: 800, color: '#111827', marginTop: 4 }}>
+                  {stats.total}
                 </div>
               </div>
+              <div style={{ width: 42, height: 42, borderRadius: 10, background: '#ECEAF8', display: 'flex', alignItems: 'center', justifyContent: 'center', color: PRIMARY }}>
+                <FundProjectionScreenOutlined style={{ fontSize: 20 }} />
+              </div>
             </div>
+          </Card>
+        </Col>
+
+        <Col xs={12} sm={6}>
+          <Card
+            bordered={false}
+            style={{
+              borderRadius: 12,
+              background: '#fff',
+              border: '1px solid #ECEAF5',
+              boxShadow: '0 1px 3px rgba(15, 11, 96, 0.04)',
+            }}
+            bodyStyle={{ padding: '16px 20px' }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div>
+                <span style={{ fontSize: 12, color: '#6B7280', fontWeight: 600 }}>ACTIVE & APPROVED</span>
+                <div style={{ fontSize: 24, fontWeight: 800, color: '#16A34A', marginTop: 4 }}>
+                  {stats.active}
+                </div>
+              </div>
+              <div style={{ width: 42, height: 42, borderRadius: 10, background: '#DCFCE7', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#16A34A' }}>
+                <CheckCircleOutlined style={{ fontSize: 20 }} />
+              </div>
+            </div>
+          </Card>
+        </Col>
+
+        <Col xs={12} sm={6}>
+          <Card
+            bordered={false}
+            style={{
+              borderRadius: 12,
+              background: '#fff',
+              border: '1px solid #ECEAF5',
+              boxShadow: '0 1px 3px rgba(15, 11, 96, 0.04)',
+            }}
+            bodyStyle={{ padding: '16px 20px' }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div>
+                <span style={{ fontSize: 12, color: '#6B7280', fontWeight: 600 }}>UNDER REVIEW</span>
+                <div style={{ fontSize: 24, fontWeight: 800, color: '#D97706', marginTop: 4 }}>
+                  {stats.underReview}
+                </div>
+              </div>
+              <div style={{ width: 42, height: 42, borderRadius: 10, background: '#FEF3C7', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#D97706' }}>
+                <ClockCircleOutlined style={{ fontSize: 20 }} />
+              </div>
+            </div>
+          </Card>
+        </Col>
+
+        <Col xs={12} sm={6}>
+          <Card
+            bordered={false}
+            style={{
+              borderRadius: 12,
+              background: '#fff',
+              border: '1px solid #ECEAF5',
+              boxShadow: '0 1px 3px rgba(15, 11, 96, 0.04)',
+            }}
+            bodyStyle={{ padding: '16px 20px' }}
+          >
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div>
+                <span style={{ fontSize: 12, color: '#6B7280', fontWeight: 600 }}>TOTAL CAPITAL DECLARED</span>
+                <div style={{ fontSize: 18, fontWeight: 800, color: PRIMARY, marginTop: 4 }}>
+                  {stats.totalCapital > 0 ? `${(stats.totalCapital / 1000000).toFixed(1)}M FCFA` : '0 FCFA'}
+                </div>
+              </div>
+              <div style={{ width: 42, height: 42, borderRadius: 10, background: '#F5F3FF', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#7C3AED' }}>
+                <DollarOutlined style={{ fontSize: 20 }} />
+              </div>
+            </div>
+          </Card>
+        </Col>
+      </Row>
+
+      {/* Advanced Filter Toolbar */}
+      <div
+        style={{
+          background: '#fff',
+          borderRadius: 12,
+          padding: '16px 20px',
+          marginBottom: 20,
+          border: '1px solid #ECEAF5',
+          boxShadow: '0 1px 3px rgba(15, 11, 96, 0.04)',
+        }}
+      >
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            gap: 12,
+          }}
+        >
+          {/* Left: Search input + All filters placed under the exact filter icon */}
+          <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap', alignItems: 'center', flex: 1 }}>
+            <Input
+              prefix={<SearchOutlined style={{ color: '#9CA3AF' }} />}
+              placeholder="Search by project, reference, city..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              style={{ width: 280, height: 40, borderRadius: 8, fontSize: 13 }}
+              allowClear
+            />
+
+            {/* Exact Filter Icon Button with all filters dropdown under it */}
+            <Popover
+              trigger="click"
+              placement="bottomLeft"
+              open={filterOpen}
+              onOpenChange={setFilterOpen}
+              content={
+                <div style={{ width: 330, padding: '4px 2px' }}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginBottom: 14,
+                      paddingBottom: 10,
+                      borderBottom: '1px solid #F0F0F0',
+                    }}
+                  >
+                    <span style={{ fontWeight: 700, fontSize: 14, color: '#111827', display: 'flex', alignItems: 'center', gap: 8 }}>
+                      <FilterOutlined style={{ color: PRIMARY, fontSize: 16 }} />
+                      Filter Options
+                    </span>
+                    {activeFilterCount > 0 && (
+                      <Button
+                        type="link"
+                        size="small"
+                        onClick={handleResetFilters}
+                        style={{ color: '#EF4444', padding: 0, height: 'auto', fontSize: 12, fontWeight: 600 }}
+                      >
+                        Reset all
+                      </Button>
+                    )}
+                  </div>
+
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+                    {/* Status Filter */}
+                    <div>
+                      <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: '#4B5563', marginBottom: 6 }}>
+                        Project Status
+                      </label>
+                      <Select
+                        value={status}
+                        onChange={setStatus}
+                        style={{ width: '100%', height: 38 }}
+                      >
+                        {STATUSES.map((s) => (
+                          <Option key={s} value={s}>{s}</Option>
+                        ))}
+                      </Select>
+                    </div>
+
+                    {/* Sector Filter */}
+                    <div>
+                      <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: '#4B5563', marginBottom: 6 }}>
+                        Business Sector
+                      </label>
+                      <Select
+                        value={sector}
+                        onChange={setSector}
+                        style={{ width: '100%', height: 38 }}
+                      >
+                        {SECTORS.map((s) => (
+                          <Option key={s} value={s}>{s}</Option>
+                        ))}
+                      </Select>
+                    </div>
+
+                    {/* Region Filter */}
+                    <div>
+                      <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: '#4B5563', marginBottom: 6 }}>
+                        Region
+                      </label>
+                      <Select
+                        value={region}
+                        onChange={setRegion}
+                        style={{ width: '100%', height: 38 }}
+                      >
+                        {REGIONS.map((r) => (
+                          <Option key={r} value={r}>{r}</Option>
+                        ))}
+                      </Select>
+                    </div>
+
+                    {/* Sort Filter */}
+                    <div>
+                      <label style={{ display: 'block', fontSize: 12, fontWeight: 600, color: '#4B5563', marginBottom: 6 }}>
+                        Sort Order
+                      </label>
+                      <Select
+                        value={sort}
+                        onChange={setSort}
+                        style={{ width: '100%', height: 38 }}
+                      >
+                        {SORTS.map((s) => (
+                          <Option key={s} value={s}>{s}</Option>
+                        ))}
+                      </Select>
+                    </div>
+                  </div>
+
+                  <div
+                    style={{
+                      marginTop: 16,
+                      paddingTop: 12,
+                      borderTop: '1px solid #F0F0F0',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                    }}
+                  >
+                    <span style={{ fontSize: 12, color: '#6B7280' }}>
+                      {filtered.length} project{filtered.length > 1 ? 's' : ''} found
+                    </span>
+                    <Button
+                      type="primary"
+                      size="small"
+                      onClick={() => setFilterOpen(false)}
+                      style={{ background: PRIMARY, borderColor: PRIMARY, borderRadius: 6, fontWeight: 600 }}
+                    >
+                      Apply
+                    </Button>
+                  </div>
+                </div>
+              }
+            >
+              <Badge count={activeFilterCount} offset={[-2, 2]} color={PRIMARY}>
+                <Button
+                  icon={<FilterOutlined style={{ fontSize: 15, color: activeFilterCount > 0 ? PRIMARY : '#4B5563' }} />}
+                  style={{
+                    height: 40,
+                    borderRadius: 8,
+                    fontWeight: 600,
+                    fontSize: 13,
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 6,
+                    borderColor: activeFilterCount > 0 ? PRIMARY : '#D1D5DB',
+                    color: activeFilterCount > 0 ? PRIMARY : '#374151',
+                    background: activeFilterCount > 0 ? '#ECEAF8' : '#fff',
+                  }}
+                >
+                  Filters
+                </Button>
+              </Badge>
+            </Popover>
+
+            {activeFilterCount > 0 && (
+              <Button
+                type="text"
+                size="small"
+                onClick={handleResetFilters}
+                style={{ color: '#EF4444', fontSize: 12, fontWeight: 600, height: 32 }}
+              >
+                Clear all
+              </Button>
+            )}
+          </div>
+
+          {/* View Switcher: Table or Cards */}
+          <Radio.Group
+            value={viewMode}
+            onChange={(e) => setViewMode(e.target.value)}
+            buttonStyle="solid"
+          >
+            <Radio.Button value="table" style={{ height: 40, lineHeight: '38px', borderRadius: '8px 0 0 8px' }}>
+              <UnorderedListOutlined style={{ marginRight: 6 }} /> Table
+            </Radio.Button>
+            <Radio.Button value="cards" style={{ height: 40, lineHeight: '38px', borderRadius: '0 8px 8px 0' }}>
+              <AppstoreOutlined style={{ marginRight: 6 }} /> Cards
+            </Radio.Button>
+          </Radio.Group>
+        </div>
+
+        {/* Removable Active Filter Tags */}
+        {(activeFilterCount > 0 || search) && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap', marginTop: 12, paddingTop: 10, borderTop: '1px solid #F5F5F5' }}>
+            <span style={{ fontSize: 12, color: '#9CA3AF', fontWeight: 600 }}>Active filters:</span>
+            {search && (
+              <Tag closable onClose={() => setSearch('')} style={{ borderRadius: 6, padding: '2px 8px' }}>
+                Search: "{search}"
+              </Tag>
+            )}
+            {status !== 'All Statuses' && (
+              <Tag closable onClose={() => setStatus('All Statuses')} color="purple" style={{ borderRadius: 6, padding: '2px 8px' }}>
+                Status: {status}
+              </Tag>
+            )}
+            {sector !== 'All Sectors' && (
+              <Tag closable onClose={() => setSector('All Sectors')} color="blue" style={{ borderRadius: 6, padding: '2px 8px' }}>
+                Sector: {sector}
+              </Tag>
+            )}
+            {region !== 'All Regions' && (
+              <Tag closable onClose={() => setRegion('All Regions')} color="cyan" style={{ borderRadius: 6, padding: '2px 8px' }}>
+                Region: {region}
+              </Tag>
+            )}
+            {sort !== 'Newest Update' && (
+              <Tag closable onClose={() => setSort('Newest Update')} color="default" style={{ borderRadius: 6, padding: '2px 8px' }}>
+                Sort: {sort}
+              </Tag>
+            )}
           </div>
         )}
       </div>
+
+      <Spin spinning={loading}>
+        {viewMode === 'table' ? (
+          /* Rich Ant Design Table with Expandable Row */
+          <div
+            style={{
+              background: '#fff',
+              borderRadius: 12,
+              border: '1px solid #ECEAF5',
+              overflow: 'hidden',
+              boxShadow: '0 1px 3px rgba(15, 11, 96, 0.04)',
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                padding: '16px 24px',
+                borderBottom: '1px solid #F0F0F0',
+                background: '#FAFAFD',
+              }}
+            >
+              <span style={{ fontWeight: 700, fontSize: 14, color: '#111827' }}>
+                All Investment Applications ({filtered.length})
+              </span>
+              <span style={{ fontSize: 12, color: '#6B7280' }}>
+                Click on any project to view quick summary or expand details
+              </span>
+            </div>
+
+            <Table<ProjectRow>
+              columns={columns}
+              dataSource={filtered}
+              pagination={{
+                pageSize: 10,
+                showSizeChanger: true,
+                pageSizeOptions: ['10', '20', '50'],
+                showTotal: (total, range) => `${range[0]}-${range[1]} of ${total} projects`,
+              }}
+              rowKey="key"
+              size="middle"
+              style={{ padding: '0 4px' }}
+              rowClassName={(_, i) => (i % 2 === 1 ? 'table-row-alt' : '')}
+              expandable={{
+                expandedRowRender: (record) => (
+                  <div
+                    style={{
+                      padding: '16px 24px',
+                      background: '#FAFAFC',
+                      borderRadius: 8,
+                      border: '1px solid #ECEAF5',
+                      margin: '8px 12px',
+                    }}
+                  >
+                    <Row gutter={[24, 16]}>
+                      <Col xs={24} md={12}>
+                        <h4 style={{ fontSize: 13, fontWeight: 700, color: PRIMARY, marginBottom: 6 }}>
+                          Project Scope & Executive Summary
+                        </h4>
+                        <p style={{ fontSize: 13, color: '#4B5563', lineHeight: 1.6, margin: 0 }}>
+                          {record.description}
+                        </p>
+                        <div style={{ marginTop: 12, display: 'flex', gap: 16 }}>
+                          <div>
+                            <span style={{ fontSize: 11, color: '#9CA3AF', display: 'block' }}>PLANNED START</span>
+                            <span style={{ fontSize: 12, fontWeight: 600, color: '#111827' }}>{record.dateDebut || 'Pending schedule'}</span>
+                          </div>
+                          <div>
+                            <span style={{ fontSize: 11, color: '#9CA3AF', display: 'block' }}>PLANNED COMPLETION</span>
+                            <span style={{ fontSize: 12, fontWeight: 600, color: '#111827' }}>{record.dateFin || 'Pending schedule'}</span>
+                          </div>
+                        </div>
+                      </Col>
+
+                      <Col xs={24} md={12}>
+                        <h4 style={{ fontSize: 13, fontWeight: 700, color: PRIMARY, marginBottom: 6 }}>
+                          Technical & Location Details
+                        </h4>
+                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 16px', fontSize: 12 }}>
+                          <div>
+                            <span style={{ color: '#9CA3AF' }}>Region:</span> <strong style={{ color: '#111827' }}>{record.region}</strong>
+                          </div>
+                          <div>
+                            <span style={{ color: '#9CA3AF' }}>City:</span> <strong style={{ color: '#111827' }}>{record.city}</strong>
+                          </div>
+                          <div>
+                            <span style={{ color: '#9CA3AF' }}>Sector:</span> <strong style={{ color: '#111827' }}>{record.sector}</strong>
+                          </div>
+                          <div>
+                            <span style={{ color: '#9CA3AF' }}>Estimated ROI:</span> <strong style={{ color: '#16A34A' }}>{record.roi}%</strong>
+                          </div>
+                          <div>
+                            <span style={{ color: '#9CA3AF' }}>Total Budget:</span> <strong style={{ color: PRIMARY }}>{record.budget}</strong>
+                          </div>
+                          <div>
+                            <span style={{ color: '#9CA3AF' }}>Equity Share:</span> <strong style={{ color: '#111827' }}>{record.amount}</strong>
+                          </div>
+                        </div>
+
+                        <div style={{ marginTop: 16, display: 'flex', gap: 8 }}>
+                          <Button
+                            type="primary"
+                            size="small"
+                            icon={<EyeOutlined />}
+                            onClick={() => navigate(`/investor-portal/projects/${encodeURIComponent(record.name)}`)}
+                            style={{ background: PRIMARY, borderColor: PRIMARY, borderRadius: 6, fontWeight: 600 }}
+                          >
+                            Open Project Profile
+                          </Button>
+                          <Button
+                            size="small"
+                            icon={<MessageOutlined />}
+                            onClick={() => navigate(`/investor-portal/messages?chat=${encodeURIComponent(record.name)}`)}
+                            style={{ borderRadius: 6, fontWeight: 600 }}
+                          >
+                            Case Officer Discussion
+                          </Button>
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
+                ),
+              }}
+            />
+          </div>
+        ) : (
+          /* Rich Card Grid View */
+          <div>
+            {filtered.length === 0 ? (
+              <div style={{ background: '#fff', borderRadius: 12, padding: '60px 20px', textAlign: 'center' }}>
+                <Empty description="No projects match your search or filter criteria." />
+              </div>
+            ) : (
+              <Row gutter={[18, 18]}>
+                {filtered.map((item) => (
+                  <Col xs={24} sm={12} lg={8} key={item.key}>
+                    <Card
+                      hoverable
+                      style={{
+                        borderRadius: 14,
+                        border: '1px solid #ECEAF5',
+                        boxShadow: '0 2px 6px rgba(15, 11, 96, 0.04)',
+                        height: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'space-between',
+                      }}
+                      bodyStyle={{ padding: 22, display: 'flex', flexDirection: 'column', height: '100%' }}
+                    >
+                      {/* Top Card Header */}
+                      <div>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                          <Tag style={{ fontFamily: 'monospace', fontWeight: 700, fontSize: 11, color: PRIMARY, background: '#ECEAF8', borderRadius: 6 }}>
+                            {item.reference}
+                          </Tag>
+                          <StatusTag status={item.status} />
+                        </div>
+
+                        <h3
+                          onClick={() => navigate(`/investor-portal/projects/${encodeURIComponent(item.name)}`)}
+                          style={{
+                            fontSize: 17,
+                            fontWeight: 700,
+                            color: '#111827',
+                            margin: '0 0 6px',
+                            lineHeight: 1.3,
+                            cursor: 'pointer',
+                          }}
+                          className="hover:text-[#0F0B60] hover:underline"
+                        >
+                          {item.name}
+                        </h3>
+
+                        <p
+                          style={{
+                            fontSize: 12,
+                            color: '#6B7280',
+                            margin: '0 0 14px',
+                            display: '-webkit-box',
+                            WebkitLineClamp: 2,
+                            WebkitBoxOrient: 'vertical',
+                            overflow: 'hidden',
+                            lineHeight: 1.5,
+                          }}
+                        >
+                          {item.description}
+                        </p>
+
+                        <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap', marginBottom: 16 }}>
+                          <Tag color={SECTOR_TAG_COLORS[item.sector] || 'default'} style={{ borderRadius: 6, fontWeight: 600 }}>
+                            {item.sector}
+                          </Tag>
+                          <Tag icon={<EnvironmentOutlined />} style={{ borderRadius: 6, color: '#4B5563' }}>
+                            {item.city}, {item.region}
+                          </Tag>
+                          {item.roi > 0 && (
+                            <Tag color="cyan" style={{ borderRadius: 6 }}>
+                              {item.roi}% ROI
+                            </Tag>
+                          )}
+                        </div>
+
+                        {/* Financial Box */}
+                        <div
+                          style={{
+                            background: '#F9FAFB',
+                            borderRadius: 10,
+                            padding: '12px 14px',
+                            marginBottom: 16,
+                            border: '1px solid #F3F4F6',
+                          }}
+                        >
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
+                            <span style={{ fontSize: 11, color: '#9CA3AF', fontWeight: 600 }}>TOTAL BUDGET</span>
+                            <span style={{ fontSize: 15, fontWeight: 800, color: PRIMARY }}>{item.budget}</span>
+                          </div>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                            <span style={{ fontSize: 11, color: '#9CA3AF' }}>Equity Share</span>
+                            <span style={{ fontSize: 12, fontWeight: 600, color: '#4B5563' }}>{item.amount}</span>
+                          </div>
+                        </div>
+
+                        {/* Review Progress */}
+                        <div style={{ marginBottom: 16 }}>
+                          <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 11, marginBottom: 4 }}>
+                            <span style={{ color: '#6B7280' }}>Review Progress</span>
+                            <span style={{ fontWeight: 700, color: PRIMARY }}>{item.progressPercent}%</span>
+                          </div>
+                          <Progress percent={item.progressPercent} showInfo={false} strokeColor={PRIMARY} size="small" />
+                        </div>
+                      </div>
+
+                      {/* Card Action Buttons */}
+                      <div
+                        style={{
+                          borderTop: '1px solid #F3F4F6',
+                          paddingTop: 14,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'space-between',
+                          marginTop: 'auto',
+                        }}
+                      >
+                        <span style={{ fontSize: 11, color: '#9CA3AF' }}>{item.submissionDate}</span>
+                        <Space size={6}>
+                          <Button
+                            size="small"
+                            icon={<EyeOutlined />}
+                            onClick={() => navigate(`/investor-portal/projects/${encodeURIComponent(item.name)}`)}
+                            style={{ borderRadius: 6, fontWeight: 600 }}
+                          >
+                            Details
+                          </Button>
+                          {isEditable(item.status) && (
+                            <Button
+                              type="primary"
+                              size="small"
+                              icon={<EditOutlined />}
+                              onClick={() => navigate(`/investor-portal/project-application/edit/${encodeURIComponent(item.name)}`)}
+                              style={{ borderRadius: 6, fontWeight: 600, background: PRIMARY, borderColor: PRIMARY }}
+                            >
+                              Edit
+                            </Button>
+                          )}
+                          {isEditable(item.status) && (
+                            <Popconfirm
+                              title="Disable this project?"
+                              description="Are you sure you want to disable this project?"
+                              onConfirm={() => handleDelete(item.name)}
+                              okText="Yes"
+                              cancelText="Cancel"
+                              okButtonProps={{ danger: true }}
+                            >
+                              <Button
+                                danger
+                                size="small"
+                                icon={<DeleteOutlined />}
+                                style={{ borderRadius: 6 }}
+                              />
+                            </Popconfirm>
+                          )}
+                        </Space>
+                      </div>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
+            )}
+          </div>
+        )}
+      </Spin>
+
+      {/* Inline style for alternating rows and clean Antd table theme */}
+      <style>{`
+        .table-row-alt td { background: #FAFAFD; }
+        .ant-table-thead > tr > th {
+          background: #F8F7FC !important;
+          color: #6B7280;
+          font-size: 11px;
+          font-weight: 700;
+          letter-spacing: 0.05em;
+          border-bottom: 1px solid #ECEAF5 !important;
+          padding: 14px 16px !important;
+        }
+        .ant-table-tbody > tr > td {
+          padding: 14px 16px !important;
+          border-bottom: 1px solid #F3F4F6 !important;
+        }
+        .ant-table-tbody > tr:hover > td {
+          background: #F5F3FF !important;
+        }
+        .ant-table-row-expand-icon {
+          color: #0F0B60 !important;
+        }
+      `}</style>
     </div>
   );
 };
 
-export default MyProject;
+// Column header style
+const colHeader: React.CSSProperties = {
+  fontSize: 11,
+  fontWeight: 700,
+  color: '#6B7280',
+  letterSpacing: '0.06em',
+  textTransform: 'uppercase',
+};
+
+export default ProjectsAchievements;

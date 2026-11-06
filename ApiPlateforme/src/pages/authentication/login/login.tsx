@@ -20,6 +20,7 @@ import userService, { TwoFactorMethod } from "../../../services/userService";
 import TokenInput from "../../../components/tokenInput/tokenInput";
 import { getApiErrorCode, getApiErrorMessage } from "../../../utils/apiError";
 import { homePathFor } from "../../../utils/roles";
+import { checkOnboardingCompleted } from "../../../utils/onboardingUtils";
 
 const Login = () => {
   const [email, setEmail] = React.useState("");
@@ -50,12 +51,56 @@ const Login = () => {
     event.preventDefault();
   };
 
-  const finishLogin = (accessToken: string) => {
+  React.useEffect(() => {
+    if (useAuthStore.getState().isAuthenticated()) {
+      const decoded = useAuthStore.getState().decoded;
+      const role = decoded?.role;
+      const userEmail = decoded?.sub;
+      if (role === "SUPER_ADMIN") {
+        history("/users", { replace: true });
+      } else if (role === "ADMIN") {
+        history("/demandes", { replace: true });
+      } else {
+        checkOnboardingCompleted(userEmail).then((isDone) => {
+          if (isDone) {
+            history("/investor-portal", { replace: true });
+          } else {
+            history("/onboarding", { replace: true });
+          }
+        });
+      }
+    }
+  }, [history]);
+
+  const finishLogin = async (accessToken: string) => {
     const auth = useAuthStore.getState();
     auth.setToken(accessToken);
     sessionStorage.setItem("secteur", "");
     setError(null);
-    history(homePathFor(useAuthStore.getState().decoded?.role));
+    const decoded = useAuthStore.getState().decoded;
+    const role = decoded?.role;
+    const userEmail = decoded?.sub || email.trim();
+
+    if (role === "SUPER_ADMIN") {
+      history("/users");
+      return;
+    }
+    if (role === "ADMIN") {
+      history("/demandes");
+      return;
+    }
+
+    // Role is INVESTOR or PROJECT_OWNER:
+    try {
+      const isCompleted = await checkOnboardingCompleted(userEmail);
+      if (isCompleted) {
+        history("/investor-portal");
+      } else {
+        history("/onboarding");
+      }
+    } catch (_) {
+      history(homePathFor(role, userEmail));
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -70,7 +115,7 @@ const Login = () => {
         setCode("");
         setInfo(null);
       } else if (res.data.accessToken) {
-        finishLogin(res.data.accessToken);
+        await finishLogin(res.data.accessToken);
       }
     } catch (err) {
       if (getApiErrorCode(err) === "ACCOUNT_NOT_ACTIVATED") {
@@ -92,7 +137,7 @@ const Login = () => {
     try {
       const res = await userService.verifyTwoFactor(mfa.token, code.trim());
       if (res.data.accessToken) {
-        finishLogin(res.data.accessToken);
+        await finishLogin(res.data.accessToken);
       }
     } catch (err) {
       if (getApiErrorCode(err) === "MFA_SESSION_EXPIRED") {

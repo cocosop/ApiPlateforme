@@ -87,22 +87,24 @@ export const ViewAllLink: React.FC<{ to: string; label?: string }> = ({
   </Link>
 );
 
-const ProjectAction: React.FC<{ project: PortalProject }> = ({ project }) =>
-  project.status === "DRAFT" ? (
+const ProjectAction: React.FC<{ project: PortalProject }> = ({ project }) => {
+  const editId = project.reference.replace(/[^a-zA-Z0-9_-]/g, '') || '1';
+  return project.status === "DRAFT" ? (
     <Link
-      to="/project-application"
-      className="inline-flex items-center gap-2 whitespace-nowrap rounded-lg bg-[#0F0B60] px-4 py-2 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-[#2A0A6B]"
+      to={`/investor-portal/project-application/edit/${editId}`}
+      className="inline-flex items-center gap-2 whitespace-nowrap rounded-lg bg-[#0F0B60] px-4 py-2 text-xs font-semibold text-white shadow-sm transition-colors hover:bg-[#1A1675]"
     >
       <Pencil className="h-3.5 w-3.5" /> Continue edit
     </Link>
   ) : (
-    <button
-      type="button"
-      className="inline-flex items-center gap-2 whitespace-nowrap rounded-lg border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-4 py-2 text-xs font-semibold text-[#14112B] dark:text-white transition-colors hover:border-[#4B1FB8] hover:text-[#4B1FB8]"
+    <Link
+      to={`/investor-portal/projects/${editId}`}
+      className="inline-flex items-center gap-2 whitespace-nowrap rounded-lg border border-gray-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 px-4 py-2 text-xs font-semibold text-[#14112B] dark:text-white transition-colors hover:border-[#0F0B60] hover:text-[#0F0B60]"
     >
       <Eye className="h-3.5 w-3.5" /> View application
-    </button>
+    </Link>
   );
+};
 
 /** Tableau des projets : tableau classique sur grand écran, cartes empilées sur mobile */
 export const ProjectsTable: React.FC<{ projects: PortalProject[] }> = ({

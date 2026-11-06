@@ -53,7 +53,7 @@ import Users from "../../layouts/users";
 import InvestorOnboarding from "../../pages/authentication/onboarding/InvestorOnboarding";
 import InvestorPortalLayout from "../../pages/investorPortal/InvestorPortalLayout";
 import InvestorOverview from "../../pages/investorPortal/Overview";
-import { MessagesPage, MyProjectsPage, NotificationsPage, ProfilePage, SettingsPage } from "../../pages/investorPortal/Pages";
+import { MessagesPage, NotificationsPage, ProfilePage, SettingsPage, ProjectDetailPage } from "../../pages/investorPortal/Pages";
 import InvestmentProjectApplication from "../../pages/investmentApplication/InvestmentProjectApplication";
 
 const AppRoutes = () => {
@@ -134,23 +134,33 @@ const AppRoutes = () => {
         <Route path="/signup" element={<Logup />} />
       </Route>
 
-      {/* ---------------- PORTAIL INVESTISSEUR (maquette, données fictives) ----------------
-          À placer sous <RequireAuth /> une fois relié au backend. */}
-      <Route path="/investor-portal" element={<InvestorPortalLayout />}>
-        <Route index element={<InvestorOverview />} />
-        <Route path="projects" element={<MyProjectsPage />} />
-        <Route path="profile" element={<ProfilePage />} />
-        <Route path="messages" element={<MessagesPage />} />
-        <Route path="notifications" element={<NotificationsPage />} />
-        <Route path="settings" element={<SettingsPage />} />
-      </Route>
+      {/* Redirections directes pour garantir la présence de la sidebar */}
+      <Route path="/project-application" element={<Navigate to="/investor-portal/project-application" replace />} />
+      <Route path="/project-application/:id" element={<Navigate to="/investor-portal/project-application" replace />} />
+      <Route path="/project-application/edit/:id" element={<Navigate to="/investor-portal/project-application" replace />} />
 
       {/* ---------------- PRIVATE ROUTES ---------------- */}
       <Route element={<RequireAuth />}>
-        {/* Onboarding & Project Application – with public Navbar + Footer */}
+        {/* Portail Investisseur */}
+        <Route path="/investor-portal" element={<InvestorPortalLayout />}>
+          <Route index element={<InvestorOverview />} />
+          <Route path="projects" element={<MyProjects />} />
+          <Route path="projects/:id" element={<ProjectDetailPage />} />
+          <Route path="projects/detail/:id" element={<ProjectDetailPage />} />
+          <Route path="project-application" element={<InvestmentProjectApplication />} />
+          <Route path="project-application/:id" element={<InvestmentProjectApplication />} />
+          <Route path="project-application/edit/:id" element={<InvestmentProjectApplication />} />
+          <Route path="projects/new" element={<InvestmentProjectApplication />} />
+          <Route path="projects/edit/:id" element={<InvestmentProjectApplication />} />
+          <Route path="profile" element={<ProfilePage />} />
+          <Route path="messages" element={<MessagesPage />} />
+          <Route path="notifications" element={<NotificationsPage />} />
+          <Route path="settings" element={<SettingsPage />} />
+        </Route>
+
+        {/* Onboarding – with public Navbar + Footer */}
         <Route element={<OnboardingLayout />}>
           <Route path="/onboarding" element={<InvestorOnboarding />} />
-          <Route path="/project-application" element={<InvestmentProjectApplication />} />
         </Route>
 
         <Route element={<PrivateLayout />}>

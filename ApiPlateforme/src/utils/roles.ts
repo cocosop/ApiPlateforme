@@ -1,3 +1,5 @@
+import { isOnboardingCompletedLocally } from './onboardingUtils';
+
 export type UserRole = 'SUPER_ADMIN' | 'ADMIN' | 'INVESTOR' | 'PROJECT_OWNER';
 
 // Ces vérifications ne servent qu'à l'affichage : les droits réels sont contrôlés par le backend.
@@ -17,8 +19,11 @@ export const roleLabel = (role?: string | null): string =>
   ROLE_LABELS[role as UserRole] ?? role ?? '';
 
 /** Page d'accueil après connexion selon le rôle. */
-export const homePathFor = (role?: string | null): string => {
+export const homePathFor = (role?: string | null, email?: string | null): string => {
   if (role === 'SUPER_ADMIN') return '/users';
   if (role === 'ADMIN') return '/demandes';
+  if (isOnboardingCompletedLocally(email)) {
+    return '/investor-portal';
+  }
   return '/onboarding';
 };

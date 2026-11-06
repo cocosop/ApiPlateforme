@@ -1,17 +1,20 @@
 import React, { useMemo, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import {
-  Bell,
   FilePlus2,
-  MessageSquareText,
   Search,
   Settings,
   UserRound,
   LucideIcon,
 } from "lucide-react";
-import { FeedList, Panel, ProjectsTable, STATUS_META } from "./components";
+import { Panel, ProjectsTable, STATUS_META } from "./components";
 import { PORTAL_BASE } from "./InvestorPortalLayout";
-import { ProjectStatus, messages, notifications, projects } from "./data";
+import { ProjectStatus, projects } from "./data";
+
+export { default as MessagesPage } from "./MessagesPage";
+export { default as NotificationsPage } from "./NotificationsPage";
+export { default as SettingsPage } from "./SettingsPage";
+export { default as ProjectDetailPage } from "./ProjectDetailPage";
 
 const PageTitle: React.FC<{
   title: string;
@@ -63,8 +66,8 @@ export const MyProjectsPage: React.FC = () => {
         subtitle="All your investment applications submitted to API Cameroon."
         action={
           <Link
-            to="/project-application"
-            className="inline-flex items-center gap-2 self-start rounded-xl bg-[#3A0F8F] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#2A0A6B]"
+            to="/investor-portal/project-application"
+            className="inline-flex items-center gap-2 self-start rounded-xl bg-[#0F0B60] px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-[#1A1675]"
           >
             <FilePlus2 className="h-4 w-4" /> New project
           </Link>
@@ -123,32 +126,7 @@ export const MyProjectsPage: React.FC = () => {
   );
 };
 
-export const MessagesPage: React.FC = () => (
-  <>
-    <PageTitle
-      title="Messages"
-      subtitle="Conversations with your API account manager."
-    />
-    <Panel>
-      <FeedList
-        items={messages}
-        icon={<MessageSquareText className="h-4 w-4" />}
-      />
-    </Panel>
-  </>
-);
 
-export const NotificationsPage: React.FC = () => (
-  <>
-    <PageTitle
-      title="Notifications"
-      subtitle="Updates on your applications and your account."
-    />
-    <Panel>
-      <FeedList items={notifications} icon={<Bell className="h-4 w-4" />} />
-    </Panel>
-  </>
-);
 
 const ComingSoon: React.FC<{
   title: string;
@@ -184,12 +162,5 @@ export const ProfilePage: React.FC = () => (
     title="My Profile"
     subtitle="Your investor identity and company information."
     icon={UserRound}
-  />
-);
-export const SettingsPage: React.FC = () => (
-  <ComingSoon
-    title="Settings"
-    subtitle="Security, language and notification preferences."
-    icon={Settings}
   />
 );

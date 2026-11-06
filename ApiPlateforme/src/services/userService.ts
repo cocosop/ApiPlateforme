@@ -10,6 +10,25 @@ export interface LoginResponse {
     mfaMethod?: TwoFactorMethod;
 }
 
+export interface UserResponse {
+    url_image?: string;
+    firstname: string;
+    lastname: string;
+    email: string;
+    phone: string;
+    role: 'SUPER_ADMIN' | 'ADMIN' | 'INVESTOR' | 'PROJECT_OWNER';
+    enabled: boolean;
+    emailVerified: boolean;
+    twoFactorMethod?: TwoFactorMethod;
+}
+
+export interface UpdateProfilePayload {
+    firstname: string;
+    lastname: string;
+    phone: string;
+    url_image?: string;
+}
+
 class UserService {
     // ---- Connexion
     login(email: string, password: string) {
@@ -29,7 +48,7 @@ class UserService {
     }
 
     // ---- Inscription et activation
-    register(data: { firstname: string; lastname: string; phone: string; email: string; password: string }) {
+    register(data: { firstname: string; lastname: string; phone: string; email: string; password: string; url_image?: string }) {
         return apiConfig.post(`/auth/register`, data);
     }
 
@@ -56,16 +75,16 @@ class UserService {
 
     // ---- Profil
     me() {
-        return apiConfig.get("/user/me");
+        return apiConfig.get<UserResponse>("/user/me");
     }
 
-    updateProfile(data: { firstname: string; lastname: string; phone: string; url_image?: string }) {
-        return apiConfig.put(`/user/me`, data);
+    updateProfile(data: UpdateProfilePayload) {
+        return apiConfig.put<UserResponse>(`/user/me`, data);
     }
 
     // ---- Administration
     getAllUsers() {
-        return apiConfig.get("/user");
+        return apiConfig.get<UserResponse[]>("/user");
     }
 
     disableUser(email: string) {
@@ -76,6 +95,5 @@ class UserService {
         return apiConfig.patch(`/user/${encodeURIComponent(email)}/enable`);
     }
 }
-
 
 export default new UserService();

@@ -17,7 +17,10 @@ import {
 } from "lucide-react";
 import logo from "../../assets/img/logo.png";
 import { Avatar } from "./components";
-import { currentUser, messages, notifications } from "./data";
+import { currentUser as defaultUser, messages, notifications } from "./data";
+import userService, { UserResponse } from "../../services/userService";
+import { useAuthStore } from "../../store/AuthStore";
+import { useNavigate } from "react-router-dom";
 
 export const PORTAL_BASE = "/investor-portal";
 const THEME_KEY = "investor-portal-theme";
@@ -35,7 +38,6 @@ const unread = (list: { unread?: boolean }[]) =>
 const NAV_ITEMS: NavItem[] = [
   { label: "Overview", path: PORTAL_BASE, icon: LayoutGrid },
   { label: "My Projects", path: `${PORTAL_BASE}/projects`, icon: Briefcase },
-  { label: "My Profile", path: `${PORTAL_BASE}/profile`, icon: UserRound },
   {
     label: "Messages",
     path: `${PORTAL_BASE}/messages`,
@@ -43,7 +45,7 @@ const NAV_ITEMS: NavItem[] = [
     badge: unread(messages),
   },
   {
-    label: "Notification",
+    label: "Notifications",
     path: `${PORTAL_BASE}/notifications`,
     icon: Bell,
     badge: unread(notifications),
@@ -51,76 +53,127 @@ const NAV_ITEMS: NavItem[] = [
   { label: "Settings", path: `${PORTAL_BASE}/settings`, icon: Settings },
 ];
 
-const fullName = `${currentUser.lastName} ${currentUser.firstName}`;
 
-const SidebarContent: React.FC<{ onNavigate?: () => void }> = ({
+
+const SidebarContent: React.FC<{ onNavigate?: () => void; user?: UserResponse | null; onSignOut?: () => void }> = ({
   onNavigate,
-}) => (
-  <div className="flex h-full flex-col">
-    <Link
-      to="/"
-      className="flex h-16 items-center border-b border-[#ECEAF5] dark:border-neutral-800 px-5"
-      onClick={onNavigate}
-    >
-      <img src={logo} alt="API Cameroun" className="h-10 w-auto dark:rounded-lg dark:bg-white dark:px-2 dark:py-1" />
-    </Link>
+  user,
+  onSignOut,
+}) => {
+  const { pathname } = useLocation();
+  const fullName = user ? `${user.firstname} ${user.lastname}` : `${defaultUser.firstName} ${defaultUser.lastName}`;
+  const role = user ? (user.role === "INVESTOR" ? "Investor" : user.role) : defaultUser.role;
 
-    <p className="px-5 pb-3 pt-6 text-xs font-medium uppercase tracking-wider text-gray-400">
-      Navigation
-    </p>
-    <nav className="flex-1 space-y-1 px-3">
-      {NAV_ITEMS.map((item) => (
-        <NavLink
-          key={item.path}
-          to={item.path}
-          end={item.path === PORTAL_BASE}
-          onClick={onNavigate}
-          className={({ isActive }) =>
-            `group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${
-              isActive
-                ? "bg-[#E7E1FB] dark:bg-[#2A1F5C] text-[#0F0B60] dark:text-white"
-                : "text-gray-600 dark:text-gray-300 hover:bg-[#F4F2FB] dark:hover:bg-neutral-800 hover:text-[#14112B] dark:hover:text-white"
-            }`
-          }
-        >
-          {({ isActive }) => (
-            <>
-              <item.icon
-                className={`h-[18px] w-[18px] ${isActive ? "text-[#4B1FB8] dark:text-[#C4B5FD]" : "text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-200"}`}
-              />
-              <span className="flex-1">{item.label}</span>
-              {!!item.badge && (
-                <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#6D3FF0] px-1.5 text-[11px] font-semibold text-white">
-                  {item.badge}
-                </span>
-              )}
-            </>
-          )}
-        </NavLink>
-      ))}
-    </nav>
-
-    <div className="flex items-center gap-3 border-t border-[#ECEAF5] dark:border-neutral-800 px-5 py-4">
-      <Avatar name={fullName} />
-      <div className="min-w-0 flex-1">
-        <p className="truncate text-sm font-semibold text-[#14112B] dark:text-white">
-          {fullName}
-        </p>
-        <p className="text-xs text-gray-500 dark:text-gray-400">{currentUser.role}</p>
-      </div>
+  return (
+    <div className="flex h-full flex-col">
       <Link
         to="/"
-        title="Sign out"
-        className="rounded-lg p-1.5 text-gray-400 transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800 hover:text-gray-600 dark:hover:text-gray-200"
+        className="flex h-16 items-center border-b border-[#ECEAF5] dark:border-neutral-800 px-5"
+        onClick={onNavigate}
       >
-        <LogOut className="h-4 w-4" />
+        <img
+          src={logo}
+          alt="API Cameroun"
+          className="h-10 w-auto dark:rounded-lg dark:bg-white dark:px-2 dark:py-1"
+        />
       </Link>
+
+      <p className="px-5 pb-3 pt-6 text-xs font-medium uppercase tracking-wider text-gray-400">
+        Navigation
+      </p>
+      <nav className="flex-1 space-y-1 px-3">
+        {NAV_ITEMS.map((item) => {
+          const isProjectActive =
+            item.path === `${PORTAL_BASE}/projects` &&
+            (pathname.includes("/projects") ||
+              pathname.includes("/project-application"));
+
+          return (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              end={item.path === PORTAL_BASE}
+              onClick={onNavigate}
+              className={({ isActive }) => {
+                const active = isActive || isProjectActive;
+                return `group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-colors ${
+                  active
+                    ? "bg-[#ECEAF8] dark:bg-[#2A1F5C] text-[#0F0B60] dark:text-white font-semibold"
+                    : "text-gray-600 dark:text-gray-300 hover:bg-[#F4F2FB] dark:hover:bg-neutral-800 hover:text-[#14112B] dark:hover:text-white"
+                }`;
+              }}
+            >
+              {({ isActive }) => {
+                const active = isActive || isProjectActive;
+                return (
+                  <>
+                    <item.icon
+                      className={`h-[18px] w-[18px] ${
+                        active
+                          ? "text-[#0F0B60] dark:text-[#C4B5FD]"
+                          : "text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-200"
+                      }`}
+                    />
+                    <span className="flex-1">{item.label}</span>
+                    {!!item.badge && (
+                      <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#0F0B60] px-1.5 text-[11px] font-semibold text-white">
+                        {item.badge}
+                      </span>
+                    )}
+                  </>
+                );
+              }}
+            </NavLink>
+          );
+        })}
+      </nav>
+
+      <div className="flex items-center gap-3 border-t border-[#ECEAF5] dark:border-neutral-800 px-5 py-4">
+        <Avatar name={fullName} />
+        <div className="min-w-0 flex-1">
+          <p className="truncate text-sm font-semibold text-[#14112B] dark:text-white">
+            {fullName}
+          </p>
+          <p className="text-xs text-gray-500 dark:text-gray-400">
+            {role}
+          </p>
+        </div>
+        <button
+          type="button"
+          onClick={onSignOut}
+          title="Sign out"
+          className="rounded-lg p-1.5 text-gray-400 transition-colors hover:bg-gray-100 dark:hover:bg-neutral-800 hover:text-gray-600 dark:hover:text-gray-200"
+        >
+          <LogOut className="h-4 w-4" />
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const InvestorPortalLayout: React.FC = () => {
+  const navigate = useNavigate();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [user, setUser] = useState<UserResponse | null>(null);
+
+  useEffect(() => {
+    userService.me()
+      .then((res) => {
+        if (res.data) setUser(res.data);
+      })
+      .catch(() => {});
+  }, []);
+
+  const handleSignOut = async () => {
+    try {
+      await userService.logout();
+    } catch (_) {}
+    useAuthStore.getState().clearTokens();
+    navigate("/signin");
+  };
+
+  const fullName = user ? `${user.firstname} ${user.lastname}` : `${defaultUser.firstName} ${defaultUser.lastName}`;
+  const userRole = user ? (user.role === "INVESTOR" ? "Investor" : user.role) : defaultUser.role;
   // Mode sombre limité au portail : la classe "dark" est posée sur le conteneur ci-dessous
   const [dark, setDark] = useState(() => {
     try {
@@ -139,21 +192,27 @@ const InvestorPortalLayout: React.FC = () => {
   }, [dark]);
   const { pathname } = useLocation();
 
-  const current =
-    NAV_ITEMS.find(
-      (i) => i.path !== PORTAL_BASE && pathname.startsWith(i.path),
-    ) ?? NAV_ITEMS[0];
+  const isProjectApp =
+    pathname.includes("project-application") || pathname.includes("/projects");
+
+  const current = isProjectApp
+    ? NAV_ITEMS[1]
+    : (NAV_ITEMS.find(
+        (i) => i.path !== PORTAL_BASE && pathname.startsWith(i.path),
+      ) ?? NAV_ITEMS[0]);
   const notifCount = unread(notifications);
 
   // Ferme le menu mobile à chaque changement de page
   useEffect(() => setDrawerOpen(false), [pathname]);
 
   return (
-    <div className={`${dark ? "dark" : ""} min-h-screen bg-gradient-to-br from-[#F6F4FD] via-[#F3F1FA] to-[#ECE7FB] font-[Poppins,sans-serif] text-[#14112B] dark:bg-black dark:bg-none dark:text-white`}>
+    <div
+      className={`${dark ? "dark" : ""} min-h-screen bg-gradient-to-br from-[#F6F4FD] via-[#F3F1FA] to-[#ECE7FB] font-[Poppins,sans-serif] text-[#14112B] dark:bg-black dark:bg-none dark:text-white`}
+    >
       <div className="flex">
         {/* Menu latéral (grand écran) */}
         <aside className="sticky top-0 hidden h-screen w-64 shrink-0 overflow-y-auto border-r border-[#ECEAF5] dark:border-neutral-800 bg-white dark:bg-black lg:block">
-          <SidebarContent />
+          <SidebarContent user={user} onSignOut={handleSignOut} />
         </aside>
 
         {/* Menu latéral (mobile) */}
@@ -172,7 +231,7 @@ const InvestorPortalLayout: React.FC = () => {
               >
                 <X className="h-5 w-5" />
               </button>
-              <SidebarContent onNavigate={() => setDrawerOpen(false)} />
+              <SidebarContent onNavigate={() => setDrawerOpen(false)} user={user} onSignOut={handleSignOut} />
             </aside>
           </div>
         )}
@@ -200,7 +259,19 @@ const InvestorPortalLayout: React.FC = () => {
                 <span className="truncate text-gray-500 dark:text-gray-400">
                   Investor Portal
                   {current.path !== PORTAL_BASE && (
-                    <span className="text-[#14112B] dark:text-white"> / {current.label}</span>
+                    <span className="text-[#14112B] dark:text-white">
+                      {" "}
+                      / {current.label}
+                    </span>
+                  )}
+                  {pathname.includes("project-application") && (
+                    <span className="font-semibold text-[#0F0B60] dark:text-white">
+                      {" "}
+                      /{" "}
+                      {pathname.includes("edit")
+                        ? "Edit Application"
+                        : "New Application"}
+                    </span>
                   )}
                 </span>
               </nav>
@@ -244,7 +315,7 @@ const InvestorPortalLayout: React.FC = () => {
               </Link>
 
               <Link
-                to={`${PORTAL_BASE}/profile`}
+                to={`${PORTAL_BASE}/settings`}
                 className="flex items-center gap-2.5 rounded-full py-1 pl-1 pr-1 transition-colors hover:bg-gray-50 dark:hover:bg-neutral-800 sm:pr-3"
               >
                 <Avatar name={fullName} size="sm" />
@@ -253,7 +324,7 @@ const InvestorPortalLayout: React.FC = () => {
                     {fullName}
                   </span>
                   <span className="block text-[11px] text-gray-500 dark:text-gray-400">
-                    {currentUser.role}
+                    {userRole}
                   </span>
                 </span>
               </Link>

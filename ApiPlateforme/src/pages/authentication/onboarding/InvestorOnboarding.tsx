@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import userService from "../../../services/userService";
+import { message } from "antd";
 import { useTranslation } from "react-i18next";
 import {
   Form,
@@ -13,9 +15,15 @@ import {
   Col,
   Typography,
   ConfigProvider,
+  Spin,
 } from "antd";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import {
+  checkOnboardingCompleted,
+  isOnboardingCompletedLocally,
+  markOnboardingCompleted,
+} from "../../../utils/onboardingUtils";
 
 const { Title, Text } = Typography;
 const { Option } = Select;
@@ -205,19 +213,94 @@ const InvestorOnboarding: React.FC = () => {
   const selectedInvestorType = Form.useWatch("investorType", form);
   const [saving, setSaving] = useState(false);
 
+  const [checkingStatus, setCheckingStatus] = useState(true);
+
   // Phone state (react-phone-input-2 not controlled by antd Form)
   const [phone, setPhone] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
 
+  // Check if investor has already completed onboarding, pre-fill from user profile & localStorage
+  React.useEffect(() => {
+    let isMounted = true;
+
+    const verifyAndLoad = async () => {
+      try {
+        const res = await userService.me();
+        const u = res.data;
+        if (u) {
+          form.setFieldsValue({
+            surname: u.firstname,
+            firstName: u.firstname,
+            lastName: u.lastname,
+            email: u.email,
+          });
+          if (u.phone) {
+            setPhone(u.phone);
+          }
+
+          // If investor has already completed /onboarding, redirect directly to dashboard
+          const isDone = await checkOnboardingCompleted(u.email);
+          if (isDone) {
+            navigate("/investor-portal", { replace: true });
+            return;
+          }
+        }
+      } catch (_) {
+        if (isOnboardingCompletedLocally()) {
+          navigate("/investor-portal", { replace: true });
+          return;
+        }
+      }
+
+      const saved = localStorage.getItem("investor_onboarding_data");
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          form.setFieldsValue(parsed);
+          if (parsed.phone) setPhone(parsed.phone);
+          if (parsed.whatsapp) setWhatsapp(parsed.whatsapp);
+        } catch (_) {}
+      }
+
+      if (isMounted) {
+        setCheckingStatus(false);
+      }
+    };
+
+    verifyAndLoad();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [form, navigate]);
+
   const onFinish = async (values: any) => {
     setSaving(true);
-    const payload = { ...values, phone, whatsapp };
-    console.log("Onboarding payload:", payload);
-    // TODO: call API
-    setTimeout(() => {
+    const fullOnboardingPayload = {
+      ...values,
+      phone: phone || values.phone || "",
+      whatsapp: whatsapp || values.whatsapp || "",
+    };
+    try {
+      // Mark onboarding as completed in local storage
+      markOnboardingCompleted(values.email, fullOnboardingPayload);
+
+      if (values.firstName || values.lastName || phone) {
+        await userService.updateProfile({
+          firstname: values.firstName || "",
+          lastname: values.lastName || "",
+          phone: phone || values.phone || "",
+        });
+      }
+      message.success("Profile saved successfully!");
+      navigate("/investor-portal/project-application");
+    } catch (err: any) {
+      console.error("Onboarding profile update failed", err);
+      markOnboardingCompleted(values.email, fullOnboardingPayload);
+      navigate("/investor-portal/project-application");
+    } finally {
       setSaving(false);
-      navigate("/project-application");
-    }, 1000);
+    }
   };
 
   /* Ant Design theme token override */
@@ -273,6 +356,26 @@ const InvestorOnboarding: React.FC = () => {
     borderRight: "none",
     borderRadius: "4px 0 0 4px",
   };
+
+  if (checkingStatus) {
+    return (
+      <div
+        style={{
+          minHeight: "70vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 16,
+        }}
+      >
+        <Spin size="large" />
+        <span style={{ fontSize: 14, color: "#6B7280", fontWeight: 500 }}>
+          Verification of profile status...
+        </span>
+      </div>
+    );
+  }
 
   return (
     <ConfigProvider theme={antdTheme}>
